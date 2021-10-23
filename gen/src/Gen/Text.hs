@@ -49,7 +49,11 @@ stripSuffix :: Text -> Text -> Text
 stripSuffix s t = Text.strip . fromMaybe t $ s `Text.stripSuffix` t
 
 renameOperation :: Text -> Text
-renameOperation = Text.dropWhileEnd (not . Char.isAlpha)
+renameOperation t
+  | "S3" `Text.isSuffixOf` t = t
+  | "EC2" `Text.isSuffixOf` t = t
+  | "V2" `Text.isSuffixOf` t = t -- e.g. "ListObjectsV2"
+  | otherwise = Text.dropWhileEnd (not . Char.isAlpha) t
 
 renameServiceFunction :: Text -> Text
 renameServiceFunction _n = "defaultService"

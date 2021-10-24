@@ -46,7 +46,7 @@ library
 
   exposed-modules:
     Network.AWS.Cloud9
-    Network.AWS.Cloud9.CreateEnvironmentEC
+    Network.AWS.Cloud9.CreateEnvironmentEC2
     Network.AWS.Cloud9.CreateEnvironmentMembership
     Network.AWS.Cloud9.DeleteEnvironment
     Network.AWS.Cloud9.DeleteEnvironmentMembership

@@ -52,7 +52,7 @@ library
     Network.AWS.QLDB.DescribeJournalKinesisStream
     Network.AWS.QLDB.DescribeJournalS3Export
     Network.AWS.QLDB.DescribeLedger
-    Network.AWS.QLDB.ExportJournalToS
+    Network.AWS.QLDB.ExportJournalToS3
     Network.AWS.QLDB.GetBlock
     Network.AWS.QLDB.GetDigest
     Network.AWS.QLDB.GetRevision

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.ExportJournalToS
+-- Module      : Network.AWS.QLDB.ExportJournalToS3
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,25 +33,25 @@
 -- You can initiate up to two concurrent journal export requests for each
 -- ledger. Beyond this limit, journal export requests throw
 -- @LimitExceededException@.
-module Network.AWS.QLDB.ExportJournalToS
+module Network.AWS.QLDB.ExportJournalToS3
   ( -- * Creating a Request
-    ExportJournalToS (..),
-    newExportJournalToS,
+    ExportJournalToS3 (..),
+    newExportJournalToS3,
 
     -- * Request Lenses
-    exportJournalToS_name,
-    exportJournalToS_inclusiveStartTime,
-    exportJournalToS_exclusiveEndTime,
-    exportJournalToS_s3ExportConfiguration,
-    exportJournalToS_roleArn,
+    exportJournalToS3_name,
+    exportJournalToS3_inclusiveStartTime,
+    exportJournalToS3_exclusiveEndTime,
+    exportJournalToS3_s3ExportConfiguration,
+    exportJournalToS3_roleArn,
 
     -- * Destructuring the Response
-    ExportJournalToSResponse (..),
-    newExportJournalToSResponse,
+    ExportJournalToS3Response (..),
+    newExportJournalToS3Response,
 
     -- * Response Lenses
-    exportJournalToSResponse_httpStatus,
-    exportJournalToSResponse_exportId,
+    exportJournalToS3Response_httpStatus,
+    exportJournalToS3Response_exportId,
   )
 where
 
@@ -62,8 +62,8 @@ import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newExportJournalToS' smart constructor.
-data ExportJournalToS = ExportJournalToS'
+-- | /See:/ 'newExportJournalToS3' smart constructor.
+data ExportJournalToS3 = ExportJournalToS3'
   { -- | The name of the ledger.
     name :: Prelude.Text,
     -- | The inclusive start date and time for the range of journal contents to
@@ -104,16 +104,16 @@ data ExportJournalToS = ExportJournalToS'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'ExportJournalToS' with all optional fields omitted.
+-- Create a value of 'ExportJournalToS3' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'exportJournalToS_name' - The name of the ledger.
+-- 'name', 'exportJournalToS3_name' - The name of the ledger.
 --
--- 'inclusiveStartTime', 'exportJournalToS_inclusiveStartTime' - The inclusive start date and time for the range of journal contents to
+-- 'inclusiveStartTime', 'exportJournalToS3_inclusiveStartTime' - The inclusive start date and time for the range of journal contents to
 -- export.
 --
 -- The @InclusiveStartTime@ must be in @ISO 8601@ date and time format and
@@ -126,7 +126,7 @@ data ExportJournalToS = ExportJournalToS'
 -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
 -- @CreationDateTime@.
 --
--- 'exclusiveEndTime', 'exportJournalToS_exclusiveEndTime' - The exclusive end date and time for the range of journal contents to
+-- 'exclusiveEndTime', 'exportJournalToS3_exclusiveEndTime' - The exclusive end date and time for the range of journal contents to
 -- export.
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
@@ -135,10 +135,10 @@ data ExportJournalToS = ExportJournalToS'
 -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
 -- date and time.
 --
--- 's3ExportConfiguration', 'exportJournalToS_s3ExportConfiguration' - The configuration settings of the Amazon S3 bucket destination for your
+-- 's3ExportConfiguration', 'exportJournalToS3_s3ExportConfiguration' - The configuration settings of the Amazon S3 bucket destination for your
 -- export request.
 --
--- 'roleArn', 'exportJournalToS_roleArn' - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
+-- 'roleArn', 'exportJournalToS3_roleArn' - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal export job to do the following:
 --
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
@@ -146,7 +146,7 @@ data ExportJournalToS = ExportJournalToS'
 --
 -- -   (Optional) Use your customer master key (CMK) in Key Management
 --     Service (KMS) for server-side encryption of your exported data.
-newExportJournalToS ::
+newExportJournalToS3 ::
   -- | 'name'
   Prelude.Text ->
   -- | 'inclusiveStartTime'
@@ -157,14 +157,14 @@ newExportJournalToS ::
   S3ExportConfiguration ->
   -- | 'roleArn'
   Prelude.Text ->
-  ExportJournalToS
-newExportJournalToS
+  ExportJournalToS3
+newExportJournalToS3
   pName_
   pInclusiveStartTime_
   pExclusiveEndTime_
   pS3ExportConfiguration_
   pRoleArn_ =
-    ExportJournalToS'
+    ExportJournalToS3'
       { name = pName_,
         inclusiveStartTime =
           Core._Time Lens.# pInclusiveStartTime_,
@@ -175,8 +175,8 @@ newExportJournalToS
       }
 
 -- | The name of the ledger.
-exportJournalToS_name :: Lens.Lens' ExportJournalToS Prelude.Text
-exportJournalToS_name = Lens.lens (\ExportJournalToS' {name} -> name) (\s@ExportJournalToS' {} a -> s {name = a} :: ExportJournalToS)
+exportJournalToS3_name :: Lens.Lens' ExportJournalToS3 Prelude.Text
+exportJournalToS3_name = Lens.lens (\ExportJournalToS3' {name} -> name) (\s@ExportJournalToS3' {} a -> s {name = a} :: ExportJournalToS3)
 
 -- | The inclusive start date and time for the range of journal contents to
 -- export.
@@ -190,8 +190,8 @@ exportJournalToS_name = Lens.lens (\ExportJournalToS' {name} -> name) (\s@Export
 -- If you provide an @InclusiveStartTime@ that is before the ledger\'s
 -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
 -- @CreationDateTime@.
-exportJournalToS_inclusiveStartTime :: Lens.Lens' ExportJournalToS Prelude.UTCTime
-exportJournalToS_inclusiveStartTime = Lens.lens (\ExportJournalToS' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS) Prelude.. Core._Time
+exportJournalToS3_inclusiveStartTime :: Lens.Lens' ExportJournalToS3 Prelude.UTCTime
+exportJournalToS3_inclusiveStartTime = Lens.lens (\ExportJournalToS3' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS3' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS3) Prelude.. Core._Time
 
 -- | The exclusive end date and time for the range of journal contents to
 -- export.
@@ -201,13 +201,13 @@ exportJournalToS_inclusiveStartTime = Lens.lens (\ExportJournalToS' {inclusiveSt
 --
 -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
 -- date and time.
-exportJournalToS_exclusiveEndTime :: Lens.Lens' ExportJournalToS Prelude.UTCTime
-exportJournalToS_exclusiveEndTime = Lens.lens (\ExportJournalToS' {exclusiveEndTime} -> exclusiveEndTime) (\s@ExportJournalToS' {} a -> s {exclusiveEndTime = a} :: ExportJournalToS) Prelude.. Core._Time
+exportJournalToS3_exclusiveEndTime :: Lens.Lens' ExportJournalToS3 Prelude.UTCTime
+exportJournalToS3_exclusiveEndTime = Lens.lens (\ExportJournalToS3' {exclusiveEndTime} -> exclusiveEndTime) (\s@ExportJournalToS3' {} a -> s {exclusiveEndTime = a} :: ExportJournalToS3) Prelude.. Core._Time
 
 -- | The configuration settings of the Amazon S3 bucket destination for your
 -- export request.
-exportJournalToS_s3ExportConfiguration :: Lens.Lens' ExportJournalToS S3ExportConfiguration
-exportJournalToS_s3ExportConfiguration = Lens.lens (\ExportJournalToS' {s3ExportConfiguration} -> s3ExportConfiguration) (\s@ExportJournalToS' {} a -> s {s3ExportConfiguration = a} :: ExportJournalToS)
+exportJournalToS3_s3ExportConfiguration :: Lens.Lens' ExportJournalToS3 S3ExportConfiguration
+exportJournalToS3_s3ExportConfiguration = Lens.lens (\ExportJournalToS3' {s3ExportConfiguration} -> s3ExportConfiguration) (\s@ExportJournalToS3' {} a -> s {s3ExportConfiguration = a} :: ExportJournalToS3)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal export job to do the following:
@@ -217,27 +217,27 @@ exportJournalToS_s3ExportConfiguration = Lens.lens (\ExportJournalToS' {s3Export
 --
 -- -   (Optional) Use your customer master key (CMK) in Key Management
 --     Service (KMS) for server-side encryption of your exported data.
-exportJournalToS_roleArn :: Lens.Lens' ExportJournalToS Prelude.Text
-exportJournalToS_roleArn = Lens.lens (\ExportJournalToS' {roleArn} -> roleArn) (\s@ExportJournalToS' {} a -> s {roleArn = a} :: ExportJournalToS)
+exportJournalToS3_roleArn :: Lens.Lens' ExportJournalToS3 Prelude.Text
+exportJournalToS3_roleArn = Lens.lens (\ExportJournalToS3' {roleArn} -> roleArn) (\s@ExportJournalToS3' {} a -> s {roleArn = a} :: ExportJournalToS3)
 
-instance Core.AWSRequest ExportJournalToS where
+instance Core.AWSRequest ExportJournalToS3 where
   type
-    AWSResponse ExportJournalToS =
-      ExportJournalToSResponse
+    AWSResponse ExportJournalToS3 =
+      ExportJournalToS3Response
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          ExportJournalToSResponse'
+          ExportJournalToS3Response'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ExportId")
       )
 
-instance Prelude.Hashable ExportJournalToS
+instance Prelude.Hashable ExportJournalToS3
 
-instance Prelude.NFData ExportJournalToS
+instance Prelude.NFData ExportJournalToS3
 
-instance Core.ToHeaders ExportJournalToS where
+instance Core.ToHeaders ExportJournalToS3 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
@@ -248,8 +248,8 @@ instance Core.ToHeaders ExportJournalToS where
           ]
       )
 
-instance Core.ToJSON ExportJournalToS where
-  toJSON ExportJournalToS' {..} =
+instance Core.ToJSON ExportJournalToS3 where
+  toJSON ExportJournalToS3' {..} =
     Core.object
       ( Prelude.catMaybes
           [ Prelude.Just
@@ -264,16 +264,16 @@ instance Core.ToJSON ExportJournalToS where
           ]
       )
 
-instance Core.ToPath ExportJournalToS where
-  toPath ExportJournalToS' {..} =
+instance Core.ToPath ExportJournalToS3 where
+  toPath ExportJournalToS3' {..} =
     Prelude.mconcat
       ["/ledgers/", Core.toBS name, "/journal-s3-exports"]
 
-instance Core.ToQuery ExportJournalToS where
+instance Core.ToQuery ExportJournalToS3 where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newExportJournalToSResponse' smart constructor.
-data ExportJournalToSResponse = ExportJournalToSResponse'
+-- | /See:/ 'newExportJournalToS3Response' smart constructor.
+data ExportJournalToS3Response = ExportJournalToS3Response'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The UUID (represented in Base62-encoded text) that QLDB assigns to each
@@ -286,43 +286,43 @@ data ExportJournalToSResponse = ExportJournalToSResponse'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'ExportJournalToSResponse' with all optional fields omitted.
+-- Create a value of 'ExportJournalToS3Response' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'exportJournalToSResponse_httpStatus' - The response's http status code.
+-- 'httpStatus', 'exportJournalToS3Response_httpStatus' - The response's http status code.
 --
--- 'exportId', 'exportJournalToSResponse_exportId' - The UUID (represented in Base62-encoded text) that QLDB assigns to each
+-- 'exportId', 'exportJournalToS3Response_exportId' - The UUID (represented in Base62-encoded text) that QLDB assigns to each
 -- journal export job.
 --
 -- To describe your export request and check the status of the job, you can
 -- use @ExportId@ to call @DescribeJournalS3Export@.
-newExportJournalToSResponse ::
+newExportJournalToS3Response ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'exportId'
   Prelude.Text ->
-  ExportJournalToSResponse
-newExportJournalToSResponse pHttpStatus_ pExportId_ =
-  ExportJournalToSResponse'
+  ExportJournalToS3Response
+newExportJournalToS3Response pHttpStatus_ pExportId_ =
+  ExportJournalToS3Response'
     { httpStatus =
         pHttpStatus_,
       exportId = pExportId_
     }
 
 -- | The response's http status code.
-exportJournalToSResponse_httpStatus :: Lens.Lens' ExportJournalToSResponse Prelude.Int
-exportJournalToSResponse_httpStatus = Lens.lens (\ExportJournalToSResponse' {httpStatus} -> httpStatus) (\s@ExportJournalToSResponse' {} a -> s {httpStatus = a} :: ExportJournalToSResponse)
+exportJournalToS3Response_httpStatus :: Lens.Lens' ExportJournalToS3Response Prelude.Int
+exportJournalToS3Response_httpStatus = Lens.lens (\ExportJournalToS3Response' {httpStatus} -> httpStatus) (\s@ExportJournalToS3Response' {} a -> s {httpStatus = a} :: ExportJournalToS3Response)
 
 -- | The UUID (represented in Base62-encoded text) that QLDB assigns to each
 -- journal export job.
 --
 -- To describe your export request and check the status of the job, you can
 -- use @ExportId@ to call @DescribeJournalS3Export@.
-exportJournalToSResponse_exportId :: Lens.Lens' ExportJournalToSResponse Prelude.Text
-exportJournalToSResponse_exportId = Lens.lens (\ExportJournalToSResponse' {exportId} -> exportId) (\s@ExportJournalToSResponse' {} a -> s {exportId = a} :: ExportJournalToSResponse)
+exportJournalToS3Response_exportId :: Lens.Lens' ExportJournalToS3Response Prelude.Text
+exportJournalToS3Response_exportId = Lens.lens (\ExportJournalToS3Response' {exportId} -> exportId) (\s@ExportJournalToS3Response' {} a -> s {exportId = a} :: ExportJournalToS3Response)
 
-instance Prelude.NFData ExportJournalToSResponse
+instance Prelude.NFData ExportJournalToS3Response

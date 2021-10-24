@@ -48,8 +48,8 @@ import Test.Tasty
 --         , requestCancelJournalKinesisStream $
 --             newCancelJournalKinesisStream
 --
---         , requestExportJournalToS $
---             newExportJournalToS
+--         , requestExportJournalToS3 $
+--             newExportJournalToS3
 --
 --         , requestStreamJournalToKinesis $
 --             newStreamJournalToKinesis
@@ -111,8 +111,8 @@ import Test.Tasty
 --         , responseCancelJournalKinesisStream $
 --             newCancelJournalKinesisStreamResponse
 --
---         , responseExportJournalToS $
---             newExportJournalToSResponse
+--         , responseExportJournalToS3 $
+--             newExportJournalToS3Response
 --
 --         , responseStreamJournalToKinesis $
 --             newStreamJournalToKinesisResponse
@@ -197,11 +197,11 @@ requestCancelJournalKinesisStream =
     "CancelJournalKinesisStream"
     "fixture/CancelJournalKinesisStream.yaml"
 
-requestExportJournalToS :: ExportJournalToS -> TestTree
-requestExportJournalToS =
+requestExportJournalToS3 :: ExportJournalToS3 -> TestTree
+requestExportJournalToS3 =
   req
-    "ExportJournalToS"
-    "fixture/ExportJournalToS.yaml"
+    "ExportJournalToS3"
+    "fixture/ExportJournalToS3.yaml"
 
 requestStreamJournalToKinesis :: StreamJournalToKinesis -> TestTree
 requestStreamJournalToKinesis =
@@ -333,13 +333,13 @@ responseCancelJournalKinesisStream =
     defaultService
     (Proxy :: Proxy CancelJournalKinesisStream)
 
-responseExportJournalToS :: ExportJournalToSResponse -> TestTree
-responseExportJournalToS =
+responseExportJournalToS3 :: ExportJournalToS3Response -> TestTree
+responseExportJournalToS3 =
   res
-    "ExportJournalToSResponse"
-    "fixture/ExportJournalToSResponse.proto"
+    "ExportJournalToS3Response"
+    "fixture/ExportJournalToS3Response.proto"
     defaultService
-    (Proxy :: Proxy ExportJournalToS)
+    (Proxy :: Proxy ExportJournalToS3)
 
 responseStreamJournalToKinesis :: StreamJournalToKinesisResponse -> TestTree
 responseStreamJournalToKinesis =

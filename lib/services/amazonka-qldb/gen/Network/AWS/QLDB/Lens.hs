@@ -68,14 +68,14 @@ module Network.AWS.QLDB.Lens
     cancelJournalKinesisStreamResponse_streamId,
     cancelJournalKinesisStreamResponse_httpStatus,
 
-    -- ** ExportJournalToS
-    exportJournalToS_name,
-    exportJournalToS_inclusiveStartTime,
-    exportJournalToS_exclusiveEndTime,
-    exportJournalToS_s3ExportConfiguration,
-    exportJournalToS_roleArn,
-    exportJournalToSResponse_httpStatus,
-    exportJournalToSResponse_exportId,
+    -- ** ExportJournalToS3
+    exportJournalToS3_name,
+    exportJournalToS3_inclusiveStartTime,
+    exportJournalToS3_exclusiveEndTime,
+    exportJournalToS3_s3ExportConfiguration,
+    exportJournalToS3_roleArn,
+    exportJournalToS3Response_httpStatus,
+    exportJournalToS3Response_exportId,
 
     -- ** StreamJournalToKinesis
     streamJournalToKinesis_exclusiveEndTime,
@@ -228,7 +228,7 @@ import Network.AWS.QLDB.DeleteLedger
 import Network.AWS.QLDB.DescribeJournalKinesisStream
 import Network.AWS.QLDB.DescribeJournalS3Export
 import Network.AWS.QLDB.DescribeLedger
-import Network.AWS.QLDB.ExportJournalToS
+import Network.AWS.QLDB.ExportJournalToS3
 import Network.AWS.QLDB.GetBlock
 import Network.AWS.QLDB.GetDigest
 import Network.AWS.QLDB.GetRevision

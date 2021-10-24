@@ -149,7 +149,7 @@ bazel query //...
 The [docs](docs) Bazel package contains the Haddock target and Hugo static site definition and markdown content. To build the site locally, run:
 
 ```bash
-bazel build //docs:site
+bazel build //docs:bundle
 ```
 
 Alternatively, you can serve the documentation site locally on `http://localhost:1313` by running:

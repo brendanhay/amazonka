@@ -251,6 +251,11 @@ module Network.AWS.DirectConnect.Lens
     describeConnections_connectionId,
     connections_connections,
 
+    -- ** ConfirmCustomerAgreement
+    confirmCustomerAgreement_agreementName,
+    confirmCustomerAgreementResponse_status,
+    confirmCustomerAgreementResponse_httpStatus,
+
     -- ** DeleteInterconnect
     deleteInterconnect_interconnectId,
     deleteInterconnectResponse_interconnectState,
@@ -384,6 +389,11 @@ module Network.AWS.DirectConnect.Lens
     describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments,
     describeDirectConnectGatewayAttachmentsResponse_httpStatus,
 
+    -- ** DescribeCustomerMetadata
+    describeCustomerMetadataResponse_nniPartnerType,
+    describeCustomerMetadataResponse_agreements,
+    describeCustomerMetadataResponse_httpStatus,
+
     -- ** ConfirmPublicVirtualInterface
     confirmPublicVirtualInterface_virtualInterfaceId,
     confirmPublicVirtualInterfaceResponse_virtualInterfaceState,
@@ -413,6 +423,12 @@ module Network.AWS.DirectConnect.Lens
     deleteDirectConnectGateway_directConnectGatewayId,
     deleteDirectConnectGatewayResponse_directConnectGateway,
     deleteDirectConnectGatewayResponse_httpStatus,
+
+    -- ** UpdateDirectConnectGateway
+    updateDirectConnectGateway_directConnectGatewayId,
+    updateDirectConnectGateway_newDirectConnectGatewayName,
+    updateDirectConnectGatewayResponse_directConnectGateway,
+    updateDirectConnectGatewayResponse_httpStatus,
 
     -- ** DescribeVirtualInterfaces
     describeVirtualInterfaces_connectionId,
@@ -677,6 +693,15 @@ module Network.AWS.DirectConnect.Lens
     interconnect_awsDeviceV2,
     interconnect_tags,
 
+    -- ** DescribeRouterConfiguration
+    describeRouterConfiguration_routerTypeIdentifier,
+    describeRouterConfiguration_virtualInterfaceId,
+    describeRouterConfigurationResponse_router,
+    describeRouterConfigurationResponse_customerRouterConfig,
+    describeRouterConfigurationResponse_virtualInterfaceName,
+    describeRouterConfigurationResponse_virtualInterfaceId,
+    describeRouterConfigurationResponse_httpStatus,
+
     -- ** DeleteBGPPeer
     deleteBGPPeer_customerAddress,
     deleteBGPPeer_asn,
@@ -780,6 +805,10 @@ module Network.AWS.DirectConnect.Lens
 
     -- ** Connections
     connections_connections,
+
+    -- ** CustomerAgreement
+    customerAgreement_status,
+    customerAgreement_agreementName,
 
     -- ** DirectConnectGateway
     directConnectGateway_directConnectGatewayId,
@@ -956,6 +985,14 @@ module Network.AWS.DirectConnect.Lens
     -- ** RouteFilterPrefix
     routeFilterPrefix_cidr,
 
+    -- ** RouterType
+    routerType_vendor,
+    routerType_platform,
+    routerType_xsltTemplateName,
+    routerType_software,
+    routerType_xsltTemplateNameForMacSec,
+    routerType_routerTypeIdentifier,
+
     -- ** Tag
     tag_value,
     tag_key,
@@ -1013,6 +1050,7 @@ import Network.AWS.DirectConnect.AssociateHostedConnection
 import Network.AWS.DirectConnect.AssociateMacSecKey
 import Network.AWS.DirectConnect.AssociateVirtualInterface
 import Network.AWS.DirectConnect.ConfirmConnection
+import Network.AWS.DirectConnect.ConfirmCustomerAgreement
 import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 import Network.AWS.DirectConnect.ConfirmTransitVirtualInterface
@@ -1035,6 +1073,7 @@ import Network.AWS.DirectConnect.DeleteInterconnect
 import Network.AWS.DirectConnect.DeleteLag
 import Network.AWS.DirectConnect.DeleteVirtualInterface
 import Network.AWS.DirectConnect.DescribeConnections
+import Network.AWS.DirectConnect.DescribeCustomerMetadata
 import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
 import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
 import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
@@ -1044,6 +1083,7 @@ import Network.AWS.DirectConnect.DescribeInterconnects
 import Network.AWS.DirectConnect.DescribeLags
 import Network.AWS.DirectConnect.DescribeLoa
 import Network.AWS.DirectConnect.DescribeLocations
+import Network.AWS.DirectConnect.DescribeRouterConfiguration
 import Network.AWS.DirectConnect.DescribeTags
 import Network.AWS.DirectConnect.DescribeVirtualGateways
 import Network.AWS.DirectConnect.DescribeVirtualInterfaces
@@ -1057,6 +1097,7 @@ import Network.AWS.DirectConnect.Types.AssociatedGateway
 import Network.AWS.DirectConnect.Types.BGPPeer
 import Network.AWS.DirectConnect.Types.Connection
 import Network.AWS.DirectConnect.Types.Connections
+import Network.AWS.DirectConnect.Types.CustomerAgreement
 import Network.AWS.DirectConnect.Types.DirectConnectGateway
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
@@ -1074,12 +1115,14 @@ import Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
 import Network.AWS.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
 import Network.AWS.DirectConnect.Types.ResourceTag
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
+import Network.AWS.DirectConnect.Types.RouterType
 import Network.AWS.DirectConnect.Types.Tag
 import Network.AWS.DirectConnect.Types.VirtualGateway
 import Network.AWS.DirectConnect.Types.VirtualInterface
 import Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
 import Network.AWS.DirectConnect.UntagResource
 import Network.AWS.DirectConnect.UpdateConnection
+import Network.AWS.DirectConnect.UpdateDirectConnectGateway
 import Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.UpdateLag
 import Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes

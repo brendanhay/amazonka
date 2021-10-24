@@ -15,11 +15,12 @@
 -- over a standard Ethernet fiber-optic cable. One end of the cable is
 -- connected to your router, the other to an Direct Connect router. With
 -- this connection in place, you can create virtual interfaces directly to
--- the Cloud (for example, to Amazon EC2 and Amazon S3) and to Amazon VPC,
--- bypassing Internet service providers in your network path. A connection
--- provides access to all Regions except the China (Beijing) and (China)
--- Ningxia Regions. Amazon Web Services resources in the China Regions can
--- only be accessed through locations associated with those Regions.
+-- the Amazon Web Services Cloud (for example, to Amazon EC2 and Amazon S3)
+-- and to Amazon VPC, bypassing Internet service providers in your network
+-- path. A connection provides access to all Amazon Web Services Regions
+-- except the China (Beijing) and (China) Ningxia Regions. Amazon Web
+-- Services resources in the China Regions can only be accessed through
+-- locations associated with those Regions.
 module Network.AWS.DirectConnect
   ( -- * Service Configuration
     defaultService,
@@ -141,6 +142,12 @@ module Network.AWS.DirectConnect
     Connections (Connections'),
     newConnections,
 
+    -- ** ConfirmCustomerAgreement
+    ConfirmCustomerAgreement (ConfirmCustomerAgreement'),
+    newConfirmCustomerAgreement,
+    ConfirmCustomerAgreementResponse (ConfirmCustomerAgreementResponse'),
+    newConfirmCustomerAgreementResponse,
+
     -- ** DeleteInterconnect
     DeleteInterconnect (DeleteInterconnect'),
     newDeleteInterconnect,
@@ -219,6 +226,12 @@ module Network.AWS.DirectConnect
     DescribeDirectConnectGatewayAttachmentsResponse (DescribeDirectConnectGatewayAttachmentsResponse'),
     newDescribeDirectConnectGatewayAttachmentsResponse,
 
+    -- ** DescribeCustomerMetadata
+    DescribeCustomerMetadata (DescribeCustomerMetadata'),
+    newDescribeCustomerMetadata,
+    DescribeCustomerMetadataResponse (DescribeCustomerMetadataResponse'),
+    newDescribeCustomerMetadataResponse,
+
     -- ** ConfirmPublicVirtualInterface
     ConfirmPublicVirtualInterface (ConfirmPublicVirtualInterface'),
     newConfirmPublicVirtualInterface,
@@ -254,6 +267,12 @@ module Network.AWS.DirectConnect
     newDeleteDirectConnectGateway,
     DeleteDirectConnectGatewayResponse (DeleteDirectConnectGatewayResponse'),
     newDeleteDirectConnectGatewayResponse,
+
+    -- ** UpdateDirectConnectGateway
+    UpdateDirectConnectGateway (UpdateDirectConnectGateway'),
+    newUpdateDirectConnectGateway,
+    UpdateDirectConnectGatewayResponse (UpdateDirectConnectGatewayResponse'),
+    newUpdateDirectConnectGatewayResponse,
 
     -- ** DescribeVirtualInterfaces
     DescribeVirtualInterfaces (DescribeVirtualInterfaces'),
@@ -345,6 +364,12 @@ module Network.AWS.DirectConnect
     Interconnect (Interconnect'),
     newInterconnect,
 
+    -- ** DescribeRouterConfiguration
+    DescribeRouterConfiguration (DescribeRouterConfiguration'),
+    newDescribeRouterConfiguration,
+    DescribeRouterConfigurationResponse (DescribeRouterConfigurationResponse'),
+    newDescribeRouterConfigurationResponse,
+
     -- ** DeleteBGPPeer
     DeleteBGPPeer (DeleteBGPPeer'),
     newDeleteBGPPeer,
@@ -419,6 +444,9 @@ module Network.AWS.DirectConnect
     -- ** LoaContentType
     LoaContentType (..),
 
+    -- ** NniPartnerType
+    NniPartnerType (..),
+
     -- ** VirtualInterfaceState
     VirtualInterfaceState (..),
 
@@ -437,6 +465,10 @@ module Network.AWS.DirectConnect
     -- ** Connections
     Connections (Connections'),
     newConnections,
+
+    -- ** CustomerAgreement
+    CustomerAgreement (CustomerAgreement'),
+    newCustomerAgreement,
 
     -- ** DirectConnectGateway
     DirectConnectGateway (DirectConnectGateway'),
@@ -506,6 +538,10 @@ module Network.AWS.DirectConnect
     RouteFilterPrefix (RouteFilterPrefix'),
     newRouteFilterPrefix,
 
+    -- ** RouterType
+    RouterType (RouterType'),
+    newRouterType,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -534,6 +570,7 @@ import Network.AWS.DirectConnect.AssociateHostedConnection
 import Network.AWS.DirectConnect.AssociateMacSecKey
 import Network.AWS.DirectConnect.AssociateVirtualInterface
 import Network.AWS.DirectConnect.ConfirmConnection
+import Network.AWS.DirectConnect.ConfirmCustomerAgreement
 import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 import Network.AWS.DirectConnect.ConfirmTransitVirtualInterface
@@ -556,6 +593,7 @@ import Network.AWS.DirectConnect.DeleteInterconnect
 import Network.AWS.DirectConnect.DeleteLag
 import Network.AWS.DirectConnect.DeleteVirtualInterface
 import Network.AWS.DirectConnect.DescribeConnections
+import Network.AWS.DirectConnect.DescribeCustomerMetadata
 import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
 import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
 import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
@@ -565,6 +603,7 @@ import Network.AWS.DirectConnect.DescribeInterconnects
 import Network.AWS.DirectConnect.DescribeLags
 import Network.AWS.DirectConnect.DescribeLoa
 import Network.AWS.DirectConnect.DescribeLocations
+import Network.AWS.DirectConnect.DescribeRouterConfiguration
 import Network.AWS.DirectConnect.DescribeTags
 import Network.AWS.DirectConnect.DescribeVirtualGateways
 import Network.AWS.DirectConnect.DescribeVirtualInterfaces
@@ -578,6 +617,7 @@ import Network.AWS.DirectConnect.TagResource
 import Network.AWS.DirectConnect.Types
 import Network.AWS.DirectConnect.UntagResource
 import Network.AWS.DirectConnect.UpdateConnection
+import Network.AWS.DirectConnect.UpdateDirectConnectGateway
 import Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.UpdateLag
 import Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes

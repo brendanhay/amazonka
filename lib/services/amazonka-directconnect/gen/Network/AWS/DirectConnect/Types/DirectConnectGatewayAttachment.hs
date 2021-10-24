@@ -48,9 +48,10 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
     attachmentState :: Prelude.Maybe DirectConnectGatewayAttachmentState,
     -- | The error message if the state of an object failed to advance.
     stateChangeError :: Prelude.Maybe Prelude.Text,
-    -- | The Region where the virtual interface is located.
+    -- | The Amazon Web Services Region where the virtual interface is located.
     virtualInterfaceRegion :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account that owns the virtual interface.
+    -- | The ID of the Amazon Web Services account that owns the virtual
+    -- interface.
     virtualInterfaceOwnerAccount :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface.
     virtualInterfaceId :: Prelude.Maybe Prelude.Text,
@@ -85,9 +86,10 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
 --
 -- 'stateChangeError', 'directConnectGatewayAttachment_stateChangeError' - The error message if the state of an object failed to advance.
 --
--- 'virtualInterfaceRegion', 'directConnectGatewayAttachment_virtualInterfaceRegion' - The Region where the virtual interface is located.
+-- 'virtualInterfaceRegion', 'directConnectGatewayAttachment_virtualInterfaceRegion' - The Amazon Web Services Region where the virtual interface is located.
 --
--- 'virtualInterfaceOwnerAccount', 'directConnectGatewayAttachment_virtualInterfaceOwnerAccount' - The ID of the account that owns the virtual interface.
+-- 'virtualInterfaceOwnerAccount', 'directConnectGatewayAttachment_virtualInterfaceOwnerAccount' - The ID of the Amazon Web Services account that owns the virtual
+-- interface.
 --
 -- 'virtualInterfaceId', 'directConnectGatewayAttachment_virtualInterfaceId' - The ID of the virtual interface.
 --
@@ -131,11 +133,12 @@ directConnectGatewayAttachment_attachmentState = Lens.lens (\DirectConnectGatewa
 directConnectGatewayAttachment_stateChangeError :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
 directConnectGatewayAttachment_stateChangeError = Lens.lens (\DirectConnectGatewayAttachment' {stateChangeError} -> stateChangeError) (\s@DirectConnectGatewayAttachment' {} a -> s {stateChangeError = a} :: DirectConnectGatewayAttachment)
 
--- | The Region where the virtual interface is located.
+-- | The Amazon Web Services Region where the virtual interface is located.
 directConnectGatewayAttachment_virtualInterfaceRegion :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
 directConnectGatewayAttachment_virtualInterfaceRegion = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceRegion} -> virtualInterfaceRegion) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceRegion = a} :: DirectConnectGatewayAttachment)
 
--- | The ID of the account that owns the virtual interface.
+-- | The ID of the Amazon Web Services account that owns the virtual
+-- interface.
 directConnectGatewayAttachment_virtualInterfaceOwnerAccount :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
 directConnectGatewayAttachment_virtualInterfaceOwnerAccount = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceOwnerAccount} -> virtualInterfaceOwnerAccount) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceOwnerAccount = a} :: DirectConnectGatewayAttachment)
 

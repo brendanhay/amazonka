@@ -87,9 +87,9 @@ data Lag = Lag'
     --
     -- -   @unknown@: The state of the LAG is not available.
     lagState :: Prelude.Maybe LagState,
-    -- | The ID of the account that owns the LAG.
+    -- | The ID of the Amazon Web Services account that owns the LAG.
     ownerAccount :: Prelude.Maybe Prelude.Text,
-    -- | The Region where the connection is located.
+    -- | The Amazon Web Services Region where the connection is located.
     region :: Prelude.Maybe Prelude.Text,
     -- | The MAC Security (MACsec) security keys associated with the LAG.
     macSecKeys :: Prelude.Maybe [MacSecKey],
@@ -165,9 +165,9 @@ data Lag = Lag'
 --
 -- -   @unknown@: The state of the LAG is not available.
 --
--- 'ownerAccount', 'lag_ownerAccount' - The ID of the account that owns the LAG.
+-- 'ownerAccount', 'lag_ownerAccount' - The ID of the Amazon Web Services account that owns the LAG.
 --
--- 'region', 'lag_region' - The Region where the connection is located.
+-- 'region', 'lag_region' - The Amazon Web Services Region where the connection is located.
 --
 -- 'macSecKeys', 'lag_macSecKeys' - The MAC Security (MACsec) security keys associated with the LAG.
 --
@@ -288,11 +288,11 @@ lag_jumboFrameCapable = Lens.lens (\Lag' {jumboFrameCapable} -> jumboFrameCapabl
 lag_lagState :: Lens.Lens' Lag (Prelude.Maybe LagState)
 lag_lagState = Lens.lens (\Lag' {lagState} -> lagState) (\s@Lag' {} a -> s {lagState = a} :: Lag)
 
--- | The ID of the account that owns the LAG.
+-- | The ID of the Amazon Web Services account that owns the LAG.
 lag_ownerAccount :: Lens.Lens' Lag (Prelude.Maybe Prelude.Text)
 lag_ownerAccount = Lens.lens (\Lag' {ownerAccount} -> ownerAccount) (\s@Lag' {} a -> s {ownerAccount = a} :: Lag)
 
--- | The Region where the connection is located.
+-- | The Amazon Web Services Region where the connection is located.
 lag_region :: Lens.Lens' Lag (Prelude.Maybe Prelude.Text)
 lag_region = Lens.lens (\Lag' {region} -> region) (\s@Lag' {} a -> s {region = a} :: Lag)
 

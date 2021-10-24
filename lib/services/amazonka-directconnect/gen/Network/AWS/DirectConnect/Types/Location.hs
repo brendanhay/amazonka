@@ -34,7 +34,7 @@ data Location = Location'
     locationName :: Prelude.Maybe Prelude.Text,
     -- | The code for the location.
     locationCode :: Prelude.Maybe Prelude.Text,
-    -- | The Region for the location.
+    -- | The Amazon Web Services Region for the location.
     region :: Prelude.Maybe Prelude.Text,
     -- | The name of the service provider for the location.
     availableProviders :: Prelude.Maybe [Prelude.Text],
@@ -58,7 +58,7 @@ data Location = Location'
 --
 -- 'locationCode', 'location_locationCode' - The code for the location.
 --
--- 'region', 'location_region' - The Region for the location.
+-- 'region', 'location_region' - The Amazon Web Services Region for the location.
 --
 -- 'availableProviders', 'location_availableProviders' - The name of the service provider for the location.
 --
@@ -88,7 +88,7 @@ location_locationName = Lens.lens (\Location' {locationName} -> locationName) (\
 location_locationCode :: Lens.Lens' Location (Prelude.Maybe Prelude.Text)
 location_locationCode = Lens.lens (\Location' {locationCode} -> locationCode) (\s@Location' {} a -> s {locationCode = a} :: Location)
 
--- | The Region for the location.
+-- | The Amazon Web Services Region for the location.
 location_region :: Lens.Lens' Location (Prelude.Maybe Prelude.Text)
 location_region = Lens.lens (\Location' {region} -> region) (\s@Location' {} a -> s {region = a} :: Location)
 

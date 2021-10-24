@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provisions a public virtual interface to be owned by the specified
--- account.
+-- Amazon Web Services account.
 --
 -- The owner of a connection calls this function to provision a public
--- virtual interface to be owned by the specified account.
+-- virtual interface to be owned by the specified Amazon Web Services
+-- account.
 --
 -- Virtual interfaces created using this function must be confirmed by the
 -- owner using ConfirmPublicVirtualInterface. Until this step has been
@@ -89,7 +90,8 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
   { -- | The ID of the connection on which the public virtual interface is
     -- provisioned.
     connectionId :: Prelude.Text,
-    -- | The ID of the account that owns the public virtual interface.
+    -- | The ID of the Amazon Web Services account that owns the public virtual
+    -- interface.
     ownerAccount :: Prelude.Text,
     -- | Information about the public virtual interface.
     newPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation
@@ -107,7 +109,8 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
 -- 'connectionId', 'allocatePublicVirtualInterface_connectionId' - The ID of the connection on which the public virtual interface is
 -- provisioned.
 --
--- 'ownerAccount', 'allocatePublicVirtualInterface_ownerAccount' - The ID of the account that owns the public virtual interface.
+-- 'ownerAccount', 'allocatePublicVirtualInterface_ownerAccount' - The ID of the Amazon Web Services account that owns the public virtual
+-- interface.
 --
 -- 'newPublicVirtualInterfaceAllocation'', 'allocatePublicVirtualInterface_newPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
 newAllocatePublicVirtualInterface ::
@@ -135,7 +138,8 @@ newAllocatePublicVirtualInterface
 allocatePublicVirtualInterface_connectionId :: Lens.Lens' AllocatePublicVirtualInterface Prelude.Text
 allocatePublicVirtualInterface_connectionId = Lens.lens (\AllocatePublicVirtualInterface' {connectionId} -> connectionId) (\s@AllocatePublicVirtualInterface' {} a -> s {connectionId = a} :: AllocatePublicVirtualInterface)
 
--- | The ID of the account that owns the public virtual interface.
+-- | The ID of the Amazon Web Services account that owns the public virtual
+-- interface.
 allocatePublicVirtualInterface_ownerAccount :: Lens.Lens' AllocatePublicVirtualInterface Prelude.Text
 allocatePublicVirtualInterface_ownerAccount = Lens.lens (\AllocatePublicVirtualInterface' {ownerAccount} -> ownerAccount) (\s@AllocatePublicVirtualInterface' {} a -> s {ownerAccount = a} :: AllocatePublicVirtualInterface)
 

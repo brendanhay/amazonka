@@ -86,7 +86,8 @@ data AllocateHostedConnection = AllocateHostedConnection'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of the interconnect or LAG.
     connectionId :: Prelude.Text,
-    -- | The ID of the account ID of the customer for the connection.
+    -- | The ID of the Amazon Web Services account ID of the customer for the
+    -- connection.
     ownerAccount :: Prelude.Text,
     -- | The bandwidth of the connection. The possible values are 50Mbps,
     -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
@@ -113,7 +114,8 @@ data AllocateHostedConnection = AllocateHostedConnection'
 --
 -- 'connectionId', 'allocateHostedConnection_connectionId' - The ID of the interconnect or LAG.
 --
--- 'ownerAccount', 'allocateHostedConnection_ownerAccount' - The ID of the account ID of the customer for the connection.
+-- 'ownerAccount', 'allocateHostedConnection_ownerAccount' - The ID of the Amazon Web Services account ID of the customer for the
+-- connection.
 --
 -- 'bandwidth', 'allocateHostedConnection_bandwidth' - The bandwidth of the connection. The possible values are 50Mbps,
 -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
@@ -159,7 +161,8 @@ allocateHostedConnection_tags = Lens.lens (\AllocateHostedConnection' {tags} -> 
 allocateHostedConnection_connectionId :: Lens.Lens' AllocateHostedConnection Prelude.Text
 allocateHostedConnection_connectionId = Lens.lens (\AllocateHostedConnection' {connectionId} -> connectionId) (\s@AllocateHostedConnection' {} a -> s {connectionId = a} :: AllocateHostedConnection)
 
--- | The ID of the account ID of the customer for the connection.
+-- | The ID of the Amazon Web Services account ID of the customer for the
+-- connection.
 allocateHostedConnection_ownerAccount :: Lens.Lens' AllocateHostedConnection Prelude.Text
 allocateHostedConnection_ownerAccount = Lens.lens (\AllocateHostedConnection' {ownerAccount} -> ownerAccount) (\s@AllocateHostedConnection' {} a -> s {ownerAccount = a} :: AllocateHostedConnection)
 

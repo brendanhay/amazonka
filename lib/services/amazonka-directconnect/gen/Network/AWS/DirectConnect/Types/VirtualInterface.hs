@@ -113,9 +113,10 @@ data VirtualInterface = VirtualInterface'
     jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
     -- | The customer router configuration.
     customerRouterConfig :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account that owns the virtual interface.
+    -- | The ID of the Amazon Web Services account that owns the virtual
+    -- interface.
     ownerAccount :: Prelude.Maybe Prelude.Text,
-    -- | The Region where the virtual interface is located.
+    -- | The Amazon Web Services Region where the virtual interface is located.
     region :: Prelude.Maybe Prelude.Text,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
@@ -219,9 +220,10 @@ data VirtualInterface = VirtualInterface'
 --
 -- 'customerRouterConfig', 'virtualInterface_customerRouterConfig' - The customer router configuration.
 --
--- 'ownerAccount', 'virtualInterface_ownerAccount' - The ID of the account that owns the virtual interface.
+-- 'ownerAccount', 'virtualInterface_ownerAccount' - The ID of the Amazon Web Services account that owns the virtual
+-- interface.
 --
--- 'region', 'virtualInterface_region' - The Region where the virtual interface is located.
+-- 'region', 'virtualInterface_region' - The Amazon Web Services Region where the virtual interface is located.
 --
 -- 'virtualInterfaceName', 'virtualInterface_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -382,11 +384,12 @@ virtualInterface_jumboFrameCapable = Lens.lens (\VirtualInterface' {jumboFrameCa
 virtualInterface_customerRouterConfig :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_customerRouterConfig = Lens.lens (\VirtualInterface' {customerRouterConfig} -> customerRouterConfig) (\s@VirtualInterface' {} a -> s {customerRouterConfig = a} :: VirtualInterface)
 
--- | The ID of the account that owns the virtual interface.
+-- | The ID of the Amazon Web Services account that owns the virtual
+-- interface.
 virtualInterface_ownerAccount :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_ownerAccount = Lens.lens (\VirtualInterface' {ownerAccount} -> ownerAccount) (\s@VirtualInterface' {} a -> s {ownerAccount = a} :: VirtualInterface)
 
--- | The Region where the virtual interface is located.
+-- | The Amazon Web Services Region where the virtual interface is located.
 virtualInterface_region :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_region = Lens.lens (\VirtualInterface' {region} -> region) (\s@VirtualInterface' {} a -> s {region = a} :: VirtualInterface)
 

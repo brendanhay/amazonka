@@ -70,9 +70,9 @@ data Connection = Connection'
     bandwidth :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether jumbo frames (9001 MTU) are supported.
     jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the account that owns the connection.
+    -- | The ID of the Amazon Web Services account that owns the connection.
     ownerAccount :: Prelude.Maybe Prelude.Text,
-    -- | The Region where the connection is located.
+    -- | The Amazon Web Services Region where the connection is located.
     region :: Prelude.Maybe Prelude.Text,
     -- | The MAC Security (MACsec) security keys associated with the connection.
     macSecKeys :: Prelude.Maybe [MacSecKey],
@@ -160,9 +160,9 @@ data Connection = Connection'
 --
 -- 'jumboFrameCapable', 'connection_jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
 --
--- 'ownerAccount', 'connection_ownerAccount' - The ID of the account that owns the connection.
+-- 'ownerAccount', 'connection_ownerAccount' - The ID of the Amazon Web Services account that owns the connection.
 --
--- 'region', 'connection_region' - The Region where the connection is located.
+-- 'region', 'connection_region' - The Amazon Web Services Region where the connection is located.
 --
 -- 'macSecKeys', 'connection_macSecKeys' - The MAC Security (MACsec) security keys associated with the connection.
 --
@@ -296,11 +296,11 @@ connection_bandwidth = Lens.lens (\Connection' {bandwidth} -> bandwidth) (\s@Con
 connection_jumboFrameCapable :: Lens.Lens' Connection (Prelude.Maybe Prelude.Bool)
 connection_jumboFrameCapable = Lens.lens (\Connection' {jumboFrameCapable} -> jumboFrameCapable) (\s@Connection' {} a -> s {jumboFrameCapable = a} :: Connection)
 
--- | The ID of the account that owns the connection.
+-- | The ID of the Amazon Web Services account that owns the connection.
 connection_ownerAccount :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_ownerAccount = Lens.lens (\Connection' {ownerAccount} -> ownerAccount) (\s@Connection' {} a -> s {ownerAccount = a} :: Connection)
 
--- | The Region where the connection is located.
+-- | The Amazon Web Services Region where the connection is located.
 connection_region :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_region = Lens.lens (\Connection' {region} -> region) (\s@Connection' {} a -> s {region = a} :: Connection)
 

@@ -75,6 +75,9 @@ import Test.Tasty
 --         , requestDescribeConnections $
 --             newDescribeConnections
 --
+--         , requestConfirmCustomerAgreement $
+--             newConfirmCustomerAgreement
+--
 --         , requestDeleteInterconnect $
 --             newDeleteInterconnect
 --
@@ -114,6 +117,9 @@ import Test.Tasty
 --         , requestDescribeDirectConnectGatewayAttachments $
 --             newDescribeDirectConnectGatewayAttachments
 --
+--         , requestDescribeCustomerMetadata $
+--             newDescribeCustomerMetadata
+--
 --         , requestConfirmPublicVirtualInterface $
 --             newConfirmPublicVirtualInterface
 --
@@ -131,6 +137,9 @@ import Test.Tasty
 --
 --         , requestDeleteDirectConnectGateway $
 --             newDeleteDirectConnectGateway
+--
+--         , requestUpdateDirectConnectGateway $
+--             newUpdateDirectConnectGateway
 --
 --         , requestDescribeVirtualInterfaces $
 --             newDescribeVirtualInterfaces
@@ -176,6 +185,9 @@ import Test.Tasty
 --
 --         , requestCreateInterconnect $
 --             newCreateInterconnect
+--
+--         , requestDescribeRouterConfiguration $
+--             newDescribeRouterConfiguration
 --
 --         , requestDeleteBGPPeer $
 --             newDeleteBGPPeer
@@ -243,6 +255,9 @@ import Test.Tasty
 --         , responseDescribeConnections $
 --             newConnections
 --
+--         , responseConfirmCustomerAgreement $
+--             newConfirmCustomerAgreementResponse
+--
 --         , responseDeleteInterconnect $
 --             newDeleteInterconnectResponse
 --
@@ -282,6 +297,9 @@ import Test.Tasty
 --         , responseDescribeDirectConnectGatewayAttachments $
 --             newDescribeDirectConnectGatewayAttachmentsResponse
 --
+--         , responseDescribeCustomerMetadata $
+--             newDescribeCustomerMetadataResponse
+--
 --         , responseConfirmPublicVirtualInterface $
 --             newConfirmPublicVirtualInterfaceResponse
 --
@@ -299,6 +317,9 @@ import Test.Tasty
 --
 --         , responseDeleteDirectConnectGateway $
 --             newDeleteDirectConnectGatewayResponse
+--
+--         , responseUpdateDirectConnectGateway $
+--             newUpdateDirectConnectGatewayResponse
 --
 --         , responseDescribeVirtualInterfaces $
 --             newDescribeVirtualInterfacesResponse
@@ -344,6 +365,9 @@ import Test.Tasty
 --
 --         , responseCreateInterconnect $
 --             newInterconnect
+--
+--         , responseDescribeRouterConfiguration $
+--             newDescribeRouterConfigurationResponse
 --
 --         , responseDeleteBGPPeer $
 --             newDeleteBGPPeerResponse
@@ -461,6 +485,12 @@ requestDescribeConnections =
     "DescribeConnections"
     "fixture/DescribeConnections.yaml"
 
+requestConfirmCustomerAgreement :: ConfirmCustomerAgreement -> TestTree
+requestConfirmCustomerAgreement =
+  req
+    "ConfirmCustomerAgreement"
+    "fixture/ConfirmCustomerAgreement.yaml"
+
 requestDeleteInterconnect :: DeleteInterconnect -> TestTree
 requestDeleteInterconnect =
   req
@@ -539,6 +569,12 @@ requestDescribeDirectConnectGatewayAttachments =
     "DescribeDirectConnectGatewayAttachments"
     "fixture/DescribeDirectConnectGatewayAttachments.yaml"
 
+requestDescribeCustomerMetadata :: DescribeCustomerMetadata -> TestTree
+requestDescribeCustomerMetadata =
+  req
+    "DescribeCustomerMetadata"
+    "fixture/DescribeCustomerMetadata.yaml"
+
 requestConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterface -> TestTree
 requestConfirmPublicVirtualInterface =
   req
@@ -574,6 +610,12 @@ requestDeleteDirectConnectGateway =
   req
     "DeleteDirectConnectGateway"
     "fixture/DeleteDirectConnectGateway.yaml"
+
+requestUpdateDirectConnectGateway :: UpdateDirectConnectGateway -> TestTree
+requestUpdateDirectConnectGateway =
+  req
+    "UpdateDirectConnectGateway"
+    "fixture/UpdateDirectConnectGateway.yaml"
 
 requestDescribeVirtualInterfaces :: DescribeVirtualInterfaces -> TestTree
 requestDescribeVirtualInterfaces =
@@ -664,6 +706,12 @@ requestCreateInterconnect =
   req
     "CreateInterconnect"
     "fixture/CreateInterconnect.yaml"
+
+requestDescribeRouterConfiguration :: DescribeRouterConfiguration -> TestTree
+requestDescribeRouterConfiguration =
+  req
+    "DescribeRouterConfiguration"
+    "fixture/DescribeRouterConfiguration.yaml"
 
 requestDeleteBGPPeer :: DeleteBGPPeer -> TestTree
 requestDeleteBGPPeer =
@@ -825,6 +873,14 @@ responseDescribeConnections =
     defaultService
     (Proxy :: Proxy DescribeConnections)
 
+responseConfirmCustomerAgreement :: ConfirmCustomerAgreementResponse -> TestTree
+responseConfirmCustomerAgreement =
+  res
+    "ConfirmCustomerAgreementResponse"
+    "fixture/ConfirmCustomerAgreementResponse.proto"
+    defaultService
+    (Proxy :: Proxy ConfirmCustomerAgreement)
+
 responseDeleteInterconnect :: DeleteInterconnectResponse -> TestTree
 responseDeleteInterconnect =
   res
@@ -929,6 +985,14 @@ responseDescribeDirectConnectGatewayAttachments =
     defaultService
     (Proxy :: Proxy DescribeDirectConnectGatewayAttachments)
 
+responseDescribeCustomerMetadata :: DescribeCustomerMetadataResponse -> TestTree
+responseDescribeCustomerMetadata =
+  res
+    "DescribeCustomerMetadataResponse"
+    "fixture/DescribeCustomerMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeCustomerMetadata)
+
 responseConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterfaceResponse -> TestTree
 responseConfirmPublicVirtualInterface =
   res
@@ -976,6 +1040,14 @@ responseDeleteDirectConnectGateway =
     "fixture/DeleteDirectConnectGatewayResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteDirectConnectGateway)
+
+responseUpdateDirectConnectGateway :: UpdateDirectConnectGatewayResponse -> TestTree
+responseUpdateDirectConnectGateway =
+  res
+    "UpdateDirectConnectGatewayResponse"
+    "fixture/UpdateDirectConnectGatewayResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDirectConnectGateway)
 
 responseDescribeVirtualInterfaces :: DescribeVirtualInterfacesResponse -> TestTree
 responseDescribeVirtualInterfaces =
@@ -1096,6 +1168,14 @@ responseCreateInterconnect =
     "fixture/CreateInterconnectResponse.proto"
     defaultService
     (Proxy :: Proxy CreateInterconnect)
+
+responseDescribeRouterConfiguration :: DescribeRouterConfigurationResponse -> TestTree
+responseDescribeRouterConfiguration =
+  res
+    "DescribeRouterConfigurationResponse"
+    "fixture/DescribeRouterConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeRouterConfiguration)
 
 responseDeleteBGPPeer :: DeleteBGPPeerResponse -> TestTree
 responseDeleteBGPPeer =

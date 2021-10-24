@@ -61,7 +61,8 @@ data ListLexBots = ListLexBots'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. If no value is
+    -- specified, the default is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -81,7 +82,8 @@ data ListLexBots = ListLexBots'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listLexBots_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listLexBots_maxResults' - The maximum number of results to return per page. If no value is
+-- specified, the default is 10.
 --
 -- 'instanceId', 'listLexBots_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -102,7 +104,8 @@ newListLexBots pInstanceId_ =
 listLexBots_nextToken :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Text)
 listLexBots_nextToken = Lens.lens (\ListLexBots' {nextToken} -> nextToken) (\s@ListLexBots' {} a -> s {nextToken = a} :: ListLexBots)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. If no value is
+-- specified, the default is 10.
 listLexBots_maxResults :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Natural)
 listLexBots_maxResults = Lens.lens (\ListLexBots' {maxResults} -> maxResults) (\s@ListLexBots' {} a -> s {maxResults = a} :: ListLexBots)
 

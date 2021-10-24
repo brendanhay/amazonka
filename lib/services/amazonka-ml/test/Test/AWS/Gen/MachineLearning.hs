@@ -39,8 +39,8 @@ import Test.Tasty
 --         , requestCreateDataSourceFromRedshift $
 --             newCreateDataSourceFromRedshift
 --
---         , requestCreateDataSourceFromS $
---             newCreateDataSourceFromS
+--         , requestCreateDataSourceFromS3 $
+--             newCreateDataSourceFromS3
 --
 --         , requestCreateMLModel $
 --             newCreateMLModel
@@ -126,8 +126,8 @@ import Test.Tasty
 --         , responseCreateDataSourceFromRedshift $
 --             newCreateDataSourceFromRedshiftResponse
 --
---         , responseCreateDataSourceFromS $
---             newCreateDataSourceFromSResponse
+--         , responseCreateDataSourceFromS3 $
+--             newCreateDataSourceFromS3Response
 --
 --         , responseCreateMLModel $
 --             newCreateMLModelResponse
@@ -227,11 +227,11 @@ requestCreateDataSourceFromRedshift =
     "CreateDataSourceFromRedshift"
     "fixture/CreateDataSourceFromRedshift.yaml"
 
-requestCreateDataSourceFromS :: CreateDataSourceFromS -> TestTree
-requestCreateDataSourceFromS =
+requestCreateDataSourceFromS3 :: CreateDataSourceFromS3 -> TestTree
+requestCreateDataSourceFromS3 =
   req
-    "CreateDataSourceFromS"
-    "fixture/CreateDataSourceFromS.yaml"
+    "CreateDataSourceFromS3"
+    "fixture/CreateDataSourceFromS3.yaml"
 
 requestCreateMLModel :: CreateMLModel -> TestTree
 requestCreateMLModel =
@@ -405,13 +405,13 @@ responseCreateDataSourceFromRedshift =
     defaultService
     (Proxy :: Proxy CreateDataSourceFromRedshift)
 
-responseCreateDataSourceFromS :: CreateDataSourceFromSResponse -> TestTree
-responseCreateDataSourceFromS =
+responseCreateDataSourceFromS3 :: CreateDataSourceFromS3Response -> TestTree
+responseCreateDataSourceFromS3 =
   res
-    "CreateDataSourceFromSResponse"
-    "fixture/CreateDataSourceFromSResponse.proto"
+    "CreateDataSourceFromS3Response"
+    "fixture/CreateDataSourceFromS3Response.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSourceFromS)
+    (Proxy :: Proxy CreateDataSourceFromS3)
 
 responseCreateMLModel :: CreateMLModelResponse -> TestTree
 responseCreateMLModel =

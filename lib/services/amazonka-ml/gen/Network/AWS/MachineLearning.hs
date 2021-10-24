@@ -85,11 +85,11 @@ module Network.AWS.MachineLearning
     CreateDataSourceFromRedshiftResponse (CreateDataSourceFromRedshiftResponse'),
     newCreateDataSourceFromRedshiftResponse,
 
-    -- ** CreateDataSourceFromS
-    CreateDataSourceFromS (CreateDataSourceFromS'),
-    newCreateDataSourceFromS,
-    CreateDataSourceFromSResponse (CreateDataSourceFromSResponse'),
-    newCreateDataSourceFromSResponse,
+    -- ** CreateDataSourceFromS3
+    CreateDataSourceFromS3 (CreateDataSourceFromS3'),
+    newCreateDataSourceFromS3,
+    CreateDataSourceFromS3Response (CreateDataSourceFromS3Response'),
+    newCreateDataSourceFromS3Response,
 
     -- ** CreateMLModel
     CreateMLModel (CreateMLModel'),
@@ -338,7 +338,7 @@ import Network.AWS.MachineLearning.AddTags
 import Network.AWS.MachineLearning.CreateBatchPrediction
 import Network.AWS.MachineLearning.CreateDataSourceFromRDS
 import Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-import Network.AWS.MachineLearning.CreateDataSourceFromS
+import Network.AWS.MachineLearning.CreateDataSourceFromS3
 import Network.AWS.MachineLearning.CreateEvaluation
 import Network.AWS.MachineLearning.CreateMLModel
 import Network.AWS.MachineLearning.CreateRealtimeEndpoint

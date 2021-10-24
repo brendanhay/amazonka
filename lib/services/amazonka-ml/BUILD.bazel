@@ -9,7 +9,7 @@ haskell_library(
         "gen/Network/AWS/MachineLearning/CreateBatchPrediction.hs",
         "gen/Network/AWS/MachineLearning/CreateDataSourceFromRDS.hs",
         "gen/Network/AWS/MachineLearning/CreateDataSourceFromRedshift.hs",
-        "gen/Network/AWS/MachineLearning/CreateDataSourceFromS.hs",
+        "gen/Network/AWS/MachineLearning/CreateDataSourceFromS3.hs",
         "gen/Network/AWS/MachineLearning/CreateEvaluation.hs",
         "gen/Network/AWS/MachineLearning/CreateMLModel.hs",
         "gen/Network/AWS/MachineLearning/CreateRealtimeEndpoint.hs",

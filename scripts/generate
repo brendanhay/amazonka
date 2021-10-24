@@ -109,6 +109,8 @@ parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 # Generate BUILD files for every package.
 ./scripts/update-gazelle
 
+set +e
+
 # If --commit was passed as the first argument, created a commit per service.
 if [ "$commit" = "true" ]; then
   for service in lib/services/amazonka-*; do

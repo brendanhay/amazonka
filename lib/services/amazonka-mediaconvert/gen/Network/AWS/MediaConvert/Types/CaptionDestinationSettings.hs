@@ -43,7 +43,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCaptionDestinationSettings' smart constructor.
 data CaptionDestinationSettings = CaptionDestinationSettings'
-  { -- | SRT Destination Settings
+  { -- | Settings related to SRT captions. SRT is a sidecar format that holds
+    -- captions in a file that is separate from the video container. Set up
+    -- sidecar captions in the same output group, but different output from
+    -- your video. When you work directly in your JSON job specification,
+    -- include this object and any required children when you set
+    -- destinationType to SRT.
     srtDestinationSettings :: Prelude.Maybe SrtDestinationSettings,
     -- | Settings related to teletext captions. Set up teletext captions in the
     -- same output as your video. For more information, see
@@ -78,7 +83,13 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
     -- embedded captions come first, choose Embedded plus SCTE-20
     -- (EMBEDDED_PLUS_SCTE20).
     destinationType :: Prelude.Maybe CaptionDestinationType,
-    -- | WEBVTT Destination Settings
+    -- | Settings related to WebVTT captions. WebVTT is a sidecar format that
+    -- holds captions in a file that is separate from the video container. Set
+    -- up sidecar captions in the same output group, but different output from
+    -- your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+    -- When you work directly in your JSON job specification, include this
+    -- object and any required children when you set destinationType to WebVTT.
     webvttDestinationSettings :: Prelude.Maybe WebvttDestinationSettings,
     -- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
     -- or ancillary) captions. Set up embedded captions in the same output as
@@ -96,8 +107,10 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
     -- When you work directly in your JSON job specification, include this
     -- object and any required children when you set destinationType to SCC.
     sccDestinationSettings :: Prelude.Maybe SccDestinationSettings,
-    -- | Settings related to burn-in captions. Set up burn-in captions in the
-    -- same output as your video. For more information, see
+    -- | Burn-in is a captions delivery method, rather than a captions format.
+    -- Burn-in writes the captions directly on your video frames, replacing
+    -- pixels of video content with the captions. Set up burn-in captions in
+    -- the same output as your video. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
     -- When you work directly in your JSON job specification, include this
     -- object and any required children when you set destinationType to
@@ -122,7 +135,12 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'srtDestinationSettings', 'captionDestinationSettings_srtDestinationSettings' - SRT Destination Settings
+-- 'srtDestinationSettings', 'captionDestinationSettings_srtDestinationSettings' - Settings related to SRT captions. SRT is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. When you work directly in your JSON job specification,
+-- include this object and any required children when you set
+-- destinationType to SRT.
 --
 -- 'teletextDestinationSettings', 'captionDestinationSettings_teletextDestinationSettings' - Settings related to teletext captions. Set up teletext captions in the
 -- same output as your video. For more information, see
@@ -157,7 +175,13 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- embedded captions come first, choose Embedded plus SCTE-20
 -- (EMBEDDED_PLUS_SCTE20).
 --
--- 'webvttDestinationSettings', 'captionDestinationSettings_webvttDestinationSettings' - WEBVTT Destination Settings
+-- 'webvttDestinationSettings', 'captionDestinationSettings_webvttDestinationSettings' - Settings related to WebVTT captions. WebVTT is a sidecar format that
+-- holds captions in a file that is separate from the video container. Set
+-- up sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to WebVTT.
 --
 -- 'embeddedDestinationSettings', 'captionDestinationSettings_embeddedDestinationSettings' - Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
 -- or ancillary) captions. Set up embedded captions in the same output as
@@ -175,8 +199,10 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to SCC.
 --
--- 'burninDestinationSettings', 'captionDestinationSettings_burninDestinationSettings' - Settings related to burn-in captions. Set up burn-in captions in the
--- same output as your video. For more information, see
+-- 'burninDestinationSettings', 'captionDestinationSettings_burninDestinationSettings' - Burn-in is a captions delivery method, rather than a captions format.
+-- Burn-in writes the captions directly on your video frames, replacing
+-- pixels of video content with the captions. Set up burn-in captions in
+-- the same output as your video. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to
@@ -206,7 +232,12 @@ newCaptionDestinationSettings =
       imscDestinationSettings = Prelude.Nothing
     }
 
--- | SRT Destination Settings
+-- | Settings related to SRT captions. SRT is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. When you work directly in your JSON job specification,
+-- include this object and any required children when you set
+-- destinationType to SRT.
 captionDestinationSettings_srtDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SrtDestinationSettings)
 captionDestinationSettings_srtDestinationSettings = Lens.lens (\CaptionDestinationSettings' {srtDestinationSettings} -> srtDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {srtDestinationSettings = a} :: CaptionDestinationSettings)
 
@@ -251,7 +282,13 @@ captionDestinationSettings_ttmlDestinationSettings = Lens.lens (\CaptionDestinat
 captionDestinationSettings_destinationType :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe CaptionDestinationType)
 captionDestinationSettings_destinationType = Lens.lens (\CaptionDestinationSettings' {destinationType} -> destinationType) (\s@CaptionDestinationSettings' {} a -> s {destinationType = a} :: CaptionDestinationSettings)
 
--- | WEBVTT Destination Settings
+-- | Settings related to WebVTT captions. WebVTT is a sidecar format that
+-- holds captions in a file that is separate from the video container. Set
+-- up sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to WebVTT.
 captionDestinationSettings_webvttDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe WebvttDestinationSettings)
 captionDestinationSettings_webvttDestinationSettings = Lens.lens (\CaptionDestinationSettings' {webvttDestinationSettings} -> webvttDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {webvttDestinationSettings = a} :: CaptionDestinationSettings)
 
@@ -275,8 +312,10 @@ captionDestinationSettings_embeddedDestinationSettings = Lens.lens (\CaptionDest
 captionDestinationSettings_sccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SccDestinationSettings)
 captionDestinationSettings_sccDestinationSettings = Lens.lens (\CaptionDestinationSettings' {sccDestinationSettings} -> sccDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {sccDestinationSettings = a} :: CaptionDestinationSettings)
 
--- | Settings related to burn-in captions. Set up burn-in captions in the
--- same output as your video. For more information, see
+-- | Burn-in is a captions delivery method, rather than a captions format.
+-- Burn-in writes the captions directly on your video frames, replacing
+-- pixels of video content with the captions. Set up burn-in captions in
+-- the same output as your video. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to

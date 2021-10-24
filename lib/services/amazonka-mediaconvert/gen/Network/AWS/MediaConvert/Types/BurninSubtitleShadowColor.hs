@@ -31,8 +31,10 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies the color of the shadow cast by the captions. All burn-in and
--- DVB-Sub font settings must match.
+-- | Specify the color of the shadow cast by the captions. Leave Shadow color
+-- (ShadowColor) blank and set Style passthrough (StylePassthrough) to
+-- enabled to use the shadow color data from your input captions, if
+-- present.
 newtype BurninSubtitleShadowColor = BurninSubtitleShadowColor'
   { fromBurninSubtitleShadowColor ::
       Core.Text

@@ -98,17 +98,15 @@ data VideoSelector = VideoSelector'
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
     colorSpace :: Prelude.Maybe ColorSpace,
-    -- | Use this setting when your input video codec is AVC-Intra. Ignore this
-    -- setting for all other inputs. If the sample range metadata in your input
-    -- video is accurate, or if you don\'t know about sample range, keep the
-    -- default value, Follow (FOLLOW), for this setting. When you do, the
-    -- service automatically detects your input sample range. If your input
-    -- video has metadata indicating the wrong sample range, specify the
-    -- accurate sample range here. When you do, MediaConvert ignores any sample
-    -- range information in the input metadata. Regardless of whether
-    -- MediaConvert uses the input sample range or the sample range that you
-    -- specify, MediaConvert uses the sample range for transcoding and also
-    -- writes it to the output metadata.
+    -- | If the sample range metadata in your input video is accurate, or if you
+    -- don\'t know about sample range, keep the default value, Follow (FOLLOW),
+    -- for this setting. When you do, the service automatically detects your
+    -- input sample range. If your input video has metadata indicating the
+    -- wrong sample range, specify the accurate sample range here. When you do,
+    -- MediaConvert ignores any sample range information in the input metadata.
+    -- Regardless of whether MediaConvert uses the input sample range or the
+    -- sample range that you specify, MediaConvert uses the sample range for
+    -- transcoding and also writes it to the output metadata.
     sampleRange :: Prelude.Maybe InputSampleRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -185,17 +183,15 @@ data VideoSelector = VideoSelector'
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
 --
--- 'sampleRange', 'videoSelector_sampleRange' - Use this setting when your input video codec is AVC-Intra. Ignore this
--- setting for all other inputs. If the sample range metadata in your input
--- video is accurate, or if you don\'t know about sample range, keep the
--- default value, Follow (FOLLOW), for this setting. When you do, the
--- service automatically detects your input sample range. If your input
--- video has metadata indicating the wrong sample range, specify the
--- accurate sample range here. When you do, MediaConvert ignores any sample
--- range information in the input metadata. Regardless of whether
--- MediaConvert uses the input sample range or the sample range that you
--- specify, MediaConvert uses the sample range for transcoding and also
--- writes it to the output metadata.
+-- 'sampleRange', 'videoSelector_sampleRange' - If the sample range metadata in your input video is accurate, or if you
+-- don\'t know about sample range, keep the default value, Follow (FOLLOW),
+-- for this setting. When you do, the service automatically detects your
+-- input sample range. If your input video has metadata indicating the
+-- wrong sample range, specify the accurate sample range here. When you do,
+-- MediaConvert ignores any sample range information in the input metadata.
+-- Regardless of whether MediaConvert uses the input sample range or the
+-- sample range that you specify, MediaConvert uses the sample range for
+-- transcoding and also writes it to the output metadata.
 newVideoSelector ::
   VideoSelector
 newVideoSelector =
@@ -288,17 +284,15 @@ videoSelector_rotate = Lens.lens (\VideoSelector' {rotate} -> rotate) (\s@VideoS
 videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
 
--- | Use this setting when your input video codec is AVC-Intra. Ignore this
--- setting for all other inputs. If the sample range metadata in your input
--- video is accurate, or if you don\'t know about sample range, keep the
--- default value, Follow (FOLLOW), for this setting. When you do, the
--- service automatically detects your input sample range. If your input
--- video has metadata indicating the wrong sample range, specify the
--- accurate sample range here. When you do, MediaConvert ignores any sample
--- range information in the input metadata. Regardless of whether
--- MediaConvert uses the input sample range or the sample range that you
--- specify, MediaConvert uses the sample range for transcoding and also
--- writes it to the output metadata.
+-- | If the sample range metadata in your input video is accurate, or if you
+-- don\'t know about sample range, keep the default value, Follow (FOLLOW),
+-- for this setting. When you do, the service automatically detects your
+-- input sample range. If your input video has metadata indicating the
+-- wrong sample range, specify the accurate sample range here. When you do,
+-- MediaConvert ignores any sample range information in the input metadata.
+-- Regardless of whether MediaConvert uses the input sample range or the
+-- sample range that you specify, MediaConvert uses the sample range for
+-- transcoding and also writes it to the output metadata.
 videoSelector_sampleRange :: Lens.Lens' VideoSelector (Prelude.Maybe InputSampleRange)
 videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRange) (\s@VideoSelector' {} a -> s {sampleRange = a} :: VideoSelector)
 

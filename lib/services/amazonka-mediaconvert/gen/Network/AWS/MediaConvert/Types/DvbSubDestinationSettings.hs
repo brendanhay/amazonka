@@ -60,42 +60,50 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- corner of the display window and the top left corner of the video frame.
     -- All burn-in and DVB-Sub font settings must match.
     ddsHandling :: Prelude.Maybe DvbddsHandling,
-    -- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is
-    -- transparent. Leaving this parameter blank is equivalent to setting it to
-    -- 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    -- | Specify the opacity of the background rectangle. Enter a value from 0 to
+    -- 255, where 0 is transparent and 255 is opaque. If Style passthrough
+    -- (StylePassthrough) is set to enabled, leave blank to pass through the
+    -- background style information in your input captions to your output
+    -- captions. If Style passthrough is set to disabled, leave blank to use a
+    -- value of 0 and remove all backgrounds from your output captions. Within
+    -- your job settings, all of your DVB-Sub settings must be identical.
     backgroundOpacity :: Prelude.Maybe Prelude.Natural,
     -- | Specify the font that you want the service to use for your burn in
     -- captions when your input captions specify a font that MediaConvert
-    -- doesn\'t support. When you keep the default value, Best match
-    -- (BEST_MATCH), MediaConvert uses a supported font that most closely
-    -- matches the font that your input captions specify. When there are
-    -- multiple unsupported fonts in your input captions, MediaConvert matches
-    -- each font with the supported font that matches best. When you explicitly
-    -- choose a replacement font, MediaConvert uses that font to replace all
-    -- unsupported fonts from your input.
+    -- doesn\'t support. When you set Fallback font (FallbackFont) to best
+    -- match (BEST_MATCH), or leave blank, MediaConvert uses a supported font
+    -- that most closely matches the font that your input captions specify.
+    -- When there are multiple unsupported fonts in your input captions,
+    -- MediaConvert matches each font with the supported font that matches
+    -- best. When you explicitly choose a replacement font, MediaConvert uses
+    -- that font to replace all unsupported fonts from your input.
     fallbackFont :: Prelude.Maybe DvbSubSubtitleFallbackFont,
     -- | Specify the height, in pixels, of this set of DVB-Sub captions. The
     -- default value is 576 pixels. Related setting: When you use this setting,
     -- you must set DDS handling (ddsHandling) to a value other than None
     -- (NONE). All burn-in and DVB-Sub font settings must match.
     height :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
-    -- transparent. All burn-in and DVB-Sub font settings must match.
+    -- | Specify the opacity of the burned-in captions. 255 is opaque; 0 is
+    -- transparent. Within your job settings, all of your DVB-Sub settings must
+    -- be identical.
     fontOpacity :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the vertical offset of the shadow relative to the captions in
+    -- | Specify the vertical offset of the shadow relative to the captions in
     -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
-    -- text. All burn-in and DVB-Sub font settings must match.
+    -- text. Leave Shadow y-offset (ShadowYOffset) blank and set Style
+    -- passthrough (StylePassthrough) to enabled to use the shadow y-offset
+    -- data from your input captions, if present. Within your job settings, all
+    -- of your DVB-Sub settings must be identical.
     shadowYOffset :: Prelude.Maybe Prelude.Int,
-    -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
-    -- and DVB-Sub font settings must match.
+    -- | Specify the Font resolution (FontResolution) in DPI (dots per inch).
+    -- Within your job settings, all of your DVB-Sub settings must be
+    -- identical.
     fontResolution :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the vertical position of the caption relative to the top of
-    -- the output in pixels. A value of 10 would result in the captions
-    -- starting 10 pixels from the top of the output. If no explicit y_position
-    -- is provided, the caption will be positioned towards the bottom of the
-    -- output. This option is not valid for source captions that are STL,
-    -- 608\/embedded or teletext. These source settings are already pre-defined
-    -- by the caption stream. All burn-in and DVB-Sub font settings must match.
+    -- | Specify the vertical position (YPosition) of the captions, relative to
+    -- the top of the output in pixels. A value of 10 would result in the
+    -- captions starting 10 pixels from the top of the output. If no explicit
+    -- y_position is provided, the caption will be positioned towards the
+    -- bottom of the output. Within your job settings, all of your DVB-Sub
+    -- settings must be identical.
     yPosition :: Prelude.Maybe Prelude.Natural,
     -- | Use this setting, along with DDS x-coordinate (ddsXCoordinate), to
     -- specify the upper left corner of the display definition segment (DDS)
@@ -108,16 +116,19 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- the DDS or to the page composition segment (PCS). All burn-in and
     -- DVB-Sub font settings must match.
     ddsYCoordinate :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the color of the rectangle behind the captions. All burn-in
-    -- and DVB-Sub font settings must match.
+    -- | Specify the color of the rectangle behind the captions. Leave background
+    -- color (BackgroundColor) blank and set Style passthrough
+    -- (StylePassthrough) to enabled to use the background color data from your
+    -- input captions, if present.
     backgroundColor :: Prelude.Maybe DvbSubtitleBackgroundColor,
-    -- | Specifies the horizontal offset of the shadow relative to the captions
-    -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
-    -- left. All burn-in and DVB-Sub font settings must match.
+    -- | Specify the horizontal offset of the shadow, relative to the captions in
+    -- pixels. A value of -2 would result in a shadow offset 2 pixels to the
+    -- left. Within your job settings, all of your DVB-Sub settings must be
+    -- identical.
     shadowXOffset :: Prelude.Maybe Prelude.Int,
-    -- | A positive integer indicates the exact font size in points. Set to 0 for
-    -- automatic font size selection. All burn-in and DVB-Sub font settings
-    -- must match.
+    -- | Specify the Font size (FontSize) in pixels. Must be a positive integer.
+    -- Set to 0, or leave blank, for automatic font size. Within your job
+    -- settings, all of your DVB-Sub settings must be identical.
     fontSize :: Prelude.Maybe Prelude.Natural,
     -- | Specify the width, in pixels, of this set of DVB-Sub captions. The
     -- default value is 720 pixels. Related setting: When you use this setting,
@@ -135,83 +146,92 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- position data to the DDS or to the page composition segment (PCS). All
     -- burn-in and DVB-Sub font settings must match.
     ddsXCoordinate :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the horizontal position of the caption relative to the left
-    -- side of the output in pixels. A value of 10 would result in the captions
-    -- starting 10 pixels from the left of the output. If no explicit
-    -- x_position is provided, the horizontal caption position will be
-    -- determined by the alignment parameter. This option is not valid for
-    -- source captions that are STL, 608\/embedded or teletext. These source
-    -- settings are already pre-defined by the caption stream. All burn-in and
-    -- DVB-Sub font settings must match.
+    -- | Specify the horizontal position (XPosition) of the captions, relative to
+    -- the left side of the outputin pixels. A value of 10 would result in the
+    -- captions starting 10 pixels from the left ofthe output. If no explicit
+    -- x_position is provided, the horizontal caption position will
+    -- bedetermined by the alignment parameter. Within your job settings, all
+    -- of your DVB-Sub settings must be identical.
     xPosition :: Prelude.Maybe Prelude.Natural,
-    -- | Only applies to jobs with input captions in Teletext or STL formats.
-    -- Specify whether the spacing between letters in your captions is set by
-    -- the captions grid or varies depending on letter width. Choose fixed grid
-    -- to conform to the spacing specified in the captions file more
-    -- accurately. Choose proportional to make the text easier to read if the
-    -- captions are closed caption.
+    -- | Specify whether the Text spacing (TextSpacing) in your captions is set
+    -- by the captions grid, or varies depending on letter width. Choose fixed
+    -- grid (FIXED_GRID) to conform to the spacing specified in the captions
+    -- file more accurately. Choose proportional (PROPORTIONAL) to make the
+    -- text easier to read for closed captions. Within your job settings, all
+    -- of your DVB-Sub settings must be identical.
     teletextSpacing :: Prelude.Maybe DvbSubtitleTeletextSpacing,
-    -- | Provide the font script, using an ISO 15924 script code, if the
-    -- LanguageCode is not sufficient for determining the script type. Where
-    -- LanguageCode or CustomLanguageCode is sufficient, use \"AUTOMATIC\" or
-    -- leave unset. This is used to help determine the appropriate font for
-    -- rendering DVB-Sub captions.
+    -- | Set Font script (FontScript) to Automatically determined (AUTOMATIC), or
+    -- leave blank, to automatically determine the font script in your input
+    -- captions. Otherwise, set to Simplified Chinese (HANS) or Traditional
+    -- Chinese (HANT) if your input font script uses Simplified or Traditional
+    -- Chinese. Within your job settings, all of your DVB-Sub settings must be
+    -- identical.
     fontScript :: Prelude.Maybe FontScript,
-    -- | If no explicit x_position or y_position is provided, setting alignment
-    -- to centered will place the captions at the bottom center of the output.
-    -- Similarly, setting a left alignment will align captions to the bottom
-    -- left of the output. If x and y positions are given in conjunction with
-    -- the alignment parameter, the font will be justified (either left or
-    -- centered) relative to those coordinates. This option is not valid for
-    -- source captions that are STL, 608\/embedded or teletext. These source
-    -- settings are already pre-defined by the caption stream. All burn-in and
-    -- DVB-Sub font settings must match.
+    -- | Specify the alignment of your captions. If no explicit x_position is
+    -- provided, setting alignment to centered will placethe captions at the
+    -- bottom center of the output. Similarly, setting a left alignment
+    -- willalign captions to the bottom left of the output. If x and y
+    -- positions are given in conjunction with the alignment parameter, the
+    -- font will be justified (either left or centered) relative to those
+    -- coordinates. Within your job settings, all of your DVB-Sub settings must
+    -- be identical.
     alignment :: Prelude.Maybe DvbSubtitleAlignment,
-    -- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
-    -- Leaving this parameter blank is equivalent to setting it to 0
-    -- (transparent). All burn-in and DVB-Sub font settings must match.
+    -- | Specify the opacity of the shadow. Enter a value from 0 to 255, where 0
+    -- is transparent and 255 is opaque. If Style passthrough
+    -- (StylePassthrough) is set to Enabled, leave Shadow opacity
+    -- (ShadowOpacity) blank to pass through the shadow style information in
+    -- your input captions to your output captions. If Style passthrough is set
+    -- to disabled, leave blank to use a value of 0 and remove all shadows from
+    -- your output captions. Within your job settings, all of your DVB-Sub
+    -- settings must be identical.
     shadowOpacity :: Prelude.Maybe Prelude.Natural,
-    -- | Ignore this setting unless your input captions are STL, any type of 608,
-    -- teletext, or TTML, and your output captions are DVB-SUB. Specify how the
-    -- service applies the color specified in the setting Font color
-    -- (DvbSubtitleFontColor). By default, this color is white. When you choose
-    -- WHITE_TEXT_ONLY, the service uses the specified font color only for text
-    -- that is white in the input. When you choose ALL_TEXT, the service uses
-    -- the specified font color for all output captions text. If you leave both
-    -- settings at their default value, your output font color is the same as
-    -- your input font color.
+    -- | Ignore this setting unless Style Passthrough (StylePassthrough) is set
+    -- to Enabled and Font color (FontColor) set to Black, Yellow, Red, Green,
+    -- Blue, or Hex. Use Apply font color (ApplyFontColor) for additional font
+    -- color controls. When you choose White text only (WHITE_TEXT_ONLY), or
+    -- leave blank, your font color setting only applies to white text in your
+    -- input captions. For example, if your font color setting is Yellow, and
+    -- your input captions have red and white text, your output captions will
+    -- have red and yellow text. When you choose ALL_TEXT, your font color
+    -- setting applies to all of your output captions text.
     applyFontColor :: Prelude.Maybe DvbSubtitleApplyFontColor,
-    -- | Choose which set of style and position values the service applies to
-    -- your output captions. When you choose ENABLED, the service uses the
-    -- input style and position information from your input. When you choose
-    -- DISABLED, the service uses any style values that you specify in your
-    -- output settings. If you don\'t specify values, the service uses default
-    -- style and position values. When you choose DISABLED, the service ignores
-    -- all style and position values from your input.
+    -- | Set Style passthrough (StylePassthrough) to ENABLED to use the available
+    -- style, color, and position information from your input captions.
+    -- MediaConvert uses default settings for any missing style and position
+    -- information in your input captions. Set Style passthrough to DISABLED,
+    -- or leave blank, to ignore the style and position information from your
+    -- input captions and use default settings: white text with black
+    -- outlining, bottom-center positioning, and automatic sizing. Whether you
+    -- set Style passthrough to enabled or not, you can also choose to manually
+    -- override any of the individual style and position settings.
     stylePassthrough :: Prelude.Maybe DvbSubtitleStylePassthrough,
-    -- | Specifies font outline color. This option is not valid for source
-    -- captions that are either 608\/embedded or teletext. These source
-    -- settings are already pre-defined by the caption stream. All burn-in and
-    -- DVB-Sub font settings must match.
+    -- | Specify font outline color. Leave Outline color (OutlineColor) blank and
+    -- set Style passthrough (StylePassthrough) to enabled to use the font
+    -- outline color data from your input captions, if present. Within your job
+    -- settings, all of your DVB-Sub settings must be identical.
     outlineColor :: Prelude.Maybe DvbSubtitleOutlineColor,
-    -- | Specifies font outline size in pixels. This option is not valid for
-    -- source captions that are either 608\/embedded or teletext. These source
-    -- settings are already pre-defined by the caption stream. All burn-in and
-    -- DVB-Sub font settings must match.
+    -- | Specify the Outline size (OutlineSize) of the caption text, in pixels.
+    -- Leave Outline size blank and set Style passthrough (StylePassthrough) to
+    -- enabled to use the outline size data from your input captions, if
+    -- present. Within your job settings, all of your DVB-Sub settings must be
+    -- identical.
     outlineSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the color of the shadow cast by the captions. All burn-in and
-    -- DVB-Sub font settings must match.
+    -- | Specify the color of the shadow cast by the captions. Leave Shadow color
+    -- (ShadowColor) blank and set Style passthrough (StylePassthrough) to
+    -- enabled to use the shadow color data from your input captions, if
+    -- present. Within your job settings, all of your DVB-Sub settings must be
+    -- identical.
     shadowColor :: Prelude.Maybe DvbSubtitleShadowColor,
-    -- | Ignore this setting unless your DvbSubtitleFontColor setting is HEX.
-    -- Format is six or eight hexidecimal digits, representing the red, green,
-    -- and blue components, with the two extra digits used for an optional
-    -- alpha value. For example a value of 1122AABB is a red value of 0x11, a
-    -- green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+    -- | Ignore this setting unless your Font color is set to Hex. Enter either
+    -- six or eight hexidecimal digits, representing red, green, and blue, with
+    -- two optional extra digits for alpha. For example a value of 1122AABB is
+    -- a red value of 0x11, a green value of 0x22, a blue value of 0xAA, and an
+    -- alpha value of 0xBB.
     hexFontColor :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the color of the DVB-SUB captions. This option is not valid
-    -- for source captions that are STL, 608\/embedded or teletext. These
-    -- source settings are already pre-defined by the caption stream. All
-    -- burn-in and DVB-Sub font settings must match.
+    -- | Specify the color of the captions text. Leave Font color (FontColor)
+    -- blank and set Style passthrough (StylePassthrough) to enabled to use the
+    -- font color data from your input captions, if present. Within your job
+    -- settings, all of your DVB-Sub settings must be identical.
     fontColor :: Prelude.Maybe DvbSubtitleFontColor,
     -- | Specify whether your DVB subtitles are standard or for hearing impaired.
     -- Choose hearing impaired if your subtitles include audio descriptions and
@@ -244,42 +264,50 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- corner of the display window and the top left corner of the video frame.
 -- All burn-in and DVB-Sub font settings must match.
 --
--- 'backgroundOpacity', 'dvbSubDestinationSettings_backgroundOpacity' - Specifies the opacity of the background rectangle. 255 is opaque; 0 is
--- transparent. Leaving this parameter blank is equivalent to setting it to
--- 0 (transparent). All burn-in and DVB-Sub font settings must match.
+-- 'backgroundOpacity', 'dvbSubDestinationSettings_backgroundOpacity' - Specify the opacity of the background rectangle. Enter a value from 0 to
+-- 255, where 0 is transparent and 255 is opaque. If Style passthrough
+-- (StylePassthrough) is set to enabled, leave blank to pass through the
+-- background style information in your input captions to your output
+-- captions. If Style passthrough is set to disabled, leave blank to use a
+-- value of 0 and remove all backgrounds from your output captions. Within
+-- your job settings, all of your DVB-Sub settings must be identical.
 --
 -- 'fallbackFont', 'dvbSubDestinationSettings_fallbackFont' - Specify the font that you want the service to use for your burn in
 -- captions when your input captions specify a font that MediaConvert
--- doesn\'t support. When you keep the default value, Best match
--- (BEST_MATCH), MediaConvert uses a supported font that most closely
--- matches the font that your input captions specify. When there are
--- multiple unsupported fonts in your input captions, MediaConvert matches
--- each font with the supported font that matches best. When you explicitly
--- choose a replacement font, MediaConvert uses that font to replace all
--- unsupported fonts from your input.
+-- doesn\'t support. When you set Fallback font (FallbackFont) to best
+-- match (BEST_MATCH), or leave blank, MediaConvert uses a supported font
+-- that most closely matches the font that your input captions specify.
+-- When there are multiple unsupported fonts in your input captions,
+-- MediaConvert matches each font with the supported font that matches
+-- best. When you explicitly choose a replacement font, MediaConvert uses
+-- that font to replace all unsupported fonts from your input.
 --
 -- 'height', 'dvbSubDestinationSettings_height' - Specify the height, in pixels, of this set of DVB-Sub captions. The
 -- default value is 576 pixels. Related setting: When you use this setting,
 -- you must set DDS handling (ddsHandling) to a value other than None
 -- (NONE). All burn-in and DVB-Sub font settings must match.
 --
--- 'fontOpacity', 'dvbSubDestinationSettings_fontOpacity' - Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
--- transparent. All burn-in and DVB-Sub font settings must match.
+-- 'fontOpacity', 'dvbSubDestinationSettings_fontOpacity' - Specify the opacity of the burned-in captions. 255 is opaque; 0 is
+-- transparent. Within your job settings, all of your DVB-Sub settings must
+-- be identical.
 --
--- 'shadowYOffset', 'dvbSubDestinationSettings_shadowYOffset' - Specifies the vertical offset of the shadow relative to the captions in
+-- 'shadowYOffset', 'dvbSubDestinationSettings_shadowYOffset' - Specify the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
--- text. All burn-in and DVB-Sub font settings must match.
+-- text. Leave Shadow y-offset (ShadowYOffset) blank and set Style
+-- passthrough (StylePassthrough) to enabled to use the shadow y-offset
+-- data from your input captions, if present. Within your job settings, all
+-- of your DVB-Sub settings must be identical.
 --
--- 'fontResolution', 'dvbSubDestinationSettings_fontResolution' - Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
--- and DVB-Sub font settings must match.
+-- 'fontResolution', 'dvbSubDestinationSettings_fontResolution' - Specify the Font resolution (FontResolution) in DPI (dots per inch).
+-- Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 --
--- 'yPosition', 'dvbSubDestinationSettings_yPosition' - Specifies the vertical position of the caption relative to the top of
--- the output in pixels. A value of 10 would result in the captions
--- starting 10 pixels from the top of the output. If no explicit y_position
--- is provided, the caption will be positioned towards the bottom of the
--- output. This option is not valid for source captions that are STL,
--- 608\/embedded or teletext. These source settings are already pre-defined
--- by the caption stream. All burn-in and DVB-Sub font settings must match.
+-- 'yPosition', 'dvbSubDestinationSettings_yPosition' - Specify the vertical position (YPosition) of the captions, relative to
+-- the top of the output in pixels. A value of 10 would result in the
+-- captions starting 10 pixels from the top of the output. If no explicit
+-- y_position is provided, the caption will be positioned towards the
+-- bottom of the output. Within your job settings, all of your DVB-Sub
+-- settings must be identical.
 --
 -- 'ddsYCoordinate', 'dvbSubDestinationSettings_ddsYCoordinate' - Use this setting, along with DDS x-coordinate (ddsXCoordinate), to
 -- specify the upper left corner of the display definition segment (DDS)
@@ -292,16 +320,19 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- the DDS or to the page composition segment (PCS). All burn-in and
 -- DVB-Sub font settings must match.
 --
--- 'backgroundColor', 'dvbSubDestinationSettings_backgroundColor' - Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
+-- 'backgroundColor', 'dvbSubDestinationSettings_backgroundColor' - Specify the color of the rectangle behind the captions. Leave background
+-- color (BackgroundColor) blank and set Style passthrough
+-- (StylePassthrough) to enabled to use the background color data from your
+-- input captions, if present.
 --
--- 'shadowXOffset', 'dvbSubDestinationSettings_shadowXOffset' - Specifies the horizontal offset of the shadow relative to the captions
--- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
--- left. All burn-in and DVB-Sub font settings must match.
+-- 'shadowXOffset', 'dvbSubDestinationSettings_shadowXOffset' - Specify the horizontal offset of the shadow, relative to the captions in
+-- pixels. A value of -2 would result in a shadow offset 2 pixels to the
+-- left. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 --
--- 'fontSize', 'dvbSubDestinationSettings_fontSize' - A positive integer indicates the exact font size in points. Set to 0 for
--- automatic font size selection. All burn-in and DVB-Sub font settings
--- must match.
+-- 'fontSize', 'dvbSubDestinationSettings_fontSize' - Specify the Font size (FontSize) in pixels. Must be a positive integer.
+-- Set to 0, or leave blank, for automatic font size. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 --
 -- 'width', 'dvbSubDestinationSettings_width' - Specify the width, in pixels, of this set of DVB-Sub captions. The
 -- default value is 720 pixels. Related setting: When you use this setting,
@@ -319,83 +350,92 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- position data to the DDS or to the page composition segment (PCS). All
 -- burn-in and DVB-Sub font settings must match.
 --
--- 'xPosition', 'dvbSubDestinationSettings_xPosition' - Specifies the horizontal position of the caption relative to the left
--- side of the output in pixels. A value of 10 would result in the captions
--- starting 10 pixels from the left of the output. If no explicit
--- x_position is provided, the horizontal caption position will be
--- determined by the alignment parameter. This option is not valid for
--- source captions that are STL, 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- 'xPosition', 'dvbSubDestinationSettings_xPosition' - Specify the horizontal position (XPosition) of the captions, relative to
+-- the left side of the outputin pixels. A value of 10 would result in the
+-- captions starting 10 pixels from the left ofthe output. If no explicit
+-- x_position is provided, the horizontal caption position will
+-- bedetermined by the alignment parameter. Within your job settings, all
+-- of your DVB-Sub settings must be identical.
 --
--- 'teletextSpacing', 'dvbSubDestinationSettings_teletextSpacing' - Only applies to jobs with input captions in Teletext or STL formats.
--- Specify whether the spacing between letters in your captions is set by
--- the captions grid or varies depending on letter width. Choose fixed grid
--- to conform to the spacing specified in the captions file more
--- accurately. Choose proportional to make the text easier to read if the
--- captions are closed caption.
+-- 'teletextSpacing', 'dvbSubDestinationSettings_teletextSpacing' - Specify whether the Text spacing (TextSpacing) in your captions is set
+-- by the captions grid, or varies depending on letter width. Choose fixed
+-- grid (FIXED_GRID) to conform to the spacing specified in the captions
+-- file more accurately. Choose proportional (PROPORTIONAL) to make the
+-- text easier to read for closed captions. Within your job settings, all
+-- of your DVB-Sub settings must be identical.
 --
--- 'fontScript', 'dvbSubDestinationSettings_fontScript' - Provide the font script, using an ISO 15924 script code, if the
--- LanguageCode is not sufficient for determining the script type. Where
--- LanguageCode or CustomLanguageCode is sufficient, use \"AUTOMATIC\" or
--- leave unset. This is used to help determine the appropriate font for
--- rendering DVB-Sub captions.
+-- 'fontScript', 'dvbSubDestinationSettings_fontScript' - Set Font script (FontScript) to Automatically determined (AUTOMATIC), or
+-- leave blank, to automatically determine the font script in your input
+-- captions. Otherwise, set to Simplified Chinese (HANS) or Traditional
+-- Chinese (HANT) if your input font script uses Simplified or Traditional
+-- Chinese. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 --
--- 'alignment', 'dvbSubDestinationSettings_alignment' - If no explicit x_position or y_position is provided, setting alignment
--- to centered will place the captions at the bottom center of the output.
--- Similarly, setting a left alignment will align captions to the bottom
--- left of the output. If x and y positions are given in conjunction with
--- the alignment parameter, the font will be justified (either left or
--- centered) relative to those coordinates. This option is not valid for
--- source captions that are STL, 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- 'alignment', 'dvbSubDestinationSettings_alignment' - Specify the alignment of your captions. If no explicit x_position is
+-- provided, setting alignment to centered will placethe captions at the
+-- bottom center of the output. Similarly, setting a left alignment
+-- willalign captions to the bottom left of the output. If x and y
+-- positions are given in conjunction with the alignment parameter, the
+-- font will be justified (either left or centered) relative to those
+-- coordinates. Within your job settings, all of your DVB-Sub settings must
+-- be identical.
 --
--- 'shadowOpacity', 'dvbSubDestinationSettings_shadowOpacity' - Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
--- Leaving this parameter blank is equivalent to setting it to 0
--- (transparent). All burn-in and DVB-Sub font settings must match.
+-- 'shadowOpacity', 'dvbSubDestinationSettings_shadowOpacity' - Specify the opacity of the shadow. Enter a value from 0 to 255, where 0
+-- is transparent and 255 is opaque. If Style passthrough
+-- (StylePassthrough) is set to Enabled, leave Shadow opacity
+-- (ShadowOpacity) blank to pass through the shadow style information in
+-- your input captions to your output captions. If Style passthrough is set
+-- to disabled, leave blank to use a value of 0 and remove all shadows from
+-- your output captions. Within your job settings, all of your DVB-Sub
+-- settings must be identical.
 --
--- 'applyFontColor', 'dvbSubDestinationSettings_applyFontColor' - Ignore this setting unless your input captions are STL, any type of 608,
--- teletext, or TTML, and your output captions are DVB-SUB. Specify how the
--- service applies the color specified in the setting Font color
--- (DvbSubtitleFontColor). By default, this color is white. When you choose
--- WHITE_TEXT_ONLY, the service uses the specified font color only for text
--- that is white in the input. When you choose ALL_TEXT, the service uses
--- the specified font color for all output captions text. If you leave both
--- settings at their default value, your output font color is the same as
--- your input font color.
+-- 'applyFontColor', 'dvbSubDestinationSettings_applyFontColor' - Ignore this setting unless Style Passthrough (StylePassthrough) is set
+-- to Enabled and Font color (FontColor) set to Black, Yellow, Red, Green,
+-- Blue, or Hex. Use Apply font color (ApplyFontColor) for additional font
+-- color controls. When you choose White text only (WHITE_TEXT_ONLY), or
+-- leave blank, your font color setting only applies to white text in your
+-- input captions. For example, if your font color setting is Yellow, and
+-- your input captions have red and white text, your output captions will
+-- have red and yellow text. When you choose ALL_TEXT, your font color
+-- setting applies to all of your output captions text.
 --
--- 'stylePassthrough', 'dvbSubDestinationSettings_stylePassthrough' - Choose which set of style and position values the service applies to
--- your output captions. When you choose ENABLED, the service uses the
--- input style and position information from your input. When you choose
--- DISABLED, the service uses any style values that you specify in your
--- output settings. If you don\'t specify values, the service uses default
--- style and position values. When you choose DISABLED, the service ignores
--- all style and position values from your input.
+-- 'stylePassthrough', 'dvbSubDestinationSettings_stylePassthrough' - Set Style passthrough (StylePassthrough) to ENABLED to use the available
+-- style, color, and position information from your input captions.
+-- MediaConvert uses default settings for any missing style and position
+-- information in your input captions. Set Style passthrough to DISABLED,
+-- or leave blank, to ignore the style and position information from your
+-- input captions and use default settings: white text with black
+-- outlining, bottom-center positioning, and automatic sizing. Whether you
+-- set Style passthrough to enabled or not, you can also choose to manually
+-- override any of the individual style and position settings.
 --
--- 'outlineColor', 'dvbSubDestinationSettings_outlineColor' - Specifies font outline color. This option is not valid for source
--- captions that are either 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- 'outlineColor', 'dvbSubDestinationSettings_outlineColor' - Specify font outline color. Leave Outline color (OutlineColor) blank and
+-- set Style passthrough (StylePassthrough) to enabled to use the font
+-- outline color data from your input captions, if present. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 --
--- 'outlineSize', 'dvbSubDestinationSettings_outlineSize' - Specifies font outline size in pixels. This option is not valid for
--- source captions that are either 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- 'outlineSize', 'dvbSubDestinationSettings_outlineSize' - Specify the Outline size (OutlineSize) of the caption text, in pixels.
+-- Leave Outline size blank and set Style passthrough (StylePassthrough) to
+-- enabled to use the outline size data from your input captions, if
+-- present. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 --
--- 'shadowColor', 'dvbSubDestinationSettings_shadowColor' - Specifies the color of the shadow cast by the captions. All burn-in and
--- DVB-Sub font settings must match.
+-- 'shadowColor', 'dvbSubDestinationSettings_shadowColor' - Specify the color of the shadow cast by the captions. Leave Shadow color
+-- (ShadowColor) blank and set Style passthrough (StylePassthrough) to
+-- enabled to use the shadow color data from your input captions, if
+-- present. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 --
--- 'hexFontColor', 'dvbSubDestinationSettings_hexFontColor' - Ignore this setting unless your DvbSubtitleFontColor setting is HEX.
--- Format is six or eight hexidecimal digits, representing the red, green,
--- and blue components, with the two extra digits used for an optional
--- alpha value. For example a value of 1122AABB is a red value of 0x11, a
--- green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+-- 'hexFontColor', 'dvbSubDestinationSettings_hexFontColor' - Ignore this setting unless your Font color is set to Hex. Enter either
+-- six or eight hexidecimal digits, representing red, green, and blue, with
+-- two optional extra digits for alpha. For example a value of 1122AABB is
+-- a red value of 0x11, a green value of 0x22, a blue value of 0xAA, and an
+-- alpha value of 0xBB.
 --
--- 'fontColor', 'dvbSubDestinationSettings_fontColor' - Specifies the color of the DVB-SUB captions. This option is not valid
--- for source captions that are STL, 608\/embedded or teletext. These
--- source settings are already pre-defined by the caption stream. All
--- burn-in and DVB-Sub font settings must match.
+-- 'fontColor', 'dvbSubDestinationSettings_fontColor' - Specify the color of the captions text. Leave Font color (FontColor)
+-- blank and set Style passthrough (StylePassthrough) to enabled to use the
+-- font color data from your input captions, if present. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 --
 -- 'subtitlingType', 'dvbSubDestinationSettings_subtitlingType' - Specify whether your DVB subtitles are standard or for hearing impaired.
 -- Choose hearing impaired if your subtitles include audio descriptions and
@@ -452,21 +492,25 @@ newDvbSubDestinationSettings =
 dvbSubDestinationSettings_ddsHandling :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbddsHandling)
 dvbSubDestinationSettings_ddsHandling = Lens.lens (\DvbSubDestinationSettings' {ddsHandling} -> ddsHandling) (\s@DvbSubDestinationSettings' {} a -> s {ddsHandling = a} :: DvbSubDestinationSettings)
 
--- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is
--- transparent. Leaving this parameter blank is equivalent to setting it to
--- 0 (transparent). All burn-in and DVB-Sub font settings must match.
+-- | Specify the opacity of the background rectangle. Enter a value from 0 to
+-- 255, where 0 is transparent and 255 is opaque. If Style passthrough
+-- (StylePassthrough) is set to enabled, leave blank to pass through the
+-- background style information in your input captions to your output
+-- captions. If Style passthrough is set to disabled, leave blank to use a
+-- value of 0 and remove all backgrounds from your output captions. Within
+-- your job settings, all of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_backgroundOpacity :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_backgroundOpacity = Lens.lens (\DvbSubDestinationSettings' {backgroundOpacity} -> backgroundOpacity) (\s@DvbSubDestinationSettings' {} a -> s {backgroundOpacity = a} :: DvbSubDestinationSettings)
 
 -- | Specify the font that you want the service to use for your burn in
 -- captions when your input captions specify a font that MediaConvert
--- doesn\'t support. When you keep the default value, Best match
--- (BEST_MATCH), MediaConvert uses a supported font that most closely
--- matches the font that your input captions specify. When there are
--- multiple unsupported fonts in your input captions, MediaConvert matches
--- each font with the supported font that matches best. When you explicitly
--- choose a replacement font, MediaConvert uses that font to replace all
--- unsupported fonts from your input.
+-- doesn\'t support. When you set Fallback font (FallbackFont) to best
+-- match (BEST_MATCH), or leave blank, MediaConvert uses a supported font
+-- that most closely matches the font that your input captions specify.
+-- When there are multiple unsupported fonts in your input captions,
+-- MediaConvert matches each font with the supported font that matches
+-- best. When you explicitly choose a replacement font, MediaConvert uses
+-- that font to replace all unsupported fonts from your input.
 dvbSubDestinationSettings_fallbackFont :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubSubtitleFallbackFont)
 dvbSubDestinationSettings_fallbackFont = Lens.lens (\DvbSubDestinationSettings' {fallbackFont} -> fallbackFont) (\s@DvbSubDestinationSettings' {} a -> s {fallbackFont = a} :: DvbSubDestinationSettings)
 
@@ -477,29 +521,33 @@ dvbSubDestinationSettings_fallbackFont = Lens.lens (\DvbSubDestinationSettings' 
 dvbSubDestinationSettings_height :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_height = Lens.lens (\DvbSubDestinationSettings' {height} -> height) (\s@DvbSubDestinationSettings' {} a -> s {height = a} :: DvbSubDestinationSettings)
 
--- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
--- transparent. All burn-in and DVB-Sub font settings must match.
+-- | Specify the opacity of the burned-in captions. 255 is opaque; 0 is
+-- transparent. Within your job settings, all of your DVB-Sub settings must
+-- be identical.
 dvbSubDestinationSettings_fontOpacity :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_fontOpacity = Lens.lens (\DvbSubDestinationSettings' {fontOpacity} -> fontOpacity) (\s@DvbSubDestinationSettings' {} a -> s {fontOpacity = a} :: DvbSubDestinationSettings)
 
--- | Specifies the vertical offset of the shadow relative to the captions in
+-- | Specify the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
--- text. All burn-in and DVB-Sub font settings must match.
+-- text. Leave Shadow y-offset (ShadowYOffset) blank and set Style
+-- passthrough (StylePassthrough) to enabled to use the shadow y-offset
+-- data from your input captions, if present. Within your job settings, all
+-- of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_shadowYOffset :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Int)
 dvbSubDestinationSettings_shadowYOffset = Lens.lens (\DvbSubDestinationSettings' {shadowYOffset} -> shadowYOffset) (\s@DvbSubDestinationSettings' {} a -> s {shadowYOffset = a} :: DvbSubDestinationSettings)
 
--- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
--- and DVB-Sub font settings must match.
+-- | Specify the Font resolution (FontResolution) in DPI (dots per inch).
+-- Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 dvbSubDestinationSettings_fontResolution :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_fontResolution = Lens.lens (\DvbSubDestinationSettings' {fontResolution} -> fontResolution) (\s@DvbSubDestinationSettings' {} a -> s {fontResolution = a} :: DvbSubDestinationSettings)
 
--- | Specifies the vertical position of the caption relative to the top of
--- the output in pixels. A value of 10 would result in the captions
--- starting 10 pixels from the top of the output. If no explicit y_position
--- is provided, the caption will be positioned towards the bottom of the
--- output. This option is not valid for source captions that are STL,
--- 608\/embedded or teletext. These source settings are already pre-defined
--- by the caption stream. All burn-in and DVB-Sub font settings must match.
+-- | Specify the vertical position (YPosition) of the captions, relative to
+-- the top of the output in pixels. A value of 10 would result in the
+-- captions starting 10 pixels from the top of the output. If no explicit
+-- y_position is provided, the caption will be positioned towards the
+-- bottom of the output. Within your job settings, all of your DVB-Sub
+-- settings must be identical.
 dvbSubDestinationSettings_yPosition :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_yPosition = Lens.lens (\DvbSubDestinationSettings' {yPosition} -> yPosition) (\s@DvbSubDestinationSettings' {} a -> s {yPosition = a} :: DvbSubDestinationSettings)
 
@@ -516,20 +564,23 @@ dvbSubDestinationSettings_yPosition = Lens.lens (\DvbSubDestinationSettings' {yP
 dvbSubDestinationSettings_ddsYCoordinate :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_ddsYCoordinate = Lens.lens (\DvbSubDestinationSettings' {ddsYCoordinate} -> ddsYCoordinate) (\s@DvbSubDestinationSettings' {} a -> s {ddsYCoordinate = a} :: DvbSubDestinationSettings)
 
--- | Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
+-- | Specify the color of the rectangle behind the captions. Leave background
+-- color (BackgroundColor) blank and set Style passthrough
+-- (StylePassthrough) to enabled to use the background color data from your
+-- input captions, if present.
 dvbSubDestinationSettings_backgroundColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleBackgroundColor)
 dvbSubDestinationSettings_backgroundColor = Lens.lens (\DvbSubDestinationSettings' {backgroundColor} -> backgroundColor) (\s@DvbSubDestinationSettings' {} a -> s {backgroundColor = a} :: DvbSubDestinationSettings)
 
--- | Specifies the horizontal offset of the shadow relative to the captions
--- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
--- left. All burn-in and DVB-Sub font settings must match.
+-- | Specify the horizontal offset of the shadow, relative to the captions in
+-- pixels. A value of -2 would result in a shadow offset 2 pixels to the
+-- left. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 dvbSubDestinationSettings_shadowXOffset :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Int)
 dvbSubDestinationSettings_shadowXOffset = Lens.lens (\DvbSubDestinationSettings' {shadowXOffset} -> shadowXOffset) (\s@DvbSubDestinationSettings' {} a -> s {shadowXOffset = a} :: DvbSubDestinationSettings)
 
--- | A positive integer indicates the exact font size in points. Set to 0 for
--- automatic font size selection. All burn-in and DVB-Sub font settings
--- must match.
+-- | Specify the Font size (FontSize) in pixels. Must be a positive integer.
+-- Set to 0, or leave blank, for automatic font size. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_fontSize :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_fontSize = Lens.lens (\DvbSubDestinationSettings' {fontSize} -> fontSize) (\s@DvbSubDestinationSettings' {} a -> s {fontSize = a} :: DvbSubDestinationSettings)
 
@@ -553,105 +604,114 @@ dvbSubDestinationSettings_width = Lens.lens (\DvbSubDestinationSettings' {width}
 dvbSubDestinationSettings_ddsXCoordinate :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_ddsXCoordinate = Lens.lens (\DvbSubDestinationSettings' {ddsXCoordinate} -> ddsXCoordinate) (\s@DvbSubDestinationSettings' {} a -> s {ddsXCoordinate = a} :: DvbSubDestinationSettings)
 
--- | Specifies the horizontal position of the caption relative to the left
--- side of the output in pixels. A value of 10 would result in the captions
--- starting 10 pixels from the left of the output. If no explicit
--- x_position is provided, the horizontal caption position will be
--- determined by the alignment parameter. This option is not valid for
--- source captions that are STL, 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- | Specify the horizontal position (XPosition) of the captions, relative to
+-- the left side of the outputin pixels. A value of 10 would result in the
+-- captions starting 10 pixels from the left ofthe output. If no explicit
+-- x_position is provided, the horizontal caption position will
+-- bedetermined by the alignment parameter. Within your job settings, all
+-- of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_xPosition :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_xPosition = Lens.lens (\DvbSubDestinationSettings' {xPosition} -> xPosition) (\s@DvbSubDestinationSettings' {} a -> s {xPosition = a} :: DvbSubDestinationSettings)
 
--- | Only applies to jobs with input captions in Teletext or STL formats.
--- Specify whether the spacing between letters in your captions is set by
--- the captions grid or varies depending on letter width. Choose fixed grid
--- to conform to the spacing specified in the captions file more
--- accurately. Choose proportional to make the text easier to read if the
--- captions are closed caption.
+-- | Specify whether the Text spacing (TextSpacing) in your captions is set
+-- by the captions grid, or varies depending on letter width. Choose fixed
+-- grid (FIXED_GRID) to conform to the spacing specified in the captions
+-- file more accurately. Choose proportional (PROPORTIONAL) to make the
+-- text easier to read for closed captions. Within your job settings, all
+-- of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_teletextSpacing :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleTeletextSpacing)
 dvbSubDestinationSettings_teletextSpacing = Lens.lens (\DvbSubDestinationSettings' {teletextSpacing} -> teletextSpacing) (\s@DvbSubDestinationSettings' {} a -> s {teletextSpacing = a} :: DvbSubDestinationSettings)
 
--- | Provide the font script, using an ISO 15924 script code, if the
--- LanguageCode is not sufficient for determining the script type. Where
--- LanguageCode or CustomLanguageCode is sufficient, use \"AUTOMATIC\" or
--- leave unset. This is used to help determine the appropriate font for
--- rendering DVB-Sub captions.
+-- | Set Font script (FontScript) to Automatically determined (AUTOMATIC), or
+-- leave blank, to automatically determine the font script in your input
+-- captions. Otherwise, set to Simplified Chinese (HANS) or Traditional
+-- Chinese (HANT) if your input font script uses Simplified or Traditional
+-- Chinese. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 dvbSubDestinationSettings_fontScript :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe FontScript)
 dvbSubDestinationSettings_fontScript = Lens.lens (\DvbSubDestinationSettings' {fontScript} -> fontScript) (\s@DvbSubDestinationSettings' {} a -> s {fontScript = a} :: DvbSubDestinationSettings)
 
--- | If no explicit x_position or y_position is provided, setting alignment
--- to centered will place the captions at the bottom center of the output.
--- Similarly, setting a left alignment will align captions to the bottom
--- left of the output. If x and y positions are given in conjunction with
--- the alignment parameter, the font will be justified (either left or
--- centered) relative to those coordinates. This option is not valid for
--- source captions that are STL, 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- | Specify the alignment of your captions. If no explicit x_position is
+-- provided, setting alignment to centered will placethe captions at the
+-- bottom center of the output. Similarly, setting a left alignment
+-- willalign captions to the bottom left of the output. If x and y
+-- positions are given in conjunction with the alignment parameter, the
+-- font will be justified (either left or centered) relative to those
+-- coordinates. Within your job settings, all of your DVB-Sub settings must
+-- be identical.
 dvbSubDestinationSettings_alignment :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleAlignment)
 dvbSubDestinationSettings_alignment = Lens.lens (\DvbSubDestinationSettings' {alignment} -> alignment) (\s@DvbSubDestinationSettings' {} a -> s {alignment = a} :: DvbSubDestinationSettings)
 
--- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
--- Leaving this parameter blank is equivalent to setting it to 0
--- (transparent). All burn-in and DVB-Sub font settings must match.
+-- | Specify the opacity of the shadow. Enter a value from 0 to 255, where 0
+-- is transparent and 255 is opaque. If Style passthrough
+-- (StylePassthrough) is set to Enabled, leave Shadow opacity
+-- (ShadowOpacity) blank to pass through the shadow style information in
+-- your input captions to your output captions. If Style passthrough is set
+-- to disabled, leave blank to use a value of 0 and remove all shadows from
+-- your output captions. Within your job settings, all of your DVB-Sub
+-- settings must be identical.
 dvbSubDestinationSettings_shadowOpacity :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_shadowOpacity = Lens.lens (\DvbSubDestinationSettings' {shadowOpacity} -> shadowOpacity) (\s@DvbSubDestinationSettings' {} a -> s {shadowOpacity = a} :: DvbSubDestinationSettings)
 
--- | Ignore this setting unless your input captions are STL, any type of 608,
--- teletext, or TTML, and your output captions are DVB-SUB. Specify how the
--- service applies the color specified in the setting Font color
--- (DvbSubtitleFontColor). By default, this color is white. When you choose
--- WHITE_TEXT_ONLY, the service uses the specified font color only for text
--- that is white in the input. When you choose ALL_TEXT, the service uses
--- the specified font color for all output captions text. If you leave both
--- settings at their default value, your output font color is the same as
--- your input font color.
+-- | Ignore this setting unless Style Passthrough (StylePassthrough) is set
+-- to Enabled and Font color (FontColor) set to Black, Yellow, Red, Green,
+-- Blue, or Hex. Use Apply font color (ApplyFontColor) for additional font
+-- color controls. When you choose White text only (WHITE_TEXT_ONLY), or
+-- leave blank, your font color setting only applies to white text in your
+-- input captions. For example, if your font color setting is Yellow, and
+-- your input captions have red and white text, your output captions will
+-- have red and yellow text. When you choose ALL_TEXT, your font color
+-- setting applies to all of your output captions text.
 dvbSubDestinationSettings_applyFontColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleApplyFontColor)
 dvbSubDestinationSettings_applyFontColor = Lens.lens (\DvbSubDestinationSettings' {applyFontColor} -> applyFontColor) (\s@DvbSubDestinationSettings' {} a -> s {applyFontColor = a} :: DvbSubDestinationSettings)
 
--- | Choose which set of style and position values the service applies to
--- your output captions. When you choose ENABLED, the service uses the
--- input style and position information from your input. When you choose
--- DISABLED, the service uses any style values that you specify in your
--- output settings. If you don\'t specify values, the service uses default
--- style and position values. When you choose DISABLED, the service ignores
--- all style and position values from your input.
+-- | Set Style passthrough (StylePassthrough) to ENABLED to use the available
+-- style, color, and position information from your input captions.
+-- MediaConvert uses default settings for any missing style and position
+-- information in your input captions. Set Style passthrough to DISABLED,
+-- or leave blank, to ignore the style and position information from your
+-- input captions and use default settings: white text with black
+-- outlining, bottom-center positioning, and automatic sizing. Whether you
+-- set Style passthrough to enabled or not, you can also choose to manually
+-- override any of the individual style and position settings.
 dvbSubDestinationSettings_stylePassthrough :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleStylePassthrough)
 dvbSubDestinationSettings_stylePassthrough = Lens.lens (\DvbSubDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@DvbSubDestinationSettings' {} a -> s {stylePassthrough = a} :: DvbSubDestinationSettings)
 
--- | Specifies font outline color. This option is not valid for source
--- captions that are either 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- | Specify font outline color. Leave Outline color (OutlineColor) blank and
+-- set Style passthrough (StylePassthrough) to enabled to use the font
+-- outline color data from your input captions, if present. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_outlineColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleOutlineColor)
 dvbSubDestinationSettings_outlineColor = Lens.lens (\DvbSubDestinationSettings' {outlineColor} -> outlineColor) (\s@DvbSubDestinationSettings' {} a -> s {outlineColor = a} :: DvbSubDestinationSettings)
 
--- | Specifies font outline size in pixels. This option is not valid for
--- source captions that are either 608\/embedded or teletext. These source
--- settings are already pre-defined by the caption stream. All burn-in and
--- DVB-Sub font settings must match.
+-- | Specify the Outline size (OutlineSize) of the caption text, in pixels.
+-- Leave Outline size blank and set Style passthrough (StylePassthrough) to
+-- enabled to use the outline size data from your input captions, if
+-- present. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 dvbSubDestinationSettings_outlineSize :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_outlineSize = Lens.lens (\DvbSubDestinationSettings' {outlineSize} -> outlineSize) (\s@DvbSubDestinationSettings' {} a -> s {outlineSize = a} :: DvbSubDestinationSettings)
 
--- | Specifies the color of the shadow cast by the captions. All burn-in and
--- DVB-Sub font settings must match.
+-- | Specify the color of the shadow cast by the captions. Leave Shadow color
+-- (ShadowColor) blank and set Style passthrough (StylePassthrough) to
+-- enabled to use the shadow color data from your input captions, if
+-- present. Within your job settings, all of your DVB-Sub settings must be
+-- identical.
 dvbSubDestinationSettings_shadowColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleShadowColor)
 dvbSubDestinationSettings_shadowColor = Lens.lens (\DvbSubDestinationSettings' {shadowColor} -> shadowColor) (\s@DvbSubDestinationSettings' {} a -> s {shadowColor = a} :: DvbSubDestinationSettings)
 
--- | Ignore this setting unless your DvbSubtitleFontColor setting is HEX.
--- Format is six or eight hexidecimal digits, representing the red, green,
--- and blue components, with the two extra digits used for an optional
--- alpha value. For example a value of 1122AABB is a red value of 0x11, a
--- green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+-- | Ignore this setting unless your Font color is set to Hex. Enter either
+-- six or eight hexidecimal digits, representing red, green, and blue, with
+-- two optional extra digits for alpha. For example a value of 1122AABB is
+-- a red value of 0x11, a green value of 0x22, a blue value of 0xAA, and an
+-- alpha value of 0xBB.
 dvbSubDestinationSettings_hexFontColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Text)
 dvbSubDestinationSettings_hexFontColor = Lens.lens (\DvbSubDestinationSettings' {hexFontColor} -> hexFontColor) (\s@DvbSubDestinationSettings' {} a -> s {hexFontColor = a} :: DvbSubDestinationSettings)
 
--- | Specifies the color of the DVB-SUB captions. This option is not valid
--- for source captions that are STL, 608\/embedded or teletext. These
--- source settings are already pre-defined by the caption stream. All
--- burn-in and DVB-Sub font settings must match.
+-- | Specify the color of the captions text. Leave Font color (FontColor)
+-- blank and set Style passthrough (StylePassthrough) to enabled to use the
+-- font color data from your input captions, if present. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 dvbSubDestinationSettings_fontColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubtitleFontColor)
 dvbSubDestinationSettings_fontColor = Lens.lens (\DvbSubDestinationSettings' {fontColor} -> fontColor) (\s@DvbSubDestinationSettings' {} a -> s {fontColor = a} :: DvbSubDestinationSettings)
 

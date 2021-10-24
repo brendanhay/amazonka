@@ -274,6 +274,7 @@ library
     Network.AWS.MediaConvert.Types.FileGroupSettings
     Network.AWS.MediaConvert.Types.FileSourceConvert608To708
     Network.AWS.MediaConvert.Types.FileSourceSettings
+    Network.AWS.MediaConvert.Types.FileSourceTimeDeltaUnits
     Network.AWS.MediaConvert.Types.FontScript
     Network.AWS.MediaConvert.Types.FrameCaptureSettings
     Network.AWS.MediaConvert.Types.H264AdaptiveQuantization

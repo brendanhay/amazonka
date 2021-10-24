@@ -24,13 +24,21 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.SrtStylePassthrough
 import qualified Network.AWS.Prelude as Prelude
 
--- | SRT Destination Settings
+-- | Settings related to SRT captions. SRT is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. When you work directly in your JSON job specification,
+-- include this object and any required children when you set
+-- destinationType to SRT.
 --
 -- /See:/ 'newSrtDestinationSettings' smart constructor.
 data SrtDestinationSettings = SrtDestinationSettings'
-  { -- | Choose Enabled (ENABLED) to have MediaConvert use the font style, color,
-    -- and position information from the captions source in the input. Keep the
-    -- default value, Disabled (DISABLED), for simplified output captions.
+  { -- | Set Style passthrough (StylePassthrough) to ENABLED to use the available
+    -- style, color, and position information from your input captions.
+    -- MediaConvert uses default settings for any missing style and position
+    -- information in your input captions. Set Style passthrough to DISABLED,
+    -- or leave blank, to ignore the style and position information from your
+    -- input captions and use simplified output captions.
     stylePassthrough :: Prelude.Maybe SrtStylePassthrough
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +51,12 @@ data SrtDestinationSettings = SrtDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stylePassthrough', 'srtDestinationSettings_stylePassthrough' - Choose Enabled (ENABLED) to have MediaConvert use the font style, color,
--- and position information from the captions source in the input. Keep the
--- default value, Disabled (DISABLED), for simplified output captions.
+-- 'stylePassthrough', 'srtDestinationSettings_stylePassthrough' - Set Style passthrough (StylePassthrough) to ENABLED to use the available
+-- style, color, and position information from your input captions.
+-- MediaConvert uses default settings for any missing style and position
+-- information in your input captions. Set Style passthrough to DISABLED,
+-- or leave blank, to ignore the style and position information from your
+-- input captions and use simplified output captions.
 newSrtDestinationSettings ::
   SrtDestinationSettings
 newSrtDestinationSettings =
@@ -54,9 +65,12 @@ newSrtDestinationSettings =
         Prelude.Nothing
     }
 
--- | Choose Enabled (ENABLED) to have MediaConvert use the font style, color,
--- and position information from the captions source in the input. Keep the
--- default value, Disabled (DISABLED), for simplified output captions.
+-- | Set Style passthrough (StylePassthrough) to ENABLED to use the available
+-- style, color, and position information from your input captions.
+-- MediaConvert uses default settings for any missing style and position
+-- information in your input captions. Set Style passthrough to DISABLED,
+-- or leave blank, to ignore the style and position information from your
+-- input captions and use simplified output captions.
 srtDestinationSettings_stylePassthrough :: Lens.Lens' SrtDestinationSettings (Prelude.Maybe SrtStylePassthrough)
 srtDestinationSettings_stylePassthrough = Lens.lens (\SrtDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@SrtDestinationSettings' {} a -> s {stylePassthrough = a} :: SrtDestinationSettings)
 

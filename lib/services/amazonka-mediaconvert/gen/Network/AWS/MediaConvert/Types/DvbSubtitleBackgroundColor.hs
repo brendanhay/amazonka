@@ -31,8 +31,10 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
+-- | Specify the color of the rectangle behind the captions. Leave background
+-- color (BackgroundColor) blank and set Style passthrough
+-- (StylePassthrough) to enabled to use the background color data from your
+-- input captions, if present.
 newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor'
   { fromDvbSubtitleBackgroundColor ::
       Core.Text

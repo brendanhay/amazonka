@@ -29,14 +29,15 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Ignore this setting unless your output captions are burned in. Choose
--- which set of style and position values the service applies to your
--- output captions. When you choose ENABLED, the service uses the input
--- style and position information from your input. When you choose
--- DISABLED, the service uses any style values that you specify in your
--- output settings. If you don\'t specify values, the service uses default
--- style and position values. When you choose DISABLED, the service ignores
--- all style and position values from your input.
+-- | Set Style passthrough (StylePassthrough) to ENABLED to use the available
+-- style, color, and position information from your input captions.
+-- MediaConvert uses default settings for any missing style and position
+-- information in your input captions. Set Style passthrough to DISABLED,
+-- or leave blank, to ignore the style and position information from your
+-- input captions and use default settings: white text with black
+-- outlining, bottom-center positioning, and automatic sizing. Whether you
+-- set Style passthrough to enabled or not, you can also choose to manually
+-- override any of the individual style and position settings.
 newtype BurnInSubtitleStylePassthrough = BurnInSubtitleStylePassthrough'
   { fromBurnInSubtitleStylePassthrough ::
       Core.Text

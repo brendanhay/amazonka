@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.SrtStylePassthrough
+-- Module      : Network.AWS.MediaConvert.Types.FileSourceTimeDeltaUnits
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.SrtStylePassthrough
-  ( SrtStylePassthrough
+module Network.AWS.MediaConvert.Types.FileSourceTimeDeltaUnits
+  ( FileSourceTimeDeltaUnits
       ( ..,
-        SrtStylePassthrough_DISABLED,
-        SrtStylePassthrough_ENABLED
+        FileSourceTimeDeltaUnits_MILLISECONDS,
+        FileSourceTimeDeltaUnits_SECONDS
       ),
   )
 where
@@ -29,14 +29,13 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Set Style passthrough (StylePassthrough) to ENABLED to use the available
--- style, color, and position information from your input captions.
--- MediaConvert uses default settings for any missing style and position
--- information in your input captions. Set Style passthrough to DISABLED,
--- or leave blank, to ignore the style and position information from your
--- input captions and use simplified output captions.
-newtype SrtStylePassthrough = SrtStylePassthrough'
-  { fromSrtStylePassthrough ::
+-- | When you use the setting Time delta (TimeDelta) to adjust the sync
+-- between your sidecar captions and your video, use this setting to
+-- specify the units for the delta that you specify. When you don\'t
+-- specify a value for Time delta units (TimeDeltaUnits), MediaConvert uses
+-- seconds by default.
+newtype FileSourceTimeDeltaUnits = FileSourceTimeDeltaUnits'
+  { fromFileSourceTimeDeltaUnits ::
       Core.Text
   }
   deriving stock
@@ -63,14 +62,14 @@ newtype SrtStylePassthrough = SrtStylePassthrough'
       Core.ToXML
     )
 
-pattern SrtStylePassthrough_DISABLED :: SrtStylePassthrough
-pattern SrtStylePassthrough_DISABLED = SrtStylePassthrough' "DISABLED"
+pattern FileSourceTimeDeltaUnits_MILLISECONDS :: FileSourceTimeDeltaUnits
+pattern FileSourceTimeDeltaUnits_MILLISECONDS = FileSourceTimeDeltaUnits' "MILLISECONDS"
 
-pattern SrtStylePassthrough_ENABLED :: SrtStylePassthrough
-pattern SrtStylePassthrough_ENABLED = SrtStylePassthrough' "ENABLED"
+pattern FileSourceTimeDeltaUnits_SECONDS :: FileSourceTimeDeltaUnits
+pattern FileSourceTimeDeltaUnits_SECONDS = FileSourceTimeDeltaUnits' "SECONDS"
 
 {-# COMPLETE
-  SrtStylePassthrough_DISABLED,
-  SrtStylePassthrough_ENABLED,
-  SrtStylePassthrough'
+  FileSourceTimeDeltaUnits_MILLISECONDS,
+  FileSourceTimeDeltaUnits_SECONDS,
+  FileSourceTimeDeltaUnits'
   #-}

@@ -645,6 +645,9 @@ module Network.AWS.MediaConvert
     -- ** FileSourceConvert608To708
     FileSourceConvert608To708 (..),
 
+    -- ** FileSourceTimeDeltaUnits
+    FileSourceTimeDeltaUnits (..),
+
     -- ** FontScript
     FontScript (..),
 

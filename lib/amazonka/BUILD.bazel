@@ -44,7 +44,6 @@ haskell_library(
         "src/Network/AWS/Waiter.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka=\"1.6.1\"",
         "-XNoImplicitPrelude",
         "-XConstraintKinds",
         "-XDataKinds",
@@ -80,6 +79,7 @@ haskell_library(
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-fwarn-missing-deriving-strategies",
+        "-DVERSION_amazonka=\"2.0\"",
     ],
     hidden_modules = [
         "Network.AWS.Bytes",
@@ -103,7 +103,7 @@ haskell_library(
         "Network.AWS.Types",
         "Network.AWS.Waiter",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "@stackage//:aeson",
@@ -159,7 +159,6 @@ haskell_test(
         "test/Test/AWS/Util.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka=\"1.6.1\"",
         "-XNoImplicitPrelude",
         "-XConstraintKinds",
         "-XDataKinds",
@@ -197,8 +196,9 @@ haskell_test(
         "-fwarn-missing-deriving-strategies",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka",

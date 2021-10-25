@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- | With the VP8 codec, you can use only the variable bitrate (VBR) rate</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- control mode.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680013268"><span id="local-6989586621680013269"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8RateControlMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8RateControlMode.html#Vp8RateControlMode"><span class="hs-identifier hs-var">Vp8RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8RateControlMode.html#Vp8RateControlMode%27"><span class="hs-identifier hs-var">Vp8RateControlMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680014758"><span id="local-6989586621680014759"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8RateControlMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8RateControlMode.html#Vp8RateControlMode"><span class="hs-identifier hs-var">Vp8RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8RateControlMode.html#Vp8RateControlMode%27"><span class="hs-identifier hs-var">Vp8RateControlMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp8RateControlMode"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp8RateControlMode.html#fromVp8RateControlMode"><span class="hs-identifier hs-var hs-var">fromVp8RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680013260"><span id="local-6989586621680013262"><span id="local-6989586621680013264"><span class="annot"><span class="annottext">Int -&gt; Vp8RateControlMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014750"><span id="local-6989586621680014752"><span id="local-6989586621680014754"><span class="annot"><span class="annottext">Int -&gt; Vp8RateControlMode -&gt; ShowS
 [Vp8RateControlMode] -&gt; ShowS
 Vp8RateControlMode -&gt; String
 (Int -&gt; Vp8RateControlMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Vp8RateControlMode -&gt; String
 showsPrec :: Int -&gt; Vp8RateControlMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp8RateControlMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680013251"><span id="local-6989586621680013253"><span id="local-6989586621680013255"><span id="local-6989586621680013257"><span class="annot"><span class="annottext">ReadPrec [Vp8RateControlMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680014741"><span id="local-6989586621680014743"><span id="local-6989586621680014745"><span id="local-6989586621680014747"><span class="annot"><span class="annottext">ReadPrec [Vp8RateControlMode]
 ReadPrec Vp8RateControlMode
 Int -&gt; ReadS Vp8RateControlMode
 ReadS [Vp8RateControlMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Vp8RateControlMode]
 readsPrec :: Int -&gt; ReadS Vp8RateControlMode
 $creadsPrec :: Int -&gt; ReadS Vp8RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680013246"><span id="local-6989586621680013248"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680014736"><span id="local-6989586621680014738"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool
 (Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool)
 -&gt; (Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool)
 -&gt; Eq Vp8RateControlMode
@@ -83,7 +83,7 @@ $c/= :: Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool
 == :: Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool
 $c== :: Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680013230"><span id="local-6989586621680013232"><span id="local-6989586621680013234"><span id="local-6989586621680013236"><span id="local-6989586621680013238"><span id="local-6989586621680013240"><span id="local-6989586621680013242"><span class="annot"><span class="annottext">Eq Vp8RateControlMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680014720"><span id="local-6989586621680014722"><span id="local-6989586621680014724"><span id="local-6989586621680014726"><span id="local-6989586621680014728"><span id="local-6989586621680014730"><span id="local-6989586621680014732"><span class="annot"><span class="annottext">Eq Vp8RateControlMode
 Eq Vp8RateControlMode
 -&gt; (Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Ordering)
 -&gt; (Vp8RateControlMode -&gt; Vp8RateControlMode -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Vp8RateControlMode -&gt; Rep Vp8RateControlMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680013222"><span id="local-6989586621680013224"><span class="annot"><span class="annottext">Int -&gt; Vp8RateControlMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014712"><span id="local-6989586621680014714"><span class="annot"><span class="annottext">Int -&gt; Vp8RateControlMode -&gt; Int
 Vp8RateControlMode -&gt; Int
 (Int -&gt; Vp8RateControlMode -&gt; Int)
 -&gt; (Vp8RateControlMode -&gt; Int) -&gt; Hashable Vp8RateControlMode
@@ -144,53 +144,53 @@ $chash :: Vp8RateControlMode -&gt; Int
 hashWithSalt :: Int -&gt; Vp8RateControlMode -&gt; Int
 $chashWithSalt :: Int -&gt; Vp8RateControlMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680013219"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680014709"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; ()
 (Vp8RateControlMode -&gt; ()) -&gt; NFData Vp8RateControlMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp8RateControlMode -&gt; ()
 $crnf :: Vp8RateControlMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680013216"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8RateControlMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680014706"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8RateControlMode
 (Text -&gt; Either String Vp8RateControlMode)
 -&gt; FromText Vp8RateControlMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp8RateControlMode
 $cfromText :: Text -&gt; Either String Vp8RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680013213"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680014703"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; Text
 (Vp8RateControlMode -&gt; Text) -&gt; ToText Vp8RateControlMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp8RateControlMode -&gt; Text
 $ctoText :: Vp8RateControlMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680013210"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680014700"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; ByteString
 (Vp8RateControlMode -&gt; ByteString)
 -&gt; ToByteString Vp8RateControlMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp8RateControlMode -&gt; ByteString
 $ctoBS :: Vp8RateControlMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680013207"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680014697"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; ByteStringBuilder
 (Vp8RateControlMode -&gt; ByteStringBuilder)
 -&gt; ToLog Vp8RateControlMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp8RateControlMode -&gt; ByteStringBuilder
 $cbuild :: Vp8RateControlMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680013204"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8RateControlMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680014694"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8RateControlMode -&gt; [Header]
 (HeaderName -&gt; Vp8RateControlMode -&gt; [Header])
 -&gt; ToHeader Vp8RateControlMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp8RateControlMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp8RateControlMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680013201"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680014691"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; QueryString
 (Vp8RateControlMode -&gt; QueryString) -&gt; ToQuery Vp8RateControlMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp8RateControlMode -&gt; QueryString
 $ctoQuery :: Vp8RateControlMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680013196"><span id="local-6989586621680013198"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8RateControlMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680014686"><span id="local-6989586621680014688"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8RateControlMode]
 Value -&gt; Parser Vp8RateControlMode
 (Value -&gt; Parser Vp8RateControlMode)
 -&gt; (Value -&gt; Parser [Vp8RateControlMode])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp8RateControlMode]
 parseJSON :: Value -&gt; Parser Vp8RateControlMode
 $cparseJSON :: Value -&gt; Parser Vp8RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680013191"><span id="local-6989586621680013193"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8RateControlMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680014681"><span id="local-6989586621680014683"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8RateControlMode]
 FromJSONKeyFunction Vp8RateControlMode
 FromJSONKeyFunction Vp8RateControlMode
 -&gt; FromJSONKeyFunction [Vp8RateControlMode]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp8RateControlMode]
 fromJSONKey :: FromJSONKeyFunction Vp8RateControlMode
 $cfromJSONKey :: FromJSONKeyFunction Vp8RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680013182"><span id="local-6989586621680013184"><span id="local-6989586621680013186"><span id="local-6989586621680013188"><span class="annot"><span class="annottext">[Vp8RateControlMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680014672"><span id="local-6989586621680014674"><span id="local-6989586621680014676"><span id="local-6989586621680014678"><span class="annot"><span class="annottext">[Vp8RateControlMode] -&gt; Encoding
 [Vp8RateControlMode] -&gt; Value
 Vp8RateControlMode -&gt; Encoding
 Vp8RateControlMode -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Vp8RateControlMode -&gt; Encoding
 toJSON :: Vp8RateControlMode -&gt; Value
 $ctoJSON :: Vp8RateControlMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680013177"><span id="local-6989586621680013179"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8RateControlMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680014667"><span id="local-6989586621680014669"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8RateControlMode]
 ToJSONKeyFunction Vp8RateControlMode
 ToJSONKeyFunction Vp8RateControlMode
 -&gt; ToJSONKeyFunction [Vp8RateControlMode]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp8RateControlMode]
 toJSONKey :: ToJSONKeyFunction Vp8RateControlMode
 $ctoJSONKey :: ToJSONKeyFunction Vp8RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680013174"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8RateControlMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680014664"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8RateControlMode
 ([Node] -&gt; Either String Vp8RateControlMode)
 -&gt; FromXML Vp8RateControlMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp8RateControlMode
 $cparseXML :: [Node] -&gt; Either String Vp8RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680013171"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014661"><span class="annot"><span class="annottext">Vp8RateControlMode -&gt; XML
 (Vp8RateControlMode -&gt; XML) -&gt; ToXML Vp8RateControlMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vp8RateControlMode -&gt; XML

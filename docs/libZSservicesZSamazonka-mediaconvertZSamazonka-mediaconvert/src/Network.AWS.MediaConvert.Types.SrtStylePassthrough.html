@@ -29,16 +29,19 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span class="hs-comment">-- | Choose Enabled (ENABLED) to have MediaConvert use the font style, color,</span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- and position information from the captions source in the input. Keep the</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- default value, Disabled (DISABLED), for simplified output captions.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680005681"><span id="local-6989586621680005682"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SrtStylePassthrough"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-var">SrtStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SrtStylePassthrough%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough%27"><span class="hs-identifier hs-var">SrtStylePassthrough'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSrtStylePassthrough"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; Text
+</span><span id="line-32"></span><span class="hs-comment">-- | Set Style passthrough (StylePassthrough) to ENABLED to use the available</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- style, color, and position information from your input captions.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- MediaConvert uses default settings for any missing style and position</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- information in your input captions. Set Style passthrough to DISABLED,</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- or leave blank, to ignore the style and position information from your</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- input captions and use simplified output captions.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621680007171"><span id="local-6989586621680007172"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SrtStylePassthrough"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-var">SrtStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SrtStylePassthrough%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough%27"><span class="hs-identifier hs-var">SrtStylePassthrough'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSrtStylePassthrough"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#fromSrtStylePassthrough"><span class="hs-identifier hs-var hs-var">fromSrtStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005673"><span id="local-6989586621680005675"><span id="local-6989586621680005677"><span class="annot"><span class="annottext">Int -&gt; SrtStylePassthrough -&gt; ShowS
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007163"><span id="local-6989586621680007165"><span id="local-6989586621680007167"><span class="annot"><span class="annottext">Int -&gt; SrtStylePassthrough -&gt; ShowS
 [SrtStylePassthrough] -&gt; ShowS
 SrtStylePassthrough -&gt; String
 (Int -&gt; SrtStylePassthrough -&gt; ShowS)
@@ -54,7 +57,7 @@ $cshow :: SrtStylePassthrough -&gt; String
 showsPrec :: Int -&gt; SrtStylePassthrough -&gt; ShowS
 $cshowsPrec :: Int -&gt; SrtStylePassthrough -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680005664"><span id="local-6989586621680005666"><span id="local-6989586621680005668"><span id="local-6989586621680005670"><span class="annot"><span class="annottext">ReadPrec [SrtStylePassthrough]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680007154"><span id="local-6989586621680007156"><span id="local-6989586621680007158"><span id="local-6989586621680007160"><span class="annot"><span class="annottext">ReadPrec [SrtStylePassthrough]
 ReadPrec SrtStylePassthrough
 Int -&gt; ReadS SrtStylePassthrough
 ReadS [SrtStylePassthrough]
@@ -75,7 +78,7 @@ $creadList :: ReadS [SrtStylePassthrough]
 readsPrec :: Int -&gt; ReadS SrtStylePassthrough
 $creadsPrec :: Int -&gt; ReadS SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680005659"><span id="local-6989586621680005661"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680007149"><span id="local-6989586621680007151"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool
 (SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool)
 -&gt; (SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool)
 -&gt; Eq SrtStylePassthrough
@@ -85,7 +88,7 @@ $c/= :: SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool
 == :: SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool
 $c== :: SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680005643"><span id="local-6989586621680005645"><span id="local-6989586621680005647"><span id="local-6989586621680005649"><span id="local-6989586621680005651"><span id="local-6989586621680005653"><span id="local-6989586621680005655"><span class="annot"><span class="annottext">Eq SrtStylePassthrough
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680007133"><span id="local-6989586621680007135"><span id="local-6989586621680007137"><span id="local-6989586621680007139"><span id="local-6989586621680007141"><span id="local-6989586621680007143"><span id="local-6989586621680007145"><span class="annot"><span class="annottext">Eq SrtStylePassthrough
 Eq SrtStylePassthrough
 -&gt; (SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Ordering)
 -&gt; (SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Bool)
@@ -126,7 +129,7 @@ compare :: SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Ordering
 $ccompare :: SrtStylePassthrough -&gt; SrtStylePassthrough -&gt; Ordering
 $cp1Ord :: Eq SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SrtStylePassthrough -&gt; Rep SrtStylePassthrough x)
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SrtStylePassthrough -&gt; Rep SrtStylePassthrough x)
 -&gt; (forall x. Rep SrtStylePassthrough x -&gt; SrtStylePassthrough)
 -&gt; Generic SrtStylePassthrough
 forall x. Rep SrtStylePassthrough x -&gt; SrtStylePassthrough
@@ -136,9 +139,9 @@ forall a.
 $cto :: forall x. Rep SrtStylePassthrough x -&gt; SrtStylePassthrough
 $cfrom :: forall x. SrtStylePassthrough -&gt; Rep SrtStylePassthrough x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005635"><span id="local-6989586621680005637"><span class="annot"><span class="annottext">Int -&gt; SrtStylePassthrough -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007125"><span id="local-6989586621680007127"><span class="annot"><span class="annottext">Int -&gt; SrtStylePassthrough -&gt; Int
 SrtStylePassthrough -&gt; Int
 (Int -&gt; SrtStylePassthrough -&gt; Int)
 -&gt; (SrtStylePassthrough -&gt; Int) -&gt; Hashable SrtStylePassthrough
@@ -148,53 +151,53 @@ $chash :: SrtStylePassthrough -&gt; Int
 hashWithSalt :: Int -&gt; SrtStylePassthrough -&gt; Int
 $chashWithSalt :: Int -&gt; SrtStylePassthrough -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680005632"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680007122"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; ()
 (SrtStylePassthrough -&gt; ()) -&gt; NFData SrtStylePassthrough
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SrtStylePassthrough -&gt; ()
 $crnf :: SrtStylePassthrough -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680005629"><span class="annot"><span class="annottext">Text -&gt; Either String SrtStylePassthrough
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680007119"><span class="annot"><span class="annottext">Text -&gt; Either String SrtStylePassthrough
 (Text -&gt; Either String SrtStylePassthrough)
 -&gt; FromText SrtStylePassthrough
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SrtStylePassthrough
 $cfromText :: Text -&gt; Either String SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680005626"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680007116"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; Text
 (SrtStylePassthrough -&gt; Text) -&gt; ToText SrtStylePassthrough
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SrtStylePassthrough -&gt; Text
 $ctoText :: SrtStylePassthrough -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680005623"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680007113"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; ByteString
 (SrtStylePassthrough -&gt; ByteString)
 -&gt; ToByteString SrtStylePassthrough
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SrtStylePassthrough -&gt; ByteString
 $ctoBS :: SrtStylePassthrough -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680005620"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680007110"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; ByteStringBuilder
 (SrtStylePassthrough -&gt; ByteStringBuilder)
 -&gt; ToLog SrtStylePassthrough
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SrtStylePassthrough -&gt; ByteStringBuilder
 $cbuild :: SrtStylePassthrough -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680005617"><span class="annot"><span class="annottext">HeaderName -&gt; SrtStylePassthrough -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680007107"><span class="annot"><span class="annottext">HeaderName -&gt; SrtStylePassthrough -&gt; [Header]
 (HeaderName -&gt; SrtStylePassthrough -&gt; [Header])
 -&gt; ToHeader SrtStylePassthrough
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SrtStylePassthrough -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SrtStylePassthrough -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680005614"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680007104"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; QueryString
 (SrtStylePassthrough -&gt; QueryString) -&gt; ToQuery SrtStylePassthrough
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SrtStylePassthrough -&gt; QueryString
 $ctoQuery :: SrtStylePassthrough -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005609"><span id="local-6989586621680005611"><span class="annot"><span class="annottext">Value -&gt; Parser [SrtStylePassthrough]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680007099"><span id="local-6989586621680007101"><span class="annot"><span class="annottext">Value -&gt; Parser [SrtStylePassthrough]
 Value -&gt; Parser SrtStylePassthrough
 (Value -&gt; Parser SrtStylePassthrough)
 -&gt; (Value -&gt; Parser [SrtStylePassthrough])
@@ -206,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [SrtStylePassthrough]
 parseJSON :: Value -&gt; Parser SrtStylePassthrough
 $cparseJSON :: Value -&gt; Parser SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005604"><span id="local-6989586621680005606"><span class="annot"><span class="annottext">FromJSONKeyFunction [SrtStylePassthrough]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680007094"><span id="local-6989586621680007096"><span class="annot"><span class="annottext">FromJSONKeyFunction [SrtStylePassthrough]
 FromJSONKeyFunction SrtStylePassthrough
 FromJSONKeyFunction SrtStylePassthrough
 -&gt; FromJSONKeyFunction [SrtStylePassthrough]
@@ -218,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SrtStylePassthrough]
 fromJSONKey :: FromJSONKeyFunction SrtStylePassthrough
 $cfromJSONKey :: FromJSONKeyFunction SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005595"><span id="local-6989586621680005597"><span id="local-6989586621680005599"><span id="local-6989586621680005601"><span class="annot"><span class="annottext">[SrtStylePassthrough] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680007085"><span id="local-6989586621680007087"><span id="local-6989586621680007089"><span id="local-6989586621680007091"><span class="annot"><span class="annottext">[SrtStylePassthrough] -&gt; Encoding
 [SrtStylePassthrough] -&gt; Value
 SrtStylePassthrough -&gt; Encoding
 SrtStylePassthrough -&gt; Value
@@ -242,7 +245,7 @@ $ctoEncoding :: SrtStylePassthrough -&gt; Encoding
 toJSON :: SrtStylePassthrough -&gt; Value
 $ctoJSON :: SrtStylePassthrough -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005590"><span id="local-6989586621680005592"><span class="annot"><span class="annottext">ToJSONKeyFunction [SrtStylePassthrough]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680007080"><span id="local-6989586621680007082"><span class="annot"><span class="annottext">ToJSONKeyFunction [SrtStylePassthrough]
 ToJSONKeyFunction SrtStylePassthrough
 ToJSONKeyFunction SrtStylePassthrough
 -&gt; ToJSONKeyFunction [SrtStylePassthrough]
@@ -254,34 +257,34 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SrtStylePassthrough]
 toJSONKey :: ToJSONKeyFunction SrtStylePassthrough
 $ctoJSONKey :: ToJSONKeyFunction SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005587"><span class="annot"><span class="annottext">[Node] -&gt; Either String SrtStylePassthrough
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680007077"><span class="annot"><span class="annottext">[Node] -&gt; Either String SrtStylePassthrough
 ([Node] -&gt; Either String SrtStylePassthrough)
 -&gt; FromXML SrtStylePassthrough
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SrtStylePassthrough
 $cparseXML :: [Node] -&gt; Either String SrtStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005584"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680007074"><span class="annot"><span class="annottext">SrtStylePassthrough -&gt; XML
 (SrtStylePassthrough -&gt; XML) -&gt; ToXML SrtStylePassthrough
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SrtStylePassthrough -&gt; XML
 $ctoXML :: SrtStylePassthrough -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_DISABLED"><span class="hs-identifier hs-type">SrtStylePassthrough_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-type">SrtStylePassthrough</span></a></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSrtStylePassthrough_DISABLED"><span id="%24mSrtStylePassthrough_DISABLED"><span id="SrtStylePassthrough_DISABLED"><span class="annot"><span class="annottext">$bSrtStylePassthrough_DISABLED :: SrtStylePassthrough
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_DISABLED"><span class="hs-identifier hs-type">SrtStylePassthrough_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-type">SrtStylePassthrough</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSrtStylePassthrough_DISABLED"><span id="%24mSrtStylePassthrough_DISABLED"><span id="SrtStylePassthrough_DISABLED"><span class="annot"><span class="annottext">$bSrtStylePassthrough_DISABLED :: SrtStylePassthrough
 $mSrtStylePassthrough_DISABLED :: forall r. SrtStylePassthrough -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#%24bSrtStylePassthrough_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">SrtStylePassthrough_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough%27"><span class="hs-identifier hs-type">SrtStylePassthrough'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_ENABLED"><span class="hs-identifier hs-type">SrtStylePassthrough_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-type">SrtStylePassthrough</span></a></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSrtStylePassthrough_ENABLED"><span id="%24mSrtStylePassthrough_ENABLED"><span id="SrtStylePassthrough_ENABLED"><span class="annot"><span class="annottext">$bSrtStylePassthrough_ENABLED :: SrtStylePassthrough
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_ENABLED"><span class="hs-identifier hs-type">SrtStylePassthrough_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-type">SrtStylePassthrough</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSrtStylePassthrough_ENABLED"><span id="%24mSrtStylePassthrough_ENABLED"><span id="SrtStylePassthrough_ENABLED"><span class="annot"><span class="annottext">$bSrtStylePassthrough_ENABLED :: SrtStylePassthrough
 $mSrtStylePassthrough_ENABLED :: forall r. SrtStylePassthrough -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#%24bSrtStylePassthrough_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">SrtStylePassthrough_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough%27"><span class="hs-identifier hs-type">SrtStylePassthrough'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
-</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_DISABLED"><span class="hs-pragma hs-type">SrtStylePassthrough_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_ENABLED"><span class="hs-pragma hs-type">SrtStylePassthrough_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough%27"><span class="hs-pragma hs-type">SrtStylePassthrough'</span></a></span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
-</span><span id="line-74"></span></pre></body></html>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_DISABLED"><span class="hs-pragma hs-type">SrtStylePassthrough_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough_ENABLED"><span class="hs-pragma hs-type">SrtStylePassthrough_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough%27"><span class="hs-pragma hs-type">SrtStylePassthrough'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | If enable, use reference B frames for GOP structures that have B frames</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- &gt; 1.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679971300"><span id="local-6989586621679971301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265GopBReference"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopBReference.html#H265GopBReference"><span class="hs-identifier hs-var">H265GopBReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265GopBReference%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopBReference.html#H265GopBReference%27"><span class="hs-identifier hs-var">H265GopBReference'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679972790"><span id="local-6989586621679972791"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265GopBReference"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopBReference.html#H265GopBReference"><span class="hs-identifier hs-var">H265GopBReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265GopBReference%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265GopBReference.html#H265GopBReference%27"><span class="hs-identifier hs-var">H265GopBReference'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265GopBReference"><span class="annot"><span class="annottext">H265GopBReference -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265GopBReference.html#fromH265GopBReference"><span class="hs-identifier hs-var hs-var">fromH265GopBReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971292"><span id="local-6989586621679971294"><span id="local-6989586621679971296"><span class="annot"><span class="annottext">Int -&gt; H265GopBReference -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972782"><span id="local-6989586621679972784"><span id="local-6989586621679972786"><span class="annot"><span class="annottext">Int -&gt; H265GopBReference -&gt; ShowS
 [H265GopBReference] -&gt; ShowS
 H265GopBReference -&gt; String
 (Int -&gt; H265GopBReference -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: H265GopBReference -&gt; String
 showsPrec :: Int -&gt; H265GopBReference -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265GopBReference -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679971283"><span id="local-6989586621679971285"><span id="local-6989586621679971287"><span id="local-6989586621679971289"><span class="annot"><span class="annottext">ReadPrec [H265GopBReference]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679972773"><span id="local-6989586621679972775"><span id="local-6989586621679972777"><span id="local-6989586621679972779"><span class="annot"><span class="annottext">ReadPrec [H265GopBReference]
 ReadPrec H265GopBReference
 Int -&gt; ReadS H265GopBReference
 ReadS [H265GopBReference]
@@ -74,7 +74,7 @@ $creadList :: ReadS [H265GopBReference]
 readsPrec :: Int -&gt; ReadS H265GopBReference
 $creadsPrec :: Int -&gt; ReadS H265GopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679971278"><span id="local-6989586621679971280"><span class="annot"><span class="annottext">H265GopBReference -&gt; H265GopBReference -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679972768"><span id="local-6989586621679972770"><span class="annot"><span class="annottext">H265GopBReference -&gt; H265GopBReference -&gt; Bool
 (H265GopBReference -&gt; H265GopBReference -&gt; Bool)
 -&gt; (H265GopBReference -&gt; H265GopBReference -&gt; Bool)
 -&gt; Eq H265GopBReference
@@ -84,7 +84,7 @@ $c/= :: H265GopBReference -&gt; H265GopBReference -&gt; Bool
 == :: H265GopBReference -&gt; H265GopBReference -&gt; Bool
 $c== :: H265GopBReference -&gt; H265GopBReference -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679971262"><span id="local-6989586621679971264"><span id="local-6989586621679971266"><span id="local-6989586621679971268"><span id="local-6989586621679971270"><span id="local-6989586621679971272"><span id="local-6989586621679971274"><span class="annot"><span class="annottext">Eq H265GopBReference
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679972752"><span id="local-6989586621679972754"><span id="local-6989586621679972756"><span id="local-6989586621679972758"><span id="local-6989586621679972760"><span id="local-6989586621679972762"><span id="local-6989586621679972764"><span class="annot"><span class="annottext">Eq H265GopBReference
 Eq H265GopBReference
 -&gt; (H265GopBReference -&gt; H265GopBReference -&gt; Ordering)
 -&gt; (H265GopBReference -&gt; H265GopBReference -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. H265GopBReference -&gt; Rep H265GopBReference x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971254"><span id="local-6989586621679971256"><span class="annot"><span class="annottext">Int -&gt; H265GopBReference -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972744"><span id="local-6989586621679972746"><span class="annot"><span class="annottext">Int -&gt; H265GopBReference -&gt; Int
 H265GopBReference -&gt; Int
 (Int -&gt; H265GopBReference -&gt; Int)
 -&gt; (H265GopBReference -&gt; Int) -&gt; Hashable H265GopBReference
@@ -145,51 +145,51 @@ $chash :: H265GopBReference -&gt; Int
 hashWithSalt :: Int -&gt; H265GopBReference -&gt; Int
 $chashWithSalt :: Int -&gt; H265GopBReference -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679971251"><span class="annot"><span class="annottext">H265GopBReference -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679972741"><span class="annot"><span class="annottext">H265GopBReference -&gt; ()
 (H265GopBReference -&gt; ()) -&gt; NFData H265GopBReference
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265GopBReference -&gt; ()
 $crnf :: H265GopBReference -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679971248"><span class="annot"><span class="annottext">Text -&gt; Either String H265GopBReference
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679972738"><span class="annot"><span class="annottext">Text -&gt; Either String H265GopBReference
 (Text -&gt; Either String H265GopBReference)
 -&gt; FromText H265GopBReference
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265GopBReference
 $cfromText :: Text -&gt; Either String H265GopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679971245"><span class="annot"><span class="annottext">H265GopBReference -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679972735"><span class="annot"><span class="annottext">H265GopBReference -&gt; Text
 (H265GopBReference -&gt; Text) -&gt; ToText H265GopBReference
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265GopBReference -&gt; Text
 $ctoText :: H265GopBReference -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679971242"><span class="annot"><span class="annottext">H265GopBReference -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679972732"><span class="annot"><span class="annottext">H265GopBReference -&gt; ByteString
 (H265GopBReference -&gt; ByteString) -&gt; ToByteString H265GopBReference
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265GopBReference -&gt; ByteString
 $ctoBS :: H265GopBReference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679971239"><span class="annot"><span class="annottext">H265GopBReference -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679972729"><span class="annot"><span class="annottext">H265GopBReference -&gt; ByteStringBuilder
 (H265GopBReference -&gt; ByteStringBuilder) -&gt; ToLog H265GopBReference
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265GopBReference -&gt; ByteStringBuilder
 $cbuild :: H265GopBReference -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679971236"><span class="annot"><span class="annottext">HeaderName -&gt; H265GopBReference -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972726"><span class="annot"><span class="annottext">HeaderName -&gt; H265GopBReference -&gt; [Header]
 (HeaderName -&gt; H265GopBReference -&gt; [Header])
 -&gt; ToHeader H265GopBReference
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265GopBReference -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265GopBReference -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679971233"><span class="annot"><span class="annottext">H265GopBReference -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972723"><span class="annot"><span class="annottext">H265GopBReference -&gt; QueryString
 (H265GopBReference -&gt; QueryString) -&gt; ToQuery H265GopBReference
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265GopBReference -&gt; QueryString
 $ctoQuery :: H265GopBReference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679971228"><span id="local-6989586621679971230"><span class="annot"><span class="annottext">Value -&gt; Parser [H265GopBReference]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679972718"><span id="local-6989586621679972720"><span class="annot"><span class="annottext">Value -&gt; Parser [H265GopBReference]
 Value -&gt; Parser H265GopBReference
 (Value -&gt; Parser H265GopBReference)
 -&gt; (Value -&gt; Parser [H265GopBReference])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [H265GopBReference]
 parseJSON :: Value -&gt; Parser H265GopBReference
 $cparseJSON :: Value -&gt; Parser H265GopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679971223"><span id="local-6989586621679971225"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265GopBReference]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679972713"><span id="local-6989586621679972715"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265GopBReference]
 FromJSONKeyFunction H265GopBReference
 FromJSONKeyFunction H265GopBReference
 -&gt; FromJSONKeyFunction [H265GopBReference]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265GopBReference]
 fromJSONKey :: FromJSONKeyFunction H265GopBReference
 $cfromJSONKey :: FromJSONKeyFunction H265GopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679971214"><span id="local-6989586621679971216"><span id="local-6989586621679971218"><span id="local-6989586621679971220"><span class="annot"><span class="annottext">[H265GopBReference] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679972704"><span id="local-6989586621679972706"><span id="local-6989586621679972708"><span id="local-6989586621679972710"><span class="annot"><span class="annottext">[H265GopBReference] -&gt; Encoding
 [H265GopBReference] -&gt; Value
 H265GopBReference -&gt; Encoding
 H265GopBReference -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: H265GopBReference -&gt; Encoding
 toJSON :: H265GopBReference -&gt; Value
 $ctoJSON :: H265GopBReference -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679971209"><span id="local-6989586621679971211"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265GopBReference]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679972699"><span id="local-6989586621679972701"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265GopBReference]
 ToJSONKeyFunction H265GopBReference
 ToJSONKeyFunction H265GopBReference
 -&gt; ToJSONKeyFunction [H265GopBReference]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265GopBReference]
 toJSONKey :: ToJSONKeyFunction H265GopBReference
 $ctoJSONKey :: ToJSONKeyFunction H265GopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679971206"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265GopBReference
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972696"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265GopBReference
 ([Node] -&gt; Either String H265GopBReference)
 -&gt; FromXML H265GopBReference
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265GopBReference
 $cparseXML :: [Node] -&gt; Either String H265GopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679971203"><span class="annot"><span class="annottext">H265GopBReference -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972693"><span class="annot"><span class="annottext">H265GopBReference -&gt; XML
 (H265GopBReference -&gt; XML) -&gt; ToXML H265GopBReference
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265GopBReference -&gt; XML

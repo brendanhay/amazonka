@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- | Specified video input in a template.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newInputTemplate' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621680016409"><span id="local-6989586621680016410"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputTemplate"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-var">InputTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputTemplate%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-var">InputTemplate'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621680017899"><span id="local-6989586621680017900"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputTemplate"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-var">InputTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputTemplate%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-var">InputTemplate'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Input video selectors contain the video settings for the input. Each of</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- your inputs can have up to one video selector.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AvideoSelector%3AInputTemplate%27"><span class="annot"><span class="annottext">InputTemplate -&gt; Maybe VideoSelector
@@ -160,7 +160,7 @@
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AfilterEnable%3AInputTemplate%27"><span class="annot"><span class="annottext">InputTemplate -&gt; Maybe InputFilterEnable
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AfilterEnable%3AInputTemplate%27"><span class="hs-identifier hs-var hs-var">filterEnable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputFilterEnable.html#InputFilterEnable"><span class="hs-identifier hs-type">InputFilterEnable</span></a></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680016387"><span id="local-6989586621680016389"><span class="annot"><span class="annottext">InputTemplate -&gt; InputTemplate -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680017877"><span id="local-6989586621680017879"><span class="annot"><span class="annottext">InputTemplate -&gt; InputTemplate -&gt; Bool
 (InputTemplate -&gt; InputTemplate -&gt; Bool)
 -&gt; (InputTemplate -&gt; InputTemplate -&gt; Bool) -&gt; Eq InputTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -168,7 +168,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputTemplate -&gt; InputTemplate -&gt; Bool
 == :: InputTemplate -&gt; InputTemplate -&gt; Bool
 $c== :: InputTemplate -&gt; InputTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680016378"><span id="local-6989586621680016380"><span id="local-6989586621680016382"><span id="local-6989586621680016384"><span class="annot"><span class="annottext">ReadPrec [InputTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017868"><span id="local-6989586621680017870"><span id="local-6989586621680017872"><span id="local-6989586621680017874"><span class="annot"><span class="annottext">ReadPrec [InputTemplate]
 ReadPrec InputTemplate
 Int -&gt; ReadS InputTemplate
 ReadS [InputTemplate]
@@ -188,7 +188,7 @@ readList :: ReadS [InputTemplate]
 $creadList :: ReadS [InputTemplate]
 readsPrec :: Int -&gt; ReadS InputTemplate
 $creadsPrec :: Int -&gt; ReadS InputTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680016371"><span id="local-6989586621680016373"><span id="local-6989586621680016375"><span class="annot"><span class="annottext">Int -&gt; InputTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017861"><span id="local-6989586621680017863"><span id="local-6989586621680017865"><span class="annot"><span class="annottext">Int -&gt; InputTemplate -&gt; ShowS
 [InputTemplate] -&gt; ShowS
 InputTemplate -&gt; String
 (Int -&gt; InputTemplate -&gt; ShowS)
@@ -429,16 +429,16 @@ forall a. Maybe a
      (Maybe VideoSelector)
      (Maybe VideoSelector)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016362"><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017852"><span class="annot"><span class="annottext">Maybe VideoSelector
 videoSelector :: Maybe VideoSelector
 $sel:videoSelector:InputTemplate' :: InputTemplate -&gt; Maybe VideoSelector
-</span><a href="#local-6989586621680016362"><span class="hs-identifier hs-var hs-var">videoSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
-</span><a href="#local-6989586621680016362"><span class="hs-identifier hs-var">videoSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016361"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016360"><span class="annot"><span class="annottext">Maybe VideoSelector
-</span><a href="#local-6989586621680016360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelector:InputTemplate' :: Maybe VideoSelector
+</span><a href="#local-6989586621680017852"><span class="hs-identifier hs-var hs-var">videoSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><a href="#local-6989586621680017852"><span class="hs-identifier hs-var">videoSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017851"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017850"><span class="annot"><span class="annottext">Maybe VideoSelector
+</span><a href="#local-6989586621680017850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelector:InputTemplate' :: Maybe VideoSelector
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AvideoSelector%3AInputTemplate%27"><span class="hs-identifier hs-var">videoSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
-</span><a href="#local-6989586621680016360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | Use Program (programNumber) to select a specific program from within a</span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- multi-program transport stream. Note that Quad 4K is not currently</span><span>
@@ -452,16 +452,16 @@ $sel:videoSelector:InputTemplate' :: InputTemplate -&gt; Maybe VideoSelector
 -&gt; (InputTemplate -&gt; Maybe Natural -&gt; InputTemplate)
 -&gt; Lens InputTemplate InputTemplate (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016358"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017848"><span class="annot"><span class="annottext">Maybe Natural
 programNumber :: Maybe Natural
 $sel:programNumber:InputTemplate' :: InputTemplate -&gt; Maybe Natural
-</span><a href="#local-6989586621680016358"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680016358"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016357"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016356"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680016356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:InputTemplate' :: Maybe Natural
+</span><a href="#local-6989586621680017848"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680017848"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017847"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017846"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680017846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:InputTemplate' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AprogramNumber%3AInputTemplate%27"><span class="hs-identifier hs-var">programNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680016356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- | Use audio selector groups to combine multiple sidecar audio inputs so</span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- that you can assign them to a single output audio tab</span><span>
@@ -481,16 +481,16 @@ $sel:programNumber:InputTemplate' :: InputTemplate -&gt; Maybe Natural
      (Maybe (HashMap Text AudioSelectorGroup))
      (Maybe (HashMap Text AudioSelectorGroup))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016354"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017844"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
 audioSelectorGroups :: Maybe (HashMap Text AudioSelectorGroup)
 $sel:audioSelectorGroups:InputTemplate' :: InputTemplate -&gt; Maybe (HashMap Text AudioSelectorGroup)
-</span><a href="#local-6989586621680016354"><span class="hs-identifier hs-var hs-var">audioSelectorGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
-</span><a href="#local-6989586621680016354"><span class="hs-identifier hs-var">audioSelectorGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016353"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016352"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
-</span><a href="#local-6989586621680016352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectorGroups:InputTemplate' :: Maybe (HashMap Text AudioSelectorGroup)
+</span><a href="#local-6989586621680017844"><span class="hs-identifier hs-var hs-var">audioSelectorGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
+</span><a href="#local-6989586621680017844"><span class="hs-identifier hs-var">audioSelectorGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017843"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017842"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
+</span><a href="#local-6989586621680017842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectorGroups:InputTemplate' :: Maybe (HashMap Text AudioSelectorGroup)
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AaudioSelectorGroups%3AInputTemplate%27"><span class="hs-identifier hs-var">audioSelectorGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
-</span><a href="#local-6989586621680016352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AudioSelectorGroup)
+</span><a href="#local-6989586621680017842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AudioSelectorGroup)
   -&gt; f (Maybe (HashMap Text AudioSelectorGroup)))
  -&gt; InputTemplate -&gt; f InputTemplate)
 -&gt; ((Maybe (HashMap Text AudioSelectorGroup)
@@ -546,16 +546,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe InputTimecodeSource)
      (Maybe InputTimecodeSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016347"><span class="annot"><span class="annottext">Maybe InputTimecodeSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017837"><span class="annot"><span class="annottext">Maybe InputTimecodeSource
 timecodeSource :: Maybe InputTimecodeSource
 $sel:timecodeSource:InputTemplate' :: InputTemplate -&gt; Maybe InputTimecodeSource
-</span><a href="#local-6989586621680016347"><span class="hs-identifier hs-var hs-var">timecodeSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputTimecodeSource
-</span><a href="#local-6989586621680016347"><span class="hs-identifier hs-var">timecodeSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016346"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016345"><span class="annot"><span class="annottext">Maybe InputTimecodeSource
-</span><a href="#local-6989586621680016345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeSource:InputTemplate' :: Maybe InputTimecodeSource
+</span><a href="#local-6989586621680017837"><span class="hs-identifier hs-var hs-var">timecodeSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputTimecodeSource
+</span><a href="#local-6989586621680017837"><span class="hs-identifier hs-var">timecodeSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017836"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017835"><span class="annot"><span class="annottext">Maybe InputTimecodeSource
+</span><a href="#local-6989586621680017835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeSource:InputTemplate' :: Maybe InputTimecodeSource
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AtimecodeSource%3AInputTemplate%27"><span class="hs-identifier hs-var">timecodeSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputTimecodeSource
-</span><a href="#local-6989586621680016345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks</span><span>
 </span><span id="line-317"></span><span class="hs-comment">-- from the input that you will use in your outputs. You can use multiple</span><span>
@@ -573,16 +573,16 @@ $sel:timecodeSource:InputTemplate' :: InputTemplate -&gt; Maybe InputTimecodeSou
      (Maybe (HashMap Text AudioSelector))
      (Maybe (HashMap Text AudioSelector))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016343"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017833"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
 audioSelectors :: Maybe (HashMap Text AudioSelector)
 $sel:audioSelectors:InputTemplate' :: InputTemplate -&gt; Maybe (HashMap Text AudioSelector)
-</span><a href="#local-6989586621680016343"><span class="hs-identifier hs-var hs-var">audioSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
-</span><a href="#local-6989586621680016343"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016342"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016341"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
-</span><a href="#local-6989586621680016341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectors:InputTemplate' :: Maybe (HashMap Text AudioSelector)
+</span><a href="#local-6989586621680017833"><span class="hs-identifier hs-var hs-var">audioSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
+</span><a href="#local-6989586621680017833"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017832"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017831"><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
+</span><a href="#local-6989586621680017831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectors:InputTemplate' :: Maybe (HashMap Text AudioSelector)
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AaudioSelectors%3AInputTemplate%27"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
-</span><a href="#local-6989586621680016341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AudioSelector)
+</span><a href="#local-6989586621680017831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AudioSelector)
   -&gt; f (Maybe (HashMap Text AudioSelector)))
  -&gt; InputTemplate -&gt; f InputTemplate)
 -&gt; ((Maybe (HashMap Text AudioSelector)
@@ -629,16 +629,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe InputDeblockFilter)
      (Maybe InputDeblockFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016339"><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017829"><span class="annot"><span class="annottext">Maybe InputDeblockFilter
 deblockFilter :: Maybe InputDeblockFilter
 $sel:deblockFilter:InputTemplate' :: InputTemplate -&gt; Maybe InputDeblockFilter
-</span><a href="#local-6989586621680016339"><span class="hs-identifier hs-var hs-var">deblockFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
-</span><a href="#local-6989586621680016339"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016338"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016337"><span class="annot"><span class="annottext">Maybe InputDeblockFilter
-</span><a href="#local-6989586621680016337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deblockFilter:InputTemplate' :: Maybe InputDeblockFilter
+</span><a href="#local-6989586621680017829"><span class="hs-identifier hs-var hs-var">deblockFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><a href="#local-6989586621680017829"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017828"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017827"><span class="annot"><span class="annottext">Maybe InputDeblockFilter
+</span><a href="#local-6989586621680017827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deblockFilter:InputTemplate' :: Maybe InputDeblockFilter
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AdeblockFilter%3AInputTemplate%27"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
-</span><a href="#local-6989586621680016337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | (InputClippings) contains sets of start and end times that together</span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- specify a portion of the input to be used in the outputs. If you provide</span><span>
@@ -658,16 +658,16 @@ $sel:deblockFilter:InputTemplate' :: InputTemplate -&gt; Maybe InputDeblockFilte
      (Maybe [InputClipping])
      (Maybe [InputClipping])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016335"><span class="annot"><span class="annottext">Maybe [InputClipping]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017825"><span class="annot"><span class="annottext">Maybe [InputClipping]
 inputClippings :: Maybe [InputClipping]
 $sel:inputClippings:InputTemplate' :: InputTemplate -&gt; Maybe [InputClipping]
-</span><a href="#local-6989586621680016335"><span class="hs-identifier hs-var hs-var">inputClippings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputClipping]
-</span><a href="#local-6989586621680016335"><span class="hs-identifier hs-var">inputClippings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016334"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016333"><span class="annot"><span class="annottext">Maybe [InputClipping]
-</span><a href="#local-6989586621680016333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputClippings:InputTemplate' :: Maybe [InputClipping]
+</span><a href="#local-6989586621680017825"><span class="hs-identifier hs-var hs-var">inputClippings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputClipping]
+</span><a href="#local-6989586621680017825"><span class="hs-identifier hs-var">inputClippings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017824"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017823"><span class="annot"><span class="annottext">Maybe [InputClipping]
+</span><a href="#local-6989586621680017823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputClippings:InputTemplate' :: Maybe [InputClipping]
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AinputClippings%3AInputTemplate%27"><span class="hs-identifier hs-var">inputClippings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputClipping]
-</span><a href="#local-6989586621680016333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputClipping] -&gt; f (Maybe [InputClipping]))
+</span><a href="#local-6989586621680017823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputClipping] -&gt; f (Maybe [InputClipping]))
  -&gt; InputTemplate -&gt; f InputTemplate)
 -&gt; ((Maybe [InputClipping] -&gt; f (Maybe [InputClipping]))
     -&gt; Maybe [InputClipping] -&gt; f (Maybe [InputClipping]))
@@ -702,16 +702,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      InputTemplate InputTemplate (Maybe Rectangle) (Maybe Rectangle)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016331"><span class="annot"><span class="annottext">Maybe Rectangle
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017821"><span class="annot"><span class="annottext">Maybe Rectangle
 crop :: Maybe Rectangle
 $sel:crop:InputTemplate' :: InputTemplate -&gt; Maybe Rectangle
-</span><a href="#local-6989586621680016331"><span class="hs-identifier hs-var hs-var">crop</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016331"><span class="hs-identifier hs-var">crop</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016330"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016329"><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crop:InputTemplate' :: Maybe Rectangle
+</span><a href="#local-6989586621680017821"><span class="hs-identifier hs-var hs-var">crop</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
+</span><a href="#local-6989586621680017821"><span class="hs-identifier hs-var">crop</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017820"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017819"><span class="annot"><span class="annottext">Maybe Rectangle
+</span><a href="#local-6989586621680017819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crop:InputTemplate' :: Maybe Rectangle
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3Acrop%3AInputTemplate%27"><span class="hs-identifier hs-var">crop</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.</span><span>
 </span><span id="line-346"></span><span class="hs-comment">-- Default is disabled. Only applicable to MPEG2, H.264, H.265, and</span><span>
@@ -727,16 +727,16 @@ $sel:crop:InputTemplate' :: InputTemplate -&gt; Maybe Rectangle
      (Maybe InputDenoiseFilter)
      (Maybe InputDenoiseFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016327"><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017817"><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
 denoiseFilter :: Maybe InputDenoiseFilter
 $sel:denoiseFilter:InputTemplate' :: InputTemplate -&gt; Maybe InputDenoiseFilter
-</span><a href="#local-6989586621680016327"><span class="hs-identifier hs-var hs-var">denoiseFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
-</span><a href="#local-6989586621680016327"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016326"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016325"><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
-</span><a href="#local-6989586621680016325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:denoiseFilter:InputTemplate' :: Maybe InputDenoiseFilter
+</span><a href="#local-6989586621680017817"><span class="hs-identifier hs-var hs-var">denoiseFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><a href="#local-6989586621680017817"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017816"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017815"><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
+</span><a href="#local-6989586621680017815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:denoiseFilter:InputTemplate' :: Maybe InputDenoiseFilter
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AdenoiseFilter%3AInputTemplate%27"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
-</span><a href="#local-6989586621680016325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span class="hs-comment">-- | Enable the image inserter feature to include a graphic overlay on your</span><span>
 </span><span id="line-352"></span><span class="hs-comment">-- video. Enable or disable this feature for each input individually. This</span><span>
@@ -752,16 +752,16 @@ $sel:denoiseFilter:InputTemplate' :: InputTemplate -&gt; Maybe InputDenoiseFilte
      (Maybe ImageInserter)
      (Maybe ImageInserter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016323"><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017813"><span class="annot"><span class="annottext">Maybe ImageInserter
 imageInserter :: Maybe ImageInserter
 $sel:imageInserter:InputTemplate' :: InputTemplate -&gt; Maybe ImageInserter
-</span><a href="#local-6989586621680016323"><span class="hs-identifier hs-var hs-var">imageInserter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
-</span><a href="#local-6989586621680016323"><span class="hs-identifier hs-var">imageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016322"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016321"><span class="annot"><span class="annottext">Maybe ImageInserter
-</span><a href="#local-6989586621680016321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageInserter:InputTemplate' :: Maybe ImageInserter
+</span><a href="#local-6989586621680017813"><span class="hs-identifier hs-var hs-var">imageInserter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><a href="#local-6989586621680017813"><span class="hs-identifier hs-var">imageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017812"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017811"><span class="annot"><span class="annottext">Maybe ImageInserter
+</span><a href="#local-6989586621680017811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageInserter:InputTemplate' :: Maybe ImageInserter
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AimageInserter%3AInputTemplate%27"><span class="hs-identifier hs-var">imageInserter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
-</span><a href="#local-6989586621680016321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | Use Filter strength (FilterStrength) to adjust the magnitude the input</span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- filter settings (Deblock and Denoise). The range is -5 to 5. Default is</span><span>
@@ -772,16 +772,16 @@ $sel:imageInserter:InputTemplate' :: InputTemplate -&gt; Maybe ImageInserter
 -&gt; (InputTemplate -&gt; Maybe Int -&gt; InputTemplate)
 -&gt; Lens InputTemplate InputTemplate (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016319"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017809"><span class="annot"><span class="annottext">Maybe Int
 filterStrength :: Maybe Int
 $sel:filterStrength:InputTemplate' :: InputTemplate -&gt; Maybe Int
-</span><a href="#local-6989586621680016319"><span class="hs-identifier hs-var hs-var">filterStrength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680016319"><span class="hs-identifier hs-var">filterStrength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016318"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016317"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680016317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterStrength:InputTemplate' :: Maybe Int
+</span><a href="#local-6989586621680017809"><span class="hs-identifier hs-var hs-var">filterStrength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680017809"><span class="hs-identifier hs-var">filterStrength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017808"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017807"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680017807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterStrength:InputTemplate' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AfilterStrength%3AInputTemplate%27"><span class="hs-identifier hs-var">filterStrength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680016317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-362"></span><span>
 </span><span id="line-363"></span><span class="hs-comment">-- | Set PSI control (InputPsiControl) for transport stream inputs to specify</span><span>
 </span><span id="line-364"></span><span class="hs-comment">-- which data the demux process to scans. * Ignore PSI - Scan all PIDs for</span><span>
@@ -797,16 +797,16 @@ $sel:filterStrength:InputTemplate' :: InputTemplate -&gt; Maybe Int
      (Maybe InputPsiControl)
      (Maybe InputPsiControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016315"><span class="annot"><span class="annottext">Maybe InputPsiControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017805"><span class="annot"><span class="annottext">Maybe InputPsiControl
 psiControl :: Maybe InputPsiControl
 $sel:psiControl:InputTemplate' :: InputTemplate -&gt; Maybe InputPsiControl
-</span><a href="#local-6989586621680016315"><span class="hs-identifier hs-var hs-var">psiControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPsiControl
-</span><a href="#local-6989586621680016315"><span class="hs-identifier hs-var">psiControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016314"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016313"><span class="annot"><span class="annottext">Maybe InputPsiControl
-</span><a href="#local-6989586621680016313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:psiControl:InputTemplate' :: Maybe InputPsiControl
+</span><a href="#local-6989586621680017805"><span class="hs-identifier hs-var hs-var">psiControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPsiControl
+</span><a href="#local-6989586621680017805"><span class="hs-identifier hs-var">psiControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017804"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017803"><span class="annot"><span class="annottext">Maybe InputPsiControl
+</span><a href="#local-6989586621680017803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:psiControl:InputTemplate' :: Maybe InputPsiControl
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3ApsiControl%3AInputTemplate%27"><span class="hs-identifier hs-var">psiControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPsiControl
-</span><a href="#local-6989586621680016313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-368"></span><span>
 </span><span id="line-369"></span><span class="hs-comment">-- | Use captions selectors to specify the captions data from your input that</span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- you use in your outputs. You can use up to 20 captions selectors per</span><span>
@@ -824,16 +824,16 @@ $sel:psiControl:InputTemplate' :: InputTemplate -&gt; Maybe InputPsiControl
      (Maybe (HashMap Text CaptionSelector))
      (Maybe (HashMap Text CaptionSelector))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016311"><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017801"><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
 captionSelectors :: Maybe (HashMap Text CaptionSelector)
 $sel:captionSelectors:InputTemplate' :: InputTemplate -&gt; Maybe (HashMap Text CaptionSelector)
-</span><a href="#local-6989586621680016311"><span class="hs-identifier hs-var hs-var">captionSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
-</span><a href="#local-6989586621680016311"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016310"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016309"><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
-</span><a href="#local-6989586621680016309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSelectors:InputTemplate' :: Maybe (HashMap Text CaptionSelector)
+</span><a href="#local-6989586621680017801"><span class="hs-identifier hs-var hs-var">captionSelectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
+</span><a href="#local-6989586621680017801"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017800"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017799"><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
+</span><a href="#local-6989586621680017799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSelectors:InputTemplate' :: Maybe (HashMap Text CaptionSelector)
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AcaptionSelectors%3AInputTemplate%27"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
-</span><a href="#local-6989586621680016309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text CaptionSelector)
+</span><a href="#local-6989586621680017799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text CaptionSelector)
   -&gt; f (Maybe (HashMap Text CaptionSelector)))
  -&gt; InputTemplate -&gt; f InputTemplate)
 -&gt; ((Maybe (HashMap Text CaptionSelector)
@@ -877,16 +877,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (InputTemplate -&gt; Maybe Text -&gt; InputTemplate)
 -&gt; Lens InputTemplate InputTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016307"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017797"><span class="annot"><span class="annottext">Maybe Text
 timecodeStart :: Maybe Text
 $sel:timecodeStart:InputTemplate' :: InputTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621680016307"><span class="hs-identifier hs-var hs-var">timecodeStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680016307"><span class="hs-identifier hs-var">timecodeStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016306"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016305"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680016305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeStart:InputTemplate' :: Maybe Text
+</span><a href="#local-6989586621680017797"><span class="hs-identifier hs-var hs-var">timecodeStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680017797"><span class="hs-identifier hs-var">timecodeStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017796"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017795"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680017795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeStart:InputTemplate' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AtimecodeStart%3AInputTemplate%27"><span class="hs-identifier hs-var">timecodeStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680016305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-382"></span><span>
 </span><span id="line-383"></span><span class="hs-comment">-- | When you have a progressive segmented frame (PsF) input, use this</span><span>
 </span><span id="line-384"></span><span class="hs-comment">-- setting to flag the input as PsF. MediaConvert doesn\'t automatically</span><span>
@@ -907,16 +907,16 @@ $sel:timecodeStart:InputTemplate' :: InputTemplate -&gt; Maybe Text
      (Maybe InputScanType)
      (Maybe InputScanType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016303"><span class="annot"><span class="annottext">Maybe InputScanType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017793"><span class="annot"><span class="annottext">Maybe InputScanType
 inputScanType :: Maybe InputScanType
 $sel:inputScanType:InputTemplate' :: InputTemplate -&gt; Maybe InputScanType
-</span><a href="#local-6989586621680016303"><span class="hs-identifier hs-var hs-var">inputScanType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputScanType
-</span><a href="#local-6989586621680016303"><span class="hs-identifier hs-var">inputScanType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016302"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016301"><span class="annot"><span class="annottext">Maybe InputScanType
-</span><a href="#local-6989586621680016301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputScanType:InputTemplate' :: Maybe InputScanType
+</span><a href="#local-6989586621680017793"><span class="hs-identifier hs-var hs-var">inputScanType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputScanType
+</span><a href="#local-6989586621680017793"><span class="hs-identifier hs-var">inputScanType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017792"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017791"><span class="annot"><span class="annottext">Maybe InputScanType
+</span><a href="#local-6989586621680017791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputScanType:InputTemplate' :: Maybe InputScanType
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AinputScanType%3AInputTemplate%27"><span class="hs-identifier hs-var">inputScanType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputScanType
-</span><a href="#local-6989586621680016301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-393"></span><span>
 </span><span id="line-394"></span><span class="hs-comment">-- | Use Selection placement (position) to define the video area in your</span><span>
 </span><span id="line-395"></span><span class="hs-comment">-- output frame. The area outside of the rectangle that you specify here is</span><span>
@@ -934,16 +934,16 @@ $sel:inputScanType:InputTemplate' :: InputTemplate -&gt; Maybe InputScanType
 -&gt; Lens
      InputTemplate InputTemplate (Maybe Rectangle) (Maybe Rectangle)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016299"><span class="annot"><span class="annottext">Maybe Rectangle
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017789"><span class="annot"><span class="annottext">Maybe Rectangle
 position :: Maybe Rectangle
 $sel:position:InputTemplate' :: InputTemplate -&gt; Maybe Rectangle
-</span><a href="#local-6989586621680016299"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016299"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016298"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016297"><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:InputTemplate' :: Maybe Rectangle
+</span><a href="#local-6989586621680017789"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
+</span><a href="#local-6989586621680017789"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017788"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017787"><span class="annot"><span class="annottext">Maybe Rectangle
+</span><a href="#local-6989586621680017787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:InputTemplate' :: Maybe Rectangle
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3Aposition%3AInputTemplate%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-404"></span><span>
 </span><span id="line-405"></span><span class="hs-comment">-- | Specify how the transcoding service applies the denoise and deblock</span><span>
 </span><span id="line-406"></span><span class="hs-comment">-- filters. You must also enable the filters separately, with Denoise</span><span>
@@ -964,19 +964,19 @@ $sel:position:InputTemplate' :: InputTemplate -&gt; Maybe Rectangle
      (Maybe InputFilterEnable)
      (Maybe InputFilterEnable)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016295"><span class="annot"><span class="annottext">Maybe InputFilterEnable
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017785"><span class="annot"><span class="annottext">Maybe InputFilterEnable
 filterEnable :: Maybe InputFilterEnable
 $sel:filterEnable:InputTemplate' :: InputTemplate -&gt; Maybe InputFilterEnable
-</span><a href="#local-6989586621680016295"><span class="hs-identifier hs-var hs-var">filterEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputFilterEnable
-</span><a href="#local-6989586621680016295"><span class="hs-identifier hs-var">filterEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016294"><span class="annot"><span class="annottext">s :: InputTemplate
-</span><a href="#local-6989586621680016294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016293"><span class="annot"><span class="annottext">Maybe InputFilterEnable
-</span><a href="#local-6989586621680016293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
-</span><a href="#local-6989586621680016294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterEnable:InputTemplate' :: Maybe InputFilterEnable
+</span><a href="#local-6989586621680017785"><span class="hs-identifier hs-var hs-var">filterEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputFilterEnable
+</span><a href="#local-6989586621680017785"><span class="hs-identifier hs-var">filterEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017784"><span class="annot"><span class="annottext">s :: InputTemplate
+</span><a href="#local-6989586621680017784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017783"><span class="annot"><span class="annottext">Maybe InputFilterEnable
+</span><a href="#local-6989586621680017783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputTemplate
+</span><a href="#local-6989586621680017784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterEnable:InputTemplate' :: Maybe InputFilterEnable
 </span><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#%24sel%3AfilterEnable%3AInputTemplate%27"><span class="hs-identifier hs-var">filterEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputFilterEnable
-</span><a href="#local-6989586621680016293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-415"></span><span>
-</span><span id="line-416"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-417"></span><span>  </span><span id="local-6989586621680016288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputTemplate
+</span><span id="line-416"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017780"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-417"></span><span>  </span><span id="local-6989586621680017778"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-418"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputTemplate)
@@ -986,8 +986,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-419"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputTemplate&quot;</span></span><span>
-</span><span id="line-420"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680016285"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-420"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680017775"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-421"></span><span>          </span><span class="annot"><span class="annottext">Maybe VideoSelector
 -&gt; Maybe Natural
 -&gt; Maybe (HashMap Text AudioSelectorGroup)
@@ -1046,7 +1046,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelector)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelector)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoSelector&quot;</span></span><span class="hs-special">)</span><span>
@@ -1088,7 +1088,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;programNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -1128,7 +1128,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AudioSelectorGroup)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -1175,7 +1175,7 @@ forall a. Monoid a =&gt; a
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputTimecodeSource)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputTimecodeSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeSource&quot;</span></span><span class="hs-special">)</span><span>
@@ -1211,7 +1211,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AudioSelector)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -1252,7 +1252,7 @@ forall a. Monoid a =&gt; a
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeblockFilter)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeblockFilter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deblockFilter&quot;</span></span><span class="hs-special">)</span><span>
@@ -1284,7 +1284,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputClipping]))
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputClipping]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputClippings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InputClipping]))
@@ -1319,7 +1319,7 @@ forall a. Monoid a =&gt; a
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Rectangle)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Rectangle)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;crop&quot;</span></span><span class="hs-special">)</span><span>
@@ -1347,7 +1347,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDenoiseFilter)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDenoiseFilter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;denoiseFilter&quot;</span></span><span class="hs-special">)</span><span>
@@ -1373,7 +1373,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageInserter)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageInserter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageInserter&quot;</span></span><span class="hs-special">)</span><span>
@@ -1397,7 +1397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterStrength&quot;</span></span><span class="hs-special">)</span><span>
@@ -1419,7 +1419,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPsiControl)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPsiControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;psiControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -1439,7 +1439,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text CaptionSelector)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -1464,7 +1464,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe Rectangle -&gt; Maybe InputFilterEnable -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeStart&quot;</span></span><span class="hs-special">)</span><span>
@@ -1476,7 +1476,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Rectangle -&gt; Maybe InputFilterEnable -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputScanType)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputScanType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputScanType&quot;</span></span><span class="hs-special">)</span><span>
@@ -1486,7 +1486,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputFilterEnable -&gt; InputTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Rectangle)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Rectangle)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;position&quot;</span></span><span class="hs-special">)</span><span>
@@ -1494,19 +1494,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputFilterEnable) -&gt; Parser InputTemplate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputFilterEnable)
+</span><a href="#local-6989586621680017775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputFilterEnable)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterEnable&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-443"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-444"></span><span>
-</span><span id="line-445"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016278"><span id="local-6989586621680016280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span></span><span>
+</span><span id="line-445"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017768"><span id="local-6989586621680017770"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span></span><span>
 </span><span id="line-446"></span><span>
-</span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span><span>
+</span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span><span>
 </span><span id="line-448"></span><span>
-</span><span id="line-449"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016267"><span id="local-6989586621680016269"><span id="local-6989586621680016271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-450"></span><span>  </span><span id="local-6989586621680016265"><span class="annot"><span class="annottext">toJSON :: InputTemplate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016247"><span id="local-6989586621680016248"><span id="local-6989586621680016249"><span id="local-6989586621680016250"><span id="local-6989586621680016251"><span id="local-6989586621680016252"><span id="local-6989586621680016253"><span id="local-6989586621680016254"><span id="local-6989586621680016255"><span id="local-6989586621680016256"><span id="local-6989586621680016257"><span id="local-6989586621680016258"><span id="local-6989586621680016259"><span id="local-6989586621680016260"><span id="local-6989586621680016261"><span id="local-6989586621680016262"><span id="local-6989586621680016263"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-449"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017757"><span id="local-6989586621680017759"><span id="local-6989586621680017761"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate"><span class="hs-identifier hs-type">InputTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-450"></span><span>  </span><span id="local-6989586621680017755"><span class="annot"><span class="annottext">toJSON :: InputTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputTemplate.html#InputTemplate%27"><span class="hs-identifier hs-type">InputTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017737"><span id="local-6989586621680017738"><span id="local-6989586621680017739"><span id="local-6989586621680017740"><span id="local-6989586621680017741"><span id="local-6989586621680017742"><span id="local-6989586621680017743"><span id="local-6989586621680017744"><span id="local-6989586621680017745"><span id="local-6989586621680017746"><span id="local-6989586621680017747"><span id="local-6989586621680017748"><span id="local-6989586621680017749"><span id="local-6989586621680017750"><span id="local-6989586621680017751"><span id="local-6989586621680017752"><span id="local-6989586621680017753"><span class="annot"><span class="annottext">Maybe Int
 Maybe Natural
 Maybe [InputClipping]
 Maybe Text
@@ -1556,7 +1556,7 @@ $sel:timecodeSource:InputTemplate' :: InputTemplate -&gt; Maybe InputTimecodeSou
 $sel:audioSelectorGroups:InputTemplate' :: InputTemplate -&gt; Maybe (HashMap Text AudioSelectorGroup)
 $sel:programNumber:InputTemplate' :: InputTemplate -&gt; Maybe Natural
 $sel:videoSelector:InputTemplate' :: InputTemplate -&gt; Maybe VideoSelector
-</span><a href="#local-6989586621680016247"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680017737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-451"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-452"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1568,14 +1568,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Pair) -&gt; Maybe VideoSelector -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelector
-</span><a href="#local-6989586621680016263"><span class="hs-identifier hs-var">videoSelector</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017753"><span class="hs-identifier hs-var">videoSelector</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-454"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;programNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680016262"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017752"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-455"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioSelectorGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AudioSelectorGroup -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1584,7 +1584,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AudioSelectorGroup) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelectorGroup)
-</span><a href="#local-6989586621680016261"><span class="hs-identifier hs-var">audioSelectorGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017751"><span class="hs-identifier hs-var">audioSelectorGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-457"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputTimecodeSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1593,7 +1593,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputTimecodeSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputTimecodeSource
-</span><a href="#local-6989586621680016260"><span class="hs-identifier hs-var">timecodeSource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017750"><span class="hs-identifier hs-var">timecodeSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-459"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AudioSelector -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1602,7 +1602,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AudioSelector) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AudioSelector)
-</span><a href="#local-6989586621680016259"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017749"><span class="hs-identifier hs-var">audioSelectors</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-461"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deblockFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDeblockFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1610,7 +1610,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputDeblockFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputDeblockFilter
-</span><a href="#local-6989586621680016258"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017748"><span class="hs-identifier hs-var">deblockFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-462"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputClippings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InputClipping] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1618,14 +1618,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-463"></span><span>              </span><span class="annot"><span class="annottext">([InputClipping] -&gt; Pair) -&gt; Maybe [InputClipping] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputClipping]
-</span><a href="#local-6989586621680016257"><span class="hs-identifier hs-var">inputClippings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017747"><span class="hs-identifier hs-var">inputClippings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-464"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;crop&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Rectangle -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Rectangle -&gt; Pair) -&gt; Maybe Rectangle -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016256"><span class="hs-identifier hs-var">crop</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017746"><span class="hs-identifier hs-var">crop</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-465"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;denoiseFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDenoiseFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1633,14 +1633,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputDenoiseFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputDenoiseFilter
-</span><a href="#local-6989586621680016255"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017745"><span class="hs-identifier hs-var">denoiseFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-466"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageInserter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageInserter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ImageInserter -&gt; Pair) -&gt; Maybe ImageInserter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImageInserter
-</span><a href="#local-6989586621680016254"><span class="hs-identifier hs-var">imageInserter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017744"><span class="hs-identifier hs-var">imageInserter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-467"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterStrength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1648,14 +1648,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-468"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680016253"><span class="hs-identifier hs-var">filterStrength</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017743"><span class="hs-identifier hs-var">filterStrength</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-469"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;psiControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputPsiControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputPsiControl -&gt; Pair) -&gt; Maybe InputPsiControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputPsiControl
-</span><a href="#local-6989586621680016252"><span class="hs-identifier hs-var">psiControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017742"><span class="hs-identifier hs-var">psiControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-470"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionSelectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text CaptionSelector -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1664,28 +1664,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text CaptionSelector) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text CaptionSelector)
-</span><a href="#local-6989586621680016251"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017741"><span class="hs-identifier hs-var">captionSelectors</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-472"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeStart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680016250"><span class="hs-identifier hs-var">timecodeStart</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017740"><span class="hs-identifier hs-var">timecodeStart</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-473"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputScanType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputScanType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputScanType -&gt; Pair) -&gt; Maybe InputScanType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputScanType
-</span><a href="#local-6989586621680016249"><span class="hs-identifier hs-var">inputScanType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017739"><span class="hs-identifier hs-var">inputScanType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-474"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;position&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Rectangle -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Rectangle -&gt; Pair) -&gt; Maybe Rectangle -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Rectangle
-</span><a href="#local-6989586621680016248"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680017738"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-475"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterEnable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputFilterEnable -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1693,7 +1693,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputFilterEnable -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputFilterEnable
-</span><a href="#local-6989586621680016247"><span class="hs-identifier hs-var">filterEnable</span></a></span><span>
+</span><a href="#local-6989586621680017737"><span class="hs-identifier hs-var">filterEnable</span></a></span><span>
 </span><span id="line-476"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-477"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-478"></span></pre></body></html>

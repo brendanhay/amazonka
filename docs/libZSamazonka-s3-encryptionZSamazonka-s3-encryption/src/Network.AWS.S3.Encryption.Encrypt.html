@@ -22,23 +22,23 @@
 </span><span id="line-22"></span><span>
 </span><span id="line-23"></span><span class="hs-comment">-- | Note about how it doesn't attach metadata by default.</span><span>
 </span><span id="line-24"></span><span class="hs-comment">-- You can re-set the location and then discard the PutInstructions request.</span><span>
-</span><span id="line-25"></span><span id="local-6989586621679168368"><span id="local-6989586621679168369"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-type">encrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168369"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-type">ToEncrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168368"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-25"></span><span id="local-6989586621679168369"><span id="local-6989586621679168370"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-type">encrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168370"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-type">ToEncrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168369"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-27"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-28"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">AWS.Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-29"></span><span>  </span><span class="annot"><a href="#local-6989586621679168368"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-30"></span><span>  </span><span class="annot"><a href="#local-6989586621679168369"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168368"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-type">PutInstructions</span></a></span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="annot"><a href="#local-6989586621679168369"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-30"></span><span>  </span><span class="annot"><a href="#local-6989586621679168370"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168369"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-type">PutInstructions</span></a></span><span class="hs-special">)</span></span></span><span>
 </span><span id="line-31"></span><span id="encrypted"><span class="annot"><span class="annottext">encrypted :: Key -&gt; Env -&gt; a -&gt; m (Encrypted a, PutInstructions)
-</span><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span> </span><span id="local-6989586621679168366"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168366"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168365"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168365"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168364"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-32"></span><span>  </span><span id="local-6989586621679168363"><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168363"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; m Envelope
+</span><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span> </span><span id="local-6989586621679168367"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168367"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168366"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168366"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168365"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679168365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-32"></span><span>  </span><span id="local-6989586621679168364"><span class="annot"><span class="annottext">Envelope
+</span><a href="#local-6989586621679168364"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; m Envelope
 forall (m :: * -&gt; *). MonadResource m =&gt; Key -&gt; Env -&gt; m Envelope
 </span><a href="Network.AWS.S3.Encryption.Envelope.html#newEnvelope"><span class="hs-identifier hs-var">newEnvelope</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168366"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168365"><span class="hs-identifier hs-var">env</span></a></span><span>
+</span><a href="#local-6989586621679168367"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168366"><span class="hs-identifier hs-var">env</span></a></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>  </span><span class="annot"><span class="annottext">(Encrypted a, PutInstructions) -&gt; m (Encrypted a, PutInstructions)
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
@@ -46,14 +46,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">a -&gt; Location -&gt; Envelope -&gt; Encrypted a
 forall a. ToEncrypted a =&gt; a -&gt; Location -&gt; Envelope -&gt; Encrypted a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptWith"><span class="hs-identifier hs-var">encryptWith</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679168365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Location
 </span><a href="Network.AWS.S3.Encryption.Types.html#Discard"><span class="hs-identifier hs-var">Discard</span></a></span><span> </span><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168363"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679168364"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="annottext">a -&gt; Envelope -&gt; PutInstructions
 forall a. AddInstructions a =&gt; a -&gt; Envelope -&gt; PutInstructions
 </span><a href="Network.AWS.S3.Encryption.Instructions.html#putInstructions"><span class="hs-identifier hs-var">putInstructions</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168363"><span class="hs-identifier hs-var">e</span></a></span><span>
+</span><a href="#local-6989586621679168365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Envelope
+</span><a href="#local-6989586621679168364"><span class="hs-identifier hs-var">e</span></a></span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptPart"><span class="hs-identifier hs-type">encryptPart</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -62,20 +62,20 @@ forall a. AddInstructions a =&gt; a -&gt; Envelope -&gt; PutInstructions
 </span><span id="line-42"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.UploadPart</span></span><span>
 </span><span id="line-43"></span><span id="encryptPart"><span class="annot"><span class="annottext">encryptPart :: Encrypted CreateMultipartUpload
 -&gt; UploadPart -&gt; Encrypted UploadPart
-</span><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptPart"><span class="hs-identifier hs-var hs-var">encryptPart</span></a></span></span><span> </span><span id="local-6989586621679168357"><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168357"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span id="local-6989586621679168356"><span class="annot"><span class="annottext">UploadPart
-</span><a href="#local-6989586621679168356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadPart -&gt; Location -&gt; Envelope -&gt; Encrypted UploadPart
+</span><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptPart"><span class="hs-identifier hs-var hs-var">encryptPart</span></a></span></span><span> </span><span id="local-6989586621679168358"><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
+</span><a href="#local-6989586621679168358"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span id="local-6989586621679168357"><span class="annot"><span class="annottext">UploadPart
+</span><a href="#local-6989586621679168357"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadPart -&gt; Location -&gt; Envelope -&gt; Encrypted UploadPart
 forall a. ToEncrypted a =&gt; a -&gt; Location -&gt; Envelope -&gt; Encrypted a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptWith"><span class="hs-identifier hs-var">encryptWith</span></a></span><span> </span><span class="annot"><span class="annottext">UploadPart
-</span><a href="#local-6989586621679168356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679168357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Location
 </span><a href="Network.AWS.S3.Encryption.Types.html#Discard"><span class="hs-identifier hs-var">Discard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload -&gt; Envelope
 forall a. Encrypted a -&gt; Envelope
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#envelope"><span class="hs-identifier hs-var">envelope</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168357"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168358"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span class="hs-keyword">data</span><span> </span><span id="Encrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span></span><span> </span><span id="local-6989586621679168428"><span class="annot"><a href="#local-6989586621679168428"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">data</span><span> </span><span id="Encrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span></span><span> </span><span id="local-6989586621679168429"><span class="annot"><a href="#local-6989586621679168429"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="_encPayload"><span class="annot"><span class="annottext">Encrypted a -&gt; a
-</span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encPayload"><span class="hs-identifier hs-var hs-var">_encPayload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679168428"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span>
+</span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encPayload"><span class="hs-identifier hs-var hs-var">_encPayload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679168429"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span id="_encHeaders"><span class="annot"><span class="annottext">Encrypted a -&gt; [Header]
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encHeaders"><span class="hs-identifier hs-var hs-var">_encHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span id="_encLocation"><span class="annot"><span class="annottext">Encrypted a -&gt; Location
@@ -84,7 +84,7 @@ forall a. Encrypted a -&gt; Envelope
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encEnvelope"><span class="hs-identifier hs-var hs-var">_encEnvelope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span id="local-6989586621679168349"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#location"><span class="hs-identifier hs-type">location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Setter'</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168349"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679168350"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#location"><span class="hs-identifier hs-type">location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Setter'</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168350"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span><span>
 </span><span id="line-53"></span><span id="location"><span class="annot"><span class="annottext">location :: (Location -&gt; f Location) -&gt; Encrypted a -&gt; f (Encrypted a)
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#location"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encrypted a -&gt; Location)
 -&gt; (Encrypted a -&gt; Location -&gt; Encrypted a)
@@ -92,33 +92,33 @@ forall a. Encrypted a -&gt; Envelope
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
 </span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="annot"><span class="annottext">Encrypted a -&gt; Location
 forall a. Encrypted a -&gt; Location
-</span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encLocation"><span class="hs-identifier hs-var hs-var">_encLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168345"><span class="annot"><span class="annottext">Encrypted a
-</span><a href="#local-6989586621679168345"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168344"><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679168344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encrypted a
-</span><a href="#local-6989586621679168345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">_encLocation :: Location
+</span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encLocation"><span class="hs-identifier hs-var hs-var">_encLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168346"><span class="annot"><span class="annottext">Encrypted a
+</span><a href="#local-6989586621679168346"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168345"><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679168345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encrypted a
+</span><a href="#local-6989586621679168346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">_encLocation :: Location
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encLocation"><span class="hs-identifier hs-var">_encLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679168344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span id="local-6989586621679168441"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#envelope"><span class="hs-identifier hs-type">envelope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168441"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679168442"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#envelope"><span class="hs-identifier hs-type">envelope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168442"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span></span><span>
 </span><span id="line-56"></span><span id="envelope"><span class="annot"><span class="annottext">envelope :: Encrypted a -&gt; Envelope
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#envelope"><span class="hs-identifier hs-var hs-var">envelope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Encrypted a -&gt; Envelope
 forall a. Encrypted a -&gt; Envelope
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#_encEnvelope"><span class="hs-identifier hs-var hs-var">_encEnvelope</span></a></span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span id="local-6989586621679168343"><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="#local-6989586621679168343"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168343"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168343"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSResponse</span></span><span> </span><span class="annot"><a href="#local-6989586621679168343"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679168344"><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="#local-6989586621679168344"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168344"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168344"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSResponse</span></span><span> </span><span class="annot"><a href="#local-6989586621679168344"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679168339"><span class="annot"><span class="annottext">request :: Encrypted a -&gt; Request (Encrypted a)
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span id="local-6989586621679168337"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168337"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679168336"><span class="annot"><span class="annottext">[Header]
-</span><a href="#local-6989586621679168336"><span class="hs-identifier hs-var">xs</span></a></span></span><span> </span><span id="local-6989586621679168335"><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679168335"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span id="local-6989586621679168334"><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168334"><span class="hs-identifier hs-var">e</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679168340"><span class="annot"><span class="annottext">request :: Encrypted a -&gt; Request (Encrypted a)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span id="local-6989586621679168338"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679168338"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679168337"><span class="annot"><span class="annottext">[Header]
+</span><a href="#local-6989586621679168337"><span class="hs-identifier hs-var">xs</span></a></span></span><span> </span><span id="local-6989586621679168336"><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679168336"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span id="local-6989586621679168335"><span class="annot"><span class="annottext">Envelope
+</span><a href="#local-6989586621679168335"><span class="hs-identifier hs-var">e</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Request a -&gt; Request (Encrypted a)
 </span><span class="hs-identifier hs-var">coerce</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Request a
 forall a. AWSRequest a =&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">request</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168337"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168338"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">Request (Encrypted a)
 -&gt; (Request (Encrypted a) -&gt; Request (Encrypted a))
 -&gt; Request (Encrypted a)
@@ -133,7 +133,7 @@ forall a. Lens' (Request a) RequestBody
 -&gt; Request (Encrypted a)
 forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">RequestBody -&gt; RequestBody
-</span><a href="#local-6989586621679168331"><span class="hs-identifier hs-var">f</span></a></span><span>
+</span><a href="#local-6989586621679168332"><span class="hs-identifier hs-var">f</span></a></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">Request (Encrypted a)
 -&gt; (Request (Encrypted a) -&gt; Request (Encrypted a))
 -&gt; Request (Encrypted a)
@@ -146,50 +146,50 @@ forall a. Lens' (Request a) [Header]
 -&gt; [Header] -&gt; Request (Encrypted a) -&gt; Request (Encrypted a)
 forall a s t. Semigroup a =&gt; ASetter s t a a -&gt; a -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">&lt;&gt;~</span></span><span> </span><span class="annot"><span class="annottext">[Header]
-</span><a href="#local-6989586621679168329"><span class="hs-identifier hs-var">hs</span></a></span><span>
+</span><a href="#local-6989586621679168330"><span class="hs-identifier hs-var">hs</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679168331"><span class="annot"><span class="annottext">f :: RequestBody -&gt; RequestBody
-</span><a href="#local-6989586621679168331"><span class="hs-identifier hs-var hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679168328"><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168328"><span class="hs-identifier hs-var">b</span></a></span></span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679168332"><span class="annot"><span class="annottext">f :: RequestBody -&gt; RequestBody
+</span><a href="#local-6989586621679168332"><span class="hs-identifier hs-var hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679168329"><span class="annot"><span class="annottext">RequestBody
+</span><a href="#local-6989586621679168329"><span class="hs-identifier hs-var">b</span></a></span></span><span>
 </span><span id="line-67"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">RequestBody -&gt; Integer
 </span><span class="hs-identifier hs-var">contentLength</span></span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168328"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Bool
+</span><a href="#local-6989586621679168329"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&gt;</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">0</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; RequestBody -&gt; RequestBody
 </span><a href="Network.AWS.S3.Encryption.Envelope.html#bodyEncrypt"><span class="hs-identifier hs-var">bodyEncrypt</span></a></span><span> </span><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168334"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168328"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><a href="#local-6989586621679168335"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">RequestBody
+</span><a href="#local-6989586621679168329"><span class="hs-identifier hs-var">b</span></a></span><span>
 </span><span id="line-68"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168328"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><a href="#local-6989586621679168329"><span class="hs-identifier hs-var">b</span></a></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679168329"><span class="annot"><span class="annottext">hs :: [Header]
-</span><a href="#local-6989586621679168329"><span class="hs-identifier hs-var hs-var">hs</span></a></span></span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679168330"><span class="annot"><span class="annottext">hs :: [Header]
+</span><a href="#local-6989586621679168330"><span class="hs-identifier hs-var hs-var">hs</span></a></span></span><span>
 </span><span id="line-71"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679168335"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Location -&gt; Location -&gt; Bool
+</span><a href="#local-6989586621679168336"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Location -&gt; Location -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Location
 </span><a href="Network.AWS.S3.Encryption.Types.html#Metadata"><span class="hs-identifier hs-var">Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header]
-</span><a href="#local-6989586621679168336"><span class="hs-identifier hs-var">xs</span></a></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; [Header] -&gt; [Header]
+</span><a href="#local-6989586621679168337"><span class="hs-identifier hs-var">xs</span></a></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; [Header] -&gt; [Header]
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; [Header]
 forall a. ToHeaders a =&gt; a -&gt; [Header]
 </span><span class="hs-identifier hs-var">toHeaders</span></span><span> </span><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168334"><span class="hs-identifier hs-var">e</span></a></span><span>
+</span><a href="#local-6989586621679168335"><span class="hs-identifier hs-var">e</span></a></span><span>
 </span><span id="line-72"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header]
-</span><a href="#local-6989586621679168336"><span class="hs-identifier hs-var">xs</span></a></span><span>
+</span><a href="#local-6989586621679168337"><span class="hs-identifier hs-var">xs</span></a></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679168322"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679168323"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy (Encrypted a)
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse (Encrypted a))))
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span id="local-6989586621679168320"><span class="annot"><span class="annottext">Logger
-</span><a href="#local-6989586621679168320"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span id="local-6989586621679168319"><span class="annot"><span class="annottext">Service
-</span><a href="#local-6989586621679168319"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168318"><span class="annot"><span class="annottext">Proxy (Encrypted a)
-</span><a href="#local-6989586621679168318"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span id="local-6989586621679168321"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679168321"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span id="local-6989586621679168320"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168320"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168319"><span class="annot"><span class="annottext">Proxy (Encrypted a)
+</span><a href="#local-6989586621679168319"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Logger
 -&gt; Service
 -&gt; Proxy a
@@ -203,13 +203,13 @@ Logger
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">response</span></span><span> </span><span class="annot"><span class="annottext">Logger
-</span><a href="#local-6989586621679168320"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Service
-</span><a href="#local-6989586621679168319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Proxy (Encrypted a) -&gt; Proxy a
+</span><a href="#local-6989586621679168321"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Proxy (Encrypted a) -&gt; Proxy a
 forall a. Proxy (Encrypted a) -&gt; Proxy a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#proxy"><span class="hs-identifier hs-var">proxy</span></a></span><span> </span><span class="annot"><span class="annottext">Proxy (Encrypted a)
-</span><a href="#local-6989586621679168318"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span></span><span>
+</span><a href="#local-6989586621679168319"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#proxy"><span class="hs-identifier hs-type">proxy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168390"><span class="annot"><a href="#local-6989586621679168390"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168390"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679168390"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#proxy"><span class="hs-identifier hs-type">proxy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168391"><span class="annot"><a href="#local-6989586621679168391"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168391"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679168391"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-78"></span><span id="proxy"><span class="annot"><span class="annottext">proxy :: Proxy (Encrypted a) -&gt; Proxy a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#proxy"><span class="hs-identifier hs-var hs-var">proxy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Proxy a -&gt; Proxy (Encrypted a) -&gt; Proxy a
 forall a b. a -&gt; b -&gt; a
@@ -217,56 +217,56 @@ forall a b. a -&gt; b -&gt; a
 forall k (t :: k). Proxy t
 </span><span class="hs-identifier hs-var">Proxy</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">class</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168447"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span id="ToEncrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-var">ToEncrypted</span></a></span></span><span> </span><span id="local-6989586621679168447"><span class="annot"><a href="#local-6989586621679168447"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">class</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168448"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span id="ToEncrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-var">ToEncrypted</span></a></span></span><span> </span><span id="local-6989586621679168448"><span class="annot"><a href="#local-6989586621679168448"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | Create an encryption context.</span><span>
-</span><span id="line-82"></span><span>  </span><span id="encryptWith"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptWith"><span class="hs-identifier hs-type">encryptWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679168447"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168447"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="encryptWith"><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptWith"><span class="hs-identifier hs-type">encryptWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679168448"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168448"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-type">ToEncrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.CreateMultipartUpload</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679168311"><span class="annot"><span class="annottext">encryptWith :: CreateMultipartUpload
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679168312"><span class="annot"><span class="annottext">encryptWith :: CreateMultipartUpload
 -&gt; Location -&gt; Envelope -&gt; Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168311"><span class="hs-identifier hs-var hs-var hs-var hs-var">encryptWith</span></a></span></span><span> </span><span id="local-6989586621679168310"><span class="annot"><span class="annottext">CreateMultipartUpload
-</span><a href="#local-6989586621679168310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
+</span><a href="#local-6989586621679168312"><span class="hs-identifier hs-var hs-var hs-var hs-var">encryptWith</span></a></span></span><span> </span><span id="local-6989586621679168311"><span class="annot"><span class="annottext">CreateMultipartUpload
+</span><a href="#local-6989586621679168311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
 -&gt; [Header]
 -&gt; Location
 -&gt; Envelope
 -&gt; Encrypted CreateMultipartUpload
 forall a. a -&gt; [Header] -&gt; Location -&gt; Envelope -&gt; Encrypted a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
-</span><a href="#local-6989586621679168310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679168311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-type">ToEncrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.PutObject</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679168307"><span class="annot"><span class="annottext">encryptWith :: PutObject -&gt; Location -&gt; Envelope -&gt; Encrypted PutObject
-</span><a href="#local-6989586621679168307"><span class="hs-identifier hs-var hs-var hs-var hs-var">encryptWith</span></a></span></span><span> </span><span id="local-6989586621679168306"><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutObject
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679168308"><span class="annot"><span class="annottext">encryptWith :: PutObject -&gt; Location -&gt; Envelope -&gt; Encrypted PutObject
+</span><a href="#local-6989586621679168308"><span class="hs-identifier hs-var hs-var hs-var hs-var">encryptWith</span></a></span></span><span> </span><span id="local-6989586621679168307"><span class="annot"><span class="annottext">PutObject
+</span><a href="#local-6989586621679168307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutObject
 -&gt; [Header] -&gt; Location -&gt; Envelope -&gt; Encrypted PutObject
 forall a. a -&gt; [Header] -&gt; Location -&gt; Envelope -&gt; Encrypted a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Header
-</span><a href="#local-6989586621679168305"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">Header -&gt; [Header] -&gt; [Header]
+</span><a href="#local-6989586621679168307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Header
+</span><a href="#local-6989586621679168306"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">Header -&gt; [Header] -&gt; [Header]
 forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-glyph hs-var">:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Header -&gt; [Header]
 forall a. Maybe a -&gt; [a]
 </span><span class="hs-identifier hs-var">maybeToList</span></span><span> </span><span class="annot"><span class="annottext">Maybe Header
-</span><a href="#local-6989586621679168303"><span class="hs-identifier hs-var">md5</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168304"><span class="hs-identifier hs-var">md5</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>      </span><span id="local-6989586621679168305"><span class="annot"><span class="annottext">len :: Header
-</span><a href="#local-6989586621679168305"><span class="hs-identifier hs-var hs-var">len</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-90"></span><span>      </span><span id="local-6989586621679168306"><span class="annot"><span class="annottext">len :: Header
+</span><a href="#local-6989586621679168306"><span class="hs-identifier hs-var hs-var">len</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Unencrypted-Content-Length&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">toBS</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RequestBody -&gt; Integer
 </span><span class="hs-identifier hs-var">contentLength</span></span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168301"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>      </span><span id="local-6989586621679168303"><span class="annot"><span class="annottext">md5 :: Maybe Header
-</span><a href="#local-6989586621679168303"><span class="hs-identifier hs-var hs-var">md5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679168302"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span id="local-6989586621679168304"><span class="annot"><span class="annottext">md5 :: Maybe Header
+</span><a href="#local-6989586621679168304"><span class="hs-identifier hs-var hs-var">md5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Unencrypted-Content-MD5&quot;</span></span><span class="hs-special">,</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Header) -&gt; Maybe ByteString -&gt; Maybe Header
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">RequestBody -&gt; Maybe ByteString
 </span><span class="hs-identifier hs-var">md5Base64</span></span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168301"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><a href="#local-6989586621679168302"><span class="hs-identifier hs-var">body</span></a></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span>      </span><span id="local-6989586621679168301"><span class="annot"><span class="annottext">body :: RequestBody
-</span><a href="#local-6989586621679168301"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
+</span><span id="line-93"></span><span>      </span><span id="local-6989586621679168302"><span class="annot"><span class="annottext">body :: RequestBody
+</span><a href="#local-6989586621679168302"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutObject
+</span><a href="#local-6989586621679168307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
 -&gt; Getting RequestBody PutObject RequestBody -&gt; RequestBody
 forall s a. s -&gt; Getting a s a -&gt; a
 </span><span class="hs-operator hs-var">^.</span></span><span> </span><span class="annot"><span class="annottext">Getting RequestBody PutObject RequestBody
@@ -275,38 +275,38 @@ Lens' PutObject RequestBody
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- FIXME: verify these additional headers.</span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#ToEncrypted"><span class="hs-identifier hs-type">ToEncrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.UploadPart</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679168295"><span class="annot"><span class="annottext">encryptWith :: UploadPart -&gt; Location -&gt; Envelope -&gt; Encrypted UploadPart
-</span><a href="#local-6989586621679168295"><span class="hs-identifier hs-var hs-var hs-var hs-var">encryptWith</span></a></span></span><span> </span><span id="local-6989586621679168294"><span class="annot"><span class="annottext">UploadPart
-</span><a href="#local-6989586621679168294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadPart
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679168296"><span class="annot"><span class="annottext">encryptWith :: UploadPart -&gt; Location -&gt; Envelope -&gt; Encrypted UploadPart
+</span><a href="#local-6989586621679168296"><span class="hs-identifier hs-var hs-var hs-var hs-var">encryptWith</span></a></span></span><span> </span><span id="local-6989586621679168295"><span class="annot"><span class="annottext">UploadPart
+</span><a href="#local-6989586621679168295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadPart
 -&gt; [Header] -&gt; Location -&gt; Envelope -&gt; Encrypted UploadPart
 forall a. a -&gt; [Header] -&gt; Location -&gt; Envelope -&gt; Encrypted a
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-var">Encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">UploadPart
-</span><a href="#local-6989586621679168294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Header
-</span><a href="#local-6989586621679168293"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">Header -&gt; [Header] -&gt; [Header]
+</span><a href="#local-6989586621679168295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Header
+</span><a href="#local-6989586621679168294"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">Header -&gt; [Header] -&gt; [Header]
 forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-glyph hs-var">:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Header -&gt; [Header]
 forall a. Maybe a -&gt; [a]
 </span><span class="hs-identifier hs-var">maybeToList</span></span><span> </span><span class="annot"><span class="annottext">Maybe Header
-</span><a href="#local-6989586621679168292"><span class="hs-identifier hs-var">md5</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168293"><span class="hs-identifier hs-var">md5</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>      </span><span id="local-6989586621679168293"><span class="annot"><span class="annottext">len :: Header
-</span><a href="#local-6989586621679168293"><span class="hs-identifier hs-var hs-var">len</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-99"></span><span>      </span><span id="local-6989586621679168294"><span class="annot"><span class="annottext">len :: Header
+</span><a href="#local-6989586621679168294"><span class="hs-identifier hs-var hs-var">len</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Unencrypted-Content-Length&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">toBS</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RequestBody -&gt; Integer
 </span><span class="hs-identifier hs-var">contentLength</span></span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168291"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>      </span><span id="local-6989586621679168292"><span class="annot"><span class="annottext">md5 :: Maybe Header
-</span><a href="#local-6989586621679168292"><span class="hs-identifier hs-var hs-var">md5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679168292"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span id="local-6989586621679168293"><span class="annot"><span class="annottext">md5 :: Maybe Header
+</span><a href="#local-6989586621679168293"><span class="hs-identifier hs-var hs-var">md5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Unencrypted-Content-MD5&quot;</span></span><span class="hs-special">,</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Header) -&gt; Maybe ByteString -&gt; Maybe Header
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">RequestBody -&gt; Maybe ByteString
 </span><span class="hs-identifier hs-var">md5Base64</span></span><span> </span><span class="annot"><span class="annottext">RequestBody
-</span><a href="#local-6989586621679168291"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><a href="#local-6989586621679168292"><span class="hs-identifier hs-var">body</span></a></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span>      </span><span id="local-6989586621679168291"><span class="annot"><span class="annottext">body :: RequestBody
-</span><a href="#local-6989586621679168291"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadPart
-</span><a href="#local-6989586621679168294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">UploadPart
+</span><span id="line-102"></span><span>      </span><span id="local-6989586621679168292"><span class="annot"><span class="annottext">body :: RequestBody
+</span><a href="#local-6989586621679168292"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UploadPart
+</span><a href="#local-6989586621679168295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">UploadPart
 -&gt; Getting RequestBody UploadPart RequestBody -&gt; RequestBody
 forall s a. s -&gt; Getting a s a -&gt; a
 </span><span class="hs-operator hs-var">^.</span></span><span> </span><span class="annot"><span class="annottext">Getting RequestBody UploadPart RequestBody

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- and more B-frames for low-motion portions. The maximum number of</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- B-frames is limited by the value you provide for the setting B frames</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- between reference frames (numberBFramesBetweenReferenceFrames).</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679970645"><span id="local-6989586621679970646"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265DynamicSubGop"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265DynamicSubGop.html#H265DynamicSubGop"><span class="hs-identifier hs-var">H265DynamicSubGop</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265DynamicSubGop%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265DynamicSubGop.html#H265DynamicSubGop%27"><span class="hs-identifier hs-var">H265DynamicSubGop'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679972135"><span id="local-6989586621679972136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265DynamicSubGop"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265DynamicSubGop.html#H265DynamicSubGop"><span class="hs-identifier hs-var">H265DynamicSubGop</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265DynamicSubGop%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265DynamicSubGop.html#H265DynamicSubGop%27"><span class="hs-identifier hs-var">H265DynamicSubGop'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265DynamicSubGop"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265DynamicSubGop.html#fromH265DynamicSubGop"><span class="hs-identifier hs-var hs-var">fromH265DynamicSubGop</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970637"><span id="local-6989586621679970639"><span id="local-6989586621679970641"><span class="annot"><span class="annottext">Int -&gt; H265DynamicSubGop -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972127"><span id="local-6989586621679972129"><span id="local-6989586621679972131"><span class="annot"><span class="annottext">Int -&gt; H265DynamicSubGop -&gt; ShowS
 [H265DynamicSubGop] -&gt; ShowS
 H265DynamicSubGop -&gt; String
 (Int -&gt; H265DynamicSubGop -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: H265DynamicSubGop -&gt; String
 showsPrec :: Int -&gt; H265DynamicSubGop -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265DynamicSubGop -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679970628"><span id="local-6989586621679970630"><span id="local-6989586621679970632"><span id="local-6989586621679970634"><span class="annot"><span class="annottext">ReadPrec [H265DynamicSubGop]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679972118"><span id="local-6989586621679972120"><span id="local-6989586621679972122"><span id="local-6989586621679972124"><span class="annot"><span class="annottext">ReadPrec [H265DynamicSubGop]
 ReadPrec H265DynamicSubGop
 Int -&gt; ReadS H265DynamicSubGop
 ReadS [H265DynamicSubGop]
@@ -78,7 +78,7 @@ $creadList :: ReadS [H265DynamicSubGop]
 readsPrec :: Int -&gt; ReadS H265DynamicSubGop
 $creadsPrec :: Int -&gt; ReadS H265DynamicSubGop
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679970623"><span id="local-6989586621679970625"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679972113"><span id="local-6989586621679972115"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool
 (H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool)
 -&gt; (H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool)
 -&gt; Eq H265DynamicSubGop
@@ -88,7 +88,7 @@ $c/= :: H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool
 == :: H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool
 $c== :: H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679970607"><span id="local-6989586621679970609"><span id="local-6989586621679970611"><span id="local-6989586621679970613"><span id="local-6989586621679970615"><span id="local-6989586621679970617"><span id="local-6989586621679970619"><span class="annot"><span class="annottext">Eq H265DynamicSubGop
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679972097"><span id="local-6989586621679972099"><span id="local-6989586621679972101"><span id="local-6989586621679972103"><span id="local-6989586621679972105"><span id="local-6989586621679972107"><span id="local-6989586621679972109"><span class="annot"><span class="annottext">Eq H265DynamicSubGop
 Eq H265DynamicSubGop
 -&gt; (H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Ordering)
 -&gt; (H265DynamicSubGop -&gt; H265DynamicSubGop -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. H265DynamicSubGop -&gt; Rep H265DynamicSubGop x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970599"><span id="local-6989586621679970601"><span class="annot"><span class="annottext">Int -&gt; H265DynamicSubGop -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972089"><span id="local-6989586621679972091"><span class="annot"><span class="annottext">Int -&gt; H265DynamicSubGop -&gt; Int
 H265DynamicSubGop -&gt; Int
 (Int -&gt; H265DynamicSubGop -&gt; Int)
 -&gt; (H265DynamicSubGop -&gt; Int) -&gt; Hashable H265DynamicSubGop
@@ -149,51 +149,51 @@ $chash :: H265DynamicSubGop -&gt; Int
 hashWithSalt :: Int -&gt; H265DynamicSubGop -&gt; Int
 $chashWithSalt :: Int -&gt; H265DynamicSubGop -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679970596"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679972086"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; ()
 (H265DynamicSubGop -&gt; ()) -&gt; NFData H265DynamicSubGop
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265DynamicSubGop -&gt; ()
 $crnf :: H265DynamicSubGop -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679970593"><span class="annot"><span class="annottext">Text -&gt; Either String H265DynamicSubGop
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972083"><span class="annot"><span class="annottext">Text -&gt; Either String H265DynamicSubGop
 (Text -&gt; Either String H265DynamicSubGop)
 -&gt; FromText H265DynamicSubGop
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265DynamicSubGop
 $cfromText :: Text -&gt; Either String H265DynamicSubGop
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679970590"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972080"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; Text
 (H265DynamicSubGop -&gt; Text) -&gt; ToText H265DynamicSubGop
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265DynamicSubGop -&gt; Text
 $ctoText :: H265DynamicSubGop -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679970587"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679972077"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; ByteString
 (H265DynamicSubGop -&gt; ByteString) -&gt; ToByteString H265DynamicSubGop
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265DynamicSubGop -&gt; ByteString
 $ctoBS :: H265DynamicSubGop -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679970584"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679972074"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; ByteStringBuilder
 (H265DynamicSubGop -&gt; ByteStringBuilder) -&gt; ToLog H265DynamicSubGop
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265DynamicSubGop -&gt; ByteStringBuilder
 $cbuild :: H265DynamicSubGop -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679970581"><span class="annot"><span class="annottext">HeaderName -&gt; H265DynamicSubGop -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679972071"><span class="annot"><span class="annottext">HeaderName -&gt; H265DynamicSubGop -&gt; [Header]
 (HeaderName -&gt; H265DynamicSubGop -&gt; [Header])
 -&gt; ToHeader H265DynamicSubGop
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265DynamicSubGop -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265DynamicSubGop -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679970578"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679972068"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; QueryString
 (H265DynamicSubGop -&gt; QueryString) -&gt; ToQuery H265DynamicSubGop
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265DynamicSubGop -&gt; QueryString
 $ctoQuery :: H265DynamicSubGop -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679970573"><span id="local-6989586621679970575"><span class="annot"><span class="annottext">Value -&gt; Parser [H265DynamicSubGop]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972063"><span id="local-6989586621679972065"><span class="annot"><span class="annottext">Value -&gt; Parser [H265DynamicSubGop]
 Value -&gt; Parser H265DynamicSubGop
 (Value -&gt; Parser H265DynamicSubGop)
 -&gt; (Value -&gt; Parser [H265DynamicSubGop])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [H265DynamicSubGop]
 parseJSON :: Value -&gt; Parser H265DynamicSubGop
 $cparseJSON :: Value -&gt; Parser H265DynamicSubGop
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679970568"><span id="local-6989586621679970570"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265DynamicSubGop]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972058"><span id="local-6989586621679972060"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265DynamicSubGop]
 FromJSONKeyFunction H265DynamicSubGop
 FromJSONKeyFunction H265DynamicSubGop
 -&gt; FromJSONKeyFunction [H265DynamicSubGop]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265DynamicSubGop]
 fromJSONKey :: FromJSONKeyFunction H265DynamicSubGop
 $cfromJSONKey :: FromJSONKeyFunction H265DynamicSubGop
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679970559"><span id="local-6989586621679970561"><span id="local-6989586621679970563"><span id="local-6989586621679970565"><span class="annot"><span class="annottext">[H265DynamicSubGop] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972049"><span id="local-6989586621679972051"><span id="local-6989586621679972053"><span id="local-6989586621679972055"><span class="annot"><span class="annottext">[H265DynamicSubGop] -&gt; Encoding
 [H265DynamicSubGop] -&gt; Value
 H265DynamicSubGop -&gt; Encoding
 H265DynamicSubGop -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: H265DynamicSubGop -&gt; Encoding
 toJSON :: H265DynamicSubGop -&gt; Value
 $ctoJSON :: H265DynamicSubGop -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679970554"><span id="local-6989586621679970556"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265DynamicSubGop]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679972044"><span id="local-6989586621679972046"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265DynamicSubGop]
 ToJSONKeyFunction H265DynamicSubGop
 ToJSONKeyFunction H265DynamicSubGop
 -&gt; ToJSONKeyFunction [H265DynamicSubGop]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265DynamicSubGop]
 toJSONKey :: ToJSONKeyFunction H265DynamicSubGop
 $ctoJSONKey :: ToJSONKeyFunction H265DynamicSubGop
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679970551"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265DynamicSubGop
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679972041"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265DynamicSubGop
 ([Node] -&gt; Either String H265DynamicSubGop)
 -&gt; FromXML H265DynamicSubGop
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265DynamicSubGop
 $cparseXML :: [Node] -&gt; Either String H265DynamicSubGop
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679970548"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679972038"><span class="annot"><span class="annottext">H265DynamicSubGop -&gt; XML
 (H265DynamicSubGop -&gt; XML) -&gt; ToXML H265DynamicSubGop
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265DynamicSubGop -&gt; XML

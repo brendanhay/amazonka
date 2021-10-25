@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679280377"><span id="local-6989586621679280378"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LagState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.LagState.html#LagState"><span class="hs-identifier hs-var">LagState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LagState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.LagState.html#LagState%27"><span class="hs-identifier hs-var">LagState'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679288505"><span id="local-6989586621679288506"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LagState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.LagState.html#LagState"><span class="hs-identifier hs-var">LagState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LagState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.LagState.html#LagState%27"><span class="hs-identifier hs-var">LagState'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLagState"><span class="annot"><span class="annottext">LagState -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.LagState.html#fromLagState"><span class="hs-identifier hs-var hs-var">fromLagState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280369"><span id="local-6989586621679280371"><span id="local-6989586621679280373"><span class="annot"><span class="annottext">Int -&gt; LagState -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288497"><span id="local-6989586621679288499"><span id="local-6989586621679288501"><span class="annot"><span class="annottext">Int -&gt; LagState -&gt; ShowS
 [LagState] -&gt; ShowS
 LagState -&gt; String
 (Int -&gt; LagState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: LagState -&gt; String
 showsPrec :: Int -&gt; LagState -&gt; ShowS
 $cshowsPrec :: Int -&gt; LagState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679280360"><span id="local-6989586621679280362"><span id="local-6989586621679280364"><span id="local-6989586621679280366"><span class="annot"><span class="annottext">ReadPrec [LagState]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679288488"><span id="local-6989586621679288490"><span id="local-6989586621679288492"><span id="local-6989586621679288494"><span class="annot"><span class="annottext">ReadPrec [LagState]
 ReadPrec LagState
 Int -&gt; ReadS LagState
 ReadS [LagState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [LagState]
 readsPrec :: Int -&gt; ReadS LagState
 $creadsPrec :: Int -&gt; ReadS LagState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679280355"><span id="local-6989586621679280357"><span class="annot"><span class="annottext">LagState -&gt; LagState -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679288483"><span id="local-6989586621679288485"><span class="annot"><span class="annottext">LagState -&gt; LagState -&gt; Bool
 (LagState -&gt; LagState -&gt; Bool)
 -&gt; (LagState -&gt; LagState -&gt; Bool) -&gt; Eq LagState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: LagState -&gt; LagState -&gt; Bool
 == :: LagState -&gt; LagState -&gt; Bool
 $c== :: LagState -&gt; LagState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679280339"><span id="local-6989586621679280341"><span id="local-6989586621679280343"><span id="local-6989586621679280345"><span id="local-6989586621679280347"><span id="local-6989586621679280349"><span id="local-6989586621679280351"><span class="annot"><span class="annottext">Eq LagState
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679288467"><span id="local-6989586621679288469"><span id="local-6989586621679288471"><span id="local-6989586621679288473"><span id="local-6989586621679288475"><span id="local-6989586621679288477"><span id="local-6989586621679288479"><span class="annot"><span class="annottext">Eq LagState
 Eq LagState
 -&gt; (LagState -&gt; LagState -&gt; Ordering)
 -&gt; (LagState -&gt; LagState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. LagState -&gt; Rep LagState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280331"><span id="local-6989586621679280333"><span class="annot"><span class="annottext">Int -&gt; LagState -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288459"><span id="local-6989586621679288461"><span class="annot"><span class="annottext">Int -&gt; LagState -&gt; Int
 LagState -&gt; Int
 (Int -&gt; LagState -&gt; Int) -&gt; (LagState -&gt; Int) -&gt; Hashable LagState
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -143,49 +143,49 @@ $chash :: LagState -&gt; Int
 hashWithSalt :: Int -&gt; LagState -&gt; Int
 $chashWithSalt :: Int -&gt; LagState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679280328"><span class="annot"><span class="annottext">LagState -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679288456"><span class="annot"><span class="annottext">LagState -&gt; ()
 (LagState -&gt; ()) -&gt; NFData LagState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LagState -&gt; ()
 $crnf :: LagState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679280325"><span class="annot"><span class="annottext">Text -&gt; Either String LagState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679288453"><span class="annot"><span class="annottext">Text -&gt; Either String LagState
 (Text -&gt; Either String LagState) -&gt; FromText LagState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LagState
 $cfromText :: Text -&gt; Either String LagState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679280322"><span class="annot"><span class="annottext">LagState -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679288450"><span class="annot"><span class="annottext">LagState -&gt; Text
 (LagState -&gt; Text) -&gt; ToText LagState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LagState -&gt; Text
 $ctoText :: LagState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679280319"><span class="annot"><span class="annottext">LagState -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679288447"><span class="annot"><span class="annottext">LagState -&gt; ByteString
 (LagState -&gt; ByteString) -&gt; ToByteString LagState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LagState -&gt; ByteString
 $ctoBS :: LagState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679280316"><span class="annot"><span class="annottext">LagState -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679288444"><span class="annot"><span class="annottext">LagState -&gt; ByteStringBuilder
 (LagState -&gt; ByteStringBuilder) -&gt; ToLog LagState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LagState -&gt; ByteStringBuilder
 $cbuild :: LagState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679280313"><span class="annot"><span class="annottext">HeaderName -&gt; LagState -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679288441"><span class="annot"><span class="annottext">HeaderName -&gt; LagState -&gt; [Header]
 (HeaderName -&gt; LagState -&gt; [Header]) -&gt; ToHeader LagState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LagState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LagState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679280310"><span class="annot"><span class="annottext">LagState -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679288438"><span class="annot"><span class="annottext">LagState -&gt; QueryString
 (LagState -&gt; QueryString) -&gt; ToQuery LagState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LagState -&gt; QueryString
 $ctoQuery :: LagState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679280305"><span id="local-6989586621679280307"><span class="annot"><span class="annottext">Value -&gt; Parser [LagState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679288433"><span id="local-6989586621679288435"><span class="annot"><span class="annottext">Value -&gt; Parser [LagState]
 Value -&gt; Parser LagState
 (Value -&gt; Parser LagState)
 -&gt; (Value -&gt; Parser [LagState]) -&gt; FromJSON LagState
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [LagState]
 parseJSON :: Value -&gt; Parser LagState
 $cparseJSON :: Value -&gt; Parser LagState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679280300"><span id="local-6989586621679280302"><span class="annot"><span class="annottext">FromJSONKeyFunction [LagState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679288428"><span id="local-6989586621679288430"><span class="annot"><span class="annottext">FromJSONKeyFunction [LagState]
 FromJSONKeyFunction LagState
 FromJSONKeyFunction LagState
 -&gt; FromJSONKeyFunction [LagState] -&gt; FromJSONKey LagState
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LagState]
 fromJSONKey :: FromJSONKeyFunction LagState
 $cfromJSONKey :: FromJSONKeyFunction LagState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679280291"><span id="local-6989586621679280293"><span id="local-6989586621679280295"><span id="local-6989586621679280297"><span class="annot"><span class="annottext">[LagState] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679288419"><span id="local-6989586621679288421"><span id="local-6989586621679288423"><span id="local-6989586621679288425"><span class="annot"><span class="annottext">[LagState] -&gt; Encoding
 [LagState] -&gt; Value
 LagState -&gt; Encoding
 LagState -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: LagState -&gt; Encoding
 toJSON :: LagState -&gt; Value
 $ctoJSON :: LagState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679280286"><span id="local-6989586621679280288"><span class="annot"><span class="annottext">ToJSONKeyFunction [LagState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679288414"><span id="local-6989586621679288416"><span class="annot"><span class="annottext">ToJSONKeyFunction [LagState]
 ToJSONKeyFunction LagState
 ToJSONKeyFunction LagState
 -&gt; ToJSONKeyFunction [LagState] -&gt; ToJSONKey LagState
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LagState]
 toJSONKey :: ToJSONKeyFunction LagState
 $ctoJSONKey :: ToJSONKeyFunction LagState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679280283"><span class="annot"><span class="annottext">[Node] -&gt; Either String LagState
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679288411"><span class="annot"><span class="annottext">[Node] -&gt; Either String LagState
 ([Node] -&gt; Either String LagState) -&gt; FromXML LagState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LagState
 $cparseXML :: [Node] -&gt; Either String LagState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679280280"><span class="annot"><span class="annottext">LagState -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679288408"><span class="annot"><span class="annottext">LagState -&gt; XML
 (LagState -&gt; XML) -&gt; ToXML LagState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LagState -&gt; XML

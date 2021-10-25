@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- conditioning. In both cases, also provide the ESAM XML as a string in</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- the setting Signal processing notification XML (sccXml).</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679986930"><span id="local-6989586621679986931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8Scte35Source"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8Scte35Source.html#M3u8Scte35Source"><span class="hs-identifier hs-var">M3u8Scte35Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8Scte35Source%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8Scte35Source.html#M3u8Scte35Source%27"><span class="hs-identifier hs-var">M3u8Scte35Source'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679988420"><span id="local-6989586621679988421"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8Scte35Source"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8Scte35Source.html#M3u8Scte35Source"><span class="hs-identifier hs-var">M3u8Scte35Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8Scte35Source%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8Scte35Source.html#M3u8Scte35Source%27"><span class="hs-identifier hs-var">M3u8Scte35Source'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM3u8Scte35Source"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M3u8Scte35Source.html#fromM3u8Scte35Source"><span class="hs-identifier hs-var hs-var">fromM3u8Scte35Source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986922"><span id="local-6989586621679986924"><span id="local-6989586621679986926"><span class="annot"><span class="annottext">Int -&gt; M3u8Scte35Source -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988412"><span id="local-6989586621679988414"><span id="local-6989586621679988416"><span class="annot"><span class="annottext">Int -&gt; M3u8Scte35Source -&gt; ShowS
 [M3u8Scte35Source] -&gt; ShowS
 M3u8Scte35Source -&gt; String
 (Int -&gt; M3u8Scte35Source -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: M3u8Scte35Source -&gt; String
 showsPrec :: Int -&gt; M3u8Scte35Source -&gt; ShowS
 $cshowsPrec :: Int -&gt; M3u8Scte35Source -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679986913"><span id="local-6989586621679986915"><span id="local-6989586621679986917"><span id="local-6989586621679986919"><span class="annot"><span class="annottext">ReadPrec [M3u8Scte35Source]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679988403"><span id="local-6989586621679988405"><span id="local-6989586621679988407"><span id="local-6989586621679988409"><span class="annot"><span class="annottext">ReadPrec [M3u8Scte35Source]
 ReadPrec M3u8Scte35Source
 Int -&gt; ReadS M3u8Scte35Source
 ReadS [M3u8Scte35Source]
@@ -80,7 +80,7 @@ $creadList :: ReadS [M3u8Scte35Source]
 readsPrec :: Int -&gt; ReadS M3u8Scte35Source
 $creadsPrec :: Int -&gt; ReadS M3u8Scte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679986908"><span id="local-6989586621679986910"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679988398"><span id="local-6989586621679988400"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool
 (M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool)
 -&gt; (M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool)
 -&gt; Eq M3u8Scte35Source
@@ -90,7 +90,7 @@ $c/= :: M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool
 == :: M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool
 $c== :: M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679986892"><span id="local-6989586621679986894"><span id="local-6989586621679986896"><span id="local-6989586621679986898"><span id="local-6989586621679986900"><span id="local-6989586621679986902"><span id="local-6989586621679986904"><span class="annot"><span class="annottext">Eq M3u8Scte35Source
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679988382"><span id="local-6989586621679988384"><span id="local-6989586621679988386"><span id="local-6989586621679988388"><span id="local-6989586621679988390"><span id="local-6989586621679988392"><span id="local-6989586621679988394"><span class="annot"><span class="annottext">Eq M3u8Scte35Source
 Eq M3u8Scte35Source
 -&gt; (M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Ordering)
 -&gt; (M3u8Scte35Source -&gt; M3u8Scte35Source -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. M3u8Scte35Source -&gt; Rep M3u8Scte35Source x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986884"><span id="local-6989586621679986886"><span class="annot"><span class="annottext">Int -&gt; M3u8Scte35Source -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988374"><span id="local-6989586621679988376"><span class="annot"><span class="annottext">Int -&gt; M3u8Scte35Source -&gt; Int
 M3u8Scte35Source -&gt; Int
 (Int -&gt; M3u8Scte35Source -&gt; Int)
 -&gt; (M3u8Scte35Source -&gt; Int) -&gt; Hashable M3u8Scte35Source
@@ -151,51 +151,51 @@ $chash :: M3u8Scte35Source -&gt; Int
 hashWithSalt :: Int -&gt; M3u8Scte35Source -&gt; Int
 $chashWithSalt :: Int -&gt; M3u8Scte35Source -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986881"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679988371"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; ()
 (M3u8Scte35Source -&gt; ()) -&gt; NFData M3u8Scte35Source
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M3u8Scte35Source -&gt; ()
 $crnf :: M3u8Scte35Source -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679986878"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8Scte35Source
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679988368"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8Scte35Source
 (Text -&gt; Either String M3u8Scte35Source)
 -&gt; FromText M3u8Scte35Source
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M3u8Scte35Source
 $cfromText :: Text -&gt; Either String M3u8Scte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679986875"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679988365"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; Text
 (M3u8Scte35Source -&gt; Text) -&gt; ToText M3u8Scte35Source
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M3u8Scte35Source -&gt; Text
 $ctoText :: M3u8Scte35Source -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679986872"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679988362"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; ByteString
 (M3u8Scte35Source -&gt; ByteString) -&gt; ToByteString M3u8Scte35Source
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M3u8Scte35Source -&gt; ByteString
 $ctoBS :: M3u8Scte35Source -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986869"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679988359"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; ByteStringBuilder
 (M3u8Scte35Source -&gt; ByteStringBuilder) -&gt; ToLog M3u8Scte35Source
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M3u8Scte35Source -&gt; ByteStringBuilder
 $cbuild :: M3u8Scte35Source -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986866"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8Scte35Source -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679988356"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8Scte35Source -&gt; [Header]
 (HeaderName -&gt; M3u8Scte35Source -&gt; [Header])
 -&gt; ToHeader M3u8Scte35Source
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M3u8Scte35Source -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M3u8Scte35Source -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986863"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679988353"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; QueryString
 (M3u8Scte35Source -&gt; QueryString) -&gt; ToQuery M3u8Scte35Source
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M3u8Scte35Source -&gt; QueryString
 $ctoQuery :: M3u8Scte35Source -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986858"><span id="local-6989586621679986860"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8Scte35Source]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679988348"><span id="local-6989586621679988350"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8Scte35Source]
 Value -&gt; Parser M3u8Scte35Source
 (Value -&gt; Parser M3u8Scte35Source)
 -&gt; (Value -&gt; Parser [M3u8Scte35Source])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [M3u8Scte35Source]
 parseJSON :: Value -&gt; Parser M3u8Scte35Source
 $cparseJSON :: Value -&gt; Parser M3u8Scte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679986853"><span id="local-6989586621679986855"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8Scte35Source]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679988343"><span id="local-6989586621679988345"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8Scte35Source]
 FromJSONKeyFunction M3u8Scte35Source
 FromJSONKeyFunction M3u8Scte35Source
 -&gt; FromJSONKeyFunction [M3u8Scte35Source]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M3u8Scte35Source]
 fromJSONKey :: FromJSONKeyFunction M3u8Scte35Source
 $cfromJSONKey :: FromJSONKeyFunction M3u8Scte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679986844"><span id="local-6989586621679986846"><span id="local-6989586621679986848"><span id="local-6989586621679986850"><span class="annot"><span class="annottext">[M3u8Scte35Source] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679988334"><span id="local-6989586621679988336"><span id="local-6989586621679988338"><span id="local-6989586621679988340"><span class="annot"><span class="annottext">[M3u8Scte35Source] -&gt; Encoding
 [M3u8Scte35Source] -&gt; Value
 M3u8Scte35Source -&gt; Encoding
 M3u8Scte35Source -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: M3u8Scte35Source -&gt; Encoding
 toJSON :: M3u8Scte35Source -&gt; Value
 $ctoJSON :: M3u8Scte35Source -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679986839"><span id="local-6989586621679986841"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8Scte35Source]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679988329"><span id="local-6989586621679988331"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8Scte35Source]
 ToJSONKeyFunction M3u8Scte35Source
 ToJSONKeyFunction M3u8Scte35Source
 -&gt; ToJSONKeyFunction [M3u8Scte35Source]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M3u8Scte35Source]
 toJSONKey :: ToJSONKeyFunction M3u8Scte35Source
 $ctoJSONKey :: ToJSONKeyFunction M3u8Scte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679986836"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8Scte35Source
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679988326"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8Scte35Source
 ([Node] -&gt; Either String M3u8Scte35Source)
 -&gt; FromXML M3u8Scte35Source
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M3u8Scte35Source
 $cparseXML :: [Node] -&gt; Either String M3u8Scte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679986833"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679988323"><span class="annot"><span class="annottext">M3u8Scte35Source -&gt; XML
 (M3u8Scte35Source -&gt; XML) -&gt; ToXML M3u8Scte35Source
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M3u8Scte35Source -&gt; XML

@@ -113,7 +113,7 @@
 </span><span id="line-113"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newPutBucketReplication' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679565165"><span id="local-6989586621679565166"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketReplication"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-var">PutBucketReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketReplication%27"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-var">PutBucketReplication'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679565275"><span id="local-6989586621679565276"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketReplication"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-var">PutBucketReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketReplication%27"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-var">PutBucketReplication'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to allow Object Lock to be enabled for an existing bucket.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3Atoken%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; Maybe Text
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3Atoken%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -138,7 +138,7 @@
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="annot"><span class="annottext">PutBucketReplication -&gt; ReplicationConfiguration
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565155"><span id="local-6989586621679565157"><span class="annot"><span class="annottext">PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565265"><span id="local-6989586621679565267"><span class="annot"><span class="annottext">PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
 (PutBucketReplication -&gt; PutBucketReplication -&gt; Bool)
 -&gt; (PutBucketReplication -&gt; PutBucketReplication -&gt; Bool)
 -&gt; Eq PutBucketReplication
@@ -147,7 +147,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
 == :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
 $c== :: PutBucketReplication -&gt; PutBucketReplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565146"><span id="local-6989586621679565148"><span id="local-6989586621679565150"><span id="local-6989586621679565152"><span class="annot"><span class="annottext">ReadPrec [PutBucketReplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565256"><span id="local-6989586621679565258"><span id="local-6989586621679565260"><span id="local-6989586621679565262"><span class="annot"><span class="annottext">ReadPrec [PutBucketReplication]
 ReadPrec PutBucketReplication
 Int -&gt; ReadS PutBucketReplication
 ReadS [PutBucketReplication]
@@ -167,7 +167,7 @@ readList :: ReadS [PutBucketReplication]
 $creadList :: ReadS [PutBucketReplication]
 readsPrec :: Int -&gt; ReadS PutBucketReplication
 $creadsPrec :: Int -&gt; ReadS PutBucketReplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565139"><span id="local-6989586621679565141"><span id="local-6989586621679565143"><span class="annot"><span class="annottext">Int -&gt; PutBucketReplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565249"><span id="local-6989586621679565251"><span id="local-6989586621679565253"><span class="annot"><span class="annottext">Int -&gt; PutBucketReplication -&gt; ShowS
 [PutBucketReplication] -&gt; ShowS
 PutBucketReplication -&gt; String
 (Int -&gt; PutBucketReplication -&gt; ShowS)
@@ -227,10 +227,10 @@ $cfrom :: forall x. PutBucketReplication -&gt; Rep PutBucketReplication x
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span>
 </span><span id="line-170"></span><span id="newPutBucketReplication"><span class="annot"><span class="annottext">newPutBucketReplication :: BucketName -&gt; ReplicationConfiguration -&gt; PutBucketReplication
 </span><a href="Network.AWS.S3.PutBucketReplication.html#newPutBucketReplication"><span class="hs-identifier hs-var hs-var">newPutBucketReplication</span></a></span></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679565134"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565134"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679565133"><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679565133"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679565244"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565244"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679565243"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679565243"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">PutBucketReplication' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -252,11 +252,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketReplication' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3Abucket%3APutBucketReplication%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565134"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679565244"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutBucketReplication' :: ReplicationConfiguration
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679565133"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679565243"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | A token to allow Object Lock to be enabled for an existing bucket.</span><span>
@@ -268,16 +268,16 @@ forall a. Maybe a
 -&gt; Lens
      PutBucketReplication PutBucketReplication (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565130"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565240"><span class="annot"><span class="annottext">Maybe Text
 token :: Maybe Text
 $sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
-</span><a href="#local-6989586621679565130"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565130"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565129"><span class="annot"><span class="annottext">s :: PutBucketReplication
-</span><a href="#local-6989586621679565129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
-</span><a href="#local-6989586621679565129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:PutBucketReplication' :: Maybe Text
+</span><a href="#local-6989586621679565240"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565240"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565239"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679565239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679565239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:PutBucketReplication' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3Atoken%3APutBucketReplication%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the data. You must use this</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- header as a message integrity check to verify that the request body was</span><span>
@@ -295,16 +295,16 @@ $sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 -&gt; Lens
      PutBucketReplication PutBucketReplication (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565127"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565237"><span class="annot"><span class="annottext">Maybe Text
 contentMD5 :: Maybe Text
 $sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
-</span><a href="#local-6989586621679565127"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565127"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565126"><span class="annot"><span class="annottext">s :: PutBucketReplication
-</span><a href="#local-6989586621679565126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565125"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
-</span><a href="#local-6989586621679565126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketReplication' :: Maybe Text
+</span><a href="#local-6989586621679565237"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565237"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565236"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679565236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565235"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679565236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketReplication' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3AcontentMD5%3APutBucketReplication%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -317,16 +317,16 @@ $sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 -&gt; Lens
      PutBucketReplication PutBucketReplication (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565124"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565234"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
-</span><a href="#local-6989586621679565124"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565124"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565123"><span class="annot"><span class="annottext">s :: PutBucketReplication
-</span><a href="#local-6989586621679565123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
-</span><a href="#local-6989586621679565123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketReplication' :: Maybe Text
+</span><a href="#local-6989586621679565234"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565234"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565233"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679565233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565232"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679565233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketReplication' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3AexpectedBucketOwner%3APutBucketReplication%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The name of the bucket</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#putBucketReplication_bucket"><span class="hs-identifier hs-type">putBucketReplication_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -337,16 +337,16 @@ $sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; May
 -&gt; Lens
      PutBucketReplication PutBucketReplication BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565121"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565231"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
-</span><a href="#local-6989586621679565121"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565121"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565120"><span class="annot"><span class="annottext">s :: PutBucketReplication
-</span><a href="#local-6989586621679565120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565119"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
-</span><a href="#local-6989586621679565120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketReplication' :: BucketName
+</span><a href="#local-6989586621679565231"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565231"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565230"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679565230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565229"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679565230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketReplication' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3Abucket%3APutBucketReplication%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#putBucketReplication_replicationConfiguration"><span class="hs-identifier hs-type">putBucketReplication_replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
@@ -361,22 +361,22 @@ $sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
      ReplicationConfiguration
      ReplicationConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565118"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565228"><span class="annot"><span class="annottext">ReplicationConfiguration
 replicationConfiguration :: ReplicationConfiguration
 $sel:replicationConfiguration:PutBucketReplication' :: PutBucketReplication -&gt; ReplicationConfiguration
-</span><a href="#local-6989586621679565118"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679565118"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565117"><span class="annot"><span class="annottext">s :: PutBucketReplication
-</span><a href="#local-6989586621679565117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565116"><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679565116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
-</span><a href="#local-6989586621679565117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutBucketReplication' :: ReplicationConfiguration
+</span><a href="#local-6989586621679565228"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679565228"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565227"><span class="annot"><span class="annottext">s :: PutBucketReplication
+</span><a href="#local-6989586621679565227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565226"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679565226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketReplication
+</span><a href="#local-6989586621679565227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutBucketReplication' :: ReplicationConfiguration
 </span><a href="Network.AWS.S3.PutBucketReplication.html#%24sel%3AreplicationConfiguration%3APutBucketReplication%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679565116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-213"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-type">PutBucketReplicationResponse</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679565112"><span class="annot"><span class="annottext">request :: PutBucketReplication -&gt; Request PutBucketReplication
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679565222"><span class="annot"><span class="annottext">request :: PutBucketReplication -&gt; Request PutBucketReplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketReplication -&gt; Request PutBucketReplication
 forall a. Request a -&gt; Request a
@@ -390,7 +390,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679565106"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679565216"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutBucketReplication
 -&gt; ClientResponse ClientBody
@@ -416,13 +416,13 @@ AWSResponse a
 PutBucketReplicationResponse
 </span><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565099"><span id="local-6989586621679565101"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565209"><span id="local-6989586621679565211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span></span></span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span></span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679565092"><span class="annot"><span class="annottext">toElement :: PutBucketReplication -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565086"><span id="local-6989586621679565087"><span id="local-6989586621679565088"><span id="local-6989586621679565089"><span id="local-6989586621679565090"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679565202"><span class="annot"><span class="annottext">toElement :: PutBucketReplication -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565196"><span id="local-6989586621679565197"><span id="local-6989586621679565198"><span id="local-6989586621679565199"><span id="local-6989586621679565200"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 ReplicationConfiguration
 replicationConfiguration :: ReplicationConfiguration
@@ -435,18 +435,18 @@ $sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 $sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 $sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
-</span><a href="#local-6989586621679565086"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679565196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; ReplicationConfiguration -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}ReplicationConfiguration&quot;</span></span><span>
 </span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679565086"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679565196"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679565082"><span class="annot"><span class="annottext">toHeaders :: PutBucketReplication -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565076"><span id="local-6989586621679565077"><span id="local-6989586621679565078"><span id="local-6989586621679565079"><span id="local-6989586621679565080"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679565192"><span class="annot"><span class="annottext">toHeaders :: PutBucketReplication -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565186"><span id="local-6989586621679565187"><span id="local-6989586621679565188"><span id="local-6989586621679565189"><span id="local-6989586621679565190"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 ReplicationConfiguration
 replicationConfiguration :: ReplicationConfiguration
@@ -459,7 +459,7 @@ $sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 $sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 $sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
-</span><a href="#local-6989586621679565076"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679565186"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -467,23 +467,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-bucket-object-lock-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565080"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679565190"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-MD5&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565079"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679565189"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565078"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679565188"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679565072"><span class="annot"><span class="annottext">toPath :: PutBucketReplication -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565066"><span id="local-6989586621679565067"><span id="local-6989586621679565068"><span id="local-6989586621679565069"><span id="local-6989586621679565070"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679565182"><span class="annot"><span class="annottext">toPath :: PutBucketReplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication%27"><span class="hs-identifier hs-type">PutBucketReplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565176"><span id="local-6989586621679565177"><span id="local-6989586621679565178"><span id="local-6989586621679565179"><span id="local-6989586621679565180"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 ReplicationConfiguration
 replicationConfiguration :: ReplicationConfiguration
@@ -496,17 +496,17 @@ $sel:bucket:PutBucketReplication' :: PutBucketReplication -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 $sel:contentMD5:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
 $sel:token:PutBucketReplication' :: PutBucketReplication -&gt; Maybe Text
-</span><a href="#local-6989586621679565066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679565176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565067"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679565177"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplication"><span class="hs-identifier hs-type">PutBucketReplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679565062"><span class="annot"><span class="annottext">toQuery :: PutBucketReplication -&gt; QueryString
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679565172"><span class="annot"><span class="annottext">toQuery :: PutBucketReplication -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketReplication -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -516,10 +516,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;replication&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | /See:/ 'newPutBucketReplicationResponse' smart constructor.</span><span>
-</span><span id="line-249"></span><span id="local-6989586621679565058"><span id="local-6989586621679565059"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketReplicationResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-var">PutBucketReplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketReplicationResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span></span><span>
+</span><span id="line-249"></span><span id="local-6989586621679565168"><span id="local-6989586621679565169"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketReplicationResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-var">PutBucketReplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketReplicationResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span></span><span>
 </span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565054"><span id="local-6989586621679565056"><span class="annot"><span class="annottext">PutBucketReplicationResponse
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565164"><span id="local-6989586621679565166"><span class="annot"><span class="annottext">PutBucketReplicationResponse
 -&gt; PutBucketReplicationResponse -&gt; Bool
 (PutBucketReplicationResponse
  -&gt; PutBucketReplicationResponse -&gt; Bool)
@@ -535,7 +535,7 @@ $c/= :: PutBucketReplicationResponse
 -&gt; PutBucketReplicationResponse -&gt; Bool
 $c== :: PutBucketReplicationResponse
 -&gt; PutBucketReplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565046"><span id="local-6989586621679565048"><span id="local-6989586621679565050"><span id="local-6989586621679565052"><span class="annot"><span class="annottext">ReadPrec [PutBucketReplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565156"><span id="local-6989586621679565158"><span id="local-6989586621679565160"><span id="local-6989586621679565162"><span class="annot"><span class="annottext">ReadPrec [PutBucketReplicationResponse]
 ReadPrec PutBucketReplicationResponse
 Int -&gt; ReadS PutBucketReplicationResponse
 ReadS [PutBucketReplicationResponse]
@@ -555,7 +555,7 @@ readList :: ReadS [PutBucketReplicationResponse]
 $creadList :: ReadS [PutBucketReplicationResponse]
 readsPrec :: Int -&gt; ReadS PutBucketReplicationResponse
 $creadsPrec :: Int -&gt; ReadS PutBucketReplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565040"><span id="local-6989586621679565042"><span id="local-6989586621679565044"><span class="annot"><span class="annottext">Int -&gt; PutBucketReplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565150"><span id="local-6989586621679565152"><span id="local-6989586621679565154"><span class="annot"><span class="annottext">Int -&gt; PutBucketReplicationResponse -&gt; ShowS
 [PutBucketReplicationResponse] -&gt; ShowS
 PutBucketReplicationResponse -&gt; String
 (Int -&gt; PutBucketReplicationResponse -&gt; ShowS)
@@ -598,5 +598,5 @@ PutBucketReplicationResponse -&gt; Rep PutBucketReplicationResponse x
 </span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">PutBucketReplicationResponse
 </span><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse%27"><span class="hs-identifier hs-var">PutBucketReplicationResponse'</span></a></span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-type">PutBucketReplicationResponse</span></a></span></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketReplication.html#PutBucketReplicationResponse"><span class="hs-identifier hs-type">PutBucketReplicationResponse</span></a></span></span><span>
 </span><span id="line-264"></span></pre></body></html>

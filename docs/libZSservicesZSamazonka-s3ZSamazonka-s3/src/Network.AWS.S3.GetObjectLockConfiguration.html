@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetObjectLockConfiguration' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679572817"><span id="local-6989586621679572818"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectLockConfiguration"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-var">GetObjectLockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectLockConfiguration%27"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-var">GetObjectLockConfiguration'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679572964"><span id="local-6989586621679572965"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectLockConfiguration"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-var">GetObjectLockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectLockConfiguration%27"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-var">GetObjectLockConfiguration'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Abucket%3AGetObjectLockConfiguration%27"><span class="annot"><span class="annottext">GetObjectLockConfiguration -&gt; BucketName
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3Abucket%3AGetObjectLockConfiguration%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572810"><span id="local-6989586621679572812"><span class="annot"><span class="annottext">GetObjectLockConfiguration -&gt; GetObjectLockConfiguration -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572957"><span id="local-6989586621679572959"><span class="annot"><span class="annottext">GetObjectLockConfiguration -&gt; GetObjectLockConfiguration -&gt; Bool
 (GetObjectLockConfiguration -&gt; GetObjectLockConfiguration -&gt; Bool)
 -&gt; (GetObjectLockConfiguration
     -&gt; GetObjectLockConfiguration -&gt; Bool)
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectLockConfiguration -&gt; GetObjectLockConfiguration -&gt; Bool
 == :: GetObjectLockConfiguration -&gt; GetObjectLockConfiguration -&gt; Bool
 $c== :: GetObjectLockConfiguration -&gt; GetObjectLockConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572801"><span id="local-6989586621679572803"><span id="local-6989586621679572805"><span id="local-6989586621679572807"><span class="annot"><span class="annottext">ReadPrec [GetObjectLockConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572948"><span id="local-6989586621679572950"><span id="local-6989586621679572952"><span id="local-6989586621679572954"><span class="annot"><span class="annottext">ReadPrec [GetObjectLockConfiguration]
 ReadPrec GetObjectLockConfiguration
 Int -&gt; ReadS GetObjectLockConfiguration
 ReadS [GetObjectLockConfiguration]
@@ -100,7 +100,7 @@ readList :: ReadS [GetObjectLockConfiguration]
 $creadList :: ReadS [GetObjectLockConfiguration]
 readsPrec :: Int -&gt; ReadS GetObjectLockConfiguration
 $creadsPrec :: Int -&gt; ReadS GetObjectLockConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572794"><span id="local-6989586621679572796"><span id="local-6989586621679572798"><span class="annot"><span class="annottext">Int -&gt; GetObjectLockConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572941"><span id="local-6989586621679572943"><span id="local-6989586621679572945"><span class="annot"><span class="annottext">Int -&gt; GetObjectLockConfiguration -&gt; ShowS
 [GetObjectLockConfiguration] -&gt; ShowS
 GetObjectLockConfiguration -&gt; String
 (Int -&gt; GetObjectLockConfiguration -&gt; ShowS)
@@ -159,8 +159,8 @@ GetObjectLockConfiguration -&gt; Rep GetObjectLockConfiguration x
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span>
 </span><span id="line-99"></span><span id="newGetObjectLockConfiguration"><span class="annot"><span class="annottext">newGetObjectLockConfiguration :: BucketName -&gt; GetObjectLockConfiguration
-</span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#newGetObjectLockConfiguration"><span class="hs-identifier hs-var hs-var">newGetObjectLockConfiguration</span></a></span></span><span> </span><span id="local-6989586621679572789"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572789"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#newGetObjectLockConfiguration"><span class="hs-identifier hs-var hs-var">newGetObjectLockConfiguration</span></a></span></span><span> </span><span id="local-6989586621679572936"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572936"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">GetObjectLockConfiguration' :: Maybe Text -&gt; BucketName -&gt; GetObjectLockConfiguration
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectLockConfiguration' :: Maybe Text
@@ -170,7 +170,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetObjectLockConfiguration' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3Abucket%3AGetObjectLockConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572789"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679572936"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -188,16 +188,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572786"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572933"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetObjectLockConfiguration' :: GetObjectLockConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679572786"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572786"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572785"><span class="annot"><span class="annottext">s :: GetObjectLockConfiguration
-</span><a href="#local-6989586621679572785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572784"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfiguration
-</span><a href="#local-6989586621679572785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectLockConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679572933"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572933"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572932"><span class="annot"><span class="annottext">s :: GetObjectLockConfiguration
+</span><a href="#local-6989586621679572932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572931"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfiguration
+</span><a href="#local-6989586621679572932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectLockConfiguration' :: Maybe Text
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3AexpectedBucketOwner%3AGetObjectLockConfiguration%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The bucket whose Object Lock configuration you want to retrieve.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
@@ -221,22 +221,22 @@ $sel:expectedBucketOwner:GetObjectLockConfiguration' :: GetObjectLockConfigurati
      BucketName
      BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572783"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572930"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetObjectLockConfiguration' :: GetObjectLockConfiguration -&gt; BucketName
-</span><a href="#local-6989586621679572783"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572783"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572782"><span class="annot"><span class="annottext">s :: GetObjectLockConfiguration
-</span><a href="#local-6989586621679572782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572781"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfiguration
-</span><a href="#local-6989586621679572782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectLockConfiguration' :: BucketName
+</span><a href="#local-6989586621679572930"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572930"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572929"><span class="annot"><span class="annottext">s :: GetObjectLockConfiguration
+</span><a href="#local-6989586621679572929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572928"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfiguration
+</span><a href="#local-6989586621679572929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectLockConfiguration' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3Abucket%3AGetObjectLockConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679572777"><span class="annot"><span class="annottext">request :: GetObjectLockConfiguration -&gt; Request GetObjectLockConfiguration
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679572924"><span class="annot"><span class="annottext">request :: GetObjectLockConfiguration -&gt; Request GetObjectLockConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Request GetObjectLockConfiguration
 -&gt; Request GetObjectLockConfiguration
@@ -254,7 +254,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679572771"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679572918"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetObjectLockConfiguration
 -&gt; ClientResponse ClientBody
@@ -280,10 +280,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679572768"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679572767"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679572767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679572766"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679572766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679572915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572915"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679572914"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679572914"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679572913"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679572913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
 -&gt; Int -&gt; GetObjectLockConfigurationResponse
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var">GetObjectLockConfigurationResponse'</span></a></span><span>
@@ -295,7 +295,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe ObjectLockConfiguration)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679572766"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572913"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetObjectLockConfigurationResponse)
 -&gt; Either String Int
 -&gt; Either String GetObjectLockConfigurationResponse
@@ -305,22 +305,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572915"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572758"><span id="local-6989586621679572760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572905"><span id="local-6989586621679572907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679572751"><span class="annot"><span class="annottext">toHeaders :: GetObjectLockConfiguration -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572748"><span id="local-6989586621679572749"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679572898"><span class="annot"><span class="annottext">toHeaders :: GetObjectLockConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572895"><span id="local-6989586621679572896"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetObjectLockConfiguration' :: GetObjectLockConfiguration -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectLockConfiguration' :: GetObjectLockConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679572748"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679572895"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -329,28 +329,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572749"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679572896"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679572744"><span class="annot"><span class="annottext">toPath :: GetObjectLockConfiguration -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572741"><span id="local-6989586621679572742"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679572891"><span class="annot"><span class="annottext">toPath :: GetObjectLockConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration%27"><span class="hs-identifier hs-type">GetObjectLockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572888"><span id="local-6989586621679572889"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetObjectLockConfiguration' :: GetObjectLockConfiguration -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectLockConfiguration' :: GetObjectLockConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679572741"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679572888"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572741"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679572888"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfiguration"><span class="hs-identifier hs-type">GetObjectLockConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679572737"><span class="annot"><span class="annottext">toQuery :: GetObjectLockConfiguration -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679572884"><span class="annot"><span class="annottext">toQuery :: GetObjectLockConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetObjectLockConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -360,7 +360,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;object-lock&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newGetObjectLockConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679572733"><span id="local-6989586621679572734"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectLockConfigurationResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-var">GetObjectLockConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectLockConfigurationResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var">GetObjectLockConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679572880"><span id="local-6989586621679572881"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectLockConfigurationResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-var">GetObjectLockConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectLockConfigurationResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var">GetObjectLockConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specified bucket\'s Object Lock configuration.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AobjectLockConfiguration%3AGetObjectLockConfigurationResponse%27"><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse -&gt; Maybe ObjectLockConfiguration
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3AobjectLockConfiguration%3AGetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">objectLockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockConfiguration.html#ObjectLockConfiguration"><span class="hs-identifier hs-type">ObjectLockConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -368,7 +368,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetObjectLockConfigurationResponse%27"><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3AhttpStatus%3AGetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572727"><span id="local-6989586621679572729"><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572874"><span id="local-6989586621679572876"><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse
 -&gt; GetObjectLockConfigurationResponse -&gt; Bool
 (GetObjectLockConfigurationResponse
  -&gt; GetObjectLockConfigurationResponse -&gt; Bool)
@@ -384,7 +384,7 @@ $c/= :: GetObjectLockConfigurationResponse
 -&gt; GetObjectLockConfigurationResponse -&gt; Bool
 $c== :: GetObjectLockConfigurationResponse
 -&gt; GetObjectLockConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572719"><span id="local-6989586621679572721"><span id="local-6989586621679572723"><span id="local-6989586621679572725"><span class="annot"><span class="annottext">ReadPrec [GetObjectLockConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572866"><span id="local-6989586621679572868"><span id="local-6989586621679572870"><span id="local-6989586621679572872"><span class="annot"><span class="annottext">ReadPrec [GetObjectLockConfigurationResponse]
 ReadPrec GetObjectLockConfigurationResponse
 Int -&gt; ReadS GetObjectLockConfigurationResponse
 ReadS [GetObjectLockConfigurationResponse]
@@ -404,7 +404,7 @@ readList :: ReadS [GetObjectLockConfigurationResponse]
 $creadList :: ReadS [GetObjectLockConfigurationResponse]
 readsPrec :: Int -&gt; ReadS GetObjectLockConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS GetObjectLockConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572713"><span id="local-6989586621679572715"><span id="local-6989586621679572717"><span class="annot"><span class="annottext">Int -&gt; GetObjectLockConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572860"><span id="local-6989586621679572862"><span id="local-6989586621679572864"><span class="annot"><span class="annottext">Int -&gt; GetObjectLockConfigurationResponse -&gt; ShowS
 [GetObjectLockConfigurationResponse] -&gt; ShowS
 GetObjectLockConfigurationResponse -&gt; String
 (Int -&gt; GetObjectLockConfigurationResponse -&gt; ShowS)
@@ -458,8 +458,8 @@ GetObjectLockConfigurationResponse
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newGetObjectLockConfigurationResponse"><span class="annot"><span class="annottext">newGetObjectLockConfigurationResponse :: Int -&gt; GetObjectLockConfigurationResponse
-</span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#newGetObjectLockConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetObjectLockConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679572710"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#newGetObjectLockConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetObjectLockConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679572857"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572857"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse' :: Maybe ObjectLockConfiguration
 -&gt; Int -&gt; GetObjectLockConfigurationResponse
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span>
@@ -470,7 +470,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectLockConfigurationResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3AhttpStatus%3AGetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679572857"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The specified bucket\'s Object Lock configuration.</span><span>
@@ -490,16 +490,16 @@ forall a. Maybe a
      (Maybe ObjectLockConfiguration)
      (Maybe ObjectLockConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572709"><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572856"><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
 objectLockConfiguration :: Maybe ObjectLockConfiguration
 $sel:objectLockConfiguration:GetObjectLockConfigurationResponse' :: GetObjectLockConfigurationResponse -&gt; Maybe ObjectLockConfiguration
-</span><a href="#local-6989586621679572709"><span class="hs-identifier hs-var hs-var">objectLockConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
-</span><a href="#local-6989586621679572709"><span class="hs-identifier hs-var">objectLockConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572708"><span class="annot"><span class="annottext">s :: GetObjectLockConfigurationResponse
-</span><a href="#local-6989586621679572708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572707"><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
-</span><a href="#local-6989586621679572707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse
-</span><a href="#local-6989586621679572708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectLockConfiguration:GetObjectLockConfigurationResponse' :: Maybe ObjectLockConfiguration
+</span><a href="#local-6989586621679572856"><span class="hs-identifier hs-var hs-var">objectLockConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
+</span><a href="#local-6989586621679572856"><span class="hs-identifier hs-var">objectLockConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572855"><span class="annot"><span class="annottext">s :: GetObjectLockConfigurationResponse
+</span><a href="#local-6989586621679572855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572854"><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
+</span><a href="#local-6989586621679572854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse
+</span><a href="#local-6989586621679572855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectLockConfiguration:GetObjectLockConfigurationResponse' :: Maybe ObjectLockConfiguration
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3AobjectLockConfiguration%3AGetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var">objectLockConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockConfiguration
-</span><a href="#local-6989586621679572707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#getObjectLockConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getObjectLockConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -515,18 +515,18 @@ $sel:objectLockConfiguration:GetObjectLockConfigurationResponse' :: GetObjectLoc
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572706"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572853"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetObjectLockConfigurationResponse' :: GetObjectLockConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679572706"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572706"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572705"><span class="annot"><span class="annottext">s :: GetObjectLockConfigurationResponse
-</span><a href="#local-6989586621679572705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572704"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse
-</span><a href="#local-6989586621679572705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectLockConfigurationResponse' :: Int
+</span><a href="#local-6989586621679572853"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572853"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572852"><span class="annot"><span class="annottext">s :: GetObjectLockConfigurationResponse
+</span><a href="#local-6989586621679572852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectLockConfigurationResponse
+</span><a href="#local-6989586621679572852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectLockConfigurationResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectLockConfiguration.html#%24sel%3AhttpStatus%3AGetObjectLockConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679572702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679572849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectLockConfiguration.html#GetObjectLockConfigurationResponse"><span class="hs-identifier hs-type">GetObjectLockConfigurationResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

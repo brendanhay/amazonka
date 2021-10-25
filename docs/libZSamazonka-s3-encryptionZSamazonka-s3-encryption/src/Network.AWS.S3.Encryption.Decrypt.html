@@ -21,47 +21,47 @@
 </span><span id="line-21"></span><span>
 </span><span id="line-22"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#decrypted"><span class="hs-identifier hs-type">decrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObject</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObject</span></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-type">GetInstructions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-23"></span><span id="decrypted"><span class="annot"><span class="annottext">decrypted :: GetObject -&gt; (Decrypt GetObject, GetInstructions)
-</span><a href="Network.AWS.S3.Encryption.Decrypt.html#decrypted"><span class="hs-identifier hs-var hs-var">decrypted</span></a></span></span><span> </span><span id="local-6989586621679168496"><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetObject -&gt; Decrypt GetObject
+</span><a href="Network.AWS.S3.Encryption.Decrypt.html#decrypted"><span class="hs-identifier hs-var hs-var">decrypted</span></a></span></span><span> </span><span id="local-6989586621679168497"><span class="annot"><span class="annottext">GetObject
+</span><a href="#local-6989586621679168497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetObject -&gt; Decrypt GetObject
 forall a. a -&gt; Decrypt a
 </span><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span><span> </span><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168496"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; GetInstructions
+</span><a href="#local-6989586621679168497"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; GetInstructions
 forall a. AddInstructions a =&gt; a -&gt; GetInstructions
 </span><a href="Network.AWS.S3.Encryption.Instructions.html#getInstructions"><span class="hs-identifier hs-var">getInstructions</span></a></span><span> </span><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168496"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168497"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-24"></span><span>
-</span><span id="line-25"></span><span class="hs-keyword">newtype</span><span> </span><span id="Decrypt"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span></span><span> </span><span id="local-6989586621679168566"><span class="annot"><a href="#local-6989586621679168566"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Decrypt"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span></span><span> </span><span class="annot"><a href="#local-6989586621679168566"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">newtype</span><span> </span><span id="Decrypt"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span></span><span> </span><span id="local-6989586621679168567"><span class="annot"><a href="#local-6989586621679168567"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Decrypt"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span></span><span> </span><span class="annot"><a href="#local-6989586621679168567"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-26"></span><span>
-</span><span id="line-27"></span><span class="hs-keyword">newtype</span><span> </span><span id="Decrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-var">Decrypted</span></a></span></span><span> </span><span id="local-6989586621679168527"><span class="annot"><a href="#local-6989586621679168527"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Decrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-var">Decrypted</span></a></span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">newtype</span><span> </span><span id="Decrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-var">Decrypted</span></a></span></span><span> </span><span id="local-6989586621679168528"><span class="annot"><a href="#local-6989586621679168528"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Decrypted"><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-var">Decrypted</span></a></span></span><span>
 </span><span id="line-28"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="runDecrypted"><span class="annot"><span class="annottext">Decrypted a
 -&gt; forall (m :: * -&gt; *).
    MonadResource m =&gt;
    Key -&gt; Env -&gt; Maybe Envelope -&gt; m a
-</span><a href="Network.AWS.S3.Encryption.Decrypt.html#runDecrypted"><span class="hs-identifier hs-var hs-var">runDecrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168561"><span class="annot"><a href="#local-6989586621679168561"><span class="hs-identifier hs-type">m</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168561"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWS.Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168561"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168527"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><a href="Network.AWS.S3.Encryption.Decrypt.html#runDecrypted"><span class="hs-identifier hs-var hs-var">runDecrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168562"><span class="annot"><a href="#local-6989586621679168562"><span class="hs-identifier hs-type">m</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168562"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWS.Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168562"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168528"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObject</span></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObject</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-type">Decrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObjectResponse</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span>  </span><span id="local-6989586621679168488"><span class="annot"><span class="annottext">request :: Decrypt GetObject -&gt; Request (Decrypt GetObject)
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span id="local-6989586621679168486"><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168486"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Request GetObject -&gt; Request (Decrypt GetObject)
+</span><span id="line-34"></span><span>  </span><span id="local-6989586621679168489"><span class="annot"><span class="annottext">request :: Decrypt GetObject -&gt; Request (Decrypt GetObject)
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span id="local-6989586621679168487"><span class="annot"><span class="annottext">GetObject
+</span><a href="#local-6989586621679168487"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Request GetObject -&gt; Request (Decrypt GetObject)
 </span><span class="hs-identifier hs-var">coerce</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetObject -&gt; Request GetObject
 forall a. AWSRequest a =&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">request</span></span><span> </span><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168486"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168487"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span>  </span><span id="local-6989586621679168485"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-36"></span><span>  </span><span id="local-6989586621679168486"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy (Decrypt GetObject)
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse (Decrypt GetObject))))
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span id="local-6989586621679168483"><span class="annot"><span class="annottext">Logger
-</span><a href="#local-6989586621679168483"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span id="local-6989586621679168482"><span class="annot"><span class="annottext">Service
-</span><a href="#local-6989586621679168482"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168481"><span class="annot"><span class="annottext">Proxy (Decrypt GetObject)
-</span><a href="#local-6989586621679168481"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span id="local-6989586621679168480"><span class="annot"><span class="annottext">ClientResponse ClientBody
-</span><a href="#local-6989586621679168480"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span id="local-6989586621679168484"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679168484"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span id="local-6989586621679168483"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168483"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168482"><span class="annot"><span class="annottext">Proxy (Decrypt GetObject)
+</span><a href="#local-6989586621679168482"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span id="local-6989586621679168481"><span class="annot"><span class="annottext">ClientResponse ClientBody
+</span><a href="#local-6989586621679168481"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="annottext">ExceptT Error m (Response (Decrypted GetObjectResponse))
 -&gt; m (Either Error (Response (Decrypted GetObjectResponse)))
 forall e (m :: * -&gt; *) a. ExceptT e m a -&gt; m (Either e a)
@@ -71,8 +71,8 @@ forall e (m :: * -&gt; *) a. ExceptT e m a -&gt; m (Either e a)
 -&gt; m (Either Error (Response (Decrypted GetObjectResponse)))
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679168478"><span class="annot"><span class="annottext">Response GetObjectResponse
-</span><a href="#local-6989586621679168478"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">m (Either Error (Response GetObjectResponse))
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679168479"><span class="annot"><span class="annottext">Response GetObjectResponse
+</span><a href="#local-6989586621679168479"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">m (Either Error (Response GetObjectResponse))
 -&gt; ExceptT Error m (Response GetObjectResponse)
 forall e (m :: * -&gt; *) a. m (Either e a) -&gt; ExceptT e m a
 </span><span class="hs-identifier hs-var">Except.ExceptT</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Logger
@@ -88,20 +88,20 @@ Logger
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">response</span></span><span> </span><span class="annot"><span class="annottext">Logger
-</span><a href="#local-6989586621679168483"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Service
-</span><a href="#local-6989586621679168482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Proxy (Decrypt GetObject) -&gt; Proxy GetObject
+</span><a href="#local-6989586621679168484"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Proxy (Decrypt GetObject) -&gt; Proxy GetObject
 forall a. Proxy (Decrypt a) -&gt; Proxy a
 </span><a href="Network.AWS.S3.Encryption.Decrypt.html#proxy"><span class="hs-identifier hs-var">proxy</span></a></span><span> </span><span class="annot"><span class="annottext">Proxy (Decrypt GetObject)
-</span><a href="#local-6989586621679168481"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ClientResponse ClientBody
-</span><a href="#local-6989586621679168480"><span class="hs-identifier hs-var">r</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168482"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ClientResponse ClientBody
+</span><a href="#local-6989586621679168481"><span class="hs-identifier hs-var">r</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span>      </span><span class="hs-keyword">let</span><span> </span><span id="local-6989586621679168475"><span class="annot"><span class="annottext">body :: GetObjectResponse
-</span><a href="#local-6989586621679168475"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Response GetObjectResponse -&gt; GetObjectResponse
+</span><span id="line-40"></span><span>      </span><span class="hs-keyword">let</span><span> </span><span id="local-6989586621679168476"><span class="annot"><span class="annottext">body :: GetObjectResponse
+</span><a href="#local-6989586621679168476"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Response GetObjectResponse -&gt; GetObjectResponse
 forall body. Response body -&gt; body
 </span><span class="hs-identifier hs-var hs-var">Client.responseBody</span></span><span> </span><span class="annot"><span class="annottext">Response GetObjectResponse
-</span><a href="#local-6989586621679168478"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-41"></span><span>          </span><span id="local-6989586621679168473"><span class="annot"><span class="annottext">decrypt :: Decrypted GetObjectResponse
-</span><a href="#local-6989586621679168473"><span class="hs-identifier hs-var hs-var">decrypt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679168479"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-41"></span><span>          </span><span id="local-6989586621679168474"><span class="annot"><span class="annottext">decrypt :: Decrypted GetObjectResponse
+</span><a href="#local-6989586621679168474"><span class="hs-identifier hs-var hs-var">decrypt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-42"></span><span>            </span><span class="annot"><span class="annottext">(forall (m :: * -&gt; *).
  MonadResource m =&gt;
  Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse)
@@ -120,23 +120,23 @@ forall a.
     Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse)
 -&gt; Decrypted GetObjectResponse
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168472"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168472"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168471"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168471"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168470"><span class="annot"><span class="annottext">Maybe Envelope
-</span><a href="#local-6989586621679168470"><span class="hs-identifier hs-var">m</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-43"></span><span>              </span><span id="local-6989586621679168469"><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168469"><span class="hs-identifier hs-var">encrypted</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168473"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168473"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168472"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168472"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168471"><span class="annot"><span class="annottext">Maybe Envelope
+</span><a href="#local-6989586621679168471"><span class="hs-identifier hs-var">m</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-43"></span><span>              </span><span id="local-6989586621679168470"><span class="annot"><span class="annottext">Envelope
+</span><a href="#local-6989586621679168470"><span class="hs-identifier hs-var">encrypted</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-44"></span><span>                </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Maybe Envelope
-</span><a href="#local-6989586621679168470"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679168471"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-45"></span><span>                  </span><span class="annot"><span class="annottext">Maybe Envelope
 </span><span class="hs-identifier hs-var">Nothing</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; HashMap Text Text -&gt; m Envelope
 forall (m :: * -&gt; *).
 MonadResource m =&gt;
 Key -&gt; Env -&gt; HashMap Text Text -&gt; m Envelope
 </span><a href="Network.AWS.S3.Encryption.Envelope.html#fromMetadata"><span class="hs-identifier hs-var">fromMetadata</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168472"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168471"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetObjectResponse
-</span><a href="#local-6989586621679168475"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="annot"><span class="annottext">GetObjectResponse
+</span><a href="#local-6989586621679168473"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168472"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetObjectResponse
+</span><a href="#local-6989586621679168476"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="annot"><span class="annottext">GetObjectResponse
 -&gt; Getting
      (HashMap Text Text) GetObjectResponse (HashMap Text Text)
 -&gt; HashMap Text Text
@@ -144,16 +144,16 @@ forall s a. s -&gt; Getting a s a -&gt; a
 </span><span class="hs-operator hs-var">^.</span></span><span> </span><span class="annot"><span class="annottext">Getting (HashMap Text Text) GetObjectResponse (HashMap Text Text)
 Lens' GetObjectResponse (HashMap Text Text)
 </span><span class="hs-identifier hs-var">S3.getObjectResponse_metadata</span></span><span class="hs-special">)</span><span>
-</span><span id="line-46"></span><span>                  </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679168466"><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168466"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; m Envelope
+</span><span id="line-46"></span><span>                  </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679168467"><span class="annot"><span class="annottext">Envelope
+</span><a href="#local-6989586621679168467"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; m Envelope
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168466"><span class="hs-identifier hs-var">e</span></a></span><span>
+</span><a href="#local-6989586621679168467"><span class="hs-identifier hs-var">e</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>              </span><span class="annot"><span class="annottext">GetObjectResponse -&gt; m GetObjectResponse
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetObjectResponse
-</span><a href="#local-6989586621679168475"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="annot"><span class="annottext">GetObjectResponse
+</span><a href="#local-6989586621679168476"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="annot"><span class="annottext">GetObjectResponse
 -&gt; (GetObjectResponse -&gt; GetObjectResponse) -&gt; GetObjectResponse
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">(ResponseBody -&gt; Identity ResponseBody)
@@ -167,20 +167,20 @@ Lens' GetObjectResponse ResponseBody
 forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; ResponseBody -&gt; ResponseBody
 </span><a href="Network.AWS.S3.Encryption.Envelope.html#bodyDecrypt"><span class="hs-identifier hs-var">bodyDecrypt</span></a></span><span> </span><span class="annot"><span class="annottext">Envelope
-</span><a href="#local-6989586621679168469"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168470"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">Response (Decrypted GetObjectResponse)
 -&gt; ExceptT Error m (Response (Decrypted GetObjectResponse))
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Decrypted GetObjectResponse
-</span><a href="#local-6989586621679168473"><span class="hs-identifier hs-var">decrypt</span></a></span><span> </span><span class="annot"><span class="annottext">Decrypted GetObjectResponse
+</span><a href="#local-6989586621679168474"><span class="hs-identifier hs-var">decrypt</span></a></span><span> </span><span class="annot"><span class="annottext">Decrypted GetObjectResponse
 -&gt; Response GetObjectResponse
 -&gt; Response (Decrypted GetObjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; a -&gt; f b -&gt; f a
 </span><span class="hs-operator hs-var">&lt;$</span></span><span> </span><span class="annot"><span class="annottext">Response GetObjectResponse
-</span><a href="#local-6989586621679168478"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168479"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#proxy"><span class="hs-identifier hs-type">proxy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168529"><span class="annot"><a href="#local-6989586621679168529"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168529"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679168529"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#proxy"><span class="hs-identifier hs-type">proxy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168530"><span class="annot"><a href="#local-6989586621679168530"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168530"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679168530"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-53"></span><span id="proxy"><span class="annot"><span class="annottext">proxy :: Proxy (Decrypt a) -&gt; Proxy a
 </span><a href="Network.AWS.S3.Encryption.Decrypt.html#proxy"><span class="hs-identifier hs-var hs-var">proxy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Proxy a -&gt; Proxy (Decrypt a) -&gt; Proxy a
 forall a b. a -&gt; b -&gt; a

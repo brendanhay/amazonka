@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in your DASH outputs.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newMpdSettings' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679990647"><span id="local-6989586621679990648"></span></span><span class="hs-keyword">data</span><span> </span><span id="MpdSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-var">MpdSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-var">MpdSettings'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679992137"><span id="local-6989586621679992138"></span></span><span class="hs-keyword">data</span><span> </span><span id="MpdSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-var">MpdSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-var">MpdSettings'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- INSERT to put SCTE-35 markers in this output at the insertion points</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- that you specify in an ESAM XML document. Provide the document in the</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AcaptionContainerType%3AMpdSettings%27"><span class="annot"><span class="annottext">MpdSettings -&gt; Maybe MpdCaptionContainerType
 </span><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#%24sel%3AcaptionContainerType%3AMpdSettings%27"><span class="hs-identifier hs-var hs-var">captionContainerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier hs-type">MpdCaptionContainerType</span></a></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679990637"><span id="local-6989586621679990639"><span class="annot"><span class="annottext">MpdSettings -&gt; MpdSettings -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679992127"><span id="local-6989586621679992129"><span class="annot"><span class="annottext">MpdSettings -&gt; MpdSettings -&gt; Bool
 (MpdSettings -&gt; MpdSettings -&gt; Bool)
 -&gt; (MpdSettings -&gt; MpdSettings -&gt; Bool) -&gt; Eq MpdSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MpdSettings -&gt; MpdSettings -&gt; Bool
 == :: MpdSettings -&gt; MpdSettings -&gt; Bool
 $c== :: MpdSettings -&gt; MpdSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990628"><span id="local-6989586621679990630"><span id="local-6989586621679990632"><span id="local-6989586621679990634"><span class="annot"><span class="annottext">ReadPrec [MpdSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679992118"><span id="local-6989586621679992120"><span id="local-6989586621679992122"><span id="local-6989586621679992124"><span class="annot"><span class="annottext">ReadPrec [MpdSettings]
 ReadPrec MpdSettings
 Int -&gt; ReadS MpdSettings
 ReadS [MpdSettings]
@@ -107,7 +107,7 @@ readList :: ReadS [MpdSettings]
 $creadList :: ReadS [MpdSettings]
 readsPrec :: Int -&gt; ReadS MpdSettings
 $creadsPrec :: Int -&gt; ReadS MpdSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990621"><span id="local-6989586621679990623"><span id="local-6989586621679990625"><span class="annot"><span class="annottext">Int -&gt; MpdSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679992111"><span id="local-6989586621679992113"><span id="local-6989586621679992115"><span class="annot"><span class="annottext">Int -&gt; MpdSettings -&gt; ShowS
 [MpdSettings] -&gt; ShowS
 MpdSettings -&gt; String
 (Int -&gt; MpdSettings -&gt; ShowS)
@@ -225,16 +225,16 @@ forall a. Maybe a
 -&gt; Lens
      MpdSettings MpdSettings (Maybe MpdScte35Esam) (Maybe MpdScte35Esam)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990612"><span class="annot"><span class="annottext">Maybe MpdScte35Esam
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992102"><span class="annot"><span class="annottext">Maybe MpdScte35Esam
 scte35Esam :: Maybe MpdScte35Esam
 $sel:scte35Esam:MpdSettings' :: MpdSettings -&gt; Maybe MpdScte35Esam
-</span><a href="#local-6989586621679990612"><span class="hs-identifier hs-var hs-var">scte35Esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Esam
-</span><a href="#local-6989586621679990612"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990611"><span class="annot"><span class="annottext">s :: MpdSettings
-</span><a href="#local-6989586621679990611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990610"><span class="annot"><span class="annottext">Maybe MpdScte35Esam
-</span><a href="#local-6989586621679990610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
-</span><a href="#local-6989586621679990611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Esam:MpdSettings' :: Maybe MpdScte35Esam
+</span><a href="#local-6989586621679992102"><span class="hs-identifier hs-var hs-var">scte35Esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Esam
+</span><a href="#local-6989586621679992102"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992101"><span class="annot"><span class="annottext">s :: MpdSettings
+</span><a href="#local-6989586621679992101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992100"><span class="annot"><span class="annottext">Maybe MpdScte35Esam
+</span><a href="#local-6989586621679992100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
+</span><a href="#local-6989586621679992101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Esam:MpdSettings' :: Maybe MpdScte35Esam
 </span><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#%24sel%3Ascte35Esam%3AMpdSettings%27"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Esam
-</span><a href="#local-6989586621679990610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679992100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | Specify this setting only when your output will be consumed by a</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- downstream repackaging workflow that is sensitive to very small duration</span><span>
@@ -261,16 +261,16 @@ $sel:scte35Esam:MpdSettings' :: MpdSettings -&gt; Maybe MpdScte35Esam
      (Maybe MpdAudioDuration)
      (Maybe MpdAudioDuration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990608"><span class="annot"><span class="annottext">Maybe MpdAudioDuration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992098"><span class="annot"><span class="annottext">Maybe MpdAudioDuration
 audioDuration :: Maybe MpdAudioDuration
 $sel:audioDuration:MpdSettings' :: MpdSettings -&gt; Maybe MpdAudioDuration
-</span><a href="#local-6989586621679990608"><span class="hs-identifier hs-var hs-var">audioDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdAudioDuration
-</span><a href="#local-6989586621679990608"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990607"><span class="annot"><span class="annottext">s :: MpdSettings
-</span><a href="#local-6989586621679990607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990606"><span class="annot"><span class="annottext">Maybe MpdAudioDuration
-</span><a href="#local-6989586621679990606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
-</span><a href="#local-6989586621679990607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDuration:MpdSettings' :: Maybe MpdAudioDuration
+</span><a href="#local-6989586621679992098"><span class="hs-identifier hs-var hs-var">audioDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdAudioDuration
+</span><a href="#local-6989586621679992098"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992097"><span class="annot"><span class="annottext">s :: MpdSettings
+</span><a href="#local-6989586621679992097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992096"><span class="annot"><span class="annottext">Maybe MpdAudioDuration
+</span><a href="#local-6989586621679992096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
+</span><a href="#local-6989586621679992097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDuration:MpdSettings' :: Maybe MpdAudioDuration
 </span><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#%24sel%3AaudioDuration%3AMpdSettings%27"><span class="hs-identifier hs-var">audioDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MpdAudioDuration
-</span><a href="#local-6989586621679990606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679992096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | Ignore this setting unless you have SCTE-35 markers in your input video</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that</span><span>
@@ -287,16 +287,16 @@ $sel:audioDuration:MpdSettings' :: MpdSettings -&gt; Maybe MpdAudioDuration
      (Maybe MpdScte35Source)
      (Maybe MpdScte35Source)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990604"><span class="annot"><span class="annottext">Maybe MpdScte35Source
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992094"><span class="annot"><span class="annottext">Maybe MpdScte35Source
 scte35Source :: Maybe MpdScte35Source
 $sel:scte35Source:MpdSettings' :: MpdSettings -&gt; Maybe MpdScte35Source
-</span><a href="#local-6989586621679990604"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Source
-</span><a href="#local-6989586621679990604"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990603"><span class="annot"><span class="annottext">s :: MpdSettings
-</span><a href="#local-6989586621679990603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990602"><span class="annot"><span class="annottext">Maybe MpdScte35Source
-</span><a href="#local-6989586621679990602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
-</span><a href="#local-6989586621679990603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Source:MpdSettings' :: Maybe MpdScte35Source
+</span><a href="#local-6989586621679992094"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Source
+</span><a href="#local-6989586621679992094"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992093"><span class="annot"><span class="annottext">s :: MpdSettings
+</span><a href="#local-6989586621679992093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992092"><span class="annot"><span class="annottext">Maybe MpdScte35Source
+</span><a href="#local-6989586621679992092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
+</span><a href="#local-6989586621679992093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Source:MpdSettings' :: Maybe MpdScte35Source
 </span><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#%24sel%3Ascte35Source%3AMpdSettings%27"><span class="hs-identifier hs-var">scte35Source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Source
-</span><a href="#local-6989586621679990602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679992092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Optional. Choose Include (INCLUDE) to have MediaConvert mark up your</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- DASH manifest with elements for embedded 608 captions. This markup</span><span>
@@ -317,16 +317,16 @@ $sel:scte35Source:MpdSettings' :: MpdSettings -&gt; Maybe MpdScte35Source
      (Maybe MpdAccessibilityCaptionHints)
      (Maybe MpdAccessibilityCaptionHints)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990600"><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992090"><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
 accessibilityCaptionHints :: Maybe MpdAccessibilityCaptionHints
 $sel:accessibilityCaptionHints:MpdSettings' :: MpdSettings -&gt; Maybe MpdAccessibilityCaptionHints
-</span><a href="#local-6989586621679990600"><span class="hs-identifier hs-var hs-var">accessibilityCaptionHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
-</span><a href="#local-6989586621679990600"><span class="hs-identifier hs-var">accessibilityCaptionHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990599"><span class="annot"><span class="annottext">s :: MpdSettings
-</span><a href="#local-6989586621679990599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990598"><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
-</span><a href="#local-6989586621679990598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
-</span><a href="#local-6989586621679990599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessibilityCaptionHints:MpdSettings' :: Maybe MpdAccessibilityCaptionHints
+</span><a href="#local-6989586621679992090"><span class="hs-identifier hs-var hs-var">accessibilityCaptionHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
+</span><a href="#local-6989586621679992090"><span class="hs-identifier hs-var">accessibilityCaptionHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992089"><span class="annot"><span class="annottext">s :: MpdSettings
+</span><a href="#local-6989586621679992089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992088"><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
+</span><a href="#local-6989586621679992088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
+</span><a href="#local-6989586621679992089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessibilityCaptionHints:MpdSettings' :: Maybe MpdAccessibilityCaptionHints
 </span><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#%24sel%3AaccessibilityCaptionHints%3AMpdSettings%27"><span class="hs-identifier hs-var">accessibilityCaptionHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
-</span><a href="#local-6989586621679990598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679992088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Use this setting only in DASH output groups that include sidecar TTML or</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- IMSC captions. You specify sidecar captions in a separate output from</span><span>
@@ -347,19 +347,19 @@ $sel:accessibilityCaptionHints:MpdSettings' :: MpdSettings -&gt; Maybe MpdAccess
      (Maybe MpdCaptionContainerType)
      (Maybe MpdCaptionContainerType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990596"><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992086"><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
 captionContainerType :: Maybe MpdCaptionContainerType
 $sel:captionContainerType:MpdSettings' :: MpdSettings -&gt; Maybe MpdCaptionContainerType
-</span><a href="#local-6989586621679990596"><span class="hs-identifier hs-var hs-var">captionContainerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
-</span><a href="#local-6989586621679990596"><span class="hs-identifier hs-var">captionContainerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990595"><span class="annot"><span class="annottext">s :: MpdSettings
-</span><a href="#local-6989586621679990595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990594"><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
-</span><a href="#local-6989586621679990594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
-</span><a href="#local-6989586621679990595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionContainerType:MpdSettings' :: Maybe MpdCaptionContainerType
+</span><a href="#local-6989586621679992086"><span class="hs-identifier hs-var hs-var">captionContainerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
+</span><a href="#local-6989586621679992086"><span class="hs-identifier hs-var">captionContainerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992085"><span class="annot"><span class="annottext">s :: MpdSettings
+</span><a href="#local-6989586621679992085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992084"><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
+</span><a href="#local-6989586621679992084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MpdSettings
+</span><a href="#local-6989586621679992085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionContainerType:MpdSettings' :: Maybe MpdCaptionContainerType
 </span><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#%24sel%3AcaptionContainerType%3AMpdSettings%27"><span class="hs-identifier hs-var">captionContainerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
-</span><a href="#local-6989586621679990594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679992084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679990589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MpdSettings
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992081"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679992079"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MpdSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MpdSettings) -&gt; Value -&gt; Parser MpdSettings
@@ -367,8 +367,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MpdSettings&quot;</span></span><span>
-</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679990586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679992076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679992076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe MpdScte35Esam
 -&gt; Maybe MpdAudioDuration
 -&gt; Maybe MpdScte35Source
@@ -391,7 +391,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MpdSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdScte35Esam)
+</span><a href="#local-6989586621679992076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdScte35Esam)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Esam&quot;</span></span><span class="hs-special">)</span><span>
@@ -409,7 +409,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MpdSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdAudioDuration)
+</span><a href="#local-6989586621679992076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdAudioDuration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDuration&quot;</span></span><span class="hs-special">)</span><span>
@@ -424,7 +424,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe MpdCaptionContainerType -&gt; MpdSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdScte35Source)
+</span><a href="#local-6989586621679992076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdScte35Source)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Source&quot;</span></span><span class="hs-special">)</span><span>
@@ -435,7 +435,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MpdCaptionContainerType -&gt; MpdSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdAccessibilityCaptionHints)
+</span><a href="#local-6989586621679992076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdAccessibilityCaptionHints)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessibilityCaptionHints&quot;</span></span><span class="hs-special">)</span><span>
@@ -443,19 +443,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MpdCaptionContainerType) -&gt; Parser MpdSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdCaptionContainerType)
+</span><a href="#local-6989586621679992076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MpdCaptionContainerType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionContainerType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990580"><span id="local-6989586621679990582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992070"><span id="local-6989586621679992072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990569"><span id="local-6989586621679990571"><span id="local-6989586621679990573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679990567"><span class="annot"><span class="annottext">toJSON :: MpdSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990561"><span id="local-6989586621679990562"><span id="local-6989586621679990563"><span id="local-6989586621679990564"><span id="local-6989586621679990565"><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992059"><span id="local-6989586621679992061"><span id="local-6989586621679992063"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings"><span class="hs-identifier hs-type">MpdSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679992057"><span class="annot"><span class="annottext">toJSON :: MpdSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdSettings.html#MpdSettings%27"><span class="hs-identifier hs-type">MpdSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992051"><span id="local-6989586621679992052"><span id="local-6989586621679992053"><span id="local-6989586621679992054"><span id="local-6989586621679992055"><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
 Maybe MpdAudioDuration
 Maybe MpdCaptionContainerType
 Maybe MpdScte35Esam
@@ -470,7 +470,7 @@ $sel:accessibilityCaptionHints:MpdSettings' :: MpdSettings -&gt; Maybe MpdAccess
 $sel:scte35Source:MpdSettings' :: MpdSettings -&gt; Maybe MpdScte35Source
 $sel:audioDuration:MpdSettings' :: MpdSettings -&gt; Maybe MpdAudioDuration
 $sel:scte35Esam:MpdSettings' :: MpdSettings -&gt; Maybe MpdScte35Esam
-</span><a href="#local-6989586621679990561"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679992051"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -482,21 +482,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MpdScte35Esam -&gt; Pair) -&gt; Maybe MpdScte35Esam -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Esam
-</span><a href="#local-6989586621679990565"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679992055"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MpdAudioDuration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MpdAudioDuration -&gt; Pair) -&gt; Maybe MpdAudioDuration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MpdAudioDuration
-</span><a href="#local-6989586621679990564"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679992054"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MpdScte35Source -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MpdScte35Source -&gt; Pair) -&gt; Maybe MpdScte35Source -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MpdScte35Source
-</span><a href="#local-6989586621679990563"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679992053"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessibilityCaptionHints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MpdAccessibilityCaptionHints -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -505,7 +505,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MpdAccessibilityCaptionHints -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MpdAccessibilityCaptionHints
-</span><a href="#local-6989586621679990562"><span class="hs-identifier hs-var">accessibilityCaptionHints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679992052"><span class="hs-identifier hs-var">accessibilityCaptionHints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionContainerType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MpdCaptionContainerType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -514,7 +514,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MpdCaptionContainerType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MpdCaptionContainerType
-</span><a href="#local-6989586621679990561"><span class="hs-identifier hs-var">captionContainerType</span></a></span><span>
+</span><a href="#local-6989586621679992051"><span class="hs-identifier hs-var">captionContainerType</span></a></span><span>
 </span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span></pre></body></html>

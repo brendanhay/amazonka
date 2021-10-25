@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679953220"><span id="local-6989586621679953221"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoIntervalCadence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#DashIsoIntervalCadence"><span class="hs-identifier hs-var">DashIsoIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoIntervalCadence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#DashIsoIntervalCadence%27"><span class="hs-identifier hs-var">DashIsoIntervalCadence'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679954539"><span id="local-6989586621679954540"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoIntervalCadence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#DashIsoIntervalCadence"><span class="hs-identifier hs-var">DashIsoIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoIntervalCadence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#DashIsoIntervalCadence%27"><span class="hs-identifier hs-var">DashIsoIntervalCadence'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDashIsoIntervalCadence"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoIntervalCadence.html#fromDashIsoIntervalCadence"><span class="hs-identifier hs-var hs-var">fromDashIsoIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953212"><span id="local-6989586621679953214"><span id="local-6989586621679953216"><span class="annot"><span class="annottext">Int -&gt; DashIsoIntervalCadence -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679954531"><span id="local-6989586621679954533"><span id="local-6989586621679954535"><span class="annot"><span class="annottext">Int -&gt; DashIsoIntervalCadence -&gt; ShowS
 [DashIsoIntervalCadence] -&gt; ShowS
 DashIsoIntervalCadence -&gt; String
 (Int -&gt; DashIsoIntervalCadence -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: DashIsoIntervalCadence -&gt; String
 showsPrec :: Int -&gt; DashIsoIntervalCadence -&gt; ShowS
 $cshowsPrec :: Int -&gt; DashIsoIntervalCadence -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679953203"><span id="local-6989586621679953205"><span id="local-6989586621679953207"><span id="local-6989586621679953209"><span class="annot"><span class="annottext">ReadPrec [DashIsoIntervalCadence]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679954522"><span id="local-6989586621679954524"><span id="local-6989586621679954526"><span id="local-6989586621679954528"><span class="annot"><span class="annottext">ReadPrec [DashIsoIntervalCadence]
 ReadPrec DashIsoIntervalCadence
 Int -&gt; ReadS DashIsoIntervalCadence
 ReadS [DashIsoIntervalCadence]
@@ -77,7 +77,7 @@ $creadList :: ReadS [DashIsoIntervalCadence]
 readsPrec :: Int -&gt; ReadS DashIsoIntervalCadence
 $creadsPrec :: Int -&gt; ReadS DashIsoIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679953198"><span id="local-6989586621679953200"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679954517"><span id="local-6989586621679954519"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool
 (DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool)
 -&gt; (DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool)
 -&gt; Eq DashIsoIntervalCadence
@@ -87,7 +87,7 @@ $c/= :: DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool
 == :: DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool
 $c== :: DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679953182"><span id="local-6989586621679953184"><span id="local-6989586621679953186"><span id="local-6989586621679953188"><span id="local-6989586621679953190"><span id="local-6989586621679953192"><span id="local-6989586621679953194"><span class="annot"><span class="annottext">Eq DashIsoIntervalCadence
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679954501"><span id="local-6989586621679954503"><span id="local-6989586621679954505"><span id="local-6989586621679954507"><span id="local-6989586621679954509"><span id="local-6989586621679954511"><span id="local-6989586621679954513"><span class="annot"><span class="annottext">Eq DashIsoIntervalCadence
 Eq DashIsoIntervalCadence
 -&gt; (DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Ordering)
 -&gt; (DashIsoIntervalCadence -&gt; DashIsoIntervalCadence -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. DashIsoIntervalCadence -&gt; Rep DashIsoIntervalCadence x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953174"><span id="local-6989586621679953176"><span class="annot"><span class="annottext">Int -&gt; DashIsoIntervalCadence -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679954493"><span id="local-6989586621679954495"><span class="annot"><span class="annottext">Int -&gt; DashIsoIntervalCadence -&gt; Int
 DashIsoIntervalCadence -&gt; Int
 (Int -&gt; DashIsoIntervalCadence -&gt; Int)
 -&gt; (DashIsoIntervalCadence -&gt; Int)
@@ -157,54 +157,54 @@ $chash :: DashIsoIntervalCadence -&gt; Int
 hashWithSalt :: Int -&gt; DashIsoIntervalCadence -&gt; Int
 $chashWithSalt :: Int -&gt; DashIsoIntervalCadence -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679953171"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679954490"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; ()
 (DashIsoIntervalCadence -&gt; ()) -&gt; NFData DashIsoIntervalCadence
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DashIsoIntervalCadence -&gt; ()
 $crnf :: DashIsoIntervalCadence -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679953168"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoIntervalCadence
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679954487"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoIntervalCadence
 (Text -&gt; Either String DashIsoIntervalCadence)
 -&gt; FromText DashIsoIntervalCadence
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DashIsoIntervalCadence
 $cfromText :: Text -&gt; Either String DashIsoIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679953165"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679954484"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; Text
 (DashIsoIntervalCadence -&gt; Text) -&gt; ToText DashIsoIntervalCadence
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DashIsoIntervalCadence -&gt; Text
 $ctoText :: DashIsoIntervalCadence -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679953162"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679954481"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; ByteString
 (DashIsoIntervalCadence -&gt; ByteString)
 -&gt; ToByteString DashIsoIntervalCadence
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DashIsoIntervalCadence -&gt; ByteString
 $ctoBS :: DashIsoIntervalCadence -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679953159"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679954478"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; ByteStringBuilder
 (DashIsoIntervalCadence -&gt; ByteStringBuilder)
 -&gt; ToLog DashIsoIntervalCadence
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DashIsoIntervalCadence -&gt; ByteStringBuilder
 $cbuild :: DashIsoIntervalCadence -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679953156"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoIntervalCadence -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679954475"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoIntervalCadence -&gt; [Header]
 (HeaderName -&gt; DashIsoIntervalCadence -&gt; [Header])
 -&gt; ToHeader DashIsoIntervalCadence
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DashIsoIntervalCadence -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DashIsoIntervalCadence -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953153"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679954472"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; QueryString
 (DashIsoIntervalCadence -&gt; QueryString)
 -&gt; ToQuery DashIsoIntervalCadence
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DashIsoIntervalCadence -&gt; QueryString
 $ctoQuery :: DashIsoIntervalCadence -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953148"><span id="local-6989586621679953150"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoIntervalCadence]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679954467"><span id="local-6989586621679954469"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoIntervalCadence]
 Value -&gt; Parser DashIsoIntervalCadence
 (Value -&gt; Parser DashIsoIntervalCadence)
 -&gt; (Value -&gt; Parser [DashIsoIntervalCadence])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [DashIsoIntervalCadence]
 parseJSON :: Value -&gt; Parser DashIsoIntervalCadence
 $cparseJSON :: Value -&gt; Parser DashIsoIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953143"><span id="local-6989586621679953145"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoIntervalCadence]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679954462"><span id="local-6989586621679954464"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoIntervalCadence]
 FromJSONKeyFunction DashIsoIntervalCadence
 FromJSONKeyFunction DashIsoIntervalCadence
 -&gt; FromJSONKeyFunction [DashIsoIntervalCadence]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DashIsoIntervalCadence]
 fromJSONKey :: FromJSONKeyFunction DashIsoIntervalCadence
 $cfromJSONKey :: FromJSONKeyFunction DashIsoIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953134"><span id="local-6989586621679953136"><span id="local-6989586621679953138"><span id="local-6989586621679953140"><span class="annot"><span class="annottext">[DashIsoIntervalCadence] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679954453"><span id="local-6989586621679954455"><span id="local-6989586621679954457"><span id="local-6989586621679954459"><span class="annot"><span class="annottext">[DashIsoIntervalCadence] -&gt; Encoding
 [DashIsoIntervalCadence] -&gt; Value
 DashIsoIntervalCadence -&gt; Encoding
 DashIsoIntervalCadence -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: DashIsoIntervalCadence -&gt; Encoding
 toJSON :: DashIsoIntervalCadence -&gt; Value
 $ctoJSON :: DashIsoIntervalCadence -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679953129"><span id="local-6989586621679953131"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoIntervalCadence]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679954448"><span id="local-6989586621679954450"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoIntervalCadence]
 ToJSONKeyFunction DashIsoIntervalCadence
 ToJSONKeyFunction DashIsoIntervalCadence
 -&gt; ToJSONKeyFunction [DashIsoIntervalCadence]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DashIsoIntervalCadence]
 toJSONKey :: ToJSONKeyFunction DashIsoIntervalCadence
 $ctoJSONKey :: ToJSONKeyFunction DashIsoIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679953126"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoIntervalCadence
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679954445"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoIntervalCadence
 ([Node] -&gt; Either String DashIsoIntervalCadence)
 -&gt; FromXML DashIsoIntervalCadence
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DashIsoIntervalCadence
 $cparseXML :: [Node] -&gt; Either String DashIsoIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679953123"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679954442"><span class="annot"><span class="annottext">DashIsoIntervalCadence -&gt; XML
 (DashIsoIntervalCadence -&gt; XML) -&gt; ToXML DashIsoIntervalCadence
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DashIsoIntervalCadence -&gt; XML

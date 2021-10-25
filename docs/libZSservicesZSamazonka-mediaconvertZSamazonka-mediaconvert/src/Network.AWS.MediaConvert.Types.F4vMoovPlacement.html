@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- beginning of the archive as required for progressive downloading.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- Otherwise it is placed normally at the end.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679963935"><span id="local-6989586621679963936"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="F4vMoovPlacement"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier hs-var">F4vMoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="F4vMoovPlacement%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement%27"><span class="hs-identifier hs-var">F4vMoovPlacement'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679965254"><span id="local-6989586621679965255"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="F4vMoovPlacement"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier hs-var">F4vMoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="F4vMoovPlacement%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement%27"><span class="hs-identifier hs-var">F4vMoovPlacement'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromF4vMoovPlacement"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.F4vMoovPlacement.html#fromF4vMoovPlacement"><span class="hs-identifier hs-var hs-var">fromF4vMoovPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963927"><span id="local-6989586621679963929"><span id="local-6989586621679963931"><span class="annot"><span class="annottext">Int -&gt; F4vMoovPlacement -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965246"><span id="local-6989586621679965248"><span id="local-6989586621679965250"><span class="annot"><span class="annottext">Int -&gt; F4vMoovPlacement -&gt; ShowS
 [F4vMoovPlacement] -&gt; ShowS
 F4vMoovPlacement -&gt; String
 (Int -&gt; F4vMoovPlacement -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: F4vMoovPlacement -&gt; String
 showsPrec :: Int -&gt; F4vMoovPlacement -&gt; ShowS
 $cshowsPrec :: Int -&gt; F4vMoovPlacement -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679963918"><span id="local-6989586621679963920"><span id="local-6989586621679963922"><span id="local-6989586621679963924"><span class="annot"><span class="annottext">ReadPrec [F4vMoovPlacement]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679965237"><span id="local-6989586621679965239"><span id="local-6989586621679965241"><span id="local-6989586621679965243"><span class="annot"><span class="annottext">ReadPrec [F4vMoovPlacement]
 ReadPrec F4vMoovPlacement
 Int -&gt; ReadS F4vMoovPlacement
 ReadS [F4vMoovPlacement]
@@ -75,7 +75,7 @@ $creadList :: ReadS [F4vMoovPlacement]
 readsPrec :: Int -&gt; ReadS F4vMoovPlacement
 $creadsPrec :: Int -&gt; ReadS F4vMoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679963913"><span id="local-6989586621679963915"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679965232"><span id="local-6989586621679965234"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
 (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
 -&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
 -&gt; Eq F4vMoovPlacement
@@ -85,7 +85,7 @@ $c/= :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
 == :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
 $c== :: F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679963897"><span id="local-6989586621679963899"><span id="local-6989586621679963901"><span id="local-6989586621679963903"><span id="local-6989586621679963905"><span id="local-6989586621679963907"><span id="local-6989586621679963909"><span class="annot"><span class="annottext">Eq F4vMoovPlacement
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679965216"><span id="local-6989586621679965218"><span id="local-6989586621679965220"><span id="local-6989586621679965222"><span id="local-6989586621679965224"><span id="local-6989586621679965226"><span id="local-6989586621679965228"><span class="annot"><span class="annottext">Eq F4vMoovPlacement
 Eq F4vMoovPlacement
 -&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Ordering)
 -&gt; (F4vMoovPlacement -&gt; F4vMoovPlacement -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. F4vMoovPlacement -&gt; Rep F4vMoovPlacement x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963889"><span id="local-6989586621679963891"><span class="annot"><span class="annottext">Int -&gt; F4vMoovPlacement -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965208"><span id="local-6989586621679965210"><span class="annot"><span class="annottext">Int -&gt; F4vMoovPlacement -&gt; Int
 F4vMoovPlacement -&gt; Int
 (Int -&gt; F4vMoovPlacement -&gt; Int)
 -&gt; (F4vMoovPlacement -&gt; Int) -&gt; Hashable F4vMoovPlacement
@@ -146,51 +146,51 @@ $chash :: F4vMoovPlacement -&gt; Int
 hashWithSalt :: Int -&gt; F4vMoovPlacement -&gt; Int
 $chashWithSalt :: Int -&gt; F4vMoovPlacement -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679963886"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679965205"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ()
 (F4vMoovPlacement -&gt; ()) -&gt; NFData F4vMoovPlacement
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: F4vMoovPlacement -&gt; ()
 $crnf :: F4vMoovPlacement -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679963883"><span class="annot"><span class="annottext">Text -&gt; Either String F4vMoovPlacement
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679965202"><span class="annot"><span class="annottext">Text -&gt; Either String F4vMoovPlacement
 (Text -&gt; Either String F4vMoovPlacement)
 -&gt; FromText F4vMoovPlacement
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String F4vMoovPlacement
 $cfromText :: Text -&gt; Either String F4vMoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679963880"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679965199"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; Text
 (F4vMoovPlacement -&gt; Text) -&gt; ToText F4vMoovPlacement
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: F4vMoovPlacement -&gt; Text
 $ctoText :: F4vMoovPlacement -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679963877"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679965196"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ByteString
 (F4vMoovPlacement -&gt; ByteString) -&gt; ToByteString F4vMoovPlacement
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: F4vMoovPlacement -&gt; ByteString
 $ctoBS :: F4vMoovPlacement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679963874"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679965193"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; ByteStringBuilder
 (F4vMoovPlacement -&gt; ByteStringBuilder) -&gt; ToLog F4vMoovPlacement
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: F4vMoovPlacement -&gt; ByteStringBuilder
 $cbuild :: F4vMoovPlacement -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679963871"><span class="annot"><span class="annottext">HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679965190"><span class="annot"><span class="annottext">HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
 (HeaderName -&gt; F4vMoovPlacement -&gt; [Header])
 -&gt; ToHeader F4vMoovPlacement
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; F4vMoovPlacement -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679963868"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679965187"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; QueryString
 (F4vMoovPlacement -&gt; QueryString) -&gt; ToQuery F4vMoovPlacement
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: F4vMoovPlacement -&gt; QueryString
 $ctoQuery :: F4vMoovPlacement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679963863"><span id="local-6989586621679963865"><span class="annot"><span class="annottext">Value -&gt; Parser [F4vMoovPlacement]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679965182"><span id="local-6989586621679965184"><span class="annot"><span class="annottext">Value -&gt; Parser [F4vMoovPlacement]
 Value -&gt; Parser F4vMoovPlacement
 (Value -&gt; Parser F4vMoovPlacement)
 -&gt; (Value -&gt; Parser [F4vMoovPlacement])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [F4vMoovPlacement]
 parseJSON :: Value -&gt; Parser F4vMoovPlacement
 $cparseJSON :: Value -&gt; Parser F4vMoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679963858"><span id="local-6989586621679963860"><span class="annot"><span class="annottext">FromJSONKeyFunction [F4vMoovPlacement]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679965177"><span id="local-6989586621679965179"><span class="annot"><span class="annottext">FromJSONKeyFunction [F4vMoovPlacement]
 FromJSONKeyFunction F4vMoovPlacement
 FromJSONKeyFunction F4vMoovPlacement
 -&gt; FromJSONKeyFunction [F4vMoovPlacement]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [F4vMoovPlacement]
 fromJSONKey :: FromJSONKeyFunction F4vMoovPlacement
 $cfromJSONKey :: FromJSONKeyFunction F4vMoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679963849"><span id="local-6989586621679963851"><span id="local-6989586621679963853"><span id="local-6989586621679963855"><span class="annot"><span class="annottext">[F4vMoovPlacement] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679965168"><span id="local-6989586621679965170"><span id="local-6989586621679965172"><span id="local-6989586621679965174"><span class="annot"><span class="annottext">[F4vMoovPlacement] -&gt; Encoding
 [F4vMoovPlacement] -&gt; Value
 F4vMoovPlacement -&gt; Encoding
 F4vMoovPlacement -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: F4vMoovPlacement -&gt; Encoding
 toJSON :: F4vMoovPlacement -&gt; Value
 $ctoJSON :: F4vMoovPlacement -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679963844"><span id="local-6989586621679963846"><span class="annot"><span class="annottext">ToJSONKeyFunction [F4vMoovPlacement]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679965163"><span id="local-6989586621679965165"><span class="annot"><span class="annottext">ToJSONKeyFunction [F4vMoovPlacement]
 ToJSONKeyFunction F4vMoovPlacement
 ToJSONKeyFunction F4vMoovPlacement
 -&gt; ToJSONKeyFunction [F4vMoovPlacement]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [F4vMoovPlacement]
 toJSONKey :: ToJSONKeyFunction F4vMoovPlacement
 $ctoJSONKey :: ToJSONKeyFunction F4vMoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679963841"><span class="annot"><span class="annottext">[Node] -&gt; Either String F4vMoovPlacement
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679965160"><span class="annot"><span class="annottext">[Node] -&gt; Either String F4vMoovPlacement
 ([Node] -&gt; Either String F4vMoovPlacement)
 -&gt; FromXML F4vMoovPlacement
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String F4vMoovPlacement
 $cparseXML :: [Node] -&gt; Either String F4vMoovPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679963838"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679965157"><span class="annot"><span class="annottext">F4vMoovPlacement -&gt; XML
 (F4vMoovPlacement -&gt; XML) -&gt; ToXML F4vMoovPlacement
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: F4vMoovPlacement -&gt; XML

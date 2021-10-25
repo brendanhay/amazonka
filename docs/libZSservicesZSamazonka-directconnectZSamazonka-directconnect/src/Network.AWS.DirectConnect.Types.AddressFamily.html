@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679277827"><span id="local-6989586621679277828"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressFamily"><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-var">AddressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressFamily%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily%27"><span class="hs-identifier hs-var">AddressFamily'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679285858"><span id="local-6989586621679285859"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressFamily"><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-var">AddressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressFamily%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily%27"><span class="hs-identifier hs-var">AddressFamily'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddressFamily"><span class="annot"><span class="annottext">AddressFamily -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#fromAddressFamily"><span class="hs-identifier hs-var hs-var">fromAddressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277819"><span id="local-6989586621679277821"><span id="local-6989586621679277823"><span class="annot"><span class="annottext">Int -&gt; AddressFamily -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285850"><span id="local-6989586621679285852"><span id="local-6989586621679285854"><span class="annot"><span class="annottext">Int -&gt; AddressFamily -&gt; ShowS
 [AddressFamily] -&gt; ShowS
 AddressFamily -&gt; String
 (Int -&gt; AddressFamily -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AddressFamily -&gt; String
 showsPrec :: Int -&gt; AddressFamily -&gt; ShowS
 $cshowsPrec :: Int -&gt; AddressFamily -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679277810"><span id="local-6989586621679277812"><span id="local-6989586621679277814"><span id="local-6989586621679277816"><span class="annot"><span class="annottext">ReadPrec [AddressFamily]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679285841"><span id="local-6989586621679285843"><span id="local-6989586621679285845"><span id="local-6989586621679285847"><span class="annot"><span class="annottext">ReadPrec [AddressFamily]
 ReadPrec AddressFamily
 Int -&gt; ReadS AddressFamily
 ReadS [AddressFamily]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AddressFamily]
 readsPrec :: Int -&gt; ReadS AddressFamily
 $creadsPrec :: Int -&gt; ReadS AddressFamily
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679277805"><span id="local-6989586621679277807"><span class="annot"><span class="annottext">AddressFamily -&gt; AddressFamily -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679285836"><span id="local-6989586621679285838"><span class="annot"><span class="annottext">AddressFamily -&gt; AddressFamily -&gt; Bool
 (AddressFamily -&gt; AddressFamily -&gt; Bool)
 -&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool) -&gt; Eq AddressFamily
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: AddressFamily -&gt; AddressFamily -&gt; Bool
 == :: AddressFamily -&gt; AddressFamily -&gt; Bool
 $c== :: AddressFamily -&gt; AddressFamily -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679277789"><span id="local-6989586621679277791"><span id="local-6989586621679277793"><span id="local-6989586621679277795"><span id="local-6989586621679277797"><span id="local-6989586621679277799"><span id="local-6989586621679277801"><span class="annot"><span class="annottext">Eq AddressFamily
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679285820"><span id="local-6989586621679285822"><span id="local-6989586621679285824"><span id="local-6989586621679285826"><span id="local-6989586621679285828"><span id="local-6989586621679285830"><span id="local-6989586621679285832"><span class="annot"><span class="annottext">Eq AddressFamily
 Eq AddressFamily
 -&gt; (AddressFamily -&gt; AddressFamily -&gt; Ordering)
 -&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AddressFamily -&gt; Rep AddressFamily x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277781"><span id="local-6989586621679277783"><span class="annot"><span class="annottext">Int -&gt; AddressFamily -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285812"><span id="local-6989586621679285814"><span class="annot"><span class="annottext">Int -&gt; AddressFamily -&gt; Int
 AddressFamily -&gt; Int
 (Int -&gt; AddressFamily -&gt; Int)
 -&gt; (AddressFamily -&gt; Int) -&gt; Hashable AddressFamily
@@ -142,49 +142,49 @@ $chash :: AddressFamily -&gt; Int
 hashWithSalt :: Int -&gt; AddressFamily -&gt; Int
 $chashWithSalt :: Int -&gt; AddressFamily -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679277778"><span class="annot"><span class="annottext">AddressFamily -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679285809"><span class="annot"><span class="annottext">AddressFamily -&gt; ()
 (AddressFamily -&gt; ()) -&gt; NFData AddressFamily
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AddressFamily -&gt; ()
 $crnf :: AddressFamily -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679277775"><span class="annot"><span class="annottext">Text -&gt; Either String AddressFamily
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679285806"><span class="annot"><span class="annottext">Text -&gt; Either String AddressFamily
 (Text -&gt; Either String AddressFamily) -&gt; FromText AddressFamily
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AddressFamily
 $cfromText :: Text -&gt; Either String AddressFamily
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679277772"><span class="annot"><span class="annottext">AddressFamily -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679285803"><span class="annot"><span class="annottext">AddressFamily -&gt; Text
 (AddressFamily -&gt; Text) -&gt; ToText AddressFamily
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AddressFamily -&gt; Text
 $ctoText :: AddressFamily -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679277769"><span class="annot"><span class="annottext">AddressFamily -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679285800"><span class="annot"><span class="annottext">AddressFamily -&gt; ByteString
 (AddressFamily -&gt; ByteString) -&gt; ToByteString AddressFamily
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AddressFamily -&gt; ByteString
 $ctoBS :: AddressFamily -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679277766"><span class="annot"><span class="annottext">AddressFamily -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679285797"><span class="annot"><span class="annottext">AddressFamily -&gt; ByteStringBuilder
 (AddressFamily -&gt; ByteStringBuilder) -&gt; ToLog AddressFamily
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AddressFamily -&gt; ByteStringBuilder
 $cbuild :: AddressFamily -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679277763"><span class="annot"><span class="annottext">HeaderName -&gt; AddressFamily -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679285794"><span class="annot"><span class="annottext">HeaderName -&gt; AddressFamily -&gt; [Header]
 (HeaderName -&gt; AddressFamily -&gt; [Header]) -&gt; ToHeader AddressFamily
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AddressFamily -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AddressFamily -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679277760"><span class="annot"><span class="annottext">AddressFamily -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679285791"><span class="annot"><span class="annottext">AddressFamily -&gt; QueryString
 (AddressFamily -&gt; QueryString) -&gt; ToQuery AddressFamily
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AddressFamily -&gt; QueryString
 $ctoQuery :: AddressFamily -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679277755"><span id="local-6989586621679277757"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressFamily]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679285786"><span id="local-6989586621679285788"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressFamily]
 Value -&gt; Parser AddressFamily
 (Value -&gt; Parser AddressFamily)
 -&gt; (Value -&gt; Parser [AddressFamily]) -&gt; FromJSON AddressFamily
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [AddressFamily]
 parseJSON :: Value -&gt; Parser AddressFamily
 $cparseJSON :: Value -&gt; Parser AddressFamily
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277750"><span id="local-6989586621679277752"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressFamily]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679285781"><span id="local-6989586621679285783"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressFamily]
 FromJSONKeyFunction AddressFamily
 FromJSONKeyFunction AddressFamily
 -&gt; FromJSONKeyFunction [AddressFamily] -&gt; FromJSONKey AddressFamily
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AddressFamily]
 fromJSONKey :: FromJSONKeyFunction AddressFamily
 $cfromJSONKey :: FromJSONKeyFunction AddressFamily
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277741"><span id="local-6989586621679277743"><span id="local-6989586621679277745"><span id="local-6989586621679277747"><span class="annot"><span class="annottext">[AddressFamily] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679285772"><span id="local-6989586621679285774"><span id="local-6989586621679285776"><span id="local-6989586621679285778"><span class="annot"><span class="annottext">[AddressFamily] -&gt; Encoding
 [AddressFamily] -&gt; Value
 AddressFamily -&gt; Encoding
 AddressFamily -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: AddressFamily -&gt; Encoding
 toJSON :: AddressFamily -&gt; Value
 $ctoJSON :: AddressFamily -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277736"><span id="local-6989586621679277738"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressFamily]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679285767"><span id="local-6989586621679285769"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressFamily]
 ToJSONKeyFunction AddressFamily
 ToJSONKeyFunction AddressFamily
 -&gt; ToJSONKeyFunction [AddressFamily] -&gt; ToJSONKey AddressFamily
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AddressFamily]
 toJSONKey :: ToJSONKeyFunction AddressFamily
 $ctoJSONKey :: ToJSONKeyFunction AddressFamily
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679277733"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressFamily
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679285764"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressFamily
 ([Node] -&gt; Either String AddressFamily) -&gt; FromXML AddressFamily
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AddressFamily
 $cparseXML :: [Node] -&gt; Either String AddressFamily
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679277730"><span class="annot"><span class="annottext">AddressFamily -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679285761"><span class="annot"><span class="annottext">AddressFamily -&gt; XML
 (AddressFamily -&gt; XML) -&gt; ToXML AddressFamily
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AddressFamily -&gt; XML

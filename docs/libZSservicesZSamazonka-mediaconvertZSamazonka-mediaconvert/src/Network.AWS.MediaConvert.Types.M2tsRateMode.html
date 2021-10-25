@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | When set to CBR, inserts null packets into transport stream to fill</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- specified bitrate. When set to VBR, the bitrate setting acts as the</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- maximum bitrate, but the output will not be padded up to that bitrate.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679985504"><span id="local-6989586621679985505"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsRateMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsRateMode.html#M2tsRateMode"><span class="hs-identifier hs-var">M2tsRateMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsRateMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsRateMode.html#M2tsRateMode%27"><span class="hs-identifier hs-var">M2tsRateMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679986994"><span id="local-6989586621679986995"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsRateMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsRateMode.html#M2tsRateMode"><span class="hs-identifier hs-var">M2tsRateMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsRateMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsRateMode.html#M2tsRateMode%27"><span class="hs-identifier hs-var">M2tsRateMode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsRateMode"><span class="annot"><span class="annottext">M2tsRateMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M2tsRateMode.html#fromM2tsRateMode"><span class="hs-identifier hs-var hs-var">fromM2tsRateMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985496"><span id="local-6989586621679985498"><span id="local-6989586621679985500"><span class="annot"><span class="annottext">Int -&gt; M2tsRateMode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986986"><span id="local-6989586621679986988"><span id="local-6989586621679986990"><span class="annot"><span class="annottext">Int -&gt; M2tsRateMode -&gt; ShowS
 [M2tsRateMode] -&gt; ShowS
 M2tsRateMode -&gt; String
 (Int -&gt; M2tsRateMode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: M2tsRateMode -&gt; String
 showsPrec :: Int -&gt; M2tsRateMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsRateMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679985487"><span id="local-6989586621679985489"><span id="local-6989586621679985491"><span id="local-6989586621679985493"><span class="annot"><span class="annottext">ReadPrec [M2tsRateMode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679986977"><span id="local-6989586621679986979"><span id="local-6989586621679986981"><span id="local-6989586621679986983"><span class="annot"><span class="annottext">ReadPrec [M2tsRateMode]
 ReadPrec M2tsRateMode
 Int -&gt; ReadS M2tsRateMode
 ReadS [M2tsRateMode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [M2tsRateMode]
 readsPrec :: Int -&gt; ReadS M2tsRateMode
 $creadsPrec :: Int -&gt; ReadS M2tsRateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679985482"><span id="local-6989586621679985484"><span class="annot"><span class="annottext">M2tsRateMode -&gt; M2tsRateMode -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679986972"><span id="local-6989586621679986974"><span class="annot"><span class="annottext">M2tsRateMode -&gt; M2tsRateMode -&gt; Bool
 (M2tsRateMode -&gt; M2tsRateMode -&gt; Bool)
 -&gt; (M2tsRateMode -&gt; M2tsRateMode -&gt; Bool) -&gt; Eq M2tsRateMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: M2tsRateMode -&gt; M2tsRateMode -&gt; Bool
 == :: M2tsRateMode -&gt; M2tsRateMode -&gt; Bool
 $c== :: M2tsRateMode -&gt; M2tsRateMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679985466"><span id="local-6989586621679985468"><span id="local-6989586621679985470"><span id="local-6989586621679985472"><span id="local-6989586621679985474"><span id="local-6989586621679985476"><span id="local-6989586621679985478"><span class="annot"><span class="annottext">Eq M2tsRateMode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679986956"><span id="local-6989586621679986958"><span id="local-6989586621679986960"><span id="local-6989586621679986962"><span id="local-6989586621679986964"><span id="local-6989586621679986966"><span id="local-6989586621679986968"><span class="annot"><span class="annottext">Eq M2tsRateMode
 Eq M2tsRateMode
 -&gt; (M2tsRateMode -&gt; M2tsRateMode -&gt; Ordering)
 -&gt; (M2tsRateMode -&gt; M2tsRateMode -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. M2tsRateMode -&gt; Rep M2tsRateMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985458"><span id="local-6989586621679985460"><span class="annot"><span class="annottext">Int -&gt; M2tsRateMode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986948"><span id="local-6989586621679986950"><span class="annot"><span class="annottext">Int -&gt; M2tsRateMode -&gt; Int
 M2tsRateMode -&gt; Int
 (Int -&gt; M2tsRateMode -&gt; Int)
 -&gt; (M2tsRateMode -&gt; Int) -&gt; Hashable M2tsRateMode
@@ -145,49 +145,49 @@ $chash :: M2tsRateMode -&gt; Int
 hashWithSalt :: Int -&gt; M2tsRateMode -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsRateMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679985455"><span class="annot"><span class="annottext">M2tsRateMode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679986945"><span class="annot"><span class="annottext">M2tsRateMode -&gt; ()
 (M2tsRateMode -&gt; ()) -&gt; NFData M2tsRateMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsRateMode -&gt; ()
 $crnf :: M2tsRateMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679985452"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsRateMode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679986942"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsRateMode
 (Text -&gt; Either String M2tsRateMode) -&gt; FromText M2tsRateMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsRateMode
 $cfromText :: Text -&gt; Either String M2tsRateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679985449"><span class="annot"><span class="annottext">M2tsRateMode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986939"><span class="annot"><span class="annottext">M2tsRateMode -&gt; Text
 (M2tsRateMode -&gt; Text) -&gt; ToText M2tsRateMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsRateMode -&gt; Text
 $ctoText :: M2tsRateMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679985446"><span class="annot"><span class="annottext">M2tsRateMode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986936"><span class="annot"><span class="annottext">M2tsRateMode -&gt; ByteString
 (M2tsRateMode -&gt; ByteString) -&gt; ToByteString M2tsRateMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsRateMode -&gt; ByteString
 $ctoBS :: M2tsRateMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679985443"><span class="annot"><span class="annottext">M2tsRateMode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986933"><span class="annot"><span class="annottext">M2tsRateMode -&gt; ByteStringBuilder
 (M2tsRateMode -&gt; ByteStringBuilder) -&gt; ToLog M2tsRateMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsRateMode -&gt; ByteStringBuilder
 $cbuild :: M2tsRateMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679985440"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsRateMode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986930"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsRateMode -&gt; [Header]
 (HeaderName -&gt; M2tsRateMode -&gt; [Header]) -&gt; ToHeader M2tsRateMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsRateMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsRateMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679985437"><span class="annot"><span class="annottext">M2tsRateMode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679986927"><span class="annot"><span class="annottext">M2tsRateMode -&gt; QueryString
 (M2tsRateMode -&gt; QueryString) -&gt; ToQuery M2tsRateMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsRateMode -&gt; QueryString
 $ctoQuery :: M2tsRateMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679985432"><span id="local-6989586621679985434"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsRateMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679986922"><span id="local-6989586621679986924"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsRateMode]
 Value -&gt; Parser M2tsRateMode
 (Value -&gt; Parser M2tsRateMode)
 -&gt; (Value -&gt; Parser [M2tsRateMode]) -&gt; FromJSON M2tsRateMode
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsRateMode]
 parseJSON :: Value -&gt; Parser M2tsRateMode
 $cparseJSON :: Value -&gt; Parser M2tsRateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679985427"><span id="local-6989586621679985429"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsRateMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679986917"><span id="local-6989586621679986919"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsRateMode]
 FromJSONKeyFunction M2tsRateMode
 FromJSONKeyFunction M2tsRateMode
 -&gt; FromJSONKeyFunction [M2tsRateMode] -&gt; FromJSONKey M2tsRateMode
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsRateMode]
 fromJSONKey :: FromJSONKeyFunction M2tsRateMode
 $cfromJSONKey :: FromJSONKeyFunction M2tsRateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679985418"><span id="local-6989586621679985420"><span id="local-6989586621679985422"><span id="local-6989586621679985424"><span class="annot"><span class="annottext">[M2tsRateMode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986908"><span id="local-6989586621679986910"><span id="local-6989586621679986912"><span id="local-6989586621679986914"><span class="annot"><span class="annottext">[M2tsRateMode] -&gt; Encoding
 [M2tsRateMode] -&gt; Value
 M2tsRateMode -&gt; Encoding
 M2tsRateMode -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: M2tsRateMode -&gt; Encoding
 toJSON :: M2tsRateMode -&gt; Value
 $ctoJSON :: M2tsRateMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679985413"><span id="local-6989586621679985415"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsRateMode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986903"><span id="local-6989586621679986905"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsRateMode]
 ToJSONKeyFunction M2tsRateMode
 ToJSONKeyFunction M2tsRateMode
 -&gt; ToJSONKeyFunction [M2tsRateMode] -&gt; ToJSONKey M2tsRateMode
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsRateMode]
 toJSONKey :: ToJSONKeyFunction M2tsRateMode
 $ctoJSONKey :: ToJSONKeyFunction M2tsRateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679985410"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsRateMode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986900"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsRateMode
 ([Node] -&gt; Either String M2tsRateMode) -&gt; FromXML M2tsRateMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsRateMode
 $cparseXML :: [Node] -&gt; Either String M2tsRateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679985407"><span class="annot"><span class="annottext">M2tsRateMode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986897"><span class="annot"><span class="annottext">M2tsRateMode -&gt; XML
 (M2tsRateMode -&gt; XML) -&gt; ToXML M2tsRateMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsRateMode -&gt; XML

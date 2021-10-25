@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newKantarWatermarkSettings' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679982719"><span id="local-6989586621679982720"></span></span><span class="hs-keyword">data</span><span> </span><span id="KantarWatermarkSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-var">KantarWatermarkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KantarWatermarkSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-var">KantarWatermarkSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679984209"><span id="local-6989586621679984210"></span></span><span class="hs-keyword">data</span><span> </span><span id="KantarWatermarkSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-var">KantarWatermarkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KantarWatermarkSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-var">KantarWatermarkSettings'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Additional metadata that MediaConvert sends to Kantar. Maximum length is</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- 50 characters.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Ametadata7%3AKantarWatermarkSettings%27"><span class="annot"><span class="annottext">KantarWatermarkSettings -&gt; Maybe Text
@@ -97,7 +97,7 @@
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3Ametadata4%3AKantarWatermarkSettings%27"><span class="annot"><span class="annottext">KantarWatermarkSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata4%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var hs-var">metadata4</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679982701"><span id="local-6989586621679982703"><span class="annot"><span class="annottext">KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679984191"><span id="local-6989586621679984193"><span class="annot"><span class="annottext">KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool
 (KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool)
 -&gt; (KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool)
 -&gt; Eq KantarWatermarkSettings
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool
 == :: KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool
 $c== :: KantarWatermarkSettings -&gt; KantarWatermarkSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679982692"><span id="local-6989586621679982694"><span id="local-6989586621679982696"><span id="local-6989586621679982698"><span class="annot"><span class="annottext">ReadPrec [KantarWatermarkSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984182"><span id="local-6989586621679984184"><span id="local-6989586621679984186"><span id="local-6989586621679984188"><span class="annot"><span class="annottext">ReadPrec [KantarWatermarkSettings]
 ReadPrec KantarWatermarkSettings
 Int -&gt; ReadS KantarWatermarkSettings
 ReadS [KantarWatermarkSettings]
@@ -126,7 +126,7 @@ readList :: ReadS [KantarWatermarkSettings]
 $creadList :: ReadS [KantarWatermarkSettings]
 readsPrec :: Int -&gt; ReadS KantarWatermarkSettings
 $creadsPrec :: Int -&gt; ReadS KantarWatermarkSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679982685"><span id="local-6989586621679982687"><span id="local-6989586621679982689"><span class="annot"><span class="annottext">Int -&gt; KantarWatermarkSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984175"><span id="local-6989586621679984177"><span id="local-6989586621679984179"><span class="annot"><span class="annottext">Int -&gt; KantarWatermarkSettings -&gt; ShowS
 [KantarWatermarkSettings] -&gt; ShowS
 KantarWatermarkSettings -&gt; String
 (Int -&gt; KantarWatermarkSettings -&gt; ShowS)
@@ -300,16 +300,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982676"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984166"><span class="annot"><span class="annottext">Maybe Text
 metadata7 :: Maybe Text
 $sel:metadata7:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982676"><span class="hs-identifier hs-var hs-var">metadata7</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982676"><span class="hs-identifier hs-var">metadata7</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982675"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982674"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata7:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984166"><span class="hs-identifier hs-var hs-var">metadata7</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984166"><span class="hs-identifier hs-var">metadata7</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984165"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984164"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata7:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata7%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">metadata7</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | Provide the HTTPS endpoint to the Kantar server. You should get this</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- endpoint from Kantar.</span><span>
@@ -325,16 +325,16 @@ $sel:metadata7:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982672"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984162"><span class="annot"><span class="annottext">Maybe Text
 kantarServerUrl :: Maybe Text
 $sel:kantarServerUrl:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982672"><span class="hs-identifier hs-var hs-var">kantarServerUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982672"><span class="hs-identifier hs-var">kantarServerUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982671"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982670"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarServerUrl:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984162"><span class="hs-identifier hs-var hs-var">kantarServerUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984162"><span class="hs-identifier hs-var">kantarServerUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984161"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984160"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarServerUrl:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AkantarServerUrl%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">kantarServerUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Provide your Kantar license ID number. You should get this number from</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- Kantar.</span><span>
@@ -350,16 +350,16 @@ $sel:kantarServerUrl:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; M
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982668"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984158"><span class="annot"><span class="annottext">Maybe Natural
 kantarLicenseId :: Maybe Natural
 $sel:kantarLicenseId:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679982668"><span class="hs-identifier hs-var hs-var">kantarLicenseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679982668"><span class="hs-identifier hs-var">kantarLicenseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982667"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982666"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679982666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarLicenseId:KantarWatermarkSettings' :: Maybe Natural
+</span><a href="#local-6989586621679984158"><span class="hs-identifier hs-var hs-var">kantarLicenseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984158"><span class="hs-identifier hs-var">kantarLicenseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984157"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984156"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarLicenseId:KantarWatermarkSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AkantarLicenseId%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">kantarLicenseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679982666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Optional. Specify the Amazon S3 bucket where you want MediaConvert to</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- store your Kantar watermark XML logs. When you don\'t specify a bucket,</span><span>
@@ -379,16 +379,16 @@ $sel:kantarLicenseId:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982664"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984154"><span class="annot"><span class="annottext">Maybe Text
 logDestination :: Maybe Text
 $sel:logDestination:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982664"><span class="hs-identifier hs-var hs-var">logDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982664"><span class="hs-identifier hs-var">logDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982663"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982662"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDestination:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984154"><span class="hs-identifier hs-var hs-var">logDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984154"><span class="hs-identifier hs-var">logDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984153"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDestination:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AlogDestination%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">logDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Optional. Specify an offset, in whole seconds, from the start of your</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- output and the beginning of the watermarking. When you don\'t specify an</span><span>
@@ -405,16 +405,16 @@ $sel:logDestination:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Ma
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982660"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984150"><span class="annot"><span class="annottext">Maybe Double
 fileOffset :: Maybe Double
 $sel:fileOffset:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679982660"><span class="hs-identifier hs-var hs-var">fileOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679982660"><span class="hs-identifier hs-var">fileOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982659"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982658"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679982658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileOffset:KantarWatermarkSettings' :: Maybe Double
+</span><a href="#local-6989586621679984150"><span class="hs-identifier hs-var hs-var">fileOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679984150"><span class="hs-identifier hs-var">fileOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984149"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984148"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679984148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileOffset:KantarWatermarkSettings' :: Maybe Double
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AfileOffset%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">fileOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679982658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | Additional metadata that MediaConvert sends to Kantar. Maximum length is</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- 50 characters.</span><span>
@@ -430,16 +430,16 @@ $sel:fileOffset:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982656"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984146"><span class="annot"><span class="annottext">Maybe Text
 metadata6 :: Maybe Text
 $sel:metadata6:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982656"><span class="hs-identifier hs-var hs-var">metadata6</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982656"><span class="hs-identifier hs-var">metadata6</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982655"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982654"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata6:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984146"><span class="hs-identifier hs-var hs-var">metadata6</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984146"><span class="hs-identifier hs-var">metadata6</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984145"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata6:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata6%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">metadata6</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | You can optionally use this field to specify the first timestamp that</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- Kantar embeds during watermarking. Kantar suggests that you be very</span><span>
@@ -459,16 +459,16 @@ $sel:metadata6:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982652"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984142"><span class="annot"><span class="annottext">Maybe Text
 metadata3 :: Maybe Text
 $sel:metadata3:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982652"><span class="hs-identifier hs-var hs-var">metadata3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982652"><span class="hs-identifier hs-var">metadata3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982651"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982650"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata3:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984142"><span class="hs-identifier hs-var hs-var">metadata3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984142"><span class="hs-identifier hs-var">metadata3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984141"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata3:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata3%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">metadata3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | Provide the name of the AWS Secrets Manager secret where your Kantar</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- credentials are stored. Note that your MediaConvert service role must</span><span>
@@ -489,16 +489,16 @@ $sel:metadata3:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982648"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984138"><span class="annot"><span class="annottext">Maybe Text
 credentialsSecretName :: Maybe Text
 $sel:credentialsSecretName:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982648"><span class="hs-identifier hs-var hs-var">credentialsSecretName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982648"><span class="hs-identifier hs-var">credentialsSecretName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982647"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982646"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentialsSecretName:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984138"><span class="hs-identifier hs-var hs-var">credentialsSecretName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984138"><span class="hs-identifier hs-var">credentialsSecretName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984137"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentialsSecretName:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AcredentialsSecretName%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">credentialsSecretName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | Provide an audio channel name from your Kantar audio license.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#kantarWatermarkSettings_channelName"><span class="hs-identifier hs-type">kantarWatermarkSettings_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -513,16 +513,16 @@ $sel:credentialsSecretName:KantarWatermarkSettings' :: KantarWatermarkSettings -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982644"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984134"><span class="annot"><span class="annottext">Maybe Text
 channelName :: Maybe Text
 $sel:channelName:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982644"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982644"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982643"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982642"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984134"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984134"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984133"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AchannelName%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Specify a unique identifier for Kantar to use for this piece of content.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#kantarWatermarkSettings_contentReference"><span class="hs-identifier hs-type">kantarWatermarkSettings_contentReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -537,16 +537,16 @@ $sel:channelName:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982640"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984130"><span class="annot"><span class="annottext">Maybe Text
 contentReference :: Maybe Text
 $sel:contentReference:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982640"><span class="hs-identifier hs-var hs-var">contentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982640"><span class="hs-identifier hs-var">contentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982639"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982638"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentReference:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984130"><span class="hs-identifier hs-var hs-var">contentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984130"><span class="hs-identifier hs-var">contentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984129"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984128"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentReference:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3AcontentReference%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">contentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | Additional metadata that MediaConvert sends to Kantar. Maximum length is</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- 50 characters.</span><span>
@@ -562,16 +562,16 @@ $sel:contentReference:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982636"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984126"><span class="annot"><span class="annottext">Maybe Text
 metadata8 :: Maybe Text
 $sel:metadata8:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982636"><span class="hs-identifier hs-var hs-var">metadata8</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982636"><span class="hs-identifier hs-var">metadata8</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982635"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982634"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata8:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984126"><span class="hs-identifier hs-var hs-var">metadata8</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984126"><span class="hs-identifier hs-var">metadata8</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984125"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984124"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata8:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata8%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">metadata8</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | Additional metadata that MediaConvert sends to Kantar. Maximum length is</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- 50 characters.</span><span>
@@ -587,16 +587,16 @@ $sel:metadata8:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982632"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984122"><span class="annot"><span class="annottext">Maybe Text
 metadata5 :: Maybe Text
 $sel:metadata5:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982632"><span class="hs-identifier hs-var hs-var">metadata5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982632"><span class="hs-identifier hs-var">metadata5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982631"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982630"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata5:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984122"><span class="hs-identifier hs-var hs-var">metadata5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984122"><span class="hs-identifier hs-var">metadata5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984121"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984120"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata5:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata5%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">metadata5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | Additional metadata that MediaConvert sends to Kantar. Maximum length is</span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- 50 characters.</span><span>
@@ -612,19 +612,19 @@ $sel:metadata5:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982628"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984118"><span class="annot"><span class="annottext">Maybe Text
 metadata4 :: Maybe Text
 $sel:metadata4:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982628"><span class="hs-identifier hs-var hs-var">metadata4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982628"><span class="hs-identifier hs-var">metadata4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982627"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
-</span><a href="#local-6989586621679982627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982626"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
-</span><a href="#local-6989586621679982627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata4:KantarWatermarkSettings' :: Maybe Text
+</span><a href="#local-6989586621679984118"><span class="hs-identifier hs-var hs-var">metadata4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984118"><span class="hs-identifier hs-var">metadata4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984117"><span class="annot"><span class="annottext">s :: KantarWatermarkSettings
+</span><a href="#local-6989586621679984117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984116"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KantarWatermarkSettings
+</span><a href="#local-6989586621679984117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata4:KantarWatermarkSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#%24sel%3Ametadata4%3AKantarWatermarkSettings%27"><span class="hs-identifier hs-var">metadata4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679984116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982623"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679982621"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KantarWatermarkSettings
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984113"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679984111"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KantarWatermarkSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KantarWatermarkSettings)
@@ -634,8 +634,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KantarWatermarkSettings&quot;</span></span><span>
-</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679982618"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679984108"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -682,7 +682,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata7&quot;</span></span><span class="hs-special">)</span><span>
@@ -716,7 +716,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kantarServerUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -748,7 +748,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kantarLicenseId&quot;</span></span><span class="hs-special">)</span><span>
@@ -778,7 +778,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logDestination&quot;</span></span><span class="hs-special">)</span><span>
@@ -806,7 +806,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -832,7 +832,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata6&quot;</span></span><span class="hs-special">)</span><span>
@@ -856,7 +856,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata3&quot;</span></span><span class="hs-special">)</span><span>
@@ -878,7 +878,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;credentialsSecretName&quot;</span></span><span class="hs-special">)</span><span>
@@ -898,7 +898,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelName&quot;</span></span><span class="hs-special">)</span><span>
@@ -913,7 +913,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contentReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -923,7 +923,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata8&quot;</span></span><span class="hs-special">)</span><span>
@@ -932,7 +932,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; KantarWatermarkSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata5&quot;</span></span><span class="hs-special">)</span><span>
@@ -940,19 +940,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser KantarWatermarkSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679982618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679984108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata4&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982612"><span id="local-6989586621679982614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984102"><span id="local-6989586621679984104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span></span><span>
 </span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span><span>
 </span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982601"><span id="local-6989586621679982603"><span id="local-6989586621679982605"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621679982599"><span class="annot"><span class="annottext">toJSON :: KantarWatermarkSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982585"><span id="local-6989586621679982586"><span id="local-6989586621679982587"><span id="local-6989586621679982588"><span id="local-6989586621679982589"><span id="local-6989586621679982590"><span id="local-6989586621679982591"><span id="local-6989586621679982592"><span id="local-6989586621679982593"><span id="local-6989586621679982594"><span id="local-6989586621679982595"><span id="local-6989586621679982596"><span id="local-6989586621679982597"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984091"><span id="local-6989586621679984093"><span id="local-6989586621679984095"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679984089"><span class="annot"><span class="annottext">toJSON :: KantarWatermarkSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings%27"><span class="hs-identifier hs-type">KantarWatermarkSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984075"><span id="local-6989586621679984076"><span id="local-6989586621679984077"><span id="local-6989586621679984078"><span id="local-6989586621679984079"><span id="local-6989586621679984080"><span id="local-6989586621679984081"><span id="local-6989586621679984082"><span id="local-6989586621679984083"><span id="local-6989586621679984084"><span id="local-6989586621679984085"><span id="local-6989586621679984086"><span id="local-6989586621679984087"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 Maybe Text
 metadata4 :: Maybe Text
@@ -981,7 +981,7 @@ $sel:logDestination:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Ma
 $sel:kantarLicenseId:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Natural
 $sel:kantarServerUrl:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
 $sel:metadata7:KantarWatermarkSettings' :: KantarWatermarkSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679982585"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679984075"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -993,7 +993,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982597"><span class="hs-identifier hs-var">metadata7</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984087"><span class="hs-identifier hs-var">metadata7</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kantarServerUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1001,7 +1001,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982596"><span class="hs-identifier hs-var">kantarServerUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984086"><span class="hs-identifier hs-var">kantarServerUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kantarLicenseId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1009,7 +1009,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679982595"><span class="hs-identifier hs-var">kantarLicenseId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984085"><span class="hs-identifier hs-var">kantarLicenseId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1017,28 +1017,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982594"><span class="hs-identifier hs-var">logDestination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984084"><span class="hs-identifier hs-var">logDestination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679982593"><span class="hs-identifier hs-var">fileOffset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984083"><span class="hs-identifier hs-var">fileOffset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata6&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982592"><span class="hs-identifier hs-var">metadata6</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984082"><span class="hs-identifier hs-var">metadata6</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982591"><span class="hs-identifier hs-var">metadata3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984081"><span class="hs-identifier hs-var">metadata3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;credentialsSecretName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1046,14 +1046,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-284"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982590"><span class="hs-identifier hs-var">credentialsSecretName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984080"><span class="hs-identifier hs-var">credentialsSecretName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982589"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984079"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contentReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1061,28 +1061,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982588"><span class="hs-identifier hs-var">contentReference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984078"><span class="hs-identifier hs-var">contentReference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata8&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982587"><span class="hs-identifier hs-var">metadata8</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984077"><span class="hs-identifier hs-var">metadata8</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata5&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982586"><span class="hs-identifier hs-var">metadata5</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679984076"><span class="hs-identifier hs-var">metadata5</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata4&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679982585"><span class="hs-identifier hs-var">metadata4</span></a></span><span>
+</span><a href="#local-6989586621679984075"><span class="hs-identifier hs-var">metadata4</span></a></span><span>
 </span><span id="line-291"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span></pre></body></html>

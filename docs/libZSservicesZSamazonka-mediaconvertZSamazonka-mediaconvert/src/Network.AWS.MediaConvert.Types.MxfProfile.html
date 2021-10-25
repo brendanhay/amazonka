@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/codecs-supported-with-each-mxf-profile.html.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- For more information about the automatic selection behavior, see</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/default-automatic-selection-of-mxf-profiles.html.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679995088"><span id="local-6989586621679995089"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-var">MxfProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-var">MxfProfile'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679996578"><span id="local-6989586621679996579"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-var">MxfProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfProfile.html#MxfProfile%27"><span class="hs-identifier hs-var">MxfProfile'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMxfProfile"><span class="annot"><span class="annottext">MxfProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MxfProfile.html#fromMxfProfile"><span class="hs-identifier hs-var hs-var">fromMxfProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995080"><span id="local-6989586621679995082"><span id="local-6989586621679995084"><span class="annot"><span class="annottext">Int -&gt; MxfProfile -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996570"><span id="local-6989586621679996572"><span id="local-6989586621679996574"><span class="annot"><span class="annottext">Int -&gt; MxfProfile -&gt; ShowS
 [MxfProfile] -&gt; ShowS
 MxfProfile -&gt; String
 (Int -&gt; MxfProfile -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: MxfProfile -&gt; String
 showsPrec :: Int -&gt; MxfProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; MxfProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679995071"><span id="local-6989586621679995073"><span id="local-6989586621679995075"><span id="local-6989586621679995077"><span class="annot"><span class="annottext">ReadPrec [MxfProfile]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679996561"><span id="local-6989586621679996563"><span id="local-6989586621679996565"><span id="local-6989586621679996567"><span class="annot"><span class="annottext">ReadPrec [MxfProfile]
 ReadPrec MxfProfile
 Int -&gt; ReadS MxfProfile
 ReadS [MxfProfile]
@@ -80,7 +80,7 @@ $creadList :: ReadS [MxfProfile]
 readsPrec :: Int -&gt; ReadS MxfProfile
 $creadsPrec :: Int -&gt; ReadS MxfProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679995066"><span id="local-6989586621679995068"><span class="annot"><span class="annottext">MxfProfile -&gt; MxfProfile -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679996556"><span id="local-6989586621679996558"><span class="annot"><span class="annottext">MxfProfile -&gt; MxfProfile -&gt; Bool
 (MxfProfile -&gt; MxfProfile -&gt; Bool)
 -&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool) -&gt; Eq MxfProfile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: MxfProfile -&gt; MxfProfile -&gt; Bool
 == :: MxfProfile -&gt; MxfProfile -&gt; Bool
 $c== :: MxfProfile -&gt; MxfProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679995050"><span id="local-6989586621679995052"><span id="local-6989586621679995054"><span id="local-6989586621679995056"><span id="local-6989586621679995058"><span id="local-6989586621679995060"><span id="local-6989586621679995062"><span class="annot"><span class="annottext">Eq MxfProfile
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679996540"><span id="local-6989586621679996542"><span id="local-6989586621679996544"><span id="local-6989586621679996546"><span id="local-6989586621679996548"><span id="local-6989586621679996550"><span id="local-6989586621679996552"><span class="annot"><span class="annottext">Eq MxfProfile
 Eq MxfProfile
 -&gt; (MxfProfile -&gt; MxfProfile -&gt; Ordering)
 -&gt; (MxfProfile -&gt; MxfProfile -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. MxfProfile -&gt; Rep MxfProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995042"><span id="local-6989586621679995044"><span class="annot"><span class="annottext">Int -&gt; MxfProfile -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996532"><span id="local-6989586621679996534"><span class="annot"><span class="annottext">Int -&gt; MxfProfile -&gt; Int
 MxfProfile -&gt; Int
 (Int -&gt; MxfProfile -&gt; Int)
 -&gt; (MxfProfile -&gt; Int) -&gt; Hashable MxfProfile
@@ -149,49 +149,49 @@ $chash :: MxfProfile -&gt; Int
 hashWithSalt :: Int -&gt; MxfProfile -&gt; Int
 $chashWithSalt :: Int -&gt; MxfProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679995039"><span class="annot"><span class="annottext">MxfProfile -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679996529"><span class="annot"><span class="annottext">MxfProfile -&gt; ()
 (MxfProfile -&gt; ()) -&gt; NFData MxfProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MxfProfile -&gt; ()
 $crnf :: MxfProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679995036"><span class="annot"><span class="annottext">Text -&gt; Either String MxfProfile
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679996526"><span class="annot"><span class="annottext">Text -&gt; Either String MxfProfile
 (Text -&gt; Either String MxfProfile) -&gt; FromText MxfProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MxfProfile
 $cfromText :: Text -&gt; Either String MxfProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679995033"><span class="annot"><span class="annottext">MxfProfile -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679996523"><span class="annot"><span class="annottext">MxfProfile -&gt; Text
 (MxfProfile -&gt; Text) -&gt; ToText MxfProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MxfProfile -&gt; Text
 $ctoText :: MxfProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679995030"><span class="annot"><span class="annottext">MxfProfile -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679996520"><span class="annot"><span class="annottext">MxfProfile -&gt; ByteString
 (MxfProfile -&gt; ByteString) -&gt; ToByteString MxfProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MxfProfile -&gt; ByteString
 $ctoBS :: MxfProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679995027"><span class="annot"><span class="annottext">MxfProfile -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679996517"><span class="annot"><span class="annottext">MxfProfile -&gt; ByteStringBuilder
 (MxfProfile -&gt; ByteStringBuilder) -&gt; ToLog MxfProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MxfProfile -&gt; ByteStringBuilder
 $cbuild :: MxfProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679995024"><span class="annot"><span class="annottext">HeaderName -&gt; MxfProfile -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679996514"><span class="annot"><span class="annottext">HeaderName -&gt; MxfProfile -&gt; [Header]
 (HeaderName -&gt; MxfProfile -&gt; [Header]) -&gt; ToHeader MxfProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MxfProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MxfProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679995021"><span class="annot"><span class="annottext">MxfProfile -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679996511"><span class="annot"><span class="annottext">MxfProfile -&gt; QueryString
 (MxfProfile -&gt; QueryString) -&gt; ToQuery MxfProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MxfProfile -&gt; QueryString
 $ctoQuery :: MxfProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679995016"><span id="local-6989586621679995018"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfProfile]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679996506"><span id="local-6989586621679996508"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfProfile]
 Value -&gt; Parser MxfProfile
 (Value -&gt; Parser MxfProfile)
 -&gt; (Value -&gt; Parser [MxfProfile]) -&gt; FromJSON MxfProfile
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [MxfProfile]
 parseJSON :: Value -&gt; Parser MxfProfile
 $cparseJSON :: Value -&gt; Parser MxfProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679995011"><span id="local-6989586621679995013"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfProfile]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679996501"><span id="local-6989586621679996503"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfProfile]
 FromJSONKeyFunction MxfProfile
 FromJSONKeyFunction MxfProfile
 -&gt; FromJSONKeyFunction [MxfProfile] -&gt; FromJSONKey MxfProfile
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MxfProfile]
 fromJSONKey :: FromJSONKeyFunction MxfProfile
 $cfromJSONKey :: FromJSONKeyFunction MxfProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679995002"><span id="local-6989586621679995004"><span id="local-6989586621679995006"><span id="local-6989586621679995008"><span class="annot"><span class="annottext">[MxfProfile] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679996492"><span id="local-6989586621679996494"><span id="local-6989586621679996496"><span id="local-6989586621679996498"><span class="annot"><span class="annottext">[MxfProfile] -&gt; Encoding
 [MxfProfile] -&gt; Value
 MxfProfile -&gt; Encoding
 MxfProfile -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: MxfProfile -&gt; Encoding
 toJSON :: MxfProfile -&gt; Value
 $ctoJSON :: MxfProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679994997"><span id="local-6989586621679994999"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfProfile]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679996487"><span id="local-6989586621679996489"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfProfile]
 ToJSONKeyFunction MxfProfile
 ToJSONKeyFunction MxfProfile
 -&gt; ToJSONKeyFunction [MxfProfile] -&gt; ToJSONKey MxfProfile
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MxfProfile]
 toJSONKey :: ToJSONKeyFunction MxfProfile
 $ctoJSONKey :: ToJSONKeyFunction MxfProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679994994"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfProfile
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679996484"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfProfile
 ([Node] -&gt; Either String MxfProfile) -&gt; FromXML MxfProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MxfProfile
 $cparseXML :: [Node] -&gt; Either String MxfProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679994991"><span class="annot"><span class="annottext">MxfProfile -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679996481"><span class="annot"><span class="annottext">MxfProfile -&gt; XML
 (MxfProfile -&gt; XML) -&gt; ToXML MxfProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MxfProfile -&gt; XML

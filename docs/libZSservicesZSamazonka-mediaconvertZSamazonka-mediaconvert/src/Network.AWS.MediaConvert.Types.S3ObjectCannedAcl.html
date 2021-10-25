@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680002826"><span id="local-6989586621680002827"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ObjectCannedAcl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ObjectCannedAcl.html#S3ObjectCannedAcl"><span class="hs-identifier hs-var">S3ObjectCannedAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectCannedAcl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ObjectCannedAcl.html#S3ObjectCannedAcl%27"><span class="hs-identifier hs-var">S3ObjectCannedAcl'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680004316"><span id="local-6989586621680004317"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ObjectCannedAcl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ObjectCannedAcl.html#S3ObjectCannedAcl"><span class="hs-identifier hs-var">S3ObjectCannedAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectCannedAcl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ObjectCannedAcl.html#S3ObjectCannedAcl%27"><span class="hs-identifier hs-var">S3ObjectCannedAcl'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3ObjectCannedAcl"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.S3ObjectCannedAcl.html#fromS3ObjectCannedAcl"><span class="hs-identifier hs-var hs-var">fromS3ObjectCannedAcl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002818"><span id="local-6989586621680002820"><span id="local-6989586621680002822"><span class="annot"><span class="annottext">Int -&gt; S3ObjectCannedAcl -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004308"><span id="local-6989586621680004310"><span id="local-6989586621680004312"><span class="annot"><span class="annottext">Int -&gt; S3ObjectCannedAcl -&gt; ShowS
 [S3ObjectCannedAcl] -&gt; ShowS
 S3ObjectCannedAcl -&gt; String
 (Int -&gt; S3ObjectCannedAcl -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: S3ObjectCannedAcl -&gt; String
 showsPrec :: Int -&gt; S3ObjectCannedAcl -&gt; ShowS
 $cshowsPrec :: Int -&gt; S3ObjectCannedAcl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680002809"><span id="local-6989586621680002811"><span id="local-6989586621680002813"><span id="local-6989586621680002815"><span class="annot"><span class="annottext">ReadPrec [S3ObjectCannedAcl]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680004299"><span id="local-6989586621680004301"><span id="local-6989586621680004303"><span id="local-6989586621680004305"><span class="annot"><span class="annottext">ReadPrec [S3ObjectCannedAcl]
 ReadPrec S3ObjectCannedAcl
 Int -&gt; ReadS S3ObjectCannedAcl
 ReadS [S3ObjectCannedAcl]
@@ -75,7 +75,7 @@ $creadList :: ReadS [S3ObjectCannedAcl]
 readsPrec :: Int -&gt; ReadS S3ObjectCannedAcl
 $creadsPrec :: Int -&gt; ReadS S3ObjectCannedAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680002804"><span id="local-6989586621680002806"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680004294"><span id="local-6989586621680004296"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool
 (S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool)
 -&gt; (S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool)
 -&gt; Eq S3ObjectCannedAcl
@@ -85,7 +85,7 @@ $c/= :: S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool
 == :: S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool
 $c== :: S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680002788"><span id="local-6989586621680002790"><span id="local-6989586621680002792"><span id="local-6989586621680002794"><span id="local-6989586621680002796"><span id="local-6989586621680002798"><span id="local-6989586621680002800"><span class="annot"><span class="annottext">Eq S3ObjectCannedAcl
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680004278"><span id="local-6989586621680004280"><span id="local-6989586621680004282"><span id="local-6989586621680004284"><span id="local-6989586621680004286"><span id="local-6989586621680004288"><span id="local-6989586621680004290"><span class="annot"><span class="annottext">Eq S3ObjectCannedAcl
 Eq S3ObjectCannedAcl
 -&gt; (S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Ordering)
 -&gt; (S3ObjectCannedAcl -&gt; S3ObjectCannedAcl -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. S3ObjectCannedAcl -&gt; Rep S3ObjectCannedAcl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002780"><span id="local-6989586621680002782"><span class="annot"><span class="annottext">Int -&gt; S3ObjectCannedAcl -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004270"><span id="local-6989586621680004272"><span class="annot"><span class="annottext">Int -&gt; S3ObjectCannedAcl -&gt; Int
 S3ObjectCannedAcl -&gt; Int
 (Int -&gt; S3ObjectCannedAcl -&gt; Int)
 -&gt; (S3ObjectCannedAcl -&gt; Int) -&gt; Hashable S3ObjectCannedAcl
@@ -146,51 +146,51 @@ $chash :: S3ObjectCannedAcl -&gt; Int
 hashWithSalt :: Int -&gt; S3ObjectCannedAcl -&gt; Int
 $chashWithSalt :: Int -&gt; S3ObjectCannedAcl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680002777"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680004267"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; ()
 (S3ObjectCannedAcl -&gt; ()) -&gt; NFData S3ObjectCannedAcl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: S3ObjectCannedAcl -&gt; ()
 $crnf :: S3ObjectCannedAcl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680002774"><span class="annot"><span class="annottext">Text -&gt; Either String S3ObjectCannedAcl
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680004264"><span class="annot"><span class="annottext">Text -&gt; Either String S3ObjectCannedAcl
 (Text -&gt; Either String S3ObjectCannedAcl)
 -&gt; FromText S3ObjectCannedAcl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String S3ObjectCannedAcl
 $cfromText :: Text -&gt; Either String S3ObjectCannedAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680002771"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680004261"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; Text
 (S3ObjectCannedAcl -&gt; Text) -&gt; ToText S3ObjectCannedAcl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: S3ObjectCannedAcl -&gt; Text
 $ctoText :: S3ObjectCannedAcl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680002768"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680004258"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; ByteString
 (S3ObjectCannedAcl -&gt; ByteString) -&gt; ToByteString S3ObjectCannedAcl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: S3ObjectCannedAcl -&gt; ByteString
 $ctoBS :: S3ObjectCannedAcl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680002765"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680004255"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; ByteStringBuilder
 (S3ObjectCannedAcl -&gt; ByteStringBuilder) -&gt; ToLog S3ObjectCannedAcl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: S3ObjectCannedAcl -&gt; ByteStringBuilder
 $cbuild :: S3ObjectCannedAcl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680002762"><span class="annot"><span class="annottext">HeaderName -&gt; S3ObjectCannedAcl -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680004252"><span class="annot"><span class="annottext">HeaderName -&gt; S3ObjectCannedAcl -&gt; [Header]
 (HeaderName -&gt; S3ObjectCannedAcl -&gt; [Header])
 -&gt; ToHeader S3ObjectCannedAcl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; S3ObjectCannedAcl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; S3ObjectCannedAcl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680002759"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680004249"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; QueryString
 (S3ObjectCannedAcl -&gt; QueryString) -&gt; ToQuery S3ObjectCannedAcl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: S3ObjectCannedAcl -&gt; QueryString
 $ctoQuery :: S3ObjectCannedAcl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680002754"><span id="local-6989586621680002756"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ObjectCannedAcl]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680004244"><span id="local-6989586621680004246"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ObjectCannedAcl]
 Value -&gt; Parser S3ObjectCannedAcl
 (Value -&gt; Parser S3ObjectCannedAcl)
 -&gt; (Value -&gt; Parser [S3ObjectCannedAcl])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [S3ObjectCannedAcl]
 parseJSON :: Value -&gt; Parser S3ObjectCannedAcl
 $cparseJSON :: Value -&gt; Parser S3ObjectCannedAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680002749"><span id="local-6989586621680002751"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ObjectCannedAcl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680004239"><span id="local-6989586621680004241"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ObjectCannedAcl]
 FromJSONKeyFunction S3ObjectCannedAcl
 FromJSONKeyFunction S3ObjectCannedAcl
 -&gt; FromJSONKeyFunction [S3ObjectCannedAcl]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [S3ObjectCannedAcl]
 fromJSONKey :: FromJSONKeyFunction S3ObjectCannedAcl
 $cfromJSONKey :: FromJSONKeyFunction S3ObjectCannedAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680002740"><span id="local-6989586621680002742"><span id="local-6989586621680002744"><span id="local-6989586621680002746"><span class="annot"><span class="annottext">[S3ObjectCannedAcl] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680004230"><span id="local-6989586621680004232"><span id="local-6989586621680004234"><span id="local-6989586621680004236"><span class="annot"><span class="annottext">[S3ObjectCannedAcl] -&gt; Encoding
 [S3ObjectCannedAcl] -&gt; Value
 S3ObjectCannedAcl -&gt; Encoding
 S3ObjectCannedAcl -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: S3ObjectCannedAcl -&gt; Encoding
 toJSON :: S3ObjectCannedAcl -&gt; Value
 $ctoJSON :: S3ObjectCannedAcl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680002735"><span id="local-6989586621680002737"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ObjectCannedAcl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680004225"><span id="local-6989586621680004227"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ObjectCannedAcl]
 ToJSONKeyFunction S3ObjectCannedAcl
 ToJSONKeyFunction S3ObjectCannedAcl
 -&gt; ToJSONKeyFunction [S3ObjectCannedAcl]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [S3ObjectCannedAcl]
 toJSONKey :: ToJSONKeyFunction S3ObjectCannedAcl
 $ctoJSONKey :: ToJSONKeyFunction S3ObjectCannedAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680002732"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ObjectCannedAcl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680004222"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ObjectCannedAcl
 ([Node] -&gt; Either String S3ObjectCannedAcl)
 -&gt; FromXML S3ObjectCannedAcl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String S3ObjectCannedAcl
 $cparseXML :: [Node] -&gt; Either String S3ObjectCannedAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680002729"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680004219"><span class="annot"><span class="annottext">S3ObjectCannedAcl -&gt; XML
 (S3ObjectCannedAcl -&gt; XML) -&gt; ToXML S3ObjectCannedAcl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: S3ObjectCannedAcl -&gt; XML

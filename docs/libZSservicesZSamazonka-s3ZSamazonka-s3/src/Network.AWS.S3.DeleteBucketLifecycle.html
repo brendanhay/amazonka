@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketLifecycle' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679580295"><span id="local-6989586621679580296"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketLifecycle"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-var">DeleteBucketLifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketLifecycle%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-var">DeleteBucketLifecycle'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679580442"><span id="local-6989586621679580443"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketLifecycle"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-var">DeleteBucketLifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketLifecycle%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-var">DeleteBucketLifecycle'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Abucket%3ADeleteBucketLifecycle%27"><span class="annot"><span class="annottext">DeleteBucketLifecycle -&gt; BucketName
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#%24sel%3Abucket%3ADeleteBucketLifecycle%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580288"><span id="local-6989586621679580290"><span class="annot"><span class="annottext">DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580435"><span id="local-6989586621679580437"><span class="annot"><span class="annottext">DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool
 (DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool)
 -&gt; (DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool)
 -&gt; Eq DeleteBucketLifecycle
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool
 == :: DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool
 $c== :: DeleteBucketLifecycle -&gt; DeleteBucketLifecycle -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580279"><span id="local-6989586621679580281"><span id="local-6989586621679580283"><span id="local-6989586621679580285"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketLifecycle]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580426"><span id="local-6989586621679580428"><span id="local-6989586621679580430"><span id="local-6989586621679580432"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketLifecycle]
 ReadPrec DeleteBucketLifecycle
 Int -&gt; ReadS DeleteBucketLifecycle
 ReadS [DeleteBucketLifecycle]
@@ -104,7 +104,7 @@ readList :: ReadS [DeleteBucketLifecycle]
 $creadList :: ReadS [DeleteBucketLifecycle]
 readsPrec :: Int -&gt; ReadS DeleteBucketLifecycle
 $creadsPrec :: Int -&gt; ReadS DeleteBucketLifecycle
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580272"><span id="local-6989586621679580274"><span id="local-6989586621679580276"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketLifecycle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580419"><span id="local-6989586621679580421"><span id="local-6989586621679580423"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketLifecycle -&gt; ShowS
 [DeleteBucketLifecycle] -&gt; ShowS
 DeleteBucketLifecycle -&gt; String
 (Int -&gt; DeleteBucketLifecycle -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. DeleteBucketLifecycle -&gt; Rep DeleteBucketLifecycle x
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span>
 </span><span id="line-95"></span><span id="newDeleteBucketLifecycle"><span class="annot"><span class="annottext">newDeleteBucketLifecycle :: BucketName -&gt; DeleteBucketLifecycle
-</span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#newDeleteBucketLifecycle"><span class="hs-identifier hs-var hs-var">newDeleteBucketLifecycle</span></a></span></span><span> </span><span id="local-6989586621679580267"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580267"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#newDeleteBucketLifecycle"><span class="hs-identifier hs-var hs-var">newDeleteBucketLifecycle</span></a></span></span><span> </span><span id="local-6989586621679580414"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679580414"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketLifecycle' :: Maybe Text -&gt; BucketName -&gt; DeleteBucketLifecycle
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketLifecycle' :: Maybe Text
@@ -159,7 +159,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketLifecycle' :: BucketName
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#%24sel%3Abucket%3ADeleteBucketLifecycle%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580267"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679580414"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580264"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580411"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; Maybe Text
-</span><a href="#local-6989586621679580264"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580264"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580263"><span class="annot"><span class="annottext">s :: DeleteBucketLifecycle
-</span><a href="#local-6989586621679580263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580262"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketLifecycle
-</span><a href="#local-6989586621679580263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketLifecycle' :: Maybe Text
+</span><a href="#local-6989586621679580411"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679580411"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580410"><span class="annot"><span class="annottext">s :: DeleteBucketLifecycle
+</span><a href="#local-6989586621679580410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679580409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketLifecycle
+</span><a href="#local-6989586621679580410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketLifecycle' :: Maybe Text
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#%24sel%3AexpectedBucketOwner%3ADeleteBucketLifecycle%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679580409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The bucket name of the lifecycle to delete.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#deleteBucketLifecycle_bucket"><span class="hs-identifier hs-type">deleteBucketLifecycle_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -196,22 +196,22 @@ $sel:expectedBucketOwner:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; M
 -&gt; Lens
      DeleteBucketLifecycle DeleteBucketLifecycle BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580261"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580408"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; BucketName
-</span><a href="#local-6989586621679580261"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580261"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580260"><span class="annot"><span class="annottext">s :: DeleteBucketLifecycle
-</span><a href="#local-6989586621679580260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580259"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketLifecycle
-</span><a href="#local-6989586621679580260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketLifecycle' :: BucketName
+</span><a href="#local-6989586621679580408"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679580408"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580407"><span class="annot"><span class="annottext">s :: DeleteBucketLifecycle
+</span><a href="#local-6989586621679580407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580406"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679580406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketLifecycle
+</span><a href="#local-6989586621679580407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketLifecycle' :: BucketName
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#%24sel%3Abucket%3ADeleteBucketLifecycle%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679580406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse"><span class="hs-identifier hs-type">DeleteBucketLifecycleResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679580255"><span class="annot"><span class="annottext">request :: DeleteBucketLifecycle -&gt; Request DeleteBucketLifecycle
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679580402"><span class="annot"><span class="annottext">request :: DeleteBucketLifecycle -&gt; Request DeleteBucketLifecycle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteBucketLifecycle -&gt; Request DeleteBucketLifecycle
 forall a. Request a -&gt; Request a
@@ -225,7 +225,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679580249"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679580396"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBucketLifecycle
 -&gt; ClientResponse ClientBody
@@ -251,19 +251,19 @@ AWSResponse a
 DeleteBucketLifecycleResponse
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse%27"><span class="hs-identifier hs-var">DeleteBucketLifecycleResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580242"><span id="local-6989586621679580244"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580389"><span id="local-6989586621679580391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679580235"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketLifecycle -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580232"><span id="local-6989586621679580233"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679580382"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketLifecycle -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580379"><span id="local-6989586621679580380"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; BucketName
 $sel:expectedBucketOwner:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; Maybe Text
-</span><a href="#local-6989586621679580232"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679580379"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -272,28 +272,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580233"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679580380"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679580228"><span class="annot"><span class="annottext">toPath :: DeleteBucketLifecycle -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580225"><span id="local-6989586621679580226"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679580375"><span class="annot"><span class="annottext">toPath :: DeleteBucketLifecycle -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle%27"><span class="hs-identifier hs-type">DeleteBucketLifecycle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580372"><span id="local-6989586621679580373"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; BucketName
 $sel:expectedBucketOwner:DeleteBucketLifecycle' :: DeleteBucketLifecycle -&gt; Maybe Text
-</span><a href="#local-6989586621679580225"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679580372"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580225"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679580372"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycle"><span class="hs-identifier hs-type">DeleteBucketLifecycle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679580221"><span class="annot"><span class="annottext">toQuery :: DeleteBucketLifecycle -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679580368"><span class="annot"><span class="annottext">toQuery :: DeleteBucketLifecycle -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBucketLifecycle -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -303,10 +303,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;lifecycle&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketLifecycleResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679580217"><span id="local-6989586621679580218"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketLifecycleResponse"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse"><span class="hs-identifier hs-var">DeleteBucketLifecycleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketLifecycleResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse%27"><span class="hs-identifier hs-var">DeleteBucketLifecycleResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679580364"><span id="local-6989586621679580365"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketLifecycleResponse"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse"><span class="hs-identifier hs-var">DeleteBucketLifecycleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketLifecycleResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse%27"><span class="hs-identifier hs-var">DeleteBucketLifecycleResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580213"><span id="local-6989586621679580215"><span class="annot"><span class="annottext">DeleteBucketLifecycleResponse
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580360"><span id="local-6989586621679580362"><span class="annot"><span class="annottext">DeleteBucketLifecycleResponse
 -&gt; DeleteBucketLifecycleResponse -&gt; Bool
 (DeleteBucketLifecycleResponse
  -&gt; DeleteBucketLifecycleResponse -&gt; Bool)
@@ -322,7 +322,7 @@ $c/= :: DeleteBucketLifecycleResponse
 -&gt; DeleteBucketLifecycleResponse -&gt; Bool
 $c== :: DeleteBucketLifecycleResponse
 -&gt; DeleteBucketLifecycleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580205"><span id="local-6989586621679580207"><span id="local-6989586621679580209"><span id="local-6989586621679580211"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketLifecycleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580352"><span id="local-6989586621679580354"><span id="local-6989586621679580356"><span id="local-6989586621679580358"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketLifecycleResponse]
 ReadPrec DeleteBucketLifecycleResponse
 Int -&gt; ReadS DeleteBucketLifecycleResponse
 ReadS [DeleteBucketLifecycleResponse]
@@ -342,7 +342,7 @@ readList :: ReadS [DeleteBucketLifecycleResponse]
 $creadList :: ReadS [DeleteBucketLifecycleResponse]
 readsPrec :: Int -&gt; ReadS DeleteBucketLifecycleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBucketLifecycleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580199"><span id="local-6989586621679580201"><span id="local-6989586621679580203"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketLifecycleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580346"><span id="local-6989586621679580348"><span id="local-6989586621679580350"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketLifecycleResponse -&gt; ShowS
 [DeleteBucketLifecycleResponse] -&gt; ShowS
 DeleteBucketLifecycleResponse -&gt; String
 (Int -&gt; DeleteBucketLifecycleResponse -&gt; ShowS)
@@ -391,5 +391,5 @@ DeleteBucketLifecycleResponse
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketLifecycleResponse
 </span><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse%27"><span class="hs-identifier hs-var">DeleteBucketLifecycleResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse"><span class="hs-identifier hs-type">DeleteBucketLifecycleResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketLifecycle.html#DeleteBucketLifecycleResponse"><span class="hs-identifier hs-type">DeleteBucketLifecycleResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

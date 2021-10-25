@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- specify with the setting Fragment length (FragmentLength). This might</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- the encoder round up the segment lengths to match the next GOP boundary.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679994595"><span id="local-6989586621679994596"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MsSmoothFragmentLengthControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl.html#MsSmoothFragmentLengthControl"><span class="hs-identifier hs-var">MsSmoothFragmentLengthControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothFragmentLengthControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl.html#MsSmoothFragmentLengthControl%27"><span class="hs-identifier hs-var">MsSmoothFragmentLengthControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679996085"><span id="local-6989586621679996086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MsSmoothFragmentLengthControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl.html#MsSmoothFragmentLengthControl"><span class="hs-identifier hs-var">MsSmoothFragmentLengthControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothFragmentLengthControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl.html#MsSmoothFragmentLengthControl%27"><span class="hs-identifier hs-var">MsSmoothFragmentLengthControl'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMsSmoothFragmentLengthControl"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl.html#fromMsSmoothFragmentLengthControl"><span class="hs-identifier hs-var hs-var">fromMsSmoothFragmentLengthControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994587"><span id="local-6989586621679994589"><span id="local-6989586621679994591"><span class="annot"><span class="annottext">Int -&gt; MsSmoothFragmentLengthControl -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996077"><span id="local-6989586621679996079"><span id="local-6989586621679996081"><span class="annot"><span class="annottext">Int -&gt; MsSmoothFragmentLengthControl -&gt; ShowS
 [MsSmoothFragmentLengthControl] -&gt; ShowS
 MsSmoothFragmentLengthControl -&gt; String
 (Int -&gt; MsSmoothFragmentLengthControl -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: MsSmoothFragmentLengthControl -&gt; String
 showsPrec :: Int -&gt; MsSmoothFragmentLengthControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; MsSmoothFragmentLengthControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679994578"><span id="local-6989586621679994580"><span id="local-6989586621679994582"><span id="local-6989586621679994584"><span class="annot"><span class="annottext">ReadPrec [MsSmoothFragmentLengthControl]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679996068"><span id="local-6989586621679996070"><span id="local-6989586621679996072"><span id="local-6989586621679996074"><span class="annot"><span class="annottext">ReadPrec [MsSmoothFragmentLengthControl]
 ReadPrec MsSmoothFragmentLengthControl
 Int -&gt; ReadS MsSmoothFragmentLengthControl
 ReadS [MsSmoothFragmentLengthControl]
@@ -77,7 +77,7 @@ $creadList :: ReadS [MsSmoothFragmentLengthControl]
 readsPrec :: Int -&gt; ReadS MsSmoothFragmentLengthControl
 $creadsPrec :: Int -&gt; ReadS MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679994573"><span id="local-6989586621679994575"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679996063"><span id="local-6989586621679996065"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl
 -&gt; MsSmoothFragmentLengthControl -&gt; Bool
 (MsSmoothFragmentLengthControl
  -&gt; MsSmoothFragmentLengthControl -&gt; Bool)
@@ -94,7 +94,7 @@ $c/= :: MsSmoothFragmentLengthControl
 $c== :: MsSmoothFragmentLengthControl
 -&gt; MsSmoothFragmentLengthControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679994557"><span id="local-6989586621679994559"><span id="local-6989586621679994561"><span id="local-6989586621679994563"><span id="local-6989586621679994565"><span id="local-6989586621679994567"><span id="local-6989586621679994569"><span class="annot"><span class="annottext">Eq MsSmoothFragmentLengthControl
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679996047"><span id="local-6989586621679996049"><span id="local-6989586621679996051"><span id="local-6989586621679996053"><span id="local-6989586621679996055"><span id="local-6989586621679996057"><span id="local-6989586621679996059"><span class="annot"><span class="annottext">Eq MsSmoothFragmentLengthControl
 Eq MsSmoothFragmentLengthControl
 -&gt; (MsSmoothFragmentLengthControl
     -&gt; MsSmoothFragmentLengthControl -&gt; Ordering)
@@ -181,7 +181,7 @@ MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994549"><span id="local-6989586621679994551"><span class="annot"><span class="annottext">Int -&gt; MsSmoothFragmentLengthControl -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996039"><span id="local-6989586621679996041"><span class="annot"><span class="annottext">Int -&gt; MsSmoothFragmentLengthControl -&gt; Int
 MsSmoothFragmentLengthControl -&gt; Int
 (Int -&gt; MsSmoothFragmentLengthControl -&gt; Int)
 -&gt; (MsSmoothFragmentLengthControl -&gt; Int)
@@ -192,56 +192,56 @@ $chash :: MsSmoothFragmentLengthControl -&gt; Int
 hashWithSalt :: Int -&gt; MsSmoothFragmentLengthControl -&gt; Int
 $chashWithSalt :: Int -&gt; MsSmoothFragmentLengthControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679994546"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679996036"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; ()
 (MsSmoothFragmentLengthControl -&gt; ())
 -&gt; NFData MsSmoothFragmentLengthControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MsSmoothFragmentLengthControl -&gt; ()
 $crnf :: MsSmoothFragmentLengthControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679994543"><span class="annot"><span class="annottext">Text -&gt; Either String MsSmoothFragmentLengthControl
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679996033"><span class="annot"><span class="annottext">Text -&gt; Either String MsSmoothFragmentLengthControl
 (Text -&gt; Either String MsSmoothFragmentLengthControl)
 -&gt; FromText MsSmoothFragmentLengthControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MsSmoothFragmentLengthControl
 $cfromText :: Text -&gt; Either String MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679994540"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679996030"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; Text
 (MsSmoothFragmentLengthControl -&gt; Text)
 -&gt; ToText MsSmoothFragmentLengthControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MsSmoothFragmentLengthControl -&gt; Text
 $ctoText :: MsSmoothFragmentLengthControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679994537"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679996027"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; ByteString
 (MsSmoothFragmentLengthControl -&gt; ByteString)
 -&gt; ToByteString MsSmoothFragmentLengthControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MsSmoothFragmentLengthControl -&gt; ByteString
 $ctoBS :: MsSmoothFragmentLengthControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679994534"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679996024"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; ByteStringBuilder
 (MsSmoothFragmentLengthControl -&gt; ByteStringBuilder)
 -&gt; ToLog MsSmoothFragmentLengthControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MsSmoothFragmentLengthControl -&gt; ByteStringBuilder
 $cbuild :: MsSmoothFragmentLengthControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679994531"><span class="annot"><span class="annottext">HeaderName -&gt; MsSmoothFragmentLengthControl -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679996021"><span class="annot"><span class="annottext">HeaderName -&gt; MsSmoothFragmentLengthControl -&gt; [Header]
 (HeaderName -&gt; MsSmoothFragmentLengthControl -&gt; [Header])
 -&gt; ToHeader MsSmoothFragmentLengthControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MsSmoothFragmentLengthControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MsSmoothFragmentLengthControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679994528"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679996018"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; QueryString
 (MsSmoothFragmentLengthControl -&gt; QueryString)
 -&gt; ToQuery MsSmoothFragmentLengthControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MsSmoothFragmentLengthControl -&gt; QueryString
 $ctoQuery :: MsSmoothFragmentLengthControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679994523"><span id="local-6989586621679994525"><span class="annot"><span class="annottext">Value -&gt; Parser [MsSmoothFragmentLengthControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679996013"><span id="local-6989586621679996015"><span class="annot"><span class="annottext">Value -&gt; Parser [MsSmoothFragmentLengthControl]
 Value -&gt; Parser MsSmoothFragmentLengthControl
 (Value -&gt; Parser MsSmoothFragmentLengthControl)
 -&gt; (Value -&gt; Parser [MsSmoothFragmentLengthControl])
@@ -253,7 +253,7 @@ $cparseJSONList :: Value -&gt; Parser [MsSmoothFragmentLengthControl]
 parseJSON :: Value -&gt; Parser MsSmoothFragmentLengthControl
 $cparseJSON :: Value -&gt; Parser MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679994518"><span id="local-6989586621679994520"><span class="annot"><span class="annottext">FromJSONKeyFunction [MsSmoothFragmentLengthControl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679996008"><span id="local-6989586621679996010"><span class="annot"><span class="annottext">FromJSONKeyFunction [MsSmoothFragmentLengthControl]
 FromJSONKeyFunction MsSmoothFragmentLengthControl
 FromJSONKeyFunction MsSmoothFragmentLengthControl
 -&gt; FromJSONKeyFunction [MsSmoothFragmentLengthControl]
@@ -265,7 +265,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MsSmoothFragmentLengthControl]
 fromJSONKey :: FromJSONKeyFunction MsSmoothFragmentLengthControl
 $cfromJSONKey :: FromJSONKeyFunction MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679994509"><span id="local-6989586621679994511"><span id="local-6989586621679994513"><span id="local-6989586621679994515"><span class="annot"><span class="annottext">[MsSmoothFragmentLengthControl] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679995999"><span id="local-6989586621679996001"><span id="local-6989586621679996003"><span id="local-6989586621679996005"><span class="annot"><span class="annottext">[MsSmoothFragmentLengthControl] -&gt; Encoding
 [MsSmoothFragmentLengthControl] -&gt; Value
 MsSmoothFragmentLengthControl -&gt; Encoding
 MsSmoothFragmentLengthControl -&gt; Value
@@ -289,7 +289,7 @@ $ctoEncoding :: MsSmoothFragmentLengthControl -&gt; Encoding
 toJSON :: MsSmoothFragmentLengthControl -&gt; Value
 $ctoJSON :: MsSmoothFragmentLengthControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679994504"><span id="local-6989586621679994506"><span class="annot"><span class="annottext">ToJSONKeyFunction [MsSmoothFragmentLengthControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679995994"><span id="local-6989586621679995996"><span class="annot"><span class="annottext">ToJSONKeyFunction [MsSmoothFragmentLengthControl]
 ToJSONKeyFunction MsSmoothFragmentLengthControl
 ToJSONKeyFunction MsSmoothFragmentLengthControl
 -&gt; ToJSONKeyFunction [MsSmoothFragmentLengthControl]
@@ -301,14 +301,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MsSmoothFragmentLengthControl]
 toJSONKey :: ToJSONKeyFunction MsSmoothFragmentLengthControl
 $ctoJSONKey :: ToJSONKeyFunction MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679994501"><span class="annot"><span class="annottext">[Node] -&gt; Either String MsSmoothFragmentLengthControl
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679995991"><span class="annot"><span class="annottext">[Node] -&gt; Either String MsSmoothFragmentLengthControl
 ([Node] -&gt; Either String MsSmoothFragmentLengthControl)
 -&gt; FromXML MsSmoothFragmentLengthControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MsSmoothFragmentLengthControl
 $cparseXML :: [Node] -&gt; Either String MsSmoothFragmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679994498"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679995988"><span class="annot"><span class="annottext">MsSmoothFragmentLengthControl -&gt; XML
 (MsSmoothFragmentLengthControl -&gt; XML)
 -&gt; ToXML MsSmoothFragmentLengthControl
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetBucketAcl' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679577863"><span id="local-6989586621679577864"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketAcl"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-var">GetBucketAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketAcl%27"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-var">GetBucketAcl'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679578010"><span id="local-6989586621679578011"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketAcl"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-var">GetBucketAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketAcl%27"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-var">GetBucketAcl'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketAcl%27"><span class="annot"><span class="annottext">GetBucketAcl -&gt; BucketName
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3Abucket%3AGetBucketAcl%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577856"><span id="local-6989586621679577858"><span class="annot"><span class="annottext">GetBucketAcl -&gt; GetBucketAcl -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578003"><span id="local-6989586621679578005"><span class="annot"><span class="annottext">GetBucketAcl -&gt; GetBucketAcl -&gt; Bool
 (GetBucketAcl -&gt; GetBucketAcl -&gt; Bool)
 -&gt; (GetBucketAcl -&gt; GetBucketAcl -&gt; Bool) -&gt; Eq GetBucketAcl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketAcl -&gt; GetBucketAcl -&gt; Bool
 == :: GetBucketAcl -&gt; GetBucketAcl -&gt; Bool
 $c== :: GetBucketAcl -&gt; GetBucketAcl -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577847"><span id="local-6989586621679577849"><span id="local-6989586621679577851"><span id="local-6989586621679577853"><span class="annot"><span class="annottext">ReadPrec [GetBucketAcl]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577994"><span id="local-6989586621679577996"><span id="local-6989586621679577998"><span id="local-6989586621679578000"><span class="annot"><span class="annottext">ReadPrec [GetBucketAcl]
 ReadPrec GetBucketAcl
 Int -&gt; ReadS GetBucketAcl
 ReadS [GetBucketAcl]
@@ -95,7 +95,7 @@ readList :: ReadS [GetBucketAcl]
 $creadList :: ReadS [GetBucketAcl]
 readsPrec :: Int -&gt; ReadS GetBucketAcl
 $creadsPrec :: Int -&gt; ReadS GetBucketAcl
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577840"><span id="local-6989586621679577842"><span id="local-6989586621679577844"><span class="annot"><span class="annottext">Int -&gt; GetBucketAcl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577987"><span id="local-6989586621679577989"><span id="local-6989586621679577991"><span class="annot"><span class="annottext">Int -&gt; GetBucketAcl -&gt; ShowS
 [GetBucketAcl] -&gt; ShowS
 GetBucketAcl -&gt; String
 (Int -&gt; GetBucketAcl -&gt; ShowS)
@@ -139,8 +139,8 @@ $cfrom :: forall x. GetBucketAcl -&gt; Rep GetBucketAcl x
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span>
 </span><span id="line-87"></span><span id="newGetBucketAcl"><span class="annot"><span class="annottext">newGetBucketAcl :: BucketName -&gt; GetBucketAcl
-</span><a href="Network.AWS.S3.GetBucketAcl.html#newGetBucketAcl"><span class="hs-identifier hs-var hs-var">newGetBucketAcl</span></a></span></span><span> </span><span id="local-6989586621679577835"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577835"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketAcl.html#newGetBucketAcl"><span class="hs-identifier hs-var hs-var">newGetBucketAcl</span></a></span></span><span> </span><span id="local-6989586621679577982"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577982"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">GetBucketAcl' :: Maybe Text -&gt; BucketName -&gt; GetBucketAcl
 </span><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketAcl' :: Maybe Text
@@ -150,7 +150,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketAcl' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3Abucket%3AGetBucketAcl%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577835"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679577982"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -162,16 +162,16 @@ forall a. Maybe a
 -&gt; (GetBucketAcl -&gt; Maybe Text -&gt; GetBucketAcl)
 -&gt; Lens GetBucketAcl GetBucketAcl (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577832"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577979"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetBucketAcl' :: GetBucketAcl -&gt; Maybe Text
-</span><a href="#local-6989586621679577832"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577832"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577831"><span class="annot"><span class="annottext">s :: GetBucketAcl
-</span><a href="#local-6989586621679577831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577830"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAcl
-</span><a href="#local-6989586621679577831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketAcl' :: Maybe Text
+</span><a href="#local-6989586621679577979"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679577979"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577978"><span class="annot"><span class="annottext">s :: GetBucketAcl
+</span><a href="#local-6989586621679577978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679577977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAcl
+</span><a href="#local-6989586621679577978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketAcl' :: Maybe Text
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3AexpectedBucketOwner%3AGetBucketAcl%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Specifies the S3 bucket whose ACL is being requested.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#getBucketAcl_bucket"><span class="hs-identifier hs-type">getBucketAcl_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -180,20 +180,20 @@ $sel:expectedBucketOwner:GetBucketAcl' :: GetBucketAcl -&gt; Maybe Text
 -&gt; (GetBucketAcl -&gt; BucketName -&gt; GetBucketAcl)
 -&gt; Lens GetBucketAcl GetBucketAcl BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577829"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577976"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetBucketAcl' :: GetBucketAcl -&gt; BucketName
-</span><a href="#local-6989586621679577829"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577829"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577828"><span class="annot"><span class="annottext">s :: GetBucketAcl
-</span><a href="#local-6989586621679577828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577827"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAcl
-</span><a href="#local-6989586621679577828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketAcl' :: BucketName
+</span><a href="#local-6989586621679577976"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577976"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577975"><span class="annot"><span class="annottext">s :: GetBucketAcl
+</span><a href="#local-6989586621679577975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577974"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAcl
+</span><a href="#local-6989586621679577975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketAcl' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3Abucket%3AGetBucketAcl%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679577823"><span class="annot"><span class="annottext">request :: GetBucketAcl -&gt; Request GetBucketAcl
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679577970"><span class="annot"><span class="annottext">request :: GetBucketAcl -&gt; Request GetBucketAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Request GetBucketAcl -&gt; Request GetBucketAcl
 forall a. Request a -&gt; Request a
@@ -207,7 +207,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679577817"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679577964"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBucketAcl
 -&gt; ClientResponse ClientBody
@@ -231,10 +231,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577814"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577814"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577813"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679577813"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577812"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577961"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577960"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679577960"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577959"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679577959"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Grant] -&gt; Maybe Owner -&gt; Int -&gt; GetBucketAclResponse
 </span><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-var">GetBucketAclResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Grant] -&gt; Maybe Owner -&gt; Int -&gt; GetBucketAclResponse)
@@ -242,7 +242,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Owner -&gt; Int -&gt; GetBucketAclResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679577959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessControlList&quot;</span></span><span>
@@ -270,7 +270,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; GetBucketAclResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
+</span><a href="#local-6989586621679577959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,22 +282,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577814"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577961"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577801"><span id="local-6989586621679577803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577948"><span id="local-6989586621679577950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679577794"><span class="annot"><span class="annottext">toHeaders :: GetBucketAcl -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577791"><span id="local-6989586621679577792"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679577941"><span class="annot"><span class="annottext">toHeaders :: GetBucketAcl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577938"><span id="local-6989586621679577939"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketAcl' :: GetBucketAcl -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketAcl' :: GetBucketAcl -&gt; Maybe Text
-</span><a href="#local-6989586621679577791"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679577938"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -306,28 +306,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577792"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679577939"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679577787"><span class="annot"><span class="annottext">toPath :: GetBucketAcl -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577784"><span id="local-6989586621679577785"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679577934"><span class="annot"><span class="annottext">toPath :: GetBucketAcl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl%27"><span class="hs-identifier hs-type">GetBucketAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577931"><span id="local-6989586621679577932"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketAcl' :: GetBucketAcl -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketAcl' :: GetBucketAcl -&gt; Maybe Text
-</span><a href="#local-6989586621679577784"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679577931"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577784"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679577931"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAcl"><span class="hs-identifier hs-type">GetBucketAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679577780"><span class="annot"><span class="annottext">toQuery :: GetBucketAcl -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679577927"><span class="annot"><span class="annottext">toQuery :: GetBucketAcl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketAcl -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;acl&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newGetBucketAclResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679577776"><span id="local-6989586621679577777"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketAclResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-var">GetBucketAclResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketAclResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-var">GetBucketAclResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679577923"><span id="local-6989586621679577924"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketAclResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-var">GetBucketAclResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketAclResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-var">GetBucketAclResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of grants.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3Agrants%3AGetBucketAclResponse%27"><span class="annot"><span class="annottext">GetBucketAclResponse -&gt; Maybe [Grant]
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3Agrants%3AGetBucketAclResponse%27"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketAclResponse%27"><span class="annot"><span class="annottext">GetBucketAclResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3AhttpStatus%3AGetBucketAclResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577769"><span id="local-6989586621679577771"><span class="annot"><span class="annottext">GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577916"><span id="local-6989586621679577918"><span class="annot"><span class="annottext">GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool
 (GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool)
 -&gt; (GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool)
 -&gt; Eq GetBucketAclResponse
@@ -356,7 +356,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool
 == :: GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool
 $c== :: GetBucketAclResponse -&gt; GetBucketAclResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577761"><span id="local-6989586621679577763"><span id="local-6989586621679577765"><span id="local-6989586621679577767"><span class="annot"><span class="annottext">ReadPrec [GetBucketAclResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577908"><span id="local-6989586621679577910"><span id="local-6989586621679577912"><span id="local-6989586621679577914"><span class="annot"><span class="annottext">ReadPrec [GetBucketAclResponse]
 ReadPrec GetBucketAclResponse
 Int -&gt; ReadS GetBucketAclResponse
 ReadS [GetBucketAclResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [GetBucketAclResponse]
 $creadList :: ReadS [GetBucketAclResponse]
 readsPrec :: Int -&gt; ReadS GetBucketAclResponse
 $creadsPrec :: Int -&gt; ReadS GetBucketAclResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577755"><span id="local-6989586621679577757"><span id="local-6989586621679577759"><span class="annot"><span class="annottext">Int -&gt; GetBucketAclResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577902"><span id="local-6989586621679577904"><span id="local-6989586621679577906"><span class="annot"><span class="annottext">Int -&gt; GetBucketAclResponse -&gt; ShowS
 [GetBucketAclResponse] -&gt; ShowS
 GetBucketAclResponse -&gt; String
 (Int -&gt; GetBucketAclResponse -&gt; ShowS)
@@ -420,8 +420,8 @@ $cfrom :: forall x. GetBucketAclResponse -&gt; Rep GetBucketAclResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newGetBucketAclResponse"><span class="annot"><span class="annottext">newGetBucketAclResponse :: Int -&gt; GetBucketAclResponse
-</span><a href="Network.AWS.S3.GetBucketAcl.html#newGetBucketAclResponse"><span class="hs-identifier hs-var hs-var">newGetBucketAclResponse</span></a></span></span><span> </span><span id="local-6989586621679577752"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketAcl.html#newGetBucketAclResponse"><span class="hs-identifier hs-var hs-var">newGetBucketAclResponse</span></a></span></span><span> </span><span id="local-6989586621679577899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">GetBucketAclResponse' :: Maybe [Grant] -&gt; Maybe Owner -&gt; Int -&gt; GetBucketAclResponse
 </span><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grants:GetBucketAclResponse' :: Maybe [Grant]
@@ -434,7 +434,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketAclResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3AhttpStatus%3AGetBucketAclResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679577899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | A list of grants.</span><span>
@@ -449,16 +449,16 @@ forall a. Maybe a
      (Maybe [Grant])
      (Maybe [Grant])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577751"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577898"><span class="annot"><span class="annottext">Maybe [Grant]
 grants :: Maybe [Grant]
 $sel:grants:GetBucketAclResponse' :: GetBucketAclResponse -&gt; Maybe [Grant]
-</span><a href="#local-6989586621679577751"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679577751"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577750"><span class="annot"><span class="annottext">s :: GetBucketAclResponse
-</span><a href="#local-6989586621679577750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577749"><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679577749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAclResponse
-</span><a href="#local-6989586621679577750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:GetBucketAclResponse' :: Maybe [Grant]
+</span><a href="#local-6989586621679577898"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
+</span><a href="#local-6989586621679577898"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577897"><span class="annot"><span class="annottext">s :: GetBucketAclResponse
+</span><a href="#local-6989586621679577897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577896"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><a href="#local-6989586621679577896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAclResponse
+</span><a href="#local-6989586621679577897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:GetBucketAclResponse' :: Maybe [Grant]
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3Agrants%3AGetBucketAclResponse%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679577749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grant] -&gt; f (Maybe [Grant]))
+</span><a href="#local-6989586621679577896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grant] -&gt; f (Maybe [Grant]))
  -&gt; GetBucketAclResponse -&gt; f GetBucketAclResponse)
 -&gt; ((Maybe [Grant] -&gt; f (Maybe [Grant]))
     -&gt; Maybe [Grant] -&gt; f (Maybe [Grant]))
@@ -488,16 +488,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Owner)
      (Maybe Owner)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577746"><span class="annot"><span class="annottext">Maybe Owner
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577893"><span class="annot"><span class="annottext">Maybe Owner
 owner :: Maybe Owner
 $sel:owner:GetBucketAclResponse' :: GetBucketAclResponse -&gt; Maybe Owner
-</span><a href="#local-6989586621679577746"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679577746"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577745"><span class="annot"><span class="annottext">s :: GetBucketAclResponse
-</span><a href="#local-6989586621679577745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577744"><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679577744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAclResponse
-</span><a href="#local-6989586621679577745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:GetBucketAclResponse' :: Maybe Owner
+</span><a href="#local-6989586621679577893"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679577893"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577892"><span class="annot"><span class="annottext">s :: GetBucketAclResponse
+</span><a href="#local-6989586621679577892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577891"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679577891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAclResponse
+</span><a href="#local-6989586621679577892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:GetBucketAclResponse' :: Maybe Owner
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3Aowner%3AGetBucketAclResponse%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679577744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#getBucketAclResponse_httpStatus"><span class="hs-identifier hs-type">getBucketAclResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -506,16 +506,16 @@ $sel:owner:GetBucketAclResponse' :: GetBucketAclResponse -&gt; Maybe Owner
 -&gt; (GetBucketAclResponse -&gt; Int -&gt; GetBucketAclResponse)
 -&gt; Lens GetBucketAclResponse GetBucketAclResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577743"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577890"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketAclResponse' :: GetBucketAclResponse -&gt; Int
-</span><a href="#local-6989586621679577743"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577743"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577742"><span class="annot"><span class="annottext">s :: GetBucketAclResponse
-</span><a href="#local-6989586621679577742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577741"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAclResponse
-</span><a href="#local-6989586621679577742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketAclResponse' :: Int
+</span><a href="#local-6989586621679577890"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577890"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577889"><span class="annot"><span class="annottext">s :: GetBucketAclResponse
+</span><a href="#local-6989586621679577889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse%27"><span class="hs-identifier hs-type">GetBucketAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577888"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketAclResponse
+</span><a href="#local-6989586621679577889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketAclResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketAcl.html#%24sel%3AhttpStatus%3AGetBucketAclResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketAcl.html#GetBucketAclResponse"><span class="hs-identifier hs-type">GetBucketAclResponse</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

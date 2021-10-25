@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- inserted for every Packetized Elementary Stream (PES) header. This is</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- effective only when the PCR PID is the same as the video or audio</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- elementary stream.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679985341"><span id="local-6989586621679985342"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsPcrControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsPcrControl.html#M2tsPcrControl"><span class="hs-identifier hs-var">M2tsPcrControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsPcrControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsPcrControl.html#M2tsPcrControl%27"><span class="hs-identifier hs-var">M2tsPcrControl'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679986831"><span id="local-6989586621679986832"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsPcrControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsPcrControl.html#M2tsPcrControl"><span class="hs-identifier hs-var">M2tsPcrControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsPcrControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsPcrControl.html#M2tsPcrControl%27"><span class="hs-identifier hs-var">M2tsPcrControl'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsPcrControl"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M2tsPcrControl.html#fromM2tsPcrControl"><span class="hs-identifier hs-var hs-var">fromM2tsPcrControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985333"><span id="local-6989586621679985335"><span id="local-6989586621679985337"><span class="annot"><span class="annottext">Int -&gt; M2tsPcrControl -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986823"><span id="local-6989586621679986825"><span id="local-6989586621679986827"><span class="annot"><span class="annottext">Int -&gt; M2tsPcrControl -&gt; ShowS
 [M2tsPcrControl] -&gt; ShowS
 M2tsPcrControl -&gt; String
 (Int -&gt; M2tsPcrControl -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: M2tsPcrControl -&gt; String
 showsPrec :: Int -&gt; M2tsPcrControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsPcrControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679985324"><span id="local-6989586621679985326"><span id="local-6989586621679985328"><span id="local-6989586621679985330"><span class="annot"><span class="annottext">ReadPrec [M2tsPcrControl]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679986814"><span id="local-6989586621679986816"><span id="local-6989586621679986818"><span id="local-6989586621679986820"><span class="annot"><span class="annottext">ReadPrec [M2tsPcrControl]
 ReadPrec M2tsPcrControl
 Int -&gt; ReadS M2tsPcrControl
 ReadS [M2tsPcrControl]
@@ -76,7 +76,7 @@ $creadList :: ReadS [M2tsPcrControl]
 readsPrec :: Int -&gt; ReadS M2tsPcrControl
 $creadsPrec :: Int -&gt; ReadS M2tsPcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679985319"><span id="local-6989586621679985321"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679986809"><span id="local-6989586621679986811"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool
 (M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool)
 -&gt; (M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool) -&gt; Eq M2tsPcrControl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool
 == :: M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool
 $c== :: M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679985303"><span id="local-6989586621679985305"><span id="local-6989586621679985307"><span id="local-6989586621679985309"><span id="local-6989586621679985311"><span id="local-6989586621679985313"><span id="local-6989586621679985315"><span class="annot"><span class="annottext">Eq M2tsPcrControl
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679986793"><span id="local-6989586621679986795"><span id="local-6989586621679986797"><span id="local-6989586621679986799"><span id="local-6989586621679986801"><span id="local-6989586621679986803"><span id="local-6989586621679986805"><span class="annot"><span class="annottext">Eq M2tsPcrControl
 Eq M2tsPcrControl
 -&gt; (M2tsPcrControl -&gt; M2tsPcrControl -&gt; Ordering)
 -&gt; (M2tsPcrControl -&gt; M2tsPcrControl -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. M2tsPcrControl -&gt; Rep M2tsPcrControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985295"><span id="local-6989586621679985297"><span class="annot"><span class="annottext">Int -&gt; M2tsPcrControl -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986785"><span id="local-6989586621679986787"><span class="annot"><span class="annottext">Int -&gt; M2tsPcrControl -&gt; Int
 M2tsPcrControl -&gt; Int
 (Int -&gt; M2tsPcrControl -&gt; Int)
 -&gt; (M2tsPcrControl -&gt; Int) -&gt; Hashable M2tsPcrControl
@@ -146,50 +146,50 @@ $chash :: M2tsPcrControl -&gt; Int
 hashWithSalt :: Int -&gt; M2tsPcrControl -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsPcrControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679985292"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679986782"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; ()
 (M2tsPcrControl -&gt; ()) -&gt; NFData M2tsPcrControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsPcrControl -&gt; ()
 $crnf :: M2tsPcrControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679985289"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsPcrControl
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986779"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsPcrControl
 (Text -&gt; Either String M2tsPcrControl) -&gt; FromText M2tsPcrControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsPcrControl
 $cfromText :: Text -&gt; Either String M2tsPcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679985286"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986776"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; Text
 (M2tsPcrControl -&gt; Text) -&gt; ToText M2tsPcrControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsPcrControl -&gt; Text
 $ctoText :: M2tsPcrControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679985283"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986773"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; ByteString
 (M2tsPcrControl -&gt; ByteString) -&gt; ToByteString M2tsPcrControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsPcrControl -&gt; ByteString
 $ctoBS :: M2tsPcrControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679985280"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986770"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; ByteStringBuilder
 (M2tsPcrControl -&gt; ByteStringBuilder) -&gt; ToLog M2tsPcrControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsPcrControl -&gt; ByteStringBuilder
 $cbuild :: M2tsPcrControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679985277"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsPcrControl -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679986767"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsPcrControl -&gt; [Header]
 (HeaderName -&gt; M2tsPcrControl -&gt; [Header])
 -&gt; ToHeader M2tsPcrControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsPcrControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsPcrControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679985274"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679986764"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; QueryString
 (M2tsPcrControl -&gt; QueryString) -&gt; ToQuery M2tsPcrControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsPcrControl -&gt; QueryString
 $ctoQuery :: M2tsPcrControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679985269"><span id="local-6989586621679985271"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsPcrControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679986759"><span id="local-6989586621679986761"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsPcrControl]
 Value -&gt; Parser M2tsPcrControl
 (Value -&gt; Parser M2tsPcrControl)
 -&gt; (Value -&gt; Parser [M2tsPcrControl]) -&gt; FromJSON M2tsPcrControl
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsPcrControl]
 parseJSON :: Value -&gt; Parser M2tsPcrControl
 $cparseJSON :: Value -&gt; Parser M2tsPcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679985264"><span id="local-6989586621679985266"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsPcrControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986754"><span id="local-6989586621679986756"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsPcrControl]
 FromJSONKeyFunction M2tsPcrControl
 FromJSONKeyFunction M2tsPcrControl
 -&gt; FromJSONKeyFunction [M2tsPcrControl]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsPcrControl]
 fromJSONKey :: FromJSONKeyFunction M2tsPcrControl
 $cfromJSONKey :: FromJSONKeyFunction M2tsPcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679985255"><span id="local-6989586621679985257"><span id="local-6989586621679985259"><span id="local-6989586621679985261"><span class="annot"><span class="annottext">[M2tsPcrControl] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986745"><span id="local-6989586621679986747"><span id="local-6989586621679986749"><span id="local-6989586621679986751"><span class="annot"><span class="annottext">[M2tsPcrControl] -&gt; Encoding
 [M2tsPcrControl] -&gt; Value
 M2tsPcrControl -&gt; Encoding
 M2tsPcrControl -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: M2tsPcrControl -&gt; Encoding
 toJSON :: M2tsPcrControl -&gt; Value
 $ctoJSON :: M2tsPcrControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679985250"><span id="local-6989586621679985252"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsPcrControl]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986740"><span id="local-6989586621679986742"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsPcrControl]
 ToJSONKeyFunction M2tsPcrControl
 ToJSONKeyFunction M2tsPcrControl
 -&gt; ToJSONKeyFunction [M2tsPcrControl] -&gt; ToJSONKey M2tsPcrControl
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsPcrControl]
 toJSONKey :: ToJSONKeyFunction M2tsPcrControl
 $ctoJSONKey :: ToJSONKeyFunction M2tsPcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679985247"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsPcrControl
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986737"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsPcrControl
 ([Node] -&gt; Either String M2tsPcrControl) -&gt; FromXML M2tsPcrControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsPcrControl
 $cparseXML :: [Node] -&gt; Either String M2tsPcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679985244"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679986734"><span class="annot"><span class="annottext">M2tsPcrControl -&gt; XML
 (M2tsPcrControl -&gt; XML) -&gt; ToXML M2tsPcrControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsPcrControl -&gt; XML

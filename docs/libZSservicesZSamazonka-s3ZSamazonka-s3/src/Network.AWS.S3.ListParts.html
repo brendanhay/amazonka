@@ -99,7 +99,7 @@
 </span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | /See:/ 'newListParts' smart constructor.</span><span>
-</span><span id="line-102"></span><span id="local-6989586621679568177"><span id="local-6989586621679568178"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListParts"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-var">ListParts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListParts%27"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-var">ListParts'</span></a></span></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679568287"><span id="local-6989586621679568288"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListParts"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-var">ListParts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListParts%27"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-var">ListParts'</span></a></span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets the maximum number of parts to return.</span><span>
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AmaxParts%3AListParts%27"><span class="annot"><span class="annottext">ListParts -&gt; Maybe Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AmaxParts%3AListParts%27"><span class="hs-identifier hs-var hs-var">maxParts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -143,7 +143,7 @@
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AuploadId%3AListParts%27"><span class="annot"><span class="annottext">ListParts -&gt; Text
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AuploadId%3AListParts%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568165"><span id="local-6989586621679568167"><span class="annot"><span class="annottext">ListParts -&gt; ListParts -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568275"><span id="local-6989586621679568277"><span class="annot"><span class="annottext">ListParts -&gt; ListParts -&gt; Bool
 (ListParts -&gt; ListParts -&gt; Bool)
 -&gt; (ListParts -&gt; ListParts -&gt; Bool) -&gt; Eq ListParts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -151,7 +151,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListParts -&gt; ListParts -&gt; Bool
 == :: ListParts -&gt; ListParts -&gt; Bool
 $c== :: ListParts -&gt; ListParts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568156"><span id="local-6989586621679568158"><span id="local-6989586621679568160"><span id="local-6989586621679568162"><span class="annot"><span class="annottext">ReadPrec [ListParts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568266"><span id="local-6989586621679568268"><span id="local-6989586621679568270"><span id="local-6989586621679568272"><span class="annot"><span class="annottext">ReadPrec [ListParts]
 ReadPrec ListParts
 Int -&gt; ReadS ListParts
 ReadS [ListParts]
@@ -171,7 +171,7 @@ readList :: ReadS [ListParts]
 $creadList :: ReadS [ListParts]
 readsPrec :: Int -&gt; ReadS ListParts
 $creadsPrec :: Int -&gt; ReadS ListParts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568149"><span id="local-6989586621679568151"><span id="local-6989586621679568153"><span class="annot"><span class="annottext">Int -&gt; ListParts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568259"><span id="local-6989586621679568261"><span id="local-6989586621679568263"><span class="annot"><span class="annottext">Int -&gt; ListParts -&gt; ShowS
 [ListParts] -&gt; ShowS
 ListParts -&gt; String
 (Int -&gt; ListParts -&gt; ShowS)
@@ -248,10 +248,10 @@ $cfrom :: forall x. ListParts -&gt; Rep ListParts x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span>
 </span><span id="line-192"></span><span id="newListParts"><span class="annot"><span class="annottext">newListParts :: BucketName -&gt; ObjectKey -&gt; Text -&gt; ListParts
-</span><a href="Network.AWS.S3.ListParts.html#newListParts"><span class="hs-identifier hs-var hs-var">newListParts</span></a></span></span><span> </span><span id="local-6989586621679568144"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568144"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679568143"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679568143"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679568142"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679568142"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.ListParts.html#newListParts"><span class="hs-identifier hs-var hs-var">newListParts</span></a></span></span><span> </span><span id="local-6989586621679568254"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679568254"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679568253"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679568253"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679568252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679568252"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">ListParts' :: Maybe Int
 -&gt; Maybe RequestPayer
 -&gt; Maybe Int
@@ -279,13 +279,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:ListParts' :: BucketName
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Abucket%3AListParts%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568144"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568254"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ListParts' :: ObjectKey
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Akey%3AListParts%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679568143"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568253"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:ListParts' :: Text
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AuploadId%3AListParts%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679568142"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span>
+</span><a href="#local-6989586621679568252"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | Sets the maximum number of parts to return.</span><span>
@@ -295,16 +295,16 @@ forall a. Maybe a
 -&gt; (ListParts -&gt; Maybe Int -&gt; ListParts)
 -&gt; Lens ListParts ListParts (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568140"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568250"><span class="annot"><span class="annottext">Maybe Int
 maxParts :: Maybe Int
 $sel:maxParts:ListParts' :: ListParts -&gt; Maybe Int
-</span><a href="#local-6989586621679568140"><span class="hs-identifier hs-var hs-var">maxParts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568140"><span class="hs-identifier hs-var">maxParts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568139"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568138"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxParts:ListParts' :: Maybe Int
+</span><a href="#local-6989586621679568250"><span class="hs-identifier hs-var hs-var">maxParts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568250"><span class="hs-identifier hs-var">maxParts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568249"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568248"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxParts:ListParts' :: Maybe Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AmaxParts%3AListParts%27"><span class="hs-identifier hs-var">maxParts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listParts_requestPayer"><span class="hs-identifier hs-type">listParts_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
@@ -315,16 +315,16 @@ $sel:maxParts:ListParts' :: ListParts -&gt; Maybe Int
 -&gt; Lens
      ListParts ListParts (Maybe RequestPayer) (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568137"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568247"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:ListParts' :: ListParts -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679568137"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568137"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568136"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568135"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:ListParts' :: Maybe RequestPayer
+</span><a href="#local-6989586621679568247"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679568247"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568246"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568245"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679568245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:ListParts' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3ArequestPayer%3AListParts%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | Specifies the part after which listing should begin. Only parts with</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- higher part numbers will be listed.</span><span>
@@ -334,16 +334,16 @@ $sel:requestPayer:ListParts' :: ListParts -&gt; Maybe RequestPayer
 -&gt; (ListParts -&gt; Maybe Int -&gt; ListParts)
 -&gt; Lens ListParts ListParts (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568134"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568244"><span class="annot"><span class="annottext">Maybe Int
 partNumberMarker :: Maybe Int
 $sel:partNumberMarker:ListParts' :: ListParts -&gt; Maybe Int
-</span><a href="#local-6989586621679568134"><span class="hs-identifier hs-var hs-var">partNumberMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568134"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568133"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568132"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partNumberMarker:ListParts' :: Maybe Int
+</span><a href="#local-6989586621679568244"><span class="hs-identifier hs-var hs-var">partNumberMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568244"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568243"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568242"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partNumberMarker:ListParts' :: Maybe Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3ApartNumberMarker%3AListParts%27"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -354,16 +354,16 @@ $sel:partNumberMarker:ListParts' :: ListParts -&gt; Maybe Int
 -&gt; (ListParts -&gt; Maybe Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568131"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568241"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:ListParts' :: ListParts -&gt; Maybe Text
-</span><a href="#local-6989586621679568131"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568131"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568130"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568129"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListParts' :: Maybe Text
+</span><a href="#local-6989586621679568241"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568241"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568240"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListParts' :: Maybe Text
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AexpectedBucketOwner%3AListParts%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The name of the bucket to which the parts are being uploaded.</span><span>
 </span><span id="line-223"></span><span class="hs-comment">--</span><span>
@@ -391,16 +391,16 @@ $sel:expectedBucketOwner:ListParts' :: ListParts -&gt; Maybe Text
 -&gt; (ListParts -&gt; BucketName -&gt; ListParts)
 -&gt; Lens ListParts ListParts BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568128"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568238"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:ListParts' :: ListParts -&gt; BucketName
-</span><a href="#local-6989586621679568128"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568128"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568127"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568126"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListParts' :: BucketName
+</span><a href="#local-6989586621679568238"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679568238"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568237"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568236"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679568236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListParts' :: BucketName
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Abucket%3AListParts%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | Object key for which the multipart upload was initiated.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listParts_key"><span class="hs-identifier hs-type">listParts_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
@@ -409,16 +409,16 @@ $sel:bucket:ListParts' :: ListParts -&gt; BucketName
 -&gt; (ListParts -&gt; ObjectKey -&gt; ListParts)
 -&gt; Lens ListParts ListParts ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568125"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568235"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:ListParts' :: ListParts -&gt; ObjectKey
-</span><a href="#local-6989586621679568125"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679568125"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568124"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568123"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679568123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ListParts' :: ObjectKey
+</span><a href="#local-6989586621679568235"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679568235"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568234"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568233"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679568233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ListParts' :: ObjectKey
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Akey%3AListParts%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679568123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | Upload ID identifying the multipart upload whose parts are being listed.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listParts_uploadId"><span class="hs-identifier hs-type">listParts_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -427,28 +427,28 @@ $sel:key:ListParts' :: ListParts -&gt; ObjectKey
 -&gt; (ListParts -&gt; Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568122"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568232"><span class="annot"><span class="annottext">Text
 uploadId :: Text
 $sel:uploadId:ListParts' :: ListParts -&gt; Text
-</span><a href="#local-6989586621679568122"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679568122"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568121"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679568121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679568120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:ListParts' :: Text
+</span><a href="#local-6989586621679568232"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679568232"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568231"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679568231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679568230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:ListParts' :: Text
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AuploadId%3AListParts%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679568120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679568116"><span class="annot"><span class="annottext">page :: ListParts -&gt; AWSResponse ListParts -&gt; Maybe ListParts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679568114"><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568114"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679568113"><span class="annot"><span class="annottext">AWSResponse ListParts
-</span><a href="#local-6989586621679568113"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679568226"><span class="annot"><span class="annottext">page :: ListParts -&gt; AWSResponse ListParts -&gt; Maybe ListParts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679568224"><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679568224"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679568223"><span class="annot"><span class="annottext">AWSResponse ListParts
+</span><a href="#local-6989586621679568223"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-255"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-256"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListParts
 ListPartsResponse
-</span><a href="#local-6989586621679568113"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679568223"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">ListPartsResponse
 -&gt; Getting (First Bool) ListPartsResponse Bool -&gt; Maybe Bool
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -474,7 +474,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-261"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListParts
 ListPartsResponse
-</span><a href="#local-6989586621679568113"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679568223"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">ListPartsResponse
 -&gt; Getting (First Int) ListPartsResponse Int -&gt; Maybe Int
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -504,7 +504,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679568114"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679568224"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-269"></span><span>          </span><span class="annot"><span class="annottext">ListParts -&gt; (ListParts -&gt; ListParts) -&gt; ListParts
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Identity (Maybe Int))
@@ -517,7 +517,7 @@ Lens ListParts ListParts (Maybe Int) (Maybe Int)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListParts
 ListPartsResponse
-</span><a href="#local-6989586621679568113"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679568223"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">ListPartsResponse
 -&gt; Getting (First Int) ListPartsResponse Int -&gt; Maybe Int
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -538,7 +538,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-275"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span>
-</span><span id="line-276"></span><span>  </span><span id="local-6989586621679568102"><span class="annot"><span class="annottext">request :: ListParts -&gt; Request ListParts
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679568212"><span class="annot"><span class="annottext">request :: ListParts -&gt; Request ListParts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">Request ListParts -&gt; Request ListParts
 forall a. Request a -&gt; Request a
@@ -552,7 +552,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-279"></span><span>  </span><span id="local-6989586621679568097"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679568207"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListParts
 -&gt; ClientResponse ClientBody
@@ -576,10 +576,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-281"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679568094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568094"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679568093"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679568093"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679568092"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679568204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679568203"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679568203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679568202"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Part]
 -&gt; Maybe RequestCharged
 -&gt; Maybe Int
@@ -641,7 +641,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Part&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe RequestCharged
@@ -678,7 +678,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679568093"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679568203"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
 forall a.
 FromText a =&gt;
@@ -719,7 +719,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxParts&quot;</span></span><span class="hs-special">)</span><span>
@@ -755,7 +755,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Initiator)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Initiator)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Initiator&quot;</span></span><span class="hs-special">)</span><span>
@@ -789,7 +789,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BucketName)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BucketName)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -821,7 +821,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679568093"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679568203"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe ISO8601)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -853,7 +853,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextPartNumberMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -881,7 +881,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679568093"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679568203"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -909,7 +909,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
@@ -933,7 +933,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectKey)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectKey)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
@@ -951,7 +951,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Bool -&gt; Maybe Int -&gt; Maybe Text -&gt; Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StorageClass)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StorageClass)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
@@ -963,7 +963,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Int -&gt; Maybe Text -&gt; Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -972,7 +972,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartNumberMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -981,7 +981,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679568202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UploadId&quot;</span></span><span class="hs-special">)</span><span>
@@ -993,16 +993,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568094"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
-</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568081"><span id="local-6989586621679568083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568191"><span id="local-6989586621679568193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span></span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-305"></span><span>  </span><span id="local-6989586621679568074"><span class="annot"><span class="annottext">toHeaders :: ListParts -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568066"><span id="local-6989586621679568067"><span id="local-6989586621679568068"><span id="local-6989586621679568069"><span id="local-6989586621679568070"><span id="local-6989586621679568071"><span id="local-6989586621679568072"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679568184"><span class="annot"><span class="annottext">toHeaders :: ListParts -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568176"><span id="local-6989586621679568177"><span id="local-6989586621679568178"><span id="local-6989586621679568179"><span id="local-6989586621679568180"><span id="local-6989586621679568181"><span id="local-6989586621679568182"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe RequestPayer
 Text
@@ -1022,7 +1022,7 @@ $sel:expectedBucketOwner:ListParts' :: ListParts -&gt; Maybe Text
 $sel:partNumberMarker:ListParts' :: ListParts -&gt; Maybe Int
 $sel:requestPayer:ListParts' :: ListParts -&gt; Maybe RequestPayer
 $sel:maxParts:ListParts' :: ListParts -&gt; Maybe Int
-</span><a href="#local-6989586621679568066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679568176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-306"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1030,18 +1030,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568071"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568181"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-308"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568069"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679568179"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-310"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-313"></span><span>  </span><span id="local-6989586621679568062"><span class="annot"><span class="annottext">toPath :: ListParts -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568054"><span id="local-6989586621679568055"><span id="local-6989586621679568056"><span id="local-6989586621679568057"><span id="local-6989586621679568058"><span id="local-6989586621679568059"><span id="local-6989586621679568060"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679568172"><span class="annot"><span class="annottext">toPath :: ListParts -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568164"><span id="local-6989586621679568165"><span id="local-6989586621679568166"><span id="local-6989586621679568167"><span id="local-6989586621679568168"><span id="local-6989586621679568169"><span id="local-6989586621679568170"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe RequestPayer
 Text
@@ -1061,7 +1061,7 @@ $sel:expectedBucketOwner:ListParts' :: ListParts -&gt; Maybe Text
 $sel:partNumberMarker:ListParts' :: ListParts -&gt; Maybe Int
 $sel:requestPayer:ListParts' :: ListParts -&gt; Maybe RequestPayer
 $sel:maxParts:ListParts' :: ListParts -&gt; Maybe Int
-</span><a href="#local-6989586621679568054"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679568164"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-314"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1069,15 +1069,15 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568056"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679568166"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679568055"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679568165"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-316"></span><span>
 </span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-318"></span><span>  </span><span id="local-6989586621679568050"><span class="annot"><span class="annottext">toQuery :: ListParts -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568042"><span id="local-6989586621679568043"><span id="local-6989586621679568044"><span id="local-6989586621679568045"><span id="local-6989586621679568046"><span id="local-6989586621679568047"><span id="local-6989586621679568048"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679568160"><span class="annot"><span class="annottext">toQuery :: ListParts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568152"><span id="local-6989586621679568153"><span id="local-6989586621679568154"><span id="local-6989586621679568155"><span id="local-6989586621679568156"><span id="local-6989586621679568157"><span id="local-6989586621679568158"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe RequestPayer
 Text
@@ -1097,7 +1097,7 @@ $sel:expectedBucketOwner:ListParts' :: ListParts -&gt; Maybe Text
 $sel:partNumberMarker:ListParts' :: ListParts -&gt; Maybe Int
 $sel:requestPayer:ListParts' :: ListParts -&gt; Maybe RequestPayer
 $sel:maxParts:ListParts' :: ListParts -&gt; Maybe Int
-</span><a href="#local-6989586621679568042"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679568152"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1105,21 +1105,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;max-parts&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568048"><span class="hs-identifier hs-var">maxParts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568158"><span class="hs-identifier hs-var">maxParts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;part-number-marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568046"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568156"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;uploadId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679568042"><span class="hs-identifier hs-var">uploadId</span></a></span><span>
+</span><a href="#local-6989586621679568152"><span class="hs-identifier hs-var">uploadId</span></a></span><span>
 </span><span id="line-323"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-324"></span><span>
 </span><span id="line-325"></span><span class="hs-comment">-- | /See:/ 'newListPartsResponse' smart constructor.</span><span>
-</span><span id="line-326"></span><span id="local-6989586621679568039"><span id="local-6989586621679568040"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPartsResponse"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-var">ListPartsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPartsResponse%27"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-var">ListPartsResponse'</span></a></span></span><span>
+</span><span id="line-326"></span><span id="local-6989586621679568149"><span id="local-6989586621679568150"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPartsResponse"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-var">ListPartsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPartsResponse%27"><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-var">ListPartsResponse'</span></a></span></span><span>
 </span><span id="line-327"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for elements related to a particular part. A response can</span><span>
 </span><span id="line-328"></span><span>    </span><span class="hs-comment">-- contain zero or more @Part@ elements.</span><span>
 </span><span id="line-329"></span><span>    </span><span id="%24sel%3Aparts%3AListPartsResponse%27"><span class="annot"><span class="annottext">ListPartsResponse -&gt; Maybe [Part]
@@ -1190,7 +1190,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-380"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="annot"><span class="annottext">ListPartsResponse -&gt; Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-381"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-382"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568020"><span id="local-6989586621679568022"><span class="annot"><span class="annottext">ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
+</span><span id="line-382"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568130"><span id="local-6989586621679568132"><span class="annot"><span class="annottext">ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
 (ListPartsResponse -&gt; ListPartsResponse -&gt; Bool)
 -&gt; (ListPartsResponse -&gt; ListPartsResponse -&gt; Bool)
 -&gt; Eq ListPartsResponse
@@ -1199,7 +1199,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
 == :: ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
 $c== :: ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568012"><span id="local-6989586621679568014"><span id="local-6989586621679568016"><span id="local-6989586621679568018"><span class="annot"><span class="annottext">ReadPrec [ListPartsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568122"><span id="local-6989586621679568124"><span id="local-6989586621679568126"><span id="local-6989586621679568128"><span class="annot"><span class="annottext">ReadPrec [ListPartsResponse]
 ReadPrec ListPartsResponse
 Int -&gt; ReadS ListPartsResponse
 ReadS [ListPartsResponse]
@@ -1219,7 +1219,7 @@ readList :: ReadS [ListPartsResponse]
 $creadList :: ReadS [ListPartsResponse]
 readsPrec :: Int -&gt; ReadS ListPartsResponse
 $creadsPrec :: Int -&gt; ReadS ListPartsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568006"><span id="local-6989586621679568008"><span id="local-6989586621679568010"><span class="annot"><span class="annottext">Int -&gt; ListPartsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568116"><span id="local-6989586621679568118"><span id="local-6989586621679568120"><span class="annot"><span class="annottext">Int -&gt; ListPartsResponse -&gt; ShowS
 [ListPartsResponse] -&gt; ShowS
 ListPartsResponse -&gt; String
 (Int -&gt; ListPartsResponse -&gt; ShowS)
@@ -1312,8 +1312,8 @@ $cfrom :: forall x. ListPartsResponse -&gt; Rep ListPartsResponse x
 </span><span id="line-448"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-449"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span>
 </span><span id="line-450"></span><span id="newListPartsResponse"><span class="annot"><span class="annottext">newListPartsResponse :: Int -&gt; ListPartsResponse
-</span><a href="Network.AWS.S3.ListParts.html#newListPartsResponse"><span class="hs-identifier hs-var hs-var">newListPartsResponse</span></a></span></span><span> </span><span id="local-6989586621679568003"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568003"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.ListParts.html#newListPartsResponse"><span class="hs-identifier hs-var hs-var">newListPartsResponse</span></a></span></span><span> </span><span id="local-6989586621679568113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-451"></span><span>  </span><span class="annot"><span class="annottext">ListPartsResponse' :: Maybe [Part]
 -&gt; Maybe RequestCharged
 -&gt; Maybe Int
@@ -1389,7 +1389,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-466"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartsResponse' :: Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568003"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679568113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-467"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-468"></span><span>
 </span><span id="line-469"></span><span class="hs-comment">-- | Container for elements related to a particular part. A response can</span><span>
@@ -1402,16 +1402,16 @@ forall a. Maybe a
 -&gt; Lens
      ListPartsResponse ListPartsResponse (Maybe [Part]) (Maybe [Part])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568002"><span class="annot"><span class="annottext">Maybe [Part]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568112"><span class="annot"><span class="annottext">Maybe [Part]
 parts :: Maybe [Part]
 $sel:parts:ListPartsResponse' :: ListPartsResponse -&gt; Maybe [Part]
-</span><a href="#local-6989586621679568002"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Part]
-</span><a href="#local-6989586621679568002"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568001"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679568001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568000"><span class="annot"><span class="annottext">Maybe [Part]
-</span><a href="#local-6989586621679568000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679568001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parts:ListPartsResponse' :: Maybe [Part]
+</span><a href="#local-6989586621679568112"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Part]
+</span><a href="#local-6989586621679568112"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568111"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568110"><span class="annot"><span class="annottext">Maybe [Part]
+</span><a href="#local-6989586621679568110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parts:ListPartsResponse' :: Maybe [Part]
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Aparts%3AListPartsResponse%27"><span class="hs-identifier hs-var">parts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Part]
-</span><a href="#local-6989586621679568000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Part] -&gt; f (Maybe [Part]))
+</span><a href="#local-6989586621679568110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Part] -&gt; f (Maybe [Part]))
  -&gt; ListPartsResponse -&gt; f ListPartsResponse)
 -&gt; ((Maybe [Part] -&gt; f (Maybe [Part]))
     -&gt; Maybe [Part] -&gt; f (Maybe [Part]))
@@ -1440,16 +1440,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe RequestCharged)
      (Maybe RequestCharged)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567997"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568107"><span class="annot"><span class="annottext">Maybe RequestCharged
 requestCharged :: Maybe RequestCharged
 $sel:requestCharged:ListPartsResponse' :: ListPartsResponse -&gt; Maybe RequestCharged
-</span><a href="#local-6989586621679567997"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679567997"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567996"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567995"><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679567995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:ListPartsResponse' :: Maybe RequestCharged
+</span><a href="#local-6989586621679568107"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679568107"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568106"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568105"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679568105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:ListPartsResponse' :: Maybe RequestCharged
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3ArequestCharged%3AListPartsResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679567995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-477"></span><span>
 </span><span id="line-478"></span><span class="hs-comment">-- | Maximum number of parts that were allowed in the response.</span><span>
 </span><span id="line-479"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listPartsResponse_maxParts"><span class="hs-identifier hs-type">listPartsResponse_maxParts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -1459,16 +1459,16 @@ $sel:requestCharged:ListPartsResponse' :: ListPartsResponse -&gt; Maybe RequestC
 -&gt; (ListPartsResponse -&gt; Maybe Int -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567994"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568104"><span class="annot"><span class="annottext">Maybe Int
 maxParts :: Maybe Int
 $sel:maxParts:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679567994"><span class="hs-identifier hs-var hs-var">maxParts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567994"><span class="hs-identifier hs-var">maxParts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567993"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567992"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxParts:ListPartsResponse' :: Maybe Int
+</span><a href="#local-6989586621679568104"><span class="hs-identifier hs-var hs-var">maxParts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568104"><span class="hs-identifier hs-var">maxParts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568103"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568102"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxParts:ListPartsResponse' :: Maybe Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AmaxParts%3AListPartsResponse%27"><span class="hs-identifier hs-var">maxParts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-481"></span><span>
 </span><span id="line-482"></span><span class="hs-comment">-- | Container element that identifies who initiated the multipart upload. If</span><span>
 </span><span id="line-483"></span><span class="hs-comment">-- the initiator is an Amazon Web Services account, this element provides</span><span>
@@ -1485,16 +1485,16 @@ $sel:maxParts:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Int
      (Maybe Initiator)
      (Maybe Initiator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567991"><span class="annot"><span class="annottext">Maybe Initiator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568101"><span class="annot"><span class="annottext">Maybe Initiator
 initiator :: Maybe Initiator
 $sel:initiator:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Initiator
-</span><a href="#local-6989586621679567991"><span class="hs-identifier hs-var hs-var">initiator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Initiator
-</span><a href="#local-6989586621679567991"><span class="hs-identifier hs-var">initiator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567990"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567989"><span class="annot"><span class="annottext">Maybe Initiator
-</span><a href="#local-6989586621679567989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiator:ListPartsResponse' :: Maybe Initiator
+</span><a href="#local-6989586621679568101"><span class="hs-identifier hs-var hs-var">initiator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Initiator
+</span><a href="#local-6989586621679568101"><span class="hs-identifier hs-var">initiator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568100"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568099"><span class="annot"><span class="annottext">Maybe Initiator
+</span><a href="#local-6989586621679568099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiator:ListPartsResponse' :: Maybe Initiator
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Ainitiator%3AListPartsResponse%27"><span class="hs-identifier hs-var">initiator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Initiator
-</span><a href="#local-6989586621679567989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-488"></span><span>
 </span><span id="line-489"></span><span class="hs-comment">-- | The name of the bucket to which the multipart upload was initiated. Does</span><span>
 </span><span id="line-490"></span><span class="hs-comment">-- not return the access point ARN or access point alias if used.</span><span>
@@ -1509,16 +1509,16 @@ $sel:initiator:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Initiator
      (Maybe BucketName)
      (Maybe BucketName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567988"><span class="annot"><span class="annottext">Maybe BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568098"><span class="annot"><span class="annottext">Maybe BucketName
 bucket :: Maybe BucketName
 $sel:bucket:ListPartsResponse' :: ListPartsResponse -&gt; Maybe BucketName
-</span><a href="#local-6989586621679567988"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketName
-</span><a href="#local-6989586621679567988"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567987"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567986"><span class="annot"><span class="annottext">Maybe BucketName
-</span><a href="#local-6989586621679567986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListPartsResponse' :: Maybe BucketName
+</span><a href="#local-6989586621679568098"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketName
+</span><a href="#local-6989586621679568098"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568097"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568096"><span class="annot"><span class="annottext">Maybe BucketName
+</span><a href="#local-6989586621679568096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListPartsResponse' :: Maybe BucketName
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Abucket%3AListPartsResponse%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketName
-</span><a href="#local-6989586621679567986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-493"></span><span>
 </span><span id="line-494"></span><span class="hs-comment">-- | If the bucket has a lifecycle rule configured with an action to abort</span><span>
 </span><span id="line-495"></span><span class="hs-comment">-- incomplete multipart uploads and the prefix in the lifecycle rule</span><span>
@@ -1538,16 +1538,16 @@ $sel:bucket:ListPartsResponse' :: ListPartsResponse -&gt; Maybe BucketName
 -&gt; Lens
      ListPartsResponse ListPartsResponse (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567985"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568095"><span class="annot"><span class="annottext">Maybe ISO8601
 abortDate :: Maybe ISO8601
 $sel:abortDate:ListPartsResponse' :: ListPartsResponse -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679567985"><span class="hs-identifier hs-var hs-var">abortDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679567985"><span class="hs-identifier hs-var">abortDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567984"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567983"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679567983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortDate:ListPartsResponse' :: Maybe ISO8601
+</span><a href="#local-6989586621679568095"><span class="hs-identifier hs-var hs-var">abortDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679568095"><span class="hs-identifier hs-var">abortDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568094"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568093"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679568093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortDate:ListPartsResponse' :: Maybe ISO8601
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AabortDate%3AListPartsResponse%27"><span class="hs-identifier hs-var">abortDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679567983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679568093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ListPartsResponse -&gt; f ListPartsResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -1575,16 +1575,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListPartsResponse -&gt; Maybe Int -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567981"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568091"><span class="annot"><span class="annottext">Maybe Int
 nextPartNumberMarker :: Maybe Int
 $sel:nextPartNumberMarker:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679567981"><span class="hs-identifier hs-var hs-var">nextPartNumberMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567981"><span class="hs-identifier hs-var">nextPartNumberMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567980"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567979"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPartNumberMarker:ListPartsResponse' :: Maybe Int
+</span><a href="#local-6989586621679568091"><span class="hs-identifier hs-var hs-var">nextPartNumberMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568091"><span class="hs-identifier hs-var">nextPartNumberMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568090"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568089"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPartNumberMarker:ListPartsResponse' :: Maybe Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AnextPartNumberMarker%3AListPartsResponse%27"><span class="hs-identifier hs-var">nextPartNumberMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-512"></span><span>
 </span><span id="line-513"></span><span class="hs-comment">-- | This header is returned along with the @x-amz-abort-date@ header. It</span><span>
 </span><span id="line-514"></span><span class="hs-comment">-- identifies applicable lifecycle configuration rule that defines the</span><span>
@@ -1597,16 +1597,16 @@ $sel:nextPartNumberMarker:ListPartsResponse' :: ListPartsResponse -&gt; Maybe In
 -&gt; Lens
      ListPartsResponse ListPartsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567978"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568088"><span class="annot"><span class="annottext">Maybe Text
 abortRuleId :: Maybe Text
 $sel:abortRuleId:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679567978"><span class="hs-identifier hs-var hs-var">abortRuleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679567978"><span class="hs-identifier hs-var">abortRuleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567977"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567976"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679567976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortRuleId:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679568088"><span class="hs-identifier hs-var hs-var">abortRuleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568088"><span class="hs-identifier hs-var">abortRuleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568087"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568086"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortRuleId:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AabortRuleId%3AListPartsResponse%27"><span class="hs-identifier hs-var">abortRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679567976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-518"></span><span>
 </span><span id="line-519"></span><span class="hs-comment">-- | Container element that identifies the object owner, after the object is</span><span>
 </span><span id="line-520"></span><span class="hs-comment">-- created. If multipart upload is initiated by an IAM user, this element</span><span>
@@ -1619,16 +1619,16 @@ $sel:abortRuleId:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; Lens
      ListPartsResponse ListPartsResponse (Maybe Owner) (Maybe Owner)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567975"><span class="annot"><span class="annottext">Maybe Owner
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568085"><span class="annot"><span class="annottext">Maybe Owner
 owner :: Maybe Owner
 $sel:owner:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Owner
-</span><a href="#local-6989586621679567975"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679567975"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567974"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567973"><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679567973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:ListPartsResponse' :: Maybe Owner
+</span><a href="#local-6989586621679568085"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679568085"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568084"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568083"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679568083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:ListPartsResponse' :: Maybe Owner
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Aowner%3AListPartsResponse%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679567973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-524"></span><span>
 </span><span id="line-525"></span><span class="hs-comment">-- | Object key for which the multipart upload was initiated.</span><span>
 </span><span id="line-526"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listPartsResponse_key"><span class="hs-identifier hs-type">listPartsResponse_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">)</span><span>
@@ -1642,16 +1642,16 @@ $sel:owner:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Owner
      (Maybe ObjectKey)
      (Maybe ObjectKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567972"><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568082"><span class="annot"><span class="annottext">Maybe ObjectKey
 key :: Maybe ObjectKey
 $sel:key:ListPartsResponse' :: ListPartsResponse -&gt; Maybe ObjectKey
-</span><a href="#local-6989586621679567972"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
-</span><a href="#local-6989586621679567972"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567971"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567970"><span class="annot"><span class="annottext">Maybe ObjectKey
-</span><a href="#local-6989586621679567970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ListPartsResponse' :: Maybe ObjectKey
+</span><a href="#local-6989586621679568082"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679568082"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568081"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568080"><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679568080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ListPartsResponse' :: Maybe ObjectKey
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3Akey%3AListPartsResponse%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
-</span><a href="#local-6989586621679567970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-528"></span><span>
 </span><span id="line-529"></span><span class="hs-comment">-- | Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the</span><span>
 </span><span id="line-530"></span><span class="hs-comment">-- uploaded object.</span><span>
@@ -1666,16 +1666,16 @@ $sel:key:ListPartsResponse' :: ListPartsResponse -&gt; Maybe ObjectKey
      (Maybe StorageClass)
      (Maybe StorageClass)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567969"><span class="annot"><span class="annottext">Maybe StorageClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568079"><span class="annot"><span class="annottext">Maybe StorageClass
 storageClass :: Maybe StorageClass
 $sel:storageClass:ListPartsResponse' :: ListPartsResponse -&gt; Maybe StorageClass
-</span><a href="#local-6989586621679567969"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
-</span><a href="#local-6989586621679567969"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567968"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567967"><span class="annot"><span class="annottext">Maybe StorageClass
-</span><a href="#local-6989586621679567967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:ListPartsResponse' :: Maybe StorageClass
+</span><a href="#local-6989586621679568079"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679568079"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568078"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568077"><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679568077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:ListPartsResponse' :: Maybe StorageClass
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AstorageClass%3AListPartsResponse%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
-</span><a href="#local-6989586621679567967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-533"></span><span>
 </span><span id="line-534"></span><span class="hs-comment">-- | Indicates whether the returned list of parts is truncated. A true value</span><span>
 </span><span id="line-535"></span><span class="hs-comment">-- indicates that the list was truncated. A list can be truncated if the</span><span>
@@ -1687,16 +1687,16 @@ $sel:storageClass:ListPartsResponse' :: ListPartsResponse -&gt; Maybe StorageCla
 -&gt; (ListPartsResponse -&gt; Maybe Bool -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567966"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568076"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679567966"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679567966"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567965"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567964"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679567964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListPartsResponse' :: Maybe Bool
+</span><a href="#local-6989586621679568076"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679568076"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568075"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568074"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679568074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListPartsResponse' :: Maybe Bool
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AisTruncated%3AListPartsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679567964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-539"></span><span>
 </span><span id="line-540"></span><span class="hs-comment">-- | When a list is truncated, this element specifies the last part in the</span><span>
 </span><span id="line-541"></span><span class="hs-comment">-- list, as well as the value to use for the part-number-marker request</span><span>
@@ -1708,16 +1708,16 @@ $sel:isTruncated:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Bool
 -&gt; (ListPartsResponse -&gt; Maybe Int -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567963"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568073"><span class="annot"><span class="annottext">Maybe Int
 partNumberMarker :: Maybe Int
 $sel:partNumberMarker:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679567963"><span class="hs-identifier hs-var hs-var">partNumberMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567963"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567962"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567961"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partNumberMarker:ListPartsResponse' :: Maybe Int
+</span><a href="#local-6989586621679568073"><span class="hs-identifier hs-var hs-var">partNumberMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568073"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568072"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568071"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partNumberMarker:ListPartsResponse' :: Maybe Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3ApartNumberMarker%3AListPartsResponse%27"><span class="hs-identifier hs-var">partNumberMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679567961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-545"></span><span>
 </span><span id="line-546"></span><span class="hs-comment">-- | Upload ID identifying the multipart upload whose parts are being listed.</span><span>
 </span><span id="line-547"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listPartsResponse_uploadId"><span class="hs-identifier hs-type">listPartsResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -1728,16 +1728,16 @@ $sel:partNumberMarker:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Int
 -&gt; Lens
      ListPartsResponse ListPartsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567960"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568070"><span class="annot"><span class="annottext">Maybe Text
 uploadId :: Maybe Text
 $sel:uploadId:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679567960"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679567960"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567959"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679567958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679568070"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568070"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568069"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AuploadId%3AListPartsResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679567958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-549"></span><span>
 </span><span id="line-550"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-551"></span><span class="annot"><a href="Network.AWS.S3.ListParts.html#listPartsResponse_httpStatus"><span class="hs-identifier hs-type">listPartsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1746,16 +1746,16 @@ $sel:uploadId:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; (ListPartsResponse -&gt; Int -&gt; ListPartsResponse)
 -&gt; Lens ListPartsResponse ListPartsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567957"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568067"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPartsResponse' :: ListPartsResponse -&gt; Int
-</span><a href="#local-6989586621679567957"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679567957"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567956"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679567956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567955"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679567955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679567956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartsResponse' :: Int
+</span><a href="#local-6989586621679568067"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568067"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568066"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679568066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679568066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartsResponse' :: Int
 </span><a href="Network.AWS.S3.ListParts.html#%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679567955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-553"></span><span>
-</span><span id="line-554"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span></span><span>
+</span><span id="line-554"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span></span><span>
 </span><span id="line-555"></span></pre></body></html>

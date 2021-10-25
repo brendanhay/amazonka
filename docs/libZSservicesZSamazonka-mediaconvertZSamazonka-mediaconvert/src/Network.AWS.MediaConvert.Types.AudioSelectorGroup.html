@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- selector rather than use an audio selector group.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAudioSelectorGroup' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679941210"><span id="local-6989586621679941211"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioSelectorGroup"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-var">AudioSelectorGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSelectorGroup%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-var">AudioSelectorGroup'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679942529"><span id="local-6989586621679942530"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioSelectorGroup"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-var">AudioSelectorGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSelectorGroup%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-var">AudioSelectorGroup'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of an Audio Selector within the same input to include in the group.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Audio selector names are standardized, based on their order within the</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- input (e.g., \&quot;Audio Selector 1\&quot;). The audio selector name parameter</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AaudioSelectorNames%3AAudioSelectorGroup%27"><span class="annot"><span class="annottext">AudioSelectorGroup -&gt; Maybe [Text]
 </span><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#%24sel%3AaudioSelectorNames%3AAudioSelectorGroup%27"><span class="hs-identifier hs-var hs-var">audioSelectorNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679941204"><span id="local-6989586621679941206"><span class="annot"><span class="annottext">AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942523"><span id="local-6989586621679942525"><span class="annot"><span class="annottext">AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool
 (AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool)
 -&gt; (AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool)
 -&gt; Eq AudioSelectorGroup
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool
 == :: AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool
 $c== :: AudioSelectorGroup -&gt; AudioSelectorGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941195"><span id="local-6989586621679941197"><span id="local-6989586621679941199"><span id="local-6989586621679941201"><span class="annot"><span class="annottext">ReadPrec [AudioSelectorGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942514"><span id="local-6989586621679942516"><span id="local-6989586621679942518"><span id="local-6989586621679942520"><span class="annot"><span class="annottext">ReadPrec [AudioSelectorGroup]
 ReadPrec AudioSelectorGroup
 Int -&gt; ReadS AudioSelectorGroup
 ReadS [AudioSelectorGroup]
@@ -67,7 +67,7 @@ readList :: ReadS [AudioSelectorGroup]
 $creadList :: ReadS [AudioSelectorGroup]
 readsPrec :: Int -&gt; ReadS AudioSelectorGroup
 $creadsPrec :: Int -&gt; ReadS AudioSelectorGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941188"><span id="local-6989586621679941190"><span id="local-6989586621679941192"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942507"><span id="local-6989586621679942509"><span id="local-6989586621679942511"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorGroup -&gt; ShowS
 [AudioSelectorGroup] -&gt; ShowS
 AudioSelectorGroup -&gt; String
 (Int -&gt; AudioSelectorGroup -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; Lens
      AudioSelectorGroup AudioSelectorGroup (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-type">AudioSelectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941179"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-type">AudioSelectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942498"><span class="annot"><span class="annottext">Maybe [Text]
 audioSelectorNames :: Maybe [Text]
 $sel:audioSelectorNames:AudioSelectorGroup' :: AudioSelectorGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679941179"><span class="hs-identifier hs-var hs-var">audioSelectorNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679941179"><span class="hs-identifier hs-var">audioSelectorNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941178"><span class="annot"><span class="annottext">s :: AudioSelectorGroup
-</span><a href="#local-6989586621679941178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-type">AudioSelectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941177"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679941177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSelectorGroup
-</span><a href="#local-6989586621679941178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectorNames:AudioSelectorGroup' :: Maybe [Text]
+</span><a href="#local-6989586621679942498"><span class="hs-identifier hs-var hs-var">audioSelectorNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679942498"><span class="hs-identifier hs-var">audioSelectorNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942497"><span class="annot"><span class="annottext">s :: AudioSelectorGroup
+</span><a href="#local-6989586621679942497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-type">AudioSelectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942496"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679942496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSelectorGroup
+</span><a href="#local-6989586621679942497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectorNames:AudioSelectorGroup' :: Maybe [Text]
 </span><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#%24sel%3AaudioSelectorNames%3AAudioSelectorGroup%27"><span class="hs-identifier hs-var">audioSelectorNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679941177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679942496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AudioSelectorGroup -&gt; f AudioSelectorGroup)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -156,8 +156,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941171"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679941169"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioSelectorGroup
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942490"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679942488"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioSelectorGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioSelectorGroup)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioSelectorGroup&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679941166"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679941166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679942485"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942485"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; AudioSelectorGroup
 </span><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-var">AudioSelectorGroup'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; AudioSelectorGroup)
 -&gt; Parser (Maybe [Text]) -&gt; Parser AudioSelectorGroup
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679941166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679942485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioSelectorNames&quot;</span></span><span>
@@ -188,16 +188,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-77"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941159"><span id="local-6989586621679941161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942478"><span id="local-6989586621679942480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941148"><span id="local-6989586621679941150"><span id="local-6989586621679941152"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679941146"><span class="annot"><span class="annottext">toJSON :: AudioSelectorGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-type">AudioSelectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941144"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942467"><span id="local-6989586621679942469"><span id="local-6989586621679942471"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup"><span class="hs-identifier hs-type">AudioSelectorGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679942465"><span class="annot"><span class="annottext">toJSON :: AudioSelectorGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorGroup.html#AudioSelectorGroup%27"><span class="hs-identifier hs-type">AudioSelectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942463"><span class="annot"><span class="annottext">Maybe [Text]
 audioSelectorNames :: Maybe [Text]
 $sel:audioSelectorNames:AudioSelectorGroup' :: AudioSelectorGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679941144"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679942463"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -210,7 +210,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679941144"><span class="hs-identifier hs-var">audioSelectorNames</span></a></span><span>
+</span><a href="#local-6989586621679942463"><span class="hs-identifier hs-var">audioSelectorNames</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

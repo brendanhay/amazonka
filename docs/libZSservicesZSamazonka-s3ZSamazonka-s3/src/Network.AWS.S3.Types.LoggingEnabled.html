@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 API Reference/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newLoggingEnabled' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679559049"><span id="local-6989586621679559050"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingEnabled"><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-var">LoggingEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingEnabled%27"><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-var">LoggingEnabled'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679559159"><span id="local-6989586621679559160"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingEnabled"><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-var">LoggingEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingEnabled%27"><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-var">LoggingEnabled'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for granting information.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="annot"><span class="annottext">LoggingEnabled -&gt; Maybe [TargetGrant]
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="hs-identifier hs-var hs-var">targetGrants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="annot"><span class="annottext">LoggingEnabled -&gt; Text
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="hs-identifier hs-var hs-var">targetPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559041"><span id="local-6989586621679559043"><span class="annot"><span class="annottext">LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559151"><span id="local-6989586621679559153"><span class="annot"><span class="annottext">LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
 (LoggingEnabled -&gt; LoggingEnabled -&gt; Bool)
 -&gt; (LoggingEnabled -&gt; LoggingEnabled -&gt; Bool) -&gt; Eq LoggingEnabled
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
 == :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
 $c== :: LoggingEnabled -&gt; LoggingEnabled -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559032"><span id="local-6989586621679559034"><span id="local-6989586621679559036"><span id="local-6989586621679559038"><span class="annot"><span class="annottext">ReadPrec [LoggingEnabled]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559142"><span id="local-6989586621679559144"><span id="local-6989586621679559146"><span id="local-6989586621679559148"><span class="annot"><span class="annottext">ReadPrec [LoggingEnabled]
 ReadPrec LoggingEnabled
 Int -&gt; ReadS LoggingEnabled
 ReadS [LoggingEnabled]
@@ -77,7 +77,7 @@ readList :: ReadS [LoggingEnabled]
 $creadList :: ReadS [LoggingEnabled]
 readsPrec :: Int -&gt; ReadS LoggingEnabled
 $creadsPrec :: Int -&gt; ReadS LoggingEnabled
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559025"><span id="local-6989586621679559027"><span id="local-6989586621679559029"><span class="annot"><span class="annottext">Int -&gt; LoggingEnabled -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559135"><span id="local-6989586621679559137"><span id="local-6989586621679559139"><span class="annot"><span class="annottext">Int -&gt; LoggingEnabled -&gt; ShowS
 [LoggingEnabled] -&gt; ShowS
 LoggingEnabled -&gt; String
 (Int -&gt; LoggingEnabled -&gt; ShowS)
@@ -130,9 +130,9 @@ $cfrom :: forall x. LoggingEnabled -&gt; Rep LoggingEnabled x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span>
 </span><span id="line-77"></span><span id="newLoggingEnabled"><span class="annot"><span class="annottext">newLoggingEnabled :: Text -&gt; Text -&gt; LoggingEnabled
-</span><a href="Network.AWS.S3.Types.LoggingEnabled.html#newLoggingEnabled"><span class="hs-identifier hs-var hs-var">newLoggingEnabled</span></a></span></span><span> </span><span id="local-6989586621679559019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559019"><span class="hs-identifier hs-var">pTargetBucket_</span></a></span></span><span> </span><span id="local-6989586621679559018"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559018"><span class="hs-identifier hs-var">pTargetPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.LoggingEnabled.html#newLoggingEnabled"><span class="hs-identifier hs-var hs-var">newLoggingEnabled</span></a></span></span><span> </span><span id="local-6989586621679559129"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559129"><span class="hs-identifier hs-var">pTargetBucket_</span></a></span></span><span> </span><span id="local-6989586621679559128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559128"><span class="hs-identifier hs-var">pTargetPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">LoggingEnabled' :: Maybe [TargetGrant] -&gt; Text -&gt; Text -&gt; LoggingEnabled
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetGrants:LoggingEnabled' :: Maybe [TargetGrant]
@@ -141,10 +141,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetBucket:LoggingEnabled' :: Text
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetBucket%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559019"><span class="hs-identifier hs-var">pTargetBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559129"><span class="hs-identifier hs-var">pTargetBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetPrefix:LoggingEnabled' :: Text
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559018"><span class="hs-identifier hs-var">pTargetPrefix_</span></a></span><span>
+</span><a href="#local-6989586621679559128"><span class="hs-identifier hs-var">pTargetPrefix_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Container for granting information.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
      (Maybe [TargetGrant])
      (Maybe [TargetGrant])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559014"><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559124"><span class="annot"><span class="annottext">Maybe [TargetGrant]
 targetGrants :: Maybe [TargetGrant]
 $sel:targetGrants:LoggingEnabled' :: LoggingEnabled -&gt; Maybe [TargetGrant]
-</span><a href="#local-6989586621679559014"><span class="hs-identifier hs-var hs-var">targetGrants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
-</span><a href="#local-6989586621679559014"><span class="hs-identifier hs-var">targetGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559013"><span class="annot"><span class="annottext">s :: LoggingEnabled
-</span><a href="#local-6989586621679559013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559012"><span class="annot"><span class="annottext">Maybe [TargetGrant]
-</span><a href="#local-6989586621679559012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
-</span><a href="#local-6989586621679559013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGrants:LoggingEnabled' :: Maybe [TargetGrant]
+</span><a href="#local-6989586621679559124"><span class="hs-identifier hs-var hs-var">targetGrants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><a href="#local-6989586621679559124"><span class="hs-identifier hs-var">targetGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559123"><span class="annot"><span class="annottext">s :: LoggingEnabled
+</span><a href="#local-6989586621679559123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559122"><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><a href="#local-6989586621679559122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
+</span><a href="#local-6989586621679559123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGrants:LoggingEnabled' :: Maybe [TargetGrant]
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetGrants%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetGrants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
-</span><a href="#local-6989586621679559012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
+</span><a href="#local-6989586621679559122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
  -&gt; LoggingEnabled -&gt; f LoggingEnabled)
 -&gt; ((Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
     -&gt; Maybe [TargetGrant] -&gt; f (Maybe [TargetGrant]))
@@ -201,16 +201,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (LoggingEnabled -&gt; Text -&gt; LoggingEnabled)
 -&gt; Lens LoggingEnabled LoggingEnabled Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559007"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559117"><span class="annot"><span class="annottext">Text
 targetBucket :: Text
 $sel:targetBucket:LoggingEnabled' :: LoggingEnabled -&gt; Text
-</span><a href="#local-6989586621679559007"><span class="hs-identifier hs-var hs-var">targetBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559007"><span class="hs-identifier hs-var">targetBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559006"><span class="annot"><span class="annottext">s :: LoggingEnabled
-</span><a href="#local-6989586621679559006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559005"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
-</span><a href="#local-6989586621679559006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetBucket:LoggingEnabled' :: Text
+</span><a href="#local-6989586621679559117"><span class="hs-identifier hs-var hs-var">targetBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559117"><span class="hs-identifier hs-var">targetBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559116"><span class="annot"><span class="annottext">s :: LoggingEnabled
+</span><a href="#local-6989586621679559116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559115"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
+</span><a href="#local-6989586621679559116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetBucket:LoggingEnabled' :: Text
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetBucket%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A prefix for all log object keys. If you store log files from multiple</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- Amazon S3 buckets in a single bucket, you can use a prefix to</span><span>
@@ -221,21 +221,21 @@ $sel:targetBucket:LoggingEnabled' :: LoggingEnabled -&gt; Text
 -&gt; (LoggingEnabled -&gt; Text -&gt; LoggingEnabled)
 -&gt; Lens LoggingEnabled LoggingEnabled Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559003"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559113"><span class="annot"><span class="annottext">Text
 targetPrefix :: Text
 $sel:targetPrefix:LoggingEnabled' :: LoggingEnabled -&gt; Text
-</span><a href="#local-6989586621679559003"><span class="hs-identifier hs-var hs-var">targetPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559003"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559002"><span class="annot"><span class="annottext">s :: LoggingEnabled
-</span><a href="#local-6989586621679559002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559001"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
-</span><a href="#local-6989586621679559002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPrefix:LoggingEnabled' :: Text
+</span><a href="#local-6989586621679559113"><span class="hs-identifier hs-var hs-var">targetPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559113"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559112"><span class="annot"><span class="annottext">s :: LoggingEnabled
+</span><a href="#local-6989586621679559112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679559111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingEnabled
+</span><a href="#local-6989586621679559112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPrefix:LoggingEnabled' :: Text
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#%24sel%3AtargetPrefix%3ALoggingEnabled%27"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679559001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679558998"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoggingEnabled
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558996"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679559108"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoggingEnabled
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679559106"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679559106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe [TargetGrant] -&gt; Text -&gt; Text -&gt; LoggingEnabled
 </span><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-var">LoggingEnabled'</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [TargetGrant] -&gt; Text -&gt; Text -&gt; LoggingEnabled)
@@ -243,7 +243,7 @@ $sel:targetPrefix:LoggingEnabled' :: LoggingEnabled -&gt; Text
 -&gt; Either String (Text -&gt; Text -&gt; LoggingEnabled)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679559106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetGrants&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -269,7 +269,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Text -&gt; Either String (Text -&gt; LoggingEnabled)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679559106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetBucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,18 +277,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String LoggingEnabled
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679559106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetPrefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558986"><span id="local-6989586621679558988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559096"><span id="local-6989586621679559098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled"><span class="hs-identifier hs-type">LoggingEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679558979"><span class="annot"><span class="annottext">toXML :: LoggingEnabled -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558975"><span id="local-6989586621679558976"><span id="local-6989586621679558977"><span class="annot"><span class="annottext">Maybe [TargetGrant]
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679559089"><span class="annot"><span class="annottext">toXML :: LoggingEnabled -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LoggingEnabled.html#LoggingEnabled%27"><span class="hs-identifier hs-type">LoggingEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559085"><span id="local-6989586621679559086"><span id="local-6989586621679559087"><span class="annot"><span class="annottext">Maybe [TargetGrant]
 Text
 targetPrefix :: Text
 targetBucket :: Text
@@ -296,7 +296,7 @@ targetGrants :: Maybe [TargetGrant]
 $sel:targetPrefix:LoggingEnabled' :: LoggingEnabled -&gt; Text
 $sel:targetBucket:LoggingEnabled' :: LoggingEnabled -&gt; Text
 $sel:targetGrants:LoggingEnabled' :: LoggingEnabled -&gt; Maybe [TargetGrant]
-</span><a href="#local-6989586621679558975"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679559085"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -313,16 +313,16 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Grant&quot;</span></span><span> </span><span class="annot"><span class="annottext">([TargetGrant] -&gt; XML) -&gt; Maybe [TargetGrant] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGrant]
-</span><a href="#local-6989586621679558977"><span class="hs-identifier hs-var">targetGrants</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559087"><span class="hs-identifier hs-var">targetGrants</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;TargetBucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679558976"><span class="hs-identifier hs-var">targetBucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559086"><span class="hs-identifier hs-var">targetBucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;TargetPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679558975"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span>
+</span><a href="#local-6989586621679559085"><span class="hs-identifier hs-var">targetPrefix</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span></pre></body></html>

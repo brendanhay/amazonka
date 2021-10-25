@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specifies the default server-side-encryption configuration.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newServerSideEncryptionConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679553440"><span id="local-6989586621679553441"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerSideEncryptionConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-var">ServerSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerSideEncryptionConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-var">ServerSideEncryptionConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679553550"><span id="local-6989586621679553551"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerSideEncryptionConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-var">ServerSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerSideEncryptionConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-var">ServerSideEncryptionConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for information about a particular server-side encryption</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- configuration rule.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Arules%3AServerSideEncryptionConfiguration%27"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration -&gt; [ServerSideEncryptionRule]
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#%24sel%3Arules%3AServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionRule.html#ServerSideEncryptionRule"><span class="hs-identifier hs-type">ServerSideEncryptionRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553434"><span id="local-6989586621679553436"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553544"><span id="local-6989586621679553546"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
 -&gt; ServerSideEncryptionConfiguration -&gt; Bool
 (ServerSideEncryptionConfiguration
  -&gt; ServerSideEncryptionConfiguration -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: ServerSideEncryptionConfiguration
 -&gt; ServerSideEncryptionConfiguration -&gt; Bool
 $c== :: ServerSideEncryptionConfiguration
 -&gt; ServerSideEncryptionConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553427"><span id="local-6989586621679553429"><span id="local-6989586621679553431"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryptionConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553537"><span id="local-6989586621679553539"><span id="local-6989586621679553541"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryptionConfiguration -&gt; ShowS
 [ServerSideEncryptionConfiguration] -&gt; ShowS
 ServerSideEncryptionConfiguration -&gt; String
 (Int -&gt; ServerSideEncryptionConfiguration -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Monoid a =&gt; a
      [ServerSideEncryptionRule]
      [ServerSideEncryptionRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553418"><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553528"><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
 rules :: [ServerSideEncryptionRule]
 $sel:rules:ServerSideEncryptionConfiguration' :: ServerSideEncryptionConfiguration -&gt; [ServerSideEncryptionRule]
-</span><a href="#local-6989586621679553418"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
-</span><a href="#local-6989586621679553418"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553417"><span class="annot"><span class="annottext">s :: ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679553417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553416"><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
-</span><a href="#local-6989586621679553416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679553417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ServerSideEncryptionConfiguration' :: [ServerSideEncryptionRule]
+</span><a href="#local-6989586621679553528"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
+</span><a href="#local-6989586621679553528"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553527"><span class="annot"><span class="annottext">s :: ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679553527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553526"><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
+</span><a href="#local-6989586621679553526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679553527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ServerSideEncryptionConfiguration' :: [ServerSideEncryptionRule]
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#%24sel%3Arules%3AServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
-</span><a href="#local-6989586621679553416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ServerSideEncryptionRule] -&gt; f [ServerSideEncryptionRule])
+</span><a href="#local-6989586621679553526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ServerSideEncryptionRule] -&gt; f [ServerSideEncryptionRule])
  -&gt; ServerSideEncryptionConfiguration
  -&gt; f ServerSideEncryptionConfiguration)
 -&gt; (([ServerSideEncryptionRule] -&gt; f [ServerSideEncryptionRule])
@@ -153,9 +153,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679553411"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServerSideEncryptionConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553409"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553409"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679553521"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServerSideEncryptionConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553519"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[ServerSideEncryptionRule] -&gt; ServerSideEncryptionConfiguration
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-var">ServerSideEncryptionConfiguration'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">([ServerSideEncryptionRule] -&gt; ServerSideEncryptionConfiguration)
@@ -166,27 +166,27 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553409"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553519"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679553403"><span id="local-6989586621679553405"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679553513"><span id="local-6989586621679553515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679553400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679553510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679553396"><span class="annot"><span class="annottext">toXML :: ServerSideEncryptionConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553394"><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679553506"><span class="annot"><span class="annottext">toXML :: ServerSideEncryptionConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration%27"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553504"><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
 rules :: [ServerSideEncryptionRule]
 $sel:rules:ServerSideEncryptionConfiguration' :: ServerSideEncryptionConfiguration -&gt; [ServerSideEncryptionRule]
-</span><a href="#local-6989586621679553394"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679553504"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name -&gt; [ServerSideEncryptionRule] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[ServerSideEncryptionRule]
-</span><a href="#local-6989586621679553394"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679553504"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span></pre></body></html>

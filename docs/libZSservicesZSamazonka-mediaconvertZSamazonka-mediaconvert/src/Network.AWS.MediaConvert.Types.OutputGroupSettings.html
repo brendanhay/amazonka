@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Output Group settings, including type</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newOutputGroupSettings' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680007067"><span id="local-6989586621680007068"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputGroupSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-var">OutputGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-var">OutputGroupSettings'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680008557"><span id="local-6989586621680008558"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputGroupSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-var">OutputGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-var">OutputGroupSettings'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings related to your File output group. MediaConvert uses this group</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- of settings to generate a single standalone file, rather than a</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- streaming package. When you work directly in your JSON job</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AdashIsoGroupSettings%3AOutputGroupSettings%27"><span class="annot"><span class="annottext">OutputGroupSettings -&gt; Maybe DashIsoGroupSettings
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3AdashIsoGroupSettings%3AOutputGroupSettings%27"><span class="hs-identifier hs-var hs-var">dashIsoGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoGroupSettings.html#DashIsoGroupSettings"><span class="hs-identifier hs-type">DashIsoGroupSettings</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007056"><span id="local-6989586621680007058"><span class="annot"><span class="annottext">OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680008546"><span id="local-6989586621680008548"><span class="annot"><span class="annottext">OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool
 (OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool)
 -&gt; (OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool)
 -&gt; Eq OutputGroupSettings
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool
 == :: OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool
 $c== :: OutputGroupSettings -&gt; OutputGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007047"><span id="local-6989586621680007049"><span id="local-6989586621680007051"><span id="local-6989586621680007053"><span class="annot"><span class="annottext">ReadPrec [OutputGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680008537"><span id="local-6989586621680008539"><span id="local-6989586621680008541"><span id="local-6989586621680008543"><span class="annot"><span class="annottext">ReadPrec [OutputGroupSettings]
 ReadPrec OutputGroupSettings
 Int -&gt; ReadS OutputGroupSettings
 ReadS [OutputGroupSettings]
@@ -103,7 +103,7 @@ readList :: ReadS [OutputGroupSettings]
 $creadList :: ReadS [OutputGroupSettings]
 readsPrec :: Int -&gt; ReadS OutputGroupSettings
 $creadsPrec :: Int -&gt; ReadS OutputGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007040"><span id="local-6989586621680007042"><span id="local-6989586621680007044"><span class="annot"><span class="annottext">Int -&gt; OutputGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680008530"><span id="local-6989586621680008532"><span id="local-6989586621680008534"><span class="annot"><span class="annottext">Int -&gt; OutputGroupSettings -&gt; ShowS
 [OutputGroupSettings] -&gt; ShowS
 OutputGroupSettings -&gt; String
 (Int -&gt; OutputGroupSettings -&gt; ShowS)
@@ -226,16 +226,16 @@ forall a. Maybe a
      (Maybe FileGroupSettings)
      (Maybe FileGroupSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007031"><span class="annot"><span class="annottext">Maybe FileGroupSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008521"><span class="annot"><span class="annottext">Maybe FileGroupSettings
 fileGroupSettings :: Maybe FileGroupSettings
 $sel:fileGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe FileGroupSettings
-</span><a href="#local-6989586621680007031"><span class="hs-identifier hs-var hs-var">fileGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileGroupSettings
-</span><a href="#local-6989586621680007031"><span class="hs-identifier hs-var">fileGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007030"><span class="annot"><span class="annottext">s :: OutputGroupSettings
-</span><a href="#local-6989586621680007030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007029"><span class="annot"><span class="annottext">Maybe FileGroupSettings
-</span><a href="#local-6989586621680007029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
-</span><a href="#local-6989586621680007030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileGroupSettings:OutputGroupSettings' :: Maybe FileGroupSettings
+</span><a href="#local-6989586621680008521"><span class="hs-identifier hs-var hs-var">fileGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileGroupSettings
+</span><a href="#local-6989586621680008521"><span class="hs-identifier hs-var">fileGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680008520"><span class="annot"><span class="annottext">s :: OutputGroupSettings
+</span><a href="#local-6989586621680008520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680008519"><span class="annot"><span class="annottext">Maybe FileGroupSettings
+</span><a href="#local-6989586621680008519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
+</span><a href="#local-6989586621680008520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileGroupSettings:OutputGroupSettings' :: Maybe FileGroupSettings
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3AfileGroupSettings%3AOutputGroupSettings%27"><span class="hs-identifier hs-var">fileGroupSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileGroupSettings
-</span><a href="#local-6989586621680007029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680008519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Settings related to your CMAF output package. For more information, see</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.</span><span>
@@ -254,16 +254,16 @@ $sel:fileGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe F
      (Maybe CmafGroupSettings)
      (Maybe CmafGroupSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007027"><span class="annot"><span class="annottext">Maybe CmafGroupSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008517"><span class="annot"><span class="annottext">Maybe CmafGroupSettings
 cmafGroupSettings :: Maybe CmafGroupSettings
 $sel:cmafGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe CmafGroupSettings
-</span><a href="#local-6989586621680007027"><span class="hs-identifier hs-var hs-var">cmafGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafGroupSettings
-</span><a href="#local-6989586621680007027"><span class="hs-identifier hs-var">cmafGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007026"><span class="annot"><span class="annottext">s :: OutputGroupSettings
-</span><a href="#local-6989586621680007026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007025"><span class="annot"><span class="annottext">Maybe CmafGroupSettings
-</span><a href="#local-6989586621680007025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
-</span><a href="#local-6989586621680007026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cmafGroupSettings:OutputGroupSettings' :: Maybe CmafGroupSettings
+</span><a href="#local-6989586621680008517"><span class="hs-identifier hs-var hs-var">cmafGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafGroupSettings
+</span><a href="#local-6989586621680008517"><span class="hs-identifier hs-var">cmafGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680008516"><span class="annot"><span class="annottext">s :: OutputGroupSettings
+</span><a href="#local-6989586621680008516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680008515"><span class="annot"><span class="annottext">Maybe CmafGroupSettings
+</span><a href="#local-6989586621680008515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
+</span><a href="#local-6989586621680008516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cmafGroupSettings:OutputGroupSettings' :: Maybe CmafGroupSettings
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3AcmafGroupSettings%3AOutputGroupSettings%27"><span class="hs-identifier hs-var">cmafGroupSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafGroupSettings
-</span><a href="#local-6989586621680007025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680008515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Settings related to your Microsoft Smooth Streaming output package. For</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- more information, see</span><span>
@@ -283,16 +283,16 @@ $sel:cmafGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe C
      (Maybe MsSmoothGroupSettings)
      (Maybe MsSmoothGroupSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007023"><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008513"><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
 msSmoothGroupSettings :: Maybe MsSmoothGroupSettings
 $sel:msSmoothGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe MsSmoothGroupSettings
-</span><a href="#local-6989586621680007023"><span class="hs-identifier hs-var hs-var">msSmoothGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
-</span><a href="#local-6989586621680007023"><span class="hs-identifier hs-var">msSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007022"><span class="annot"><span class="annottext">s :: OutputGroupSettings
-</span><a href="#local-6989586621680007022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007021"><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
-</span><a href="#local-6989586621680007021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
-</span><a href="#local-6989586621680007022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msSmoothGroupSettings:OutputGroupSettings' :: Maybe MsSmoothGroupSettings
+</span><a href="#local-6989586621680008513"><span class="hs-identifier hs-var hs-var">msSmoothGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
+</span><a href="#local-6989586621680008513"><span class="hs-identifier hs-var">msSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680008512"><span class="annot"><span class="annottext">s :: OutputGroupSettings
+</span><a href="#local-6989586621680008512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680008511"><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
+</span><a href="#local-6989586621680008511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
+</span><a href="#local-6989586621680008512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msSmoothGroupSettings:OutputGroupSettings' :: Maybe MsSmoothGroupSettings
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3AmsSmoothGroupSettings%3AOutputGroupSettings%27"><span class="hs-identifier hs-var">msSmoothGroupSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
-</span><a href="#local-6989586621680007021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680008511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | Settings related to your HLS output package. For more information, see</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.</span><span>
@@ -311,16 +311,16 @@ $sel:msSmoothGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; May
      (Maybe HlsGroupSettings)
      (Maybe HlsGroupSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007019"><span class="annot"><span class="annottext">Maybe HlsGroupSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008509"><span class="annot"><span class="annottext">Maybe HlsGroupSettings
 hlsGroupSettings :: Maybe HlsGroupSettings
 $sel:hlsGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe HlsGroupSettings
-</span><a href="#local-6989586621680007019"><span class="hs-identifier hs-var hs-var">hlsGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsGroupSettings
-</span><a href="#local-6989586621680007019"><span class="hs-identifier hs-var">hlsGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007018"><span class="annot"><span class="annottext">s :: OutputGroupSettings
-</span><a href="#local-6989586621680007018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007017"><span class="annot"><span class="annottext">Maybe HlsGroupSettings
-</span><a href="#local-6989586621680007017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
-</span><a href="#local-6989586621680007018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsGroupSettings:OutputGroupSettings' :: Maybe HlsGroupSettings
+</span><a href="#local-6989586621680008509"><span class="hs-identifier hs-var hs-var">hlsGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsGroupSettings
+</span><a href="#local-6989586621680008509"><span class="hs-identifier hs-var">hlsGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680008508"><span class="annot"><span class="annottext">s :: OutputGroupSettings
+</span><a href="#local-6989586621680008508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680008507"><span class="annot"><span class="annottext">Maybe HlsGroupSettings
+</span><a href="#local-6989586621680008507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
+</span><a href="#local-6989586621680008508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsGroupSettings:OutputGroupSettings' :: Maybe HlsGroupSettings
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3AhlsGroupSettings%3AOutputGroupSettings%27"><span class="hs-identifier hs-var">hlsGroupSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsGroupSettings
-</span><a href="#local-6989586621680007017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680008507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- Streaming, CMAF)</span><span>
@@ -336,16 +336,16 @@ $sel:hlsGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe Hl
      (Maybe OutputGroupType)
      (Maybe OutputGroupType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007015"><span class="annot"><span class="annottext">Maybe OutputGroupType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008505"><span class="annot"><span class="annottext">Maybe OutputGroupType
 type' :: Maybe OutputGroupType
 $sel:type':OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe OutputGroupType
-</span><a href="#local-6989586621680007015"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputGroupType
-</span><a href="#local-6989586621680007015"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007014"><span class="annot"><span class="annottext">s :: OutputGroupSettings
-</span><a href="#local-6989586621680007014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007013"><span class="annot"><span class="annottext">Maybe OutputGroupType
-</span><a href="#local-6989586621680007013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
-</span><a href="#local-6989586621680007014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OutputGroupSettings' :: Maybe OutputGroupType
+</span><a href="#local-6989586621680008505"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputGroupType
+</span><a href="#local-6989586621680008505"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680008504"><span class="annot"><span class="annottext">s :: OutputGroupSettings
+</span><a href="#local-6989586621680008504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680008503"><span class="annot"><span class="annottext">Maybe OutputGroupType
+</span><a href="#local-6989586621680008503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
+</span><a href="#local-6989586621680008504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OutputGroupSettings' :: Maybe OutputGroupType
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3Atype%27%3AOutputGroupSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputGroupType
-</span><a href="#local-6989586621680007013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680008503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Settings related to your DASH output package. For more information, see</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.</span><span>
@@ -364,19 +364,19 @@ $sel:type':OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe OutputGroupTy
      (Maybe DashIsoGroupSettings)
      (Maybe DashIsoGroupSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007011"><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008501"><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
 dashIsoGroupSettings :: Maybe DashIsoGroupSettings
 $sel:dashIsoGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe DashIsoGroupSettings
-</span><a href="#local-6989586621680007011"><span class="hs-identifier hs-var hs-var">dashIsoGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
-</span><a href="#local-6989586621680007011"><span class="hs-identifier hs-var">dashIsoGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007010"><span class="annot"><span class="annottext">s :: OutputGroupSettings
-</span><a href="#local-6989586621680007010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007009"><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
-</span><a href="#local-6989586621680007009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
-</span><a href="#local-6989586621680007010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashIsoGroupSettings:OutputGroupSettings' :: Maybe DashIsoGroupSettings
+</span><a href="#local-6989586621680008501"><span class="hs-identifier hs-var hs-var">dashIsoGroupSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
+</span><a href="#local-6989586621680008501"><span class="hs-identifier hs-var">dashIsoGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680008500"><span class="annot"><span class="annottext">s :: OutputGroupSettings
+</span><a href="#local-6989586621680008500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680008499"><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
+</span><a href="#local-6989586621680008499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupSettings
+</span><a href="#local-6989586621680008500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashIsoGroupSettings:OutputGroupSettings' :: Maybe DashIsoGroupSettings
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#%24sel%3AdashIsoGroupSettings%3AOutputGroupSettings%27"><span class="hs-identifier hs-var">dashIsoGroupSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
-</span><a href="#local-6989586621680007009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680008499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007006"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621680007004"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputGroupSettings
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680008496"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621680008494"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputGroupSettings)
@@ -386,8 +386,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputGroupSettings&quot;</span></span><span>
-</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680007001"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680008491"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe FileGroupSettings
 -&gt; Maybe CmafGroupSettings
 -&gt; Maybe MsSmoothGroupSettings
@@ -413,7 +413,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; OutputGroupSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileGroupSettings)
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileGroupSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileGroupSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -433,7 +433,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; OutputGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmafGroupSettings)
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmafGroupSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cmafGroupSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -451,7 +451,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; OutputGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothGroupSettings)
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothGroupSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;msSmoothGroupSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -466,7 +466,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe DashIsoGroupSettings -&gt; OutputGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsGroupSettings)
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsGroupSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hlsGroupSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -477,7 +477,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe DashIsoGroupSettings -&gt; OutputGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputGroupType)
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputGroupType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -486,19 +486,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser OutputGroupSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashIsoGroupSettings)
+</span><a href="#local-6989586621680008491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashIsoGroupSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dashIsoGroupSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006995"><span id="local-6989586621680006997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680008485"><span id="local-6989586621680008487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680008482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006984"><span id="local-6989586621680006986"><span id="local-6989586621680006988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621680006982"><span class="annot"><span class="annottext">toJSON :: OutputGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006975"><span id="local-6989586621680006976"><span id="local-6989586621680006977"><span id="local-6989586621680006978"><span id="local-6989586621680006979"><span id="local-6989586621680006980"><span class="annot"><span class="annottext">Maybe OutputGroupType
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680008474"><span id="local-6989586621680008476"><span id="local-6989586621680008478"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings"><span class="hs-identifier hs-type">OutputGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621680008472"><span class="annot"><span class="annottext">toJSON :: OutputGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupSettings.html#OutputGroupSettings%27"><span class="hs-identifier hs-type">OutputGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680008465"><span id="local-6989586621680008466"><span id="local-6989586621680008467"><span id="local-6989586621680008468"><span id="local-6989586621680008469"><span id="local-6989586621680008470"><span class="annot"><span class="annottext">Maybe OutputGroupType
 Maybe FileGroupSettings
 Maybe MsSmoothGroupSettings
 Maybe DashIsoGroupSettings
@@ -516,7 +516,7 @@ $sel:hlsGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe Hl
 $sel:msSmoothGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe MsSmoothGroupSettings
 $sel:cmafGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe CmafGroupSettings
 $sel:fileGroupSettings:OutputGroupSettings' :: OutputGroupSettings -&gt; Maybe FileGroupSettings
-</span><a href="#local-6989586621680006975"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680008465"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -530,7 +530,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FileGroupSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileGroupSettings
-</span><a href="#local-6989586621680006980"><span class="hs-identifier hs-var">fileGroupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680008470"><span class="hs-identifier hs-var">fileGroupSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cmafGroupSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmafGroupSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -539,7 +539,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CmafGroupSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmafGroupSettings
-</span><a href="#local-6989586621680006979"><span class="hs-identifier hs-var">cmafGroupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680008469"><span class="hs-identifier hs-var">cmafGroupSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;msSmoothGroupSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MsSmoothGroupSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -548,7 +548,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MsSmoothGroupSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothGroupSettings
-</span><a href="#local-6989586621680006978"><span class="hs-identifier hs-var">msSmoothGroupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680008468"><span class="hs-identifier hs-var">msSmoothGroupSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hlsGroupSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsGroupSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -556,14 +556,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(HlsGroupSettings -&gt; Pair) -&gt; Maybe HlsGroupSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsGroupSettings
-</span><a href="#local-6989586621680006977"><span class="hs-identifier hs-var">hlsGroupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680008467"><span class="hs-identifier hs-var">hlsGroupSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputGroupType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OutputGroupType -&gt; Pair) -&gt; Maybe OutputGroupType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OutputGroupType
-</span><a href="#local-6989586621680006976"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680008466"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dashIsoGroupSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DashIsoGroupSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -572,7 +572,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DashIsoGroupSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoGroupSettings
-</span><a href="#local-6989586621680006975"><span class="hs-identifier hs-var">dashIsoGroupSettings</span></a></span><span>
+</span><a href="#local-6989586621680008465"><span class="hs-identifier hs-var">dashIsoGroupSettings</span></a></span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span></pre></body></html>

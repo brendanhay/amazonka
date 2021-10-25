@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- together with a @Metrics@ block.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newReplicationTime' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679550596"><span id="local-6989586621679550597"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTime"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-var">ReplicationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTime%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-var">ReplicationTime'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679550706"><span id="local-6989586621679550707"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTime"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-var">ReplicationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTime%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-var">ReplicationTime'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the replication time is enabled.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AReplicationTime%27"><span class="annot"><span class="annottext">ReplicationTime -&gt; ReplicationTimeStatus
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#%24sel%3Astatus%3AReplicationTime%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeStatus.html#ReplicationTimeStatus"><span class="hs-identifier hs-type">ReplicationTimeStatus</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Atime%3AReplicationTime%27"><span class="annot"><span class="annottext">ReplicationTime -&gt; ReplicationTimeValue
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#%24sel%3Atime%3AReplicationTime%27"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679550589"><span id="local-6989586621679550591"><span class="annot"><span class="annottext">ReplicationTime -&gt; ReplicationTime -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679550699"><span id="local-6989586621679550701"><span class="annot"><span class="annottext">ReplicationTime -&gt; ReplicationTime -&gt; Bool
 (ReplicationTime -&gt; ReplicationTime -&gt; Bool)
 -&gt; (ReplicationTime -&gt; ReplicationTime -&gt; Bool)
 -&gt; Eq ReplicationTime
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicationTime -&gt; ReplicationTime -&gt; Bool
 == :: ReplicationTime -&gt; ReplicationTime -&gt; Bool
 $c== :: ReplicationTime -&gt; ReplicationTime -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550580"><span id="local-6989586621679550582"><span id="local-6989586621679550584"><span id="local-6989586621679550586"><span class="annot"><span class="annottext">ReadPrec [ReplicationTime]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550690"><span id="local-6989586621679550692"><span id="local-6989586621679550694"><span id="local-6989586621679550696"><span class="annot"><span class="annottext">ReadPrec [ReplicationTime]
 ReadPrec ReplicationTime
 Int -&gt; ReadS ReplicationTime
 ReadS [ReplicationTime]
@@ -70,7 +70,7 @@ readList :: ReadS [ReplicationTime]
 $creadList :: ReadS [ReplicationTime]
 readsPrec :: Int -&gt; ReadS ReplicationTime
 $creadsPrec :: Int -&gt; ReadS ReplicationTime
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550573"><span id="local-6989586621679550575"><span id="local-6989586621679550577"><span class="annot"><span class="annottext">Int -&gt; ReplicationTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550683"><span id="local-6989586621679550685"><span id="local-6989586621679550687"><span class="annot"><span class="annottext">Int -&gt; ReplicationTime -&gt; ShowS
 [ReplicationTime] -&gt; ShowS
 ReplicationTime -&gt; String
 (Int -&gt; ReplicationTime -&gt; ShowS)
@@ -115,15 +115,15 @@ $cfrom :: forall x. ReplicationTime -&gt; Rep ReplicationTime x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeValue.html#ReplicationTimeValue"><span class="hs-identifier hs-type">ReplicationTimeValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span>
 </span><span id="line-62"></span><span id="newReplicationTime"><span class="annot"><span class="annottext">newReplicationTime :: ReplicationTimeStatus -&gt; ReplicationTimeValue -&gt; ReplicationTime
-</span><a href="Network.AWS.S3.Types.ReplicationTime.html#newReplicationTime"><span class="hs-identifier hs-var hs-var">newReplicationTime</span></a></span></span><span> </span><span id="local-6989586621679550567"><span class="annot"><span class="annottext">ReplicationTimeStatus
-</span><a href="#local-6989586621679550567"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span id="local-6989586621679550566"><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550566"><span class="hs-identifier hs-var">pTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.ReplicationTime.html#newReplicationTime"><span class="hs-identifier hs-var hs-var">newReplicationTime</span></a></span></span><span> </span><span id="local-6989586621679550677"><span class="annot"><span class="annottext">ReplicationTimeStatus
+</span><a href="#local-6989586621679550677"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span id="local-6989586621679550676"><span class="annot"><span class="annottext">ReplicationTimeValue
+</span><a href="#local-6989586621679550676"><span class="hs-identifier hs-var">pTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ReplicationTime' :: ReplicationTimeStatus -&gt; ReplicationTimeValue -&gt; ReplicationTime
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationTime' :: ReplicationTimeStatus
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#%24sel%3Astatus%3AReplicationTime%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeStatus
-</span><a href="#local-6989586621679550567"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:time:ReplicationTime' :: ReplicationTimeValue
+</span><a href="#local-6989586621679550677"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:time:ReplicationTime' :: ReplicationTimeValue
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#%24sel%3Atime%3AReplicationTime%27"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550566"><span class="hs-identifier hs-var">pTime_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679550676"><span class="hs-identifier hs-var">pTime_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Specifies whether the replication time is enabled.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#replicationTime_status"><span class="hs-identifier hs-type">replicationTime_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTimeStatus.html#ReplicationTimeStatus"><span class="hs-identifier hs-type">ReplicationTimeStatus</span></a></span><span>
@@ -137,16 +137,16 @@ $cfrom :: forall x. ReplicationTime -&gt; Rep ReplicationTime x
      ReplicationTimeStatus
      ReplicationTimeStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550562"><span class="annot"><span class="annottext">ReplicationTimeStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550672"><span class="annot"><span class="annottext">ReplicationTimeStatus
 status :: ReplicationTimeStatus
 $sel:status:ReplicationTime' :: ReplicationTime -&gt; ReplicationTimeStatus
-</span><a href="#local-6989586621679550562"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeStatus
-</span><a href="#local-6989586621679550562"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550561"><span class="annot"><span class="annottext">s :: ReplicationTime
-</span><a href="#local-6989586621679550561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550560"><span class="annot"><span class="annottext">ReplicationTimeStatus
-</span><a href="#local-6989586621679550560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTime
-</span><a href="#local-6989586621679550561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationTime' :: ReplicationTimeStatus
+</span><a href="#local-6989586621679550672"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeStatus
+</span><a href="#local-6989586621679550672"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550671"><span class="annot"><span class="annottext">s :: ReplicationTime
+</span><a href="#local-6989586621679550671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550670"><span class="annot"><span class="annottext">ReplicationTimeStatus
+</span><a href="#local-6989586621679550670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTime
+</span><a href="#local-6989586621679550671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationTime' :: ReplicationTimeStatus
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#%24sel%3Astatus%3AReplicationTime%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeStatus
-</span><a href="#local-6989586621679550560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679550670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | A container specifying the time by which replication should be complete</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for all objects and operations on objects.</span><span>
@@ -161,21 +161,21 @@ $sel:status:ReplicationTime' :: ReplicationTime -&gt; ReplicationTimeStatus
      ReplicationTimeValue
      ReplicationTimeValue
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550558"><span class="annot"><span class="annottext">ReplicationTimeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550668"><span class="annot"><span class="annottext">ReplicationTimeValue
 time :: ReplicationTimeValue
 $sel:time:ReplicationTime' :: ReplicationTime -&gt; ReplicationTimeValue
-</span><a href="#local-6989586621679550558"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550558"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550557"><span class="annot"><span class="annottext">s :: ReplicationTime
-</span><a href="#local-6989586621679550557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550556"><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTime
-</span><a href="#local-6989586621679550557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:time:ReplicationTime' :: ReplicationTimeValue
+</span><a href="#local-6989586621679550668"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
+</span><a href="#local-6989586621679550668"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550667"><span class="annot"><span class="annottext">s :: ReplicationTime
+</span><a href="#local-6989586621679550667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550666"><span class="annot"><span class="annottext">ReplicationTimeValue
+</span><a href="#local-6989586621679550666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTime
+</span><a href="#local-6989586621679550667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:time:ReplicationTime' :: ReplicationTimeValue
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#%24sel%3Atime%3AReplicationTime%27"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679550666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679550553"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationTime
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679550551"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679550663"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679550661"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679550661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">ReplicationTimeStatus -&gt; ReplicationTimeValue -&gt; ReplicationTime
 </span><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-var">ReplicationTime'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(ReplicationTimeStatus -&gt; ReplicationTimeValue -&gt; ReplicationTime)
@@ -183,7 +183,7 @@ $sel:time:ReplicationTime' :: ReplicationTime -&gt; ReplicationTimeValue
 -&gt; Either String (ReplicationTimeValue -&gt; ReplicationTime)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReplicationTimeStatus
+</span><a href="#local-6989586621679550661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReplicationTimeStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (ReplicationTimeValue -&gt; ReplicationTime)
@@ -191,24 +191,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ReplicationTime
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReplicationTimeValue
+</span><a href="#local-6989586621679550661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReplicationTimeValue
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Time&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550545"><span id="local-6989586621679550547"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550655"><span id="local-6989586621679550657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679550538"><span class="annot"><span class="annottext">toXML :: ReplicationTime -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550535"><span id="local-6989586621679550536"><span class="annot"><span class="annottext">ReplicationTimeStatus
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679550648"><span class="annot"><span class="annottext">toXML :: ReplicationTime -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime%27"><span class="hs-identifier hs-type">ReplicationTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550645"><span id="local-6989586621679550646"><span class="annot"><span class="annottext">ReplicationTimeStatus
 ReplicationTimeValue
 time :: ReplicationTimeValue
 status :: ReplicationTimeStatus
 $sel:time:ReplicationTime' :: ReplicationTime -&gt; ReplicationTimeValue
 $sel:status:ReplicationTime' :: ReplicationTime -&gt; ReplicationTimeStatus
-</span><a href="#local-6989586621679550535"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679550645"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -216,9 +216,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ReplicationTimeStatus -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ReplicationTimeStatus
-</span><a href="#local-6989586621679550536"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
+</span><a href="#local-6989586621679550646"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Time&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ReplicationTimeValue -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ReplicationTimeValue
-</span><a href="#local-6989586621679550535"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679550645"><span class="hs-identifier hs-var">time</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in your CMAF outputs.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCmfcSettings' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679951238"><span id="local-6989586621679951239"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmfcSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-var">CmfcSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-var">CmfcSettings'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679952557"><span id="local-6989586621679952558"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmfcSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-var">CmfcSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-var">CmfcSettings'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify whether to flag this audio track as descriptive video service</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- MediaConvert includes the parameter</span><span>
@@ -133,7 +133,7 @@
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AaudioTrackType%3ACmfcSettings%27"><span class="annot"><span class="annottext">CmfcSettings -&gt; Maybe CmfcAudioTrackType
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AaudioTrackType%3ACmfcSettings%27"><span class="hs-identifier hs-var hs-var">audioTrackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-type">CmfcAudioTrackType</span></a></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679951225"><span id="local-6989586621679951227"><span class="annot"><span class="annottext">CmfcSettings -&gt; CmfcSettings -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679952544"><span id="local-6989586621679952546"><span class="annot"><span class="annottext">CmfcSettings -&gt; CmfcSettings -&gt; Bool
 (CmfcSettings -&gt; CmfcSettings -&gt; Bool)
 -&gt; (CmfcSettings -&gt; CmfcSettings -&gt; Bool) -&gt; Eq CmfcSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -141,7 +141,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CmfcSettings -&gt; CmfcSettings -&gt; Bool
 == :: CmfcSettings -&gt; CmfcSettings -&gt; Bool
 $c== :: CmfcSettings -&gt; CmfcSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951216"><span id="local-6989586621679951218"><span id="local-6989586621679951220"><span id="local-6989586621679951222"><span class="annot"><span class="annottext">ReadPrec [CmfcSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679952535"><span id="local-6989586621679952537"><span id="local-6989586621679952539"><span id="local-6989586621679952541"><span class="annot"><span class="annottext">ReadPrec [CmfcSettings]
 ReadPrec CmfcSettings
 Int -&gt; ReadS CmfcSettings
 ReadS [CmfcSettings]
@@ -161,7 +161,7 @@ readList :: ReadS [CmfcSettings]
 $creadList :: ReadS [CmfcSettings]
 readsPrec :: Int -&gt; ReadS CmfcSettings
 $creadsPrec :: Int -&gt; ReadS CmfcSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951209"><span id="local-6989586621679951211"><span id="local-6989586621679951213"><span class="annot"><span class="annottext">Int -&gt; CmfcSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679952528"><span id="local-6989586621679952530"><span id="local-6989586621679952532"><span class="annot"><span class="annottext">Int -&gt; CmfcSettings -&gt; ShowS
 [CmfcSettings] -&gt; ShowS
 CmfcSettings -&gt; String
 (Int -&gt; CmfcSettings -&gt; ShowS)
@@ -354,16 +354,16 @@ forall a. Maybe a
      (Maybe CmfcDescriptiveVideoServiceFlag)
      (Maybe CmfcDescriptiveVideoServiceFlag)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951200"><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952519"><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
 descriptiveVideoServiceFlag :: Maybe CmfcDescriptiveVideoServiceFlag
 $sel:descriptiveVideoServiceFlag:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcDescriptiveVideoServiceFlag
-</span><a href="#local-6989586621679951200"><span class="hs-identifier hs-var hs-var">descriptiveVideoServiceFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
-</span><a href="#local-6989586621679951200"><span class="hs-identifier hs-var">descriptiveVideoServiceFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951199"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951198"><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
-</span><a href="#local-6989586621679951198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:descriptiveVideoServiceFlag:CmfcSettings' :: Maybe CmfcDescriptiveVideoServiceFlag
+</span><a href="#local-6989586621679952519"><span class="hs-identifier hs-var hs-var">descriptiveVideoServiceFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
+</span><a href="#local-6989586621679952519"><span class="hs-identifier hs-var">descriptiveVideoServiceFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952518"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952517"><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
+</span><a href="#local-6989586621679952517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:descriptiveVideoServiceFlag:CmfcSettings' :: Maybe CmfcDescriptiveVideoServiceFlag
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AdescriptiveVideoServiceFlag%3ACmfcSettings%27"><span class="hs-identifier hs-var">descriptiveVideoServiceFlag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
-</span><a href="#local-6989586621679951198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | List the audio rendition groups that you want included with this video</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- rendition. Use a comma-separated list. For example, say you want to</span><span>
@@ -389,16 +389,16 @@ $sel:descriptiveVideoServiceFlag:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcD
 -&gt; (CmfcSettings -&gt; Maybe Text -&gt; CmfcSettings)
 -&gt; Lens CmfcSettings CmfcSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951196"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952515"><span class="annot"><span class="annottext">Maybe Text
 audioRenditionSets :: Maybe Text
 $sel:audioRenditionSets:CmfcSettings' :: CmfcSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679951196"><span class="hs-identifier hs-var hs-var">audioRenditionSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951196"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951195"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951194"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioRenditionSets:CmfcSettings' :: Maybe Text
+</span><a href="#local-6989586621679952515"><span class="hs-identifier hs-var hs-var">audioRenditionSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679952515"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952514"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679952513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioRenditionSets:CmfcSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AaudioRenditionSets%3ACmfcSettings%27"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- manifest that lists only the I-frames for this rendition, in addition to</span><span>
@@ -418,16 +418,16 @@ $sel:audioRenditionSets:CmfcSettings' :: CmfcSettings -&gt; Maybe Text
      (Maybe CmfcIFrameOnlyManifest)
      (Maybe CmfcIFrameOnlyManifest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951192"><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952511"><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
 iFrameOnlyManifest :: Maybe CmfcIFrameOnlyManifest
 $sel:iFrameOnlyManifest:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcIFrameOnlyManifest
-</span><a href="#local-6989586621679951192"><span class="hs-identifier hs-var hs-var">iFrameOnlyManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
-</span><a href="#local-6989586621679951192"><span class="hs-identifier hs-var">iFrameOnlyManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951191"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951190"><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
-</span><a href="#local-6989586621679951190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iFrameOnlyManifest:CmfcSettings' :: Maybe CmfcIFrameOnlyManifest
+</span><a href="#local-6989586621679952511"><span class="hs-identifier hs-var hs-var">iFrameOnlyManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
+</span><a href="#local-6989586621679952511"><span class="hs-identifier hs-var">iFrameOnlyManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952510"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952509"><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
+</span><a href="#local-6989586621679952509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iFrameOnlyManifest:CmfcSettings' :: Maybe CmfcIFrameOnlyManifest
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AiFrameOnlyManifest%3ACmfcSettings%27"><span class="hs-identifier hs-var">iFrameOnlyManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
-</span><a href="#local-6989586621679951190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- INSERT to put SCTE-35 markers in this output at the insertion points</span><span>
@@ -444,16 +444,16 @@ $sel:iFrameOnlyManifest:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcIFrameOnly
      (Maybe CmfcScte35Esam)
      (Maybe CmfcScte35Esam)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951188"><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952507"><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
 scte35Esam :: Maybe CmfcScte35Esam
 $sel:scte35Esam:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcScte35Esam
-</span><a href="#local-6989586621679951188"><span class="hs-identifier hs-var hs-var">scte35Esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
-</span><a href="#local-6989586621679951188"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951187"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951186"><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
-</span><a href="#local-6989586621679951186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Esam:CmfcSettings' :: Maybe CmfcScte35Esam
+</span><a href="#local-6989586621679952507"><span class="hs-identifier hs-var hs-var">scte35Esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
+</span><a href="#local-6989586621679952507"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952506"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952505"><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
+</span><a href="#local-6989586621679952505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Esam:CmfcSettings' :: Maybe CmfcScte35Esam
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3Ascte35Esam%3ACmfcSettings%27"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
-</span><a href="#local-6989586621679951186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | Specify this setting only when your output will be consumed by a</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- downstream repackaging workflow that is sensitive to very small duration</span><span>
@@ -480,16 +480,16 @@ $sel:scte35Esam:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcScte35Esam
      (Maybe CmfcAudioDuration)
      (Maybe CmfcAudioDuration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951184"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952503"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
 audioDuration :: Maybe CmfcAudioDuration
 $sel:audioDuration:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679951184"><span class="hs-identifier hs-var hs-var">audioDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679951184"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951183"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951182"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679951182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDuration:CmfcSettings' :: Maybe CmfcAudioDuration
+</span><a href="#local-6989586621679952503"><span class="hs-identifier hs-var hs-var">audioDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
+</span><a href="#local-6989586621679952503"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952502"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952501"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
+</span><a href="#local-6989586621679952501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDuration:CmfcSettings' :: Maybe CmfcAudioDuration
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AaudioDuration%3ACmfcSettings%27"><span class="hs-identifier hs-var">audioDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679951182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | Specify the audio rendition group for this audio rendition. Specify up</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- to one value for each audio output in your output group. This value</span><span>
@@ -507,16 +507,16 @@ $sel:audioDuration:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcAudioDuration
 -&gt; (CmfcSettings -&gt; Maybe Text -&gt; CmfcSettings)
 -&gt; Lens CmfcSettings CmfcSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952499"><span class="annot"><span class="annottext">Maybe Text
 audioGroupId :: Maybe Text
 $sel:audioGroupId:CmfcSettings' :: CmfcSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679951180"><span class="hs-identifier hs-var hs-var">audioGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951180"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951179"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioGroupId:CmfcSettings' :: Maybe Text
+</span><a href="#local-6989586621679952499"><span class="hs-identifier hs-var hs-var">audioGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679952499"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952498"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679952497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioGroupId:CmfcSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AaudioGroupId%3ACmfcSettings%27"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- | Ignore this setting unless you have SCTE-35 markers in your input video</span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that</span><span>
@@ -533,16 +533,16 @@ $sel:audioGroupId:CmfcSettings' :: CmfcSettings -&gt; Maybe Text
      (Maybe CmfcScte35Source)
      (Maybe CmfcScte35Source)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951176"><span class="annot"><span class="annottext">Maybe CmfcScte35Source
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952495"><span class="annot"><span class="annottext">Maybe CmfcScte35Source
 scte35Source :: Maybe CmfcScte35Source
 $sel:scte35Source:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcScte35Source
-</span><a href="#local-6989586621679951176"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Source
-</span><a href="#local-6989586621679951176"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951175"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951174"><span class="annot"><span class="annottext">Maybe CmfcScte35Source
-</span><a href="#local-6989586621679951174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Source:CmfcSettings' :: Maybe CmfcScte35Source
+</span><a href="#local-6989586621679952495"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Source
+</span><a href="#local-6989586621679952495"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952494"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952493"><span class="annot"><span class="annottext">Maybe CmfcScte35Source
+</span><a href="#local-6989586621679952493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Source:CmfcSettings' :: Maybe CmfcScte35Source
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3Ascte35Source%3ACmfcSettings%27"><span class="hs-identifier hs-var">scte35Source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Source
-</span><a href="#local-6989586621679951174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | Use this setting to control the values that MediaConvert puts in your</span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- HLS parent playlist to control how the client player selects which audio</span><span>
@@ -572,19 +572,19 @@ $sel:scte35Source:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcScte35Source
      (Maybe CmfcAudioTrackType)
      (Maybe CmfcAudioTrackType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951172"><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952491"><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
 audioTrackType :: Maybe CmfcAudioTrackType
 $sel:audioTrackType:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcAudioTrackType
-</span><a href="#local-6989586621679951172"><span class="hs-identifier hs-var hs-var">audioTrackType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
-</span><a href="#local-6989586621679951172"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951171"><span class="annot"><span class="annottext">s :: CmfcSettings
-</span><a href="#local-6989586621679951171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951170"><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
-</span><a href="#local-6989586621679951170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
-</span><a href="#local-6989586621679951171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioTrackType:CmfcSettings' :: Maybe CmfcAudioTrackType
+</span><a href="#local-6989586621679952491"><span class="hs-identifier hs-var hs-var">audioTrackType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
+</span><a href="#local-6989586621679952491"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952490"><span class="annot"><span class="annottext">s :: CmfcSettings
+</span><a href="#local-6989586621679952490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952489"><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
+</span><a href="#local-6989586621679952489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmfcSettings
+</span><a href="#local-6989586621679952490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioTrackType:CmfcSettings' :: Maybe CmfcAudioTrackType
 </span><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#%24sel%3AaudioTrackType%3ACmfcSettings%27"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
-</span><a href="#local-6989586621679951170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-347"></span><span>
-</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951167"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-349"></span><span>  </span><span id="local-6989586621679951165"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmfcSettings
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952486"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621679952484"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmfcSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-350"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CmfcSettings) -&gt; Value -&gt; Parser CmfcSettings
@@ -592,8 +592,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-351"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CmfcSettings&quot;</span></span><span>
-</span><span id="line-352"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679951162"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-352"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679952481"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-353"></span><span>          </span><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
 -&gt; Maybe Text
 -&gt; Maybe CmfcIFrameOnlyManifest
@@ -625,7 +625,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcDescriptiveVideoServiceFlag)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcDescriptiveVideoServiceFlag)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;descriptiveVideoServiceFlag&quot;</span></span><span class="hs-special">)</span><span>
@@ -649,7 +649,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioRenditionSets&quot;</span></span><span class="hs-special">)</span><span>
@@ -671,7 +671,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcIFrameOnlyManifest)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcIFrameOnlyManifest)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iFrameOnlyManifest&quot;</span></span><span class="hs-special">)</span><span>
@@ -691,7 +691,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcScte35Esam)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcScte35Esam)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Esam&quot;</span></span><span class="hs-special">)</span><span>
@@ -709,7 +709,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcAudioDuration)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcAudioDuration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDuration&quot;</span></span><span class="hs-special">)</span><span>
@@ -724,7 +724,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe CmfcAudioTrackType -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioGroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -735,7 +735,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe CmfcAudioTrackType -&gt; CmfcSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcScte35Source)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcScte35Source)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Source&quot;</span></span><span class="hs-special">)</span><span>
@@ -743,19 +743,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe CmfcAudioTrackType) -&gt; Parser CmfcSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679951162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcAudioTrackType)
+</span><a href="#local-6989586621679952481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcAudioTrackType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioTrackType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-362"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>
-</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951156"><span id="local-6989586621679951158"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952475"><span id="local-6989586621679952477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span></span><span>
 </span><span id="line-365"></span><span>
-</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951153"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span><span>
 </span><span id="line-367"></span><span>
-</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679951145"><span id="local-6989586621679951147"><span id="local-6989586621679951149"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-369"></span><span>  </span><span id="local-6989586621679951143"><span class="annot"><span class="annottext">toJSON :: CmfcSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951134"><span id="local-6989586621679951135"><span id="local-6989586621679951136"><span id="local-6989586621679951137"><span id="local-6989586621679951138"><span id="local-6989586621679951139"><span id="local-6989586621679951140"><span id="local-6989586621679951141"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952464"><span id="local-6989586621679952466"><span id="local-6989586621679952468"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings"><span class="hs-identifier hs-type">CmfcSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-369"></span><span>  </span><span id="local-6989586621679952462"><span class="annot"><span class="annottext">toJSON :: CmfcSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcSettings.html#CmfcSettings%27"><span class="hs-identifier hs-type">CmfcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952453"><span id="local-6989586621679952454"><span id="local-6989586621679952455"><span id="local-6989586621679952456"><span id="local-6989586621679952457"><span id="local-6989586621679952458"><span id="local-6989586621679952459"><span id="local-6989586621679952460"><span class="annot"><span class="annottext">Maybe Text
 Maybe CmfcAudioDuration
 Maybe CmfcAudioTrackType
 Maybe CmfcDescriptiveVideoServiceFlag
@@ -778,7 +778,7 @@ $sel:scte35Esam:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcScte35Esam
 $sel:iFrameOnlyManifest:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcIFrameOnlyManifest
 $sel:audioRenditionSets:CmfcSettings' :: CmfcSettings -&gt; Maybe Text
 $sel:descriptiveVideoServiceFlag:CmfcSettings' :: CmfcSettings -&gt; Maybe CmfcDescriptiveVideoServiceFlag
-</span><a href="#local-6989586621679951134"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679952453"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-370"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -792,7 +792,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CmfcDescriptiveVideoServiceFlag -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcDescriptiveVideoServiceFlag
-</span><a href="#local-6989586621679951141"><span class="hs-identifier hs-var">descriptiveVideoServiceFlag</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952460"><span class="hs-identifier hs-var">descriptiveVideoServiceFlag</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioRenditionSets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -800,7 +800,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951140"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952459"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iFrameOnlyManifest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmfcIFrameOnlyManifest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -809,14 +809,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CmfcIFrameOnlyManifest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcIFrameOnlyManifest
-</span><a href="#local-6989586621679951139"><span class="hs-identifier hs-var">iFrameOnlyManifest</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952458"><span class="hs-identifier hs-var">iFrameOnlyManifest</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Esam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmfcScte35Esam -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CmfcScte35Esam -&gt; Pair) -&gt; Maybe CmfcScte35Esam -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Esam
-</span><a href="#local-6989586621679951138"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952457"><span class="hs-identifier hs-var">scte35Esam</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmfcAudioDuration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -824,21 +824,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CmfcAudioDuration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679951137"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952456"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-380"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679951136"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952455"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmfcScte35Source -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CmfcScte35Source -&gt; Pair) -&gt; Maybe CmfcScte35Source -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcScte35Source
-</span><a href="#local-6989586621679951135"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952454"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-382"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioTrackType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmfcAudioTrackType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -847,7 +847,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CmfcAudioTrackType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioTrackType
-</span><a href="#local-6989586621679951134"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span>
+</span><a href="#local-6989586621679952453"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span>
 </span><span id="line-384"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-385"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-386"></span></pre></body></html>

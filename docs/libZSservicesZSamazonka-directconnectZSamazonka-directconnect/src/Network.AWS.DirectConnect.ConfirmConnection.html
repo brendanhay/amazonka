@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newConfirmConnection' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679294190"><span id="local-6989586621679294191"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmConnection"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-var">ConfirmConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmConnection%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-var">ConfirmConnection'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679303293"><span id="local-6989586621679303294"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmConnection"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-var">ConfirmConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmConnection%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-var">ConfirmConnection'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the hosted connection.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AconnectionId%3AConfirmConnection%27"><span class="annot"><span class="annottext">ConfirmConnection -&gt; Text
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AconnectionId%3AConfirmConnection%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294184"><span id="local-6989586621679294186"><span class="annot"><span class="annottext">ConfirmConnection -&gt; ConfirmConnection -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303287"><span id="local-6989586621679303289"><span class="annot"><span class="annottext">ConfirmConnection -&gt; ConfirmConnection -&gt; Bool
 (ConfirmConnection -&gt; ConfirmConnection -&gt; Bool)
 -&gt; (ConfirmConnection -&gt; ConfirmConnection -&gt; Bool)
 -&gt; Eq ConfirmConnection
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfirmConnection -&gt; ConfirmConnection -&gt; Bool
 == :: ConfirmConnection -&gt; ConfirmConnection -&gt; Bool
 $c== :: ConfirmConnection -&gt; ConfirmConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294175"><span id="local-6989586621679294177"><span id="local-6989586621679294179"><span id="local-6989586621679294181"><span class="annot"><span class="annottext">ReadPrec [ConfirmConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303278"><span id="local-6989586621679303280"><span id="local-6989586621679303282"><span id="local-6989586621679303284"><span class="annot"><span class="annottext">ReadPrec [ConfirmConnection]
 ReadPrec ConfirmConnection
 Int -&gt; ReadS ConfirmConnection
 ReadS [ConfirmConnection]
@@ -86,7 +86,7 @@ readList :: ReadS [ConfirmConnection]
 $creadList :: ReadS [ConfirmConnection]
 readsPrec :: Int -&gt; ReadS ConfirmConnection
 $creadsPrec :: Int -&gt; ReadS ConfirmConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294168"><span id="local-6989586621679294170"><span id="local-6989586621679294172"><span class="annot"><span class="annottext">Int -&gt; ConfirmConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303271"><span id="local-6989586621679303273"><span id="local-6989586621679303275"><span class="annot"><span class="annottext">Int -&gt; ConfirmConnection -&gt; ShowS
 [ConfirmConnection] -&gt; ShowS
 ConfirmConnection -&gt; String
 (Int -&gt; ConfirmConnection -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. ConfirmConnection -&gt; Rep ConfirmConnection x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span>
 </span><span id="line-74"></span><span id="newConfirmConnection"><span class="annot"><span class="annottext">newConfirmConnection :: Text -&gt; ConfirmConnection
-</span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#newConfirmConnection"><span class="hs-identifier hs-var hs-var">newConfirmConnection</span></a></span></span><span> </span><span id="local-6989586621679294163"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294163"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#newConfirmConnection"><span class="hs-identifier hs-var hs-var">newConfirmConnection</span></a></span></span><span> </span><span id="local-6989586621679303266"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303266"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ConfirmConnection' :: Text -&gt; ConfirmConnection
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:ConfirmConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AconnectionId%3AConfirmConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294163"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679303266"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The ID of the hosted connection.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#confirmConnection_connectionId"><span class="hs-identifier hs-type">confirmConnection_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. ConfirmConnection -&gt; Rep ConfirmConnection x
 -&gt; (ConfirmConnection -&gt; Text -&gt; ConfirmConnection)
 -&gt; Lens ConfirmConnection ConfirmConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294160"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303263"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:ConfirmConnection' :: ConfirmConnection -&gt; Text
-</span><a href="#local-6989586621679294160"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294160"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294159"><span class="annot"><span class="annottext">s :: ConfirmConnection
-</span><a href="#local-6989586621679294159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294158"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmConnection
-</span><a href="#local-6989586621679294159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:ConfirmConnection' :: Text
+</span><a href="#local-6989586621679303263"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303263"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303262"><span class="annot"><span class="annottext">s :: ConfirmConnection
+</span><a href="#local-6989586621679303262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303261"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmConnection
+</span><a href="#local-6989586621679303262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:ConfirmConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AconnectionId%3AConfirmConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679294154"><span class="annot"><span class="annottext">request :: ConfirmConnection -&gt; Request ConfirmConnection
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679303257"><span class="annot"><span class="annottext">request :: ConfirmConnection -&gt; Request ConfirmConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ConfirmConnection -&gt; Request ConfirmConnection
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679294150"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679303253"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ConfirmConnection
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294147"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294147"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294146"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679294146"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294145"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303250"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303249"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303249"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303248"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConnectionState -&gt; Int -&gt; ConfirmConnectionResponse
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-var">ConfirmConnectionResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConnectionState -&gt; Int -&gt; ConfirmConnectionResponse)
@@ -197,7 +197,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ConfirmConnectionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectionState)
+</span><a href="#local-6989586621679303248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectionState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionState&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,15 +209,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294147"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303250"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294137"><span id="local-6989586621679294139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303240"><span id="local-6989586621679303242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679294130"><span class="annot"><span class="annottext">toHeaders :: ConfirmConnection -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679303233"><span class="annot"><span class="annottext">toHeaders :: ConfirmConnection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ConfirmConnection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,12 +244,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294120"><span id="local-6989586621679294122"><span id="local-6989586621679294124"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679294118"><span class="annot"><span class="annottext">toJSON :: ConfirmConnection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294116"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303223"><span id="local-6989586621679303225"><span id="local-6989586621679303227"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679303221"><span class="annot"><span class="annottext">toJSON :: ConfirmConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection%27"><span class="hs-identifier hs-type">ConfirmConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303219"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:ConfirmConnection' :: ConfirmConnection -&gt; Text
-</span><a href="#local-6989586621679294116"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303219"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -261,18 +261,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294116"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679303219"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294110"><span class="annot"><span class="annottext">toPath :: ConfirmConnection -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679303213"><span class="annot"><span class="annottext">toPath :: ConfirmConnection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ConfirmConnection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnection"><span class="hs-identifier hs-type">ConfirmConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679294106"><span class="annot"><span class="annottext">toQuery :: ConfirmConnection -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679303209"><span class="annot"><span class="annottext">toQuery :: ConfirmConnection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ConfirmConnection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newConfirmConnectionResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679294103"><span id="local-6989586621679294104"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmConnectionResponse"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-var">ConfirmConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmConnectionResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-var">ConfirmConnectionResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679303206"><span id="local-6989586621679303207"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmConnectionResponse"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-var">ConfirmConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmConnectionResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-var">ConfirmConnectionResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the connection. The following are the possible values:</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   @ordering@: The initial state of a hosted connection provisioned on</span><span>
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AConfirmConnectionResponse%27"><span class="annot"><span class="annottext">ConfirmConnectionResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AhttpStatus%3AConfirmConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294097"><span id="local-6989586621679294099"><span class="annot"><span class="annottext">ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303200"><span id="local-6989586621679303202"><span class="annot"><span class="annottext">ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool
 (ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool)
 -&gt; (ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool)
 -&gt; Eq ConfirmConnectionResponse
@@ -323,7 +323,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool
 == :: ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool
 $c== :: ConfirmConnectionResponse -&gt; ConfirmConnectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294089"><span id="local-6989586621679294091"><span id="local-6989586621679294093"><span id="local-6989586621679294095"><span class="annot"><span class="annottext">ReadPrec [ConfirmConnectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303192"><span id="local-6989586621679303194"><span id="local-6989586621679303196"><span id="local-6989586621679303198"><span class="annot"><span class="annottext">ReadPrec [ConfirmConnectionResponse]
 ReadPrec ConfirmConnectionResponse
 Int -&gt; ReadS ConfirmConnectionResponse
 ReadS [ConfirmConnectionResponse]
@@ -343,7 +343,7 @@ readList :: ReadS [ConfirmConnectionResponse]
 $creadList :: ReadS [ConfirmConnectionResponse]
 readsPrec :: Int -&gt; ReadS ConfirmConnectionResponse
 $creadsPrec :: Int -&gt; ReadS ConfirmConnectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294083"><span id="local-6989586621679294085"><span id="local-6989586621679294087"><span class="annot"><span class="annottext">Int -&gt; ConfirmConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303186"><span id="local-6989586621679303188"><span id="local-6989586621679303190"><span class="annot"><span class="annottext">Int -&gt; ConfirmConnectionResponse -&gt; ShowS
 [ConfirmConnectionResponse] -&gt; ShowS
 ConfirmConnectionResponse -&gt; String
 (Int -&gt; ConfirmConnectionResponse -&gt; ShowS)
@@ -417,8 +417,8 @@ ConfirmConnectionResponse -&gt; Rep ConfirmConnectionResponse x
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span>
 </span><span id="line-202"></span><span id="newConfirmConnectionResponse"><span class="annot"><span class="annottext">newConfirmConnectionResponse :: Int -&gt; ConfirmConnectionResponse
-</span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#newConfirmConnectionResponse"><span class="hs-identifier hs-var hs-var">newConfirmConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679294080"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294080"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#newConfirmConnectionResponse"><span class="hs-identifier hs-var hs-var">newConfirmConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679303183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303183"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">ConfirmConnectionResponse' :: Maybe ConnectionState -&gt; Int -&gt; ConfirmConnectionResponse
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionState:ConfirmConnectionResponse' :: Maybe ConnectionState
@@ -428,7 +428,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmConnectionResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AhttpStatus%3AConfirmConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294080"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679303183"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The state of the connection. The following are the possible values:</span><span>
@@ -470,16 +470,16 @@ forall a. Maybe a
      (Maybe ConnectionState)
      (Maybe ConnectionState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294079"><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303182"><span class="annot"><span class="annottext">Maybe ConnectionState
 connectionState :: Maybe ConnectionState
 $sel:connectionState:ConfirmConnectionResponse' :: ConfirmConnectionResponse -&gt; Maybe ConnectionState
-</span><a href="#local-6989586621679294079"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679294079"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294078"><span class="annot"><span class="annottext">s :: ConfirmConnectionResponse
-</span><a href="#local-6989586621679294078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294077"><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679294077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmConnectionResponse
-</span><a href="#local-6989586621679294078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:ConfirmConnectionResponse' :: Maybe ConnectionState
+</span><a href="#local-6989586621679303182"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679303182"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303181"><span class="annot"><span class="annottext">s :: ConfirmConnectionResponse
+</span><a href="#local-6989586621679303181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303180"><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679303180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmConnectionResponse
+</span><a href="#local-6989586621679303181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:ConfirmConnectionResponse' :: Maybe ConnectionState
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AconnectionState%3AConfirmConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679294077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-240"></span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#confirmConnectionResponse_httpStatus"><span class="hs-identifier hs-type">confirmConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -489,16 +489,16 @@ $sel:connectionState:ConfirmConnectionResponse' :: ConfirmConnectionResponse -&g
 -&gt; (ConfirmConnectionResponse -&gt; Int -&gt; ConfirmConnectionResponse)
 -&gt; Lens ConfirmConnectionResponse ConfirmConnectionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294076"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303179"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ConfirmConnectionResponse' :: ConfirmConnectionResponse -&gt; Int
-</span><a href="#local-6989586621679294076"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294076"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294075"><span class="annot"><span class="annottext">s :: ConfirmConnectionResponse
-</span><a href="#local-6989586621679294075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmConnectionResponse
-</span><a href="#local-6989586621679294075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmConnectionResponse' :: Int
+</span><a href="#local-6989586621679303179"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303179"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303178"><span class="annot"><span class="annottext">s :: ConfirmConnectionResponse
+</span><a href="#local-6989586621679303178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse%27"><span class="hs-identifier hs-type">ConfirmConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmConnectionResponse
+</span><a href="#local-6989586621679303178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmConnectionResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.ConfirmConnection.html#%24sel%3AhttpStatus%3AConfirmConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmConnection.html#ConfirmConnectionResponse"><span class="hs-identifier hs-type">ConfirmConnectionResponse</span></a></span></span><span>
 </span><span id="line-244"></span></pre></body></html>

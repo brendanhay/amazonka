@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Optional. Choose the scan line type for this output. If you don\'t</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- specify a value, MediaConvert will create a progressive output.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680010549"><span id="local-6989586621680010550"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3InterlaceMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-var">Vc3InterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3InterlaceMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode%27"><span class="hs-identifier hs-var">Vc3InterlaceMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680012039"><span id="local-6989586621680012040"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3InterlaceMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-var">Vc3InterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3InterlaceMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode%27"><span class="hs-identifier hs-var">Vc3InterlaceMode'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVc3InterlaceMode"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vc3InterlaceMode.html#fromVc3InterlaceMode"><span class="hs-identifier hs-var hs-var">fromVc3InterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680010541"><span id="local-6989586621680010543"><span id="local-6989586621680010545"><span class="annot"><span class="annottext">Int -&gt; Vc3InterlaceMode -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680012031"><span id="local-6989586621680012033"><span id="local-6989586621680012035"><span class="annot"><span class="annottext">Int -&gt; Vc3InterlaceMode -&gt; ShowS
 [Vc3InterlaceMode] -&gt; ShowS
 Vc3InterlaceMode -&gt; String
 (Int -&gt; Vc3InterlaceMode -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: Vc3InterlaceMode -&gt; String
 showsPrec :: Int -&gt; Vc3InterlaceMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vc3InterlaceMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680010532"><span id="local-6989586621680010534"><span id="local-6989586621680010536"><span id="local-6989586621680010538"><span class="annot"><span class="annottext">ReadPrec [Vc3InterlaceMode]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680012022"><span id="local-6989586621680012024"><span id="local-6989586621680012026"><span id="local-6989586621680012028"><span class="annot"><span class="annottext">ReadPrec [Vc3InterlaceMode]
 ReadPrec Vc3InterlaceMode
 Int -&gt; ReadS Vc3InterlaceMode
 ReadS [Vc3InterlaceMode]
@@ -74,7 +74,7 @@ $creadList :: ReadS [Vc3InterlaceMode]
 readsPrec :: Int -&gt; ReadS Vc3InterlaceMode
 $creadsPrec :: Int -&gt; ReadS Vc3InterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680010527"><span id="local-6989586621680010529"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680012017"><span id="local-6989586621680012019"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
 (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
 -&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
 -&gt; Eq Vc3InterlaceMode
@@ -84,7 +84,7 @@ $c/= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
 == :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
 $c== :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680010511"><span id="local-6989586621680010513"><span id="local-6989586621680010515"><span id="local-6989586621680010517"><span id="local-6989586621680010519"><span id="local-6989586621680010521"><span id="local-6989586621680010523"><span class="annot"><span class="annottext">Eq Vc3InterlaceMode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680012001"><span id="local-6989586621680012003"><span id="local-6989586621680012005"><span id="local-6989586621680012007"><span id="local-6989586621680012009"><span id="local-6989586621680012011"><span id="local-6989586621680012013"><span class="annot"><span class="annottext">Eq Vc3InterlaceMode
 Eq Vc3InterlaceMode
 -&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Ordering)
 -&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. Vc3InterlaceMode -&gt; Rep Vc3InterlaceMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680010503"><span id="local-6989586621680010505"><span class="annot"><span class="annottext">Int -&gt; Vc3InterlaceMode -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011993"><span id="local-6989586621680011995"><span class="annot"><span class="annottext">Int -&gt; Vc3InterlaceMode -&gt; Int
 Vc3InterlaceMode -&gt; Int
 (Int -&gt; Vc3InterlaceMode -&gt; Int)
 -&gt; (Vc3InterlaceMode -&gt; Int) -&gt; Hashable Vc3InterlaceMode
@@ -145,51 +145,51 @@ $chash :: Vc3InterlaceMode -&gt; Int
 hashWithSalt :: Int -&gt; Vc3InterlaceMode -&gt; Int
 $chashWithSalt :: Int -&gt; Vc3InterlaceMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680010500"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680011990"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ()
 (Vc3InterlaceMode -&gt; ()) -&gt; NFData Vc3InterlaceMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vc3InterlaceMode -&gt; ()
 $crnf :: Vc3InterlaceMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680010497"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3InterlaceMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680011987"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3InterlaceMode
 (Text -&gt; Either String Vc3InterlaceMode)
 -&gt; FromText Vc3InterlaceMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vc3InterlaceMode
 $cfromText :: Text -&gt; Either String Vc3InterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680010494"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680011984"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Text
 (Vc3InterlaceMode -&gt; Text) -&gt; ToText Vc3InterlaceMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vc3InterlaceMode -&gt; Text
 $ctoText :: Vc3InterlaceMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680010491"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680011981"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ByteString
 (Vc3InterlaceMode -&gt; ByteString) -&gt; ToByteString Vc3InterlaceMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vc3InterlaceMode -&gt; ByteString
 $ctoBS :: Vc3InterlaceMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680010488"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680011978"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ByteStringBuilder
 (Vc3InterlaceMode -&gt; ByteStringBuilder) -&gt; ToLog Vc3InterlaceMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vc3InterlaceMode -&gt; ByteStringBuilder
 $cbuild :: Vc3InterlaceMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680010485"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680011975"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
 (HeaderName -&gt; Vc3InterlaceMode -&gt; [Header])
 -&gt; ToHeader Vc3InterlaceMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680010482"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680011972"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; QueryString
 (Vc3InterlaceMode -&gt; QueryString) -&gt; ToQuery Vc3InterlaceMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vc3InterlaceMode -&gt; QueryString
 $ctoQuery :: Vc3InterlaceMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680010477"><span id="local-6989586621680010479"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3InterlaceMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680011967"><span id="local-6989586621680011969"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3InterlaceMode]
 Value -&gt; Parser Vc3InterlaceMode
 (Value -&gt; Parser Vc3InterlaceMode)
 -&gt; (Value -&gt; Parser [Vc3InterlaceMode])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [Vc3InterlaceMode]
 parseJSON :: Value -&gt; Parser Vc3InterlaceMode
 $cparseJSON :: Value -&gt; Parser Vc3InterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680010472"><span id="local-6989586621680010474"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3InterlaceMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680011962"><span id="local-6989586621680011964"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3InterlaceMode]
 FromJSONKeyFunction Vc3InterlaceMode
 FromJSONKeyFunction Vc3InterlaceMode
 -&gt; FromJSONKeyFunction [Vc3InterlaceMode]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vc3InterlaceMode]
 fromJSONKey :: FromJSONKeyFunction Vc3InterlaceMode
 $cfromJSONKey :: FromJSONKeyFunction Vc3InterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680010463"><span id="local-6989586621680010465"><span id="local-6989586621680010467"><span id="local-6989586621680010469"><span class="annot"><span class="annottext">[Vc3InterlaceMode] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680011953"><span id="local-6989586621680011955"><span id="local-6989586621680011957"><span id="local-6989586621680011959"><span class="annot"><span class="annottext">[Vc3InterlaceMode] -&gt; Encoding
 [Vc3InterlaceMode] -&gt; Value
 Vc3InterlaceMode -&gt; Encoding
 Vc3InterlaceMode -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: Vc3InterlaceMode -&gt; Encoding
 toJSON :: Vc3InterlaceMode -&gt; Value
 $ctoJSON :: Vc3InterlaceMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680010458"><span id="local-6989586621680010460"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3InterlaceMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680011948"><span id="local-6989586621680011950"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3InterlaceMode]
 ToJSONKeyFunction Vc3InterlaceMode
 ToJSONKeyFunction Vc3InterlaceMode
 -&gt; ToJSONKeyFunction [Vc3InterlaceMode]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vc3InterlaceMode]
 toJSONKey :: ToJSONKeyFunction Vc3InterlaceMode
 $ctoJSONKey :: ToJSONKeyFunction Vc3InterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680010455"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3InterlaceMode
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680011945"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3InterlaceMode
 ([Node] -&gt; Either String Vc3InterlaceMode)
 -&gt; FromXML Vc3InterlaceMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vc3InterlaceMode
 $cparseXML :: [Node] -&gt; Either String Vc3InterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680010452"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680011942"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; XML
 (Vc3InterlaceMode -&gt; XML) -&gt; ToXML Vc3InterlaceMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vc3InterlaceMode -&gt; XML

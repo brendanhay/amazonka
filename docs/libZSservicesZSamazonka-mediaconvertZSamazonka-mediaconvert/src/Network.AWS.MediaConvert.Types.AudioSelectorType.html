@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | Specifies the type of the audio selector.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679941378"><span id="local-6989586621679941379"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioSelectorType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorType.html#AudioSelectorType"><span class="hs-identifier hs-var">AudioSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSelectorType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorType.html#AudioSelectorType%27"><span class="hs-identifier hs-var">AudioSelectorType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679942697"><span id="local-6989586621679942698"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioSelectorType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorType.html#AudioSelectorType"><span class="hs-identifier hs-var">AudioSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSelectorType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioSelectorType.html#AudioSelectorType%27"><span class="hs-identifier hs-var">AudioSelectorType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioSelectorType"><span class="annot"><span class="annottext">AudioSelectorType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AudioSelectorType.html#fromAudioSelectorType"><span class="hs-identifier hs-var hs-var">fromAudioSelectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941370"><span id="local-6989586621679941372"><span id="local-6989586621679941374"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942689"><span id="local-6989586621679942691"><span id="local-6989586621679942693"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorType -&gt; ShowS
 [AudioSelectorType] -&gt; ShowS
 AudioSelectorType -&gt; String
 (Int -&gt; AudioSelectorType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: AudioSelectorType -&gt; String
 showsPrec :: Int -&gt; AudioSelectorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioSelectorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679941361"><span id="local-6989586621679941363"><span id="local-6989586621679941365"><span id="local-6989586621679941367"><span class="annot"><span class="annottext">ReadPrec [AudioSelectorType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679942680"><span id="local-6989586621679942682"><span id="local-6989586621679942684"><span id="local-6989586621679942686"><span class="annot"><span class="annottext">ReadPrec [AudioSelectorType]
 ReadPrec AudioSelectorType
 Int -&gt; ReadS AudioSelectorType
 ReadS [AudioSelectorType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [AudioSelectorType]
 readsPrec :: Int -&gt; ReadS AudioSelectorType
 $creadsPrec :: Int -&gt; ReadS AudioSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679941356"><span id="local-6989586621679941358"><span class="annot"><span class="annottext">AudioSelectorType -&gt; AudioSelectorType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679942675"><span id="local-6989586621679942677"><span class="annot"><span class="annottext">AudioSelectorType -&gt; AudioSelectorType -&gt; Bool
 (AudioSelectorType -&gt; AudioSelectorType -&gt; Bool)
 -&gt; (AudioSelectorType -&gt; AudioSelectorType -&gt; Bool)
 -&gt; Eq AudioSelectorType
@@ -85,7 +85,7 @@ $c/= :: AudioSelectorType -&gt; AudioSelectorType -&gt; Bool
 == :: AudioSelectorType -&gt; AudioSelectorType -&gt; Bool
 $c== :: AudioSelectorType -&gt; AudioSelectorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679941340"><span id="local-6989586621679941342"><span id="local-6989586621679941344"><span id="local-6989586621679941346"><span id="local-6989586621679941348"><span id="local-6989586621679941350"><span id="local-6989586621679941352"><span class="annot"><span class="annottext">Eq AudioSelectorType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679942659"><span id="local-6989586621679942661"><span id="local-6989586621679942663"><span id="local-6989586621679942665"><span id="local-6989586621679942667"><span id="local-6989586621679942669"><span id="local-6989586621679942671"><span class="annot"><span class="annottext">Eq AudioSelectorType
 Eq AudioSelectorType
 -&gt; (AudioSelectorType -&gt; AudioSelectorType -&gt; Ordering)
 -&gt; (AudioSelectorType -&gt; AudioSelectorType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. AudioSelectorType -&gt; Rep AudioSelectorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941332"><span id="local-6989586621679941334"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942651"><span id="local-6989586621679942653"><span class="annot"><span class="annottext">Int -&gt; AudioSelectorType -&gt; Int
 AudioSelectorType -&gt; Int
 (Int -&gt; AudioSelectorType -&gt; Int)
 -&gt; (AudioSelectorType -&gt; Int) -&gt; Hashable AudioSelectorType
@@ -146,51 +146,51 @@ $chash :: AudioSelectorType -&gt; Int
 hashWithSalt :: Int -&gt; AudioSelectorType -&gt; Int
 $chashWithSalt :: Int -&gt; AudioSelectorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679941329"><span class="annot"><span class="annottext">AudioSelectorType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679942648"><span class="annot"><span class="annottext">AudioSelectorType -&gt; ()
 (AudioSelectorType -&gt; ()) -&gt; NFData AudioSelectorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioSelectorType -&gt; ()
 $crnf :: AudioSelectorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679941326"><span class="annot"><span class="annottext">Text -&gt; Either String AudioSelectorType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679942645"><span class="annot"><span class="annottext">Text -&gt; Either String AudioSelectorType
 (Text -&gt; Either String AudioSelectorType)
 -&gt; FromText AudioSelectorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioSelectorType
 $cfromText :: Text -&gt; Either String AudioSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679941323"><span class="annot"><span class="annottext">AudioSelectorType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679942642"><span class="annot"><span class="annottext">AudioSelectorType -&gt; Text
 (AudioSelectorType -&gt; Text) -&gt; ToText AudioSelectorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioSelectorType -&gt; Text
 $ctoText :: AudioSelectorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679941320"><span class="annot"><span class="annottext">AudioSelectorType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942639"><span class="annot"><span class="annottext">AudioSelectorType -&gt; ByteString
 (AudioSelectorType -&gt; ByteString) -&gt; ToByteString AudioSelectorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioSelectorType -&gt; ByteString
 $ctoBS :: AudioSelectorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679941317"><span class="annot"><span class="annottext">AudioSelectorType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942636"><span class="annot"><span class="annottext">AudioSelectorType -&gt; ByteStringBuilder
 (AudioSelectorType -&gt; ByteStringBuilder) -&gt; ToLog AudioSelectorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioSelectorType -&gt; ByteStringBuilder
 $cbuild :: AudioSelectorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679941314"><span class="annot"><span class="annottext">HeaderName -&gt; AudioSelectorType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679942633"><span class="annot"><span class="annottext">HeaderName -&gt; AudioSelectorType -&gt; [Header]
 (HeaderName -&gt; AudioSelectorType -&gt; [Header])
 -&gt; ToHeader AudioSelectorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioSelectorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioSelectorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679941311"><span class="annot"><span class="annottext">AudioSelectorType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679942630"><span class="annot"><span class="annottext">AudioSelectorType -&gt; QueryString
 (AudioSelectorType -&gt; QueryString) -&gt; ToQuery AudioSelectorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioSelectorType -&gt; QueryString
 $ctoQuery :: AudioSelectorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679941306"><span id="local-6989586621679941308"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioSelectorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679942625"><span id="local-6989586621679942627"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioSelectorType]
 Value -&gt; Parser AudioSelectorType
 (Value -&gt; Parser AudioSelectorType)
 -&gt; (Value -&gt; Parser [AudioSelectorType])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioSelectorType]
 parseJSON :: Value -&gt; Parser AudioSelectorType
 $cparseJSON :: Value -&gt; Parser AudioSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679941301"><span id="local-6989586621679941303"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioSelectorType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679942620"><span id="local-6989586621679942622"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioSelectorType]
 FromJSONKeyFunction AudioSelectorType
 FromJSONKeyFunction AudioSelectorType
 -&gt; FromJSONKeyFunction [AudioSelectorType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioSelectorType]
 fromJSONKey :: FromJSONKeyFunction AudioSelectorType
 $cfromJSONKey :: FromJSONKeyFunction AudioSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679941292"><span id="local-6989586621679941294"><span id="local-6989586621679941296"><span id="local-6989586621679941298"><span class="annot"><span class="annottext">[AudioSelectorType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679942611"><span id="local-6989586621679942613"><span id="local-6989586621679942615"><span id="local-6989586621679942617"><span class="annot"><span class="annottext">[AudioSelectorType] -&gt; Encoding
 [AudioSelectorType] -&gt; Value
 AudioSelectorType -&gt; Encoding
 AudioSelectorType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AudioSelectorType -&gt; Encoding
 toJSON :: AudioSelectorType -&gt; Value
 $ctoJSON :: AudioSelectorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679941287"><span id="local-6989586621679941289"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioSelectorType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679942606"><span id="local-6989586621679942608"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioSelectorType]
 ToJSONKeyFunction AudioSelectorType
 ToJSONKeyFunction AudioSelectorType
 -&gt; ToJSONKeyFunction [AudioSelectorType]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioSelectorType]
 toJSONKey :: ToJSONKeyFunction AudioSelectorType
 $ctoJSONKey :: ToJSONKeyFunction AudioSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679941284"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioSelectorType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679942603"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioSelectorType
 ([Node] -&gt; Either String AudioSelectorType)
 -&gt; FromXML AudioSelectorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioSelectorType
 $cparseXML :: [Node] -&gt; Either String AudioSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679941281"><span class="annot"><span class="annottext">AudioSelectorType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679942600"><span class="annot"><span class="annottext">AudioSelectorType -&gt; XML
 (AudioSelectorType -&gt; XML) -&gt; ToXML AudioSelectorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AudioSelectorType -&gt; XML

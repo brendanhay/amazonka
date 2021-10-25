@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679234742"><span id="local-6989586621679234743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdTriggersElement"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdTriggersElement.html#AdTriggersElement"><span class="hs-identifier hs-var">AdTriggersElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdTriggersElement%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdTriggersElement.html#AdTriggersElement%27"><span class="hs-identifier hs-var">AdTriggersElement'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679235058"><span id="local-6989586621679235059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdTriggersElement"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdTriggersElement.html#AdTriggersElement"><span class="hs-identifier hs-var">AdTriggersElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdTriggersElement%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdTriggersElement.html#AdTriggersElement%27"><span class="hs-identifier hs-var">AdTriggersElement'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAdTriggersElement"><span class="annot"><span class="annottext">AdTriggersElement -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.AdTriggersElement.html#fromAdTriggersElement"><span class="hs-identifier hs-var hs-var">fromAdTriggersElement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234734"><span id="local-6989586621679234736"><span id="local-6989586621679234738"><span class="annot"><span class="annottext">Int -&gt; AdTriggersElement -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235050"><span id="local-6989586621679235052"><span id="local-6989586621679235054"><span class="annot"><span class="annottext">Int -&gt; AdTriggersElement -&gt; ShowS
 [AdTriggersElement] -&gt; ShowS
 AdTriggersElement -&gt; String
 (Int -&gt; AdTriggersElement -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: AdTriggersElement -&gt; String
 showsPrec :: Int -&gt; AdTriggersElement -&gt; ShowS
 $cshowsPrec :: Int -&gt; AdTriggersElement -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679234725"><span id="local-6989586621679234727"><span id="local-6989586621679234729"><span id="local-6989586621679234731"><span class="annot"><span class="annottext">ReadPrec [AdTriggersElement]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679235041"><span id="local-6989586621679235043"><span id="local-6989586621679235045"><span id="local-6989586621679235047"><span class="annot"><span class="annottext">ReadPrec [AdTriggersElement]
 ReadPrec AdTriggersElement
 Int -&gt; ReadS AdTriggersElement
 ReadS [AdTriggersElement]
@@ -78,7 +78,7 @@ $creadList :: ReadS [AdTriggersElement]
 readsPrec :: Int -&gt; ReadS AdTriggersElement
 $creadsPrec :: Int -&gt; ReadS AdTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679234720"><span id="local-6989586621679234722"><span class="annot"><span class="annottext">AdTriggersElement -&gt; AdTriggersElement -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679235036"><span id="local-6989586621679235038"><span class="annot"><span class="annottext">AdTriggersElement -&gt; AdTriggersElement -&gt; Bool
 (AdTriggersElement -&gt; AdTriggersElement -&gt; Bool)
 -&gt; (AdTriggersElement -&gt; AdTriggersElement -&gt; Bool)
 -&gt; Eq AdTriggersElement
@@ -88,7 +88,7 @@ $c/= :: AdTriggersElement -&gt; AdTriggersElement -&gt; Bool
 == :: AdTriggersElement -&gt; AdTriggersElement -&gt; Bool
 $c== :: AdTriggersElement -&gt; AdTriggersElement -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679234704"><span id="local-6989586621679234706"><span id="local-6989586621679234708"><span id="local-6989586621679234710"><span id="local-6989586621679234712"><span id="local-6989586621679234714"><span id="local-6989586621679234716"><span class="annot"><span class="annottext">Eq AdTriggersElement
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235020"><span id="local-6989586621679235022"><span id="local-6989586621679235024"><span id="local-6989586621679235026"><span id="local-6989586621679235028"><span id="local-6989586621679235030"><span id="local-6989586621679235032"><span class="annot"><span class="annottext">Eq AdTriggersElement
 Eq AdTriggersElement
 -&gt; (AdTriggersElement -&gt; AdTriggersElement -&gt; Ordering)
 -&gt; (AdTriggersElement -&gt; AdTriggersElement -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. AdTriggersElement -&gt; Rep AdTriggersElement x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234696"><span id="local-6989586621679234698"><span class="annot"><span class="annottext">Int -&gt; AdTriggersElement -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235012"><span id="local-6989586621679235014"><span class="annot"><span class="annottext">Int -&gt; AdTriggersElement -&gt; Int
 AdTriggersElement -&gt; Int
 (Int -&gt; AdTriggersElement -&gt; Int)
 -&gt; (AdTriggersElement -&gt; Int) -&gt; Hashable AdTriggersElement
@@ -149,51 +149,51 @@ $chash :: AdTriggersElement -&gt; Int
 hashWithSalt :: Int -&gt; AdTriggersElement -&gt; Int
 $chashWithSalt :: Int -&gt; AdTriggersElement -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234693"><span class="annot"><span class="annottext">AdTriggersElement -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235009"><span class="annot"><span class="annottext">AdTriggersElement -&gt; ()
 (AdTriggersElement -&gt; ()) -&gt; NFData AdTriggersElement
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AdTriggersElement -&gt; ()
 $crnf :: AdTriggersElement -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234690"><span class="annot"><span class="annottext">Text -&gt; Either String AdTriggersElement
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235006"><span class="annot"><span class="annottext">Text -&gt; Either String AdTriggersElement
 (Text -&gt; Either String AdTriggersElement)
 -&gt; FromText AdTriggersElement
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AdTriggersElement
 $cfromText :: Text -&gt; Either String AdTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234687"><span class="annot"><span class="annottext">AdTriggersElement -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235003"><span class="annot"><span class="annottext">AdTriggersElement -&gt; Text
 (AdTriggersElement -&gt; Text) -&gt; ToText AdTriggersElement
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AdTriggersElement -&gt; Text
 $ctoText :: AdTriggersElement -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679234684"><span class="annot"><span class="annottext">AdTriggersElement -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235000"><span class="annot"><span class="annottext">AdTriggersElement -&gt; ByteString
 (AdTriggersElement -&gt; ByteString) -&gt; ToByteString AdTriggersElement
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AdTriggersElement -&gt; ByteString
 $ctoBS :: AdTriggersElement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234681"><span class="annot"><span class="annottext">AdTriggersElement -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234997"><span class="annot"><span class="annottext">AdTriggersElement -&gt; ByteStringBuilder
 (AdTriggersElement -&gt; ByteStringBuilder) -&gt; ToLog AdTriggersElement
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AdTriggersElement -&gt; ByteStringBuilder
 $cbuild :: AdTriggersElement -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234678"><span class="annot"><span class="annottext">HeaderName -&gt; AdTriggersElement -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234994"><span class="annot"><span class="annottext">HeaderName -&gt; AdTriggersElement -&gt; [Header]
 (HeaderName -&gt; AdTriggersElement -&gt; [Header])
 -&gt; ToHeader AdTriggersElement
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AdTriggersElement -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AdTriggersElement -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234675"><span class="annot"><span class="annottext">AdTriggersElement -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234991"><span class="annot"><span class="annottext">AdTriggersElement -&gt; QueryString
 (AdTriggersElement -&gt; QueryString) -&gt; ToQuery AdTriggersElement
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AdTriggersElement -&gt; QueryString
 $ctoQuery :: AdTriggersElement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679234670"><span id="local-6989586621679234672"><span class="annot"><span class="annottext">Value -&gt; Parser [AdTriggersElement]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679234986"><span id="local-6989586621679234988"><span class="annot"><span class="annottext">Value -&gt; Parser [AdTriggersElement]
 Value -&gt; Parser AdTriggersElement
 (Value -&gt; Parser AdTriggersElement)
 -&gt; (Value -&gt; Parser [AdTriggersElement])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [AdTriggersElement]
 parseJSON :: Value -&gt; Parser AdTriggersElement
 $cparseJSON :: Value -&gt; Parser AdTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679234665"><span id="local-6989586621679234667"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdTriggersElement]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679234981"><span id="local-6989586621679234983"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdTriggersElement]
 FromJSONKeyFunction AdTriggersElement
 FromJSONKeyFunction AdTriggersElement
 -&gt; FromJSONKeyFunction [AdTriggersElement]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AdTriggersElement]
 fromJSONKey :: FromJSONKeyFunction AdTriggersElement
 $cfromJSONKey :: FromJSONKeyFunction AdTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679234656"><span id="local-6989586621679234658"><span id="local-6989586621679234660"><span id="local-6989586621679234662"><span class="annot"><span class="annottext">[AdTriggersElement] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679234972"><span id="local-6989586621679234974"><span id="local-6989586621679234976"><span id="local-6989586621679234978"><span class="annot"><span class="annottext">[AdTriggersElement] -&gt; Encoding
 [AdTriggersElement] -&gt; Value
 AdTriggersElement -&gt; Encoding
 AdTriggersElement -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: AdTriggersElement -&gt; Encoding
 toJSON :: AdTriggersElement -&gt; Value
 $ctoJSON :: AdTriggersElement -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679234651"><span id="local-6989586621679234653"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdTriggersElement]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679234967"><span id="local-6989586621679234969"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdTriggersElement]
 ToJSONKeyFunction AdTriggersElement
 ToJSONKeyFunction AdTriggersElement
 -&gt; ToJSONKeyFunction [AdTriggersElement]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AdTriggersElement]
 toJSONKey :: ToJSONKeyFunction AdTriggersElement
 $ctoJSONKey :: ToJSONKeyFunction AdTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679234648"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdTriggersElement
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679234964"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdTriggersElement
 ([Node] -&gt; Either String AdTriggersElement)
 -&gt; FromXML AdTriggersElement
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AdTriggersElement
 $cparseXML :: [Node] -&gt; Either String AdTriggersElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679234645"><span class="annot"><span class="annottext">AdTriggersElement -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679234961"><span class="annot"><span class="annottext">AdTriggersElement -&gt; XML
 (AdTriggersElement -&gt; XML) -&gt; ToXML AdTriggersElement
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AdTriggersElement -&gt; XML

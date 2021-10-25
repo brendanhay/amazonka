@@ -43,13 +43,13 @@
 </span><span id="line-43"></span><span class="hs-comment">-- For unsegmented outputs, MediaConvert adds padding only to the end of</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- the file. When you keep the default value, any minor discrepancies</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- between audio and video duration will depend on your output audio codec.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679950252"><span id="local-6989586621679950253"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcAudioDuration"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioDuration.html#CmfcAudioDuration"><span class="hs-identifier hs-var">CmfcAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcAudioDuration%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioDuration.html#CmfcAudioDuration%27"><span class="hs-identifier hs-var">CmfcAudioDuration'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679951571"><span id="local-6989586621679951572"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcAudioDuration"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioDuration.html#CmfcAudioDuration"><span class="hs-identifier hs-var">CmfcAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcAudioDuration%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioDuration.html#CmfcAudioDuration%27"><span class="hs-identifier hs-var">CmfcAudioDuration'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmfcAudioDuration"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmfcAudioDuration.html#fromCmfcAudioDuration"><span class="hs-identifier hs-var hs-var">fromCmfcAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950244"><span id="local-6989586621679950246"><span id="local-6989586621679950248"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioDuration -&gt; ShowS
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951563"><span id="local-6989586621679951565"><span id="local-6989586621679951567"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioDuration -&gt; ShowS
 [CmfcAudioDuration] -&gt; ShowS
 CmfcAudioDuration -&gt; String
 (Int -&gt; CmfcAudioDuration -&gt; ShowS)
@@ -65,7 +65,7 @@ $cshow :: CmfcAudioDuration -&gt; String
 showsPrec :: Int -&gt; CmfcAudioDuration -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmfcAudioDuration -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950235"><span id="local-6989586621679950237"><span id="local-6989586621679950239"><span id="local-6989586621679950241"><span class="annot"><span class="annottext">ReadPrec [CmfcAudioDuration]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679951554"><span id="local-6989586621679951556"><span id="local-6989586621679951558"><span id="local-6989586621679951560"><span class="annot"><span class="annottext">ReadPrec [CmfcAudioDuration]
 ReadPrec CmfcAudioDuration
 Int -&gt; ReadS CmfcAudioDuration
 ReadS [CmfcAudioDuration]
@@ -86,7 +86,7 @@ $creadList :: ReadS [CmfcAudioDuration]
 readsPrec :: Int -&gt; ReadS CmfcAudioDuration
 $creadsPrec :: Int -&gt; ReadS CmfcAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950230"><span id="local-6989586621679950232"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679951549"><span id="local-6989586621679951551"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool
 (CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool)
 -&gt; (CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool)
 -&gt; Eq CmfcAudioDuration
@@ -96,7 +96,7 @@ $c/= :: CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool
 == :: CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool
 $c== :: CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950214"><span id="local-6989586621679950216"><span id="local-6989586621679950218"><span id="local-6989586621679950220"><span id="local-6989586621679950222"><span id="local-6989586621679950224"><span id="local-6989586621679950226"><span class="annot"><span class="annottext">Eq CmfcAudioDuration
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679951533"><span id="local-6989586621679951535"><span id="local-6989586621679951537"><span id="local-6989586621679951539"><span id="local-6989586621679951541"><span id="local-6989586621679951543"><span id="local-6989586621679951545"><span class="annot"><span class="annottext">Eq CmfcAudioDuration
 Eq CmfcAudioDuration
 -&gt; (CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Ordering)
 -&gt; (CmfcAudioDuration -&gt; CmfcAudioDuration -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. CmfcAudioDuration -&gt; Rep CmfcAudioDuration x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950206"><span id="local-6989586621679950208"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioDuration -&gt; Int
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951525"><span id="local-6989586621679951527"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioDuration -&gt; Int
 CmfcAudioDuration -&gt; Int
 (Int -&gt; CmfcAudioDuration -&gt; Int)
 -&gt; (CmfcAudioDuration -&gt; Int) -&gt; Hashable CmfcAudioDuration
@@ -157,51 +157,51 @@ $chash :: CmfcAudioDuration -&gt; Int
 hashWithSalt :: Int -&gt; CmfcAudioDuration -&gt; Int
 $chashWithSalt :: Int -&gt; CmfcAudioDuration -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950203"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; ()
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679951522"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; ()
 (CmfcAudioDuration -&gt; ()) -&gt; NFData CmfcAudioDuration
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmfcAudioDuration -&gt; ()
 $crnf :: CmfcAudioDuration -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950200"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcAudioDuration
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679951519"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcAudioDuration
 (Text -&gt; Either String CmfcAudioDuration)
 -&gt; FromText CmfcAudioDuration
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmfcAudioDuration
 $cfromText :: Text -&gt; Either String CmfcAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679950197"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; Text
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679951516"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; Text
 (CmfcAudioDuration -&gt; Text) -&gt; ToText CmfcAudioDuration
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmfcAudioDuration -&gt; Text
 $ctoText :: CmfcAudioDuration -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679950194"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; ByteString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679951513"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; ByteString
 (CmfcAudioDuration -&gt; ByteString) -&gt; ToByteString CmfcAudioDuration
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmfcAudioDuration -&gt; ByteString
 $ctoBS :: CmfcAudioDuration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679950191"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; ByteStringBuilder
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679951510"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; ByteStringBuilder
 (CmfcAudioDuration -&gt; ByteStringBuilder) -&gt; ToLog CmfcAudioDuration
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmfcAudioDuration -&gt; ByteStringBuilder
 $cbuild :: CmfcAudioDuration -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679950188"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcAudioDuration -&gt; [Header]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679951507"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcAudioDuration -&gt; [Header]
 (HeaderName -&gt; CmfcAudioDuration -&gt; [Header])
 -&gt; ToHeader CmfcAudioDuration
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmfcAudioDuration -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmfcAudioDuration -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679950185"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; QueryString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679951504"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; QueryString
 (CmfcAudioDuration -&gt; QueryString) -&gt; ToQuery CmfcAudioDuration
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmfcAudioDuration -&gt; QueryString
 $ctoQuery :: CmfcAudioDuration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679950180"><span id="local-6989586621679950182"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcAudioDuration]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679951499"><span id="local-6989586621679951501"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcAudioDuration]
 Value -&gt; Parser CmfcAudioDuration
 (Value -&gt; Parser CmfcAudioDuration)
 -&gt; (Value -&gt; Parser [CmfcAudioDuration])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [CmfcAudioDuration]
 parseJSON :: Value -&gt; Parser CmfcAudioDuration
 $cparseJSON :: Value -&gt; Parser CmfcAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679950175"><span id="local-6989586621679950177"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcAudioDuration]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679951494"><span id="local-6989586621679951496"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcAudioDuration]
 FromJSONKeyFunction CmfcAudioDuration
 FromJSONKeyFunction CmfcAudioDuration
 -&gt; FromJSONKeyFunction [CmfcAudioDuration]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmfcAudioDuration]
 fromJSONKey :: FromJSONKeyFunction CmfcAudioDuration
 $cfromJSONKey :: FromJSONKeyFunction CmfcAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679950166"><span id="local-6989586621679950168"><span id="local-6989586621679950170"><span id="local-6989586621679950172"><span class="annot"><span class="annottext">[CmfcAudioDuration] -&gt; Encoding
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679951485"><span id="local-6989586621679951487"><span id="local-6989586621679951489"><span id="local-6989586621679951491"><span class="annot"><span class="annottext">[CmfcAudioDuration] -&gt; Encoding
 [CmfcAudioDuration] -&gt; Value
 CmfcAudioDuration -&gt; Encoding
 CmfcAudioDuration -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: CmfcAudioDuration -&gt; Encoding
 toJSON :: CmfcAudioDuration -&gt; Value
 $ctoJSON :: CmfcAudioDuration -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679950161"><span id="local-6989586621679950163"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcAudioDuration]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679951480"><span id="local-6989586621679951482"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcAudioDuration]
 ToJSONKeyFunction CmfcAudioDuration
 ToJSONKeyFunction CmfcAudioDuration
 -&gt; ToJSONKeyFunction [CmfcAudioDuration]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmfcAudioDuration]
 toJSONKey :: ToJSONKeyFunction CmfcAudioDuration
 $ctoJSONKey :: ToJSONKeyFunction CmfcAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679950158"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcAudioDuration
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679951477"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcAudioDuration
 ([Node] -&gt; Either String CmfcAudioDuration)
 -&gt; FromXML CmfcAudioDuration
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmfcAudioDuration
 $cparseXML :: [Node] -&gt; Either String CmfcAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679950155"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; XML
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679951474"><span class="annot"><span class="annottext">CmfcAudioDuration -&gt; XML
 (CmfcAudioDuration -&gt; XML) -&gt; ToXML CmfcAudioDuration
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmfcAudioDuration -&gt; XML

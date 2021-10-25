@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- transcode. Inputs that alternate between DD+ and non-DD+ content will</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- have a consistent DD+ output as the system alternates between</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- passthrough and encoding.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679961822"><span id="local-6989586621679961823"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3PassthroughControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PassthroughControl.html#Eac3PassthroughControl"><span class="hs-identifier hs-var">Eac3PassthroughControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3PassthroughControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PassthroughControl.html#Eac3PassthroughControl%27"><span class="hs-identifier hs-var">Eac3PassthroughControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679963141"><span id="local-6989586621679963142"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3PassthroughControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PassthroughControl.html#Eac3PassthroughControl"><span class="hs-identifier hs-var">Eac3PassthroughControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3PassthroughControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PassthroughControl.html#Eac3PassthroughControl%27"><span class="hs-identifier hs-var">Eac3PassthroughControl'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3PassthroughControl"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3PassthroughControl.html#fromEac3PassthroughControl"><span class="hs-identifier hs-var hs-var">fromEac3PassthroughControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961814"><span id="local-6989586621679961816"><span id="local-6989586621679961818"><span class="annot"><span class="annottext">Int -&gt; Eac3PassthroughControl -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963133"><span id="local-6989586621679963135"><span id="local-6989586621679963137"><span class="annot"><span class="annottext">Int -&gt; Eac3PassthroughControl -&gt; ShowS
 [Eac3PassthroughControl] -&gt; ShowS
 Eac3PassthroughControl -&gt; String
 (Int -&gt; Eac3PassthroughControl -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: Eac3PassthroughControl -&gt; String
 showsPrec :: Int -&gt; Eac3PassthroughControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3PassthroughControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679961805"><span id="local-6989586621679961807"><span id="local-6989586621679961809"><span id="local-6989586621679961811"><span class="annot"><span class="annottext">ReadPrec [Eac3PassthroughControl]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679963124"><span id="local-6989586621679963126"><span id="local-6989586621679963128"><span id="local-6989586621679963130"><span class="annot"><span class="annottext">ReadPrec [Eac3PassthroughControl]
 ReadPrec Eac3PassthroughControl
 Int -&gt; ReadS Eac3PassthroughControl
 ReadS [Eac3PassthroughControl]
@@ -77,7 +77,7 @@ $creadList :: ReadS [Eac3PassthroughControl]
 readsPrec :: Int -&gt; ReadS Eac3PassthroughControl
 $creadsPrec :: Int -&gt; ReadS Eac3PassthroughControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679961800"><span id="local-6989586621679961802"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679963119"><span id="local-6989586621679963121"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool
 (Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool)
 -&gt; (Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool)
 -&gt; Eq Eac3PassthroughControl
@@ -87,7 +87,7 @@ $c/= :: Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool
 == :: Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool
 $c== :: Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679961784"><span id="local-6989586621679961786"><span id="local-6989586621679961788"><span id="local-6989586621679961790"><span id="local-6989586621679961792"><span id="local-6989586621679961794"><span id="local-6989586621679961796"><span class="annot"><span class="annottext">Eq Eac3PassthroughControl
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679963103"><span id="local-6989586621679963105"><span id="local-6989586621679963107"><span id="local-6989586621679963109"><span id="local-6989586621679963111"><span id="local-6989586621679963113"><span id="local-6989586621679963115"><span class="annot"><span class="annottext">Eq Eac3PassthroughControl
 Eq Eac3PassthroughControl
 -&gt; (Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Ordering)
 -&gt; (Eac3PassthroughControl -&gt; Eac3PassthroughControl -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. Eac3PassthroughControl -&gt; Rep Eac3PassthroughControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961776"><span id="local-6989586621679961778"><span class="annot"><span class="annottext">Int -&gt; Eac3PassthroughControl -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963095"><span id="local-6989586621679963097"><span class="annot"><span class="annottext">Int -&gt; Eac3PassthroughControl -&gt; Int
 Eac3PassthroughControl -&gt; Int
 (Int -&gt; Eac3PassthroughControl -&gt; Int)
 -&gt; (Eac3PassthroughControl -&gt; Int)
@@ -157,54 +157,54 @@ $chash :: Eac3PassthroughControl -&gt; Int
 hashWithSalt :: Int -&gt; Eac3PassthroughControl -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3PassthroughControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679961773"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679963092"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; ()
 (Eac3PassthroughControl -&gt; ()) -&gt; NFData Eac3PassthroughControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3PassthroughControl -&gt; ()
 $crnf :: Eac3PassthroughControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679961770"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3PassthroughControl
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679963089"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3PassthroughControl
 (Text -&gt; Either String Eac3PassthroughControl)
 -&gt; FromText Eac3PassthroughControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3PassthroughControl
 $cfromText :: Text -&gt; Either String Eac3PassthroughControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961767"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679963086"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; Text
 (Eac3PassthroughControl -&gt; Text) -&gt; ToText Eac3PassthroughControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3PassthroughControl -&gt; Text
 $ctoText :: Eac3PassthroughControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961764"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679963083"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; ByteString
 (Eac3PassthroughControl -&gt; ByteString)
 -&gt; ToByteString Eac3PassthroughControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3PassthroughControl -&gt; ByteString
 $ctoBS :: Eac3PassthroughControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961761"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679963080"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; ByteStringBuilder
 (Eac3PassthroughControl -&gt; ByteStringBuilder)
 -&gt; ToLog Eac3PassthroughControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3PassthroughControl -&gt; ByteStringBuilder
 $cbuild :: Eac3PassthroughControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679961758"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3PassthroughControl -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679963077"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3PassthroughControl -&gt; [Header]
 (HeaderName -&gt; Eac3PassthroughControl -&gt; [Header])
 -&gt; ToHeader Eac3PassthroughControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3PassthroughControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3PassthroughControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679961755"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679963074"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; QueryString
 (Eac3PassthroughControl -&gt; QueryString)
 -&gt; ToQuery Eac3PassthroughControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3PassthroughControl -&gt; QueryString
 $ctoQuery :: Eac3PassthroughControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679961750"><span id="local-6989586621679961752"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3PassthroughControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679963069"><span id="local-6989586621679963071"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3PassthroughControl]
 Value -&gt; Parser Eac3PassthroughControl
 (Value -&gt; Parser Eac3PassthroughControl)
 -&gt; (Value -&gt; Parser [Eac3PassthroughControl])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3PassthroughControl]
 parseJSON :: Value -&gt; Parser Eac3PassthroughControl
 $cparseJSON :: Value -&gt; Parser Eac3PassthroughControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679961745"><span id="local-6989586621679961747"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3PassthroughControl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679963064"><span id="local-6989586621679963066"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3PassthroughControl]
 FromJSONKeyFunction Eac3PassthroughControl
 FromJSONKeyFunction Eac3PassthroughControl
 -&gt; FromJSONKeyFunction [Eac3PassthroughControl]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3PassthroughControl]
 fromJSONKey :: FromJSONKeyFunction Eac3PassthroughControl
 $cfromJSONKey :: FromJSONKeyFunction Eac3PassthroughControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961736"><span id="local-6989586621679961738"><span id="local-6989586621679961740"><span id="local-6989586621679961742"><span class="annot"><span class="annottext">[Eac3PassthroughControl] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679963055"><span id="local-6989586621679963057"><span id="local-6989586621679963059"><span id="local-6989586621679963061"><span class="annot"><span class="annottext">[Eac3PassthroughControl] -&gt; Encoding
 [Eac3PassthroughControl] -&gt; Value
 Eac3PassthroughControl -&gt; Encoding
 Eac3PassthroughControl -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: Eac3PassthroughControl -&gt; Encoding
 toJSON :: Eac3PassthroughControl -&gt; Value
 $ctoJSON :: Eac3PassthroughControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679961731"><span id="local-6989586621679961733"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3PassthroughControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679963050"><span id="local-6989586621679963052"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3PassthroughControl]
 ToJSONKeyFunction Eac3PassthroughControl
 ToJSONKeyFunction Eac3PassthroughControl
 -&gt; ToJSONKeyFunction [Eac3PassthroughControl]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3PassthroughControl]
 toJSONKey :: ToJSONKeyFunction Eac3PassthroughControl
 $ctoJSONKey :: ToJSONKeyFunction Eac3PassthroughControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679961728"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3PassthroughControl
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679963047"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3PassthroughControl
 ([Node] -&gt; Either String Eac3PassthroughControl)
 -&gt; FromXML Eac3PassthroughControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3PassthroughControl
 $cparseXML :: [Node] -&gt; Either String Eac3PassthroughControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679961725"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679963044"><span class="annot"><span class="annottext">Eac3PassthroughControl -&gt; XML
 (Eac3PassthroughControl -&gt; XML) -&gt; ToXML Eac3PassthroughControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3PassthroughControl -&gt; XML

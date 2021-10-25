@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details of the parts that were uploaded.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCompletedPart' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679539223"><span id="local-6989586621679539224"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompletedPart"><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-var">CompletedPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompletedPart%27"><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-var">CompletedPart'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679539333"><span id="local-6989586621679539334"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompletedPart"><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-var">CompletedPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompletedPart%27"><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-var">CompletedPart'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Part number that identifies the part. This is a positive integer between</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- 1 and 10,000.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApartNumber%3ACompletedPart%27"><span class="annot"><span class="annottext">CompletedPart -&gt; Int
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AeTag%3ACompletedPart%27"><span class="annot"><span class="annottext">CompletedPart -&gt; ETag
 </span><a href="Network.AWS.S3.Types.CompletedPart.html#%24sel%3AeTag%3ACompletedPart%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539216"><span id="local-6989586621679539218"><span class="annot"><span class="annottext">CompletedPart -&gt; CompletedPart -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539326"><span id="local-6989586621679539328"><span class="annot"><span class="annottext">CompletedPart -&gt; CompletedPart -&gt; Bool
 (CompletedPart -&gt; CompletedPart -&gt; Bool)
 -&gt; (CompletedPart -&gt; CompletedPart -&gt; Bool) -&gt; Eq CompletedPart
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CompletedPart -&gt; CompletedPart -&gt; Bool
 == :: CompletedPart -&gt; CompletedPart -&gt; Bool
 $c== :: CompletedPart -&gt; CompletedPart -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539207"><span id="local-6989586621679539209"><span id="local-6989586621679539211"><span id="local-6989586621679539213"><span class="annot"><span class="annottext">ReadPrec [CompletedPart]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539317"><span id="local-6989586621679539319"><span id="local-6989586621679539321"><span id="local-6989586621679539323"><span class="annot"><span class="annottext">ReadPrec [CompletedPart]
 ReadPrec CompletedPart
 Int -&gt; ReadS CompletedPart
 ReadS [CompletedPart]
@@ -64,7 +64,7 @@ readList :: ReadS [CompletedPart]
 $creadList :: ReadS [CompletedPart]
 readsPrec :: Int -&gt; ReadS CompletedPart
 $creadsPrec :: Int -&gt; ReadS CompletedPart
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539200"><span id="local-6989586621679539202"><span id="local-6989586621679539204"><span class="annot"><span class="annottext">Int -&gt; CompletedPart -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539310"><span id="local-6989586621679539312"><span id="local-6989586621679539314"><span class="annot"><span class="annottext">Int -&gt; CompletedPart -&gt; ShowS
 [CompletedPart] -&gt; ShowS
 CompletedPart -&gt; String
 (Int -&gt; CompletedPart -&gt; ShowS)
@@ -109,17 +109,17 @@ $cfrom :: forall x. CompletedPart -&gt; Rep CompletedPart x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span>
 </span><span id="line-57"></span><span id="newCompletedPart"><span class="annot"><span class="annottext">newCompletedPart :: Int -&gt; ETag -&gt; CompletedPart
-</span><a href="Network.AWS.S3.Types.CompletedPart.html#newCompletedPart"><span class="hs-identifier hs-var hs-var">newCompletedPart</span></a></span></span><span> </span><span id="local-6989586621679539194"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679539194"><span class="hs-identifier hs-var">pPartNumber_</span></a></span></span><span> </span><span id="local-6989586621679539193"><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679539193"><span class="hs-identifier hs-var">pETag_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.CompletedPart.html#newCompletedPart"><span class="hs-identifier hs-var hs-var">newCompletedPart</span></a></span></span><span> </span><span id="local-6989586621679539304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679539304"><span class="hs-identifier hs-var">pPartNumber_</span></a></span></span><span> </span><span id="local-6989586621679539303"><span class="annot"><span class="annottext">ETag
+</span><a href="#local-6989586621679539303"><span class="hs-identifier hs-var">pETag_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">CompletedPart' :: Int -&gt; ETag -&gt; CompletedPart
 </span><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:partNumber:CompletedPart' :: Int
 </span><a href="Network.AWS.S3.Types.CompletedPart.html#%24sel%3ApartNumber%3ACompletedPart%27"><span class="hs-identifier hs-var">partNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679539194"><span class="hs-identifier hs-var">pPartNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679539304"><span class="hs-identifier hs-var">pPartNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:eTag:CompletedPart' :: ETag
 </span><a href="Network.AWS.S3.Types.CompletedPart.html#%24sel%3AeTag%3ACompletedPart%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679539193"><span class="hs-identifier hs-var">pETag_</span></a></span><span>
+</span><a href="#local-6989586621679539303"><span class="hs-identifier hs-var">pETag_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | Part number that identifies the part. This is a positive integer between</span><span>
@@ -130,16 +130,16 @@ $cfrom :: forall x. CompletedPart -&gt; Rep CompletedPart x
 -&gt; (CompletedPart -&gt; Int -&gt; CompletedPart)
 -&gt; Lens CompletedPart CompletedPart Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539189"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539299"><span class="annot"><span class="annottext">Int
 partNumber :: Int
 $sel:partNumber:CompletedPart' :: CompletedPart -&gt; Int
-</span><a href="#local-6989586621679539189"><span class="hs-identifier hs-var hs-var">partNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679539189"><span class="hs-identifier hs-var">partNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539188"><span class="annot"><span class="annottext">s :: CompletedPart
-</span><a href="#local-6989586621679539188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539187"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679539187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompletedPart
-</span><a href="#local-6989586621679539188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partNumber:CompletedPart' :: Int
+</span><a href="#local-6989586621679539299"><span class="hs-identifier hs-var hs-var">partNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679539299"><span class="hs-identifier hs-var">partNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539298"><span class="annot"><span class="annottext">s :: CompletedPart
+</span><a href="#local-6989586621679539298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679539297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompletedPart
+</span><a href="#local-6989586621679539298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partNumber:CompletedPart' :: Int
 </span><a href="Network.AWS.S3.Types.CompletedPart.html#%24sel%3ApartNumber%3ACompletedPart%27"><span class="hs-identifier hs-var">partNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679539187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679539297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Entity tag returned when the part was uploaded.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#completedPart_eTag"><span class="hs-identifier hs-type">completedPart_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span><span>
@@ -148,30 +148,30 @@ $sel:partNumber:CompletedPart' :: CompletedPart -&gt; Int
 -&gt; (CompletedPart -&gt; ETag -&gt; CompletedPart)
 -&gt; Lens CompletedPart CompletedPart ETag ETag
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539185"><span class="annot"><span class="annottext">ETag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539295"><span class="annot"><span class="annottext">ETag
 eTag :: ETag
 $sel:eTag:CompletedPart' :: CompletedPart -&gt; ETag
-</span><a href="#local-6989586621679539185"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679539185"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539184"><span class="annot"><span class="annottext">s :: CompletedPart
-</span><a href="#local-6989586621679539184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539183"><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679539183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompletedPart
-</span><a href="#local-6989586621679539184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CompletedPart' :: ETag
+</span><a href="#local-6989586621679539295"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ETag
+</span><a href="#local-6989586621679539295"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539294"><span class="annot"><span class="annottext">s :: CompletedPart
+</span><a href="#local-6989586621679539294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539293"><span class="annot"><span class="annottext">ETag
+</span><a href="#local-6989586621679539293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompletedPart
+</span><a href="#local-6989586621679539294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CompletedPart' :: ETag
 </span><a href="Network.AWS.S3.Types.CompletedPart.html#%24sel%3AeTag%3ACompletedPart%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679539183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679539293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539179"><span id="local-6989586621679539181"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539289"><span id="local-6989586621679539291"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679539172"><span class="annot"><span class="annottext">toXML :: CompletedPart -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539169"><span id="local-6989586621679539170"><span class="annot"><span class="annottext">Int
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679539282"><span class="annot"><span class="annottext">toXML :: CompletedPart -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart%27"><span class="hs-identifier hs-type">CompletedPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539279"><span id="local-6989586621679539280"><span class="annot"><span class="annottext">Int
 ETag
 eTag :: ETag
 partNumber :: Int
 $sel:eTag:CompletedPart' :: CompletedPart -&gt; ETag
 $sel:partNumber:CompletedPart' :: CompletedPart -&gt; Int
-</span><a href="#local-6989586621679539169"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679539279"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -179,11 +179,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;PartNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679539170"><span class="hs-identifier hs-var">partNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679539280"><span class="hs-identifier hs-var">partNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ETag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ETag -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679539169"><span class="hs-identifier hs-var">eTag</span></a></span><span>
+</span><a href="#local-6989586621679539279"><span class="hs-identifier hs-var">eTag</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span></pre></body></html>

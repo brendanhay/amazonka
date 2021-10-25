@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A Microsoft Smooth Streaming (MSS) encryption configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMssEncryption' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679237954"><span id="local-6989586621679237955"></span></span><span class="hs-keyword">data</span><span> </span><span id="MssEncryption"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-var">MssEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MssEncryption%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-var">MssEncryption'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679238270"><span id="local-6989586621679238271"></span></span><span class="hs-keyword">data</span><span> </span><span id="MssEncryption"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-var">MssEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MssEncryption%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-var">MssEncryption'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AspekeKeyProvider%3AMssEncryption%27"><span class="annot"><span class="annottext">MssEncryption -&gt; SpekeKeyProvider
 </span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#%24sel%3AspekeKeyProvider%3AMssEncryption%27"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237948"><span id="local-6989586621679237950"><span class="annot"><span class="annottext">MssEncryption -&gt; MssEncryption -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238264"><span id="local-6989586621679238266"><span class="annot"><span class="annottext">MssEncryption -&gt; MssEncryption -&gt; Bool
 (MssEncryption -&gt; MssEncryption -&gt; Bool)
 -&gt; (MssEncryption -&gt; MssEncryption -&gt; Bool) -&gt; Eq MssEncryption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MssEncryption -&gt; MssEncryption -&gt; Bool
 == :: MssEncryption -&gt; MssEncryption -&gt; Bool
 $c== :: MssEncryption -&gt; MssEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237939"><span id="local-6989586621679237941"><span id="local-6989586621679237943"><span id="local-6989586621679237945"><span class="annot"><span class="annottext">ReadPrec [MssEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238255"><span id="local-6989586621679238257"><span id="local-6989586621679238259"><span id="local-6989586621679238261"><span class="annot"><span class="annottext">ReadPrec [MssEncryption]
 ReadPrec MssEncryption
 Int -&gt; ReadS MssEncryption
 ReadS [MssEncryption]
@@ -59,7 +59,7 @@ readList :: ReadS [MssEncryption]
 $creadList :: ReadS [MssEncryption]
 readsPrec :: Int -&gt; ReadS MssEncryption
 $creadsPrec :: Int -&gt; ReadS MssEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237932"><span id="local-6989586621679237934"><span id="local-6989586621679237936"><span class="annot"><span class="annottext">Int -&gt; MssEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238248"><span id="local-6989586621679238250"><span id="local-6989586621679238252"><span class="annot"><span class="annottext">Int -&gt; MssEncryption -&gt; ShowS
 [MssEncryption] -&gt; ShowS
 MssEncryption -&gt; String
 (Int -&gt; MssEncryption -&gt; ShowS)
@@ -99,14 +99,14 @@ $cfrom :: forall x. MssEncryption -&gt; Rep MssEncryption x
 </span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span><span>
 </span><span id="line-48"></span><span id="newMssEncryption"><span class="annot"><span class="annottext">newMssEncryption :: SpekeKeyProvider -&gt; MssEncryption
-</span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#newMssEncryption"><span class="hs-identifier hs-var hs-var">newMssEncryption</span></a></span></span><span> </span><span id="local-6989586621679237926"><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679237926"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#newMssEncryption"><span class="hs-identifier hs-var hs-var">newMssEncryption</span></a></span></span><span> </span><span id="local-6989586621679238242"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679238242"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">MssEncryption' :: SpekeKeyProvider -&gt; MssEncryption
 </span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:MssEncryption' :: SpekeKeyProvider
 </span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#%24sel%3AspekeKeyProvider%3AMssEncryption%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679237926"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span><span>
+</span><a href="#local-6989586621679238242"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -118,19 +118,19 @@ $cfrom :: forall x. MssEncryption -&gt; Rep MssEncryption x
 -&gt; Lens
      MssEncryption MssEncryption SpekeKeyProvider SpekeKeyProvider
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237922"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238238"><span class="annot"><span class="annottext">SpekeKeyProvider
 spekeKeyProvider :: SpekeKeyProvider
 $sel:spekeKeyProvider:MssEncryption' :: MssEncryption -&gt; SpekeKeyProvider
-</span><a href="#local-6989586621679237922"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679237922"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237921"><span class="annot"><span class="annottext">s :: MssEncryption
-</span><a href="#local-6989586621679237921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237920"><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679237920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssEncryption
-</span><a href="#local-6989586621679237921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:MssEncryption' :: SpekeKeyProvider
+</span><a href="#local-6989586621679238238"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679238238"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238237"><span class="annot"><span class="annottext">s :: MssEncryption
+</span><a href="#local-6989586621679238237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238236"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679238236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssEncryption
+</span><a href="#local-6989586621679238237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:MssEncryption' :: SpekeKeyProvider
 </span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#%24sel%3AspekeKeyProvider%3AMssEncryption%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679237920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237917"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679237915"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MssEncryption
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238233"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679238231"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MssEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MssEncryption)
@@ -140,30 +140,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MssEncryption&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237912"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238228"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">SpekeKeyProvider -&gt; MssEncryption
 </span><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-var">MssEncryption'</span></a></span><span>
 </span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; MssEncryption)
 -&gt; Parser SpekeKeyProvider -&gt; Parser MssEncryption
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SpekeKeyProvider
+</span><a href="#local-6989586621679238228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SpekeKeyProvider
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237906"><span id="local-6989586621679237908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238222"><span id="local-6989586621679238224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237895"><span id="local-6989586621679237897"><span id="local-6989586621679237899"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679237893"><span class="annot"><span class="annottext">toJSON :: MssEncryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237891"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238211"><span id="local-6989586621679238213"><span id="local-6989586621679238215"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679238209"><span class="annot"><span class="annottext">toJSON :: MssEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption%27"><span class="hs-identifier hs-type">MssEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238207"><span class="annot"><span class="annottext">SpekeKeyProvider
 spekeKeyProvider :: SpekeKeyProvider
 $sel:spekeKeyProvider:MssEncryption' :: MssEncryption -&gt; SpekeKeyProvider
-</span><a href="#local-6989586621679237891"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679238207"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -176,7 +176,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpekeKeyProvider -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679237891"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238207"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

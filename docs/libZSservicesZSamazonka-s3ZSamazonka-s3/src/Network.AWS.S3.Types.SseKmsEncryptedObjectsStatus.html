@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679553588"><span id="local-6989586621679553589"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SseKmsEncryptedObjectsStatus"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#SseKmsEncryptedObjectsStatus"><span class="hs-identifier hs-var">SseKmsEncryptedObjectsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SseKmsEncryptedObjectsStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#SseKmsEncryptedObjectsStatus%27"><span class="hs-identifier hs-var">SseKmsEncryptedObjectsStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679553698"><span id="local-6989586621679553699"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SseKmsEncryptedObjectsStatus"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#SseKmsEncryptedObjectsStatus"><span class="hs-identifier hs-var">SseKmsEncryptedObjectsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SseKmsEncryptedObjectsStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#SseKmsEncryptedObjectsStatus%27"><span class="hs-identifier hs-var">SseKmsEncryptedObjectsStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSseKmsEncryptedObjectsStatus"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#fromSseKmsEncryptedObjectsStatus"><span class="hs-identifier hs-var hs-var">fromSseKmsEncryptedObjectsStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553580"><span id="local-6989586621679553582"><span id="local-6989586621679553584"><span class="annot"><span class="annottext">Int -&gt; SseKmsEncryptedObjectsStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553690"><span id="local-6989586621679553692"><span id="local-6989586621679553694"><span class="annot"><span class="annottext">Int -&gt; SseKmsEncryptedObjectsStatus -&gt; ShowS
 [SseKmsEncryptedObjectsStatus] -&gt; ShowS
 SseKmsEncryptedObjectsStatus -&gt; String
 (Int -&gt; SseKmsEncryptedObjectsStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SseKmsEncryptedObjectsStatus -&gt; String
 showsPrec :: Int -&gt; SseKmsEncryptedObjectsStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SseKmsEncryptedObjectsStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679553571"><span id="local-6989586621679553573"><span id="local-6989586621679553575"><span id="local-6989586621679553577"><span class="annot"><span class="annottext">ReadPrec [SseKmsEncryptedObjectsStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679553681"><span id="local-6989586621679553683"><span id="local-6989586621679553685"><span id="local-6989586621679553687"><span class="annot"><span class="annottext">ReadPrec [SseKmsEncryptedObjectsStatus]
 ReadPrec SseKmsEncryptedObjectsStatus
 Int -&gt; ReadS SseKmsEncryptedObjectsStatus
 ReadS [SseKmsEncryptedObjectsStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SseKmsEncryptedObjectsStatus]
 readsPrec :: Int -&gt; ReadS SseKmsEncryptedObjectsStatus
 $creadsPrec :: Int -&gt; ReadS SseKmsEncryptedObjectsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679553566"><span id="local-6989586621679553568"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679553676"><span id="local-6989586621679553678"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
 -&gt; SseKmsEncryptedObjectsStatus -&gt; Bool
 (SseKmsEncryptedObjectsStatus
  -&gt; SseKmsEncryptedObjectsStatus -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: SseKmsEncryptedObjectsStatus
 $c== :: SseKmsEncryptedObjectsStatus
 -&gt; SseKmsEncryptedObjectsStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679553550"><span id="local-6989586621679553552"><span id="local-6989586621679553554"><span id="local-6989586621679553556"><span id="local-6989586621679553558"><span id="local-6989586621679553560"><span id="local-6989586621679553562"><span class="annot"><span class="annottext">Eq SseKmsEncryptedObjectsStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679553660"><span id="local-6989586621679553662"><span id="local-6989586621679553664"><span id="local-6989586621679553666"><span id="local-6989586621679553668"><span id="local-6989586621679553670"><span id="local-6989586621679553672"><span class="annot"><span class="annottext">Eq SseKmsEncryptedObjectsStatus
 Eq SseKmsEncryptedObjectsStatus
 -&gt; (SseKmsEncryptedObjectsStatus
     -&gt; SseKmsEncryptedObjectsStatus -&gt; Ordering)
@@ -171,7 +171,7 @@ SseKmsEncryptedObjectsStatus -&gt; Rep SseKmsEncryptedObjectsStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553542"><span id="local-6989586621679553544"><span class="annot"><span class="annottext">Int -&gt; SseKmsEncryptedObjectsStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553652"><span id="local-6989586621679553654"><span class="annot"><span class="annottext">Int -&gt; SseKmsEncryptedObjectsStatus -&gt; Int
 SseKmsEncryptedObjectsStatus -&gt; Int
 (Int -&gt; SseKmsEncryptedObjectsStatus -&gt; Int)
 -&gt; (SseKmsEncryptedObjectsStatus -&gt; Int)
@@ -182,56 +182,56 @@ $chash :: SseKmsEncryptedObjectsStatus -&gt; Int
 hashWithSalt :: Int -&gt; SseKmsEncryptedObjectsStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SseKmsEncryptedObjectsStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679553539"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679553649"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; ()
 (SseKmsEncryptedObjectsStatus -&gt; ())
 -&gt; NFData SseKmsEncryptedObjectsStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SseKmsEncryptedObjectsStatus -&gt; ()
 $crnf :: SseKmsEncryptedObjectsStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679553536"><span class="annot"><span class="annottext">Text -&gt; Either String SseKmsEncryptedObjectsStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679553646"><span class="annot"><span class="annottext">Text -&gt; Either String SseKmsEncryptedObjectsStatus
 (Text -&gt; Either String SseKmsEncryptedObjectsStatus)
 -&gt; FromText SseKmsEncryptedObjectsStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SseKmsEncryptedObjectsStatus
 $cfromText :: Text -&gt; Either String SseKmsEncryptedObjectsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679553533"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679553643"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; Text
 (SseKmsEncryptedObjectsStatus -&gt; Text)
 -&gt; ToText SseKmsEncryptedObjectsStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SseKmsEncryptedObjectsStatus -&gt; Text
 $ctoText :: SseKmsEncryptedObjectsStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679553530"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679553640"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; ByteString
 (SseKmsEncryptedObjectsStatus -&gt; ByteString)
 -&gt; ToByteString SseKmsEncryptedObjectsStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SseKmsEncryptedObjectsStatus -&gt; ByteString
 $ctoBS :: SseKmsEncryptedObjectsStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679553527"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679553637"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; ByteStringBuilder
 (SseKmsEncryptedObjectsStatus -&gt; ByteStringBuilder)
 -&gt; ToLog SseKmsEncryptedObjectsStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SseKmsEncryptedObjectsStatus -&gt; ByteStringBuilder
 $cbuild :: SseKmsEncryptedObjectsStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679553524"><span class="annot"><span class="annottext">HeaderName -&gt; SseKmsEncryptedObjectsStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679553634"><span class="annot"><span class="annottext">HeaderName -&gt; SseKmsEncryptedObjectsStatus -&gt; [Header]
 (HeaderName -&gt; SseKmsEncryptedObjectsStatus -&gt; [Header])
 -&gt; ToHeader SseKmsEncryptedObjectsStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SseKmsEncryptedObjectsStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SseKmsEncryptedObjectsStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679553521"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679553631"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; QueryString
 (SseKmsEncryptedObjectsStatus -&gt; QueryString)
 -&gt; ToQuery SseKmsEncryptedObjectsStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SseKmsEncryptedObjectsStatus -&gt; QueryString
 $ctoQuery :: SseKmsEncryptedObjectsStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679553516"><span id="local-6989586621679553518"><span class="annot"><span class="annottext">Value -&gt; Parser [SseKmsEncryptedObjectsStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679553626"><span id="local-6989586621679553628"><span class="annot"><span class="annottext">Value -&gt; Parser [SseKmsEncryptedObjectsStatus]
 Value -&gt; Parser SseKmsEncryptedObjectsStatus
 (Value -&gt; Parser SseKmsEncryptedObjectsStatus)
 -&gt; (Value -&gt; Parser [SseKmsEncryptedObjectsStatus])
@@ -243,7 +243,7 @@ $cparseJSONList :: Value -&gt; Parser [SseKmsEncryptedObjectsStatus]
 parseJSON :: Value -&gt; Parser SseKmsEncryptedObjectsStatus
 $cparseJSON :: Value -&gt; Parser SseKmsEncryptedObjectsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679553511"><span id="local-6989586621679553513"><span class="annot"><span class="annottext">FromJSONKeyFunction [SseKmsEncryptedObjectsStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679553621"><span id="local-6989586621679553623"><span class="annot"><span class="annottext">FromJSONKeyFunction [SseKmsEncryptedObjectsStatus]
 FromJSONKeyFunction SseKmsEncryptedObjectsStatus
 FromJSONKeyFunction SseKmsEncryptedObjectsStatus
 -&gt; FromJSONKeyFunction [SseKmsEncryptedObjectsStatus]
@@ -255,7 +255,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SseKmsEncryptedObjectsStatus]
 fromJSONKey :: FromJSONKeyFunction SseKmsEncryptedObjectsStatus
 $cfromJSONKey :: FromJSONKeyFunction SseKmsEncryptedObjectsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679553502"><span id="local-6989586621679553504"><span id="local-6989586621679553506"><span id="local-6989586621679553508"><span class="annot"><span class="annottext">[SseKmsEncryptedObjectsStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679553612"><span id="local-6989586621679553614"><span id="local-6989586621679553616"><span id="local-6989586621679553618"><span class="annot"><span class="annottext">[SseKmsEncryptedObjectsStatus] -&gt; Encoding
 [SseKmsEncryptedObjectsStatus] -&gt; Value
 SseKmsEncryptedObjectsStatus -&gt; Encoding
 SseKmsEncryptedObjectsStatus -&gt; Value
@@ -279,7 +279,7 @@ $ctoEncoding :: SseKmsEncryptedObjectsStatus -&gt; Encoding
 toJSON :: SseKmsEncryptedObjectsStatus -&gt; Value
 $ctoJSON :: SseKmsEncryptedObjectsStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679553497"><span id="local-6989586621679553499"><span class="annot"><span class="annottext">ToJSONKeyFunction [SseKmsEncryptedObjectsStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679553607"><span id="local-6989586621679553609"><span class="annot"><span class="annottext">ToJSONKeyFunction [SseKmsEncryptedObjectsStatus]
 ToJSONKeyFunction SseKmsEncryptedObjectsStatus
 ToJSONKeyFunction SseKmsEncryptedObjectsStatus
 -&gt; ToJSONKeyFunction [SseKmsEncryptedObjectsStatus]
@@ -291,14 +291,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SseKmsEncryptedObjectsStatus]
 toJSONKey :: ToJSONKeyFunction SseKmsEncryptedObjectsStatus
 $ctoJSONKey :: ToJSONKeyFunction SseKmsEncryptedObjectsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679553494"><span class="annot"><span class="annottext">[Node] -&gt; Either String SseKmsEncryptedObjectsStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679553604"><span class="annot"><span class="annottext">[Node] -&gt; Either String SseKmsEncryptedObjectsStatus
 ([Node] -&gt; Either String SseKmsEncryptedObjectsStatus)
 -&gt; FromXML SseKmsEncryptedObjectsStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SseKmsEncryptedObjectsStatus
 $cparseXML :: [Node] -&gt; Either String SseKmsEncryptedObjectsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679553491"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679553601"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; XML
 (SseKmsEncryptedObjectsStatus -&gt; XML)
 -&gt; ToXML SseKmsEncryptedObjectsStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

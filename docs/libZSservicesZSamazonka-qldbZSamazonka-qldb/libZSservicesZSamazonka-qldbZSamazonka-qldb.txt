@@ -3278,14 +3278,14 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.GetBlock.GetBlock
 --   You can initiate up to two concurrent journal export requests for each
 --   ledger. Beyond this limit, journal export requests throw
 --   <tt>LimitExceededException</tt>.
-module Network.AWS.QLDB.ExportJournalToS
+module Network.AWS.QLDB.ExportJournalToS3
 
--- | <i>See:</i> <a>newExportJournalToS</a> smart constructor.
-data ExportJournalToS
-ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> ExportJournalToS
+-- | <i>See:</i> <a>newExportJournalToS3</a> smart constructor.
+data ExportJournalToS3
+ExportJournalToS3' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> ExportJournalToS3
 
 -- | The name of the ledger.
-[$sel:name:ExportJournalToS'] :: ExportJournalToS -> Text
+[$sel:name:ExportJournalToS3'] :: ExportJournalToS3 -> Text
 
 -- | The inclusive start date and time for the range of journal contents to
 --   export.
@@ -3300,7 +3300,7 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   If you provide an <tt>InclusiveStartTime</tt> that is before the
 --   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
 --   ledger's <tt>CreationDateTime</tt>.
-[$sel:inclusiveStartTime:ExportJournalToS'] :: ExportJournalToS -> POSIX
+[$sel:inclusiveStartTime:ExportJournalToS3'] :: ExportJournalToS3 -> POSIX
 
 -- | The exclusive end date and time for the range of journal contents to
 --   export.
@@ -3311,11 +3311,11 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   
 --   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
 --   current UTC date and time.
-[$sel:exclusiveEndTime:ExportJournalToS'] :: ExportJournalToS -> POSIX
+[$sel:exclusiveEndTime:ExportJournalToS3'] :: ExportJournalToS3 -> POSIX
 
 -- | The configuration settings of the Amazon S3 bucket destination for
 --   your export request.
-[$sel:s3ExportConfiguration:ExportJournalToS'] :: ExportJournalToS -> S3ExportConfiguration
+[$sel:s3ExportConfiguration:ExportJournalToS3'] :: ExportJournalToS3 -> S3ExportConfiguration
 
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 --   permissions for a journal export job to do the following:
@@ -3326,9 +3326,9 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   <li>(Optional) Use your customer master key (CMK) in Key Management
 --   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
-[$sel:roleArn:ExportJournalToS'] :: ExportJournalToS -> Text
+[$sel:roleArn:ExportJournalToS3'] :: ExportJournalToS3 -> Text
 
--- | Create a value of <a>ExportJournalToS</a> with all optional fields
+-- | Create a value of <a>ExportJournalToS3</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3337,11 +3337,11 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:ExportJournalToS'</a>, <a>exportJournalToS_name</a> - The
---   name of the ledger.
+--   <a>$sel:name:ExportJournalToS3'</a>, <a>exportJournalToS3_name</a> -
+--   The name of the ledger.
 --   
---   <a>$sel:inclusiveStartTime:ExportJournalToS'</a>,
---   <a>exportJournalToS_inclusiveStartTime</a> - The inclusive start date
+--   <a>$sel:inclusiveStartTime:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_inclusiveStartTime</a> - The inclusive start date
 --   and time for the range of journal contents to export.
 --   
 --   The <tt>InclusiveStartTime</tt> must be in <tt>ISO 8601</tt> date and
@@ -3355,8 +3355,8 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
 --   ledger's <tt>CreationDateTime</tt>.
 --   
---   <a>$sel:exclusiveEndTime:ExportJournalToS'</a>,
---   <a>exportJournalToS_exclusiveEndTime</a> - The exclusive end date and
+--   <a>$sel:exclusiveEndTime:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_exclusiveEndTime</a> - The exclusive end date and
 --   time for the range of journal contents to export.
 --   
 --   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
@@ -3366,13 +3366,14 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
 --   current UTC date and time.
 --   
---   <a>$sel:s3ExportConfiguration:ExportJournalToS'</a>,
---   <a>exportJournalToS_s3ExportConfiguration</a> - The configuration
+--   <a>$sel:s3ExportConfiguration:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_s3ExportConfiguration</a> - The configuration
 --   settings of the Amazon S3 bucket destination for your export request.
 --   
---   <a>$sel:roleArn:ExportJournalToS'</a>, <a>exportJournalToS_roleArn</a>
---   - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
---   permissions for a journal export job to do the following:
+--   <a>$sel:roleArn:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_roleArn</a> - The Amazon Resource Name (ARN) of
+--   the IAM role that grants QLDB permissions for a journal export job to
+--   do the following:
 --   
 --   <ul>
 --   <li>Write objects into your Amazon Simple Storage Service (Amazon S3)
@@ -3380,10 +3381,10 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   <li>(Optional) Use your customer master key (CMK) in Key Management
 --   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
-newExportJournalToS :: Text -> UTCTime -> UTCTime -> S3ExportConfiguration -> Text -> ExportJournalToS
+newExportJournalToS3 :: Text -> UTCTime -> UTCTime -> S3ExportConfiguration -> Text -> ExportJournalToS3
 
 -- | The name of the ledger.
-exportJournalToS_name :: Lens' ExportJournalToS Text
+exportJournalToS3_name :: Lens' ExportJournalToS3 Text
 
 -- | The inclusive start date and time for the range of journal contents to
 --   export.
@@ -3398,7 +3399,7 @@ exportJournalToS_name :: Lens' ExportJournalToS Text
 --   If you provide an <tt>InclusiveStartTime</tt> that is before the
 --   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
 --   ledger's <tt>CreationDateTime</tt>.
-exportJournalToS_inclusiveStartTime :: Lens' ExportJournalToS UTCTime
+exportJournalToS3_inclusiveStartTime :: Lens' ExportJournalToS3 UTCTime
 
 -- | The exclusive end date and time for the range of journal contents to
 --   export.
@@ -3409,11 +3410,11 @@ exportJournalToS_inclusiveStartTime :: Lens' ExportJournalToS UTCTime
 --   
 --   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
 --   current UTC date and time.
-exportJournalToS_exclusiveEndTime :: Lens' ExportJournalToS UTCTime
+exportJournalToS3_exclusiveEndTime :: Lens' ExportJournalToS3 UTCTime
 
 -- | The configuration settings of the Amazon S3 bucket destination for
 --   your export request.
-exportJournalToS_s3ExportConfiguration :: Lens' ExportJournalToS S3ExportConfiguration
+exportJournalToS3_s3ExportConfiguration :: Lens' ExportJournalToS3 S3ExportConfiguration
 
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 --   permissions for a journal export job to do the following:
@@ -3424,23 +3425,23 @@ exportJournalToS_s3ExportConfiguration :: Lens' ExportJournalToS S3ExportConfigu
 --   <li>(Optional) Use your customer master key (CMK) in Key Management
 --   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
-exportJournalToS_roleArn :: Lens' ExportJournalToS Text
+exportJournalToS3_roleArn :: Lens' ExportJournalToS3 Text
 
--- | <i>See:</i> <a>newExportJournalToSResponse</a> smart constructor.
-data ExportJournalToSResponse
-ExportJournalToSResponse' :: Int -> Text -> ExportJournalToSResponse
+-- | <i>See:</i> <a>newExportJournalToS3Response</a> smart constructor.
+data ExportJournalToS3Response
+ExportJournalToS3Response' :: Int -> Text -> ExportJournalToS3Response
 
 -- | The response's http status code.
-[$sel:httpStatus:ExportJournalToSResponse'] :: ExportJournalToSResponse -> Int
+[$sel:httpStatus:ExportJournalToS3Response'] :: ExportJournalToS3Response -> Int
 
 -- | The UUID (represented in Base62-encoded text) that QLDB assigns to
 --   each journal export job.
 --   
 --   To describe your export request and check the status of the job, you
 --   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-[$sel:exportId:ExportJournalToSResponse'] :: ExportJournalToSResponse -> Text
+[$sel:exportId:ExportJournalToS3Response'] :: ExportJournalToS3Response -> Text
 
--- | Create a value of <a>ExportJournalToSResponse</a> with all optional
+-- | Create a value of <a>ExportJournalToS3Response</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3449,43 +3450,43 @@ ExportJournalToSResponse' :: Int -> Text -> ExportJournalToSResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:ExportJournalToSResponse'</a>,
---   <a>exportJournalToSResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:ExportJournalToS3Response'</a>,
+--   <a>exportJournalToS3Response_httpStatus</a> - The response's http
 --   status code.
 --   
---   <a>$sel:exportId:ExportJournalToSResponse'</a>,
---   <a>exportJournalToSResponse_exportId</a> - The UUID (represented in
+--   <a>$sel:exportId:ExportJournalToS3Response'</a>,
+--   <a>exportJournalToS3Response_exportId</a> - The UUID (represented in
 --   Base62-encoded text) that QLDB assigns to each journal export job.
 --   
 --   To describe your export request and check the status of the job, you
 --   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-newExportJournalToSResponse :: Int -> Text -> ExportJournalToSResponse
+newExportJournalToS3Response :: Int -> Text -> ExportJournalToS3Response
 
 -- | The response's http status code.
-exportJournalToSResponse_httpStatus :: Lens' ExportJournalToSResponse Int
+exportJournalToS3Response_httpStatus :: Lens' ExportJournalToS3Response Int
 
 -- | The UUID (represented in Base62-encoded text) that QLDB assigns to
 --   each journal export job.
 --   
 --   To describe your export request and check the status of the job, you
 --   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-exportJournalToSResponse_exportId :: Lens' ExportJournalToSResponse Text
-instance GHC.Generics.Generic Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance GHC.Show.Show Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance GHC.Read.Read Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance GHC.Classes.Eq Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance GHC.Generics.Generic Network.AWS.QLDB.ExportJournalToS.ExportJournalToSResponse
-instance GHC.Show.Show Network.AWS.QLDB.ExportJournalToS.ExportJournalToSResponse
-instance GHC.Read.Read Network.AWS.QLDB.ExportJournalToS.ExportJournalToSResponse
-instance GHC.Classes.Eq Network.AWS.QLDB.ExportJournalToS.ExportJournalToSResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ExportJournalToS.ExportJournalToSResponse
-instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance Control.DeepSeq.NFData Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
-instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ExportJournalToS.ExportJournalToS
+exportJournalToS3Response_exportId :: Lens' ExportJournalToS3Response Text
+instance GHC.Generics.Generic Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Show.Show Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Read.Read Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Classes.Eq Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance GHC.Generics.Generic Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance GHC.Show.Show Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance GHC.Read.Read Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance GHC.Classes.Eq Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance Network.AWS.Types.AWSRequest Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Control.DeepSeq.NFData Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3Response
+instance Data.Hashable.Class.Hashable Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Control.DeepSeq.NFData Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Network.AWS.Data.Path.ToPath Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
+instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.ExportJournalToS3.ExportJournalToS3
 
 
 -- | Returns information about a ledger, including its state, permissions
@@ -5201,7 +5202,7 @@ cancelJournalKinesisStreamResponse_streamId :: Lens' CancelJournalKinesisStreamR
 cancelJournalKinesisStreamResponse_httpStatus :: Lens' CancelJournalKinesisStreamResponse Int
 
 -- | The name of the ledger.
-exportJournalToS_name :: Lens' ExportJournalToS Text
+exportJournalToS3_name :: Lens' ExportJournalToS3 Text
 
 -- | The inclusive start date and time for the range of journal contents to
 --   export.
@@ -5216,7 +5217,7 @@ exportJournalToS_name :: Lens' ExportJournalToS Text
 --   If you provide an <tt>InclusiveStartTime</tt> that is before the
 --   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
 --   ledger's <tt>CreationDateTime</tt>.
-exportJournalToS_inclusiveStartTime :: Lens' ExportJournalToS UTCTime
+exportJournalToS3_inclusiveStartTime :: Lens' ExportJournalToS3 UTCTime
 
 -- | The exclusive end date and time for the range of journal contents to
 --   export.
@@ -5227,11 +5228,11 @@ exportJournalToS_inclusiveStartTime :: Lens' ExportJournalToS UTCTime
 --   
 --   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
 --   current UTC date and time.
-exportJournalToS_exclusiveEndTime :: Lens' ExportJournalToS UTCTime
+exportJournalToS3_exclusiveEndTime :: Lens' ExportJournalToS3 UTCTime
 
 -- | The configuration settings of the Amazon S3 bucket destination for
 --   your export request.
-exportJournalToS_s3ExportConfiguration :: Lens' ExportJournalToS S3ExportConfiguration
+exportJournalToS3_s3ExportConfiguration :: Lens' ExportJournalToS3 S3ExportConfiguration
 
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 --   permissions for a journal export job to do the following:
@@ -5242,17 +5243,17 @@ exportJournalToS_s3ExportConfiguration :: Lens' ExportJournalToS S3ExportConfigu
 --   <li>(Optional) Use your customer master key (CMK) in Key Management
 --   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
-exportJournalToS_roleArn :: Lens' ExportJournalToS Text
+exportJournalToS3_roleArn :: Lens' ExportJournalToS3 Text
 
 -- | The response's http status code.
-exportJournalToSResponse_httpStatus :: Lens' ExportJournalToSResponse Int
+exportJournalToS3Response_httpStatus :: Lens' ExportJournalToS3Response Int
 
 -- | The UUID (represented in Base62-encoded text) that QLDB assigns to
 --   each journal export job.
 --   
 --   To describe your export request and check the status of the job, you
 --   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-exportJournalToSResponse_exportId :: Lens' ExportJournalToSResponse Text
+exportJournalToS3Response_exportId :: Lens' ExportJournalToS3Response Text
 
 -- | The exclusive date and time that specifies when the stream ends. If
 --   you don't define this parameter, the stream runs indefinitely until
@@ -6324,11 +6325,11 @@ CancelJournalKinesisStreamResponse' :: Maybe Text -> Int -> CancelJournalKinesis
 --   http status code.
 newCancelJournalKinesisStreamResponse :: Int -> CancelJournalKinesisStreamResponse
 
--- | <i>See:</i> <a>newExportJournalToS</a> smart constructor.
-data ExportJournalToS
-ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> ExportJournalToS
+-- | <i>See:</i> <a>newExportJournalToS3</a> smart constructor.
+data ExportJournalToS3
+ExportJournalToS3' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> ExportJournalToS3
 
--- | Create a value of <a>ExportJournalToS</a> with all optional fields
+-- | Create a value of <a>ExportJournalToS3</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -6337,11 +6338,11 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:ExportJournalToS'</a>, <a>exportJournalToS_name</a> - The
---   name of the ledger.
+--   <a>$sel:name:ExportJournalToS3'</a>, <a>exportJournalToS3_name</a> -
+--   The name of the ledger.
 --   
---   <a>$sel:inclusiveStartTime:ExportJournalToS'</a>,
---   <a>exportJournalToS_inclusiveStartTime</a> - The inclusive start date
+--   <a>$sel:inclusiveStartTime:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_inclusiveStartTime</a> - The inclusive start date
 --   and time for the range of journal contents to export.
 --   
 --   The <tt>InclusiveStartTime</tt> must be in <tt>ISO 8601</tt> date and
@@ -6355,8 +6356,8 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
 --   ledger's <tt>CreationDateTime</tt>.
 --   
---   <a>$sel:exclusiveEndTime:ExportJournalToS'</a>,
---   <a>exportJournalToS_exclusiveEndTime</a> - The exclusive end date and
+--   <a>$sel:exclusiveEndTime:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_exclusiveEndTime</a> - The exclusive end date and
 --   time for the range of journal contents to export.
 --   
 --   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
@@ -6366,13 +6367,14 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
 --   current UTC date and time.
 --   
---   <a>$sel:s3ExportConfiguration:ExportJournalToS'</a>,
---   <a>exportJournalToS_s3ExportConfiguration</a> - The configuration
+--   <a>$sel:s3ExportConfiguration:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_s3ExportConfiguration</a> - The configuration
 --   settings of the Amazon S3 bucket destination for your export request.
 --   
---   <a>$sel:roleArn:ExportJournalToS'</a>, <a>exportJournalToS_roleArn</a>
---   - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
---   permissions for a journal export job to do the following:
+--   <a>$sel:roleArn:ExportJournalToS3'</a>,
+--   <a>exportJournalToS3_roleArn</a> - The Amazon Resource Name (ARN) of
+--   the IAM role that grants QLDB permissions for a journal export job to
+--   do the following:
 --   
 --   <ul>
 --   <li>Write objects into your Amazon Simple Storage Service (Amazon S3)
@@ -6380,13 +6382,13 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   <li>(Optional) Use your customer master key (CMK) in Key Management
 --   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
-newExportJournalToS :: Text -> UTCTime -> UTCTime -> S3ExportConfiguration -> Text -> ExportJournalToS
+newExportJournalToS3 :: Text -> UTCTime -> UTCTime -> S3ExportConfiguration -> Text -> ExportJournalToS3
 
--- | <i>See:</i> <a>newExportJournalToSResponse</a> smart constructor.
-data ExportJournalToSResponse
-ExportJournalToSResponse' :: Int -> Text -> ExportJournalToSResponse
+-- | <i>See:</i> <a>newExportJournalToS3Response</a> smart constructor.
+data ExportJournalToS3Response
+ExportJournalToS3Response' :: Int -> Text -> ExportJournalToS3Response
 
--- | Create a value of <a>ExportJournalToSResponse</a> with all optional
+-- | Create a value of <a>ExportJournalToS3Response</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -6395,17 +6397,17 @@ ExportJournalToSResponse' :: Int -> Text -> ExportJournalToSResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:ExportJournalToSResponse'</a>,
---   <a>exportJournalToSResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:ExportJournalToS3Response'</a>,
+--   <a>exportJournalToS3Response_httpStatus</a> - The response's http
 --   status code.
 --   
---   <a>$sel:exportId:ExportJournalToSResponse'</a>,
---   <a>exportJournalToSResponse_exportId</a> - The UUID (represented in
+--   <a>$sel:exportId:ExportJournalToS3Response'</a>,
+--   <a>exportJournalToS3Response_exportId</a> - The UUID (represented in
 --   Base62-encoded text) that QLDB assigns to each journal export job.
 --   
 --   To describe your export request and check the status of the job, you
 --   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-newExportJournalToSResponse :: Int -> Text -> ExportJournalToSResponse
+newExportJournalToS3Response :: Int -> Text -> ExportJournalToS3Response
 
 -- | <i>See:</i> <a>newStreamJournalToKinesis</a> smart constructor.
 data StreamJournalToKinesis

@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- MediaConvert includes the captions data in two ways: it passes the 608</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- data through using the 608 compatibility bytes fields of the 708</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- wrapper, and it also translates the 608 data into 708.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679962916"><span id="local-6989586621679962917"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmbeddedConvert608To708"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedConvert608To708.html#EmbeddedConvert608To708"><span class="hs-identifier hs-var">EmbeddedConvert608To708</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedConvert608To708%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedConvert608To708.html#EmbeddedConvert608To708%27"><span class="hs-identifier hs-var">EmbeddedConvert608To708'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679964235"><span id="local-6989586621679964236"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmbeddedConvert608To708"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedConvert608To708.html#EmbeddedConvert608To708"><span class="hs-identifier hs-var">EmbeddedConvert608To708</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedConvert608To708%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedConvert608To708.html#EmbeddedConvert608To708%27"><span class="hs-identifier hs-var">EmbeddedConvert608To708'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEmbeddedConvert608To708"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedConvert608To708.html#fromEmbeddedConvert608To708"><span class="hs-identifier hs-var hs-var">fromEmbeddedConvert608To708</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962908"><span id="local-6989586621679962910"><span id="local-6989586621679962912"><span class="annot"><span class="annottext">Int -&gt; EmbeddedConvert608To708 -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964227"><span id="local-6989586621679964229"><span id="local-6989586621679964231"><span class="annot"><span class="annottext">Int -&gt; EmbeddedConvert608To708 -&gt; ShowS
 [EmbeddedConvert608To708] -&gt; ShowS
 EmbeddedConvert608To708 -&gt; String
 (Int -&gt; EmbeddedConvert608To708 -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: EmbeddedConvert608To708 -&gt; String
 showsPrec :: Int -&gt; EmbeddedConvert608To708 -&gt; ShowS
 $cshowsPrec :: Int -&gt; EmbeddedConvert608To708 -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679962899"><span id="local-6989586621679962901"><span id="local-6989586621679962903"><span id="local-6989586621679962905"><span class="annot"><span class="annottext">ReadPrec [EmbeddedConvert608To708]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679964218"><span id="local-6989586621679964220"><span id="local-6989586621679964222"><span id="local-6989586621679964224"><span class="annot"><span class="annottext">ReadPrec [EmbeddedConvert608To708]
 ReadPrec EmbeddedConvert608To708
 Int -&gt; ReadS EmbeddedConvert608To708
 ReadS [EmbeddedConvert608To708]
@@ -77,7 +77,7 @@ $creadList :: ReadS [EmbeddedConvert608To708]
 readsPrec :: Int -&gt; ReadS EmbeddedConvert608To708
 $creadsPrec :: Int -&gt; ReadS EmbeddedConvert608To708
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679962894"><span id="local-6989586621679962896"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679964213"><span id="local-6989586621679964215"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool
 (EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool)
 -&gt; (EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool)
 -&gt; Eq EmbeddedConvert608To708
@@ -87,7 +87,7 @@ $c/= :: EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool
 == :: EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool
 $c== :: EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679962878"><span id="local-6989586621679962880"><span id="local-6989586621679962882"><span id="local-6989586621679962884"><span id="local-6989586621679962886"><span id="local-6989586621679962888"><span id="local-6989586621679962890"><span class="annot"><span class="annottext">Eq EmbeddedConvert608To708
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679964197"><span id="local-6989586621679964199"><span id="local-6989586621679964201"><span id="local-6989586621679964203"><span id="local-6989586621679964205"><span id="local-6989586621679964207"><span id="local-6989586621679964209"><span class="annot"><span class="annottext">Eq EmbeddedConvert608To708
 Eq EmbeddedConvert608To708
 -&gt; (EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Ordering)
 -&gt; (EmbeddedConvert608To708 -&gt; EmbeddedConvert608To708 -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. EmbeddedConvert608To708 -&gt; Rep EmbeddedConvert608To708 x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962870"><span id="local-6989586621679962872"><span class="annot"><span class="annottext">Int -&gt; EmbeddedConvert608To708 -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964189"><span id="local-6989586621679964191"><span class="annot"><span class="annottext">Int -&gt; EmbeddedConvert608To708 -&gt; Int
 EmbeddedConvert608To708 -&gt; Int
 (Int -&gt; EmbeddedConvert608To708 -&gt; Int)
 -&gt; (EmbeddedConvert608To708 -&gt; Int)
@@ -158,54 +158,54 @@ $chash :: EmbeddedConvert608To708 -&gt; Int
 hashWithSalt :: Int -&gt; EmbeddedConvert608To708 -&gt; Int
 $chashWithSalt :: Int -&gt; EmbeddedConvert608To708 -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679962867"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679964186"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; ()
 (EmbeddedConvert608To708 -&gt; ()) -&gt; NFData EmbeddedConvert608To708
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EmbeddedConvert608To708 -&gt; ()
 $crnf :: EmbeddedConvert608To708 -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679962864"><span class="annot"><span class="annottext">Text -&gt; Either String EmbeddedConvert608To708
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679964183"><span class="annot"><span class="annottext">Text -&gt; Either String EmbeddedConvert608To708
 (Text -&gt; Either String EmbeddedConvert608To708)
 -&gt; FromText EmbeddedConvert608To708
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EmbeddedConvert608To708
 $cfromText :: Text -&gt; Either String EmbeddedConvert608To708
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679962861"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679964180"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; Text
 (EmbeddedConvert608To708 -&gt; Text) -&gt; ToText EmbeddedConvert608To708
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EmbeddedConvert608To708 -&gt; Text
 $ctoText :: EmbeddedConvert608To708 -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679962858"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679964177"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; ByteString
 (EmbeddedConvert608To708 -&gt; ByteString)
 -&gt; ToByteString EmbeddedConvert608To708
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EmbeddedConvert608To708 -&gt; ByteString
 $ctoBS :: EmbeddedConvert608To708 -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679962855"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679964174"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; ByteStringBuilder
 (EmbeddedConvert608To708 -&gt; ByteStringBuilder)
 -&gt; ToLog EmbeddedConvert608To708
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EmbeddedConvert608To708 -&gt; ByteStringBuilder
 $cbuild :: EmbeddedConvert608To708 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679962852"><span class="annot"><span class="annottext">HeaderName -&gt; EmbeddedConvert608To708 -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679964171"><span class="annot"><span class="annottext">HeaderName -&gt; EmbeddedConvert608To708 -&gt; [Header]
 (HeaderName -&gt; EmbeddedConvert608To708 -&gt; [Header])
 -&gt; ToHeader EmbeddedConvert608To708
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EmbeddedConvert608To708 -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EmbeddedConvert608To708 -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679962849"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679964168"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; QueryString
 (EmbeddedConvert608To708 -&gt; QueryString)
 -&gt; ToQuery EmbeddedConvert608To708
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EmbeddedConvert608To708 -&gt; QueryString
 $ctoQuery :: EmbeddedConvert608To708 -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679962844"><span id="local-6989586621679962846"><span class="annot"><span class="annottext">Value -&gt; Parser [EmbeddedConvert608To708]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679964163"><span id="local-6989586621679964165"><span class="annot"><span class="annottext">Value -&gt; Parser [EmbeddedConvert608To708]
 Value -&gt; Parser EmbeddedConvert608To708
 (Value -&gt; Parser EmbeddedConvert608To708)
 -&gt; (Value -&gt; Parser [EmbeddedConvert608To708])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [EmbeddedConvert608To708]
 parseJSON :: Value -&gt; Parser EmbeddedConvert608To708
 $cparseJSON :: Value -&gt; Parser EmbeddedConvert608To708
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679962839"><span id="local-6989586621679962841"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmbeddedConvert608To708]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679964158"><span id="local-6989586621679964160"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmbeddedConvert608To708]
 FromJSONKeyFunction EmbeddedConvert608To708
 FromJSONKeyFunction EmbeddedConvert608To708
 -&gt; FromJSONKeyFunction [EmbeddedConvert608To708]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EmbeddedConvert608To708]
 fromJSONKey :: FromJSONKeyFunction EmbeddedConvert608To708
 $cfromJSONKey :: FromJSONKeyFunction EmbeddedConvert608To708
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679962830"><span id="local-6989586621679962832"><span id="local-6989586621679962834"><span id="local-6989586621679962836"><span class="annot"><span class="annottext">[EmbeddedConvert608To708] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679964149"><span id="local-6989586621679964151"><span id="local-6989586621679964153"><span id="local-6989586621679964155"><span class="annot"><span class="annottext">[EmbeddedConvert608To708] -&gt; Encoding
 [EmbeddedConvert608To708] -&gt; Value
 EmbeddedConvert608To708 -&gt; Encoding
 EmbeddedConvert608To708 -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: EmbeddedConvert608To708 -&gt; Encoding
 toJSON :: EmbeddedConvert608To708 -&gt; Value
 $ctoJSON :: EmbeddedConvert608To708 -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679962825"><span id="local-6989586621679962827"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmbeddedConvert608To708]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679964144"><span id="local-6989586621679964146"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmbeddedConvert608To708]
 ToJSONKeyFunction EmbeddedConvert608To708
 ToJSONKeyFunction EmbeddedConvert608To708
 -&gt; ToJSONKeyFunction [EmbeddedConvert608To708]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EmbeddedConvert608To708]
 toJSONKey :: ToJSONKeyFunction EmbeddedConvert608To708
 $ctoJSONKey :: ToJSONKeyFunction EmbeddedConvert608To708
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679962822"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmbeddedConvert608To708
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679964141"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmbeddedConvert608To708
 ([Node] -&gt; Either String EmbeddedConvert608To708)
 -&gt; FromXML EmbeddedConvert608To708
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EmbeddedConvert608To708
 $cparseXML :: [Node] -&gt; Either String EmbeddedConvert608To708
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679962819"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679964138"><span class="annot"><span class="annottext">EmbeddedConvert608To708 -&gt; XML
 (EmbeddedConvert608To708 -&gt; XML) -&gt; ToXML EmbeddedConvert608To708
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EmbeddedConvert608To708 -&gt; XML

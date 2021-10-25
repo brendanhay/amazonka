@@ -70,7 +70,7 @@
 </span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newGetObjectAcl' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679573297"><span id="local-6989586621679573298"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectAcl"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-var">GetObjectAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectAcl%27"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-var">GetObjectAcl'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679573444"><span id="local-6989586621679573445"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectAcl"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-var">GetObjectAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectAcl%27"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-var">GetObjectAcl'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | VersionId used to reference a specific version of the object.</span><span>
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AversionId%3AGetObjectAcl%27"><span class="annot"><span class="annottext">GetObjectAcl -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3AversionId%3AGetObjectAcl%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -98,7 +98,7 @@
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3Akey%3AGetObjectAcl%27"><span class="annot"><span class="annottext">GetObjectAcl -&gt; ObjectKey
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Akey%3AGetObjectAcl%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679573287"><span id="local-6989586621679573289"><span class="annot"><span class="annottext">GetObjectAcl -&gt; GetObjectAcl -&gt; Bool
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679573434"><span id="local-6989586621679573436"><span class="annot"><span class="annottext">GetObjectAcl -&gt; GetObjectAcl -&gt; Bool
 (GetObjectAcl -&gt; GetObjectAcl -&gt; Bool)
 -&gt; (GetObjectAcl -&gt; GetObjectAcl -&gt; Bool) -&gt; Eq GetObjectAcl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectAcl -&gt; GetObjectAcl -&gt; Bool
 == :: GetObjectAcl -&gt; GetObjectAcl -&gt; Bool
 $c== :: GetObjectAcl -&gt; GetObjectAcl -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573278"><span id="local-6989586621679573280"><span id="local-6989586621679573282"><span id="local-6989586621679573284"><span class="annot"><span class="annottext">ReadPrec [GetObjectAcl]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573425"><span id="local-6989586621679573427"><span id="local-6989586621679573429"><span id="local-6989586621679573431"><span class="annot"><span class="annottext">ReadPrec [GetObjectAcl]
 ReadPrec GetObjectAcl
 Int -&gt; ReadS GetObjectAcl
 ReadS [GetObjectAcl]
@@ -126,7 +126,7 @@ readList :: ReadS [GetObjectAcl]
 $creadList :: ReadS [GetObjectAcl]
 readsPrec :: Int -&gt; ReadS GetObjectAcl
 $creadsPrec :: Int -&gt; ReadS GetObjectAcl
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573271"><span id="local-6989586621679573273"><span id="local-6989586621679573275"><span class="annot"><span class="annottext">Int -&gt; GetObjectAcl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573418"><span id="local-6989586621679573420"><span id="local-6989586621679573422"><span class="annot"><span class="annottext">Int -&gt; GetObjectAcl -&gt; ShowS
 [GetObjectAcl] -&gt; ShowS
 GetObjectAcl -&gt; String
 (Int -&gt; GetObjectAcl -&gt; ShowS)
@@ -188,9 +188,9 @@ $cfrom :: forall x. GetObjectAcl -&gt; Rep GetObjectAcl x
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span>
 </span><span id="line-133"></span><span id="newGetObjectAcl"><span class="annot"><span class="annottext">newGetObjectAcl :: BucketName -&gt; ObjectKey -&gt; GetObjectAcl
-</span><a href="Network.AWS.S3.GetObjectAcl.html#newGetObjectAcl"><span class="hs-identifier hs-var hs-var">newGetObjectAcl</span></a></span></span><span> </span><span id="local-6989586621679573266"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679573266"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679573265"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679573265"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetObjectAcl.html#newGetObjectAcl"><span class="hs-identifier hs-var hs-var">newGetObjectAcl</span></a></span></span><span> </span><span id="local-6989586621679573413"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573413"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679573412"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679573412"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">GetObjectAcl' :: Maybe ObjectVersionId
 -&gt; Maybe RequestPayer
 -&gt; Maybe Text
@@ -212,10 +212,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetObjectAcl' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Abucket%3AGetObjectAcl%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679573266"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679573413"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:GetObjectAcl' :: ObjectKey
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Akey%3AGetObjectAcl%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679573265"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679573412"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | VersionId used to reference a specific version of the object.</span><span>
@@ -230,16 +230,16 @@ forall a. Maybe a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573262"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573409"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:GetObjectAcl' :: GetObjectAcl -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679573262"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679573262"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573261"><span class="annot"><span class="annottext">s :: GetObjectAcl
-</span><a href="#local-6989586621679573261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573260"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679573260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
-</span><a href="#local-6989586621679573261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetObjectAcl' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679573409"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679573409"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573408"><span class="annot"><span class="annottext">s :: GetObjectAcl
+</span><a href="#local-6989586621679573408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573407"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679573407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
+</span><a href="#local-6989586621679573408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetObjectAcl' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3AversionId%3AGetObjectAcl%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679573260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#getObjectAcl_requestPayer"><span class="hs-identifier hs-type">getObjectAcl_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
@@ -250,16 +250,16 @@ $sel:versionId:GetObjectAcl' :: GetObjectAcl -&gt; Maybe ObjectVersionId
 -&gt; Lens
      GetObjectAcl GetObjectAcl (Maybe RequestPayer) (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573259"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573406"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:GetObjectAcl' :: GetObjectAcl -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679573259"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679573259"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573258"><span class="annot"><span class="annottext">s :: GetObjectAcl
-</span><a href="#local-6989586621679573258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573257"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679573257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
-</span><a href="#local-6989586621679573258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectAcl' :: Maybe RequestPayer
+</span><a href="#local-6989586621679573406"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679573406"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573405"><span class="annot"><span class="annottext">s :: GetObjectAcl
+</span><a href="#local-6989586621679573405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573404"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679573404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
+</span><a href="#local-6989586621679573405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectAcl' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3ArequestPayer%3AGetObjectAcl%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679573257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -270,16 +270,16 @@ $sel:requestPayer:GetObjectAcl' :: GetObjectAcl -&gt; Maybe RequestPayer
 -&gt; (GetObjectAcl -&gt; Maybe Text -&gt; GetObjectAcl)
 -&gt; Lens GetObjectAcl GetObjectAcl (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573256"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573403"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetObjectAcl' :: GetObjectAcl -&gt; Maybe Text
-</span><a href="#local-6989586621679573256"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679573256"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573255"><span class="annot"><span class="annottext">s :: GetObjectAcl
-</span><a href="#local-6989586621679573255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679573254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
-</span><a href="#local-6989586621679573255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectAcl' :: Maybe Text
+</span><a href="#local-6989586621679573403"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679573403"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573402"><span class="annot"><span class="annottext">s :: GetObjectAcl
+</span><a href="#local-6989586621679573402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679573401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
+</span><a href="#local-6989586621679573402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectAcl' :: Maybe Text
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3AexpectedBucketOwner%3AGetObjectAcl%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679573254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The bucket name that contains the object for which to get the ACL</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- information.</span><span>
@@ -298,16 +298,16 @@ $sel:expectedBucketOwner:GetObjectAcl' :: GetObjectAcl -&gt; Maybe Text
 -&gt; (GetObjectAcl -&gt; BucketName -&gt; GetObjectAcl)
 -&gt; Lens GetObjectAcl GetObjectAcl BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573253"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573400"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetObjectAcl' :: GetObjectAcl -&gt; BucketName
-</span><a href="#local-6989586621679573253"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679573253"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573252"><span class="annot"><span class="annottext">s :: GetObjectAcl
-</span><a href="#local-6989586621679573252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573251"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679573251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
-</span><a href="#local-6989586621679573252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectAcl' :: BucketName
+</span><a href="#local-6989586621679573400"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573400"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573399"><span class="annot"><span class="annottext">s :: GetObjectAcl
+</span><a href="#local-6989586621679573399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573398"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679573398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
+</span><a href="#local-6989586621679573399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectAcl' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Abucket%3AGetObjectAcl%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679573251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The key of the object for which to get the ACL information.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#getObjectAcl_key"><span class="hs-identifier hs-type">getObjectAcl_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
@@ -316,20 +316,20 @@ $sel:bucket:GetObjectAcl' :: GetObjectAcl -&gt; BucketName
 -&gt; (GetObjectAcl -&gt; ObjectKey -&gt; GetObjectAcl)
 -&gt; Lens GetObjectAcl GetObjectAcl ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573250"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573397"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:GetObjectAcl' :: GetObjectAcl -&gt; ObjectKey
-</span><a href="#local-6989586621679573250"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679573250"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573249"><span class="annot"><span class="annottext">s :: GetObjectAcl
-</span><a href="#local-6989586621679573249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573248"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679573248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
-</span><a href="#local-6989586621679573249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GetObjectAcl' :: ObjectKey
+</span><a href="#local-6989586621679573397"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679573397"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573396"><span class="annot"><span class="annottext">s :: GetObjectAcl
+</span><a href="#local-6989586621679573396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573395"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679573395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAcl
+</span><a href="#local-6989586621679573396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GetObjectAcl' :: ObjectKey
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Akey%3AGetObjectAcl%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679573248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679573244"><span class="annot"><span class="annottext">request :: GetObjectAcl -&gt; Request GetObjectAcl
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679573391"><span class="annot"><span class="annottext">request :: GetObjectAcl -&gt; Request GetObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">Request GetObjectAcl -&gt; Request GetObjectAcl
 forall a. Request a -&gt; Request a
@@ -343,7 +343,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679573238"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679573385"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetObjectAcl
 -&gt; ClientResponse ClientBody
@@ -367,10 +367,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679573235"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573235"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679573234"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679573234"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679573233"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679573233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679573382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573382"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679573381"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679573381"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679573380"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679573380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged
 -&gt; Maybe [Grant] -&gt; Maybe Owner -&gt; Int -&gt; GetObjectAclResponse
 </span><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-var">GetObjectAclResponse'</span></a></span><span>
@@ -382,7 +382,7 @@ MonadResource m =&gt;
      (Maybe [Grant] -&gt; Maybe Owner -&gt; Int -&gt; GetObjectAclResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679573234"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679573381"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
 forall a.
 FromText a =&gt;
@@ -396,7 +396,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Owner -&gt; Int -&gt; GetObjectAclResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679573233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679573380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessControlList&quot;</span></span><span>
@@ -424,7 +424,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; GetObjectAclResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679573233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
+</span><a href="#local-6989586621679573380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
@@ -436,16 +436,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573235"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573382"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573221"><span id="local-6989586621679573223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573368"><span id="local-6989586621679573370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679573214"><span class="annot"><span class="annottext">toHeaders :: GetObjectAcl -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573208"><span id="local-6989586621679573209"><span id="local-6989586621679573210"><span id="local-6989586621679573211"><span id="local-6989586621679573212"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679573361"><span class="annot"><span class="annottext">toHeaders :: GetObjectAcl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573355"><span id="local-6989586621679573356"><span id="local-6989586621679573357"><span id="local-6989586621679573358"><span id="local-6989586621679573359"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 ObjectKey
@@ -460,7 +460,7 @@ $sel:bucket:GetObjectAcl' :: GetObjectAcl -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectAcl' :: GetObjectAcl -&gt; Maybe Text
 $sel:requestPayer:GetObjectAcl' :: GetObjectAcl -&gt; Maybe RequestPayer
 $sel:versionId:GetObjectAcl' :: GetObjectAcl -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679573208"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679573355"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -468,18 +468,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679573211"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679573358"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679573210"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679573357"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679573204"><span class="annot"><span class="annottext">toPath :: GetObjectAcl -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573198"><span id="local-6989586621679573199"><span id="local-6989586621679573200"><span id="local-6989586621679573201"><span id="local-6989586621679573202"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679573351"><span class="annot"><span class="annottext">toPath :: GetObjectAcl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573345"><span id="local-6989586621679573346"><span id="local-6989586621679573347"><span id="local-6989586621679573348"><span id="local-6989586621679573349"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 ObjectKey
@@ -494,7 +494,7 @@ $sel:bucket:GetObjectAcl' :: GetObjectAcl -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectAcl' :: GetObjectAcl -&gt; Maybe Text
 $sel:requestPayer:GetObjectAcl' :: GetObjectAcl -&gt; Maybe RequestPayer
 $sel:versionId:GetObjectAcl' :: GetObjectAcl -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679573198"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679573345"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -502,15 +502,15 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679573199"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679573346"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679573198"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679573345"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl"><span class="hs-identifier hs-type">GetObjectAcl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679573194"><span class="annot"><span class="annottext">toQuery :: GetObjectAcl -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573188"><span id="local-6989586621679573189"><span id="local-6989586621679573190"><span id="local-6989586621679573191"><span id="local-6989586621679573192"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679573341"><span class="annot"><span class="annottext">toQuery :: GetObjectAcl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAcl%27"><span class="hs-identifier hs-type">GetObjectAcl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573335"><span id="local-6989586621679573336"><span id="local-6989586621679573337"><span id="local-6989586621679573338"><span id="local-6989586621679573339"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 ObjectKey
@@ -525,7 +525,7 @@ $sel:bucket:GetObjectAcl' :: GetObjectAcl -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectAcl' :: GetObjectAcl -&gt; Maybe Text
 $sel:requestPayer:GetObjectAcl' :: GetObjectAcl -&gt; Maybe RequestPayer
 $sel:versionId:GetObjectAcl' :: GetObjectAcl -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679573188"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679573335"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -533,11 +533,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ObjectVersionId -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679573192"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679573339"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;acl&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newGetObjectAclResponse' smart constructor.</span><span>
-</span><span id="line-215"></span><span id="local-6989586621679573185"><span id="local-6989586621679573186"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectAclResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-var">GetObjectAclResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectAclResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-var">GetObjectAclResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span id="local-6989586621679573332"><span id="local-6989586621679573333"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectAclResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-var">GetObjectAclResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectAclResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-var">GetObjectAclResponse'</span></a></span></span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3AGetObjectAclResponse%27"><span class="annot"><span class="annottext">GetObjectAclResponse -&gt; Maybe RequestCharged
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3ArequestCharged%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | A list of grants.</span><span>
@@ -550,7 +550,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-222"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetObjectAclResponse%27"><span class="annot"><span class="annottext">GetObjectAclResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3AhttpStatus%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-223"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-224"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679573177"><span id="local-6989586621679573179"><span class="annot"><span class="annottext">GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679573324"><span id="local-6989586621679573326"><span class="annot"><span class="annottext">GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool
 (GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool)
 -&gt; (GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool)
 -&gt; Eq GetObjectAclResponse
@@ -559,7 +559,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool
 == :: GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool
 $c== :: GetObjectAclResponse -&gt; GetObjectAclResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573169"><span id="local-6989586621679573171"><span id="local-6989586621679573173"><span id="local-6989586621679573175"><span class="annot"><span class="annottext">ReadPrec [GetObjectAclResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573316"><span id="local-6989586621679573318"><span id="local-6989586621679573320"><span id="local-6989586621679573322"><span class="annot"><span class="annottext">ReadPrec [GetObjectAclResponse]
 ReadPrec GetObjectAclResponse
 Int -&gt; ReadS GetObjectAclResponse
 ReadS [GetObjectAclResponse]
@@ -579,7 +579,7 @@ readList :: ReadS [GetObjectAclResponse]
 $creadList :: ReadS [GetObjectAclResponse]
 readsPrec :: Int -&gt; ReadS GetObjectAclResponse
 $creadsPrec :: Int -&gt; ReadS GetObjectAclResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573163"><span id="local-6989586621679573165"><span id="local-6989586621679573167"><span class="annot"><span class="annottext">Int -&gt; GetObjectAclResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679573310"><span id="local-6989586621679573312"><span id="local-6989586621679573314"><span class="annot"><span class="annottext">Int -&gt; GetObjectAclResponse -&gt; ShowS
 [GetObjectAclResponse] -&gt; ShowS
 GetObjectAclResponse -&gt; String
 (Int -&gt; GetObjectAclResponse -&gt; ShowS)
@@ -625,8 +625,8 @@ $cfrom :: forall x. GetObjectAclResponse -&gt; Rep GetObjectAclResponse x
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newGetObjectAclResponse"><span class="annot"><span class="annottext">newGetObjectAclResponse :: Int -&gt; GetObjectAclResponse
-</span><a href="Network.AWS.S3.GetObjectAcl.html#newGetObjectAclResponse"><span class="hs-identifier hs-var hs-var">newGetObjectAclResponse</span></a></span></span><span> </span><span id="local-6989586621679573160"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573160"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetObjectAcl.html#newGetObjectAclResponse"><span class="hs-identifier hs-var hs-var">newGetObjectAclResponse</span></a></span></span><span> </span><span id="local-6989586621679573307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">GetObjectAclResponse' :: Maybe RequestCharged
 -&gt; Maybe [Grant] -&gt; Maybe Owner -&gt; Int -&gt; GetObjectAclResponse
 </span><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span>
@@ -645,7 +645,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectAclResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3AhttpStatus%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573160"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679573307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-252"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -661,16 +661,16 @@ forall a. Maybe a
      (Maybe RequestCharged)
      (Maybe RequestCharged)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573159"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573306"><span class="annot"><span class="annottext">Maybe RequestCharged
 requestCharged :: Maybe RequestCharged
 $sel:requestCharged:GetObjectAclResponse' :: GetObjectAclResponse -&gt; Maybe RequestCharged
-</span><a href="#local-6989586621679573159"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679573159"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573158"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
-</span><a href="#local-6989586621679573158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573157"><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679573157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
-</span><a href="#local-6989586621679573158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:GetObjectAclResponse' :: Maybe RequestCharged
+</span><a href="#local-6989586621679573306"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679573306"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573305"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
+</span><a href="#local-6989586621679573305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573304"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679573304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
+</span><a href="#local-6989586621679573305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:GetObjectAclResponse' :: Maybe RequestCharged
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3ArequestCharged%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679573157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | A list of grants.</span><span>
 </span><span id="line-259"></span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#getObjectAclResponse_grants"><span class="hs-identifier hs-type">getObjectAclResponse_grants</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -684,16 +684,16 @@ $sel:requestCharged:GetObjectAclResponse' :: GetObjectAclResponse -&gt; Maybe Re
      (Maybe [Grant])
      (Maybe [Grant])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573156"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573303"><span class="annot"><span class="annottext">Maybe [Grant]
 grants :: Maybe [Grant]
 $sel:grants:GetObjectAclResponse' :: GetObjectAclResponse -&gt; Maybe [Grant]
-</span><a href="#local-6989586621679573156"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679573156"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573155"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
-</span><a href="#local-6989586621679573155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573154"><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679573154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
-</span><a href="#local-6989586621679573155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:GetObjectAclResponse' :: Maybe [Grant]
+</span><a href="#local-6989586621679573303"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
+</span><a href="#local-6989586621679573303"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573302"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
+</span><a href="#local-6989586621679573302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573301"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><a href="#local-6989586621679573301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
+</span><a href="#local-6989586621679573302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:GetObjectAclResponse' :: Maybe [Grant]
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Agrants%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679573154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grant] -&gt; f (Maybe [Grant]))
+</span><a href="#local-6989586621679573301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grant] -&gt; f (Maybe [Grant]))
  -&gt; GetObjectAclResponse -&gt; f GetObjectAclResponse)
 -&gt; ((Maybe [Grant] -&gt; f (Maybe [Grant]))
     -&gt; Maybe [Grant] -&gt; f (Maybe [Grant]))
@@ -723,16 +723,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Owner)
      (Maybe Owner)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573151"><span class="annot"><span class="annottext">Maybe Owner
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573298"><span class="annot"><span class="annottext">Maybe Owner
 owner :: Maybe Owner
 $sel:owner:GetObjectAclResponse' :: GetObjectAclResponse -&gt; Maybe Owner
-</span><a href="#local-6989586621679573151"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679573151"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573150"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
-</span><a href="#local-6989586621679573150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573149"><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679573149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
-</span><a href="#local-6989586621679573150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:GetObjectAclResponse' :: Maybe Owner
+</span><a href="#local-6989586621679573298"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679573298"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573297"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
+</span><a href="#local-6989586621679573297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573296"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679573296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
+</span><a href="#local-6989586621679573297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:GetObjectAclResponse' :: Maybe Owner
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3Aowner%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679573149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-267"></span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#getObjectAclResponse_httpStatus"><span class="hs-identifier hs-type">getObjectAclResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -741,16 +741,16 @@ $sel:owner:GetObjectAclResponse' :: GetObjectAclResponse -&gt; Maybe Owner
 -&gt; (GetObjectAclResponse -&gt; Int -&gt; GetObjectAclResponse)
 -&gt; Lens GetObjectAclResponse GetObjectAclResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573148"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679573295"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetObjectAclResponse' :: GetObjectAclResponse -&gt; Int
-</span><a href="#local-6989586621679573148"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573148"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573147"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
-</span><a href="#local-6989586621679573147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
-</span><a href="#local-6989586621679573147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectAclResponse' :: Int
+</span><a href="#local-6989586621679573295"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573295"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679573294"><span class="annot"><span class="annottext">s :: GetObjectAclResponse
+</span><a href="#local-6989586621679573294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse%27"><span class="hs-identifier hs-type">GetObjectAclResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679573293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679573293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectAclResponse
+</span><a href="#local-6989586621679573294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectAclResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectAcl.html#%24sel%3AhttpStatus%3AGetObjectAclResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679573146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679573293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679573291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectAcl.html#GetObjectAclResponse"><span class="hs-identifier hs-type">GetObjectAclResponse</span></a></span></span><span>
 </span><span id="line-271"></span></pre></body></html>

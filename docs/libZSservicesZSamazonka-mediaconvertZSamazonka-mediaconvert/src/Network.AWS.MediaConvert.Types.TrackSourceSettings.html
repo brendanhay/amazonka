@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTrackSourceSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680009292"><span id="local-6989586621680009293"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrackSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-var">TrackSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrackSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-var">TrackSourceSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680010782"><span id="local-6989586621680010783"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrackSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-var">TrackSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrackSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-var">TrackSourceSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this setting to select a single captions track from a source. Track</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- numbers correspond to the order in the captions source file. For IMF</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- sources, track numbering is based on the order that the captions appear</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AtrackNumber%3ATrackSourceSettings%27"><span class="annot"><span class="annottext">TrackSourceSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#%24sel%3AtrackNumber%3ATrackSourceSettings%27"><span class="hs-identifier hs-var hs-var">trackNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680009286"><span id="local-6989586621680009288"><span class="annot"><span class="annottext">TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680010776"><span id="local-6989586621680010778"><span class="annot"><span class="annottext">TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool
 (TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool)
 -&gt; (TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool)
 -&gt; Eq TrackSourceSettings
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool
 == :: TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool
 $c== :: TrackSourceSettings -&gt; TrackSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009277"><span id="local-6989586621680009279"><span id="local-6989586621680009281"><span id="local-6989586621680009283"><span class="annot"><span class="annottext">ReadPrec [TrackSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010767"><span id="local-6989586621680010769"><span id="local-6989586621680010771"><span id="local-6989586621680010773"><span class="annot"><span class="annottext">ReadPrec [TrackSourceSettings]
 ReadPrec TrackSourceSettings
 Int -&gt; ReadS TrackSourceSettings
 ReadS [TrackSourceSettings]
@@ -69,7 +69,7 @@ readList :: ReadS [TrackSourceSettings]
 $creadList :: ReadS [TrackSourceSettings]
 readsPrec :: Int -&gt; ReadS TrackSourceSettings
 $creadsPrec :: Int -&gt; ReadS TrackSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009270"><span id="local-6989586621680009272"><span id="local-6989586621680009274"><span class="annot"><span class="annottext">Int -&gt; TrackSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010760"><span id="local-6989586621680010762"><span id="local-6989586621680010764"><span class="annot"><span class="annottext">Int -&gt; TrackSourceSettings -&gt; ShowS
 [TrackSourceSettings] -&gt; ShowS
 TrackSourceSettings -&gt; String
 (Int -&gt; TrackSourceSettings -&gt; ShowS)
@@ -138,19 +138,19 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-type">TrackSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009261"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-type">TrackSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010751"><span class="annot"><span class="annottext">Maybe Natural
 trackNumber :: Maybe Natural
 $sel:trackNumber:TrackSourceSettings' :: TrackSourceSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680009261"><span class="hs-identifier hs-var hs-var">trackNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009261"><span class="hs-identifier hs-var">trackNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009260"><span class="annot"><span class="annottext">s :: TrackSourceSettings
-</span><a href="#local-6989586621680009260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-type">TrackSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009259"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrackSourceSettings
-</span><a href="#local-6989586621680009260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackNumber:TrackSourceSettings' :: Maybe Natural
+</span><a href="#local-6989586621680010751"><span class="hs-identifier hs-var hs-var">trackNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680010751"><span class="hs-identifier hs-var">trackNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010750"><span class="annot"><span class="annottext">s :: TrackSourceSettings
+</span><a href="#local-6989586621680010750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-type">TrackSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010749"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680010749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrackSourceSettings
+</span><a href="#local-6989586621680010750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackNumber:TrackSourceSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#%24sel%3AtrackNumber%3ATrackSourceSettings%27"><span class="hs-identifier hs-var">trackNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680010749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009256"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680009254"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrackSourceSettings
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010746"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680010744"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrackSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrackSourceSettings)
@@ -160,30 +160,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrackSourceSettings&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680009251"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009251"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680010741"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680010741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; TrackSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-var">TrackSourceSettings'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; TrackSourceSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser TrackSourceSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009251"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680010741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;trackNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009245"><span id="local-6989586621680009247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010735"><span id="local-6989586621680010737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009234"><span id="local-6989586621680009236"><span id="local-6989586621680009238"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621680009232"><span class="annot"><span class="annottext">toJSON :: TrackSourceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-type">TrackSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009230"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010724"><span id="local-6989586621680010726"><span id="local-6989586621680010728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680010722"><span class="annot"><span class="annottext">toJSON :: TrackSourceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings%27"><span class="hs-identifier hs-type">TrackSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010720"><span class="annot"><span class="annottext">Maybe Natural
 trackNumber :: Maybe Natural
 $sel:trackNumber:TrackSourceSettings' :: TrackSourceSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680009230"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680010720"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -195,6 +195,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009230"><span class="hs-identifier hs-var">trackNumber</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680010720"><span class="hs-identifier hs-var">trackNumber</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span></pre></body></html>

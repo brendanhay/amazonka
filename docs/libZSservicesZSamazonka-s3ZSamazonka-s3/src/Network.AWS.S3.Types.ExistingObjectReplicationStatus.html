@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679541086"><span id="local-6989586621679541087"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExistingObjectReplicationStatus"><span class="annot"><a href="Network.AWS.S3.Types.ExistingObjectReplicationStatus.html#ExistingObjectReplicationStatus"><span class="hs-identifier hs-var">ExistingObjectReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExistingObjectReplicationStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ExistingObjectReplicationStatus.html#ExistingObjectReplicationStatus%27"><span class="hs-identifier hs-var">ExistingObjectReplicationStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679541196"><span id="local-6989586621679541197"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExistingObjectReplicationStatus"><span class="annot"><a href="Network.AWS.S3.Types.ExistingObjectReplicationStatus.html#ExistingObjectReplicationStatus"><span class="hs-identifier hs-var">ExistingObjectReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExistingObjectReplicationStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ExistingObjectReplicationStatus.html#ExistingObjectReplicationStatus%27"><span class="hs-identifier hs-var">ExistingObjectReplicationStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExistingObjectReplicationStatus"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.ExistingObjectReplicationStatus.html#fromExistingObjectReplicationStatus"><span class="hs-identifier hs-var hs-var">fromExistingObjectReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541078"><span id="local-6989586621679541080"><span id="local-6989586621679541082"><span class="annot"><span class="annottext">Int -&gt; ExistingObjectReplicationStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541188"><span id="local-6989586621679541190"><span id="local-6989586621679541192"><span class="annot"><span class="annottext">Int -&gt; ExistingObjectReplicationStatus -&gt; ShowS
 [ExistingObjectReplicationStatus] -&gt; ShowS
 ExistingObjectReplicationStatus -&gt; String
 (Int -&gt; ExistingObjectReplicationStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ExistingObjectReplicationStatus -&gt; String
 showsPrec :: Int -&gt; ExistingObjectReplicationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExistingObjectReplicationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679541069"><span id="local-6989586621679541071"><span id="local-6989586621679541073"><span id="local-6989586621679541075"><span class="annot"><span class="annottext">ReadPrec [ExistingObjectReplicationStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679541179"><span id="local-6989586621679541181"><span id="local-6989586621679541183"><span id="local-6989586621679541185"><span class="annot"><span class="annottext">ReadPrec [ExistingObjectReplicationStatus]
 ReadPrec ExistingObjectReplicationStatus
 Int -&gt; ReadS ExistingObjectReplicationStatus
 ReadS [ExistingObjectReplicationStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ExistingObjectReplicationStatus]
 readsPrec :: Int -&gt; ReadS ExistingObjectReplicationStatus
 $creadsPrec :: Int -&gt; ReadS ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679541064"><span id="local-6989586621679541066"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679541174"><span id="local-6989586621679541176"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus
 -&gt; ExistingObjectReplicationStatus -&gt; Bool
 (ExistingObjectReplicationStatus
  -&gt; ExistingObjectReplicationStatus -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: ExistingObjectReplicationStatus
 $c== :: ExistingObjectReplicationStatus
 -&gt; ExistingObjectReplicationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679541048"><span id="local-6989586621679541050"><span id="local-6989586621679541052"><span id="local-6989586621679541054"><span id="local-6989586621679541056"><span id="local-6989586621679541058"><span id="local-6989586621679541060"><span class="annot"><span class="annottext">Eq ExistingObjectReplicationStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679541158"><span id="local-6989586621679541160"><span id="local-6989586621679541162"><span id="local-6989586621679541164"><span id="local-6989586621679541166"><span id="local-6989586621679541168"><span id="local-6989586621679541170"><span class="annot"><span class="annottext">Eq ExistingObjectReplicationStatus
 Eq ExistingObjectReplicationStatus
 -&gt; (ExistingObjectReplicationStatus
     -&gt; ExistingObjectReplicationStatus -&gt; Ordering)
@@ -184,7 +184,7 @@ ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541040"><span id="local-6989586621679541042"><span class="annot"><span class="annottext">Int -&gt; ExistingObjectReplicationStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541150"><span id="local-6989586621679541152"><span class="annot"><span class="annottext">Int -&gt; ExistingObjectReplicationStatus -&gt; Int
 ExistingObjectReplicationStatus -&gt; Int
 (Int -&gt; ExistingObjectReplicationStatus -&gt; Int)
 -&gt; (ExistingObjectReplicationStatus -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: ExistingObjectReplicationStatus -&gt; Int
 hashWithSalt :: Int -&gt; ExistingObjectReplicationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ExistingObjectReplicationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679541037"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679541147"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; ()
 (ExistingObjectReplicationStatus -&gt; ())
 -&gt; NFData ExistingObjectReplicationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExistingObjectReplicationStatus -&gt; ()
 $crnf :: ExistingObjectReplicationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679541034"><span class="annot"><span class="annottext">Text -&gt; Either String ExistingObjectReplicationStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679541144"><span class="annot"><span class="annottext">Text -&gt; Either String ExistingObjectReplicationStatus
 (Text -&gt; Either String ExistingObjectReplicationStatus)
 -&gt; FromText ExistingObjectReplicationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExistingObjectReplicationStatus
 $cfromText :: Text -&gt; Either String ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679541031"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679541141"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; Text
 (ExistingObjectReplicationStatus -&gt; Text)
 -&gt; ToText ExistingObjectReplicationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExistingObjectReplicationStatus -&gt; Text
 $ctoText :: ExistingObjectReplicationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679541028"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679541138"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; ByteString
 (ExistingObjectReplicationStatus -&gt; ByteString)
 -&gt; ToByteString ExistingObjectReplicationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExistingObjectReplicationStatus -&gt; ByteString
 $ctoBS :: ExistingObjectReplicationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679541025"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679541135"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; ByteStringBuilder
 (ExistingObjectReplicationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ExistingObjectReplicationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExistingObjectReplicationStatus -&gt; ByteStringBuilder
 $cbuild :: ExistingObjectReplicationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679541022"><span class="annot"><span class="annottext">HeaderName -&gt; ExistingObjectReplicationStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679541132"><span class="annot"><span class="annottext">HeaderName -&gt; ExistingObjectReplicationStatus -&gt; [Header]
 (HeaderName -&gt; ExistingObjectReplicationStatus -&gt; [Header])
 -&gt; ToHeader ExistingObjectReplicationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExistingObjectReplicationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExistingObjectReplicationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679541019"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679541129"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; QueryString
 (ExistingObjectReplicationStatus -&gt; QueryString)
 -&gt; ToQuery ExistingObjectReplicationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExistingObjectReplicationStatus -&gt; QueryString
 $ctoQuery :: ExistingObjectReplicationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679541014"><span id="local-6989586621679541016"><span class="annot"><span class="annottext">Value -&gt; Parser [ExistingObjectReplicationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679541124"><span id="local-6989586621679541126"><span class="annot"><span class="annottext">Value -&gt; Parser [ExistingObjectReplicationStatus]
 Value -&gt; Parser ExistingObjectReplicationStatus
 (Value -&gt; Parser ExistingObjectReplicationStatus)
 -&gt; (Value -&gt; Parser [ExistingObjectReplicationStatus])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [ExistingObjectReplicationStatus]
 parseJSON :: Value -&gt; Parser ExistingObjectReplicationStatus
 $cparseJSON :: Value -&gt; Parser ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679541009"><span id="local-6989586621679541011"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExistingObjectReplicationStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679541119"><span id="local-6989586621679541121"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExistingObjectReplicationStatus]
 FromJSONKeyFunction ExistingObjectReplicationStatus
 FromJSONKeyFunction ExistingObjectReplicationStatus
 -&gt; FromJSONKeyFunction [ExistingObjectReplicationStatus]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExistingObjectReplicationStatus]
 fromJSONKey :: FromJSONKeyFunction ExistingObjectReplicationStatus
 $cfromJSONKey :: FromJSONKeyFunction ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679541000"><span id="local-6989586621679541002"><span id="local-6989586621679541004"><span id="local-6989586621679541006"><span class="annot"><span class="annottext">[ExistingObjectReplicationStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679541110"><span id="local-6989586621679541112"><span id="local-6989586621679541114"><span id="local-6989586621679541116"><span class="annot"><span class="annottext">[ExistingObjectReplicationStatus] -&gt; Encoding
 [ExistingObjectReplicationStatus] -&gt; Value
 ExistingObjectReplicationStatus -&gt; Encoding
 ExistingObjectReplicationStatus -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: ExistingObjectReplicationStatus -&gt; Encoding
 toJSON :: ExistingObjectReplicationStatus -&gt; Value
 $ctoJSON :: ExistingObjectReplicationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679540995"><span id="local-6989586621679540997"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExistingObjectReplicationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679541105"><span id="local-6989586621679541107"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExistingObjectReplicationStatus]
 ToJSONKeyFunction ExistingObjectReplicationStatus
 ToJSONKeyFunction ExistingObjectReplicationStatus
 -&gt; ToJSONKeyFunction [ExistingObjectReplicationStatus]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExistingObjectReplicationStatus]
 toJSONKey :: ToJSONKeyFunction ExistingObjectReplicationStatus
 $ctoJSONKey :: ToJSONKeyFunction ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679540992"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExistingObjectReplicationStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679541102"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExistingObjectReplicationStatus
 ([Node] -&gt; Either String ExistingObjectReplicationStatus)
 -&gt; FromXML ExistingObjectReplicationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExistingObjectReplicationStatus
 $cparseXML :: [Node] -&gt; Either String ExistingObjectReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679540989"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679541099"><span class="annot"><span class="annottext">ExistingObjectReplicationStatus -&gt; XML
 (ExistingObjectReplicationStatus -&gt; XML)
 -&gt; ToXML ExistingObjectReplicationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

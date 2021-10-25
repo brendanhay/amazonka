@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | The tag type that AWS Billing and Cost Management will use to sort your</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- AWS Elemental MediaConvert costs on any billing report that you set up.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679944818"><span id="local-6989586621679944819"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BillingTagsSource"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BillingTagsSource.html#BillingTagsSource"><span class="hs-identifier hs-var">BillingTagsSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingTagsSource%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BillingTagsSource.html#BillingTagsSource%27"><span class="hs-identifier hs-var">BillingTagsSource'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679946137"><span id="local-6989586621679946138"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BillingTagsSource"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BillingTagsSource.html#BillingTagsSource"><span class="hs-identifier hs-var">BillingTagsSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingTagsSource%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BillingTagsSource.html#BillingTagsSource%27"><span class="hs-identifier hs-var">BillingTagsSource'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBillingTagsSource"><span class="annot"><span class="annottext">BillingTagsSource -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.BillingTagsSource.html#fromBillingTagsSource"><span class="hs-identifier hs-var hs-var">fromBillingTagsSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944810"><span id="local-6989586621679944812"><span id="local-6989586621679944814"><span class="annot"><span class="annottext">Int -&gt; BillingTagsSource -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946129"><span id="local-6989586621679946131"><span id="local-6989586621679946133"><span class="annot"><span class="annottext">Int -&gt; BillingTagsSource -&gt; ShowS
 [BillingTagsSource] -&gt; ShowS
 BillingTagsSource -&gt; String
 (Int -&gt; BillingTagsSource -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: BillingTagsSource -&gt; String
 showsPrec :: Int -&gt; BillingTagsSource -&gt; ShowS
 $cshowsPrec :: Int -&gt; BillingTagsSource -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679944801"><span id="local-6989586621679944803"><span id="local-6989586621679944805"><span id="local-6989586621679944807"><span class="annot"><span class="annottext">ReadPrec [BillingTagsSource]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679946120"><span id="local-6989586621679946122"><span id="local-6989586621679946124"><span id="local-6989586621679946126"><span class="annot"><span class="annottext">ReadPrec [BillingTagsSource]
 ReadPrec BillingTagsSource
 Int -&gt; ReadS BillingTagsSource
 ReadS [BillingTagsSource]
@@ -76,7 +76,7 @@ $creadList :: ReadS [BillingTagsSource]
 readsPrec :: Int -&gt; ReadS BillingTagsSource
 $creadsPrec :: Int -&gt; ReadS BillingTagsSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679944796"><span id="local-6989586621679944798"><span class="annot"><span class="annottext">BillingTagsSource -&gt; BillingTagsSource -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679946115"><span id="local-6989586621679946117"><span class="annot"><span class="annottext">BillingTagsSource -&gt; BillingTagsSource -&gt; Bool
 (BillingTagsSource -&gt; BillingTagsSource -&gt; Bool)
 -&gt; (BillingTagsSource -&gt; BillingTagsSource -&gt; Bool)
 -&gt; Eq BillingTagsSource
@@ -86,7 +86,7 @@ $c/= :: BillingTagsSource -&gt; BillingTagsSource -&gt; Bool
 == :: BillingTagsSource -&gt; BillingTagsSource -&gt; Bool
 $c== :: BillingTagsSource -&gt; BillingTagsSource -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679944780"><span id="local-6989586621679944782"><span id="local-6989586621679944784"><span id="local-6989586621679944786"><span id="local-6989586621679944788"><span id="local-6989586621679944790"><span id="local-6989586621679944792"><span class="annot"><span class="annottext">Eq BillingTagsSource
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679946099"><span id="local-6989586621679946101"><span id="local-6989586621679946103"><span id="local-6989586621679946105"><span id="local-6989586621679946107"><span id="local-6989586621679946109"><span id="local-6989586621679946111"><span class="annot"><span class="annottext">Eq BillingTagsSource
 Eq BillingTagsSource
 -&gt; (BillingTagsSource -&gt; BillingTagsSource -&gt; Ordering)
 -&gt; (BillingTagsSource -&gt; BillingTagsSource -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. BillingTagsSource -&gt; Rep BillingTagsSource x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944772"><span id="local-6989586621679944774"><span class="annot"><span class="annottext">Int -&gt; BillingTagsSource -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946091"><span id="local-6989586621679946093"><span class="annot"><span class="annottext">Int -&gt; BillingTagsSource -&gt; Int
 BillingTagsSource -&gt; Int
 (Int -&gt; BillingTagsSource -&gt; Int)
 -&gt; (BillingTagsSource -&gt; Int) -&gt; Hashable BillingTagsSource
@@ -147,51 +147,51 @@ $chash :: BillingTagsSource -&gt; Int
 hashWithSalt :: Int -&gt; BillingTagsSource -&gt; Int
 $chashWithSalt :: Int -&gt; BillingTagsSource -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679944769"><span class="annot"><span class="annottext">BillingTagsSource -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679946088"><span class="annot"><span class="annottext">BillingTagsSource -&gt; ()
 (BillingTagsSource -&gt; ()) -&gt; NFData BillingTagsSource
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BillingTagsSource -&gt; ()
 $crnf :: BillingTagsSource -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679944766"><span class="annot"><span class="annottext">Text -&gt; Either String BillingTagsSource
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679946085"><span class="annot"><span class="annottext">Text -&gt; Either String BillingTagsSource
 (Text -&gt; Either String BillingTagsSource)
 -&gt; FromText BillingTagsSource
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BillingTagsSource
 $cfromText :: Text -&gt; Either String BillingTagsSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679944763"><span class="annot"><span class="annottext">BillingTagsSource -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679946082"><span class="annot"><span class="annottext">BillingTagsSource -&gt; Text
 (BillingTagsSource -&gt; Text) -&gt; ToText BillingTagsSource
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BillingTagsSource -&gt; Text
 $ctoText :: BillingTagsSource -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679944760"><span class="annot"><span class="annottext">BillingTagsSource -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679946079"><span class="annot"><span class="annottext">BillingTagsSource -&gt; ByteString
 (BillingTagsSource -&gt; ByteString) -&gt; ToByteString BillingTagsSource
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BillingTagsSource -&gt; ByteString
 $ctoBS :: BillingTagsSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679944757"><span class="annot"><span class="annottext">BillingTagsSource -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679946076"><span class="annot"><span class="annottext">BillingTagsSource -&gt; ByteStringBuilder
 (BillingTagsSource -&gt; ByteStringBuilder) -&gt; ToLog BillingTagsSource
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BillingTagsSource -&gt; ByteStringBuilder
 $cbuild :: BillingTagsSource -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679944754"><span class="annot"><span class="annottext">HeaderName -&gt; BillingTagsSource -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679946073"><span class="annot"><span class="annottext">HeaderName -&gt; BillingTagsSource -&gt; [Header]
 (HeaderName -&gt; BillingTagsSource -&gt; [Header])
 -&gt; ToHeader BillingTagsSource
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BillingTagsSource -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BillingTagsSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679944751"><span class="annot"><span class="annottext">BillingTagsSource -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679946070"><span class="annot"><span class="annottext">BillingTagsSource -&gt; QueryString
 (BillingTagsSource -&gt; QueryString) -&gt; ToQuery BillingTagsSource
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BillingTagsSource -&gt; QueryString
 $ctoQuery :: BillingTagsSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679944746"><span id="local-6989586621679944748"><span class="annot"><span class="annottext">Value -&gt; Parser [BillingTagsSource]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679946065"><span id="local-6989586621679946067"><span class="annot"><span class="annottext">Value -&gt; Parser [BillingTagsSource]
 Value -&gt; Parser BillingTagsSource
 (Value -&gt; Parser BillingTagsSource)
 -&gt; (Value -&gt; Parser [BillingTagsSource])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [BillingTagsSource]
 parseJSON :: Value -&gt; Parser BillingTagsSource
 $cparseJSON :: Value -&gt; Parser BillingTagsSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679944741"><span id="local-6989586621679944743"><span class="annot"><span class="annottext">FromJSONKeyFunction [BillingTagsSource]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679946060"><span id="local-6989586621679946062"><span class="annot"><span class="annottext">FromJSONKeyFunction [BillingTagsSource]
 FromJSONKeyFunction BillingTagsSource
 FromJSONKeyFunction BillingTagsSource
 -&gt; FromJSONKeyFunction [BillingTagsSource]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BillingTagsSource]
 fromJSONKey :: FromJSONKeyFunction BillingTagsSource
 $cfromJSONKey :: FromJSONKeyFunction BillingTagsSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679944732"><span id="local-6989586621679944734"><span id="local-6989586621679944736"><span id="local-6989586621679944738"><span class="annot"><span class="annottext">[BillingTagsSource] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679946051"><span id="local-6989586621679946053"><span id="local-6989586621679946055"><span id="local-6989586621679946057"><span class="annot"><span class="annottext">[BillingTagsSource] -&gt; Encoding
 [BillingTagsSource] -&gt; Value
 BillingTagsSource -&gt; Encoding
 BillingTagsSource -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: BillingTagsSource -&gt; Encoding
 toJSON :: BillingTagsSource -&gt; Value
 $ctoJSON :: BillingTagsSource -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679944727"><span id="local-6989586621679944729"><span class="annot"><span class="annottext">ToJSONKeyFunction [BillingTagsSource]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679946046"><span id="local-6989586621679946048"><span class="annot"><span class="annottext">ToJSONKeyFunction [BillingTagsSource]
 ToJSONKeyFunction BillingTagsSource
 ToJSONKeyFunction BillingTagsSource
 -&gt; ToJSONKeyFunction [BillingTagsSource]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BillingTagsSource]
 toJSONKey :: ToJSONKeyFunction BillingTagsSource
 $ctoJSONKey :: ToJSONKeyFunction BillingTagsSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679944724"><span class="annot"><span class="annottext">[Node] -&gt; Either String BillingTagsSource
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679946043"><span class="annot"><span class="annottext">[Node] -&gt; Either String BillingTagsSource
 ([Node] -&gt; Either String BillingTagsSource)
 -&gt; FromXML BillingTagsSource
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BillingTagsSource
 $cparseXML :: [Node] -&gt; Either String BillingTagsSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679944721"><span class="annot"><span class="annottext">BillingTagsSource -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679946040"><span class="annot"><span class="annottext">BillingTagsSource -&gt; XML
 (BillingTagsSource -&gt; XML) -&gt; ToXML BillingTagsSource
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BillingTagsSource -&gt; XML

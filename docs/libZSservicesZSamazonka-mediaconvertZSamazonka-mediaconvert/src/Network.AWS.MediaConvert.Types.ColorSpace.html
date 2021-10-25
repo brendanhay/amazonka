@@ -43,13 +43,13 @@
 </span><span id="line-43"></span><span class="hs-comment">-- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679951570"><span id="local-6989586621679951571"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ColorSpace"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#ColorSpace"><span class="hs-identifier hs-var">ColorSpace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColorSpace%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#ColorSpace%27"><span class="hs-identifier hs-var">ColorSpace'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679952889"><span id="local-6989586621679952890"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ColorSpace"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#ColorSpace"><span class="hs-identifier hs-var">ColorSpace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColorSpace%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#ColorSpace%27"><span class="hs-identifier hs-var">ColorSpace'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromColorSpace"><span class="annot"><span class="annottext">ColorSpace -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#fromColorSpace"><span class="hs-identifier hs-var hs-var">fromColorSpace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951562"><span id="local-6989586621679951564"><span id="local-6989586621679951566"><span class="annot"><span class="annottext">Int -&gt; ColorSpace -&gt; ShowS
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952881"><span id="local-6989586621679952883"><span id="local-6989586621679952885"><span class="annot"><span class="annottext">Int -&gt; ColorSpace -&gt; ShowS
 [ColorSpace] -&gt; ShowS
 ColorSpace -&gt; String
 (Int -&gt; ColorSpace -&gt; ShowS)
@@ -65,7 +65,7 @@ $cshow :: ColorSpace -&gt; String
 showsPrec :: Int -&gt; ColorSpace -&gt; ShowS
 $cshowsPrec :: Int -&gt; ColorSpace -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679951553"><span id="local-6989586621679951555"><span id="local-6989586621679951557"><span id="local-6989586621679951559"><span class="annot"><span class="annottext">ReadPrec [ColorSpace]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679952872"><span id="local-6989586621679952874"><span id="local-6989586621679952876"><span id="local-6989586621679952878"><span class="annot"><span class="annottext">ReadPrec [ColorSpace]
 ReadPrec ColorSpace
 Int -&gt; ReadS ColorSpace
 ReadS [ColorSpace]
@@ -86,7 +86,7 @@ $creadList :: ReadS [ColorSpace]
 readsPrec :: Int -&gt; ReadS ColorSpace
 $creadsPrec :: Int -&gt; ReadS ColorSpace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679951548"><span id="local-6989586621679951550"><span class="annot"><span class="annottext">ColorSpace -&gt; ColorSpace -&gt; Bool
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679952867"><span id="local-6989586621679952869"><span class="annot"><span class="annottext">ColorSpace -&gt; ColorSpace -&gt; Bool
 (ColorSpace -&gt; ColorSpace -&gt; Bool)
 -&gt; (ColorSpace -&gt; ColorSpace -&gt; Bool) -&gt; Eq ColorSpace
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ $c/= :: ColorSpace -&gt; ColorSpace -&gt; Bool
 == :: ColorSpace -&gt; ColorSpace -&gt; Bool
 $c== :: ColorSpace -&gt; ColorSpace -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679951532"><span id="local-6989586621679951534"><span id="local-6989586621679951536"><span id="local-6989586621679951538"><span id="local-6989586621679951540"><span id="local-6989586621679951542"><span id="local-6989586621679951544"><span class="annot"><span class="annottext">Eq ColorSpace
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679952851"><span id="local-6989586621679952853"><span id="local-6989586621679952855"><span id="local-6989586621679952857"><span id="local-6989586621679952859"><span id="local-6989586621679952861"><span id="local-6989586621679952863"><span class="annot"><span class="annottext">Eq ColorSpace
 Eq ColorSpace
 -&gt; (ColorSpace -&gt; ColorSpace -&gt; Ordering)
 -&gt; (ColorSpace -&gt; ColorSpace -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. ColorSpace -&gt; Rep ColorSpace x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951524"><span id="local-6989586621679951526"><span class="annot"><span class="annottext">Int -&gt; ColorSpace -&gt; Int
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952843"><span id="local-6989586621679952845"><span class="annot"><span class="annottext">Int -&gt; ColorSpace -&gt; Int
 ColorSpace -&gt; Int
 (Int -&gt; ColorSpace -&gt; Int)
 -&gt; (ColorSpace -&gt; Int) -&gt; Hashable ColorSpace
@@ -155,49 +155,49 @@ $chash :: ColorSpace -&gt; Int
 hashWithSalt :: Int -&gt; ColorSpace -&gt; Int
 $chashWithSalt :: Int -&gt; ColorSpace -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679951521"><span class="annot"><span class="annottext">ColorSpace -&gt; ()
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679952840"><span class="annot"><span class="annottext">ColorSpace -&gt; ()
 (ColorSpace -&gt; ()) -&gt; NFData ColorSpace
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ColorSpace -&gt; ()
 $crnf :: ColorSpace -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679951518"><span class="annot"><span class="annottext">Text -&gt; Either String ColorSpace
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679952837"><span class="annot"><span class="annottext">Text -&gt; Either String ColorSpace
 (Text -&gt; Either String ColorSpace) -&gt; FromText ColorSpace
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ColorSpace
 $cfromText :: Text -&gt; Either String ColorSpace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679951515"><span class="annot"><span class="annottext">ColorSpace -&gt; Text
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679952834"><span class="annot"><span class="annottext">ColorSpace -&gt; Text
 (ColorSpace -&gt; Text) -&gt; ToText ColorSpace
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ColorSpace -&gt; Text
 $ctoText :: ColorSpace -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679951512"><span class="annot"><span class="annottext">ColorSpace -&gt; ByteString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679952831"><span class="annot"><span class="annottext">ColorSpace -&gt; ByteString
 (ColorSpace -&gt; ByteString) -&gt; ToByteString ColorSpace
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ColorSpace -&gt; ByteString
 $ctoBS :: ColorSpace -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679951509"><span class="annot"><span class="annottext">ColorSpace -&gt; ByteStringBuilder
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679952828"><span class="annot"><span class="annottext">ColorSpace -&gt; ByteStringBuilder
 (ColorSpace -&gt; ByteStringBuilder) -&gt; ToLog ColorSpace
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ColorSpace -&gt; ByteStringBuilder
 $cbuild :: ColorSpace -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679951506"><span class="annot"><span class="annottext">HeaderName -&gt; ColorSpace -&gt; [Header]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679952825"><span class="annot"><span class="annottext">HeaderName -&gt; ColorSpace -&gt; [Header]
 (HeaderName -&gt; ColorSpace -&gt; [Header]) -&gt; ToHeader ColorSpace
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ColorSpace -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ColorSpace -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679951503"><span class="annot"><span class="annottext">ColorSpace -&gt; QueryString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679952822"><span class="annot"><span class="annottext">ColorSpace -&gt; QueryString
 (ColorSpace -&gt; QueryString) -&gt; ToQuery ColorSpace
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ColorSpace -&gt; QueryString
 $ctoQuery :: ColorSpace -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679951498"><span id="local-6989586621679951500"><span class="annot"><span class="annottext">Value -&gt; Parser [ColorSpace]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679952817"><span id="local-6989586621679952819"><span class="annot"><span class="annottext">Value -&gt; Parser [ColorSpace]
 Value -&gt; Parser ColorSpace
 (Value -&gt; Parser ColorSpace)
 -&gt; (Value -&gt; Parser [ColorSpace]) -&gt; FromJSON ColorSpace
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [ColorSpace]
 parseJSON :: Value -&gt; Parser ColorSpace
 $cparseJSON :: Value -&gt; Parser ColorSpace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679951493"><span id="local-6989586621679951495"><span class="annot"><span class="annottext">FromJSONKeyFunction [ColorSpace]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679952812"><span id="local-6989586621679952814"><span class="annot"><span class="annottext">FromJSONKeyFunction [ColorSpace]
 FromJSONKeyFunction ColorSpace
 FromJSONKeyFunction ColorSpace
 -&gt; FromJSONKeyFunction [ColorSpace] -&gt; FromJSONKey ColorSpace
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ColorSpace]
 fromJSONKey :: FromJSONKeyFunction ColorSpace
 $cfromJSONKey :: FromJSONKeyFunction ColorSpace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679951484"><span id="local-6989586621679951486"><span id="local-6989586621679951488"><span id="local-6989586621679951490"><span class="annot"><span class="annottext">[ColorSpace] -&gt; Encoding
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679952803"><span id="local-6989586621679952805"><span id="local-6989586621679952807"><span id="local-6989586621679952809"><span class="annot"><span class="annottext">[ColorSpace] -&gt; Encoding
 [ColorSpace] -&gt; Value
 ColorSpace -&gt; Encoding
 ColorSpace -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: ColorSpace -&gt; Encoding
 toJSON :: ColorSpace -&gt; Value
 $ctoJSON :: ColorSpace -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679951479"><span id="local-6989586621679951481"><span class="annot"><span class="annottext">ToJSONKeyFunction [ColorSpace]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679952798"><span id="local-6989586621679952800"><span class="annot"><span class="annottext">ToJSONKeyFunction [ColorSpace]
 ToJSONKeyFunction ColorSpace
 ToJSONKeyFunction ColorSpace
 -&gt; ToJSONKeyFunction [ColorSpace] -&gt; ToJSONKey ColorSpace
@@ -254,13 +254,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ColorSpace]
 toJSONKey :: ToJSONKeyFunction ColorSpace
 $ctoJSONKey :: ToJSONKeyFunction ColorSpace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679951476"><span class="annot"><span class="annottext">[Node] -&gt; Either String ColorSpace
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679952795"><span class="annot"><span class="annottext">[Node] -&gt; Either String ColorSpace
 ([Node] -&gt; Either String ColorSpace) -&gt; FromXML ColorSpace
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ColorSpace
 $cparseXML :: [Node] -&gt; Either String ColorSpace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679951473"><span class="annot"><span class="annottext">ColorSpace -&gt; XML
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679952792"><span class="annot"><span class="annottext">ColorSpace -&gt; XML
 (ColorSpace -&gt; XML) -&gt; ToXML ColorSpace
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ColorSpace -&gt; XML

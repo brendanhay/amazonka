@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSamazonka-s3-encryptionZSamazonka-s3-encryption
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.S3.Encryption.Body
@@ -36,14 +36,14 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anBF
-_EncryptionError :: AsEncryptionError r_anBF => Prism' r_anBF EncryptionError
-_CipherFailure :: AsEncryptionError r_anBF => Prism' r_anBF CryptoError
-_PubKeyFailure :: AsEncryptionError r_anBF => Prism' r_anBF Error
-_IVInvalid :: AsEncryptionError r_anBF => Prism' r_anBF ByteString
-_EnvelopeMissing :: AsEncryptionError r_anBF => Prism' r_anBF (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anBF => Prism' r_anBF (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anBF => Prism' r_anBF ()
+class AsEncryptionError r_anBG
+_EncryptionError :: AsEncryptionError r_anBG => Prism' r_anBG EncryptionError
+_CipherFailure :: AsEncryptionError r_anBG => Prism' r_anBG CryptoError
+_PubKeyFailure :: AsEncryptionError r_anBG => Prism' r_anBG Error
+_IVInvalid :: AsEncryptionError r_anBG => Prism' r_anBG ByteString
+_EnvelopeMissing :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anBG => Prism' r_anBG ()
 data ContentAlgorithm
 
 -- | AES<i>CBC</i>PKCS5Padding
@@ -432,11 +432,11 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anBF
-_EncryptionError :: AsEncryptionError r_anBF => Prism' r_anBF EncryptionError
-_CipherFailure :: AsEncryptionError r_anBF => Prism' r_anBF CryptoError
-_PubKeyFailure :: AsEncryptionError r_anBF => Prism' r_anBF Error
-_IVInvalid :: AsEncryptionError r_anBF => Prism' r_anBF ByteString
-_EnvelopeMissing :: AsEncryptionError r_anBF => Prism' r_anBF (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anBF => Prism' r_anBF (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anBF => Prism' r_anBF ()
+class AsEncryptionError r_anBG
+_EncryptionError :: AsEncryptionError r_anBG => Prism' r_anBG EncryptionError
+_CipherFailure :: AsEncryptionError r_anBG => Prism' r_anBG CryptoError
+_PubKeyFailure :: AsEncryptionError r_anBG => Prism' r_anBG Error
+_IVInvalid :: AsEncryptionError r_anBG => Prism' r_anBG ByteString
+_EnvelopeMissing :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anBG => Prism' r_anBG ()

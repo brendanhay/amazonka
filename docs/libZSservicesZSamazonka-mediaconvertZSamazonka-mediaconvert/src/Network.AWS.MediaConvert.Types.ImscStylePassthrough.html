@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- position information from the captions source in the output. This option</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- is available only when your input captions are IMSC, SMPTE-TT, or TTML.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- Disable this setting for simplified output captions.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679979733"><span id="local-6989586621679979734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImscStylePassthrough"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImscStylePassthrough.html#ImscStylePassthrough"><span class="hs-identifier hs-var">ImscStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImscStylePassthrough%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImscStylePassthrough.html#ImscStylePassthrough%27"><span class="hs-identifier hs-var">ImscStylePassthrough'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679981223"><span id="local-6989586621679981224"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImscStylePassthrough"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImscStylePassthrough.html#ImscStylePassthrough"><span class="hs-identifier hs-var">ImscStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImscStylePassthrough%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImscStylePassthrough.html#ImscStylePassthrough%27"><span class="hs-identifier hs-var">ImscStylePassthrough'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImscStylePassthrough"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ImscStylePassthrough.html#fromImscStylePassthrough"><span class="hs-identifier hs-var hs-var">fromImscStylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979725"><span id="local-6989586621679979727"><span id="local-6989586621679979729"><span class="annot"><span class="annottext">Int -&gt; ImscStylePassthrough -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981215"><span id="local-6989586621679981217"><span id="local-6989586621679981219"><span class="annot"><span class="annottext">Int -&gt; ImscStylePassthrough -&gt; ShowS
 [ImscStylePassthrough] -&gt; ShowS
 ImscStylePassthrough -&gt; String
 (Int -&gt; ImscStylePassthrough -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ImscStylePassthrough -&gt; String
 showsPrec :: Int -&gt; ImscStylePassthrough -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImscStylePassthrough -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679979716"><span id="local-6989586621679979718"><span id="local-6989586621679979720"><span id="local-6989586621679979722"><span class="annot"><span class="annottext">ReadPrec [ImscStylePassthrough]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679981206"><span id="local-6989586621679981208"><span id="local-6989586621679981210"><span id="local-6989586621679981212"><span class="annot"><span class="annottext">ReadPrec [ImscStylePassthrough]
 ReadPrec ImscStylePassthrough
 Int -&gt; ReadS ImscStylePassthrough
 ReadS [ImscStylePassthrough]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ImscStylePassthrough]
 readsPrec :: Int -&gt; ReadS ImscStylePassthrough
 $creadsPrec :: Int -&gt; ReadS ImscStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679979711"><span id="local-6989586621679979713"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679981201"><span id="local-6989586621679981203"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool
 (ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool)
 -&gt; (ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool)
 -&gt; Eq ImscStylePassthrough
@@ -86,7 +86,7 @@ $c/= :: ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool
 == :: ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool
 $c== :: ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679979695"><span id="local-6989586621679979697"><span id="local-6989586621679979699"><span id="local-6989586621679979701"><span id="local-6989586621679979703"><span id="local-6989586621679979705"><span id="local-6989586621679979707"><span class="annot"><span class="annottext">Eq ImscStylePassthrough
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679981185"><span id="local-6989586621679981187"><span id="local-6989586621679981189"><span id="local-6989586621679981191"><span id="local-6989586621679981193"><span id="local-6989586621679981195"><span id="local-6989586621679981197"><span class="annot"><span class="annottext">Eq ImscStylePassthrough
 Eq ImscStylePassthrough
 -&gt; (ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Ordering)
 -&gt; (ImscStylePassthrough -&gt; ImscStylePassthrough -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. ImscStylePassthrough -&gt; Rep ImscStylePassthrough x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979687"><span id="local-6989586621679979689"><span class="annot"><span class="annottext">Int -&gt; ImscStylePassthrough -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981177"><span id="local-6989586621679981179"><span class="annot"><span class="annottext">Int -&gt; ImscStylePassthrough -&gt; Int
 ImscStylePassthrough -&gt; Int
 (Int -&gt; ImscStylePassthrough -&gt; Int)
 -&gt; (ImscStylePassthrough -&gt; Int) -&gt; Hashable ImscStylePassthrough
@@ -154,54 +154,54 @@ $chash :: ImscStylePassthrough -&gt; Int
 hashWithSalt :: Int -&gt; ImscStylePassthrough -&gt; Int
 $chashWithSalt :: Int -&gt; ImscStylePassthrough -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679979684"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679981174"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ()
 (ImscStylePassthrough -&gt; ()) -&gt; NFData ImscStylePassthrough
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImscStylePassthrough -&gt; ()
 $crnf :: ImscStylePassthrough -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679979681"><span class="annot"><span class="annottext">Text -&gt; Either String ImscStylePassthrough
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981171"><span class="annot"><span class="annottext">Text -&gt; Either String ImscStylePassthrough
 (Text -&gt; Either String ImscStylePassthrough)
 -&gt; FromText ImscStylePassthrough
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImscStylePassthrough
 $cfromText :: Text -&gt; Either String ImscStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979678"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981168"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; Text
 (ImscStylePassthrough -&gt; Text) -&gt; ToText ImscStylePassthrough
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImscStylePassthrough -&gt; Text
 $ctoText :: ImscStylePassthrough -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979675"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981165"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ByteString
 (ImscStylePassthrough -&gt; ByteString)
 -&gt; ToByteString ImscStylePassthrough
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImscStylePassthrough -&gt; ByteString
 $ctoBS :: ImscStylePassthrough -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979672"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981162"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; ByteStringBuilder
 (ImscStylePassthrough -&gt; ByteStringBuilder)
 -&gt; ToLog ImscStylePassthrough
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImscStylePassthrough -&gt; ByteStringBuilder
 $cbuild :: ImscStylePassthrough -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979669"><span class="annot"><span class="annottext">HeaderName -&gt; ImscStylePassthrough -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981159"><span class="annot"><span class="annottext">HeaderName -&gt; ImscStylePassthrough -&gt; [Header]
 (HeaderName -&gt; ImscStylePassthrough -&gt; [Header])
 -&gt; ToHeader ImscStylePassthrough
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImscStylePassthrough -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImscStylePassthrough -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979666"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679981156"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; QueryString
 (ImscStylePassthrough -&gt; QueryString)
 -&gt; ToQuery ImscStylePassthrough
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImscStylePassthrough -&gt; QueryString
 $ctoQuery :: ImscStylePassthrough -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979661"><span id="local-6989586621679979663"><span class="annot"><span class="annottext">Value -&gt; Parser [ImscStylePassthrough]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679981151"><span id="local-6989586621679981153"><span class="annot"><span class="annottext">Value -&gt; Parser [ImscStylePassthrough]
 Value -&gt; Parser ImscStylePassthrough
 (Value -&gt; Parser ImscStylePassthrough)
 -&gt; (Value -&gt; Parser [ImscStylePassthrough])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [ImscStylePassthrough]
 parseJSON :: Value -&gt; Parser ImscStylePassthrough
 $cparseJSON :: Value -&gt; Parser ImscStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979656"><span id="local-6989586621679979658"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImscStylePassthrough]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981146"><span id="local-6989586621679981148"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImscStylePassthrough]
 FromJSONKeyFunction ImscStylePassthrough
 FromJSONKeyFunction ImscStylePassthrough
 -&gt; FromJSONKeyFunction [ImscStylePassthrough]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImscStylePassthrough]
 fromJSONKey :: FromJSONKeyFunction ImscStylePassthrough
 $cfromJSONKey :: FromJSONKeyFunction ImscStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979647"><span id="local-6989586621679979649"><span id="local-6989586621679979651"><span id="local-6989586621679979653"><span class="annot"><span class="annottext">[ImscStylePassthrough] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981137"><span id="local-6989586621679981139"><span id="local-6989586621679981141"><span id="local-6989586621679981143"><span class="annot"><span class="annottext">[ImscStylePassthrough] -&gt; Encoding
 [ImscStylePassthrough] -&gt; Value
 ImscStylePassthrough -&gt; Encoding
 ImscStylePassthrough -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: ImscStylePassthrough -&gt; Encoding
 toJSON :: ImscStylePassthrough -&gt; Value
 $ctoJSON :: ImscStylePassthrough -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979642"><span id="local-6989586621679979644"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImscStylePassthrough]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981132"><span id="local-6989586621679981134"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImscStylePassthrough]
 ToJSONKeyFunction ImscStylePassthrough
 ToJSONKeyFunction ImscStylePassthrough
 -&gt; ToJSONKeyFunction [ImscStylePassthrough]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImscStylePassthrough]
 toJSONKey :: ToJSONKeyFunction ImscStylePassthrough
 $ctoJSONKey :: ToJSONKeyFunction ImscStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979639"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImscStylePassthrough
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981129"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImscStylePassthrough
 ([Node] -&gt; Either String ImscStylePassthrough)
 -&gt; FromXML ImscStylePassthrough
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImscStylePassthrough
 $cparseXML :: [Node] -&gt; Either String ImscStylePassthrough
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979636"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679981126"><span class="annot"><span class="annottext">ImscStylePassthrough -&gt; XML
 (ImscStylePassthrough -&gt; XML) -&gt; ToXML ImscStylePassthrough
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImscStylePassthrough -&gt; XML

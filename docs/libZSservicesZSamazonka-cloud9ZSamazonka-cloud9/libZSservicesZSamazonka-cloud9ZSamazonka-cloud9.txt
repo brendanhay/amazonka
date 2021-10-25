@@ -2078,24 +2078,24 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.CreateEnvironmentMemb
 -- | Creates an Cloud9 development environment, launches an Amazon Elastic
 --   Compute Cloud (Amazon EC2) instance, and then connects from the
 --   instance to the environment.
-module Network.AWS.Cloud9.CreateEnvironmentEC
+module Network.AWS.Cloud9.CreateEnvironmentEC2
 
--- | <i>See:</i> <a>newCreateEnvironmentEC</a> smart constructor.
-data CreateEnvironmentEC
-CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe Bool -> Maybe (Sensitive [Sensitive Tag]) -> Text -> Text -> CreateEnvironmentEC
+-- | <i>See:</i> <a>newCreateEnvironmentEC2</a> smart constructor.
+data CreateEnvironmentEC2
+CreateEnvironmentEC2' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe Bool -> Maybe (Sensitive [Sensitive Tag]) -> Text -> Text -> CreateEnvironmentEC2
 
 -- | The number of minutes until the running instance is shut down after
 --   the environment has last been used.
-[$sel:automaticStopTimeMinutes:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Int
+[$sel:automaticStopTimeMinutes:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe Int
 
 -- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
 --   with the Amazon EC2 instance.
-[$sel:subnetId:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
+[$sel:subnetId:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
 --   be the ARN of any IAM principal. If this value is not specified, the
 --   ARN defaults to this environment's creator.
-[$sel:ownerArn:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
+[$sel:ownerArn:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe Text
 
 -- | The identifier for the Amazon Machine Image (AMI) that's used to
 --   create the EC2 instance. To choose an AMI for the instance, you must
@@ -2125,14 +2125,14 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   <li>Ubuntu 18.04:
 --   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
 --   </ul>
-[$sel:imageId:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
+[$sel:imageId:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe Text
 
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 --   operation completes no more than one time.
 --   
 --   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
 --   API Reference</i>.
-[$sel:clientRequestToken:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
+[$sel:clientRequestToken:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe Text
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --   Valid values are <tt>CONNECT_SSH</tt> (default) and
@@ -2140,33 +2140,33 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   
 --   For more information, see <a>Accessing no-ingress EC2 instances with
 --   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
-[$sel:connectionType:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe ConnectionType
+[$sel:connectionType:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe ConnectionType
 
 -- | The description of the environment to create.
-[$sel:description:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe (Sensitive Text)
+[$sel:description:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe (Sensitive Text)
 
 -- | Checks whether you have the required permissions for the action,
 --   without actually making the request, and provides an error response.
 --   If you have the required permissions, the error response is
 --   <tt>DryRunOperation</tt>. Otherwise, it is
 --   <tt>UnauthorizedOperation</tt>.
-[$sel:dryRun:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Bool
+[$sel:dryRun:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe Bool
 
 -- | An array of key-value pairs that will be associated with the new
 --   Cloud9 development environment.
-[$sel:tags:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe (Sensitive [Sensitive Tag])
+[$sel:tags:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Maybe (Sensitive [Sensitive Tag])
 
 -- | The name of the environment to create.
 --   
 --   This name is visible to other IAM users in the same Amazon Web
 --   Services account.
-[$sel:name:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Text
+[$sel:name:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Text
 
 -- | The type of instance to connect to the environment (for example,
 --   <tt>t2.micro</tt>).
-[$sel:instanceType:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Text
+[$sel:instanceType:CreateEnvironmentEC2'] :: CreateEnvironmentEC2 -> Text
 
--- | Create a value of <a>CreateEnvironmentEC</a> with all optional fields
+-- | Create a value of <a>CreateEnvironmentEC2</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -2175,23 +2175,23 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_automaticStopTimeMinutes</a> - The number of
+--   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_automaticStopTimeMinutes</a> - The number of
 --   minutes until the running instance is shut down after the environment
 --   has last been used.
 --   
---   <a>$sel:subnetId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_subnetId</a> - The ID of the subnet in Amazon
+--   <a>$sel:subnetId:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_subnetId</a> - The ID of the subnet in Amazon
 --   VPC that Cloud9 will use to communicate with the Amazon EC2 instance.
 --   
---   <a>$sel:ownerArn:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_ownerArn</a> - The Amazon Resource Name (ARN)
+--   <a>$sel:ownerArn:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_ownerArn</a> - The Amazon Resource Name (ARN)
 --   of the environment owner. This ARN can be the ARN of any IAM
 --   principal. If this value is not specified, the ARN defaults to this
 --   environment's creator.
 --   
---   <a>$sel:imageId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_imageId</a> - The identifier for the Amazon
+--   <a>$sel:imageId:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_imageId</a> - The identifier for the Amazon
 --   Machine Image (AMI) that's used to create the EC2 instance. To choose
 --   an AMI for the instance, you must specify a valid AMI alias or a valid
 --   Amazon EC2 Systems Manager (SSM) path.
@@ -2220,16 +2220,16 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
 --   </ul>
 --   
---   <a>$sel:clientRequestToken:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_clientRequestToken</a> - A unique,
+--   <a>$sel:clientRequestToken:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_clientRequestToken</a> - A unique,
 --   case-sensitive string that helps Cloud9 to ensure this operation
 --   completes no more than one time.
 --   
 --   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
 --   API Reference</i>.
 --   
---   <a>$sel:connectionType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_connectionType</a> - The connection type used
+--   <a>$sel:connectionType:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_connectionType</a> - The connection type used
 --   for connecting to an Amazon EC2 environment. Valid values are
 --   <tt>CONNECT_SSH</tt> (default) and <tt>CONNECT_SSM</tt> (connected
 --   through Amazon EC2 Systems Manager).
@@ -2237,44 +2237,45 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   For more information, see <a>Accessing no-ingress EC2 instances with
 --   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
 --   
---   <a>$sel:description:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_description</a> - The description of the
+--   <a>$sel:description:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_description</a> - The description of the
 --   environment to create.
 --   
---   <a>$sel:dryRun:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_dryRun</a> - Checks whether you have the
+--   <a>$sel:dryRun:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_dryRun</a> - Checks whether you have the
 --   required permissions for the action, without actually making the
 --   request, and provides an error response. If you have the required
 --   permissions, the error response is <tt>DryRunOperation</tt>.
 --   Otherwise, it is <tt>UnauthorizedOperation</tt>.
 --   
---   <a>$sel:tags:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_tags</a>
---   - An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
+--   <a>$sel:tags:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_tags</a> - An array of key-value pairs that
+--   will be associated with the new Cloud9 development environment.
 --   
---   <a>$sel:name:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_name</a>
---   - The name of the environment to create.
+--   <a>$sel:name:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_name</a> - The name of the environment to
+--   create.
 --   
 --   This name is visible to other IAM users in the same Amazon Web
 --   Services account.
 --   
---   <a>$sel:instanceType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_instanceType</a> - The type of instance to
+--   <a>$sel:instanceType:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_instanceType</a> - The type of instance to
 --   connect to the environment (for example, <tt>t2.micro</tt>).
-newCreateEnvironmentEC :: Text -> Text -> CreateEnvironmentEC
+newCreateEnvironmentEC2 :: Text -> Text -> CreateEnvironmentEC2
 
 -- | The number of minutes until the running instance is shut down after
 --   the environment has last been used.
-createEnvironmentEC_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC (Maybe Int)
+createEnvironmentEC2_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC2 (Maybe Int)
 
 -- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
 --   with the Amazon EC2 instance.
-createEnvironmentEC_subnetId :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_subnetId :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
 --   be the ARN of any IAM principal. If this value is not specified, the
 --   ARN defaults to this environment's creator.
-createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_ownerArn :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | The identifier for the Amazon Machine Image (AMI) that's used to
 --   create the EC2 instance. To choose an AMI for the instance, you must
@@ -2304,14 +2305,14 @@ createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
 --   <li>Ubuntu 18.04:
 --   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
 --   </ul>
-createEnvironmentEC_imageId :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_imageId :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 --   operation completes no more than one time.
 --   
 --   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
 --   API Reference</i>.
-createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_clientRequestToken :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --   Valid values are <tt>CONNECT_SSH</tt> (default) and
@@ -2319,44 +2320,44 @@ createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
 --   
 --   For more information, see <a>Accessing no-ingress EC2 instances with
 --   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
-createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe ConnectionType)
+createEnvironmentEC2_connectionType :: Lens' CreateEnvironmentEC2 (Maybe ConnectionType)
 
 -- | The description of the environment to create.
-createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_description :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | Checks whether you have the required permissions for the action,
 --   without actually making the request, and provides an error response.
 --   If you have the required permissions, the error response is
 --   <tt>DryRunOperation</tt>. Otherwise, it is
 --   <tt>UnauthorizedOperation</tt>.
-createEnvironmentEC_dryRun :: Lens' CreateEnvironmentEC (Maybe Bool)
+createEnvironmentEC2_dryRun :: Lens' CreateEnvironmentEC2 (Maybe Bool)
 
 -- | An array of key-value pairs that will be associated with the new
 --   Cloud9 development environment.
-createEnvironmentEC_tags :: Lens' CreateEnvironmentEC (Maybe [Tag])
+createEnvironmentEC2_tags :: Lens' CreateEnvironmentEC2 (Maybe [Tag])
 
 -- | The name of the environment to create.
 --   
 --   This name is visible to other IAM users in the same Amazon Web
 --   Services account.
-createEnvironmentEC_name :: Lens' CreateEnvironmentEC Text
+createEnvironmentEC2_name :: Lens' CreateEnvironmentEC2 Text
 
 -- | The type of instance to connect to the environment (for example,
 --   <tt>t2.micro</tt>).
-createEnvironmentEC_instanceType :: Lens' CreateEnvironmentEC Text
+createEnvironmentEC2_instanceType :: Lens' CreateEnvironmentEC2 Text
 
--- | <i>See:</i> <a>newCreateEnvironmentECResponse</a> smart constructor.
-data CreateEnvironmentECResponse
-CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
+-- | <i>See:</i> <a>newCreateEnvironmentEC2Response</a> smart constructor.
+data CreateEnvironmentEC2Response
+CreateEnvironmentEC2Response' :: Maybe Text -> Int -> CreateEnvironmentEC2Response
 
 -- | The ID of the environment that was created.
-[$sel:environmentId:CreateEnvironmentECResponse'] :: CreateEnvironmentECResponse -> Maybe Text
+[$sel:environmentId:CreateEnvironmentEC2Response'] :: CreateEnvironmentEC2Response -> Maybe Text
 
 -- | The response's http status code.
-[$sel:httpStatus:CreateEnvironmentECResponse'] :: CreateEnvironmentECResponse -> Int
+[$sel:httpStatus:CreateEnvironmentEC2Response'] :: CreateEnvironmentEC2Response -> Int
 
--- | Create a value of <a>CreateEnvironmentECResponse</a> with all optional
---   fields omitted.
+-- | Create a value of <a>CreateEnvironmentEC2Response</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -2364,35 +2365,35 @@ CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:environmentId:CreateEnvironmentECResponse'</a>,
---   <a>createEnvironmentECResponse_environmentId</a> - The ID of the
+--   <a>$sel:environmentId:CreateEnvironmentEC2Response'</a>,
+--   <a>createEnvironmentEC2Response_environmentId</a> - The ID of the
 --   environment that was created.
 --   
---   <a>$sel:httpStatus:CreateEnvironmentECResponse'</a>,
---   <a>createEnvironmentECResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:CreateEnvironmentEC2Response'</a>,
+--   <a>createEnvironmentEC2Response_httpStatus</a> - The response's http
 --   status code.
-newCreateEnvironmentECResponse :: Int -> CreateEnvironmentECResponse
+newCreateEnvironmentEC2Response :: Int -> CreateEnvironmentEC2Response
 
 -- | The ID of the environment that was created.
-createEnvironmentECResponse_environmentId :: Lens' CreateEnvironmentECResponse (Maybe Text)
+createEnvironmentEC2Response_environmentId :: Lens' CreateEnvironmentEC2Response (Maybe Text)
 
 -- | The response's http status code.
-createEnvironmentECResponse_httpStatus :: Lens' CreateEnvironmentECResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentECResponse
-instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentECResponse
-instance GHC.Read.Read Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentECResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentECResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentECResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.CreateEnvironmentEC.CreateEnvironmentEC
+createEnvironmentEC2Response_httpStatus :: Lens' CreateEnvironmentEC2Response Int
+instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance GHC.Read.Read Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
 
 
 -- | Removes tags from an Cloud9 development environment.
@@ -2827,16 +2828,16 @@ listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
 
 -- | The number of minutes until the running instance is shut down after
 --   the environment has last been used.
-createEnvironmentEC_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC (Maybe Int)
+createEnvironmentEC2_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC2 (Maybe Int)
 
 -- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
 --   with the Amazon EC2 instance.
-createEnvironmentEC_subnetId :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_subnetId :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
 --   be the ARN of any IAM principal. If this value is not specified, the
 --   ARN defaults to this environment's creator.
-createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_ownerArn :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | The identifier for the Amazon Machine Image (AMI) that's used to
 --   create the EC2 instance. To choose an AMI for the instance, you must
@@ -2866,14 +2867,14 @@ createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
 --   <li>Ubuntu 18.04:
 --   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
 --   </ul>
-createEnvironmentEC_imageId :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_imageId :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 --   operation completes no more than one time.
 --   
 --   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
 --   API Reference</i>.
-createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_clientRequestToken :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --   Valid values are <tt>CONNECT_SSH</tt> (default) and
@@ -2881,37 +2882,37 @@ createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
 --   
 --   For more information, see <a>Accessing no-ingress EC2 instances with
 --   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
-createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe ConnectionType)
+createEnvironmentEC2_connectionType :: Lens' CreateEnvironmentEC2 (Maybe ConnectionType)
 
 -- | The description of the environment to create.
-createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
+createEnvironmentEC2_description :: Lens' CreateEnvironmentEC2 (Maybe Text)
 
 -- | Checks whether you have the required permissions for the action,
 --   without actually making the request, and provides an error response.
 --   If you have the required permissions, the error response is
 --   <tt>DryRunOperation</tt>. Otherwise, it is
 --   <tt>UnauthorizedOperation</tt>.
-createEnvironmentEC_dryRun :: Lens' CreateEnvironmentEC (Maybe Bool)
+createEnvironmentEC2_dryRun :: Lens' CreateEnvironmentEC2 (Maybe Bool)
 
 -- | An array of key-value pairs that will be associated with the new
 --   Cloud9 development environment.
-createEnvironmentEC_tags :: Lens' CreateEnvironmentEC (Maybe [Tag])
+createEnvironmentEC2_tags :: Lens' CreateEnvironmentEC2 (Maybe [Tag])
 
 -- | The name of the environment to create.
 --   
 --   This name is visible to other IAM users in the same Amazon Web
 --   Services account.
-createEnvironmentEC_name :: Lens' CreateEnvironmentEC Text
+createEnvironmentEC2_name :: Lens' CreateEnvironmentEC2 Text
 
 -- | The type of instance to connect to the environment (for example,
 --   <tt>t2.micro</tt>).
-createEnvironmentEC_instanceType :: Lens' CreateEnvironmentEC Text
+createEnvironmentEC2_instanceType :: Lens' CreateEnvironmentEC2 Text
 
 -- | The ID of the environment that was created.
-createEnvironmentECResponse_environmentId :: Lens' CreateEnvironmentECResponse (Maybe Text)
+createEnvironmentEC2Response_environmentId :: Lens' CreateEnvironmentEC2Response (Maybe Text)
 
 -- | The response's http status code.
-createEnvironmentECResponse_httpStatus :: Lens' CreateEnvironmentECResponse Int
+createEnvironmentEC2Response_httpStatus :: Lens' CreateEnvironmentEC2Response Int
 
 -- | The Amazon Resource Name (ARN) of the Cloud9 development environment
 --   to add tags to.
@@ -3467,11 +3468,11 @@ ListTagsForResourceResponse' :: Maybe (Sensitive [Sensitive Tag]) -> Int -> List
 --   status code.
 newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 
--- | <i>See:</i> <a>newCreateEnvironmentEC</a> smart constructor.
-data CreateEnvironmentEC
-CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe Bool -> Maybe (Sensitive [Sensitive Tag]) -> Text -> Text -> CreateEnvironmentEC
+-- | <i>See:</i> <a>newCreateEnvironmentEC2</a> smart constructor.
+data CreateEnvironmentEC2
+CreateEnvironmentEC2' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe Bool -> Maybe (Sensitive [Sensitive Tag]) -> Text -> Text -> CreateEnvironmentEC2
 
--- | Create a value of <a>CreateEnvironmentEC</a> with all optional fields
+-- | Create a value of <a>CreateEnvironmentEC2</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3480,23 +3481,23 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_automaticStopTimeMinutes</a> - The number of
+--   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_automaticStopTimeMinutes</a> - The number of
 --   minutes until the running instance is shut down after the environment
 --   has last been used.
 --   
---   <a>$sel:subnetId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_subnetId</a> - The ID of the subnet in Amazon
+--   <a>$sel:subnetId:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_subnetId</a> - The ID of the subnet in Amazon
 --   VPC that Cloud9 will use to communicate with the Amazon EC2 instance.
 --   
---   <a>$sel:ownerArn:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_ownerArn</a> - The Amazon Resource Name (ARN)
+--   <a>$sel:ownerArn:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_ownerArn</a> - The Amazon Resource Name (ARN)
 --   of the environment owner. This ARN can be the ARN of any IAM
 --   principal. If this value is not specified, the ARN defaults to this
 --   environment's creator.
 --   
---   <a>$sel:imageId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_imageId</a> - The identifier for the Amazon
+--   <a>$sel:imageId:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_imageId</a> - The identifier for the Amazon
 --   Machine Image (AMI) that's used to create the EC2 instance. To choose
 --   an AMI for the instance, you must specify a valid AMI alias or a valid
 --   Amazon EC2 Systems Manager (SSM) path.
@@ -3525,16 +3526,16 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
 --   </ul>
 --   
---   <a>$sel:clientRequestToken:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_clientRequestToken</a> - A unique,
+--   <a>$sel:clientRequestToken:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_clientRequestToken</a> - A unique,
 --   case-sensitive string that helps Cloud9 to ensure this operation
 --   completes no more than one time.
 --   
 --   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
 --   API Reference</i>.
 --   
---   <a>$sel:connectionType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_connectionType</a> - The connection type used
+--   <a>$sel:connectionType:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_connectionType</a> - The connection type used
 --   for connecting to an Amazon EC2 environment. Valid values are
 --   <tt>CONNECT_SSH</tt> (default) and <tt>CONNECT_SSM</tt> (connected
 --   through Amazon EC2 Systems Manager).
@@ -3542,38 +3543,39 @@ CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> M
 --   For more information, see <a>Accessing no-ingress EC2 instances with
 --   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
 --   
---   <a>$sel:description:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_description</a> - The description of the
+--   <a>$sel:description:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_description</a> - The description of the
 --   environment to create.
 --   
---   <a>$sel:dryRun:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_dryRun</a> - Checks whether you have the
+--   <a>$sel:dryRun:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_dryRun</a> - Checks whether you have the
 --   required permissions for the action, without actually making the
 --   request, and provides an error response. If you have the required
 --   permissions, the error response is <tt>DryRunOperation</tt>.
 --   Otherwise, it is <tt>UnauthorizedOperation</tt>.
 --   
---   <a>$sel:tags:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_tags</a>
---   - An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
+--   <a>$sel:tags:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_tags</a> - An array of key-value pairs that
+--   will be associated with the new Cloud9 development environment.
 --   
---   <a>$sel:name:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_name</a>
---   - The name of the environment to create.
+--   <a>$sel:name:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_name</a> - The name of the environment to
+--   create.
 --   
 --   This name is visible to other IAM users in the same Amazon Web
 --   Services account.
 --   
---   <a>$sel:instanceType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_instanceType</a> - The type of instance to
+--   <a>$sel:instanceType:CreateEnvironmentEC2'</a>,
+--   <a>createEnvironmentEC2_instanceType</a> - The type of instance to
 --   connect to the environment (for example, <tt>t2.micro</tt>).
-newCreateEnvironmentEC :: Text -> Text -> CreateEnvironmentEC
+newCreateEnvironmentEC2 :: Text -> Text -> CreateEnvironmentEC2
 
--- | <i>See:</i> <a>newCreateEnvironmentECResponse</a> smart constructor.
-data CreateEnvironmentECResponse
-CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
+-- | <i>See:</i> <a>newCreateEnvironmentEC2Response</a> smart constructor.
+data CreateEnvironmentEC2Response
+CreateEnvironmentEC2Response' :: Maybe Text -> Int -> CreateEnvironmentEC2Response
 
--- | Create a value of <a>CreateEnvironmentECResponse</a> with all optional
---   fields omitted.
+-- | Create a value of <a>CreateEnvironmentEC2Response</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3581,14 +3583,14 @@ CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:environmentId:CreateEnvironmentECResponse'</a>,
---   <a>createEnvironmentECResponse_environmentId</a> - The ID of the
+--   <a>$sel:environmentId:CreateEnvironmentEC2Response'</a>,
+--   <a>createEnvironmentEC2Response_environmentId</a> - The ID of the
 --   environment that was created.
 --   
---   <a>$sel:httpStatus:CreateEnvironmentECResponse'</a>,
---   <a>createEnvironmentECResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:CreateEnvironmentEC2Response'</a>,
+--   <a>createEnvironmentEC2Response_httpStatus</a> - The response's http
 --   status code.
-newCreateEnvironmentECResponse :: Int -> CreateEnvironmentECResponse
+newCreateEnvironmentEC2Response :: Int -> CreateEnvironmentEC2Response
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource

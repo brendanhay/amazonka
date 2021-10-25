@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An HTTP Live Streaming (HLS) ingest resource configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHlsIngest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679235537"><span id="local-6989586621679235538"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsIngest"><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-var">HlsIngest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIngest%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-var">HlsIngest'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679235853"><span id="local-6989586621679235854"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsIngest"><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-var">HlsIngest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIngest%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-var">HlsIngest'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of endpoints to which the source stream should be sent.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AingestEndpoints%3AHlsIngest%27"><span class="annot"><span class="annottext">HlsIngest -&gt; Maybe [IngestEndpoint]
 </span><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#%24sel%3AingestEndpoints%3AHlsIngest%27"><span class="hs-identifier hs-var hs-var">ingestEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235531"><span id="local-6989586621679235533"><span class="annot"><span class="annottext">HlsIngest -&gt; HlsIngest -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235847"><span id="local-6989586621679235849"><span class="annot"><span class="annottext">HlsIngest -&gt; HlsIngest -&gt; Bool
 (HlsIngest -&gt; HlsIngest -&gt; Bool)
 -&gt; (HlsIngest -&gt; HlsIngest -&gt; Bool) -&gt; Eq HlsIngest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HlsIngest -&gt; HlsIngest -&gt; Bool
 == :: HlsIngest -&gt; HlsIngest -&gt; Bool
 $c== :: HlsIngest -&gt; HlsIngest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235522"><span id="local-6989586621679235524"><span id="local-6989586621679235526"><span id="local-6989586621679235528"><span class="annot"><span class="annottext">ReadPrec [HlsIngest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235838"><span id="local-6989586621679235840"><span id="local-6989586621679235842"><span id="local-6989586621679235844"><span class="annot"><span class="annottext">ReadPrec [HlsIngest]
 ReadPrec HlsIngest
 Int -&gt; ReadS HlsIngest
 ReadS [HlsIngest]
@@ -60,7 +60,7 @@ readList :: ReadS [HlsIngest]
 $creadList :: ReadS [HlsIngest]
 readsPrec :: Int -&gt; ReadS HlsIngest
 $creadsPrec :: Int -&gt; ReadS HlsIngest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235515"><span id="local-6989586621679235517"><span id="local-6989586621679235519"><span class="annot"><span class="annottext">Int -&gt; HlsIngest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235831"><span id="local-6989586621679235833"><span id="local-6989586621679235835"><span class="annot"><span class="annottext">Int -&gt; HlsIngest -&gt; ShowS
 [HlsIngest] -&gt; ShowS
 HlsIngest -&gt; String
 (Int -&gt; HlsIngest -&gt; ShowS)
@@ -116,16 +116,16 @@ forall a. Maybe a
      (Maybe [IngestEndpoint])
      (Maybe [IngestEndpoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-type">HlsIngest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235506"><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-type">HlsIngest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235822"><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
 ingestEndpoints :: Maybe [IngestEndpoint]
 $sel:ingestEndpoints:HlsIngest' :: HlsIngest -&gt; Maybe [IngestEndpoint]
-</span><a href="#local-6989586621679235506"><span class="hs-identifier hs-var hs-var">ingestEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
-</span><a href="#local-6989586621679235506"><span class="hs-identifier hs-var">ingestEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235505"><span class="annot"><span class="annottext">s :: HlsIngest
-</span><a href="#local-6989586621679235505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-type">HlsIngest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235504"><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
-</span><a href="#local-6989586621679235504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsIngest
-</span><a href="#local-6989586621679235505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestEndpoints:HlsIngest' :: Maybe [IngestEndpoint]
+</span><a href="#local-6989586621679235822"><span class="hs-identifier hs-var hs-var">ingestEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
+</span><a href="#local-6989586621679235822"><span class="hs-identifier hs-var">ingestEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235821"><span class="annot"><span class="annottext">s :: HlsIngest
+</span><a href="#local-6989586621679235821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-type">HlsIngest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235820"><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
+</span><a href="#local-6989586621679235820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsIngest
+</span><a href="#local-6989586621679235821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestEndpoints:HlsIngest' :: Maybe [IngestEndpoint]
 </span><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#%24sel%3AingestEndpoints%3AHlsIngest%27"><span class="hs-identifier hs-var">ingestEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IngestEndpoint]
-</span><a href="#local-6989586621679235504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IngestEndpoint] -&gt; f (Maybe [IngestEndpoint]))
+</span><a href="#local-6989586621679235820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IngestEndpoint] -&gt; f (Maybe [IngestEndpoint]))
  -&gt; HlsIngest -&gt; f HlsIngest)
 -&gt; ((Maybe [IngestEndpoint] -&gt; f (Maybe [IngestEndpoint]))
     -&gt; Maybe [IngestEndpoint] -&gt; f (Maybe [IngestEndpoint]))
@@ -148,23 +148,23 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235498"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679235496"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsIngest
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235814"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679235812"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsIngest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser HlsIngest) -&gt; Value -&gt; Parser HlsIngest
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsIngest&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235493"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IngestEndpoint] -&gt; HlsIngest
 </span><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest%27"><span class="hs-identifier hs-var">HlsIngest'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IngestEndpoint] -&gt; HlsIngest)
 -&gt; Parser (Maybe [IngestEndpoint]) -&gt; Parser HlsIngest
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IngestEndpoint]))
+</span><a href="#local-6989586621679235809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IngestEndpoint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ingestEndpoints&quot;</span></span><span>
@@ -177,7 +177,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-62"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235486"><span id="local-6989586621679235488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235802"><span id="local-6989586621679235804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

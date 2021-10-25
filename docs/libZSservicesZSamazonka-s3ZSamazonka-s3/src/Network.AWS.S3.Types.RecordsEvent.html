@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The container for the records event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRecordsEvent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679549405"><span id="local-6989586621679549406"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordsEvent"><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-var">RecordsEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordsEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-var">RecordsEvent'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679549515"><span id="local-6989586621679549516"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordsEvent"><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-var">RecordsEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordsEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-var">RecordsEvent'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The byte array of partial, one or more result records.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Apayload%3ARecordsEvent%27"><span class="annot"><span class="annottext">RecordsEvent -&gt; Maybe Base64
 </span><a href="Network.AWS.S3.Types.RecordsEvent.html#%24sel%3Apayload%3ARecordsEvent%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549399"><span id="local-6989586621679549401"><span class="annot"><span class="annottext">RecordsEvent -&gt; RecordsEvent -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549509"><span id="local-6989586621679549511"><span class="annot"><span class="annottext">RecordsEvent -&gt; RecordsEvent -&gt; Bool
 (RecordsEvent -&gt; RecordsEvent -&gt; Bool)
 -&gt; (RecordsEvent -&gt; RecordsEvent -&gt; Bool) -&gt; Eq RecordsEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RecordsEvent -&gt; RecordsEvent -&gt; Bool
 == :: RecordsEvent -&gt; RecordsEvent -&gt; Bool
 $c== :: RecordsEvent -&gt; RecordsEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549390"><span id="local-6989586621679549392"><span id="local-6989586621679549394"><span id="local-6989586621679549396"><span class="annot"><span class="annottext">ReadPrec [RecordsEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549500"><span id="local-6989586621679549502"><span id="local-6989586621679549504"><span id="local-6989586621679549506"><span class="annot"><span class="annottext">ReadPrec [RecordsEvent]
 ReadPrec RecordsEvent
 Int -&gt; ReadS RecordsEvent
 ReadS [RecordsEvent]
@@ -60,7 +60,7 @@ readList :: ReadS [RecordsEvent]
 $creadList :: ReadS [RecordsEvent]
 readsPrec :: Int -&gt; ReadS RecordsEvent
 $creadsPrec :: Int -&gt; ReadS RecordsEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549383"><span id="local-6989586621679549385"><span id="local-6989586621679549387"><span class="annot"><span class="annottext">Int -&gt; RecordsEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549493"><span id="local-6989586621679549495"><span id="local-6989586621679549497"><span class="annot"><span class="annottext">Int -&gt; RecordsEvent -&gt; ShowS
 [RecordsEvent] -&gt; ShowS
 RecordsEvent -&gt; String
 (Int -&gt; RecordsEvent -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (RecordsEvent -&gt; Maybe Base64 -&gt; RecordsEvent)
 -&gt; Lens RecordsEvent RecordsEvent (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-type">RecordsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549374"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-type">RecordsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549484"><span class="annot"><span class="annottext">Maybe Base64
 payload :: Maybe Base64
 $sel:payload:RecordsEvent' :: RecordsEvent -&gt; Maybe Base64
-</span><a href="#local-6989586621679549374"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679549374"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549373"><span class="annot"><span class="annottext">s :: RecordsEvent
-</span><a href="#local-6989586621679549373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-type">RecordsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549372"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679549372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordsEvent
-</span><a href="#local-6989586621679549373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:RecordsEvent' :: Maybe Base64
+</span><a href="#local-6989586621679549484"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679549484"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549483"><span class="annot"><span class="annottext">s :: RecordsEvent
+</span><a href="#local-6989586621679549483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-type">RecordsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549482"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679549482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordsEvent
+</span><a href="#local-6989586621679549483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:RecordsEvent' :: Maybe Base64
 </span><a href="Network.AWS.S3.Types.RecordsEvent.html#%24sel%3Apayload%3ARecordsEvent%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679549372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679549482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; RecordsEvent -&gt; f RecordsEvent)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -149,20 +149,20 @@ Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679549366"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RecordsEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679549364"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679549364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679549476"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RecordsEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679549474"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">Maybe Base64 -&gt; RecordsEvent
 </span><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent%27"><span class="hs-identifier hs-var">RecordsEvent'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Base64 -&gt; RecordsEvent)
 -&gt; Either String (Maybe Base64) -&gt; Either String RecordsEvent
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679549364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679549474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Payload&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549358"><span id="local-6989586621679549360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549468"><span id="local-6989586621679549470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

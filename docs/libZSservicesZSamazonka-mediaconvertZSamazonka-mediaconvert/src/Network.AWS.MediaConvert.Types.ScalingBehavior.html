@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- Keep the setting Default (DEFAULT) to have the service letterbox your</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- video instead. This setting overrides any value that you specify for the</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- setting Selection placement (position) in this output.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621680004068"><span id="local-6989586621680004069"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingBehavior"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ScalingBehavior.html#ScalingBehavior"><span class="hs-identifier hs-var">ScalingBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingBehavior%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ScalingBehavior.html#ScalingBehavior%27"><span class="hs-identifier hs-var">ScalingBehavior'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621680005558"><span id="local-6989586621680005559"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingBehavior"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ScalingBehavior.html#ScalingBehavior"><span class="hs-identifier hs-var">ScalingBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingBehavior%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ScalingBehavior.html#ScalingBehavior%27"><span class="hs-identifier hs-var">ScalingBehavior'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalingBehavior"><span class="annot"><span class="annottext">ScalingBehavior -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ScalingBehavior.html#fromScalingBehavior"><span class="hs-identifier hs-var hs-var">fromScalingBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004060"><span id="local-6989586621680004062"><span id="local-6989586621680004064"><span class="annot"><span class="annottext">Int -&gt; ScalingBehavior -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005550"><span id="local-6989586621680005552"><span id="local-6989586621680005554"><span class="annot"><span class="annottext">Int -&gt; ScalingBehavior -&gt; ShowS
 [ScalingBehavior] -&gt; ShowS
 ScalingBehavior -&gt; String
 (Int -&gt; ScalingBehavior -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ScalingBehavior -&gt; String
 showsPrec :: Int -&gt; ScalingBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScalingBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680004051"><span id="local-6989586621680004053"><span id="local-6989586621680004055"><span id="local-6989586621680004057"><span class="annot"><span class="annottext">ReadPrec [ScalingBehavior]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680005541"><span id="local-6989586621680005543"><span id="local-6989586621680005545"><span id="local-6989586621680005547"><span class="annot"><span class="annottext">ReadPrec [ScalingBehavior]
 ReadPrec ScalingBehavior
 Int -&gt; ReadS ScalingBehavior
 ReadS [ScalingBehavior]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ScalingBehavior]
 readsPrec :: Int -&gt; ReadS ScalingBehavior
 $creadsPrec :: Int -&gt; ReadS ScalingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680004046"><span id="local-6989586621680004048"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ScalingBehavior -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680005536"><span id="local-6989586621680005538"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ScalingBehavior -&gt; Bool
 (ScalingBehavior -&gt; ScalingBehavior -&gt; Bool)
 -&gt; (ScalingBehavior -&gt; ScalingBehavior -&gt; Bool)
 -&gt; Eq ScalingBehavior
@@ -88,7 +88,7 @@ $c/= :: ScalingBehavior -&gt; ScalingBehavior -&gt; Bool
 == :: ScalingBehavior -&gt; ScalingBehavior -&gt; Bool
 $c== :: ScalingBehavior -&gt; ScalingBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680004030"><span id="local-6989586621680004032"><span id="local-6989586621680004034"><span id="local-6989586621680004036"><span id="local-6989586621680004038"><span id="local-6989586621680004040"><span id="local-6989586621680004042"><span class="annot"><span class="annottext">Eq ScalingBehavior
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680005520"><span id="local-6989586621680005522"><span id="local-6989586621680005524"><span id="local-6989586621680005526"><span id="local-6989586621680005528"><span id="local-6989586621680005530"><span id="local-6989586621680005532"><span class="annot"><span class="annottext">Eq ScalingBehavior
 Eq ScalingBehavior
 -&gt; (ScalingBehavior -&gt; ScalingBehavior -&gt; Ordering)
 -&gt; (ScalingBehavior -&gt; ScalingBehavior -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ScalingBehavior -&gt; Rep ScalingBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004022"><span id="local-6989586621680004024"><span class="annot"><span class="annottext">Int -&gt; ScalingBehavior -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005512"><span id="local-6989586621680005514"><span class="annot"><span class="annottext">Int -&gt; ScalingBehavior -&gt; Int
 ScalingBehavior -&gt; Int
 (Int -&gt; ScalingBehavior -&gt; Int)
 -&gt; (ScalingBehavior -&gt; Int) -&gt; Hashable ScalingBehavior
@@ -149,50 +149,50 @@ $chash :: ScalingBehavior -&gt; Int
 hashWithSalt :: Int -&gt; ScalingBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; ScalingBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680004019"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680005509"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ()
 (ScalingBehavior -&gt; ()) -&gt; NFData ScalingBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScalingBehavior -&gt; ()
 $crnf :: ScalingBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680004016"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingBehavior
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680005506"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingBehavior
 (Text -&gt; Either String ScalingBehavior) -&gt; FromText ScalingBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScalingBehavior
 $cfromText :: Text -&gt; Either String ScalingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680004013"><span class="annot"><span class="annottext">ScalingBehavior -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680005503"><span class="annot"><span class="annottext">ScalingBehavior -&gt; Text
 (ScalingBehavior -&gt; Text) -&gt; ToText ScalingBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScalingBehavior -&gt; Text
 $ctoText :: ScalingBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680004010"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680005500"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ByteString
 (ScalingBehavior -&gt; ByteString) -&gt; ToByteString ScalingBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScalingBehavior -&gt; ByteString
 $ctoBS :: ScalingBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680004007"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005497"><span class="annot"><span class="annottext">ScalingBehavior -&gt; ByteStringBuilder
 (ScalingBehavior -&gt; ByteStringBuilder) -&gt; ToLog ScalingBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScalingBehavior -&gt; ByteStringBuilder
 $cbuild :: ScalingBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680004004"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingBehavior -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005494"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingBehavior -&gt; [Header]
 (HeaderName -&gt; ScalingBehavior -&gt; [Header])
 -&gt; ToHeader ScalingBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScalingBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScalingBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680004001"><span class="annot"><span class="annottext">ScalingBehavior -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005491"><span class="annot"><span class="annottext">ScalingBehavior -&gt; QueryString
 (ScalingBehavior -&gt; QueryString) -&gt; ToQuery ScalingBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScalingBehavior -&gt; QueryString
 $ctoQuery :: ScalingBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680003996"><span id="local-6989586621680003998"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingBehavior]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005486"><span id="local-6989586621680005488"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingBehavior]
 Value -&gt; Parser ScalingBehavior
 (Value -&gt; Parser ScalingBehavior)
 -&gt; (Value -&gt; Parser [ScalingBehavior]) -&gt; FromJSON ScalingBehavior
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ScalingBehavior]
 parseJSON :: Value -&gt; Parser ScalingBehavior
 $cparseJSON :: Value -&gt; Parser ScalingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680003991"><span id="local-6989586621680003993"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingBehavior]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005481"><span id="local-6989586621680005483"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingBehavior]
 FromJSONKeyFunction ScalingBehavior
 FromJSONKeyFunction ScalingBehavior
 -&gt; FromJSONKeyFunction [ScalingBehavior]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScalingBehavior]
 fromJSONKey :: FromJSONKeyFunction ScalingBehavior
 $cfromJSONKey :: FromJSONKeyFunction ScalingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680003982"><span id="local-6989586621680003984"><span id="local-6989586621680003986"><span id="local-6989586621680003988"><span class="annot"><span class="annottext">[ScalingBehavior] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005472"><span id="local-6989586621680005474"><span id="local-6989586621680005476"><span id="local-6989586621680005478"><span class="annot"><span class="annottext">[ScalingBehavior] -&gt; Encoding
 [ScalingBehavior] -&gt; Value
 ScalingBehavior -&gt; Encoding
 ScalingBehavior -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ScalingBehavior -&gt; Encoding
 toJSON :: ScalingBehavior -&gt; Value
 $ctoJSON :: ScalingBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680003977"><span id="local-6989586621680003979"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingBehavior]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005467"><span id="local-6989586621680005469"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingBehavior]
 ToJSONKeyFunction ScalingBehavior
 ToJSONKeyFunction ScalingBehavior
 -&gt; ToJSONKeyFunction [ScalingBehavior] -&gt; ToJSONKey ScalingBehavior
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScalingBehavior]
 toJSONKey :: ToJSONKeyFunction ScalingBehavior
 $ctoJSONKey :: ToJSONKeyFunction ScalingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680003974"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingBehavior
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005464"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingBehavior
 ([Node] -&gt; Either String ScalingBehavior)
 -&gt; FromXML ScalingBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScalingBehavior
 $cparseXML :: [Node] -&gt; Either String ScalingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680003971"><span class="annot"><span class="annottext">ScalingBehavior -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680005461"><span class="annot"><span class="annottext">ScalingBehavior -&gt; XML
 (ScalingBehavior -&gt; XML) -&gt; ToXML ScalingBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScalingBehavior -&gt; XML

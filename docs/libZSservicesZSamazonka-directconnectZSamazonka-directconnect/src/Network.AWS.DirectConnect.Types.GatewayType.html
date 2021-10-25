@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679279750"><span id="local-6989586621679279751"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GatewayType"><span class="annot"><a href="Network.AWS.DirectConnect.Types.GatewayType.html#GatewayType"><span class="hs-identifier hs-var">GatewayType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatewayType%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.GatewayType.html#GatewayType%27"><span class="hs-identifier hs-var">GatewayType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679287878"><span id="local-6989586621679287879"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GatewayType"><span class="annot"><a href="Network.AWS.DirectConnect.Types.GatewayType.html#GatewayType"><span class="hs-identifier hs-var">GatewayType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatewayType%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.GatewayType.html#GatewayType%27"><span class="hs-identifier hs-var">GatewayType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGatewayType"><span class="annot"><span class="annottext">GatewayType -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.GatewayType.html#fromGatewayType"><span class="hs-identifier hs-var hs-var">fromGatewayType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279742"><span id="local-6989586621679279744"><span id="local-6989586621679279746"><span class="annot"><span class="annottext">Int -&gt; GatewayType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287870"><span id="local-6989586621679287872"><span id="local-6989586621679287874"><span class="annot"><span class="annottext">Int -&gt; GatewayType -&gt; ShowS
 [GatewayType] -&gt; ShowS
 GatewayType -&gt; String
 (Int -&gt; GatewayType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: GatewayType -&gt; String
 showsPrec :: Int -&gt; GatewayType -&gt; ShowS
 $cshowsPrec :: Int -&gt; GatewayType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679279733"><span id="local-6989586621679279735"><span id="local-6989586621679279737"><span id="local-6989586621679279739"><span class="annot"><span class="annottext">ReadPrec [GatewayType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679287861"><span id="local-6989586621679287863"><span id="local-6989586621679287865"><span id="local-6989586621679287867"><span class="annot"><span class="annottext">ReadPrec [GatewayType]
 ReadPrec GatewayType
 Int -&gt; ReadS GatewayType
 ReadS [GatewayType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [GatewayType]
 readsPrec :: Int -&gt; ReadS GatewayType
 $creadsPrec :: Int -&gt; ReadS GatewayType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679279728"><span id="local-6989586621679279730"><span class="annot"><span class="annottext">GatewayType -&gt; GatewayType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679287856"><span id="local-6989586621679287858"><span class="annot"><span class="annottext">GatewayType -&gt; GatewayType -&gt; Bool
 (GatewayType -&gt; GatewayType -&gt; Bool)
 -&gt; (GatewayType -&gt; GatewayType -&gt; Bool) -&gt; Eq GatewayType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: GatewayType -&gt; GatewayType -&gt; Bool
 == :: GatewayType -&gt; GatewayType -&gt; Bool
 $c== :: GatewayType -&gt; GatewayType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679279712"><span id="local-6989586621679279714"><span id="local-6989586621679279716"><span id="local-6989586621679279718"><span id="local-6989586621679279720"><span id="local-6989586621679279722"><span id="local-6989586621679279724"><span class="annot"><span class="annottext">Eq GatewayType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679287840"><span id="local-6989586621679287842"><span id="local-6989586621679287844"><span id="local-6989586621679287846"><span id="local-6989586621679287848"><span id="local-6989586621679287850"><span id="local-6989586621679287852"><span class="annot"><span class="annottext">Eq GatewayType
 Eq GatewayType
 -&gt; (GatewayType -&gt; GatewayType -&gt; Ordering)
 -&gt; (GatewayType -&gt; GatewayType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. GatewayType -&gt; Rep GatewayType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279704"><span id="local-6989586621679279706"><span class="annot"><span class="annottext">Int -&gt; GatewayType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287832"><span id="local-6989586621679287834"><span class="annot"><span class="annottext">Int -&gt; GatewayType -&gt; Int
 GatewayType -&gt; Int
 (Int -&gt; GatewayType -&gt; Int)
 -&gt; (GatewayType -&gt; Int) -&gt; Hashable GatewayType
@@ -142,49 +142,49 @@ $chash :: GatewayType -&gt; Int
 hashWithSalt :: Int -&gt; GatewayType -&gt; Int
 $chashWithSalt :: Int -&gt; GatewayType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679279701"><span class="annot"><span class="annottext">GatewayType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679287829"><span class="annot"><span class="annottext">GatewayType -&gt; ()
 (GatewayType -&gt; ()) -&gt; NFData GatewayType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GatewayType -&gt; ()
 $crnf :: GatewayType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679279698"><span class="annot"><span class="annottext">Text -&gt; Either String GatewayType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679287826"><span class="annot"><span class="annottext">Text -&gt; Either String GatewayType
 (Text -&gt; Either String GatewayType) -&gt; FromText GatewayType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GatewayType
 $cfromText :: Text -&gt; Either String GatewayType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279695"><span class="annot"><span class="annottext">GatewayType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679287823"><span class="annot"><span class="annottext">GatewayType -&gt; Text
 (GatewayType -&gt; Text) -&gt; ToText GatewayType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GatewayType -&gt; Text
 $ctoText :: GatewayType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279692"><span class="annot"><span class="annottext">GatewayType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679287820"><span class="annot"><span class="annottext">GatewayType -&gt; ByteString
 (GatewayType -&gt; ByteString) -&gt; ToByteString GatewayType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GatewayType -&gt; ByteString
 $ctoBS :: GatewayType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279689"><span class="annot"><span class="annottext">GatewayType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679287817"><span class="annot"><span class="annottext">GatewayType -&gt; ByteStringBuilder
 (GatewayType -&gt; ByteStringBuilder) -&gt; ToLog GatewayType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GatewayType -&gt; ByteStringBuilder
 $cbuild :: GatewayType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279686"><span class="annot"><span class="annottext">HeaderName -&gt; GatewayType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679287814"><span class="annot"><span class="annottext">HeaderName -&gt; GatewayType -&gt; [Header]
 (HeaderName -&gt; GatewayType -&gt; [Header]) -&gt; ToHeader GatewayType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GatewayType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GatewayType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279683"><span class="annot"><span class="annottext">GatewayType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679287811"><span class="annot"><span class="annottext">GatewayType -&gt; QueryString
 (GatewayType -&gt; QueryString) -&gt; ToQuery GatewayType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GatewayType -&gt; QueryString
 $ctoQuery :: GatewayType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279678"><span id="local-6989586621679279680"><span class="annot"><span class="annottext">Value -&gt; Parser [GatewayType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679287806"><span id="local-6989586621679287808"><span class="annot"><span class="annottext">Value -&gt; Parser [GatewayType]
 Value -&gt; Parser GatewayType
 (Value -&gt; Parser GatewayType)
 -&gt; (Value -&gt; Parser [GatewayType]) -&gt; FromJSON GatewayType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [GatewayType]
 parseJSON :: Value -&gt; Parser GatewayType
 $cparseJSON :: Value -&gt; Parser GatewayType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279673"><span id="local-6989586621679279675"><span class="annot"><span class="annottext">FromJSONKeyFunction [GatewayType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679287801"><span id="local-6989586621679287803"><span class="annot"><span class="annottext">FromJSONKeyFunction [GatewayType]
 FromJSONKeyFunction GatewayType
 FromJSONKeyFunction GatewayType
 -&gt; FromJSONKeyFunction [GatewayType] -&gt; FromJSONKey GatewayType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GatewayType]
 fromJSONKey :: FromJSONKeyFunction GatewayType
 $cfromJSONKey :: FromJSONKeyFunction GatewayType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279664"><span id="local-6989586621679279666"><span id="local-6989586621679279668"><span id="local-6989586621679279670"><span class="annot"><span class="annottext">[GatewayType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679287792"><span id="local-6989586621679287794"><span id="local-6989586621679287796"><span id="local-6989586621679287798"><span class="annot"><span class="annottext">[GatewayType] -&gt; Encoding
 [GatewayType] -&gt; Value
 GatewayType -&gt; Encoding
 GatewayType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: GatewayType -&gt; Encoding
 toJSON :: GatewayType -&gt; Value
 $ctoJSON :: GatewayType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279659"><span id="local-6989586621679279661"><span class="annot"><span class="annottext">ToJSONKeyFunction [GatewayType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679287787"><span id="local-6989586621679287789"><span class="annot"><span class="annottext">ToJSONKeyFunction [GatewayType]
 ToJSONKeyFunction GatewayType
 ToJSONKeyFunction GatewayType
 -&gt; ToJSONKeyFunction [GatewayType] -&gt; ToJSONKey GatewayType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GatewayType]
 toJSONKey :: ToJSONKeyFunction GatewayType
 $ctoJSONKey :: ToJSONKeyFunction GatewayType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279656"><span class="annot"><span class="annottext">[Node] -&gt; Either String GatewayType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679287784"><span class="annot"><span class="annottext">[Node] -&gt; Either String GatewayType
 ([Node] -&gt; Either String GatewayType) -&gt; FromXML GatewayType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GatewayType
 $cparseXML :: [Node] -&gt; Either String GatewayType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279653"><span class="annot"><span class="annottext">GatewayType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679287781"><span class="annot"><span class="annottext">GatewayType -&gt; XML
 (GatewayType -&gt; XML) -&gt; ToXML GatewayType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GatewayType -&gt; XML

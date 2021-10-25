@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- the default value, None (NONE), MediaConvert does a standard frame rate</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- conversion to 29.97 without doing anything with the field polarity to</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- create a smoother picture.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621680000668"><span id="local-6989586621680000669"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresTelecine.html#ProresTelecine"><span class="hs-identifier hs-var">ProresTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresTelecine.html#ProresTelecine%27"><span class="hs-identifier hs-var">ProresTelecine'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621680002158"><span id="local-6989586621680002159"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresTelecine.html#ProresTelecine"><span class="hs-identifier hs-var">ProresTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresTelecine.html#ProresTelecine%27"><span class="hs-identifier hs-var">ProresTelecine'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProresTelecine"><span class="annot"><span class="annottext">ProresTelecine -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ProresTelecine.html#fromProresTelecine"><span class="hs-identifier hs-var hs-var">fromProresTelecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680000660"><span id="local-6989586621680000662"><span id="local-6989586621680000664"><span class="annot"><span class="annottext">Int -&gt; ProresTelecine -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002150"><span id="local-6989586621680002152"><span id="local-6989586621680002154"><span class="annot"><span class="annottext">Int -&gt; ProresTelecine -&gt; ShowS
 [ProresTelecine] -&gt; ShowS
 ProresTelecine -&gt; String
 (Int -&gt; ProresTelecine -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ProresTelecine -&gt; String
 showsPrec :: Int -&gt; ProresTelecine -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProresTelecine -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680000651"><span id="local-6989586621680000653"><span id="local-6989586621680000655"><span id="local-6989586621680000657"><span class="annot"><span class="annottext">ReadPrec [ProresTelecine]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680002141"><span id="local-6989586621680002143"><span id="local-6989586621680002145"><span id="local-6989586621680002147"><span class="annot"><span class="annottext">ReadPrec [ProresTelecine]
 ReadPrec ProresTelecine
 Int -&gt; ReadS ProresTelecine
 ReadS [ProresTelecine]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ProresTelecine]
 readsPrec :: Int -&gt; ReadS ProresTelecine
 $creadsPrec :: Int -&gt; ReadS ProresTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680000646"><span id="local-6989586621680000648"><span class="annot"><span class="annottext">ProresTelecine -&gt; ProresTelecine -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680002136"><span id="local-6989586621680002138"><span class="annot"><span class="annottext">ProresTelecine -&gt; ProresTelecine -&gt; Bool
 (ProresTelecine -&gt; ProresTelecine -&gt; Bool)
 -&gt; (ProresTelecine -&gt; ProresTelecine -&gt; Bool) -&gt; Eq ProresTelecine
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: ProresTelecine -&gt; ProresTelecine -&gt; Bool
 == :: ProresTelecine -&gt; ProresTelecine -&gt; Bool
 $c== :: ProresTelecine -&gt; ProresTelecine -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680000630"><span id="local-6989586621680000632"><span id="local-6989586621680000634"><span id="local-6989586621680000636"><span id="local-6989586621680000638"><span id="local-6989586621680000640"><span id="local-6989586621680000642"><span class="annot"><span class="annottext">Eq ProresTelecine
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680002120"><span id="local-6989586621680002122"><span id="local-6989586621680002124"><span id="local-6989586621680002126"><span id="local-6989586621680002128"><span id="local-6989586621680002130"><span id="local-6989586621680002132"><span class="annot"><span class="annottext">Eq ProresTelecine
 Eq ProresTelecine
 -&gt; (ProresTelecine -&gt; ProresTelecine -&gt; Ordering)
 -&gt; (ProresTelecine -&gt; ProresTelecine -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. ProresTelecine -&gt; Rep ProresTelecine x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680000622"><span id="local-6989586621680000624"><span class="annot"><span class="annottext">Int -&gt; ProresTelecine -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002112"><span id="local-6989586621680002114"><span class="annot"><span class="annottext">Int -&gt; ProresTelecine -&gt; Int
 ProresTelecine -&gt; Int
 (Int -&gt; ProresTelecine -&gt; Int)
 -&gt; (ProresTelecine -&gt; Int) -&gt; Hashable ProresTelecine
@@ -148,50 +148,50 @@ $chash :: ProresTelecine -&gt; Int
 hashWithSalt :: Int -&gt; ProresTelecine -&gt; Int
 $chashWithSalt :: Int -&gt; ProresTelecine -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680000619"><span class="annot"><span class="annottext">ProresTelecine -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680002109"><span class="annot"><span class="annottext">ProresTelecine -&gt; ()
 (ProresTelecine -&gt; ()) -&gt; NFData ProresTelecine
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProresTelecine -&gt; ()
 $crnf :: ProresTelecine -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680000616"><span class="annot"><span class="annottext">Text -&gt; Either String ProresTelecine
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680002106"><span class="annot"><span class="annottext">Text -&gt; Either String ProresTelecine
 (Text -&gt; Either String ProresTelecine) -&gt; FromText ProresTelecine
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProresTelecine
 $cfromText :: Text -&gt; Either String ProresTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680000613"><span class="annot"><span class="annottext">ProresTelecine -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680002103"><span class="annot"><span class="annottext">ProresTelecine -&gt; Text
 (ProresTelecine -&gt; Text) -&gt; ToText ProresTelecine
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProresTelecine -&gt; Text
 $ctoText :: ProresTelecine -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680000610"><span class="annot"><span class="annottext">ProresTelecine -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680002100"><span class="annot"><span class="annottext">ProresTelecine -&gt; ByteString
 (ProresTelecine -&gt; ByteString) -&gt; ToByteString ProresTelecine
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProresTelecine -&gt; ByteString
 $ctoBS :: ProresTelecine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680000607"><span class="annot"><span class="annottext">ProresTelecine -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680002097"><span class="annot"><span class="annottext">ProresTelecine -&gt; ByteStringBuilder
 (ProresTelecine -&gt; ByteStringBuilder) -&gt; ToLog ProresTelecine
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProresTelecine -&gt; ByteStringBuilder
 $cbuild :: ProresTelecine -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680000604"><span class="annot"><span class="annottext">HeaderName -&gt; ProresTelecine -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680002094"><span class="annot"><span class="annottext">HeaderName -&gt; ProresTelecine -&gt; [Header]
 (HeaderName -&gt; ProresTelecine -&gt; [Header])
 -&gt; ToHeader ProresTelecine
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProresTelecine -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProresTelecine -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680000601"><span class="annot"><span class="annottext">ProresTelecine -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680002091"><span class="annot"><span class="annottext">ProresTelecine -&gt; QueryString
 (ProresTelecine -&gt; QueryString) -&gt; ToQuery ProresTelecine
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProresTelecine -&gt; QueryString
 $ctoQuery :: ProresTelecine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680000596"><span id="local-6989586621680000598"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresTelecine]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680002086"><span id="local-6989586621680002088"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresTelecine]
 Value -&gt; Parser ProresTelecine
 (Value -&gt; Parser ProresTelecine)
 -&gt; (Value -&gt; Parser [ProresTelecine]) -&gt; FromJSON ProresTelecine
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ProresTelecine]
 parseJSON :: Value -&gt; Parser ProresTelecine
 $cparseJSON :: Value -&gt; Parser ProresTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680000591"><span id="local-6989586621680000593"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresTelecine]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680002081"><span id="local-6989586621680002083"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresTelecine]
 FromJSONKeyFunction ProresTelecine
 FromJSONKeyFunction ProresTelecine
 -&gt; FromJSONKeyFunction [ProresTelecine]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProresTelecine]
 fromJSONKey :: FromJSONKeyFunction ProresTelecine
 $cfromJSONKey :: FromJSONKeyFunction ProresTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680000582"><span id="local-6989586621680000584"><span id="local-6989586621680000586"><span id="local-6989586621680000588"><span class="annot"><span class="annottext">[ProresTelecine] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680002072"><span id="local-6989586621680002074"><span id="local-6989586621680002076"><span id="local-6989586621680002078"><span class="annot"><span class="annottext">[ProresTelecine] -&gt; Encoding
 [ProresTelecine] -&gt; Value
 ProresTelecine -&gt; Encoding
 ProresTelecine -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ProresTelecine -&gt; Encoding
 toJSON :: ProresTelecine -&gt; Value
 $ctoJSON :: ProresTelecine -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680000577"><span id="local-6989586621680000579"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresTelecine]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680002067"><span id="local-6989586621680002069"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresTelecine]
 ToJSONKeyFunction ProresTelecine
 ToJSONKeyFunction ProresTelecine
 -&gt; ToJSONKeyFunction [ProresTelecine] -&gt; ToJSONKey ProresTelecine
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProresTelecine]
 toJSONKey :: ToJSONKeyFunction ProresTelecine
 $ctoJSONKey :: ToJSONKeyFunction ProresTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680000574"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresTelecine
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680002064"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresTelecine
 ([Node] -&gt; Either String ProresTelecine) -&gt; FromXML ProresTelecine
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProresTelecine
 $cparseXML :: [Node] -&gt; Either String ProresTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680000571"><span class="annot"><span class="annottext">ProresTelecine -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680002061"><span class="annot"><span class="annottext">ProresTelecine -&gt; XML
 (ProresTelecine -&gt; XML) -&gt; ToXML ProresTelecine
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProresTelecine -&gt; XML

@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- accelerated transcoding. Choose PREFERRED if you want your job to run</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- with accelerated transcoding if the job is compatible with the feature</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- and to run at standard speed if it\'s not.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679938085"><span id="local-6989586621679938086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccelerationMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-var">AccelerationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-identifier hs-var">AccelerationMode'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679939404"><span id="local-6989586621679939405"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccelerationMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-var">AccelerationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode%27"><span class="hs-identifier hs-var">AccelerationMode'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccelerationMode"><span class="annot"><span class="annottext">AccelerationMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#fromAccelerationMode"><span class="hs-identifier hs-var hs-var">fromAccelerationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938077"><span id="local-6989586621679938079"><span id="local-6989586621679938081"><span class="annot"><span class="annottext">Int -&gt; AccelerationMode -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939396"><span id="local-6989586621679939398"><span id="local-6989586621679939400"><span class="annot"><span class="annottext">Int -&gt; AccelerationMode -&gt; ShowS
 [AccelerationMode] -&gt; ShowS
 AccelerationMode -&gt; String
 (Int -&gt; AccelerationMode -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: AccelerationMode -&gt; String
 showsPrec :: Int -&gt; AccelerationMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccelerationMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679938068"><span id="local-6989586621679938070"><span id="local-6989586621679938072"><span id="local-6989586621679938074"><span class="annot"><span class="annottext">ReadPrec [AccelerationMode]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679939387"><span id="local-6989586621679939389"><span id="local-6989586621679939391"><span id="local-6989586621679939393"><span class="annot"><span class="annottext">ReadPrec [AccelerationMode]
 ReadPrec AccelerationMode
 Int -&gt; ReadS AccelerationMode
 ReadS [AccelerationMode]
@@ -80,7 +80,7 @@ $creadList :: ReadS [AccelerationMode]
 readsPrec :: Int -&gt; ReadS AccelerationMode
 $creadsPrec :: Int -&gt; ReadS AccelerationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679938063"><span id="local-6989586621679938065"><span class="annot"><span class="annottext">AccelerationMode -&gt; AccelerationMode -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679939382"><span id="local-6989586621679939384"><span class="annot"><span class="annottext">AccelerationMode -&gt; AccelerationMode -&gt; Bool
 (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
 -&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
 -&gt; Eq AccelerationMode
@@ -90,7 +90,7 @@ $c/= :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
 == :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
 $c== :: AccelerationMode -&gt; AccelerationMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679938047"><span id="local-6989586621679938049"><span id="local-6989586621679938051"><span id="local-6989586621679938053"><span id="local-6989586621679938055"><span id="local-6989586621679938057"><span id="local-6989586621679938059"><span class="annot"><span class="annottext">Eq AccelerationMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679939366"><span id="local-6989586621679939368"><span id="local-6989586621679939370"><span id="local-6989586621679939372"><span id="local-6989586621679939374"><span id="local-6989586621679939376"><span id="local-6989586621679939378"><span class="annot"><span class="annottext">Eq AccelerationMode
 Eq AccelerationMode
 -&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Ordering)
 -&gt; (AccelerationMode -&gt; AccelerationMode -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. AccelerationMode -&gt; Rep AccelerationMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938039"><span id="local-6989586621679938041"><span class="annot"><span class="annottext">Int -&gt; AccelerationMode -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939358"><span id="local-6989586621679939360"><span class="annot"><span class="annottext">Int -&gt; AccelerationMode -&gt; Int
 AccelerationMode -&gt; Int
 (Int -&gt; AccelerationMode -&gt; Int)
 -&gt; (AccelerationMode -&gt; Int) -&gt; Hashable AccelerationMode
@@ -151,51 +151,51 @@ $chash :: AccelerationMode -&gt; Int
 hashWithSalt :: Int -&gt; AccelerationMode -&gt; Int
 $chashWithSalt :: Int -&gt; AccelerationMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679938036"><span class="annot"><span class="annottext">AccelerationMode -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679939355"><span class="annot"><span class="annottext">AccelerationMode -&gt; ()
 (AccelerationMode -&gt; ()) -&gt; NFData AccelerationMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccelerationMode -&gt; ()
 $crnf :: AccelerationMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679938033"><span class="annot"><span class="annottext">Text -&gt; Either String AccelerationMode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939352"><span class="annot"><span class="annottext">Text -&gt; Either String AccelerationMode
 (Text -&gt; Either String AccelerationMode)
 -&gt; FromText AccelerationMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccelerationMode
 $cfromText :: Text -&gt; Either String AccelerationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679938030"><span class="annot"><span class="annottext">AccelerationMode -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939349"><span class="annot"><span class="annottext">AccelerationMode -&gt; Text
 (AccelerationMode -&gt; Text) -&gt; ToText AccelerationMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccelerationMode -&gt; Text
 $ctoText :: AccelerationMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679938027"><span class="annot"><span class="annottext">AccelerationMode -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679939346"><span class="annot"><span class="annottext">AccelerationMode -&gt; ByteString
 (AccelerationMode -&gt; ByteString) -&gt; ToByteString AccelerationMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccelerationMode -&gt; ByteString
 $ctoBS :: AccelerationMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679938024"><span class="annot"><span class="annottext">AccelerationMode -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679939343"><span class="annot"><span class="annottext">AccelerationMode -&gt; ByteStringBuilder
 (AccelerationMode -&gt; ByteStringBuilder) -&gt; ToLog AccelerationMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccelerationMode -&gt; ByteStringBuilder
 $cbuild :: AccelerationMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938021"><span class="annot"><span class="annottext">HeaderName -&gt; AccelerationMode -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679939340"><span class="annot"><span class="annottext">HeaderName -&gt; AccelerationMode -&gt; [Header]
 (HeaderName -&gt; AccelerationMode -&gt; [Header])
 -&gt; ToHeader AccelerationMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccelerationMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccelerationMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938018"><span class="annot"><span class="annottext">AccelerationMode -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679939337"><span class="annot"><span class="annottext">AccelerationMode -&gt; QueryString
 (AccelerationMode -&gt; QueryString) -&gt; ToQuery AccelerationMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccelerationMode -&gt; QueryString
 $ctoQuery :: AccelerationMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938013"><span id="local-6989586621679938015"><span class="annot"><span class="annottext">Value -&gt; Parser [AccelerationMode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679939332"><span id="local-6989586621679939334"><span class="annot"><span class="annottext">Value -&gt; Parser [AccelerationMode]
 Value -&gt; Parser AccelerationMode
 (Value -&gt; Parser AccelerationMode)
 -&gt; (Value -&gt; Parser [AccelerationMode])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [AccelerationMode]
 parseJSON :: Value -&gt; Parser AccelerationMode
 $cparseJSON :: Value -&gt; Parser AccelerationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679938008"><span id="local-6989586621679938010"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccelerationMode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679939327"><span id="local-6989586621679939329"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccelerationMode]
 FromJSONKeyFunction AccelerationMode
 FromJSONKeyFunction AccelerationMode
 -&gt; FromJSONKeyFunction [AccelerationMode]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccelerationMode]
 fromJSONKey :: FromJSONKeyFunction AccelerationMode
 $cfromJSONKey :: FromJSONKeyFunction AccelerationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679937999"><span id="local-6989586621679938001"><span id="local-6989586621679938003"><span id="local-6989586621679938005"><span class="annot"><span class="annottext">[AccelerationMode] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679939318"><span id="local-6989586621679939320"><span id="local-6989586621679939322"><span id="local-6989586621679939324"><span class="annot"><span class="annottext">[AccelerationMode] -&gt; Encoding
 [AccelerationMode] -&gt; Value
 AccelerationMode -&gt; Encoding
 AccelerationMode -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: AccelerationMode -&gt; Encoding
 toJSON :: AccelerationMode -&gt; Value
 $ctoJSON :: AccelerationMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679937994"><span id="local-6989586621679937996"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccelerationMode]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679939313"><span id="local-6989586621679939315"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccelerationMode]
 ToJSONKeyFunction AccelerationMode
 ToJSONKeyFunction AccelerationMode
 -&gt; ToJSONKeyFunction [AccelerationMode]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccelerationMode]
 toJSONKey :: ToJSONKeyFunction AccelerationMode
 $ctoJSONKey :: ToJSONKeyFunction AccelerationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679937991"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccelerationMode
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679939310"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccelerationMode
 ([Node] -&gt; Either String AccelerationMode)
 -&gt; FromXML AccelerationMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccelerationMode
 $cparseXML :: [Node] -&gt; Either String AccelerationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679937988"><span class="annot"><span class="annottext">AccelerationMode -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679939307"><span class="annot"><span class="annottext">AccelerationMode -&gt; XML
 (AccelerationMode -&gt; XML) -&gt; ToXML AccelerationMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccelerationMode -&gt; XML

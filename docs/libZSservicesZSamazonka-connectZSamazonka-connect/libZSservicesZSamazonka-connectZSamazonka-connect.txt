@@ -1481,10 +1481,10 @@ HoursOfOperationConfig' :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> 
 -- | The day that the hours of operation applies to.
 [$sel:day:HoursOfOperationConfig'] :: HoursOfOperationConfig -> HoursOfOperationDays
 
--- | The start time that your contact center is open.
+-- | The start time that your contact center opens.
 [$sel:startTime:HoursOfOperationConfig'] :: HoursOfOperationConfig -> HoursOfOperationTimeSlice
 
--- | The end time that your contact center is closes.
+-- | The end time that your contact center closes.
 [$sel:endTime:HoursOfOperationConfig'] :: HoursOfOperationConfig -> HoursOfOperationTimeSlice
 
 -- | Create a value of <a>HoursOfOperationConfig</a> with all optional
@@ -1502,20 +1502,20 @@ HoursOfOperationConfig' :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> 
 --   
 --   <a>$sel:startTime:HoursOfOperationConfig'</a>,
 --   <a>hoursOfOperationConfig_startTime</a> - The start time that your
---   contact center is open.
+--   contact center opens.
 --   
 --   <a>$sel:endTime:HoursOfOperationConfig'</a>,
 --   <a>hoursOfOperationConfig_endTime</a> - The end time that your contact
---   center is closes.
+--   center closes.
 newHoursOfOperationConfig :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> HoursOfOperationTimeSlice -> HoursOfOperationConfig
 
 -- | The day that the hours of operation applies to.
 hoursOfOperationConfig_day :: Lens' HoursOfOperationConfig HoursOfOperationDays
 
--- | The start time that your contact center is open.
+-- | The start time that your contact center opens.
 hoursOfOperationConfig_startTime :: Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 
--- | The end time that your contact center is closes.
+-- | The end time that your contact center closes.
 hoursOfOperationConfig_endTime :: Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 instance GHC.Generics.Generic Network.AWS.Connect.Types.HoursOfOperationConfig.HoursOfOperationConfig
 instance GHC.Show.Show Network.AWS.Connect.Types.HoursOfOperationConfig.HoursOfOperationConfig
@@ -7141,10 +7141,10 @@ HoursOfOperationConfig' :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> 
 -- | The day that the hours of operation applies to.
 [$sel:day:HoursOfOperationConfig'] :: HoursOfOperationConfig -> HoursOfOperationDays
 
--- | The start time that your contact center is open.
+-- | The start time that your contact center opens.
 [$sel:startTime:HoursOfOperationConfig'] :: HoursOfOperationConfig -> HoursOfOperationTimeSlice
 
--- | The end time that your contact center is closes.
+-- | The end time that your contact center closes.
 [$sel:endTime:HoursOfOperationConfig'] :: HoursOfOperationConfig -> HoursOfOperationTimeSlice
 
 -- | Create a value of <a>HoursOfOperationConfig</a> with all optional
@@ -7162,20 +7162,20 @@ HoursOfOperationConfig' :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> 
 --   
 --   <a>$sel:startTime:HoursOfOperationConfig'</a>,
 --   <a>hoursOfOperationConfig_startTime</a> - The start time that your
---   contact center is open.
+--   contact center opens.
 --   
 --   <a>$sel:endTime:HoursOfOperationConfig'</a>,
 --   <a>hoursOfOperationConfig_endTime</a> - The end time that your contact
---   center is closes.
+--   center closes.
 newHoursOfOperationConfig :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> HoursOfOperationTimeSlice -> HoursOfOperationConfig
 
 -- | The day that the hours of operation applies to.
 hoursOfOperationConfig_day :: Lens' HoursOfOperationConfig HoursOfOperationDays
 
--- | The start time that your contact center is open.
+-- | The start time that your contact center opens.
 hoursOfOperationConfig_startTime :: Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 
--- | The end time that your contact center is closes.
+-- | The end time that your contact center closes.
 hoursOfOperationConfig_endTime :: Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 
 -- | Contains summary information about hours of operation for a contact
@@ -12363,7 +12363,8 @@ ListLexBots' :: Maybe Text -> Maybe Natural -> Text -> ListLexBots
 --   results.
 [$sel:nextToken:ListLexBots'] :: ListLexBots -> Maybe Text
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. If no value is
+--   specified, the default is 10.
 [$sel:maxResults:ListLexBots'] :: ListLexBots -> Maybe Natural
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -12384,7 +12385,8 @@ ListLexBots' :: Maybe Text -> Maybe Natural -> Text -> ListLexBots
 --   results.
 --   
 --   <a>$sel:maxResults:ListLexBots'</a>, <a>listLexBots_maxResults</a> -
---   The maximum number of results to return per page.
+--   The maximum number of results to return per page. If no value is
+--   specified, the default is 10.
 --   
 --   <a>$sel:instanceId:ListLexBots'</a>, <a>listLexBots_instanceId</a> -
 --   The identifier of the Amazon Connect instance. You can find the
@@ -12396,7 +12398,8 @@ newListLexBots :: Text -> ListLexBots
 --   results.
 listLexBots_nextToken :: Lens' ListLexBots (Maybe Text)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. If no value is
+--   specified, the default is 10.
 listLexBots_maxResults :: Lens' ListLexBots (Maybe Natural)
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -16081,10 +16084,7 @@ instance Network.AWS.Data.Path.ToPath Network.AWS.Connect.DescribeInstance.Descr
 instance Network.AWS.Data.Query.ToQuery Network.AWS.Connect.DescribeInstance.DescribeInstance
 
 
--- | This API is in preview release for Amazon Connect and is subject to
---   change.
---   
---   Describes the hours of operation.
+-- | Describes the hours of operation.
 module Network.AWS.Connect.DescribeHoursOfOperation
 
 -- | <i>See:</i> <a>newDescribeHoursOfOperation</a> smart constructor.
@@ -16772,10 +16772,7 @@ instance Network.AWS.Data.Path.ToPath Network.AWS.Connect.DeleteInstance.DeleteI
 instance Network.AWS.Data.Query.ToQuery Network.AWS.Connect.DeleteInstance.DeleteInstance
 
 
--- | This API is in preview release for Amazon Connect and is subject to
---   change.
---   
---   Deletes an hours of operation.
+-- | Deletes an hours of operation.
 module Network.AWS.Connect.DeleteHoursOfOperation
 
 -- | <i>See:</i> <a>newDeleteHoursOfOperation</a> smart constructor.
@@ -18057,10 +18054,7 @@ instance Network.AWS.Data.Path.ToPath Network.AWS.Connect.CreateInstance.CreateI
 instance Network.AWS.Data.Query.ToQuery Network.AWS.Connect.CreateInstance.CreateInstance
 
 
--- | This API is in preview release for Amazon Connect and is subject to
---   change.
---   
---   Creates hours of operation.
+-- | Creates hours of operation.
 module Network.AWS.Connect.CreateHoursOfOperation
 
 -- | <i>See:</i> <a>newCreateHoursOfOperation</a> smart constructor.
@@ -19645,10 +19639,7 @@ instance Network.AWS.Data.Path.ToPath Network.AWS.Connect.UpdateContactFlowName.
 instance Network.AWS.Data.Query.ToQuery Network.AWS.Connect.UpdateContactFlowName.UpdateContactFlowName
 
 
--- | This API is in preview release for Amazon Connect and is subject to
---   change.
---   
---   Updates the hours of operation.
+-- | Updates the hours of operation.
 module Network.AWS.Connect.UpdateHoursOfOperation
 
 -- | <i>See:</i> <a>newUpdateHoursOfOperation</a> smart constructor.
@@ -23379,7 +23370,8 @@ updateRoutingProfileName_routingProfileId :: Lens' UpdateRoutingProfileName Text
 --   results.
 listLexBots_nextToken :: Lens' ListLexBots (Maybe Text)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. If no value is
+--   specified, the default is 10.
 listLexBots_maxResults :: Lens' ListLexBots (Maybe Natural)
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -23716,10 +23708,10 @@ hoursOfOperation_tags :: Lens' HoursOfOperation (Maybe (HashMap Text Text))
 -- | The day that the hours of operation applies to.
 hoursOfOperationConfig_day :: Lens' HoursOfOperationConfig HoursOfOperationDays
 
--- | The start time that your contact center is open.
+-- | The start time that your contact center opens.
 hoursOfOperationConfig_startTime :: Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 
--- | The end time that your contact center is closes.
+-- | The end time that your contact center closes.
 hoursOfOperationConfig_endTime :: Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 
 -- | The Amazon Resource Name (ARN) of the hours of operation.
@@ -29500,7 +29492,8 @@ ListLexBots' :: Maybe Text -> Maybe Natural -> Text -> ListLexBots
 --   results.
 --   
 --   <a>$sel:maxResults:ListLexBots'</a>, <a>listLexBots_maxResults</a> -
---   The maximum number of results to return per page.
+--   The maximum number of results to return per page. If no value is
+--   specified, the default is 10.
 --   
 --   <a>$sel:instanceId:ListLexBots'</a>, <a>listLexBots_instanceId</a> -
 --   The identifier of the Amazon Connect instance. You can find the
@@ -30828,11 +30821,11 @@ HoursOfOperationConfig' :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> 
 --   
 --   <a>$sel:startTime:HoursOfOperationConfig'</a>,
 --   <a>hoursOfOperationConfig_startTime</a> - The start time that your
---   contact center is open.
+--   contact center opens.
 --   
 --   <a>$sel:endTime:HoursOfOperationConfig'</a>,
 --   <a>hoursOfOperationConfig_endTime</a> - The end time that your contact
---   center is closes.
+--   center closes.
 newHoursOfOperationConfig :: HoursOfOperationDays -> HoursOfOperationTimeSlice -> HoursOfOperationTimeSlice -> HoursOfOperationConfig
 
 -- | Contains summary information about hours of operation for a contact

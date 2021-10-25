@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | Dolby Digital coding mode. Determines number of channels.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679936896"><span id="local-6989586621679936897"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3CodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3CodingMode.html#Ac3CodingMode"><span class="hs-identifier hs-var">Ac3CodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3CodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3CodingMode.html#Ac3CodingMode%27"><span class="hs-identifier hs-var">Ac3CodingMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679938215"><span id="local-6989586621679938216"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3CodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3CodingMode.html#Ac3CodingMode"><span class="hs-identifier hs-var">Ac3CodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3CodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3CodingMode.html#Ac3CodingMode%27"><span class="hs-identifier hs-var">Ac3CodingMode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAc3CodingMode"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Ac3CodingMode.html#fromAc3CodingMode"><span class="hs-identifier hs-var hs-var">fromAc3CodingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936888"><span id="local-6989586621679936890"><span id="local-6989586621679936892"><span class="annot"><span class="annottext">Int -&gt; Ac3CodingMode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938207"><span id="local-6989586621679938209"><span id="local-6989586621679938211"><span class="annot"><span class="annottext">Int -&gt; Ac3CodingMode -&gt; ShowS
 [Ac3CodingMode] -&gt; ShowS
 Ac3CodingMode -&gt; String
 (Int -&gt; Ac3CodingMode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: Ac3CodingMode -&gt; String
 showsPrec :: Int -&gt; Ac3CodingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Ac3CodingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679936879"><span id="local-6989586621679936881"><span id="local-6989586621679936883"><span id="local-6989586621679936885"><span class="annot"><span class="annottext">ReadPrec [Ac3CodingMode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679938198"><span id="local-6989586621679938200"><span id="local-6989586621679938202"><span id="local-6989586621679938204"><span class="annot"><span class="annottext">ReadPrec [Ac3CodingMode]
 ReadPrec Ac3CodingMode
 Int -&gt; ReadS Ac3CodingMode
 ReadS [Ac3CodingMode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [Ac3CodingMode]
 readsPrec :: Int -&gt; ReadS Ac3CodingMode
 $creadsPrec :: Int -&gt; ReadS Ac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679936874"><span id="local-6989586621679936876"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679938193"><span id="local-6989586621679938195"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool
 (Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool)
 -&gt; (Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool) -&gt; Eq Ac3CodingMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool
 == :: Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool
 $c== :: Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679936858"><span id="local-6989586621679936860"><span id="local-6989586621679936862"><span id="local-6989586621679936864"><span id="local-6989586621679936866"><span id="local-6989586621679936868"><span id="local-6989586621679936870"><span class="annot"><span class="annottext">Eq Ac3CodingMode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679938177"><span id="local-6989586621679938179"><span id="local-6989586621679938181"><span id="local-6989586621679938183"><span id="local-6989586621679938185"><span id="local-6989586621679938187"><span id="local-6989586621679938189"><span class="annot"><span class="annottext">Eq Ac3CodingMode
 Eq Ac3CodingMode
 -&gt; (Ac3CodingMode -&gt; Ac3CodingMode -&gt; Ordering)
 -&gt; (Ac3CodingMode -&gt; Ac3CodingMode -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. Ac3CodingMode -&gt; Rep Ac3CodingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936850"><span id="local-6989586621679936852"><span class="annot"><span class="annottext">Int -&gt; Ac3CodingMode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938169"><span id="local-6989586621679938171"><span class="annot"><span class="annottext">Int -&gt; Ac3CodingMode -&gt; Int
 Ac3CodingMode -&gt; Int
 (Int -&gt; Ac3CodingMode -&gt; Int)
 -&gt; (Ac3CodingMode -&gt; Int) -&gt; Hashable Ac3CodingMode
@@ -145,49 +145,49 @@ $chash :: Ac3CodingMode -&gt; Int
 hashWithSalt :: Int -&gt; Ac3CodingMode -&gt; Int
 $chashWithSalt :: Int -&gt; Ac3CodingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679936847"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679938166"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; ()
 (Ac3CodingMode -&gt; ()) -&gt; NFData Ac3CodingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Ac3CodingMode -&gt; ()
 $crnf :: Ac3CodingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679936844"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3CodingMode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679938163"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3CodingMode
 (Text -&gt; Either String Ac3CodingMode) -&gt; FromText Ac3CodingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Ac3CodingMode
 $cfromText :: Text -&gt; Either String Ac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679936841"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679938160"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; Text
 (Ac3CodingMode -&gt; Text) -&gt; ToText Ac3CodingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Ac3CodingMode -&gt; Text
 $ctoText :: Ac3CodingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679936838"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679938157"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; ByteString
 (Ac3CodingMode -&gt; ByteString) -&gt; ToByteString Ac3CodingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Ac3CodingMode -&gt; ByteString
 $ctoBS :: Ac3CodingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679936835"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679938154"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; ByteStringBuilder
 (Ac3CodingMode -&gt; ByteStringBuilder) -&gt; ToLog Ac3CodingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Ac3CodingMode -&gt; ByteStringBuilder
 $cbuild :: Ac3CodingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679936832"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3CodingMode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679938151"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3CodingMode -&gt; [Header]
 (HeaderName -&gt; Ac3CodingMode -&gt; [Header]) -&gt; ToHeader Ac3CodingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Ac3CodingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Ac3CodingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936829"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679938148"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; QueryString
 (Ac3CodingMode -&gt; QueryString) -&gt; ToQuery Ac3CodingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Ac3CodingMode -&gt; QueryString
 $ctoQuery :: Ac3CodingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936824"><span id="local-6989586621679936826"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3CodingMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679938143"><span id="local-6989586621679938145"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3CodingMode]
 Value -&gt; Parser Ac3CodingMode
 (Value -&gt; Parser Ac3CodingMode)
 -&gt; (Value -&gt; Parser [Ac3CodingMode]) -&gt; FromJSON Ac3CodingMode
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [Ac3CodingMode]
 parseJSON :: Value -&gt; Parser Ac3CodingMode
 $cparseJSON :: Value -&gt; Parser Ac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936819"><span id="local-6989586621679936821"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3CodingMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679938138"><span id="local-6989586621679938140"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3CodingMode]
 FromJSONKeyFunction Ac3CodingMode
 FromJSONKeyFunction Ac3CodingMode
 -&gt; FromJSONKeyFunction [Ac3CodingMode] -&gt; FromJSONKey Ac3CodingMode
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Ac3CodingMode]
 fromJSONKey :: FromJSONKeyFunction Ac3CodingMode
 $cfromJSONKey :: FromJSONKeyFunction Ac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936810"><span id="local-6989586621679936812"><span id="local-6989586621679936814"><span id="local-6989586621679936816"><span class="annot"><span class="annottext">[Ac3CodingMode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679938129"><span id="local-6989586621679938131"><span id="local-6989586621679938133"><span id="local-6989586621679938135"><span class="annot"><span class="annottext">[Ac3CodingMode] -&gt; Encoding
 [Ac3CodingMode] -&gt; Value
 Ac3CodingMode -&gt; Encoding
 Ac3CodingMode -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: Ac3CodingMode -&gt; Encoding
 toJSON :: Ac3CodingMode -&gt; Value
 $ctoJSON :: Ac3CodingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936805"><span id="local-6989586621679936807"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3CodingMode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938124"><span id="local-6989586621679938126"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3CodingMode]
 ToJSONKeyFunction Ac3CodingMode
 ToJSONKeyFunction Ac3CodingMode
 -&gt; ToJSONKeyFunction [Ac3CodingMode] -&gt; ToJSONKey Ac3CodingMode
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Ac3CodingMode]
 toJSONKey :: ToJSONKeyFunction Ac3CodingMode
 $ctoJSONKey :: ToJSONKeyFunction Ac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936802"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3CodingMode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938121"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3CodingMode
 ([Node] -&gt; Either String Ac3CodingMode) -&gt; FromXML Ac3CodingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Ac3CodingMode
 $cparseXML :: [Node] -&gt; Either String Ac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679936799"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938118"><span class="annot"><span class="annottext">Ac3CodingMode -&gt; XML
 (Ac3CodingMode -&gt; XML) -&gt; ToXML Ac3CodingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Ac3CodingMode -&gt; XML

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | OutputChannel mapping settings.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOutputChannelMapping' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679997585"><span id="local-6989586621679997586"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputChannelMapping"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-var">OutputChannelMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputChannelMapping%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-var">OutputChannelMapping'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679999075"><span id="local-6989586621679999076"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputChannelMapping"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-var">OutputChannelMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputChannelMapping%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-var">OutputChannelMapping'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this setting to specify your remix values when they have a decimal</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- component, such as -10.312, 0.08, or 4.9. MediaConvert rounds your</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- remixing values to the nearest thousandth.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AinputChannels%3AOutputChannelMapping%27"><span class="annot"><span class="annottext">OutputChannelMapping -&gt; Maybe [Int]
 </span><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#%24sel%3AinputChannels%3AOutputChannelMapping%27"><span class="hs-identifier hs-var hs-var">inputChannels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679997578"><span id="local-6989586621679997580"><span class="annot"><span class="annottext">OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679999068"><span id="local-6989586621679999070"><span class="annot"><span class="annottext">OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool
 (OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool)
 -&gt; (OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool)
 -&gt; Eq OutputChannelMapping
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool
 == :: OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool
 $c== :: OutputChannelMapping -&gt; OutputChannelMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679997569"><span id="local-6989586621679997571"><span id="local-6989586621679997573"><span id="local-6989586621679997575"><span class="annot"><span class="annottext">ReadPrec [OutputChannelMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679999059"><span id="local-6989586621679999061"><span id="local-6989586621679999063"><span id="local-6989586621679999065"><span class="annot"><span class="annottext">ReadPrec [OutputChannelMapping]
 ReadPrec OutputChannelMapping
 Int -&gt; ReadS OutputChannelMapping
 ReadS [OutputChannelMapping]
@@ -66,7 +66,7 @@ readList :: ReadS [OutputChannelMapping]
 $creadList :: ReadS [OutputChannelMapping]
 readsPrec :: Int -&gt; ReadS OutputChannelMapping
 $creadsPrec :: Int -&gt; ReadS OutputChannelMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679997562"><span id="local-6989586621679997564"><span id="local-6989586621679997566"><span class="annot"><span class="annottext">Int -&gt; OutputChannelMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679999052"><span id="local-6989586621679999054"><span id="local-6989586621679999056"><span class="annot"><span class="annottext">Int -&gt; OutputChannelMapping -&gt; ShowS
 [OutputChannelMapping] -&gt; ShowS
 OutputChannelMapping -&gt; String
 (Int -&gt; OutputChannelMapping -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe [Double])
      (Maybe [Double])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997553"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679999043"><span class="annot"><span class="annottext">Maybe [Double]
 inputChannelsFineTune :: Maybe [Double]
 $sel:inputChannelsFineTune:OutputChannelMapping' :: OutputChannelMapping -&gt; Maybe [Double]
-</span><a href="#local-6989586621679997553"><span class="hs-identifier hs-var hs-var">inputChannelsFineTune</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679997553"><span class="hs-identifier hs-var">inputChannelsFineTune</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679997552"><span class="annot"><span class="annottext">s :: OutputChannelMapping
-</span><a href="#local-6989586621679997552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679997551"><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679997551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputChannelMapping
-</span><a href="#local-6989586621679997552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputChannelsFineTune:OutputChannelMapping' :: Maybe [Double]
+</span><a href="#local-6989586621679999043"><span class="hs-identifier hs-var hs-var">inputChannelsFineTune</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679999043"><span class="hs-identifier hs-var">inputChannelsFineTune</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679999042"><span class="annot"><span class="annottext">s :: OutputChannelMapping
+</span><a href="#local-6989586621679999042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679999041"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679999041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputChannelMapping
+</span><a href="#local-6989586621679999042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputChannelsFineTune:OutputChannelMapping' :: Maybe [Double]
 </span><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#%24sel%3AinputChannelsFineTune%3AOutputChannelMapping%27"><span class="hs-identifier hs-var">inputChannelsFineTune</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679997551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+</span><a href="#local-6989586621679999041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
  -&gt; OutputChannelMapping -&gt; f OutputChannelMapping)
 -&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
     -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
@@ -177,16 +177,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Int])
      (Maybe [Int])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997546"><span class="annot"><span class="annottext">Maybe [Int]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679999036"><span class="annot"><span class="annottext">Maybe [Int]
 inputChannels :: Maybe [Int]
 $sel:inputChannels:OutputChannelMapping' :: OutputChannelMapping -&gt; Maybe [Int]
-</span><a href="#local-6989586621679997546"><span class="hs-identifier hs-var hs-var">inputChannels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
-</span><a href="#local-6989586621679997546"><span class="hs-identifier hs-var">inputChannels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679997545"><span class="annot"><span class="annottext">s :: OutputChannelMapping
-</span><a href="#local-6989586621679997545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679997544"><span class="annot"><span class="annottext">Maybe [Int]
-</span><a href="#local-6989586621679997544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputChannelMapping
-</span><a href="#local-6989586621679997545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputChannels:OutputChannelMapping' :: Maybe [Int]
+</span><a href="#local-6989586621679999036"><span class="hs-identifier hs-var hs-var">inputChannels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621679999036"><span class="hs-identifier hs-var">inputChannels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679999035"><span class="annot"><span class="annottext">s :: OutputChannelMapping
+</span><a href="#local-6989586621679999035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679999034"><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621679999034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputChannelMapping
+</span><a href="#local-6989586621679999035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputChannels:OutputChannelMapping' :: Maybe [Int]
 </span><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#%24sel%3AinputChannels%3AOutputChannelMapping%27"><span class="hs-identifier hs-var">inputChannels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
-</span><a href="#local-6989586621679997544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Int] -&gt; f (Maybe [Int]))
+</span><a href="#local-6989586621679999034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Int] -&gt; f (Maybe [Int]))
  -&gt; OutputChannelMapping -&gt; f OutputChannelMapping)
 -&gt; ((Maybe [Int] -&gt; f (Maybe [Int]))
     -&gt; Maybe [Int] -&gt; f (Maybe [Int]))
@@ -203,8 +203,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997541"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679997539"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputChannelMapping
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679999031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679999029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputChannelMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputChannelMapping)
@@ -214,8 +214,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputChannelMapping&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679997536"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679997536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679999026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679999026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Double] -&gt; Maybe [Int] -&gt; OutputChannelMapping
 </span><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-var">OutputChannelMapping'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Double] -&gt; Maybe [Int] -&gt; OutputChannelMapping)
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Int] -&gt; OutputChannelMapping)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679997536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
+</span><a href="#local-6989586621679999026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputChannelsFineTune&quot;</span></span><span>
@@ -238,7 +238,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Int]) -&gt; Parser OutputChannelMapping
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679997536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Int]))
+</span><a href="#local-6989586621679999026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Int]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputChannels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Int])) -&gt; Maybe [Int] -&gt; Parser (Maybe [Int])
@@ -248,19 +248,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997529"><span id="local-6989586621679997531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679999019"><span id="local-6989586621679999021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679999016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997518"><span id="local-6989586621679997520"><span id="local-6989586621679997522"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679997516"><span class="annot"><span class="annottext">toJSON :: OutputChannelMapping -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997513"><span id="local-6989586621679997514"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679999008"><span id="local-6989586621679999010"><span id="local-6989586621679999012"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping"><span class="hs-identifier hs-type">OutputChannelMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679999006"><span class="annot"><span class="annottext">toJSON :: OutputChannelMapping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputChannelMapping.html#OutputChannelMapping%27"><span class="hs-identifier hs-type">OutputChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679999003"><span id="local-6989586621679999004"><span class="annot"><span class="annottext">Maybe [Double]
 Maybe [Int]
 inputChannels :: Maybe [Int]
 inputChannelsFineTune :: Maybe [Double]
 $sel:inputChannels:OutputChannelMapping' :: OutputChannelMapping -&gt; Maybe [Int]
 $sel:inputChannelsFineTune:OutputChannelMapping' :: OutputChannelMapping -&gt; Maybe [Double]
-</span><a href="#local-6989586621679997513"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679999003"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -273,14 +273,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">([Double] -&gt; Pair) -&gt; Maybe [Double] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679997514"><span class="hs-identifier hs-var">inputChannelsFineTune</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679999004"><span class="hs-identifier hs-var">inputChannelsFineTune</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputChannels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Int] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Int] -&gt; Pair) -&gt; Maybe [Int] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
-</span><a href="#local-6989586621679997513"><span class="hs-identifier hs-var">inputChannels</span></a></span><span>
+</span><a href="#local-6989586621679999003"><span class="hs-identifier hs-var">inputChannels</span></a></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

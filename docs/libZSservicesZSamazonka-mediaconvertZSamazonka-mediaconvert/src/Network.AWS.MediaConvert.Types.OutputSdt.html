@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- it will fall back on the user-defined values. Enter \&quot;SDT Manually\&quot;</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- means user will enter the SDT information. \&quot;No SDT\&quot; means output</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- stream will not contain SDT information.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679998061"><span id="local-6989586621679998062"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutputSdt"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-var">OutputSdt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputSdt%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-var">OutputSdt'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679999551"><span id="local-6989586621679999552"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutputSdt"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-var">OutputSdt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputSdt%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-var">OutputSdt'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutputSdt"><span class="annot"><span class="annottext">OutputSdt -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.OutputSdt.html#fromOutputSdt"><span class="hs-identifier hs-var hs-var">fromOutputSdt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998053"><span id="local-6989586621679998055"><span id="local-6989586621679998057"><span class="annot"><span class="annottext">Int -&gt; OutputSdt -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999543"><span id="local-6989586621679999545"><span id="local-6989586621679999547"><span class="annot"><span class="annottext">Int -&gt; OutputSdt -&gt; ShowS
 [OutputSdt] -&gt; ShowS
 OutputSdt -&gt; String
 (Int -&gt; OutputSdt -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: OutputSdt -&gt; String
 showsPrec :: Int -&gt; OutputSdt -&gt; ShowS
 $cshowsPrec :: Int -&gt; OutputSdt -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679998044"><span id="local-6989586621679998046"><span id="local-6989586621679998048"><span id="local-6989586621679998050"><span class="annot"><span class="annottext">ReadPrec [OutputSdt]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679999534"><span id="local-6989586621679999536"><span id="local-6989586621679999538"><span id="local-6989586621679999540"><span class="annot"><span class="annottext">ReadPrec [OutputSdt]
 ReadPrec OutputSdt
 Int -&gt; ReadS OutputSdt
 ReadS [OutputSdt]
@@ -81,7 +81,7 @@ $creadList :: ReadS [OutputSdt]
 readsPrec :: Int -&gt; ReadS OutputSdt
 $creadsPrec :: Int -&gt; ReadS OutputSdt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679998039"><span id="local-6989586621679998041"><span class="annot"><span class="annottext">OutputSdt -&gt; OutputSdt -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679999529"><span id="local-6989586621679999531"><span class="annot"><span class="annottext">OutputSdt -&gt; OutputSdt -&gt; Bool
 (OutputSdt -&gt; OutputSdt -&gt; Bool)
 -&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool) -&gt; Eq OutputSdt
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: OutputSdt -&gt; OutputSdt -&gt; Bool
 == :: OutputSdt -&gt; OutputSdt -&gt; Bool
 $c== :: OutputSdt -&gt; OutputSdt -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679998023"><span id="local-6989586621679998025"><span id="local-6989586621679998027"><span id="local-6989586621679998029"><span id="local-6989586621679998031"><span id="local-6989586621679998033"><span id="local-6989586621679998035"><span class="annot"><span class="annottext">Eq OutputSdt
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679999513"><span id="local-6989586621679999515"><span id="local-6989586621679999517"><span id="local-6989586621679999519"><span id="local-6989586621679999521"><span id="local-6989586621679999523"><span id="local-6989586621679999525"><span class="annot"><span class="annottext">Eq OutputSdt
 Eq OutputSdt
 -&gt; (OutputSdt -&gt; OutputSdt -&gt; Ordering)
 -&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. OutputSdt -&gt; Rep OutputSdt x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998015"><span id="local-6989586621679998017"><span class="annot"><span class="annottext">Int -&gt; OutputSdt -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999505"><span id="local-6989586621679999507"><span class="annot"><span class="annottext">Int -&gt; OutputSdt -&gt; Int
 OutputSdt -&gt; Int
 (Int -&gt; OutputSdt -&gt; Int)
 -&gt; (OutputSdt -&gt; Int) -&gt; Hashable OutputSdt
@@ -150,49 +150,49 @@ $chash :: OutputSdt -&gt; Int
 hashWithSalt :: Int -&gt; OutputSdt -&gt; Int
 $chashWithSalt :: Int -&gt; OutputSdt -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679998012"><span class="annot"><span class="annottext">OutputSdt -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999502"><span class="annot"><span class="annottext">OutputSdt -&gt; ()
 (OutputSdt -&gt; ()) -&gt; NFData OutputSdt
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OutputSdt -&gt; ()
 $crnf :: OutputSdt -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679998009"><span class="annot"><span class="annottext">Text -&gt; Either String OutputSdt
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999499"><span class="annot"><span class="annottext">Text -&gt; Either String OutputSdt
 (Text -&gt; Either String OutputSdt) -&gt; FromText OutputSdt
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OutputSdt
 $cfromText :: Text -&gt; Either String OutputSdt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679998006"><span class="annot"><span class="annottext">OutputSdt -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679999496"><span class="annot"><span class="annottext">OutputSdt -&gt; Text
 (OutputSdt -&gt; Text) -&gt; ToText OutputSdt
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OutputSdt -&gt; Text
 $ctoText :: OutputSdt -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679998003"><span class="annot"><span class="annottext">OutputSdt -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679999493"><span class="annot"><span class="annottext">OutputSdt -&gt; ByteString
 (OutputSdt -&gt; ByteString) -&gt; ToByteString OutputSdt
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OutputSdt -&gt; ByteString
 $ctoBS :: OutputSdt -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679998000"><span class="annot"><span class="annottext">OutputSdt -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679999490"><span class="annot"><span class="annottext">OutputSdt -&gt; ByteStringBuilder
 (OutputSdt -&gt; ByteStringBuilder) -&gt; ToLog OutputSdt
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OutputSdt -&gt; ByteStringBuilder
 $cbuild :: OutputSdt -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679997997"><span class="annot"><span class="annottext">HeaderName -&gt; OutputSdt -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679999487"><span class="annot"><span class="annottext">HeaderName -&gt; OutputSdt -&gt; [Header]
 (HeaderName -&gt; OutputSdt -&gt; [Header]) -&gt; ToHeader OutputSdt
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OutputSdt -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OutputSdt -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679997994"><span class="annot"><span class="annottext">OutputSdt -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999484"><span class="annot"><span class="annottext">OutputSdt -&gt; QueryString
 (OutputSdt -&gt; QueryString) -&gt; ToQuery OutputSdt
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OutputSdt -&gt; QueryString
 $ctoQuery :: OutputSdt -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679997989"><span id="local-6989586621679997991"><span class="annot"><span class="annottext">Value -&gt; Parser [OutputSdt]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999479"><span id="local-6989586621679999481"><span class="annot"><span class="annottext">Value -&gt; Parser [OutputSdt]
 Value -&gt; Parser OutputSdt
 (Value -&gt; Parser OutputSdt)
 -&gt; (Value -&gt; Parser [OutputSdt]) -&gt; FromJSON OutputSdt
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [OutputSdt]
 parseJSON :: Value -&gt; Parser OutputSdt
 $cparseJSON :: Value -&gt; Parser OutputSdt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679997984"><span id="local-6989586621679997986"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutputSdt]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999474"><span id="local-6989586621679999476"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutputSdt]
 FromJSONKeyFunction OutputSdt
 FromJSONKeyFunction OutputSdt
 -&gt; FromJSONKeyFunction [OutputSdt] -&gt; FromJSONKey OutputSdt
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OutputSdt]
 fromJSONKey :: FromJSONKeyFunction OutputSdt
 $cfromJSONKey :: FromJSONKeyFunction OutputSdt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679997975"><span id="local-6989586621679997977"><span id="local-6989586621679997979"><span id="local-6989586621679997981"><span class="annot"><span class="annottext">[OutputSdt] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679999465"><span id="local-6989586621679999467"><span id="local-6989586621679999469"><span id="local-6989586621679999471"><span class="annot"><span class="annottext">[OutputSdt] -&gt; Encoding
 [OutputSdt] -&gt; Value
 OutputSdt -&gt; Encoding
 OutputSdt -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: OutputSdt -&gt; Encoding
 toJSON :: OutputSdt -&gt; Value
 $ctoJSON :: OutputSdt -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679997970"><span id="local-6989586621679997972"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutputSdt]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679999460"><span id="local-6989586621679999462"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutputSdt]
 ToJSONKeyFunction OutputSdt
 ToJSONKeyFunction OutputSdt
 -&gt; ToJSONKeyFunction [OutputSdt] -&gt; ToJSONKey OutputSdt
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OutputSdt]
 toJSONKey :: ToJSONKeyFunction OutputSdt
 $ctoJSONKey :: ToJSONKeyFunction OutputSdt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679997967"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutputSdt
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679999457"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutputSdt
 ([Node] -&gt; Either String OutputSdt) -&gt; FromXML OutputSdt
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OutputSdt
 $cparseXML :: [Node] -&gt; Either String OutputSdt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679997964"><span class="annot"><span class="annottext">OutputSdt -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679999454"><span class="annot"><span class="annottext">OutputSdt -&gt; XML
 (OutputSdt -&gt; XML) -&gt; ToXML OutputSdt
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OutputSdt -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679541505"><span id="local-6989586621679541506"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExpressionType"><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-var">ExpressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpressionType%27"><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType%27"><span class="hs-identifier hs-var">ExpressionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679541615"><span id="local-6989586621679541616"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExpressionType"><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-var">ExpressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpressionType%27"><span class="annot"><a href="Network.AWS.S3.Types.ExpressionType.html#ExpressionType%27"><span class="hs-identifier hs-var">ExpressionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExpressionType"><span class="annot"><span class="annottext">ExpressionType -&gt; Text
 </span><a href="Network.AWS.S3.Types.ExpressionType.html#fromExpressionType"><span class="hs-identifier hs-var hs-var">fromExpressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541497"><span id="local-6989586621679541499"><span id="local-6989586621679541501"><span class="annot"><span class="annottext">Int -&gt; ExpressionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541607"><span id="local-6989586621679541609"><span id="local-6989586621679541611"><span class="annot"><span class="annottext">Int -&gt; ExpressionType -&gt; ShowS
 [ExpressionType] -&gt; ShowS
 ExpressionType -&gt; String
 (Int -&gt; ExpressionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ExpressionType -&gt; String
 showsPrec :: Int -&gt; ExpressionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExpressionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679541488"><span id="local-6989586621679541490"><span id="local-6989586621679541492"><span id="local-6989586621679541494"><span class="annot"><span class="annottext">ReadPrec [ExpressionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679541598"><span id="local-6989586621679541600"><span id="local-6989586621679541602"><span id="local-6989586621679541604"><span class="annot"><span class="annottext">ReadPrec [ExpressionType]
 ReadPrec ExpressionType
 Int -&gt; ReadS ExpressionType
 ReadS [ExpressionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ExpressionType]
 readsPrec :: Int -&gt; ReadS ExpressionType
 $creadsPrec :: Int -&gt; ReadS ExpressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679541483"><span id="local-6989586621679541485"><span class="annot"><span class="annottext">ExpressionType -&gt; ExpressionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679541593"><span id="local-6989586621679541595"><span class="annot"><span class="annottext">ExpressionType -&gt; ExpressionType -&gt; Bool
 (ExpressionType -&gt; ExpressionType -&gt; Bool)
 -&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool) -&gt; Eq ExpressionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ExpressionType -&gt; ExpressionType -&gt; Bool
 == :: ExpressionType -&gt; ExpressionType -&gt; Bool
 $c== :: ExpressionType -&gt; ExpressionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679541467"><span id="local-6989586621679541469"><span id="local-6989586621679541471"><span id="local-6989586621679541473"><span id="local-6989586621679541475"><span id="local-6989586621679541477"><span id="local-6989586621679541479"><span class="annot"><span class="annottext">Eq ExpressionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679541577"><span id="local-6989586621679541579"><span id="local-6989586621679541581"><span id="local-6989586621679541583"><span id="local-6989586621679541585"><span id="local-6989586621679541587"><span id="local-6989586621679541589"><span class="annot"><span class="annottext">Eq ExpressionType
 Eq ExpressionType
 -&gt; (ExpressionType -&gt; ExpressionType -&gt; Ordering)
 -&gt; (ExpressionType -&gt; ExpressionType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ExpressionType -&gt; Rep ExpressionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541459"><span id="local-6989586621679541461"><span class="annot"><span class="annottext">Int -&gt; ExpressionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541569"><span id="local-6989586621679541571"><span class="annot"><span class="annottext">Int -&gt; ExpressionType -&gt; Int
 ExpressionType -&gt; Int
 (Int -&gt; ExpressionType -&gt; Int)
 -&gt; (ExpressionType -&gt; Int) -&gt; Hashable ExpressionType
@@ -142,50 +142,50 @@ $chash :: ExpressionType -&gt; Int
 hashWithSalt :: Int -&gt; ExpressionType -&gt; Int
 $chashWithSalt :: Int -&gt; ExpressionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679541456"><span class="annot"><span class="annottext">ExpressionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679541566"><span class="annot"><span class="annottext">ExpressionType -&gt; ()
 (ExpressionType -&gt; ()) -&gt; NFData ExpressionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExpressionType -&gt; ()
 $crnf :: ExpressionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679541453"><span class="annot"><span class="annottext">Text -&gt; Either String ExpressionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679541563"><span class="annot"><span class="annottext">Text -&gt; Either String ExpressionType
 (Text -&gt; Either String ExpressionType) -&gt; FromText ExpressionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExpressionType
 $cfromText :: Text -&gt; Either String ExpressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679541450"><span class="annot"><span class="annottext">ExpressionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679541560"><span class="annot"><span class="annottext">ExpressionType -&gt; Text
 (ExpressionType -&gt; Text) -&gt; ToText ExpressionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExpressionType -&gt; Text
 $ctoText :: ExpressionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679541447"><span class="annot"><span class="annottext">ExpressionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679541557"><span class="annot"><span class="annottext">ExpressionType -&gt; ByteString
 (ExpressionType -&gt; ByteString) -&gt; ToByteString ExpressionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExpressionType -&gt; ByteString
 $ctoBS :: ExpressionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679541444"><span class="annot"><span class="annottext">ExpressionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679541554"><span class="annot"><span class="annottext">ExpressionType -&gt; ByteStringBuilder
 (ExpressionType -&gt; ByteStringBuilder) -&gt; ToLog ExpressionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExpressionType -&gt; ByteStringBuilder
 $cbuild :: ExpressionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679541441"><span class="annot"><span class="annottext">HeaderName -&gt; ExpressionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679541551"><span class="annot"><span class="annottext">HeaderName -&gt; ExpressionType -&gt; [Header]
 (HeaderName -&gt; ExpressionType -&gt; [Header])
 -&gt; ToHeader ExpressionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExpressionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExpressionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679541438"><span class="annot"><span class="annottext">ExpressionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679541548"><span class="annot"><span class="annottext">ExpressionType -&gt; QueryString
 (ExpressionType -&gt; QueryString) -&gt; ToQuery ExpressionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExpressionType -&gt; QueryString
 $ctoQuery :: ExpressionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679541433"><span id="local-6989586621679541435"><span class="annot"><span class="annottext">Value -&gt; Parser [ExpressionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679541543"><span id="local-6989586621679541545"><span class="annot"><span class="annottext">Value -&gt; Parser [ExpressionType]
 Value -&gt; Parser ExpressionType
 (Value -&gt; Parser ExpressionType)
 -&gt; (Value -&gt; Parser [ExpressionType]) -&gt; FromJSON ExpressionType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ExpressionType]
 parseJSON :: Value -&gt; Parser ExpressionType
 $cparseJSON :: Value -&gt; Parser ExpressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679541428"><span id="local-6989586621679541430"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExpressionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679541538"><span id="local-6989586621679541540"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExpressionType]
 FromJSONKeyFunction ExpressionType
 FromJSONKeyFunction ExpressionType
 -&gt; FromJSONKeyFunction [ExpressionType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExpressionType]
 fromJSONKey :: FromJSONKeyFunction ExpressionType
 $cfromJSONKey :: FromJSONKeyFunction ExpressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679541419"><span id="local-6989586621679541421"><span id="local-6989586621679541423"><span id="local-6989586621679541425"><span class="annot"><span class="annottext">[ExpressionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679541529"><span id="local-6989586621679541531"><span id="local-6989586621679541533"><span id="local-6989586621679541535"><span class="annot"><span class="annottext">[ExpressionType] -&gt; Encoding
 [ExpressionType] -&gt; Value
 ExpressionType -&gt; Encoding
 ExpressionType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ExpressionType -&gt; Encoding
 toJSON :: ExpressionType -&gt; Value
 $ctoJSON :: ExpressionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679541414"><span id="local-6989586621679541416"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExpressionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679541524"><span id="local-6989586621679541526"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExpressionType]
 ToJSONKeyFunction ExpressionType
 ToJSONKeyFunction ExpressionType
 -&gt; ToJSONKeyFunction [ExpressionType] -&gt; ToJSONKey ExpressionType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExpressionType]
 toJSONKey :: ToJSONKeyFunction ExpressionType
 $ctoJSONKey :: ToJSONKeyFunction ExpressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679541411"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExpressionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679541521"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExpressionType
 ([Node] -&gt; Either String ExpressionType) -&gt; FromXML ExpressionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExpressionType
 $cparseXML :: [Node] -&gt; Either String ExpressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679541408"><span class="annot"><span class="annottext">ExpressionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679541518"><span class="annot"><span class="annottext">ExpressionType -&gt; XML
 (ExpressionType -&gt; XML) -&gt; ToXML ExpressionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExpressionType -&gt; XML

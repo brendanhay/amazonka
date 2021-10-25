@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newGetBucketCors' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679577418"><span id="local-6989586621679577419"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketCors"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-var">GetBucketCors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketCors%27"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-var">GetBucketCors'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679577565"><span id="local-6989586621679577566"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketCors"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-var">GetBucketCors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketCors%27"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-var">GetBucketCors'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketCors%27"><span class="annot"><span class="annottext">GetBucketCors -&gt; BucketName
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3Abucket%3AGetBucketCors%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577411"><span id="local-6989586621679577413"><span class="annot"><span class="annottext">GetBucketCors -&gt; GetBucketCors -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577558"><span id="local-6989586621679577560"><span class="annot"><span class="annottext">GetBucketCors -&gt; GetBucketCors -&gt; Bool
 (GetBucketCors -&gt; GetBucketCors -&gt; Bool)
 -&gt; (GetBucketCors -&gt; GetBucketCors -&gt; Bool) -&gt; Eq GetBucketCors
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketCors -&gt; GetBucketCors -&gt; Bool
 == :: GetBucketCors -&gt; GetBucketCors -&gt; Bool
 $c== :: GetBucketCors -&gt; GetBucketCors -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577402"><span id="local-6989586621679577404"><span id="local-6989586621679577406"><span id="local-6989586621679577408"><span class="annot"><span class="annottext">ReadPrec [GetBucketCors]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577549"><span id="local-6989586621679577551"><span id="local-6989586621679577553"><span id="local-6989586621679577555"><span class="annot"><span class="annottext">ReadPrec [GetBucketCors]
 ReadPrec GetBucketCors
 Int -&gt; ReadS GetBucketCors
 ReadS [GetBucketCors]
@@ -99,7 +99,7 @@ readList :: ReadS [GetBucketCors]
 $creadList :: ReadS [GetBucketCors]
 readsPrec :: Int -&gt; ReadS GetBucketCors
 $creadsPrec :: Int -&gt; ReadS GetBucketCors
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577395"><span id="local-6989586621679577397"><span id="local-6989586621679577399"><span class="annot"><span class="annottext">Int -&gt; GetBucketCors -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577542"><span id="local-6989586621679577544"><span id="local-6989586621679577546"><span class="annot"><span class="annottext">Int -&gt; GetBucketCors -&gt; ShowS
 [GetBucketCors] -&gt; ShowS
 GetBucketCors -&gt; String
 (Int -&gt; GetBucketCors -&gt; ShowS)
@@ -143,8 +143,8 @@ $cfrom :: forall x. GetBucketCors -&gt; Rep GetBucketCors x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span>
 </span><span id="line-91"></span><span id="newGetBucketCors"><span class="annot"><span class="annottext">newGetBucketCors :: BucketName -&gt; GetBucketCors
-</span><a href="Network.AWS.S3.GetBucketCors.html#newGetBucketCors"><span class="hs-identifier hs-var hs-var">newGetBucketCors</span></a></span></span><span> </span><span id="local-6989586621679577390"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577390"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketCors.html#newGetBucketCors"><span class="hs-identifier hs-var hs-var">newGetBucketCors</span></a></span></span><span> </span><span id="local-6989586621679577537"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577537"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">GetBucketCors' :: Maybe Text -&gt; BucketName -&gt; GetBucketCors
 </span><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketCors' :: Maybe Text
@@ -154,7 +154,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketCors' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3Abucket%3AGetBucketCors%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577390"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679577537"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -166,16 +166,16 @@ forall a. Maybe a
 -&gt; (GetBucketCors -&gt; Maybe Text -&gt; GetBucketCors)
 -&gt; Lens GetBucketCors GetBucketCors (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577387"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577534"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetBucketCors' :: GetBucketCors -&gt; Maybe Text
-</span><a href="#local-6989586621679577387"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577387"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577386"><span class="annot"><span class="annottext">s :: GetBucketCors
-</span><a href="#local-6989586621679577386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCors
-</span><a href="#local-6989586621679577386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketCors' :: Maybe Text
+</span><a href="#local-6989586621679577534"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679577534"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577533"><span class="annot"><span class="annottext">s :: GetBucketCors
+</span><a href="#local-6989586621679577533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577532"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679577532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCors
+</span><a href="#local-6989586621679577533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketCors' :: Maybe Text
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3AexpectedBucketOwner%3AGetBucketCors%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The bucket name for which to get the cors configuration.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#getBucketCors_bucket"><span class="hs-identifier hs-type">getBucketCors_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -184,22 +184,22 @@ $sel:expectedBucketOwner:GetBucketCors' :: GetBucketCors -&gt; Maybe Text
 -&gt; (GetBucketCors -&gt; BucketName -&gt; GetBucketCors)
 -&gt; Lens GetBucketCors GetBucketCors BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577384"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577531"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetBucketCors' :: GetBucketCors -&gt; BucketName
-</span><a href="#local-6989586621679577384"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577384"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577383"><span class="annot"><span class="annottext">s :: GetBucketCors
-</span><a href="#local-6989586621679577383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577382"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCors
-</span><a href="#local-6989586621679577383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketCors' :: BucketName
+</span><a href="#local-6989586621679577531"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577531"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577530"><span class="annot"><span class="annottext">s :: GetBucketCors
+</span><a href="#local-6989586621679577530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577529"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679577529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCors
+</span><a href="#local-6989586621679577530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketCors' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3Abucket%3AGetBucketCors%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679577378"><span class="annot"><span class="annottext">request :: GetBucketCors -&gt; Request GetBucketCors
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679577525"><span class="annot"><span class="annottext">request :: GetBucketCors -&gt; Request GetBucketCors
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">Request GetBucketCors -&gt; Request GetBucketCors
 forall a. Request a -&gt; Request a
@@ -213,7 +213,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679577372"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679577519"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBucketCors
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577369"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577369"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577368"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679577368"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577367"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577516"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577515"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679577515"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577514"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679577514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CORSRule] -&gt; Int -&gt; GetBucketCorsResponse
 </span><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-var">GetBucketCorsResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CORSRule] -&gt; Int -&gt; GetBucketCorsResponse)
@@ -256,7 +256,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CORSRule&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577367"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577514"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBucketCorsResponse)
 -&gt; Either String Int -&gt; Either String GetBucketCorsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -265,22 +265,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577369"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577516"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577358"><span id="local-6989586621679577360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577505"><span id="local-6989586621679577507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679577351"><span class="annot"><span class="annottext">toHeaders :: GetBucketCors -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577348"><span id="local-6989586621679577349"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679577498"><span class="annot"><span class="annottext">toHeaders :: GetBucketCors -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577495"><span id="local-6989586621679577496"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketCors' :: GetBucketCors -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketCors' :: GetBucketCors -&gt; Maybe Text
-</span><a href="#local-6989586621679577348"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679577495"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -289,28 +289,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577349"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679577496"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679577344"><span class="annot"><span class="annottext">toPath :: GetBucketCors -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577341"><span id="local-6989586621679577342"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679577491"><span class="annot"><span class="annottext">toPath :: GetBucketCors -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors%27"><span class="hs-identifier hs-type">GetBucketCors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577488"><span id="local-6989586621679577489"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketCors' :: GetBucketCors -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketCors' :: GetBucketCors -&gt; Maybe Text
-</span><a href="#local-6989586621679577341"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679577488"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577341"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679577488"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCors"><span class="hs-identifier hs-type">GetBucketCors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679577337"><span class="annot"><span class="annottext">toQuery :: GetBucketCors -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679577484"><span class="annot"><span class="annottext">toQuery :: GetBucketCors -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketCors -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
@@ -319,7 +319,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;cors&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newGetBucketCorsResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679577333"><span id="local-6989586621679577334"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketCorsResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-var">GetBucketCorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketCorsResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-var">GetBucketCorsResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679577480"><span id="local-6989586621679577481"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketCorsResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-var">GetBucketCorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketCorsResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-var">GetBucketCorsResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of origins and methods (cross-origin access that you want to</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- allow). You can add up to 100 rules to the configuration.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AcORSRules%3AGetBucketCorsResponse%27"><span class="annot"><span class="annottext">GetBucketCorsResponse -&gt; Maybe [CORSRule]
@@ -328,7 +328,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketCorsResponse%27"><span class="annot"><span class="annottext">GetBucketCorsResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3AhttpStatus%3AGetBucketCorsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577327"><span id="local-6989586621679577329"><span class="annot"><span class="annottext">GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577474"><span id="local-6989586621679577476"><span class="annot"><span class="annottext">GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool
 (GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool)
 -&gt; (GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool)
 -&gt; Eq GetBucketCorsResponse
@@ -337,7 +337,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool
 == :: GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool
 $c== :: GetBucketCorsResponse -&gt; GetBucketCorsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577319"><span id="local-6989586621679577321"><span id="local-6989586621679577323"><span id="local-6989586621679577325"><span class="annot"><span class="annottext">ReadPrec [GetBucketCorsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577466"><span id="local-6989586621679577468"><span id="local-6989586621679577470"><span id="local-6989586621679577472"><span class="annot"><span class="annottext">ReadPrec [GetBucketCorsResponse]
 ReadPrec GetBucketCorsResponse
 Int -&gt; ReadS GetBucketCorsResponse
 ReadS [GetBucketCorsResponse]
@@ -357,7 +357,7 @@ readList :: ReadS [GetBucketCorsResponse]
 $creadList :: ReadS [GetBucketCorsResponse]
 readsPrec :: Int -&gt; ReadS GetBucketCorsResponse
 $creadsPrec :: Int -&gt; ReadS GetBucketCorsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577313"><span id="local-6989586621679577315"><span id="local-6989586621679577317"><span class="annot"><span class="annottext">Int -&gt; GetBucketCorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577460"><span id="local-6989586621679577462"><span id="local-6989586621679577464"><span class="annot"><span class="annottext">Int -&gt; GetBucketCorsResponse -&gt; ShowS
 [GetBucketCorsResponse] -&gt; ShowS
 GetBucketCorsResponse -&gt; String
 (Int -&gt; GetBucketCorsResponse -&gt; ShowS)
@@ -400,8 +400,8 @@ $cfrom :: forall x. GetBucketCorsResponse -&gt; Rep GetBucketCorsResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newGetBucketCorsResponse"><span class="annot"><span class="annottext">newGetBucketCorsResponse :: Int -&gt; GetBucketCorsResponse
-</span><a href="Network.AWS.S3.GetBucketCors.html#newGetBucketCorsResponse"><span class="hs-identifier hs-var hs-var">newGetBucketCorsResponse</span></a></span></span><span> </span><span id="local-6989586621679577310"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketCors.html#newGetBucketCorsResponse"><span class="hs-identifier hs-var hs-var">newGetBucketCorsResponse</span></a></span></span><span> </span><span id="local-6989586621679577457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">GetBucketCorsResponse' :: Maybe [CORSRule] -&gt; Int -&gt; GetBucketCorsResponse
 </span><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cORSRules:GetBucketCorsResponse' :: Maybe [CORSRule]
@@ -410,7 +410,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketCorsResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3AhttpStatus%3AGetBucketCorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679577457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | A set of origins and methods (cross-origin access that you want to</span><span>
@@ -427,16 +427,16 @@ forall a. Maybe a
      (Maybe [CORSRule])
      (Maybe [CORSRule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577309"><span class="annot"><span class="annottext">Maybe [CORSRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577456"><span class="annot"><span class="annottext">Maybe [CORSRule]
 cORSRules :: Maybe [CORSRule]
 $sel:cORSRules:GetBucketCorsResponse' :: GetBucketCorsResponse -&gt; Maybe [CORSRule]
-</span><a href="#local-6989586621679577309"><span class="hs-identifier hs-var hs-var">cORSRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CORSRule]
-</span><a href="#local-6989586621679577309"><span class="hs-identifier hs-var">cORSRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577308"><span class="annot"><span class="annottext">s :: GetBucketCorsResponse
-</span><a href="#local-6989586621679577308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577307"><span class="annot"><span class="annottext">Maybe [CORSRule]
-</span><a href="#local-6989586621679577307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCorsResponse
-</span><a href="#local-6989586621679577308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cORSRules:GetBucketCorsResponse' :: Maybe [CORSRule]
+</span><a href="#local-6989586621679577456"><span class="hs-identifier hs-var hs-var">cORSRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CORSRule]
+</span><a href="#local-6989586621679577456"><span class="hs-identifier hs-var">cORSRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577455"><span class="annot"><span class="annottext">s :: GetBucketCorsResponse
+</span><a href="#local-6989586621679577455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577454"><span class="annot"><span class="annottext">Maybe [CORSRule]
+</span><a href="#local-6989586621679577454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCorsResponse
+</span><a href="#local-6989586621679577455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cORSRules:GetBucketCorsResponse' :: Maybe [CORSRule]
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3AcORSRules%3AGetBucketCorsResponse%27"><span class="hs-identifier hs-var">cORSRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CORSRule]
-</span><a href="#local-6989586621679577307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CORSRule] -&gt; f (Maybe [CORSRule]))
+</span><a href="#local-6989586621679577454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CORSRule] -&gt; f (Maybe [CORSRule]))
  -&gt; GetBucketCorsResponse -&gt; f GetBucketCorsResponse)
 -&gt; ((Maybe [CORSRule] -&gt; f (Maybe [CORSRule]))
     -&gt; Maybe [CORSRule] -&gt; f (Maybe [CORSRule]))
@@ -464,16 +464,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetBucketCorsResponse -&gt; Int -&gt; GetBucketCorsResponse)
 -&gt; Lens GetBucketCorsResponse GetBucketCorsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577304"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577451"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketCorsResponse' :: GetBucketCorsResponse -&gt; Int
-</span><a href="#local-6989586621679577304"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577304"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577303"><span class="annot"><span class="annottext">s :: GetBucketCorsResponse
-</span><a href="#local-6989586621679577303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577302"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCorsResponse
-</span><a href="#local-6989586621679577303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketCorsResponse' :: Int
+</span><a href="#local-6989586621679577451"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577451"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577450"><span class="annot"><span class="annottext">s :: GetBucketCorsResponse
+</span><a href="#local-6989586621679577450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse%27"><span class="hs-identifier hs-type">GetBucketCorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679577449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketCorsResponse
+</span><a href="#local-6989586621679577450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketCorsResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketCors.html#%24sel%3AhttpStatus%3AGetBucketCorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679577449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketCors.html#GetBucketCorsResponse"><span class="hs-identifier hs-type">GetBucketCorsResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

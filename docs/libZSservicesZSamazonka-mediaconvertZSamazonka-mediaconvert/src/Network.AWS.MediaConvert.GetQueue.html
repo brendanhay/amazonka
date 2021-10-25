@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetQueue' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621680030734"><span id="local-6989586621680030735"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueue"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-var">GetQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-var">GetQueue'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621680032231"><span id="local-6989586621680032232"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueue"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-var">GetQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-var">GetQueue'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the queue that you want information about.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AGetQueue%27"><span class="annot"><span class="annottext">GetQueue -&gt; Text
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3Aname%3AGetQueue%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680030728"><span id="local-6989586621680030730"><span class="annot"><span class="annottext">GetQueue -&gt; GetQueue -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032225"><span id="local-6989586621680032227"><span class="annot"><span class="annottext">GetQueue -&gt; GetQueue -&gt; Bool
 (GetQueue -&gt; GetQueue -&gt; Bool)
 -&gt; (GetQueue -&gt; GetQueue -&gt; Bool) -&gt; Eq GetQueue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetQueue -&gt; GetQueue -&gt; Bool
 == :: GetQueue -&gt; GetQueue -&gt; Bool
 $c== :: GetQueue -&gt; GetQueue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030719"><span id="local-6989586621680030721"><span id="local-6989586621680030723"><span id="local-6989586621680030725"><span class="annot"><span class="annottext">ReadPrec [GetQueue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032216"><span id="local-6989586621680032218"><span id="local-6989586621680032220"><span id="local-6989586621680032222"><span class="annot"><span class="annottext">ReadPrec [GetQueue]
 ReadPrec GetQueue
 Int -&gt; ReadS GetQueue
 ReadS [GetQueue]
@@ -80,7 +80,7 @@ readList :: ReadS [GetQueue]
 $creadList :: ReadS [GetQueue]
 readsPrec :: Int -&gt; ReadS GetQueue
 $creadsPrec :: Int -&gt; ReadS GetQueue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030712"><span id="local-6989586621680030714"><span id="local-6989586621680030716"><span class="annot"><span class="annottext">Int -&gt; GetQueue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032209"><span id="local-6989586621680032211"><span id="local-6989586621680032213"><span class="annot"><span class="annottext">Int -&gt; GetQueue -&gt; ShowS
 [GetQueue] -&gt; ShowS
 GetQueue -&gt; String
 (Int -&gt; GetQueue -&gt; ShowS)
@@ -117,11 +117,11 @@ $cfrom :: forall x. GetQueue -&gt; Rep GetQueue x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetQueue"><span class="annot"><span class="annottext">newGetQueue :: Text -&gt; GetQueue
-</span><a href="Network.AWS.MediaConvert.GetQueue.html#newGetQueue"><span class="hs-identifier hs-var hs-var">newGetQueue</span></a></span></span><span> </span><span id="local-6989586621680030707"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680030707"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetQueue' :: Text -&gt; GetQueue
+</span><a href="Network.AWS.MediaConvert.GetQueue.html#newGetQueue"><span class="hs-identifier hs-var hs-var">newGetQueue</span></a></span></span><span> </span><span id="local-6989586621680032204"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032204"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetQueue' :: Text -&gt; GetQueue
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetQueue' :: Text
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3Aname%3AGetQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680030707"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680032204"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the queue that you want information about.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#getQueue_name"><span class="hs-identifier hs-type">getQueue_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -130,25 +130,25 @@ $cfrom :: forall x. GetQueue -&gt; Rep GetQueue x
 -&gt; (GetQueue -&gt; Text -&gt; GetQueue)
 -&gt; Lens GetQueue GetQueue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030704"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032201"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetQueue' :: GetQueue -&gt; Text
-</span><a href="#local-6989586621680030704"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680030704"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030703"><span class="annot"><span class="annottext">s :: GetQueue
-</span><a href="#local-6989586621680030703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680030702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueue
-</span><a href="#local-6989586621680030703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetQueue' :: Text
+</span><a href="#local-6989586621680032201"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032201"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032200"><span class="annot"><span class="annottext">s :: GetQueue
+</span><a href="#local-6989586621680032200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueue
+</span><a href="#local-6989586621680032200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetQueue' :: Text
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3Aname%3AGetQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680030702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680030698"><span class="annot"><span class="annottext">request :: GetQueue -&gt; Request GetQueue
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680032195"><span class="annot"><span class="annottext">request :: GetQueue -&gt; Request GetQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetQueue -&gt; Request GetQueue
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680030694"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680032191"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetQueue
 -&gt; ClientResponse ClientBody
@@ -172,10 +172,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680030691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680030690"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680030690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680030689"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680030689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680032188"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032188"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680032187"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680032187"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680032186"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680032186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Queue -&gt; Int -&gt; GetQueueResponse
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-var">GetQueueResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Queue -&gt; Int -&gt; GetQueueResponse)
@@ -183,7 +183,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetQueueResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680030689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Queue)
+</span><a href="#local-6989586621680032186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Queue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queue&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,15 +195,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030691"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032188"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030681"><span id="local-6989586621680030683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032178"><span id="local-6989586621680032180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680030674"><span class="annot"><span class="annottext">toHeaders :: GetQueue -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680032171"><span class="annot"><span class="annottext">toHeaders :: GetQueue -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetQueue -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -223,11 +223,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621680030668"><span class="annot"><span class="annottext">toPath :: GetQueue -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030666"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621680032165"><span class="annot"><span class="annottext">toPath :: GetQueue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue%27"><span class="hs-identifier hs-type">GetQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032163"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetQueue' :: GetQueue -&gt; Text
-</span><a href="#local-6989586621680030666"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680032163"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -235,10 +235,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2017-08-29/queues/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680030666"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680032163"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueue"><span class="hs-identifier hs-type">GetQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621680030662"><span class="annot"><span class="annottext">toQuery :: GetQueue -&gt; QueryString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680032159"><span class="annot"><span class="annottext">toQuery :: GetQueue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetQueue -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -246,7 +246,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newGetQueueResponse' smart constructor.</span><span>
-</span><span id="line-110"></span><span id="local-6989586621680030659"><span id="local-6989586621680030660"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueueResponse"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-var">GetQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueueResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-var">GetQueueResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span id="local-6989586621680032156"><span id="local-6989586621680032157"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueueResponse"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-var">GetQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueueResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-var">GetQueueResponse'</span></a></span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use queues to manage the resources that are available to your</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">-- AWS account for running multiple transcoding jobs at the same time. If</span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- you don\'t specify a queue, the service sends all jobs through the</span><span>
@@ -258,7 +258,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetQueueResponse%27"><span class="annot"><span class="annottext">GetQueueResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3AhttpStatus%3AGetQueueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680030653"><span id="local-6989586621680030655"><span class="annot"><span class="annottext">GetQueueResponse -&gt; GetQueueResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032150"><span id="local-6989586621680032152"><span class="annot"><span class="annottext">GetQueueResponse -&gt; GetQueueResponse -&gt; Bool
 (GetQueueResponse -&gt; GetQueueResponse -&gt; Bool)
 -&gt; (GetQueueResponse -&gt; GetQueueResponse -&gt; Bool)
 -&gt; Eq GetQueueResponse
@@ -267,7 +267,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetQueueResponse -&gt; GetQueueResponse -&gt; Bool
 == :: GetQueueResponse -&gt; GetQueueResponse -&gt; Bool
 $c== :: GetQueueResponse -&gt; GetQueueResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030645"><span id="local-6989586621680030647"><span id="local-6989586621680030649"><span id="local-6989586621680030651"><span class="annot"><span class="annottext">ReadPrec [GetQueueResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032142"><span id="local-6989586621680032144"><span id="local-6989586621680032146"><span id="local-6989586621680032148"><span class="annot"><span class="annottext">ReadPrec [GetQueueResponse]
 ReadPrec GetQueueResponse
 Int -&gt; ReadS GetQueueResponse
 ReadS [GetQueueResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [GetQueueResponse]
 $creadList :: ReadS [GetQueueResponse]
 readsPrec :: Int -&gt; ReadS GetQueueResponse
 $creadsPrec :: Int -&gt; ReadS GetQueueResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030639"><span id="local-6989586621680030641"><span id="local-6989586621680030643"><span class="annot"><span class="annottext">Int -&gt; GetQueueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032136"><span id="local-6989586621680032138"><span id="local-6989586621680032140"><span class="annot"><span class="annottext">Int -&gt; GetQueueResponse -&gt; ShowS
 [GetQueueResponse] -&gt; ShowS
 GetQueueResponse -&gt; String
 (Int -&gt; GetQueueResponse -&gt; ShowS)
@@ -333,8 +333,8 @@ $cfrom :: forall x. GetQueueResponse -&gt; Rep GetQueueResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newGetQueueResponse"><span class="annot"><span class="annottext">newGetQueueResponse :: Int -&gt; GetQueueResponse
-</span><a href="Network.AWS.MediaConvert.GetQueue.html#newGetQueueResponse"><span class="hs-identifier hs-var hs-var">newGetQueueResponse</span></a></span></span><span> </span><span id="local-6989586621680030636"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.GetQueue.html#newGetQueueResponse"><span class="hs-identifier hs-var hs-var">newGetQueueResponse</span></a></span></span><span> </span><span id="local-6989586621680032133"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">GetQueueResponse' :: Maybe Queue -&gt; Int -&gt; GetQueueResponse
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queue:GetQueueResponse' :: Maybe Queue
@@ -343,7 +343,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueueResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3AhttpStatus%3AGetQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680032133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | You can use queues to manage the resources that are available to your</span><span>
@@ -359,16 +359,16 @@ forall a. Maybe a
 -&gt; Lens
      GetQueueResponse GetQueueResponse (Maybe Queue) (Maybe Queue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030635"><span class="annot"><span class="annottext">Maybe Queue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032132"><span class="annot"><span class="annottext">Maybe Queue
 queue :: Maybe Queue
 $sel:queue:GetQueueResponse' :: GetQueueResponse -&gt; Maybe Queue
-</span><a href="#local-6989586621680030635"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Queue
-</span><a href="#local-6989586621680030635"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030634"><span class="annot"><span class="annottext">s :: GetQueueResponse
-</span><a href="#local-6989586621680030634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030633"><span class="annot"><span class="annottext">Maybe Queue
-</span><a href="#local-6989586621680030633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueueResponse
-</span><a href="#local-6989586621680030634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:GetQueueResponse' :: Maybe Queue
+</span><a href="#local-6989586621680032132"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Queue
+</span><a href="#local-6989586621680032132"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032131"><span class="annot"><span class="annottext">s :: GetQueueResponse
+</span><a href="#local-6989586621680032131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032130"><span class="annot"><span class="annottext">Maybe Queue
+</span><a href="#local-6989586621680032130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueueResponse
+</span><a href="#local-6989586621680032131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:GetQueueResponse' :: Maybe Queue
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3Aqueue%3AGetQueueResponse%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Queue
-</span><a href="#local-6989586621680030633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#getQueueResponse_httpStatus"><span class="hs-identifier hs-type">getQueueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -377,16 +377,16 @@ $sel:queue:GetQueueResponse' :: GetQueueResponse -&gt; Maybe Queue
 -&gt; (GetQueueResponse -&gt; Int -&gt; GetQueueResponse)
 -&gt; Lens GetQueueResponse GetQueueResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030632"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032129"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetQueueResponse' :: GetQueueResponse -&gt; Int
-</span><a href="#local-6989586621680030632"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030632"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030631"><span class="annot"><span class="annottext">s :: GetQueueResponse
-</span><a href="#local-6989586621680030631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030630"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueueResponse
-</span><a href="#local-6989586621680030631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueueResponse' :: Int
+</span><a href="#local-6989586621680032129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032128"><span class="annot"><span class="annottext">s :: GetQueueResponse
+</span><a href="#local-6989586621680032128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse%27"><span class="hs-identifier hs-type">GetQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueueResponse
+</span><a href="#local-6989586621680032128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueueResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.GetQueue.html#%24sel%3AhttpStatus%3AGetQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetQueue.html#GetQueueResponse"><span class="hs-identifier hs-type">GetQueueResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

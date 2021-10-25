@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | By default, the service terminates any unterminated captions at the end</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- of each input. If you want the caption to continue onto your next input,</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- disable this setting.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679939149"><span id="local-6989586621679939150"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AncillaryTerminateCaptions"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions.html#AncillaryTerminateCaptions"><span class="hs-identifier hs-var">AncillaryTerminateCaptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AncillaryTerminateCaptions%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions.html#AncillaryTerminateCaptions%27"><span class="hs-identifier hs-var">AncillaryTerminateCaptions'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679940468"><span id="local-6989586621679940469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AncillaryTerminateCaptions"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions.html#AncillaryTerminateCaptions"><span class="hs-identifier hs-var">AncillaryTerminateCaptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AncillaryTerminateCaptions%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions.html#AncillaryTerminateCaptions%27"><span class="hs-identifier hs-var">AncillaryTerminateCaptions'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAncillaryTerminateCaptions"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions.html#fromAncillaryTerminateCaptions"><span class="hs-identifier hs-var hs-var">fromAncillaryTerminateCaptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939141"><span id="local-6989586621679939143"><span id="local-6989586621679939145"><span class="annot"><span class="annottext">Int -&gt; AncillaryTerminateCaptions -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940460"><span id="local-6989586621679940462"><span id="local-6989586621679940464"><span class="annot"><span class="annottext">Int -&gt; AncillaryTerminateCaptions -&gt; ShowS
 [AncillaryTerminateCaptions] -&gt; ShowS
 AncillaryTerminateCaptions -&gt; String
 (Int -&gt; AncillaryTerminateCaptions -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: AncillaryTerminateCaptions -&gt; String
 showsPrec :: Int -&gt; AncillaryTerminateCaptions -&gt; ShowS
 $cshowsPrec :: Int -&gt; AncillaryTerminateCaptions -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679939132"><span id="local-6989586621679939134"><span id="local-6989586621679939136"><span id="local-6989586621679939138"><span class="annot"><span class="annottext">ReadPrec [AncillaryTerminateCaptions]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679940451"><span id="local-6989586621679940453"><span id="local-6989586621679940455"><span id="local-6989586621679940457"><span class="annot"><span class="annottext">ReadPrec [AncillaryTerminateCaptions]
 ReadPrec AncillaryTerminateCaptions
 Int -&gt; ReadS AncillaryTerminateCaptions
 ReadS [AncillaryTerminateCaptions]
@@ -75,7 +75,7 @@ $creadList :: ReadS [AncillaryTerminateCaptions]
 readsPrec :: Int -&gt; ReadS AncillaryTerminateCaptions
 $creadsPrec :: Int -&gt; ReadS AncillaryTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679939127"><span id="local-6989586621679939129"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; AncillaryTerminateCaptions -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679940446"><span id="local-6989586621679940448"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; AncillaryTerminateCaptions -&gt; Bool
 (AncillaryTerminateCaptions -&gt; AncillaryTerminateCaptions -&gt; Bool)
 -&gt; (AncillaryTerminateCaptions
     -&gt; AncillaryTerminateCaptions -&gt; Bool)
@@ -86,7 +86,7 @@ $c/= :: AncillaryTerminateCaptions -&gt; AncillaryTerminateCaptions -&gt; Bool
 == :: AncillaryTerminateCaptions -&gt; AncillaryTerminateCaptions -&gt; Bool
 $c== :: AncillaryTerminateCaptions -&gt; AncillaryTerminateCaptions -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679939111"><span id="local-6989586621679939113"><span id="local-6989586621679939115"><span id="local-6989586621679939117"><span id="local-6989586621679939119"><span id="local-6989586621679939121"><span id="local-6989586621679939123"><span class="annot"><span class="annottext">Eq AncillaryTerminateCaptions
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679940430"><span id="local-6989586621679940432"><span id="local-6989586621679940434"><span id="local-6989586621679940436"><span id="local-6989586621679940438"><span id="local-6989586621679940440"><span id="local-6989586621679940442"><span class="annot"><span class="annottext">Eq AncillaryTerminateCaptions
 Eq AncillaryTerminateCaptions
 -&gt; (AncillaryTerminateCaptions
     -&gt; AncillaryTerminateCaptions -&gt; Ordering)
@@ -158,7 +158,7 @@ AncillaryTerminateCaptions -&gt; Rep AncillaryTerminateCaptions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939103"><span id="local-6989586621679939105"><span class="annot"><span class="annottext">Int -&gt; AncillaryTerminateCaptions -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940422"><span id="local-6989586621679940424"><span class="annot"><span class="annottext">Int -&gt; AncillaryTerminateCaptions -&gt; Int
 AncillaryTerminateCaptions -&gt; Int
 (Int -&gt; AncillaryTerminateCaptions -&gt; Int)
 -&gt; (AncillaryTerminateCaptions -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: AncillaryTerminateCaptions -&gt; Int
 hashWithSalt :: Int -&gt; AncillaryTerminateCaptions -&gt; Int
 $chashWithSalt :: Int -&gt; AncillaryTerminateCaptions -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679939100"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679940419"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; ()
 (AncillaryTerminateCaptions -&gt; ())
 -&gt; NFData AncillaryTerminateCaptions
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AncillaryTerminateCaptions -&gt; ()
 $crnf :: AncillaryTerminateCaptions -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679939097"><span class="annot"><span class="annottext">Text -&gt; Either String AncillaryTerminateCaptions
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679940416"><span class="annot"><span class="annottext">Text -&gt; Either String AncillaryTerminateCaptions
 (Text -&gt; Either String AncillaryTerminateCaptions)
 -&gt; FromText AncillaryTerminateCaptions
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AncillaryTerminateCaptions
 $cfromText :: Text -&gt; Either String AncillaryTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679939094"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679940413"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; Text
 (AncillaryTerminateCaptions -&gt; Text)
 -&gt; ToText AncillaryTerminateCaptions
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AncillaryTerminateCaptions -&gt; Text
 $ctoText :: AncillaryTerminateCaptions -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679939091"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679940410"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; ByteString
 (AncillaryTerminateCaptions -&gt; ByteString)
 -&gt; ToByteString AncillaryTerminateCaptions
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AncillaryTerminateCaptions -&gt; ByteString
 $ctoBS :: AncillaryTerminateCaptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679939088"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940407"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; ByteStringBuilder
 (AncillaryTerminateCaptions -&gt; ByteStringBuilder)
 -&gt; ToLog AncillaryTerminateCaptions
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AncillaryTerminateCaptions -&gt; ByteStringBuilder
 $cbuild :: AncillaryTerminateCaptions -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679939085"><span class="annot"><span class="annottext">HeaderName -&gt; AncillaryTerminateCaptions -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679940404"><span class="annot"><span class="annottext">HeaderName -&gt; AncillaryTerminateCaptions -&gt; [Header]
 (HeaderName -&gt; AncillaryTerminateCaptions -&gt; [Header])
 -&gt; ToHeader AncillaryTerminateCaptions
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AncillaryTerminateCaptions -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AncillaryTerminateCaptions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939082"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679940401"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; QueryString
 (AncillaryTerminateCaptions -&gt; QueryString)
 -&gt; ToQuery AncillaryTerminateCaptions
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AncillaryTerminateCaptions -&gt; QueryString
 $ctoQuery :: AncillaryTerminateCaptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939077"><span id="local-6989586621679939079"><span class="annot"><span class="annottext">Value -&gt; Parser [AncillaryTerminateCaptions]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679940396"><span id="local-6989586621679940398"><span class="annot"><span class="annottext">Value -&gt; Parser [AncillaryTerminateCaptions]
 Value -&gt; Parser AncillaryTerminateCaptions
 (Value -&gt; Parser AncillaryTerminateCaptions)
 -&gt; (Value -&gt; Parser [AncillaryTerminateCaptions])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [AncillaryTerminateCaptions]
 parseJSON :: Value -&gt; Parser AncillaryTerminateCaptions
 $cparseJSON :: Value -&gt; Parser AncillaryTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679939072"><span id="local-6989586621679939074"><span class="annot"><span class="annottext">FromJSONKeyFunction [AncillaryTerminateCaptions]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679940391"><span id="local-6989586621679940393"><span class="annot"><span class="annottext">FromJSONKeyFunction [AncillaryTerminateCaptions]
 FromJSONKeyFunction AncillaryTerminateCaptions
 FromJSONKeyFunction AncillaryTerminateCaptions
 -&gt; FromJSONKeyFunction [AncillaryTerminateCaptions]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AncillaryTerminateCaptions]
 fromJSONKey :: FromJSONKeyFunction AncillaryTerminateCaptions
 $cfromJSONKey :: FromJSONKeyFunction AncillaryTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679939063"><span id="local-6989586621679939065"><span id="local-6989586621679939067"><span id="local-6989586621679939069"><span class="annot"><span class="annottext">[AncillaryTerminateCaptions] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940382"><span id="local-6989586621679940384"><span id="local-6989586621679940386"><span id="local-6989586621679940388"><span class="annot"><span class="annottext">[AncillaryTerminateCaptions] -&gt; Encoding
 [AncillaryTerminateCaptions] -&gt; Value
 AncillaryTerminateCaptions -&gt; Encoding
 AncillaryTerminateCaptions -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: AncillaryTerminateCaptions -&gt; Encoding
 toJSON :: AncillaryTerminateCaptions -&gt; Value
 $ctoJSON :: AncillaryTerminateCaptions -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679939058"><span id="local-6989586621679939060"><span class="annot"><span class="annottext">ToJSONKeyFunction [AncillaryTerminateCaptions]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940377"><span id="local-6989586621679940379"><span class="annot"><span class="annottext">ToJSONKeyFunction [AncillaryTerminateCaptions]
 ToJSONKeyFunction AncillaryTerminateCaptions
 ToJSONKeyFunction AncillaryTerminateCaptions
 -&gt; ToJSONKeyFunction [AncillaryTerminateCaptions]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AncillaryTerminateCaptions]
 toJSONKey :: ToJSONKeyFunction AncillaryTerminateCaptions
 $ctoJSONKey :: ToJSONKeyFunction AncillaryTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679939055"><span class="annot"><span class="annottext">[Node] -&gt; Either String AncillaryTerminateCaptions
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940374"><span class="annot"><span class="annottext">[Node] -&gt; Either String AncillaryTerminateCaptions
 ([Node] -&gt; Either String AncillaryTerminateCaptions)
 -&gt; FromXML AncillaryTerminateCaptions
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AncillaryTerminateCaptions
 $cparseXML :: [Node] -&gt; Either String AncillaryTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679939052"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679940371"><span class="annot"><span class="annottext">AncillaryTerminateCaptions -&gt; XML
 (AncillaryTerminateCaptions -&gt; XML)
 -&gt; ToXML AncillaryTerminateCaptions
 forall a. (a -&gt; XML) -&gt; ToXML a

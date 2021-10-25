@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteVirtualInterface' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679289473"><span id="local-6989586621679289474"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-var">DeleteVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-var">DeleteVirtualInterface'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679298370"><span id="local-6989586621679298371"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-var">DeleteVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-var">DeleteVirtualInterface'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3ADeleteVirtualInterface%27"><span class="annot"><span class="annottext">DeleteVirtualInterface -&gt; Text
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AvirtualInterfaceId%3ADeleteVirtualInterface%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289467"><span id="local-6989586621679289469"><span class="annot"><span class="annottext">DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298364"><span id="local-6989586621679298366"><span class="annot"><span class="annottext">DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool
 (DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool)
 -&gt; (DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool)
 -&gt; Eq DeleteVirtualInterface
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool
 == :: DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool
 $c== :: DeleteVirtualInterface -&gt; DeleteVirtualInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289458"><span id="local-6989586621679289460"><span id="local-6989586621679289462"><span id="local-6989586621679289464"><span class="annot"><span class="annottext">ReadPrec [DeleteVirtualInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298355"><span id="local-6989586621679298357"><span id="local-6989586621679298359"><span id="local-6989586621679298361"><span class="annot"><span class="annottext">ReadPrec [DeleteVirtualInterface]
 ReadPrec DeleteVirtualInterface
 Int -&gt; ReadS DeleteVirtualInterface
 ReadS [DeleteVirtualInterface]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteVirtualInterface]
 $creadList :: ReadS [DeleteVirtualInterface]
 readsPrec :: Int -&gt; ReadS DeleteVirtualInterface
 $creadsPrec :: Int -&gt; ReadS DeleteVirtualInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289451"><span id="local-6989586621679289453"><span id="local-6989586621679289455"><span class="annot"><span class="annottext">Int -&gt; DeleteVirtualInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298348"><span id="local-6989586621679298350"><span id="local-6989586621679298352"><span class="annot"><span class="annottext">Int -&gt; DeleteVirtualInterface -&gt; ShowS
 [DeleteVirtualInterface] -&gt; ShowS
 DeleteVirtualInterface -&gt; String
 (Int -&gt; DeleteVirtualInterface -&gt; ShowS)
@@ -122,14 +122,14 @@ $cfrom :: forall x. DeleteVirtualInterface -&gt; Rep DeleteVirtualInterface x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteVirtualInterface"><span class="annot"><span class="annottext">newDeleteVirtualInterface :: Text -&gt; DeleteVirtualInterface
-</span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#newDeleteVirtualInterface"><span class="hs-identifier hs-var hs-var">newDeleteVirtualInterface</span></a></span></span><span> </span><span id="local-6989586621679289446"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289446"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#newDeleteVirtualInterface"><span class="hs-identifier hs-var hs-var">newDeleteVirtualInterface</span></a></span></span><span> </span><span id="local-6989586621679298343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298343"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteVirtualInterface' :: Text -&gt; DeleteVirtualInterface
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AvirtualInterfaceId%3ADeleteVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289446"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span><span>
+</span><a href="#local-6989586621679298343"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DeleteVirtualInterface -&gt; Rep DeleteVirtualInterface x
 -&gt; (DeleteVirtualInterface -&gt; Text -&gt; DeleteVirtualInterface)
 -&gt; Lens DeleteVirtualInterface DeleteVirtualInterface Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289443"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298340"><span class="annot"><span class="annottext">Text
 virtualInterfaceId :: Text
 $sel:virtualInterfaceId:DeleteVirtualInterface' :: DeleteVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679289443"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289443"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289442"><span class="annot"><span class="annottext">s :: DeleteVirtualInterface
-</span><a href="#local-6989586621679289442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualInterface
-</span><a href="#local-6989586621679289442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteVirtualInterface' :: Text
+</span><a href="#local-6989586621679298340"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298340"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298339"><span class="annot"><span class="annottext">s :: DeleteVirtualInterface
+</span><a href="#local-6989586621679298339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualInterface
+</span><a href="#local-6989586621679298339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AvirtualInterfaceId%3ADeleteVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679289437"><span class="annot"><span class="annottext">request :: DeleteVirtualInterface -&gt; Request DeleteVirtualInterface
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679298334"><span class="annot"><span class="annottext">request :: DeleteVirtualInterface -&gt; Request DeleteVirtualInterface
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteVirtualInterface -&gt; Request DeleteVirtualInterface
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679289433"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679298330"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteVirtualInterface
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289430"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289430"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289429"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679289429"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289428"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289428"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298327"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298326"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679298326"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
 -&gt; Int -&gt; DeleteVirtualInterfaceResponse
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">DeleteVirtualInterfaceResponse'</span></a></span><span>
@@ -199,7 +199,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteVirtualInterfaceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterfaceState)
+</span><a href="#local-6989586621679298325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterfaceState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterfaceState&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289430"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298327"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289420"><span id="local-6989586621679289422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298317"><span id="local-6989586621679298319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679289413"><span class="annot"><span class="annottext">toHeaders :: DeleteVirtualInterface -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679298310"><span class="annot"><span class="annottext">toHeaders :: DeleteVirtualInterface -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteVirtualInterface -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -247,12 +247,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289403"><span id="local-6989586621679289405"><span id="local-6989586621679289407"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679289401"><span class="annot"><span class="annottext">toJSON :: DeleteVirtualInterface -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289399"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298300"><span id="local-6989586621679298302"><span id="local-6989586621679298304"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679298298"><span class="annot"><span class="annottext">toJSON :: DeleteVirtualInterface -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface%27"><span class="hs-identifier hs-type">DeleteVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298296"><span class="annot"><span class="annottext">Text
 virtualInterfaceId :: Text
 $sel:virtualInterfaceId:DeleteVirtualInterface' :: DeleteVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679289399"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298296"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -265,19 +265,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289399"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298296"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679289393"><span class="annot"><span class="annottext">toPath :: DeleteVirtualInterface -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679298290"><span class="annot"><span class="annottext">toPath :: DeleteVirtualInterface -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteVirtualInterface -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterface"><span class="hs-identifier hs-type">DeleteVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679289389"><span class="annot"><span class="annottext">toQuery :: DeleteVirtualInterface -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679298286"><span class="annot"><span class="annottext">toQuery :: DeleteVirtualInterface -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteVirtualInterface -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteVirtualInterfaceResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679289386"><span id="local-6989586621679289387"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVirtualInterfaceResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-var">DeleteVirtualInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVirtualInterfaceResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">DeleteVirtualInterfaceResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679298283"><span id="local-6989586621679298284"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVirtualInterfaceResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-var">DeleteVirtualInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVirtualInterfaceResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">DeleteVirtualInterfaceResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the virtual interface. The following are the possible</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- values:</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteVirtualInterfaceResponse%27"><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AhttpStatus%3ADeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289380"><span id="local-6989586621679289382"><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298277"><span id="local-6989586621679298279"><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse
 -&gt; DeleteVirtualInterfaceResponse -&gt; Bool
 (DeleteVirtualInterfaceResponse
  -&gt; DeleteVirtualInterfaceResponse -&gt; Bool)
@@ -341,7 +341,7 @@ $c/= :: DeleteVirtualInterfaceResponse
 -&gt; DeleteVirtualInterfaceResponse -&gt; Bool
 $c== :: DeleteVirtualInterfaceResponse
 -&gt; DeleteVirtualInterfaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289372"><span id="local-6989586621679289374"><span id="local-6989586621679289376"><span id="local-6989586621679289378"><span class="annot"><span class="annottext">ReadPrec [DeleteVirtualInterfaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298269"><span id="local-6989586621679298271"><span id="local-6989586621679298273"><span id="local-6989586621679298275"><span class="annot"><span class="annottext">ReadPrec [DeleteVirtualInterfaceResponse]
 ReadPrec DeleteVirtualInterfaceResponse
 Int -&gt; ReadS DeleteVirtualInterfaceResponse
 ReadS [DeleteVirtualInterfaceResponse]
@@ -361,7 +361,7 @@ readList :: ReadS [DeleteVirtualInterfaceResponse]
 $creadList :: ReadS [DeleteVirtualInterfaceResponse]
 readsPrec :: Int -&gt; ReadS DeleteVirtualInterfaceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteVirtualInterfaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289366"><span id="local-6989586621679289368"><span id="local-6989586621679289370"><span class="annot"><span class="annottext">Int -&gt; DeleteVirtualInterfaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298263"><span id="local-6989586621679298265"><span id="local-6989586621679298267"><span class="annot"><span class="annottext">Int -&gt; DeleteVirtualInterfaceResponse -&gt; ShowS
 [DeleteVirtualInterfaceResponse] -&gt; ShowS
 DeleteVirtualInterfaceResponse -&gt; String
 (Int -&gt; DeleteVirtualInterfaceResponse -&gt; ShowS)
@@ -447,8 +447,8 @@ DeleteVirtualInterfaceResponse
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newDeleteVirtualInterfaceResponse"><span class="annot"><span class="annottext">newDeleteVirtualInterfaceResponse :: Int -&gt; DeleteVirtualInterfaceResponse
-</span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#newDeleteVirtualInterfaceResponse"><span class="hs-identifier hs-var hs-var">newDeleteVirtualInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621679289363"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289363"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#newDeleteVirtualInterfaceResponse"><span class="hs-identifier hs-var hs-var">newDeleteVirtualInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621679298260"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298260"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse' :: Maybe VirtualInterfaceState
 -&gt; Int -&gt; DeleteVirtualInterfaceResponse
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span>
@@ -459,7 +459,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVirtualInterfaceResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AhttpStatus%3ADeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289363"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679298260"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The state of the virtual interface. The following are the possible</span><span>
@@ -508,16 +508,16 @@ forall a. Maybe a
      (Maybe VirtualInterfaceState)
      (Maybe VirtualInterfaceState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289362"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298259"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
 virtualInterfaceState :: Maybe VirtualInterfaceState
 $sel:virtualInterfaceState:DeleteVirtualInterfaceResponse' :: DeleteVirtualInterfaceResponse -&gt; Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679289362"><span class="hs-identifier hs-var hs-var">virtualInterfaceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679289362"><span class="hs-identifier hs-var">virtualInterfaceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289361"><span class="annot"><span class="annottext">s :: DeleteVirtualInterfaceResponse
-</span><a href="#local-6989586621679289361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289360"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679289360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse
-</span><a href="#local-6989586621679289361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceState:DeleteVirtualInterfaceResponse' :: Maybe VirtualInterfaceState
+</span><a href="#local-6989586621679298259"><span class="hs-identifier hs-var hs-var">virtualInterfaceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
+</span><a href="#local-6989586621679298259"><span class="hs-identifier hs-var">virtualInterfaceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298258"><span class="annot"><span class="annottext">s :: DeleteVirtualInterfaceResponse
+</span><a href="#local-6989586621679298258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298257"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
+</span><a href="#local-6989586621679298257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse
+</span><a href="#local-6989586621679298258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceState:DeleteVirtualInterfaceResponse' :: Maybe VirtualInterfaceState
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AvirtualInterfaceState%3ADeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">virtualInterfaceState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679289360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#deleteVirtualInterfaceResponse_httpStatus"><span class="hs-identifier hs-type">deleteVirtualInterfaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -533,18 +533,18 @@ $sel:virtualInterfaceState:DeleteVirtualInterfaceResponse' :: DeleteVirtualInter
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289359"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298256"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteVirtualInterfaceResponse' :: DeleteVirtualInterfaceResponse -&gt; Int
-</span><a href="#local-6989586621679289359"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289359"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289358"><span class="annot"><span class="annottext">s :: DeleteVirtualInterfaceResponse
-</span><a href="#local-6989586621679289358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289357"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse
-</span><a href="#local-6989586621679289358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVirtualInterfaceResponse' :: Int
+</span><a href="#local-6989586621679298256"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298256"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298255"><span class="annot"><span class="annottext">s :: DeleteVirtualInterfaceResponse
+</span><a href="#local-6989586621679298255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualInterfaceResponse
+</span><a href="#local-6989586621679298255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVirtualInterfaceResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#%24sel%3AhttpStatus%3ADeleteVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679289355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679298252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteVirtualInterface.html#DeleteVirtualInterfaceResponse"><span class="hs-identifier hs-type">DeleteVirtualInterfaceResponse</span></a></span></span><span>
 </span><span id="line-264"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | In the current MediaConvert implementation, the Dolby Vision profile is</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Vision frame interleaved data.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679955751"><span id="local-6989586621679955752"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DolbyVisionProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#DolbyVisionProfile"><span class="hs-identifier hs-var">DolbyVisionProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DolbyVisionProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#DolbyVisionProfile%27"><span class="hs-identifier hs-var">DolbyVisionProfile'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679957070"><span id="local-6989586621679957071"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DolbyVisionProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#DolbyVisionProfile"><span class="hs-identifier hs-var">DolbyVisionProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DolbyVisionProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#DolbyVisionProfile%27"><span class="hs-identifier hs-var">DolbyVisionProfile'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDolbyVisionProfile"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DolbyVisionProfile.html#fromDolbyVisionProfile"><span class="hs-identifier hs-var hs-var">fromDolbyVisionProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955743"><span id="local-6989586621679955745"><span id="local-6989586621679955747"><span class="annot"><span class="annottext">Int -&gt; DolbyVisionProfile -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957062"><span id="local-6989586621679957064"><span id="local-6989586621679957066"><span class="annot"><span class="annottext">Int -&gt; DolbyVisionProfile -&gt; ShowS
 [DolbyVisionProfile] -&gt; ShowS
 DolbyVisionProfile -&gt; String
 (Int -&gt; DolbyVisionProfile -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DolbyVisionProfile -&gt; String
 showsPrec :: Int -&gt; DolbyVisionProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; DolbyVisionProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679955734"><span id="local-6989586621679955736"><span id="local-6989586621679955738"><span id="local-6989586621679955740"><span class="annot"><span class="annottext">ReadPrec [DolbyVisionProfile]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679957053"><span id="local-6989586621679957055"><span id="local-6989586621679957057"><span id="local-6989586621679957059"><span class="annot"><span class="annottext">ReadPrec [DolbyVisionProfile]
 ReadPrec DolbyVisionProfile
 Int -&gt; ReadS DolbyVisionProfile
 ReadS [DolbyVisionProfile]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DolbyVisionProfile]
 readsPrec :: Int -&gt; ReadS DolbyVisionProfile
 $creadsPrec :: Int -&gt; ReadS DolbyVisionProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679955729"><span id="local-6989586621679955731"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679957048"><span id="local-6989586621679957050"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool
 (DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool)
 -&gt; (DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool)
 -&gt; Eq DolbyVisionProfile
@@ -84,7 +84,7 @@ $c/= :: DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool
 == :: DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool
 $c== :: DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679955713"><span id="local-6989586621679955715"><span id="local-6989586621679955717"><span id="local-6989586621679955719"><span id="local-6989586621679955721"><span id="local-6989586621679955723"><span id="local-6989586621679955725"><span class="annot"><span class="annottext">Eq DolbyVisionProfile
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679957032"><span id="local-6989586621679957034"><span id="local-6989586621679957036"><span id="local-6989586621679957038"><span id="local-6989586621679957040"><span id="local-6989586621679957042"><span id="local-6989586621679957044"><span class="annot"><span class="annottext">Eq DolbyVisionProfile
 Eq DolbyVisionProfile
 -&gt; (DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Ordering)
 -&gt; (DolbyVisionProfile -&gt; DolbyVisionProfile -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. DolbyVisionProfile -&gt; Rep DolbyVisionProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955705"><span id="local-6989586621679955707"><span class="annot"><span class="annottext">Int -&gt; DolbyVisionProfile -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957024"><span id="local-6989586621679957026"><span class="annot"><span class="annottext">Int -&gt; DolbyVisionProfile -&gt; Int
 DolbyVisionProfile -&gt; Int
 (Int -&gt; DolbyVisionProfile -&gt; Int)
 -&gt; (DolbyVisionProfile -&gt; Int) -&gt; Hashable DolbyVisionProfile
@@ -145,53 +145,53 @@ $chash :: DolbyVisionProfile -&gt; Int
 hashWithSalt :: Int -&gt; DolbyVisionProfile -&gt; Int
 $chashWithSalt :: Int -&gt; DolbyVisionProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679955702"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679957021"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; ()
 (DolbyVisionProfile -&gt; ()) -&gt; NFData DolbyVisionProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DolbyVisionProfile -&gt; ()
 $crnf :: DolbyVisionProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679955699"><span class="annot"><span class="annottext">Text -&gt; Either String DolbyVisionProfile
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679957018"><span class="annot"><span class="annottext">Text -&gt; Either String DolbyVisionProfile
 (Text -&gt; Either String DolbyVisionProfile)
 -&gt; FromText DolbyVisionProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DolbyVisionProfile
 $cfromText :: Text -&gt; Either String DolbyVisionProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679955696"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679957015"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; Text
 (DolbyVisionProfile -&gt; Text) -&gt; ToText DolbyVisionProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DolbyVisionProfile -&gt; Text
 $ctoText :: DolbyVisionProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679955693"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679957012"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; ByteString
 (DolbyVisionProfile -&gt; ByteString)
 -&gt; ToByteString DolbyVisionProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DolbyVisionProfile -&gt; ByteString
 $ctoBS :: DolbyVisionProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679955690"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679957009"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; ByteStringBuilder
 (DolbyVisionProfile -&gt; ByteStringBuilder)
 -&gt; ToLog DolbyVisionProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DolbyVisionProfile -&gt; ByteStringBuilder
 $cbuild :: DolbyVisionProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679955687"><span class="annot"><span class="annottext">HeaderName -&gt; DolbyVisionProfile -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679957006"><span class="annot"><span class="annottext">HeaderName -&gt; DolbyVisionProfile -&gt; [Header]
 (HeaderName -&gt; DolbyVisionProfile -&gt; [Header])
 -&gt; ToHeader DolbyVisionProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DolbyVisionProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DolbyVisionProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679955684"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679957003"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; QueryString
 (DolbyVisionProfile -&gt; QueryString) -&gt; ToQuery DolbyVisionProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DolbyVisionProfile -&gt; QueryString
 $ctoQuery :: DolbyVisionProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679955679"><span id="local-6989586621679955681"><span class="annot"><span class="annottext">Value -&gt; Parser [DolbyVisionProfile]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679956998"><span id="local-6989586621679957000"><span class="annot"><span class="annottext">Value -&gt; Parser [DolbyVisionProfile]
 Value -&gt; Parser DolbyVisionProfile
 (Value -&gt; Parser DolbyVisionProfile)
 -&gt; (Value -&gt; Parser [DolbyVisionProfile])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [DolbyVisionProfile]
 parseJSON :: Value -&gt; Parser DolbyVisionProfile
 $cparseJSON :: Value -&gt; Parser DolbyVisionProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679955674"><span id="local-6989586621679955676"><span class="annot"><span class="annottext">FromJSONKeyFunction [DolbyVisionProfile]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679956993"><span id="local-6989586621679956995"><span class="annot"><span class="annottext">FromJSONKeyFunction [DolbyVisionProfile]
 FromJSONKeyFunction DolbyVisionProfile
 FromJSONKeyFunction DolbyVisionProfile
 -&gt; FromJSONKeyFunction [DolbyVisionProfile]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DolbyVisionProfile]
 fromJSONKey :: FromJSONKeyFunction DolbyVisionProfile
 $cfromJSONKey :: FromJSONKeyFunction DolbyVisionProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679955665"><span id="local-6989586621679955667"><span id="local-6989586621679955669"><span id="local-6989586621679955671"><span class="annot"><span class="annottext">[DolbyVisionProfile] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679956984"><span id="local-6989586621679956986"><span id="local-6989586621679956988"><span id="local-6989586621679956990"><span class="annot"><span class="annottext">[DolbyVisionProfile] -&gt; Encoding
 [DolbyVisionProfile] -&gt; Value
 DolbyVisionProfile -&gt; Encoding
 DolbyVisionProfile -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: DolbyVisionProfile -&gt; Encoding
 toJSON :: DolbyVisionProfile -&gt; Value
 $ctoJSON :: DolbyVisionProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679955660"><span id="local-6989586621679955662"><span class="annot"><span class="annottext">ToJSONKeyFunction [DolbyVisionProfile]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679956979"><span id="local-6989586621679956981"><span class="annot"><span class="annottext">ToJSONKeyFunction [DolbyVisionProfile]
 ToJSONKeyFunction DolbyVisionProfile
 ToJSONKeyFunction DolbyVisionProfile
 -&gt; ToJSONKeyFunction [DolbyVisionProfile]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DolbyVisionProfile]
 toJSONKey :: ToJSONKeyFunction DolbyVisionProfile
 $ctoJSONKey :: ToJSONKeyFunction DolbyVisionProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679955657"><span class="annot"><span class="annottext">[Node] -&gt; Either String DolbyVisionProfile
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679956976"><span class="annot"><span class="annottext">[Node] -&gt; Either String DolbyVisionProfile
 ([Node] -&gt; Either String DolbyVisionProfile)
 -&gt; FromXML DolbyVisionProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DolbyVisionProfile
 $cparseXML :: [Node] -&gt; Either String DolbyVisionProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679955654"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679956973"><span class="annot"><span class="annottext">DolbyVisionProfile -&gt; XML
 (DolbyVisionProfile -&gt; XML) -&gt; ToXML DolbyVisionProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DolbyVisionProfile -&gt; XML

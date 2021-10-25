@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- (TRANSITION_DETECTION) for further video quality improvement. For more</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- information about QVBR, see</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679968371"><span id="local-6989586621679968372"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264SceneChangeDetect"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SceneChangeDetect.html#H264SceneChangeDetect"><span class="hs-identifier hs-var">H264SceneChangeDetect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264SceneChangeDetect%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SceneChangeDetect.html#H264SceneChangeDetect%27"><span class="hs-identifier hs-var">H264SceneChangeDetect'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679969861"><span id="local-6989586621679969862"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264SceneChangeDetect"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SceneChangeDetect.html#H264SceneChangeDetect"><span class="hs-identifier hs-var">H264SceneChangeDetect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264SceneChangeDetect%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264SceneChangeDetect.html#H264SceneChangeDetect%27"><span class="hs-identifier hs-var">H264SceneChangeDetect'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264SceneChangeDetect"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264SceneChangeDetect.html#fromH264SceneChangeDetect"><span class="hs-identifier hs-var hs-var">fromH264SceneChangeDetect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968363"><span id="local-6989586621679968365"><span id="local-6989586621679968367"><span class="annot"><span class="annottext">Int -&gt; H264SceneChangeDetect -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679969853"><span id="local-6989586621679969855"><span id="local-6989586621679969857"><span class="annot"><span class="annottext">Int -&gt; H264SceneChangeDetect -&gt; ShowS
 [H264SceneChangeDetect] -&gt; ShowS
 H264SceneChangeDetect -&gt; String
 (Int -&gt; H264SceneChangeDetect -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: H264SceneChangeDetect -&gt; String
 showsPrec :: Int -&gt; H264SceneChangeDetect -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264SceneChangeDetect -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679968354"><span id="local-6989586621679968356"><span id="local-6989586621679968358"><span id="local-6989586621679968360"><span class="annot"><span class="annottext">ReadPrec [H264SceneChangeDetect]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679969844"><span id="local-6989586621679969846"><span id="local-6989586621679969848"><span id="local-6989586621679969850"><span class="annot"><span class="annottext">ReadPrec [H264SceneChangeDetect]
 ReadPrec H264SceneChangeDetect
 Int -&gt; ReadS H264SceneChangeDetect
 ReadS [H264SceneChangeDetect]
@@ -79,7 +79,7 @@ $creadList :: ReadS [H264SceneChangeDetect]
 readsPrec :: Int -&gt; ReadS H264SceneChangeDetect
 $creadsPrec :: Int -&gt; ReadS H264SceneChangeDetect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679968349"><span id="local-6989586621679968351"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679969839"><span id="local-6989586621679969841"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool
 (H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool)
 -&gt; (H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool)
 -&gt; Eq H264SceneChangeDetect
@@ -89,7 +89,7 @@ $c/= :: H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool
 == :: H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool
 $c== :: H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679968333"><span id="local-6989586621679968335"><span id="local-6989586621679968337"><span id="local-6989586621679968339"><span id="local-6989586621679968341"><span id="local-6989586621679968343"><span id="local-6989586621679968345"><span class="annot"><span class="annottext">Eq H264SceneChangeDetect
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679969823"><span id="local-6989586621679969825"><span id="local-6989586621679969827"><span id="local-6989586621679969829"><span id="local-6989586621679969831"><span id="local-6989586621679969833"><span id="local-6989586621679969835"><span class="annot"><span class="annottext">Eq H264SceneChangeDetect
 Eq H264SceneChangeDetect
 -&gt; (H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Ordering)
 -&gt; (H264SceneChangeDetect -&gt; H264SceneChangeDetect -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. H264SceneChangeDetect -&gt; Rep H264SceneChangeDetect x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968325"><span id="local-6989586621679968327"><span class="annot"><span class="annottext">Int -&gt; H264SceneChangeDetect -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679969815"><span id="local-6989586621679969817"><span class="annot"><span class="annottext">Int -&gt; H264SceneChangeDetect -&gt; Int
 H264SceneChangeDetect -&gt; Int
 (Int -&gt; H264SceneChangeDetect -&gt; Int)
 -&gt; (H264SceneChangeDetect -&gt; Int) -&gt; Hashable H264SceneChangeDetect
@@ -157,54 +157,54 @@ $chash :: H264SceneChangeDetect -&gt; Int
 hashWithSalt :: Int -&gt; H264SceneChangeDetect -&gt; Int
 $chashWithSalt :: Int -&gt; H264SceneChangeDetect -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679968322"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679969812"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; ()
 (H264SceneChangeDetect -&gt; ()) -&gt; NFData H264SceneChangeDetect
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264SceneChangeDetect -&gt; ()
 $crnf :: H264SceneChangeDetect -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679968319"><span class="annot"><span class="annottext">Text -&gt; Either String H264SceneChangeDetect
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679969809"><span class="annot"><span class="annottext">Text -&gt; Either String H264SceneChangeDetect
 (Text -&gt; Either String H264SceneChangeDetect)
 -&gt; FromText H264SceneChangeDetect
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264SceneChangeDetect
 $cfromText :: Text -&gt; Either String H264SceneChangeDetect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679968316"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679969806"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; Text
 (H264SceneChangeDetect -&gt; Text) -&gt; ToText H264SceneChangeDetect
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264SceneChangeDetect -&gt; Text
 $ctoText :: H264SceneChangeDetect -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679968313"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679969803"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; ByteString
 (H264SceneChangeDetect -&gt; ByteString)
 -&gt; ToByteString H264SceneChangeDetect
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264SceneChangeDetect -&gt; ByteString
 $ctoBS :: H264SceneChangeDetect -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679968310"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679969800"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; ByteStringBuilder
 (H264SceneChangeDetect -&gt; ByteStringBuilder)
 -&gt; ToLog H264SceneChangeDetect
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264SceneChangeDetect -&gt; ByteStringBuilder
 $cbuild :: H264SceneChangeDetect -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679968307"><span class="annot"><span class="annottext">HeaderName -&gt; H264SceneChangeDetect -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679969797"><span class="annot"><span class="annottext">HeaderName -&gt; H264SceneChangeDetect -&gt; [Header]
 (HeaderName -&gt; H264SceneChangeDetect -&gt; [Header])
 -&gt; ToHeader H264SceneChangeDetect
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264SceneChangeDetect -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264SceneChangeDetect -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679968304"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679969794"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; QueryString
 (H264SceneChangeDetect -&gt; QueryString)
 -&gt; ToQuery H264SceneChangeDetect
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264SceneChangeDetect -&gt; QueryString
 $ctoQuery :: H264SceneChangeDetect -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679968299"><span id="local-6989586621679968301"><span class="annot"><span class="annottext">Value -&gt; Parser [H264SceneChangeDetect]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679969789"><span id="local-6989586621679969791"><span class="annot"><span class="annottext">Value -&gt; Parser [H264SceneChangeDetect]
 Value -&gt; Parser H264SceneChangeDetect
 (Value -&gt; Parser H264SceneChangeDetect)
 -&gt; (Value -&gt; Parser [H264SceneChangeDetect])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [H264SceneChangeDetect]
 parseJSON :: Value -&gt; Parser H264SceneChangeDetect
 $cparseJSON :: Value -&gt; Parser H264SceneChangeDetect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679968294"><span id="local-6989586621679968296"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264SceneChangeDetect]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679969784"><span id="local-6989586621679969786"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264SceneChangeDetect]
 FromJSONKeyFunction H264SceneChangeDetect
 FromJSONKeyFunction H264SceneChangeDetect
 -&gt; FromJSONKeyFunction [H264SceneChangeDetect]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264SceneChangeDetect]
 fromJSONKey :: FromJSONKeyFunction H264SceneChangeDetect
 $cfromJSONKey :: FromJSONKeyFunction H264SceneChangeDetect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679968285"><span id="local-6989586621679968287"><span id="local-6989586621679968289"><span id="local-6989586621679968291"><span class="annot"><span class="annottext">[H264SceneChangeDetect] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679969775"><span id="local-6989586621679969777"><span id="local-6989586621679969779"><span id="local-6989586621679969781"><span class="annot"><span class="annottext">[H264SceneChangeDetect] -&gt; Encoding
 [H264SceneChangeDetect] -&gt; Value
 H264SceneChangeDetect -&gt; Encoding
 H264SceneChangeDetect -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: H264SceneChangeDetect -&gt; Encoding
 toJSON :: H264SceneChangeDetect -&gt; Value
 $ctoJSON :: H264SceneChangeDetect -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679968280"><span id="local-6989586621679968282"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264SceneChangeDetect]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679969770"><span id="local-6989586621679969772"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264SceneChangeDetect]
 ToJSONKeyFunction H264SceneChangeDetect
 ToJSONKeyFunction H264SceneChangeDetect
 -&gt; ToJSONKeyFunction [H264SceneChangeDetect]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264SceneChangeDetect]
 toJSONKey :: ToJSONKeyFunction H264SceneChangeDetect
 $ctoJSONKey :: ToJSONKeyFunction H264SceneChangeDetect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679968277"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264SceneChangeDetect
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679969767"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264SceneChangeDetect
 ([Node] -&gt; Either String H264SceneChangeDetect)
 -&gt; FromXML H264SceneChangeDetect
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264SceneChangeDetect
 $cparseXML :: [Node] -&gt; Either String H264SceneChangeDetect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679968274"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679969764"><span class="annot"><span class="annottext">H264SceneChangeDetect -&gt; XML
 (H264SceneChangeDetect -&gt; XML) -&gt; ToXML H264SceneChangeDetect
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264SceneChangeDetect -&gt; XML

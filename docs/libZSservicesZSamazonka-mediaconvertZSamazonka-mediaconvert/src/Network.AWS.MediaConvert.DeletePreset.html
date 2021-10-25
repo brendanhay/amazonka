@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeletePreset' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621680032297"><span id="local-6989586621680032298"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreset"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-var">DeletePreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreset%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-var">DeletePreset'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621680033794"><span id="local-6989586621680033795"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreset"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-var">DeletePreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreset%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-var">DeletePreset'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the preset to be deleted.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3ADeletePreset%27"><span class="annot"><span class="annottext">DeletePreset -&gt; Text
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#%24sel%3Aname%3ADeletePreset%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032291"><span id="local-6989586621680032293"><span class="annot"><span class="annottext">DeletePreset -&gt; DeletePreset -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033788"><span id="local-6989586621680033790"><span class="annot"><span class="annottext">DeletePreset -&gt; DeletePreset -&gt; Bool
 (DeletePreset -&gt; DeletePreset -&gt; Bool)
 -&gt; (DeletePreset -&gt; DeletePreset -&gt; Bool) -&gt; Eq DeletePreset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePreset -&gt; DeletePreset -&gt; Bool
 == :: DeletePreset -&gt; DeletePreset -&gt; Bool
 $c== :: DeletePreset -&gt; DeletePreset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032282"><span id="local-6989586621680032284"><span id="local-6989586621680032286"><span id="local-6989586621680032288"><span class="annot"><span class="annottext">ReadPrec [DeletePreset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033779"><span id="local-6989586621680033781"><span id="local-6989586621680033783"><span id="local-6989586621680033785"><span class="annot"><span class="annottext">ReadPrec [DeletePreset]
 ReadPrec DeletePreset
 Int -&gt; ReadS DeletePreset
 ReadS [DeletePreset]
@@ -79,7 +79,7 @@ readList :: ReadS [DeletePreset]
 $creadList :: ReadS [DeletePreset]
 readsPrec :: Int -&gt; ReadS DeletePreset
 $creadsPrec :: Int -&gt; ReadS DeletePreset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032275"><span id="local-6989586621680032277"><span id="local-6989586621680032279"><span class="annot"><span class="annottext">Int -&gt; DeletePreset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033772"><span id="local-6989586621680033774"><span id="local-6989586621680033776"><span class="annot"><span class="annottext">Int -&gt; DeletePreset -&gt; ShowS
 [DeletePreset] -&gt; ShowS
 DeletePreset -&gt; String
 (Int -&gt; DeletePreset -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. DeletePreset -&gt; Rep DeletePreset x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeletePreset"><span class="annot"><span class="annottext">newDeletePreset :: Text -&gt; DeletePreset
-</span><a href="Network.AWS.MediaConvert.DeletePreset.html#newDeletePreset"><span class="hs-identifier hs-var hs-var">newDeletePreset</span></a></span></span><span> </span><span id="local-6989586621680032270"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680032270"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePreset' :: Text -&gt; DeletePreset
+</span><a href="Network.AWS.MediaConvert.DeletePreset.html#newDeletePreset"><span class="hs-identifier hs-var hs-var">newDeletePreset</span></a></span></span><span> </span><span id="local-6989586621680033767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033767"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePreset' :: Text -&gt; DeletePreset
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeletePreset' :: Text
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#%24sel%3Aname%3ADeletePreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680032270"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680033767"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The name of the preset to be deleted.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#deletePreset_name"><span class="hs-identifier hs-type">deletePreset_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -132,25 +132,25 @@ $cfrom :: forall x. DeletePreset -&gt; Rep DeletePreset x
 -&gt; (DeletePreset -&gt; Text -&gt; DeletePreset)
 -&gt; Lens DeletePreset DeletePreset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032267"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033764"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeletePreset' :: DeletePreset -&gt; Text
-</span><a href="#local-6989586621680032267"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680032267"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032266"><span class="annot"><span class="annottext">s :: DeletePreset
-</span><a href="#local-6989586621680032266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032265"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680032265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreset
-</span><a href="#local-6989586621680032266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeletePreset' :: Text
+</span><a href="#local-6989586621680033764"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033764"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033763"><span class="annot"><span class="annottext">s :: DeletePreset
+</span><a href="#local-6989586621680033763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680033762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreset
+</span><a href="#local-6989586621680033763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeletePreset' :: Text
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#%24sel%3Aname%3ADeletePreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680032265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680032261"><span class="annot"><span class="annottext">request :: DeletePreset -&gt; Request DeletePreset
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680033758"><span class="annot"><span class="annottext">request :: DeletePreset -&gt; Request DeletePreset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePreset -&gt; Request DeletePreset
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680032257"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680033754"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePreset
 -&gt; ClientResponse ClientBody
@@ -174,10 +174,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680032254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032254"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680032253"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680032253"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680032252"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621680032252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680033751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033751"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680033750"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680033750"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680033749"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680033749"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePresetResponse
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-var">DeletePresetResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePresetResponse)
@@ -188,15 +188,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032254"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033751"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032245"><span id="local-6989586621680032247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033742"><span id="local-6989586621680033744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680032238"><span class="annot"><span class="annottext">toHeaders :: DeletePreset -&gt; ResponseHeaders
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680033735"><span class="annot"><span class="annottext">toHeaders :: DeletePreset -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePreset -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -216,11 +216,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680032232"><span class="annot"><span class="annottext">toPath :: DeletePreset -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032230"><span class="annot"><span class="annottext">Text
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680033729"><span class="annot"><span class="annottext">toPath :: DeletePreset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033727"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeletePreset' :: DeletePreset -&gt; Text
-</span><a href="#local-6989586621680032230"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680033727"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -228,10 +228,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2017-08-29/presets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680032230"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680033727"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680032226"><span class="annot"><span class="annottext">toQuery :: DeletePreset -&gt; QueryString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680033723"><span class="annot"><span class="annottext">toQuery :: DeletePreset -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePreset -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -239,12 +239,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newDeletePresetResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621680032223"><span id="local-6989586621680032224"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePresetResponse"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-var">DeletePresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePresetResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-var">DeletePresetResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621680033720"><span id="local-6989586621680033721"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePresetResponse"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-var">DeletePresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePresetResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-var">DeletePresetResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="annot"><span class="annottext">DeletePresetResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032218"><span id="local-6989586621680032220"><span class="annot"><span class="annottext">DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680033715"><span id="local-6989586621680033717"><span class="annot"><span class="annottext">DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
 (DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool)
 -&gt; (DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool)
 -&gt; Eq DeletePresetResponse
@@ -253,7 +253,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
 == :: DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
 $c== :: DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032210"><span id="local-6989586621680032212"><span id="local-6989586621680032214"><span id="local-6989586621680032216"><span class="annot"><span class="annottext">ReadPrec [DeletePresetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033707"><span id="local-6989586621680033709"><span id="local-6989586621680033711"><span id="local-6989586621680033713"><span class="annot"><span class="annottext">ReadPrec [DeletePresetResponse]
 ReadPrec DeletePresetResponse
 Int -&gt; ReadS DeletePresetResponse
 ReadS [DeletePresetResponse]
@@ -273,7 +273,7 @@ readList :: ReadS [DeletePresetResponse]
 $creadList :: ReadS [DeletePresetResponse]
 readsPrec :: Int -&gt; ReadS DeletePresetResponse
 $creadsPrec :: Int -&gt; ReadS DeletePresetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032204"><span id="local-6989586621680032206"><span id="local-6989586621680032208"><span class="annot"><span class="annottext">Int -&gt; DeletePresetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680033701"><span id="local-6989586621680033703"><span id="local-6989586621680033705"><span class="annot"><span class="annottext">Int -&gt; DeletePresetResponse -&gt; ShowS
 [DeletePresetResponse] -&gt; ShowS
 DeletePresetResponse -&gt; String
 (Int -&gt; DeletePresetResponse -&gt; ShowS)
@@ -313,12 +313,12 @@ $cfrom :: forall x. DeletePresetResponse -&gt; Rep DeletePresetResponse x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span>
 </span><span id="line-127"></span><span id="newDeletePresetResponse"><span class="annot"><span class="annottext">newDeletePresetResponse :: Int -&gt; DeletePresetResponse
-</span><a href="Network.AWS.MediaConvert.DeletePreset.html#newDeletePresetResponse"><span class="hs-identifier hs-var hs-var">newDeletePresetResponse</span></a></span></span><span> </span><span id="local-6989586621680032201"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032201"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.DeletePreset.html#newDeletePresetResponse"><span class="hs-identifier hs-var hs-var">newDeletePresetResponse</span></a></span></span><span> </span><span id="local-6989586621680033698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">DeletePresetResponse' :: Int -&gt; DeletePresetResponse
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePresetResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032201"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680033698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#deletePresetResponse_httpStatus"><span class="hs-identifier hs-type">deletePresetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -327,16 +327,16 @@ $cfrom :: forall x. DeletePresetResponse -&gt; Rep DeletePresetResponse x
 -&gt; (DeletePresetResponse -&gt; Int -&gt; DeletePresetResponse)
 -&gt; Lens DeletePresetResponse DeletePresetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032200"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680033697"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeletePresetResponse' :: DeletePresetResponse -&gt; Int
-</span><a href="#local-6989586621680032200"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032200"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032199"><span class="annot"><span class="annottext">s :: DeletePresetResponse
-</span><a href="#local-6989586621680032199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032198"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePresetResponse
-</span><a href="#local-6989586621680032199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePresetResponse' :: Int
+</span><a href="#local-6989586621680033697"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033697"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680033696"><span class="annot"><span class="annottext">s :: DeletePresetResponse
+</span><a href="#local-6989586621680033696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680033695"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680033695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePresetResponse
+</span><a href="#local-6989586621680033696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePresetResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.DeletePreset.html#%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680032198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680033695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680033693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span></span><span>
 </span><span id="line-135"></span></pre></body></html>

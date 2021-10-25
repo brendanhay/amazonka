@@ -30,24 +30,22 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- | Use this setting when your input video codec is AVC-Intra. Ignore this</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- setting for all other inputs. If the sample range metadata in your input</span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- video is accurate, or if you don\'t know about sample range, keep the</span><span>
-</span><span id="line-36"></span><span class="hs-comment">-- default value, Follow (FOLLOW), for this setting. When you do, the</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- service automatically detects your input sample range. If your input</span><span>
-</span><span id="line-38"></span><span class="hs-comment">-- video has metadata indicating the wrong sample range, specify the</span><span>
-</span><span id="line-39"></span><span class="hs-comment">-- accurate sample range here. When you do, MediaConvert ignores any sample</span><span>
-</span><span id="line-40"></span><span class="hs-comment">-- range information in the input metadata. Regardless of whether</span><span>
-</span><span id="line-41"></span><span class="hs-comment">-- MediaConvert uses the input sample range or the sample range that you</span><span>
-</span><span id="line-42"></span><span class="hs-comment">-- specify, MediaConvert uses the sample range for transcoding and also</span><span>
-</span><span id="line-43"></span><span class="hs-comment">-- writes it to the output metadata.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679981254"><span id="local-6989586621679981255"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputSampleRange"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-var">InputSampleRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSampleRange%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-identifier hs-var">InputSampleRange'</span></a></span></span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputSampleRange"><span class="annot"><span class="annottext">InputSampleRange -&gt; Text
+</span><span id="line-33"></span><span class="hs-comment">-- | If the sample range metadata in your input video is accurate, or if you</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- don\'t know about sample range, keep the default value, Follow (FOLLOW),</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- for this setting. When you do, the service automatically detects your</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- input sample range. If your input video has metadata indicating the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- wrong sample range, specify the accurate sample range here. When you do,</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- MediaConvert ignores any sample range information in the input metadata.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Regardless of whether MediaConvert uses the input sample range or the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- sample range that you specify, MediaConvert uses the sample range for</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- transcoding and also writes it to the output metadata.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679982744"><span id="local-6989586621679982745"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputSampleRange"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-var">InputSampleRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSampleRange%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-identifier hs-var">InputSampleRange'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputSampleRange"><span class="annot"><span class="annottext">InputSampleRange -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#fromInputSampleRange"><span class="hs-identifier hs-var hs-var">fromInputSampleRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981246"><span id="local-6989586621679981248"><span id="local-6989586621679981250"><span class="annot"><span class="annottext">Int -&gt; InputSampleRange -&gt; ShowS
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982736"><span id="local-6989586621679982738"><span id="local-6989586621679982740"><span class="annot"><span class="annottext">Int -&gt; InputSampleRange -&gt; ShowS
 [InputSampleRange] -&gt; ShowS
 InputSampleRange -&gt; String
 (Int -&gt; InputSampleRange -&gt; ShowS)
@@ -63,7 +61,7 @@ $cshow :: InputSampleRange -&gt; String
 showsPrec :: Int -&gt; InputSampleRange -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputSampleRange -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981237"><span id="local-6989586621679981239"><span id="local-6989586621679981241"><span id="local-6989586621679981243"><span class="annot"><span class="annottext">ReadPrec [InputSampleRange]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679982727"><span id="local-6989586621679982729"><span id="local-6989586621679982731"><span id="local-6989586621679982733"><span class="annot"><span class="annottext">ReadPrec [InputSampleRange]
 ReadPrec InputSampleRange
 Int -&gt; ReadS InputSampleRange
 ReadS [InputSampleRange]
@@ -84,7 +82,7 @@ $creadList :: ReadS [InputSampleRange]
 readsPrec :: Int -&gt; ReadS InputSampleRange
 $creadsPrec :: Int -&gt; ReadS InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981232"><span id="local-6989586621679981234"><span class="annot"><span class="annottext">InputSampleRange -&gt; InputSampleRange -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679982722"><span id="local-6989586621679982724"><span class="annot"><span class="annottext">InputSampleRange -&gt; InputSampleRange -&gt; Bool
 (InputSampleRange -&gt; InputSampleRange -&gt; Bool)
 -&gt; (InputSampleRange -&gt; InputSampleRange -&gt; Bool)
 -&gt; Eq InputSampleRange
@@ -94,7 +92,7 @@ $c/= :: InputSampleRange -&gt; InputSampleRange -&gt; Bool
 == :: InputSampleRange -&gt; InputSampleRange -&gt; Bool
 $c== :: InputSampleRange -&gt; InputSampleRange -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981216"><span id="local-6989586621679981218"><span id="local-6989586621679981220"><span id="local-6989586621679981222"><span id="local-6989586621679981224"><span id="local-6989586621679981226"><span id="local-6989586621679981228"><span class="annot"><span class="annottext">Eq InputSampleRange
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679982706"><span id="local-6989586621679982708"><span id="local-6989586621679982710"><span id="local-6989586621679982712"><span id="local-6989586621679982714"><span id="local-6989586621679982716"><span id="local-6989586621679982718"><span class="annot"><span class="annottext">Eq InputSampleRange
 Eq InputSampleRange
 -&gt; (InputSampleRange -&gt; InputSampleRange -&gt; Ordering)
 -&gt; (InputSampleRange -&gt; InputSampleRange -&gt; Bool)
@@ -133,7 +131,7 @@ compare :: InputSampleRange -&gt; InputSampleRange -&gt; Ordering
 $ccompare :: InputSampleRange -&gt; InputSampleRange -&gt; Ordering
 $cp1Ord :: Eq InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InputSampleRange -&gt; Rep InputSampleRange x)
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InputSampleRange -&gt; Rep InputSampleRange x)
 -&gt; (forall x. Rep InputSampleRange x -&gt; InputSampleRange)
 -&gt; Generic InputSampleRange
 forall x. Rep InputSampleRange x -&gt; InputSampleRange
@@ -143,9 +141,9 @@ forall a.
 $cto :: forall x. Rep InputSampleRange x -&gt; InputSampleRange
 $cfrom :: forall x. InputSampleRange -&gt; Rep InputSampleRange x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981208"><span id="local-6989586621679981210"><span class="annot"><span class="annottext">Int -&gt; InputSampleRange -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982698"><span id="local-6989586621679982700"><span class="annot"><span class="annottext">Int -&gt; InputSampleRange -&gt; Int
 InputSampleRange -&gt; Int
 (Int -&gt; InputSampleRange -&gt; Int)
 -&gt; (InputSampleRange -&gt; Int) -&gt; Hashable InputSampleRange
@@ -155,51 +153,51 @@ $chash :: InputSampleRange -&gt; Int
 hashWithSalt :: Int -&gt; InputSampleRange -&gt; Int
 $chashWithSalt :: Int -&gt; InputSampleRange -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981205"><span class="annot"><span class="annottext">InputSampleRange -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679982695"><span class="annot"><span class="annottext">InputSampleRange -&gt; ()
 (InputSampleRange -&gt; ()) -&gt; NFData InputSampleRange
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputSampleRange -&gt; ()
 $crnf :: InputSampleRange -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981202"><span class="annot"><span class="annottext">Text -&gt; Either String InputSampleRange
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679982692"><span class="annot"><span class="annottext">Text -&gt; Either String InputSampleRange
 (Text -&gt; Either String InputSampleRange)
 -&gt; FromText InputSampleRange
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputSampleRange
 $cfromText :: Text -&gt; Either String InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981199"><span class="annot"><span class="annottext">InputSampleRange -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679982689"><span class="annot"><span class="annottext">InputSampleRange -&gt; Text
 (InputSampleRange -&gt; Text) -&gt; ToText InputSampleRange
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputSampleRange -&gt; Text
 $ctoText :: InputSampleRange -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981196"><span class="annot"><span class="annottext">InputSampleRange -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679982686"><span class="annot"><span class="annottext">InputSampleRange -&gt; ByteString
 (InputSampleRange -&gt; ByteString) -&gt; ToByteString InputSampleRange
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputSampleRange -&gt; ByteString
 $ctoBS :: InputSampleRange -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679981193"><span class="annot"><span class="annottext">InputSampleRange -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679982683"><span class="annot"><span class="annottext">InputSampleRange -&gt; ByteStringBuilder
 (InputSampleRange -&gt; ByteStringBuilder) -&gt; ToLog InputSampleRange
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputSampleRange -&gt; ByteStringBuilder
 $cbuild :: InputSampleRange -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679981190"><span class="annot"><span class="annottext">HeaderName -&gt; InputSampleRange -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679982680"><span class="annot"><span class="annottext">HeaderName -&gt; InputSampleRange -&gt; [Header]
 (HeaderName -&gt; InputSampleRange -&gt; [Header])
 -&gt; ToHeader InputSampleRange
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputSampleRange -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputSampleRange -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679981187"><span class="annot"><span class="annottext">InputSampleRange -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679982677"><span class="annot"><span class="annottext">InputSampleRange -&gt; QueryString
 (InputSampleRange -&gt; QueryString) -&gt; ToQuery InputSampleRange
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputSampleRange -&gt; QueryString
 $ctoQuery :: InputSampleRange -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679981182"><span id="local-6989586621679981184"><span class="annot"><span class="annottext">Value -&gt; Parser [InputSampleRange]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679982672"><span id="local-6989586621679982674"><span class="annot"><span class="annottext">Value -&gt; Parser [InputSampleRange]
 Value -&gt; Parser InputSampleRange
 (Value -&gt; Parser InputSampleRange)
 -&gt; (Value -&gt; Parser [InputSampleRange])
@@ -211,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [InputSampleRange]
 parseJSON :: Value -&gt; Parser InputSampleRange
 $cparseJSON :: Value -&gt; Parser InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679981177"><span id="local-6989586621679981179"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputSampleRange]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679982667"><span id="local-6989586621679982669"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputSampleRange]
 FromJSONKeyFunction InputSampleRange
 FromJSONKeyFunction InputSampleRange
 -&gt; FromJSONKeyFunction [InputSampleRange]
@@ -223,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputSampleRange]
 fromJSONKey :: FromJSONKeyFunction InputSampleRange
 $cfromJSONKey :: FromJSONKeyFunction InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679981168"><span id="local-6989586621679981170"><span id="local-6989586621679981172"><span id="local-6989586621679981174"><span class="annot"><span class="annottext">[InputSampleRange] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679982658"><span id="local-6989586621679982660"><span id="local-6989586621679982662"><span id="local-6989586621679982664"><span class="annot"><span class="annottext">[InputSampleRange] -&gt; Encoding
 [InputSampleRange] -&gt; Value
 InputSampleRange -&gt; Encoding
 InputSampleRange -&gt; Value
@@ -247,7 +245,7 @@ $ctoEncoding :: InputSampleRange -&gt; Encoding
 toJSON :: InputSampleRange -&gt; Value
 $ctoJSON :: InputSampleRange -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679981163"><span id="local-6989586621679981165"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputSampleRange]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679982653"><span id="local-6989586621679982655"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputSampleRange]
 ToJSONKeyFunction InputSampleRange
 ToJSONKeyFunction InputSampleRange
 -&gt; ToJSONKeyFunction [InputSampleRange]
@@ -259,40 +257,40 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputSampleRange]
 toJSONKey :: ToJSONKeyFunction InputSampleRange
 $ctoJSONKey :: ToJSONKeyFunction InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679981160"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputSampleRange
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679982650"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputSampleRange
 ([Node] -&gt; Either String InputSampleRange)
 -&gt; FromXML InputSampleRange
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputSampleRange
 $cparseXML :: [Node] -&gt; Either String InputSampleRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679981157"><span class="annot"><span class="annottext">InputSampleRange -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679982647"><span class="annot"><span class="annottext">InputSampleRange -&gt; XML
 (InputSampleRange -&gt; XML) -&gt; ToXML InputSampleRange
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputSampleRange -&gt; XML
 $ctoXML :: InputSampleRange -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FOLLOW"><span class="hs-identifier hs-type">InputSampleRange_FOLLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSampleRange_FOLLOW"><span id="%24mInputSampleRange_FOLLOW"><span id="InputSampleRange_FOLLOW"><span class="annot"><span class="annottext">$bInputSampleRange_FOLLOW :: InputSampleRange
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FOLLOW"><span class="hs-identifier hs-type">InputSampleRange_FOLLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSampleRange_FOLLOW"><span id="%24mInputSampleRange_FOLLOW"><span id="InputSampleRange_FOLLOW"><span class="annot"><span class="annottext">$bInputSampleRange_FOLLOW :: InputSampleRange
 $mInputSampleRange_FOLLOW :: forall r. InputSampleRange -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#%24bInputSampleRange_FOLLOW"><span class="hs-identifier hs-var hs-var hs-var">InputSampleRange_FOLLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-identifier hs-type">InputSampleRange'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FOLLOW&quot;</span></span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FULL_RANGE"><span class="hs-identifier hs-type">InputSampleRange_FULL_RANGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSampleRange_FULL_RANGE"><span id="%24mInputSampleRange_FULL_RANGE"><span id="InputSampleRange_FULL_RANGE"><span class="annot"><span class="annottext">$bInputSampleRange_FULL_RANGE :: InputSampleRange
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FULL_RANGE"><span class="hs-identifier hs-type">InputSampleRange_FULL_RANGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSampleRange_FULL_RANGE"><span id="%24mInputSampleRange_FULL_RANGE"><span id="InputSampleRange_FULL_RANGE"><span class="annot"><span class="annottext">$bInputSampleRange_FULL_RANGE :: InputSampleRange
 $mInputSampleRange_FULL_RANGE :: forall r. InputSampleRange -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#%24bInputSampleRange_FULL_RANGE"><span class="hs-identifier hs-var hs-var hs-var">InputSampleRange_FULL_RANGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-identifier hs-type">InputSampleRange'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FULL_RANGE&quot;</span></span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_LIMITED_RANGE"><span class="hs-identifier hs-type">InputSampleRange_LIMITED_RANGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSampleRange_LIMITED_RANGE"><span id="%24mInputSampleRange_LIMITED_RANGE"><span id="InputSampleRange_LIMITED_RANGE"><span class="annot"><span class="annottext">$bInputSampleRange_LIMITED_RANGE :: InputSampleRange
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_LIMITED_RANGE"><span class="hs-identifier hs-type">InputSampleRange_LIMITED_RANGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputSampleRange_LIMITED_RANGE"><span id="%24mInputSampleRange_LIMITED_RANGE"><span id="InputSampleRange_LIMITED_RANGE"><span class="annot"><span class="annottext">$bInputSampleRange_LIMITED_RANGE :: InputSampleRange
 $mInputSampleRange_LIMITED_RANGE :: forall r. InputSampleRange -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#%24bInputSampleRange_LIMITED_RANGE"><span class="hs-identifier hs-var hs-var hs-var">InputSampleRange_LIMITED_RANGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-identifier hs-type">InputSampleRange'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LIMITED_RANGE&quot;</span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FOLLOW"><span class="hs-pragma hs-type">InputSampleRange_FOLLOW</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FULL_RANGE"><span class="hs-pragma hs-type">InputSampleRange_FULL_RANGE</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_LIMITED_RANGE"><span class="hs-pragma hs-type">InputSampleRange_LIMITED_RANGE</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-pragma hs-type">InputSampleRange'</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
-</span><span id="line-87"></span></pre></body></html>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FOLLOW"><span class="hs-pragma hs-type">InputSampleRange_FOLLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_FULL_RANGE"><span class="hs-pragma hs-type">InputSampleRange_FULL_RANGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange_LIMITED_RANGE"><span class="hs-pragma hs-type">InputSampleRange_LIMITED_RANGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange%27"><span class="hs-pragma hs-type">InputSampleRange'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

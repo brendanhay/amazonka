@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A Common Media Application Format (CMAF) encryption configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCmafEncryption' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679238349"><span id="local-6989586621679238350"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafEncryption"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-var">CmafEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafEncryption%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-var">CmafEncryption'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679238665"><span id="local-6989586621679238666"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafEncryption"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-var">CmafEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafEncryption%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-var">CmafEncryption'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Time (in seconds) between each encryption key rotation.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AkeyRotationIntervalSeconds%3ACmafEncryption%27"><span class="annot"><span class="annottext">CmafEncryption -&gt; Maybe Int
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#%24sel%3AkeyRotationIntervalSeconds%3ACmafEncryption%27"><span class="hs-identifier hs-var hs-var">keyRotationIntervalSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AspekeKeyProvider%3ACmafEncryption%27"><span class="annot"><span class="annottext">CmafEncryption -&gt; SpekeKeyProvider
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#%24sel%3AspekeKeyProvider%3ACmafEncryption%27"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238341"><span id="local-6989586621679238343"><span class="annot"><span class="annottext">CmafEncryption -&gt; CmafEncryption -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238657"><span id="local-6989586621679238659"><span class="annot"><span class="annottext">CmafEncryption -&gt; CmafEncryption -&gt; Bool
 (CmafEncryption -&gt; CmafEncryption -&gt; Bool)
 -&gt; (CmafEncryption -&gt; CmafEncryption -&gt; Bool) -&gt; Eq CmafEncryption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CmafEncryption -&gt; CmafEncryption -&gt; Bool
 == :: CmafEncryption -&gt; CmafEncryption -&gt; Bool
 $c== :: CmafEncryption -&gt; CmafEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238332"><span id="local-6989586621679238334"><span id="local-6989586621679238336"><span id="local-6989586621679238338"><span class="annot"><span class="annottext">ReadPrec [CmafEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238648"><span id="local-6989586621679238650"><span id="local-6989586621679238652"><span id="local-6989586621679238654"><span class="annot"><span class="annottext">ReadPrec [CmafEncryption]
 ReadPrec CmafEncryption
 Int -&gt; ReadS CmafEncryption
 ReadS [CmafEncryption]
@@ -68,7 +68,7 @@ readList :: ReadS [CmafEncryption]
 $creadList :: ReadS [CmafEncryption]
 readsPrec :: Int -&gt; ReadS CmafEncryption
 $creadsPrec :: Int -&gt; ReadS CmafEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238325"><span id="local-6989586621679238327"><span id="local-6989586621679238329"><span class="annot"><span class="annottext">Int -&gt; CmafEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238641"><span id="local-6989586621679238643"><span id="local-6989586621679238645"><span class="annot"><span class="annottext">Int -&gt; CmafEncryption -&gt; ShowS
 [CmafEncryption] -&gt; ShowS
 CmafEncryption -&gt; String
 (Int -&gt; CmafEncryption -&gt; ShowS)
@@ -115,8 +115,8 @@ $cfrom :: forall x. CmafEncryption -&gt; Rep CmafEncryption x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span>
 </span><span id="line-62"></span><span id="newCmafEncryption"><span class="annot"><span class="annottext">newCmafEncryption :: SpekeKeyProvider -&gt; CmafEncryption
-</span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#newCmafEncryption"><span class="hs-identifier hs-var hs-var">newCmafEncryption</span></a></span></span><span> </span><span id="local-6989586621679238319"><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679238319"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#newCmafEncryption"><span class="hs-identifier hs-var hs-var">newCmafEncryption</span></a></span></span><span> </span><span id="local-6989586621679238635"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679238635"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">CmafEncryption' :: Maybe Int -&gt; Maybe Text -&gt; SpekeKeyProvider -&gt; CmafEncryption
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyRotationIntervalSeconds:CmafEncryption' :: Maybe Int
@@ -130,7 +130,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:CmafEncryption' :: SpekeKeyProvider
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#%24sel%3AspekeKeyProvider%3ACmafEncryption%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679238319"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span><span>
+</span><a href="#local-6989586621679238635"><span class="hs-identifier hs-var">pSpekeKeyProvider_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Time (in seconds) between each encryption key rotation.</span><span>
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (CmafEncryption -&gt; Maybe Int -&gt; CmafEncryption)
 -&gt; Lens CmafEncryption CmafEncryption (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238315"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238631"><span class="annot"><span class="annottext">Maybe Int
 keyRotationIntervalSeconds :: Maybe Int
 $sel:keyRotationIntervalSeconds:CmafEncryption' :: CmafEncryption -&gt; Maybe Int
-</span><a href="#local-6989586621679238315"><span class="hs-identifier hs-var hs-var">keyRotationIntervalSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238315"><span class="hs-identifier hs-var">keyRotationIntervalSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238314"><span class="annot"><span class="annottext">s :: CmafEncryption
-</span><a href="#local-6989586621679238314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238313"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafEncryption
-</span><a href="#local-6989586621679238314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyRotationIntervalSeconds:CmafEncryption' :: Maybe Int
+</span><a href="#local-6989586621679238631"><span class="hs-identifier hs-var hs-var">keyRotationIntervalSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238631"><span class="hs-identifier hs-var">keyRotationIntervalSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238630"><span class="annot"><span class="annottext">s :: CmafEncryption
+</span><a href="#local-6989586621679238630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238629"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafEncryption
+</span><a href="#local-6989586621679238630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyRotationIntervalSeconds:CmafEncryption' :: Maybe Int
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#%24sel%3AkeyRotationIntervalSeconds%3ACmafEncryption%27"><span class="hs-identifier hs-var">keyRotationIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | An optional 128-bit, 16-byte hex value represented by a 32-character</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- string, used in conjunction with the key for encrypting blocks. If you</span><span>
@@ -162,16 +162,16 @@ $sel:keyRotationIntervalSeconds:CmafEncryption' :: CmafEncryption -&gt; Maybe In
 -&gt; (CmafEncryption -&gt; Maybe Text -&gt; CmafEncryption)
 -&gt; Lens CmafEncryption CmafEncryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238311"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238627"><span class="annot"><span class="annottext">Maybe Text
 constantInitializationVector :: Maybe Text
 $sel:constantInitializationVector:CmafEncryption' :: CmafEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679238311"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238311"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238310"><span class="annot"><span class="annottext">s :: CmafEncryption
-</span><a href="#local-6989586621679238310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238309"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafEncryption
-</span><a href="#local-6989586621679238310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantInitializationVector:CmafEncryption' :: Maybe Text
+</span><a href="#local-6989586621679238627"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238627"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238626"><span class="annot"><span class="annottext">s :: CmafEncryption
+</span><a href="#local-6989586621679238626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238625"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafEncryption
+</span><a href="#local-6989586621679238626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantInitializationVector:CmafEncryption' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#%24sel%3AconstantInitializationVector%3ACmafEncryption%27"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#cmafEncryption_spekeKeyProvider"><span class="hs-identifier hs-type">cmafEncryption_spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span>
@@ -182,19 +182,19 @@ $sel:constantInitializationVector:CmafEncryption' :: CmafEncryption -&gt; Maybe 
 -&gt; Lens
      CmafEncryption CmafEncryption SpekeKeyProvider SpekeKeyProvider
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238307"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238623"><span class="annot"><span class="annottext">SpekeKeyProvider
 spekeKeyProvider :: SpekeKeyProvider
 $sel:spekeKeyProvider:CmafEncryption' :: CmafEncryption -&gt; SpekeKeyProvider
-</span><a href="#local-6989586621679238307"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679238307"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238306"><span class="annot"><span class="annottext">s :: CmafEncryption
-</span><a href="#local-6989586621679238306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238305"><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679238305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafEncryption
-</span><a href="#local-6989586621679238306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:CmafEncryption' :: SpekeKeyProvider
+</span><a href="#local-6989586621679238623"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679238623"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238622"><span class="annot"><span class="annottext">s :: CmafEncryption
+</span><a href="#local-6989586621679238622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238621"><span class="annot"><span class="annottext">SpekeKeyProvider
+</span><a href="#local-6989586621679238621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafEncryption
+</span><a href="#local-6989586621679238622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:CmafEncryption' :: SpekeKeyProvider
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#%24sel%3AspekeKeyProvider%3ACmafEncryption%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679238305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238302"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679238300"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmafEncryption
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238618"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679238616"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmafEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CmafEncryption)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CmafEncryption&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238297"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238297"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238613"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; SpekeKeyProvider -&gt; CmafEncryption
 </span><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-var">CmafEncryption'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; SpekeKeyProvider -&gt; CmafEncryption)
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; SpekeKeyProvider -&gt; CmafEncryption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679238613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyRotationIntervalSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,7 +222,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (SpekeKeyProvider -&gt; CmafEncryption)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679238613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;constantInitializationVector&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,19 +230,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SpekeKeyProvider -&gt; Parser CmafEncryption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SpekeKeyProvider
+</span><a href="#local-6989586621679238613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SpekeKeyProvider
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238290"><span id="local-6989586621679238292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238606"><span id="local-6989586621679238608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238279"><span id="local-6989586621679238281"><span id="local-6989586621679238283"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679238277"><span class="annot"><span class="annottext">toJSON :: CmafEncryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238273"><span id="local-6989586621679238274"><span id="local-6989586621679238275"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238595"><span id="local-6989586621679238597"><span id="local-6989586621679238599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679238593"><span class="annot"><span class="annottext">toJSON :: CmafEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption%27"><span class="hs-identifier hs-type">CmafEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238589"><span id="local-6989586621679238590"><span id="local-6989586621679238591"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 SpekeKeyProvider
 spekeKeyProvider :: SpekeKeyProvider
@@ -251,7 +251,7 @@ keyRotationIntervalSeconds :: Maybe Int
 $sel:spekeKeyProvider:CmafEncryption' :: CmafEncryption -&gt; SpekeKeyProvider
 $sel:constantInitializationVector:CmafEncryption' :: CmafEncryption -&gt; Maybe Text
 $sel:keyRotationIntervalSeconds:CmafEncryption' :: CmafEncryption -&gt; Maybe Int
-</span><a href="#local-6989586621679238273"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679238589"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,7 +264,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238275"><span class="hs-identifier hs-var">keyRotationIntervalSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238591"><span class="hs-identifier hs-var">keyRotationIntervalSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;constantInitializationVector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -272,7 +272,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238274"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238590"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -280,7 +280,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpekeKeyProvider -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SpekeKeyProvider
-</span><a href="#local-6989586621679238273"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238589"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

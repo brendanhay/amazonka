@@ -87,7 +87,7 @@
 </span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newListObjects' smart constructor.</span><span>
-</span><span id="line-90"></span><span id="local-6989586621679568940"><span id="local-6989586621679568941"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListObjects"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-var">ListObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListObjects%27"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-var">ListObjects'</span></a></span></span><span>
+</span><span id="line-90"></span><span id="local-6989586621679569087"><span id="local-6989586621679569088"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListObjects"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-var">ListObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListObjects%27"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-var">ListObjects'</span></a></span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Limits the response to keys that begin with the specified prefix.</span><span>
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3Aprefix%3AListObjects%27"><span class="annot"><span class="annottext">ListObjects -&gt; Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Aprefix%3AListObjects%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -139,7 +139,7 @@
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3Abucket%3AListObjects%27"><span class="annot"><span class="annottext">ListObjects -&gt; BucketName
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Abucket%3AListObjects%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568927"><span id="local-6989586621679568929"><span class="annot"><span class="annottext">ListObjects -&gt; ListObjects -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679569074"><span id="local-6989586621679569076"><span class="annot"><span class="annottext">ListObjects -&gt; ListObjects -&gt; Bool
 (ListObjects -&gt; ListObjects -&gt; Bool)
 -&gt; (ListObjects -&gt; ListObjects -&gt; Bool) -&gt; Eq ListObjects
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -147,7 +147,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListObjects -&gt; ListObjects -&gt; Bool
 == :: ListObjects -&gt; ListObjects -&gt; Bool
 $c== :: ListObjects -&gt; ListObjects -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568918"><span id="local-6989586621679568920"><span id="local-6989586621679568922"><span id="local-6989586621679568924"><span class="annot"><span class="annottext">ReadPrec [ListObjects]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679569065"><span id="local-6989586621679569067"><span id="local-6989586621679569069"><span id="local-6989586621679569071"><span class="annot"><span class="annottext">ReadPrec [ListObjects]
 ReadPrec ListObjects
 Int -&gt; ReadS ListObjects
 ReadS [ListObjects]
@@ -167,7 +167,7 @@ readList :: ReadS [ListObjects]
 $creadList :: ReadS [ListObjects]
 readsPrec :: Int -&gt; ReadS ListObjects
 $creadsPrec :: Int -&gt; ReadS ListObjects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568911"><span id="local-6989586621679568913"><span id="local-6989586621679568915"><span class="annot"><span class="annottext">Int -&gt; ListObjects -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679569058"><span id="local-6989586621679569060"><span id="local-6989586621679569062"><span class="annot"><span class="annottext">Int -&gt; ListObjects -&gt; ShowS
 [ListObjects] -&gt; ShowS
 ListObjects -&gt; String
 (Int -&gt; ListObjects -&gt; ShowS)
@@ -248,8 +248,8 @@ $cfrom :: forall x. ListObjects -&gt; Rep ListObjects x
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span>
 </span><span id="line-190"></span><span id="newListObjects"><span class="annot"><span class="annottext">newListObjects :: BucketName -&gt; ListObjects
-</span><a href="Network.AWS.S3.ListObjects.html#newListObjects"><span class="hs-identifier hs-var hs-var">newListObjects</span></a></span></span><span> </span><span id="local-6989586621679568906"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568906"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.ListObjects.html#newListObjects"><span class="hs-identifier hs-var hs-var">newListObjects</span></a></span></span><span> </span><span id="local-6989586621679569053"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679569053"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListObjects' :: Maybe Text
 -&gt; Maybe EncodingType
 -&gt; Maybe RequestPayer
@@ -290,7 +290,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:ListObjects' :: BucketName
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Abucket%3AListObjects%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568906"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679569053"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | Limits the response to keys that begin with the specified prefix.</span><span>
@@ -300,16 +300,16 @@ forall a. Maybe a
 -&gt; (ListObjects -&gt; Maybe Text -&gt; ListObjects)
 -&gt; Lens ListObjects ListObjects (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568904"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569051"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:ListObjects' :: ListObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679568904"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568904"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568903"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568902"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ListObjects' :: Maybe Text
+</span><a href="#local-6989586621679569051"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679569051"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569050"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569049"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679569049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ListObjects' :: Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Aprefix%3AListObjects%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#listObjects_encodingType"><span class="hs-identifier hs-type">listObjects_encodingType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EncodingType.html#EncodingType"><span class="hs-identifier hs-type">EncodingType</span></a></span><span class="hs-special">)</span><span>
@@ -320,16 +320,16 @@ $sel:prefix:ListObjects' :: ListObjects -&gt; Maybe Text
 -&gt; Lens
      ListObjects ListObjects (Maybe EncodingType) (Maybe EncodingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568901"><span class="annot"><span class="annottext">Maybe EncodingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569048"><span class="annot"><span class="annottext">Maybe EncodingType
 encodingType :: Maybe EncodingType
 $sel:encodingType:ListObjects' :: ListObjects -&gt; Maybe EncodingType
-</span><a href="#local-6989586621679568901"><span class="hs-identifier hs-var hs-var">encodingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568901"><span class="hs-identifier hs-var">encodingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568900"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568899"><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodingType:ListObjects' :: Maybe EncodingType
+</span><a href="#local-6989586621679569048"><span class="hs-identifier hs-var hs-var">encodingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
+</span><a href="#local-6989586621679569048"><span class="hs-identifier hs-var">encodingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569047"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569046"><span class="annot"><span class="annottext">Maybe EncodingType
+</span><a href="#local-6989586621679569046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodingType:ListObjects' :: Maybe EncodingType
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AencodingType%3AListObjects%27"><span class="hs-identifier hs-var">encodingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | Confirms that the requester knows that she or he will be charged for the</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- list objects request. Bucket owners need not specify this parameter in</span><span>
@@ -342,16 +342,16 @@ $sel:encodingType:ListObjects' :: ListObjects -&gt; Maybe EncodingType
 -&gt; Lens
      ListObjects ListObjects (Maybe RequestPayer) (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568898"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569045"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:ListObjects' :: ListObjects -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679568898"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568898"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568897"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568896"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:ListObjects' :: Maybe RequestPayer
+</span><a href="#local-6989586621679569045"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679569045"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569044"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569043"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679569043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:ListObjects' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3ArequestPayer%3AListObjects%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | Marker is where you want Amazon S3 to start listing from. Amazon S3</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- starts listing after this specified key. Marker can be any key in the</span><span>
@@ -362,16 +362,16 @@ $sel:requestPayer:ListObjects' :: ListObjects -&gt; Maybe RequestPayer
 -&gt; (ListObjects -&gt; Maybe Text -&gt; ListObjects)
 -&gt; Lens ListObjects ListObjects (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568895"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569042"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListObjects' :: ListObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679568895"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568895"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568894"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568893"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListObjects' :: Maybe Text
+</span><a href="#local-6989586621679569042"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679569042"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569041"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679569040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListObjects' :: Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Amarker%3AListObjects%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | Sets the maximum number of keys returned in the response. By default the</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- action returns up to 1,000 key names. The response might contain fewer</span><span>
@@ -382,16 +382,16 @@ $sel:marker:ListObjects' :: ListObjects -&gt; Maybe Text
 -&gt; (ListObjects -&gt; Maybe Int -&gt; ListObjects)
 -&gt; Lens ListObjects ListObjects (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568892"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569039"><span class="annot"><span class="annottext">Maybe Int
 maxKeys :: Maybe Int
 $sel:maxKeys:ListObjects' :: ListObjects -&gt; Maybe Int
-</span><a href="#local-6989586621679568892"><span class="hs-identifier hs-var hs-var">maxKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568892"><span class="hs-identifier hs-var">maxKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568891"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568890"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxKeys:ListObjects' :: Maybe Int
+</span><a href="#local-6989586621679569039"><span class="hs-identifier hs-var hs-var">maxKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679569039"><span class="hs-identifier hs-var">maxKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569038"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569037"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679569037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxKeys:ListObjects' :: Maybe Int
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AmaxKeys%3AListObjects%27"><span class="hs-identifier hs-var">maxKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | A delimiter is a character you use to group keys.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#listObjects_delimiter"><span class="hs-identifier hs-type">listObjects_delimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#Delimiter"><span class="hs-identifier hs-type">Delimiter</span></a></span><span class="hs-special">)</span><span>
@@ -401,16 +401,16 @@ $sel:maxKeys:ListObjects' :: ListObjects -&gt; Maybe Int
 -&gt; (ListObjects -&gt; Maybe Delimiter -&gt; ListObjects)
 -&gt; Lens ListObjects ListObjects (Maybe Delimiter) (Maybe Delimiter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568889"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569036"><span class="annot"><span class="annottext">Maybe Delimiter
 delimiter :: Maybe Delimiter
 $sel:delimiter:ListObjects' :: ListObjects -&gt; Maybe Delimiter
-</span><a href="#local-6989586621679568889"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568889"><span class="hs-identifier hs-var">delimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568888"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568887"><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delimiter:ListObjects' :: Maybe Delimiter
+</span><a href="#local-6989586621679569036"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
+</span><a href="#local-6989586621679569036"><span class="hs-identifier hs-var">delimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569035"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569034"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><a href="#local-6989586621679569034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delimiter:ListObjects' :: Maybe Delimiter
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Adelimiter%3AListObjects%27"><span class="hs-identifier hs-var">delimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -421,16 +421,16 @@ $sel:delimiter:ListObjects' :: ListObjects -&gt; Maybe Delimiter
 -&gt; (ListObjects -&gt; Maybe Text -&gt; ListObjects)
 -&gt; Lens ListObjects ListObjects (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568886"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569033"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:ListObjects' :: ListObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679568886"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568886"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568885"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListObjects' :: Maybe Text
+</span><a href="#local-6989586621679569033"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679569033"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569032"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679569031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListObjects' :: Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AexpectedBucketOwner%3AListObjects%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The name of the bucket containing the objects.</span><span>
 </span><span id="line-239"></span><span class="hs-comment">--</span><span>
@@ -458,28 +458,28 @@ $sel:expectedBucketOwner:ListObjects' :: ListObjects -&gt; Maybe Text
 -&gt; (ListObjects -&gt; BucketName -&gt; ListObjects)
 -&gt; Lens ListObjects ListObjects BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568883"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679569030"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:ListObjects' :: ListObjects -&gt; BucketName
-</span><a href="#local-6989586621679568883"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568883"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568882"><span class="annot"><span class="annottext">s :: ListObjects
-</span><a href="#local-6989586621679568882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568881"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListObjects' :: BucketName
+</span><a href="#local-6989586621679569030"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679569030"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679569029"><span class="annot"><span class="annottext">s :: ListObjects
+</span><a href="#local-6989586621679569029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679569028"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679569028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListObjects' :: BucketName
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Abucket%3AListObjects%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679569028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679568877"><span class="annot"><span class="annottext">page :: ListObjects -&gt; AWSResponse ListObjects -&gt; Maybe ListObjects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679568875"><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568875"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679568874"><span class="annot"><span class="annottext">AWSResponse ListObjects
-</span><a href="#local-6989586621679568874"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679569024"><span class="annot"><span class="annottext">page :: ListObjects -&gt; AWSResponse ListObjects -&gt; Maybe ListObjects
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679569022"><span class="annot"><span class="annottext">ListObjects
+</span><a href="#local-6989586621679569022"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679569021"><span class="annot"><span class="annottext">AWSResponse ListObjects
+</span><a href="#local-6989586621679569021"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-264"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListObjects
 ListObjectsResponse
-</span><a href="#local-6989586621679568874"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679569021"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">ListObjectsResponse
 -&gt; Getting (First Bool) ListObjectsResponse Bool -&gt; Maybe Bool
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -505,7 +505,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-269"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListObjects
 ListObjectsResponse
-</span><a href="#local-6989586621679568874"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679569021"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">ListObjectsResponse
 -&gt; Getting (Maybe Text) ListObjectsResponse (Maybe Text)
 -&gt; Maybe Text
@@ -596,7 +596,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">ListObjects
-</span><a href="#local-6989586621679568875"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679569022"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">ListObjects -&gt; (ListObjects -&gt; ListObjects) -&gt; ListObjects
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -609,7 +609,7 @@ Lens ListObjects ListObjects (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListObjects
 ListObjectsResponse
-</span><a href="#local-6989586621679568874"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679569021"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-289"></span><span>          </span><span class="annot"><span class="annottext">ListObjectsResponse
 -&gt; Getting (Maybe Text) ListObjectsResponse (Maybe Text)
 -&gt; Maybe Text
@@ -690,7 +690,7 @@ Lens' Object ObjectKey
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-303"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621679568859"><span class="annot"><span class="annottext">request :: ListObjects -&gt; Request ListObjects
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679569006"><span class="annot"><span class="annottext">request :: ListObjects -&gt; Request ListObjects
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">Request ListObjects -&gt; Request ListObjects
 forall a. Request a -&gt; Request a
@@ -704,7 +704,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621679568854"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679569001"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListObjects
 -&gt; ClientResponse ClientBody
@@ -728,10 +728,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679568851"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679568850"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679568850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679568849"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679568998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568998"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679568997"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679568997"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679568996"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-310"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Object]
 -&gt; Maybe Text
 -&gt; Maybe [CommonPrefix]
@@ -781,7 +781,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Contents&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -810,7 +810,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -848,7 +848,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CommonPrefixes&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe EncodingType
@@ -873,7 +873,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EncodingType)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EncodingType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncodingType&quot;</span></span><span class="hs-special">)</span><span>
@@ -899,7 +899,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BucketName)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BucketName)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -923,7 +923,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -942,7 +942,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Bool -&gt; Maybe Delimiter -&gt; Int -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -956,7 +956,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Bool -&gt; Maybe Delimiter -&gt; Int -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxKeys&quot;</span></span><span class="hs-special">)</span><span>
@@ -967,7 +967,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Delimiter -&gt; Int -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -976,7 +976,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679568849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Delimiter)
+</span><a href="#local-6989586621679568996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Delimiter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Delimiter&quot;</span></span><span class="hs-special">)</span><span>
@@ -988,16 +988,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568998"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-322"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-323"></span><span>
-</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568839"><span id="local-6989586621679568841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span></span></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568986"><span id="local-6989586621679568988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span></span></span><span>
 </span><span id="line-325"></span><span>
-</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span></span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-329"></span><span>  </span><span id="local-6989586621679568832"><span class="annot"><span class="annottext">toHeaders :: ListObjects -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568823"><span id="local-6989586621679568824"><span id="local-6989586621679568825"><span id="local-6989586621679568826"><span id="local-6989586621679568827"><span id="local-6989586621679568828"><span id="local-6989586621679568829"><span id="local-6989586621679568830"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><span id="line-329"></span><span>  </span><span id="local-6989586621679568979"><span class="annot"><span class="annottext">toHeaders :: ListObjects -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568970"><span id="local-6989586621679568971"><span id="local-6989586621679568972"><span id="local-6989586621679568973"><span id="local-6989586621679568974"><span id="local-6989586621679568975"><span id="local-6989586621679568976"><span id="local-6989586621679568977"><span class="annot"><span class="annottext">Maybe Delimiter
 Maybe Int
 Maybe Text
 Maybe EncodingType
@@ -1019,7 +1019,7 @@ $sel:marker:ListObjects' :: ListObjects -&gt; Maybe Text
 $sel:requestPayer:ListObjects' :: ListObjects -&gt; Maybe RequestPayer
 $sel:encodingType:ListObjects' :: ListObjects -&gt; Maybe EncodingType
 $sel:prefix:ListObjects' :: ListObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679568823"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679568970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-330"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1027,18 +1027,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679568828"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568975"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-333"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568824"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679568971"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-334"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-337"></span><span>  </span><span id="local-6989586621679568819"><span class="annot"><span class="annottext">toPath :: ListObjects -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568810"><span id="local-6989586621679568811"><span id="local-6989586621679568812"><span id="local-6989586621679568813"><span id="local-6989586621679568814"><span id="local-6989586621679568815"><span id="local-6989586621679568816"><span id="local-6989586621679568817"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679568966"><span class="annot"><span class="annottext">toPath :: ListObjects -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568957"><span id="local-6989586621679568958"><span id="local-6989586621679568959"><span id="local-6989586621679568960"><span id="local-6989586621679568961"><span id="local-6989586621679568962"><span id="local-6989586621679568963"><span id="local-6989586621679568964"><span class="annot"><span class="annottext">Maybe Delimiter
 Maybe Int
 Maybe Text
 Maybe EncodingType
@@ -1060,18 +1060,18 @@ $sel:marker:ListObjects' :: ListObjects -&gt; Maybe Text
 $sel:requestPayer:ListObjects' :: ListObjects -&gt; Maybe RequestPayer
 $sel:encodingType:ListObjects' :: ListObjects -&gt; Maybe EncodingType
 $sel:prefix:ListObjects' :: ListObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679568810"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679568957"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-338"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679568810"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679568957"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-339"></span><span>
 </span><span id="line-340"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects"><span class="hs-identifier hs-type">ListObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-341"></span><span>  </span><span id="local-6989586621679568806"><span class="annot"><span class="annottext">toQuery :: ListObjects -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568797"><span id="local-6989586621679568798"><span id="local-6989586621679568799"><span id="local-6989586621679568800"><span id="local-6989586621679568801"><span id="local-6989586621679568802"><span id="local-6989586621679568803"><span id="local-6989586621679568804"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><span id="line-341"></span><span>  </span><span id="local-6989586621679568953"><span class="annot"><span class="annottext">toQuery :: ListObjects -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjects%27"><span class="hs-identifier hs-type">ListObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568944"><span id="local-6989586621679568945"><span id="local-6989586621679568946"><span id="local-6989586621679568947"><span id="local-6989586621679568948"><span id="local-6989586621679568949"><span id="local-6989586621679568950"><span id="local-6989586621679568951"><span class="annot"><span class="annottext">Maybe Delimiter
 Maybe Int
 Maybe Text
 Maybe EncodingType
@@ -1093,7 +1093,7 @@ $sel:marker:ListObjects' :: ListObjects -&gt; Maybe Text
 $sel:requestPayer:ListObjects' :: ListObjects -&gt; Maybe RequestPayer
 $sel:encodingType:ListObjects' :: ListObjects -&gt; Maybe EncodingType
 $sel:prefix:ListObjects' :: ListObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679568797"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679568944"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-342"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1101,31 +1101,31 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568804"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568951"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-344"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;encoding-type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe EncodingType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568803"><span class="hs-identifier hs-var">encodingType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568950"><span class="hs-identifier hs-var">encodingType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568801"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568948"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-346"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;max-keys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568800"><span class="hs-identifier hs-var">maxKeys</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679568947"><span class="hs-identifier hs-var">maxKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-347"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;delimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Delimiter -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568799"><span class="hs-identifier hs-var">delimiter</span></a></span><span>
+</span><a href="#local-6989586621679568946"><span class="hs-identifier hs-var">delimiter</span></a></span><span>
 </span><span id="line-348"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-349"></span><span>
 </span><span id="line-350"></span><span class="hs-comment">-- | /See:/ 'newListObjectsResponse' smart constructor.</span><span>
-</span><span id="line-351"></span><span id="local-6989586621679568794"><span id="local-6989586621679568795"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListObjectsResponse"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-var">ListObjectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListObjectsResponse%27"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-var">ListObjectsResponse'</span></a></span></span><span>
+</span><span id="line-351"></span><span id="local-6989586621679568941"><span id="local-6989586621679568942"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListObjectsResponse"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-var">ListObjectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListObjectsResponse%27"><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-var">ListObjectsResponse'</span></a></span></span><span>
 </span><span id="line-352"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Metadata about each object returned.</span><span>
 </span><span id="line-353"></span><span>    </span><span id="%24sel%3Acontents%3AListObjectsResponse%27"><span class="annot"><span class="annottext">ListObjectsResponse -&gt; Maybe [Object]
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Acontents%3AListObjectsResponse%27"><span class="hs-identifier hs-var hs-var">contents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -1187,7 +1187,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-400"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListObjectsResponse%27"><span class="annot"><span class="annottext">ListObjectsResponse -&gt; Int
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AhttpStatus%3AListObjectsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-401"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-402"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568779"><span id="local-6989586621679568781"><span class="annot"><span class="annottext">ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool
+</span><span id="line-402"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679568926"><span id="local-6989586621679568928"><span class="annot"><span class="annottext">ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool
 (ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool)
 -&gt; (ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool)
 -&gt; Eq ListObjectsResponse
@@ -1196,7 +1196,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool
 == :: ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool
 $c== :: ListObjectsResponse -&gt; ListObjectsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568771"><span id="local-6989586621679568773"><span id="local-6989586621679568775"><span id="local-6989586621679568777"><span class="annot"><span class="annottext">ReadPrec [ListObjectsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568918"><span id="local-6989586621679568920"><span id="local-6989586621679568922"><span id="local-6989586621679568924"><span class="annot"><span class="annottext">ReadPrec [ListObjectsResponse]
 ReadPrec ListObjectsResponse
 Int -&gt; ReadS ListObjectsResponse
 ReadS [ListObjectsResponse]
@@ -1216,7 +1216,7 @@ readList :: ReadS [ListObjectsResponse]
 $creadList :: ReadS [ListObjectsResponse]
 readsPrec :: Int -&gt; ReadS ListObjectsResponse
 $creadsPrec :: Int -&gt; ReadS ListObjectsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568765"><span id="local-6989586621679568767"><span id="local-6989586621679568769"><span class="annot"><span class="annottext">Int -&gt; ListObjectsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679568912"><span id="local-6989586621679568914"><span id="local-6989586621679568916"><span class="annot"><span class="annottext">Int -&gt; ListObjectsResponse -&gt; ShowS
 [ListObjectsResponse] -&gt; ShowS
 ListObjectsResponse -&gt; String
 (Int -&gt; ListObjectsResponse -&gt; ShowS)
@@ -1303,8 +1303,8 @@ $cfrom :: forall x. ListObjectsResponse -&gt; Rep ListObjectsResponse x
 </span><span id="line-462"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-463"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span>
 </span><span id="line-464"></span><span id="newListObjectsResponse"><span class="annot"><span class="annottext">newListObjectsResponse :: Int -&gt; ListObjectsResponse
-</span><a href="Network.AWS.S3.ListObjects.html#newListObjectsResponse"><span class="hs-identifier hs-var hs-var">newListObjectsResponse</span></a></span></span><span> </span><span id="local-6989586621679568762"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.ListObjects.html#newListObjectsResponse"><span class="hs-identifier hs-var hs-var">newListObjectsResponse</span></a></span></span><span> </span><span id="local-6989586621679568909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-465"></span><span>  </span><span class="annot"><span class="annottext">ListObjectsResponse' :: Maybe [Object]
 -&gt; Maybe Text
 -&gt; Maybe [CommonPrefix]
@@ -1360,7 +1360,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-476"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListObjectsResponse' :: Int
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AhttpStatus%3AListObjectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679568909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-477"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-478"></span><span>
 </span><span id="line-479"></span><span class="hs-comment">-- | Metadata about each object returned.</span><span>
@@ -1371,16 +1371,16 @@ forall a. Maybe a
 -&gt; (ListObjectsResponse -&gt; Maybe [Object] -&gt; ListObjectsResponse)
 -&gt; Lens' ListObjectsResponse (Maybe [Object])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568761"><span class="annot"><span class="annottext">Maybe [Object]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568908"><span class="annot"><span class="annottext">Maybe [Object]
 contents :: Maybe [Object]
 $sel:contents:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe [Object]
-</span><a href="#local-6989586621679568761"><span class="hs-identifier hs-var hs-var">contents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Object]
-</span><a href="#local-6989586621679568761"><span class="hs-identifier hs-var">contents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568760"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568759"><span class="annot"><span class="annottext">Maybe [Object]
-</span><a href="#local-6989586621679568759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contents:ListObjectsResponse' :: Maybe [Object]
+</span><a href="#local-6989586621679568908"><span class="hs-identifier hs-var hs-var">contents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Object]
+</span><a href="#local-6989586621679568908"><span class="hs-identifier hs-var">contents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568907"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568906"><span class="annot"><span class="annottext">Maybe [Object]
+</span><a href="#local-6989586621679568906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contents:ListObjectsResponse' :: Maybe [Object]
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Acontents%3AListObjectsResponse%27"><span class="hs-identifier hs-var">contents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Object]
-</span><a href="#local-6989586621679568759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Object] -&gt; f (Maybe [Object]))
+</span><a href="#local-6989586621679568906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Object] -&gt; f (Maybe [Object]))
  -&gt; ListObjectsResponse -&gt; f ListObjectsResponse)
 -&gt; ((Maybe [Object] -&gt; f (Maybe [Object]))
     -&gt; Maybe [Object] -&gt; f (Maybe [Object]))
@@ -1406,16 +1406,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListObjectsResponse -&gt; Maybe Text -&gt; ListObjectsResponse)
 -&gt; Lens' ListObjectsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568756"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568903"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679568756"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568756"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568755"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ListObjectsResponse' :: Maybe Text
+</span><a href="#local-6989586621679568903"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568903"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568902"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ListObjectsResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Aprefix%3AListObjectsResponse%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-486"></span><span>
 </span><span id="line-487"></span><span class="hs-comment">-- | All of the keys (up to 1,000) rolled up in a common prefix count as a</span><span>
 </span><span id="line-488"></span><span class="hs-comment">-- single return when calculating the number of returns.</span><span>
@@ -1444,16 +1444,16 @@ $sel:prefix:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Text
      (Maybe [CommonPrefix])
      (Maybe [CommonPrefix])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568753"><span class="annot"><span class="annottext">Maybe [CommonPrefix]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568900"><span class="annot"><span class="annottext">Maybe [CommonPrefix]
 commonPrefixes :: Maybe [CommonPrefix]
 $sel:commonPrefixes:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe [CommonPrefix]
-</span><a href="#local-6989586621679568753"><span class="hs-identifier hs-var hs-var">commonPrefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CommonPrefix]
-</span><a href="#local-6989586621679568753"><span class="hs-identifier hs-var">commonPrefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568752"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568751"><span class="annot"><span class="annottext">Maybe [CommonPrefix]
-</span><a href="#local-6989586621679568751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commonPrefixes:ListObjectsResponse' :: Maybe [CommonPrefix]
+</span><a href="#local-6989586621679568900"><span class="hs-identifier hs-var hs-var">commonPrefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CommonPrefix]
+</span><a href="#local-6989586621679568900"><span class="hs-identifier hs-var">commonPrefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568899"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568898"><span class="annot"><span class="annottext">Maybe [CommonPrefix]
+</span><a href="#local-6989586621679568898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commonPrefixes:ListObjectsResponse' :: Maybe [CommonPrefix]
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AcommonPrefixes%3AListObjectsResponse%27"><span class="hs-identifier hs-var">commonPrefixes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CommonPrefix]
-</span><a href="#local-6989586621679568751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CommonPrefix] -&gt; f (Maybe [CommonPrefix]))
+</span><a href="#local-6989586621679568898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CommonPrefix] -&gt; f (Maybe [CommonPrefix]))
  -&gt; ListObjectsResponse -&gt; f ListObjectsResponse)
 -&gt; ((Maybe [CommonPrefix] -&gt; f (Maybe [CommonPrefix]))
     -&gt; Maybe [CommonPrefix] -&gt; f (Maybe [CommonPrefix]))
@@ -1487,16 +1487,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe EncodingType)
      (Maybe EncodingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568750"><span class="annot"><span class="annottext">Maybe EncodingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568897"><span class="annot"><span class="annottext">Maybe EncodingType
 encodingType :: Maybe EncodingType
 $sel:encodingType:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe EncodingType
-</span><a href="#local-6989586621679568750"><span class="hs-identifier hs-var hs-var">encodingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568750"><span class="hs-identifier hs-var">encodingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568749"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568748"><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodingType:ListObjectsResponse' :: Maybe EncodingType
+</span><a href="#local-6989586621679568897"><span class="hs-identifier hs-var hs-var">encodingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
+</span><a href="#local-6989586621679568897"><span class="hs-identifier hs-var">encodingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568896"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568895"><span class="annot"><span class="annottext">Maybe EncodingType
+</span><a href="#local-6989586621679568895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodingType:ListObjectsResponse' :: Maybe EncodingType
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AencodingType%3AListObjectsResponse%27"><span class="hs-identifier hs-var">encodingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncodingType
-</span><a href="#local-6989586621679568748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-508"></span><span>
 </span><span id="line-509"></span><span class="hs-comment">-- | The bucket name.</span><span>
 </span><span id="line-510"></span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#listObjectsResponse_name"><span class="hs-identifier hs-type">listObjectsResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">)</span><span>
@@ -1510,16 +1510,16 @@ $sel:encodingType:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Encodi
      (Maybe BucketName)
      (Maybe BucketName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568747"><span class="annot"><span class="annottext">Maybe BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568894"><span class="annot"><span class="annottext">Maybe BucketName
 name :: Maybe BucketName
 $sel:name:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe BucketName
-</span><a href="#local-6989586621679568747"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketName
-</span><a href="#local-6989586621679568747"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568746"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568745"><span class="annot"><span class="annottext">Maybe BucketName
-</span><a href="#local-6989586621679568745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ListObjectsResponse' :: Maybe BucketName
+</span><a href="#local-6989586621679568894"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketName
+</span><a href="#local-6989586621679568894"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568893"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568892"><span class="annot"><span class="annottext">Maybe BucketName
+</span><a href="#local-6989586621679568892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ListObjectsResponse' :: Maybe BucketName
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Aname%3AListObjectsResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketName
-</span><a href="#local-6989586621679568745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-512"></span><span>
 </span><span id="line-513"></span><span class="hs-comment">-- | Indicates where in the bucket listing begins. Marker is included in the</span><span>
 </span><span id="line-514"></span><span class="hs-comment">-- response if it was sent with the request.</span><span>
@@ -1530,16 +1530,16 @@ $sel:name:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe BucketName
 -&gt; (ListObjectsResponse -&gt; Maybe Text -&gt; ListObjectsResponse)
 -&gt; Lens' ListObjectsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568744"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568891"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679568744"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568744"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568743"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568742"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListObjectsResponse' :: Maybe Text
+</span><a href="#local-6989586621679568891"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568891"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568890"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListObjectsResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Amarker%3AListObjectsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-517"></span><span>
 </span><span id="line-518"></span><span class="hs-comment">-- | When response is truncated (the IsTruncated element value in the</span><span>
 </span><span id="line-519"></span><span class="hs-comment">-- response is true), you can use the key name in this field as marker in</span><span>
@@ -1556,16 +1556,16 @@ $sel:marker:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Text
 -&gt; (ListObjectsResponse -&gt; Maybe Text -&gt; ListObjectsResponse)
 -&gt; Lens' ListObjectsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568741"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568888"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679568741"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568741"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568740"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568739"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListObjectsResponse' :: Maybe Text
+</span><a href="#local-6989586621679568888"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568888"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568887"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568886"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679568886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListObjectsResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AnextMarker%3AListObjectsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679568739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-528"></span><span>
 </span><span id="line-529"></span><span class="hs-comment">-- | The maximum number of keys returned in the response body.</span><span>
 </span><span id="line-530"></span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#listObjectsResponse_maxKeys"><span class="hs-identifier hs-type">listObjectsResponse_maxKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -1576,16 +1576,16 @@ $sel:nextMarker:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Text
 -&gt; Lens
      ListObjectsResponse ListObjectsResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568738"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568885"><span class="annot"><span class="annottext">Maybe Int
 maxKeys :: Maybe Int
 $sel:maxKeys:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679568738"><span class="hs-identifier hs-var hs-var">maxKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568738"><span class="hs-identifier hs-var">maxKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568737"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568736"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxKeys:ListObjectsResponse' :: Maybe Int
+</span><a href="#local-6989586621679568885"><span class="hs-identifier hs-var hs-var">maxKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568885"><span class="hs-identifier hs-var">maxKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568884"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568883"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679568883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxKeys:ListObjectsResponse' :: Maybe Int
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AmaxKeys%3AListObjectsResponse%27"><span class="hs-identifier hs-var">maxKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679568736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-532"></span><span>
 </span><span id="line-533"></span><span class="hs-comment">-- | A flag that indicates whether Amazon S3 returned all of the results that</span><span>
 </span><span id="line-534"></span><span class="hs-comment">-- satisfied the search criteria.</span><span>
@@ -1596,16 +1596,16 @@ $sel:maxKeys:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Int
 -&gt; (ListObjectsResponse -&gt; Maybe Bool -&gt; ListObjectsResponse)
 -&gt; Lens' ListObjectsResponse (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568735"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568882"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679568735"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679568735"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568734"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568733"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679568733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListObjectsResponse' :: Maybe Bool
+</span><a href="#local-6989586621679568882"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679568882"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568881"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568880"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679568880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListObjectsResponse' :: Maybe Bool
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AisTruncated%3AListObjectsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679568733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-537"></span><span>
 </span><span id="line-538"></span><span class="hs-comment">-- | Causes keys that contain the same string between the prefix and the</span><span>
 </span><span id="line-539"></span><span class="hs-comment">-- first occurrence of the delimiter to be rolled up into a single result</span><span>
@@ -1623,16 +1623,16 @@ $sel:isTruncated:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Bool
      (Maybe Delimiter)
      (Maybe Delimiter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568732"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568879"><span class="annot"><span class="annottext">Maybe Delimiter
 delimiter :: Maybe Delimiter
 $sel:delimiter:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Delimiter
-</span><a href="#local-6989586621679568732"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568732"><span class="hs-identifier hs-var">delimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568731"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568730"><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delimiter:ListObjectsResponse' :: Maybe Delimiter
+</span><a href="#local-6989586621679568879"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
+</span><a href="#local-6989586621679568879"><span class="hs-identifier hs-var">delimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568878"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568877"><span class="annot"><span class="annottext">Maybe Delimiter
+</span><a href="#local-6989586621679568877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delimiter:ListObjectsResponse' :: Maybe Delimiter
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3Adelimiter%3AListObjectsResponse%27"><span class="hs-identifier hs-var">delimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Delimiter
-</span><a href="#local-6989586621679568730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-545"></span><span>
 </span><span id="line-546"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-547"></span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#listObjectsResponse_httpStatus"><span class="hs-identifier hs-type">listObjectsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1641,16 +1641,16 @@ $sel:delimiter:ListObjectsResponse' :: ListObjectsResponse -&gt; Maybe Delimiter
 -&gt; (ListObjectsResponse -&gt; Int -&gt; ListObjectsResponse)
 -&gt; Lens ListObjectsResponse ListObjectsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568729"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679568876"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListObjectsResponse' :: ListObjectsResponse -&gt; Int
-</span><a href="#local-6989586621679568729"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568729"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568728"><span class="annot"><span class="annottext">s :: ListObjectsResponse
-</span><a href="#local-6989586621679568728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568727"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
-</span><a href="#local-6989586621679568728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListObjectsResponse' :: Int
+</span><a href="#local-6989586621679568876"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568876"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679568875"><span class="annot"><span class="annottext">s :: ListObjectsResponse
+</span><a href="#local-6989586621679568875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse%27"><span class="hs-identifier hs-type">ListObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679568874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679568874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectsResponse
+</span><a href="#local-6989586621679568875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListObjectsResponse' :: Int
 </span><a href="Network.AWS.S3.ListObjects.html#%24sel%3AhttpStatus%3AListObjectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679568727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679568874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-549"></span><span>
-</span><span id="line-550"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span></span><span>
+</span><span id="line-550"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679568872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListObjects.html#ListObjectsResponse"><span class="hs-identifier hs-type">ListObjectsResponse</span></a></span></span><span>
 </span><span id="line-551"></span></pre></body></html>

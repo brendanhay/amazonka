@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679236444"><span id="local-6989586621679236445"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlaylistType"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-var">PlaylistType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlaylistType%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-identifier hs-var">PlaylistType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679236760"><span id="local-6989586621679236761"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlaylistType"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-var">PlaylistType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlaylistType%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-identifier hs-var">PlaylistType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlaylistType"><span class="annot"><span class="annottext">PlaylistType -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.PlaylistType.html#fromPlaylistType"><span class="hs-identifier hs-var hs-var">fromPlaylistType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236436"><span id="local-6989586621679236438"><span id="local-6989586621679236440"><span class="annot"><span class="annottext">Int -&gt; PlaylistType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236752"><span id="local-6989586621679236754"><span id="local-6989586621679236756"><span class="annot"><span class="annottext">Int -&gt; PlaylistType -&gt; ShowS
 [PlaylistType] -&gt; ShowS
 PlaylistType -&gt; String
 (Int -&gt; PlaylistType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PlaylistType -&gt; String
 showsPrec :: Int -&gt; PlaylistType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PlaylistType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236427"><span id="local-6989586621679236429"><span id="local-6989586621679236431"><span id="local-6989586621679236433"><span class="annot"><span class="annottext">ReadPrec [PlaylistType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236743"><span id="local-6989586621679236745"><span id="local-6989586621679236747"><span id="local-6989586621679236749"><span class="annot"><span class="annottext">ReadPrec [PlaylistType]
 ReadPrec PlaylistType
 Int -&gt; ReadS PlaylistType
 ReadS [PlaylistType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PlaylistType]
 readsPrec :: Int -&gt; ReadS PlaylistType
 $creadsPrec :: Int -&gt; ReadS PlaylistType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236422"><span id="local-6989586621679236424"><span class="annot"><span class="annottext">PlaylistType -&gt; PlaylistType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236738"><span id="local-6989586621679236740"><span class="annot"><span class="annottext">PlaylistType -&gt; PlaylistType -&gt; Bool
 (PlaylistType -&gt; PlaylistType -&gt; Bool)
 -&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool) -&gt; Eq PlaylistType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: PlaylistType -&gt; PlaylistType -&gt; Bool
 == :: PlaylistType -&gt; PlaylistType -&gt; Bool
 $c== :: PlaylistType -&gt; PlaylistType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236406"><span id="local-6989586621679236408"><span id="local-6989586621679236410"><span id="local-6989586621679236412"><span id="local-6989586621679236414"><span id="local-6989586621679236416"><span id="local-6989586621679236418"><span class="annot"><span class="annottext">Eq PlaylistType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236722"><span id="local-6989586621679236724"><span id="local-6989586621679236726"><span id="local-6989586621679236728"><span id="local-6989586621679236730"><span id="local-6989586621679236732"><span id="local-6989586621679236734"><span class="annot"><span class="annottext">Eq PlaylistType
 Eq PlaylistType
 -&gt; (PlaylistType -&gt; PlaylistType -&gt; Ordering)
 -&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. PlaylistType -&gt; Rep PlaylistType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236398"><span id="local-6989586621679236400"><span class="annot"><span class="annottext">Int -&gt; PlaylistType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236714"><span id="local-6989586621679236716"><span class="annot"><span class="annottext">Int -&gt; PlaylistType -&gt; Int
 PlaylistType -&gt; Int
 (Int -&gt; PlaylistType -&gt; Int)
 -&gt; (PlaylistType -&gt; Int) -&gt; Hashable PlaylistType
@@ -143,49 +143,49 @@ $chash :: PlaylistType -&gt; Int
 hashWithSalt :: Int -&gt; PlaylistType -&gt; Int
 $chashWithSalt :: Int -&gt; PlaylistType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236395"><span class="annot"><span class="annottext">PlaylistType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236711"><span class="annot"><span class="annottext">PlaylistType -&gt; ()
 (PlaylistType -&gt; ()) -&gt; NFData PlaylistType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PlaylistType -&gt; ()
 $crnf :: PlaylistType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236392"><span class="annot"><span class="annottext">Text -&gt; Either String PlaylistType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236708"><span class="annot"><span class="annottext">Text -&gt; Either String PlaylistType
 (Text -&gt; Either String PlaylistType) -&gt; FromText PlaylistType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PlaylistType
 $cfromText :: Text -&gt; Either String PlaylistType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236389"><span class="annot"><span class="annottext">PlaylistType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236705"><span class="annot"><span class="annottext">PlaylistType -&gt; Text
 (PlaylistType -&gt; Text) -&gt; ToText PlaylistType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PlaylistType -&gt; Text
 $ctoText :: PlaylistType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236386"><span class="annot"><span class="annottext">PlaylistType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236702"><span class="annot"><span class="annottext">PlaylistType -&gt; ByteString
 (PlaylistType -&gt; ByteString) -&gt; ToByteString PlaylistType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PlaylistType -&gt; ByteString
 $ctoBS :: PlaylistType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236383"><span class="annot"><span class="annottext">PlaylistType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236699"><span class="annot"><span class="annottext">PlaylistType -&gt; ByteStringBuilder
 (PlaylistType -&gt; ByteStringBuilder) -&gt; ToLog PlaylistType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PlaylistType -&gt; ByteStringBuilder
 $cbuild :: PlaylistType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236380"><span class="annot"><span class="annottext">HeaderName -&gt; PlaylistType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236696"><span class="annot"><span class="annottext">HeaderName -&gt; PlaylistType -&gt; [Header]
 (HeaderName -&gt; PlaylistType -&gt; [Header]) -&gt; ToHeader PlaylistType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PlaylistType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PlaylistType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236377"><span class="annot"><span class="annottext">PlaylistType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236693"><span class="annot"><span class="annottext">PlaylistType -&gt; QueryString
 (PlaylistType -&gt; QueryString) -&gt; ToQuery PlaylistType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PlaylistType -&gt; QueryString
 $ctoQuery :: PlaylistType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236372"><span id="local-6989586621679236374"><span class="annot"><span class="annottext">Value -&gt; Parser [PlaylistType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236688"><span id="local-6989586621679236690"><span class="annot"><span class="annottext">Value -&gt; Parser [PlaylistType]
 Value -&gt; Parser PlaylistType
 (Value -&gt; Parser PlaylistType)
 -&gt; (Value -&gt; Parser [PlaylistType]) -&gt; FromJSON PlaylistType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [PlaylistType]
 parseJSON :: Value -&gt; Parser PlaylistType
 $cparseJSON :: Value -&gt; Parser PlaylistType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236367"><span id="local-6989586621679236369"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlaylistType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236683"><span id="local-6989586621679236685"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlaylistType]
 FromJSONKeyFunction PlaylistType
 FromJSONKeyFunction PlaylistType
 -&gt; FromJSONKeyFunction [PlaylistType] -&gt; FromJSONKey PlaylistType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PlaylistType]
 fromJSONKey :: FromJSONKeyFunction PlaylistType
 $cfromJSONKey :: FromJSONKeyFunction PlaylistType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236358"><span id="local-6989586621679236360"><span id="local-6989586621679236362"><span id="local-6989586621679236364"><span class="annot"><span class="annottext">[PlaylistType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236674"><span id="local-6989586621679236676"><span id="local-6989586621679236678"><span id="local-6989586621679236680"><span class="annot"><span class="annottext">[PlaylistType] -&gt; Encoding
 [PlaylistType] -&gt; Value
 PlaylistType -&gt; Encoding
 PlaylistType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: PlaylistType -&gt; Encoding
 toJSON :: PlaylistType -&gt; Value
 $ctoJSON :: PlaylistType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236353"><span id="local-6989586621679236355"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlaylistType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236669"><span id="local-6989586621679236671"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlaylistType]
 ToJSONKeyFunction PlaylistType
 ToJSONKeyFunction PlaylistType
 -&gt; ToJSONKeyFunction [PlaylistType] -&gt; ToJSONKey PlaylistType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PlaylistType]
 toJSONKey :: ToJSONKeyFunction PlaylistType
 $ctoJSONKey :: ToJSONKeyFunction PlaylistType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236350"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlaylistType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236666"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlaylistType
 ([Node] -&gt; Either String PlaylistType) -&gt; FromXML PlaylistType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PlaylistType
 $cparseXML :: [Node] -&gt; Either String PlaylistType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236347"><span class="annot"><span class="annottext">PlaylistType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236663"><span class="annot"><span class="annottext">PlaylistType -&gt; XML
 (PlaylistType -&gt; XML) -&gt; ToXML PlaylistType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PlaylistType -&gt; XML

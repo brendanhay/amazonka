@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679542995"><span id="local-6989586621679542996"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryFrequency"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency"><span class="hs-identifier hs-var">InventoryFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryFrequency%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency%27"><span class="hs-identifier hs-var">InventoryFrequency'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679543105"><span id="local-6989586621679543106"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryFrequency"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency"><span class="hs-identifier hs-var">InventoryFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryFrequency%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency%27"><span class="hs-identifier hs-var">InventoryFrequency'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryFrequency"><span class="annot"><span class="annottext">InventoryFrequency -&gt; Text
 </span><a href="Network.AWS.S3.Types.InventoryFrequency.html#fromInventoryFrequency"><span class="hs-identifier hs-var hs-var">fromInventoryFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679542987"><span id="local-6989586621679542989"><span id="local-6989586621679542991"><span class="annot"><span class="annottext">Int -&gt; InventoryFrequency -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543097"><span id="local-6989586621679543099"><span id="local-6989586621679543101"><span class="annot"><span class="annottext">Int -&gt; InventoryFrequency -&gt; ShowS
 [InventoryFrequency] -&gt; ShowS
 InventoryFrequency -&gt; String
 (Int -&gt; InventoryFrequency -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InventoryFrequency -&gt; String
 showsPrec :: Int -&gt; InventoryFrequency -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventoryFrequency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679542978"><span id="local-6989586621679542980"><span id="local-6989586621679542982"><span id="local-6989586621679542984"><span class="annot"><span class="annottext">ReadPrec [InventoryFrequency]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679543088"><span id="local-6989586621679543090"><span id="local-6989586621679543092"><span id="local-6989586621679543094"><span class="annot"><span class="annottext">ReadPrec [InventoryFrequency]
 ReadPrec InventoryFrequency
 Int -&gt; ReadS InventoryFrequency
 ReadS [InventoryFrequency]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InventoryFrequency]
 readsPrec :: Int -&gt; ReadS InventoryFrequency
 $creadsPrec :: Int -&gt; ReadS InventoryFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679542973"><span id="local-6989586621679542975"><span class="annot"><span class="annottext">InventoryFrequency -&gt; InventoryFrequency -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679543083"><span id="local-6989586621679543085"><span class="annot"><span class="annottext">InventoryFrequency -&gt; InventoryFrequency -&gt; Bool
 (InventoryFrequency -&gt; InventoryFrequency -&gt; Bool)
 -&gt; (InventoryFrequency -&gt; InventoryFrequency -&gt; Bool)
 -&gt; Eq InventoryFrequency
@@ -83,7 +83,7 @@ $c/= :: InventoryFrequency -&gt; InventoryFrequency -&gt; Bool
 == :: InventoryFrequency -&gt; InventoryFrequency -&gt; Bool
 $c== :: InventoryFrequency -&gt; InventoryFrequency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679542957"><span id="local-6989586621679542959"><span id="local-6989586621679542961"><span id="local-6989586621679542963"><span id="local-6989586621679542965"><span id="local-6989586621679542967"><span id="local-6989586621679542969"><span class="annot"><span class="annottext">Eq InventoryFrequency
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679543067"><span id="local-6989586621679543069"><span id="local-6989586621679543071"><span id="local-6989586621679543073"><span id="local-6989586621679543075"><span id="local-6989586621679543077"><span id="local-6989586621679543079"><span class="annot"><span class="annottext">Eq InventoryFrequency
 Eq InventoryFrequency
 -&gt; (InventoryFrequency -&gt; InventoryFrequency -&gt; Ordering)
 -&gt; (InventoryFrequency -&gt; InventoryFrequency -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. InventoryFrequency -&gt; Rep InventoryFrequency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679542949"><span id="local-6989586621679542951"><span class="annot"><span class="annottext">Int -&gt; InventoryFrequency -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543059"><span id="local-6989586621679543061"><span class="annot"><span class="annottext">Int -&gt; InventoryFrequency -&gt; Int
 InventoryFrequency -&gt; Int
 (Int -&gt; InventoryFrequency -&gt; Int)
 -&gt; (InventoryFrequency -&gt; Int) -&gt; Hashable InventoryFrequency
@@ -144,53 +144,53 @@ $chash :: InventoryFrequency -&gt; Int
 hashWithSalt :: Int -&gt; InventoryFrequency -&gt; Int
 $chashWithSalt :: Int -&gt; InventoryFrequency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679542946"><span class="annot"><span class="annottext">InventoryFrequency -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679543056"><span class="annot"><span class="annottext">InventoryFrequency -&gt; ()
 (InventoryFrequency -&gt; ()) -&gt; NFData InventoryFrequency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventoryFrequency -&gt; ()
 $crnf :: InventoryFrequency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679542943"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryFrequency
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679543053"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryFrequency
 (Text -&gt; Either String InventoryFrequency)
 -&gt; FromText InventoryFrequency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventoryFrequency
 $cfromText :: Text -&gt; Either String InventoryFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679542940"><span class="annot"><span class="annottext">InventoryFrequency -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679543050"><span class="annot"><span class="annottext">InventoryFrequency -&gt; Text
 (InventoryFrequency -&gt; Text) -&gt; ToText InventoryFrequency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventoryFrequency -&gt; Text
 $ctoText :: InventoryFrequency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679542937"><span class="annot"><span class="annottext">InventoryFrequency -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679543047"><span class="annot"><span class="annottext">InventoryFrequency -&gt; ByteString
 (InventoryFrequency -&gt; ByteString)
 -&gt; ToByteString InventoryFrequency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventoryFrequency -&gt; ByteString
 $ctoBS :: InventoryFrequency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679542934"><span class="annot"><span class="annottext">InventoryFrequency -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679543044"><span class="annot"><span class="annottext">InventoryFrequency -&gt; ByteStringBuilder
 (InventoryFrequency -&gt; ByteStringBuilder)
 -&gt; ToLog InventoryFrequency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventoryFrequency -&gt; ByteStringBuilder
 $cbuild :: InventoryFrequency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679542931"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryFrequency -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679543041"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryFrequency -&gt; [Header]
 (HeaderName -&gt; InventoryFrequency -&gt; [Header])
 -&gt; ToHeader InventoryFrequency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventoryFrequency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventoryFrequency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679542928"><span class="annot"><span class="annottext">InventoryFrequency -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679543038"><span class="annot"><span class="annottext">InventoryFrequency -&gt; QueryString
 (InventoryFrequency -&gt; QueryString) -&gt; ToQuery InventoryFrequency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventoryFrequency -&gt; QueryString
 $ctoQuery :: InventoryFrequency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679542923"><span id="local-6989586621679542925"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryFrequency]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679543033"><span id="local-6989586621679543035"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryFrequency]
 Value -&gt; Parser InventoryFrequency
 (Value -&gt; Parser InventoryFrequency)
 -&gt; (Value -&gt; Parser [InventoryFrequency])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [InventoryFrequency]
 parseJSON :: Value -&gt; Parser InventoryFrequency
 $cparseJSON :: Value -&gt; Parser InventoryFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679542918"><span id="local-6989586621679542920"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryFrequency]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679543028"><span id="local-6989586621679543030"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryFrequency]
 FromJSONKeyFunction InventoryFrequency
 FromJSONKeyFunction InventoryFrequency
 -&gt; FromJSONKeyFunction [InventoryFrequency]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventoryFrequency]
 fromJSONKey :: FromJSONKeyFunction InventoryFrequency
 $cfromJSONKey :: FromJSONKeyFunction InventoryFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679542909"><span id="local-6989586621679542911"><span id="local-6989586621679542913"><span id="local-6989586621679542915"><span class="annot"><span class="annottext">[InventoryFrequency] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679543019"><span id="local-6989586621679543021"><span id="local-6989586621679543023"><span id="local-6989586621679543025"><span class="annot"><span class="annottext">[InventoryFrequency] -&gt; Encoding
 [InventoryFrequency] -&gt; Value
 InventoryFrequency -&gt; Encoding
 InventoryFrequency -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: InventoryFrequency -&gt; Encoding
 toJSON :: InventoryFrequency -&gt; Value
 $ctoJSON :: InventoryFrequency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679542904"><span id="local-6989586621679542906"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryFrequency]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679543014"><span id="local-6989586621679543016"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryFrequency]
 ToJSONKeyFunction InventoryFrequency
 ToJSONKeyFunction InventoryFrequency
 -&gt; ToJSONKeyFunction [InventoryFrequency]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventoryFrequency]
 toJSONKey :: ToJSONKeyFunction InventoryFrequency
 $ctoJSONKey :: ToJSONKeyFunction InventoryFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679542901"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryFrequency
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679543011"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryFrequency
 ([Node] -&gt; Either String InventoryFrequency)
 -&gt; FromXML InventoryFrequency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventoryFrequency
 $cparseXML :: [Node] -&gt; Either String InventoryFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679542898"><span class="annot"><span class="annottext">InventoryFrequency -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679543008"><span class="annot"><span class="annottext">InventoryFrequency -&gt; XML
 (InventoryFrequency -&gt; XML) -&gt; ToXML InventoryFrequency
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InventoryFrequency -&gt; XML

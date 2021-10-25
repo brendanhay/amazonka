@@ -26,14 +26,14 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | DVB Sub Source Settings</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDvbSubSourceSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679956296"><span id="local-6989586621679956297"></span></span><span class="hs-keyword">data</span><span> </span><span id="DvbSubSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-var">DvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-var">DvbSubSourceSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679957615"><span id="local-6989586621679957616"></span></span><span class="hs-keyword">data</span><span> </span><span id="DvbSubSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-var">DvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-var">DvbSubSourceSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- through, regardless of selectors.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Apid%3ADvbSubSourceSettings%27"><span class="annot"><span class="annottext">DvbSubSourceSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#%24sel%3Apid%3ADvbSubSourceSettings%27"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679956290"><span id="local-6989586621679956292"><span class="annot"><span class="annottext">DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679957609"><span id="local-6989586621679957611"><span class="annot"><span class="annottext">DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool
 (DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool)
 -&gt; (DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool)
 -&gt; Eq DvbSubSourceSettings
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool
 == :: DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool
 $c== :: DvbSubSourceSettings -&gt; DvbSubSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956281"><span id="local-6989586621679956283"><span id="local-6989586621679956285"><span id="local-6989586621679956287"><span class="annot"><span class="annottext">ReadPrec [DvbSubSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679957600"><span id="local-6989586621679957602"><span id="local-6989586621679957604"><span id="local-6989586621679957606"><span class="annot"><span class="annottext">ReadPrec [DvbSubSourceSettings]
 ReadPrec DvbSubSourceSettings
 Int -&gt; ReadS DvbSubSourceSettings
 ReadS [DvbSubSourceSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [DvbSubSourceSettings]
 $creadList :: ReadS [DvbSubSourceSettings]
 readsPrec :: Int -&gt; ReadS DvbSubSourceSettings
 $creadsPrec :: Int -&gt; ReadS DvbSubSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956274"><span id="local-6989586621679956276"><span id="local-6989586621679956278"><span class="annot"><span class="annottext">Int -&gt; DvbSubSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679957593"><span id="local-6989586621679957595"><span id="local-6989586621679957597"><span class="annot"><span class="annottext">Int -&gt; DvbSubSourceSettings -&gt; ShowS
 [DvbSubSourceSettings] -&gt; ShowS
 DvbSubSourceSettings -&gt; String
 (Int -&gt; DvbSubSourceSettings -&gt; ShowS)
@@ -123,19 +123,19 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-type">DvbSubSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956265"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-type">DvbSubSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679957584"><span class="annot"><span class="annottext">Maybe Natural
 pid :: Maybe Natural
 $sel:pid:DvbSubSourceSettings' :: DvbSubSourceSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679956265"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679956265"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956264"><span class="annot"><span class="annottext">s :: DvbSubSourceSettings
-</span><a href="#local-6989586621679956264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-type">DvbSubSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956263"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679956263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbSubSourceSettings
-</span><a href="#local-6989586621679956264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pid:DvbSubSourceSettings' :: Maybe Natural
+</span><a href="#local-6989586621679957584"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679957584"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679957583"><span class="annot"><span class="annottext">s :: DvbSubSourceSettings
+</span><a href="#local-6989586621679957583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-type">DvbSubSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679957582"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679957582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbSubSourceSettings
+</span><a href="#local-6989586621679957583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pid:DvbSubSourceSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#%24sel%3Apid%3ADvbSubSourceSettings%27"><span class="hs-identifier hs-var">pid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679956263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679957582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956260"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679956258"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DvbSubSourceSettings
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679957579"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679957577"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DvbSubSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DvbSubSourceSettings)
@@ -145,29 +145,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DvbSubSourceSettings&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679956255"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679956255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679957574"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679957574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; DvbSubSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-var">DvbSubSourceSettings'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; DvbSubSourceSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser DvbSubSourceSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679956255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679957574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pid&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956249"><span id="local-6989586621679956251"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679957568"><span id="local-6989586621679957570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679957565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956238"><span id="local-6989586621679956240"><span id="local-6989586621679956242"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679956236"><span class="annot"><span class="annottext">toJSON :: DvbSubSourceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-type">DvbSubSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956234"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679957557"><span id="local-6989586621679957559"><span id="local-6989586621679957561"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679957555"><span class="annot"><span class="annottext">toJSON :: DvbSubSourceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings%27"><span class="hs-identifier hs-type">DvbSubSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679957553"><span class="annot"><span class="annottext">Maybe Natural
 pid :: Maybe Natural
 $sel:pid:DvbSubSourceSettings' :: DvbSubSourceSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679956234"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679957553"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,5 +178,5 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679956234"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679957553"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

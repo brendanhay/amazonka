@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679553025"><span id="local-6989586621679553026"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerSideEncryption"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryption.html#ServerSideEncryption"><span class="hs-identifier hs-var">ServerSideEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerSideEncryption%27"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryption.html#ServerSideEncryption%27"><span class="hs-identifier hs-var">ServerSideEncryption'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679553135"><span id="local-6989586621679553136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerSideEncryption"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryption.html#ServerSideEncryption"><span class="hs-identifier hs-var">ServerSideEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerSideEncryption%27"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryption.html#ServerSideEncryption%27"><span class="hs-identifier hs-var">ServerSideEncryption'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServerSideEncryption"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; Text
 </span><a href="Network.AWS.S3.Types.ServerSideEncryption.html#fromServerSideEncryption"><span class="hs-identifier hs-var hs-var">fromServerSideEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553017"><span id="local-6989586621679553019"><span id="local-6989586621679553021"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryption -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553127"><span id="local-6989586621679553129"><span id="local-6989586621679553131"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryption -&gt; ShowS
 [ServerSideEncryption] -&gt; ShowS
 ServerSideEncryption -&gt; String
 (Int -&gt; ServerSideEncryption -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ServerSideEncryption -&gt; String
 showsPrec :: Int -&gt; ServerSideEncryption -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServerSideEncryption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679553008"><span id="local-6989586621679553010"><span id="local-6989586621679553012"><span id="local-6989586621679553014"><span class="annot"><span class="annottext">ReadPrec [ServerSideEncryption]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679553118"><span id="local-6989586621679553120"><span id="local-6989586621679553122"><span id="local-6989586621679553124"><span class="annot"><span class="annottext">ReadPrec [ServerSideEncryption]
 ReadPrec ServerSideEncryption
 Int -&gt; ReadS ServerSideEncryption
 ReadS [ServerSideEncryption]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ServerSideEncryption]
 readsPrec :: Int -&gt; ReadS ServerSideEncryption
 $creadsPrec :: Int -&gt; ReadS ServerSideEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679553003"><span id="local-6989586621679553005"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679553113"><span id="local-6989586621679553115"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool
 (ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool)
 -&gt; (ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool)
 -&gt; Eq ServerSideEncryption
@@ -83,7 +83,7 @@ $c/= :: ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool
 == :: ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool
 $c== :: ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679552987"><span id="local-6989586621679552989"><span id="local-6989586621679552991"><span id="local-6989586621679552993"><span id="local-6989586621679552995"><span id="local-6989586621679552997"><span id="local-6989586621679552999"><span class="annot"><span class="annottext">Eq ServerSideEncryption
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679553097"><span id="local-6989586621679553099"><span id="local-6989586621679553101"><span id="local-6989586621679553103"><span id="local-6989586621679553105"><span id="local-6989586621679553107"><span id="local-6989586621679553109"><span class="annot"><span class="annottext">Eq ServerSideEncryption
 Eq ServerSideEncryption
 -&gt; (ServerSideEncryption -&gt; ServerSideEncryption -&gt; Ordering)
 -&gt; (ServerSideEncryption -&gt; ServerSideEncryption -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ServerSideEncryption -&gt; Rep ServerSideEncryption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679552979"><span id="local-6989586621679552981"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryption -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679553089"><span id="local-6989586621679553091"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryption -&gt; Int
 ServerSideEncryption -&gt; Int
 (Int -&gt; ServerSideEncryption -&gt; Int)
 -&gt; (ServerSideEncryption -&gt; Int) -&gt; Hashable ServerSideEncryption
@@ -151,54 +151,54 @@ $chash :: ServerSideEncryption -&gt; Int
 hashWithSalt :: Int -&gt; ServerSideEncryption -&gt; Int
 $chashWithSalt :: Int -&gt; ServerSideEncryption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679552976"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679553086"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ()
 (ServerSideEncryption -&gt; ()) -&gt; NFData ServerSideEncryption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServerSideEncryption -&gt; ()
 $crnf :: ServerSideEncryption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679552973"><span class="annot"><span class="annottext">Text -&gt; Either String ServerSideEncryption
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679553083"><span class="annot"><span class="annottext">Text -&gt; Either String ServerSideEncryption
 (Text -&gt; Either String ServerSideEncryption)
 -&gt; FromText ServerSideEncryption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServerSideEncryption
 $cfromText :: Text -&gt; Either String ServerSideEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679552970"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679553080"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; Text
 (ServerSideEncryption -&gt; Text) -&gt; ToText ServerSideEncryption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServerSideEncryption -&gt; Text
 $ctoText :: ServerSideEncryption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679552967"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679553077"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ByteString
 (ServerSideEncryption -&gt; ByteString)
 -&gt; ToByteString ServerSideEncryption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServerSideEncryption -&gt; ByteString
 $ctoBS :: ServerSideEncryption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679552964"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679553074"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; ByteStringBuilder
 (ServerSideEncryption -&gt; ByteStringBuilder)
 -&gt; ToLog ServerSideEncryption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServerSideEncryption -&gt; ByteStringBuilder
 $cbuild :: ServerSideEncryption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679552961"><span class="annot"><span class="annottext">HeaderName -&gt; ServerSideEncryption -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679553071"><span class="annot"><span class="annottext">HeaderName -&gt; ServerSideEncryption -&gt; [Header]
 (HeaderName -&gt; ServerSideEncryption -&gt; [Header])
 -&gt; ToHeader ServerSideEncryption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServerSideEncryption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServerSideEncryption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679552958"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679553068"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; QueryString
 (ServerSideEncryption -&gt; QueryString)
 -&gt; ToQuery ServerSideEncryption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServerSideEncryption -&gt; QueryString
 $ctoQuery :: ServerSideEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679552953"><span id="local-6989586621679552955"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerSideEncryption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679553063"><span id="local-6989586621679553065"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerSideEncryption]
 Value -&gt; Parser ServerSideEncryption
 (Value -&gt; Parser ServerSideEncryption)
 -&gt; (Value -&gt; Parser [ServerSideEncryption])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [ServerSideEncryption]
 parseJSON :: Value -&gt; Parser ServerSideEncryption
 $cparseJSON :: Value -&gt; Parser ServerSideEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679552948"><span id="local-6989586621679552950"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerSideEncryption]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679553058"><span id="local-6989586621679553060"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerSideEncryption]
 FromJSONKeyFunction ServerSideEncryption
 FromJSONKeyFunction ServerSideEncryption
 -&gt; FromJSONKeyFunction [ServerSideEncryption]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServerSideEncryption]
 fromJSONKey :: FromJSONKeyFunction ServerSideEncryption
 $cfromJSONKey :: FromJSONKeyFunction ServerSideEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679552939"><span id="local-6989586621679552941"><span id="local-6989586621679552943"><span id="local-6989586621679552945"><span class="annot"><span class="annottext">[ServerSideEncryption] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679553049"><span id="local-6989586621679553051"><span id="local-6989586621679553053"><span id="local-6989586621679553055"><span class="annot"><span class="annottext">[ServerSideEncryption] -&gt; Encoding
 [ServerSideEncryption] -&gt; Value
 ServerSideEncryption -&gt; Encoding
 ServerSideEncryption -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: ServerSideEncryption -&gt; Encoding
 toJSON :: ServerSideEncryption -&gt; Value
 $ctoJSON :: ServerSideEncryption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679552934"><span id="local-6989586621679552936"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerSideEncryption]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679553044"><span id="local-6989586621679553046"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerSideEncryption]
 ToJSONKeyFunction ServerSideEncryption
 ToJSONKeyFunction ServerSideEncryption
 -&gt; ToJSONKeyFunction [ServerSideEncryption]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServerSideEncryption]
 toJSONKey :: ToJSONKeyFunction ServerSideEncryption
 $ctoJSONKey :: ToJSONKeyFunction ServerSideEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679552931"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerSideEncryption
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679553041"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerSideEncryption
 ([Node] -&gt; Either String ServerSideEncryption)
 -&gt; FromXML ServerSideEncryption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServerSideEncryption
 $cparseXML :: [Node] -&gt; Either String ServerSideEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679552928"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679553038"><span class="annot"><span class="annottext">ServerSideEncryption -&gt; XML
 (ServerSideEncryption -&gt; XML) -&gt; ToXML ServerSideEncryption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServerSideEncryption -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Produces a bitstream compliant with SMPTE RP-2027.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679968861"><span id="local-6989586621679968862"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264Syntax"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264Syntax.html#H264Syntax"><span class="hs-identifier hs-var">H264Syntax</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264Syntax%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264Syntax.html#H264Syntax%27"><span class="hs-identifier hs-var">H264Syntax'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679970351"><span id="local-6989586621679970352"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264Syntax"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264Syntax.html#H264Syntax"><span class="hs-identifier hs-var">H264Syntax</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264Syntax%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264Syntax.html#H264Syntax%27"><span class="hs-identifier hs-var">H264Syntax'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264Syntax"><span class="annot"><span class="annottext">H264Syntax -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264Syntax.html#fromH264Syntax"><span class="hs-identifier hs-var hs-var">fromH264Syntax</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968853"><span id="local-6989586621679968855"><span id="local-6989586621679968857"><span class="annot"><span class="annottext">Int -&gt; H264Syntax -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970343"><span id="local-6989586621679970345"><span id="local-6989586621679970347"><span class="annot"><span class="annottext">Int -&gt; H264Syntax -&gt; ShowS
 [H264Syntax] -&gt; ShowS
 H264Syntax -&gt; String
 (Int -&gt; H264Syntax -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: H264Syntax -&gt; String
 showsPrec :: Int -&gt; H264Syntax -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264Syntax -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679968844"><span id="local-6989586621679968846"><span id="local-6989586621679968848"><span id="local-6989586621679968850"><span class="annot"><span class="annottext">ReadPrec [H264Syntax]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679970334"><span id="local-6989586621679970336"><span id="local-6989586621679970338"><span id="local-6989586621679970340"><span class="annot"><span class="annottext">ReadPrec [H264Syntax]
 ReadPrec H264Syntax
 Int -&gt; ReadS H264Syntax
 ReadS [H264Syntax]
@@ -73,7 +73,7 @@ $creadList :: ReadS [H264Syntax]
 readsPrec :: Int -&gt; ReadS H264Syntax
 $creadsPrec :: Int -&gt; ReadS H264Syntax
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679968839"><span id="local-6989586621679968841"><span class="annot"><span class="annottext">H264Syntax -&gt; H264Syntax -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679970329"><span id="local-6989586621679970331"><span class="annot"><span class="annottext">H264Syntax -&gt; H264Syntax -&gt; Bool
 (H264Syntax -&gt; H264Syntax -&gt; Bool)
 -&gt; (H264Syntax -&gt; H264Syntax -&gt; Bool) -&gt; Eq H264Syntax
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: H264Syntax -&gt; H264Syntax -&gt; Bool
 == :: H264Syntax -&gt; H264Syntax -&gt; Bool
 $c== :: H264Syntax -&gt; H264Syntax -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679968823"><span id="local-6989586621679968825"><span id="local-6989586621679968827"><span id="local-6989586621679968829"><span id="local-6989586621679968831"><span id="local-6989586621679968833"><span id="local-6989586621679968835"><span class="annot"><span class="annottext">Eq H264Syntax
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679970313"><span id="local-6989586621679970315"><span id="local-6989586621679970317"><span id="local-6989586621679970319"><span id="local-6989586621679970321"><span id="local-6989586621679970323"><span id="local-6989586621679970325"><span class="annot"><span class="annottext">Eq H264Syntax
 Eq H264Syntax
 -&gt; (H264Syntax -&gt; H264Syntax -&gt; Ordering)
 -&gt; (H264Syntax -&gt; H264Syntax -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. H264Syntax -&gt; Rep H264Syntax x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968815"><span id="local-6989586621679968817"><span class="annot"><span class="annottext">Int -&gt; H264Syntax -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970305"><span id="local-6989586621679970307"><span class="annot"><span class="annottext">Int -&gt; H264Syntax -&gt; Int
 H264Syntax -&gt; Int
 (Int -&gt; H264Syntax -&gt; Int)
 -&gt; (H264Syntax -&gt; Int) -&gt; Hashable H264Syntax
@@ -142,49 +142,49 @@ $chash :: H264Syntax -&gt; Int
 hashWithSalt :: Int -&gt; H264Syntax -&gt; Int
 $chashWithSalt :: Int -&gt; H264Syntax -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679968812"><span class="annot"><span class="annottext">H264Syntax -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679970302"><span class="annot"><span class="annottext">H264Syntax -&gt; ()
 (H264Syntax -&gt; ()) -&gt; NFData H264Syntax
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264Syntax -&gt; ()
 $crnf :: H264Syntax -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679968809"><span class="annot"><span class="annottext">Text -&gt; Either String H264Syntax
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679970299"><span class="annot"><span class="annottext">Text -&gt; Either String H264Syntax
 (Text -&gt; Either String H264Syntax) -&gt; FromText H264Syntax
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264Syntax
 $cfromText :: Text -&gt; Either String H264Syntax
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679968806"><span class="annot"><span class="annottext">H264Syntax -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679970296"><span class="annot"><span class="annottext">H264Syntax -&gt; Text
 (H264Syntax -&gt; Text) -&gt; ToText H264Syntax
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264Syntax -&gt; Text
 $ctoText :: H264Syntax -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679968803"><span class="annot"><span class="annottext">H264Syntax -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679970293"><span class="annot"><span class="annottext">H264Syntax -&gt; ByteString
 (H264Syntax -&gt; ByteString) -&gt; ToByteString H264Syntax
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264Syntax -&gt; ByteString
 $ctoBS :: H264Syntax -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679968800"><span class="annot"><span class="annottext">H264Syntax -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679970290"><span class="annot"><span class="annottext">H264Syntax -&gt; ByteStringBuilder
 (H264Syntax -&gt; ByteStringBuilder) -&gt; ToLog H264Syntax
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264Syntax -&gt; ByteStringBuilder
 $cbuild :: H264Syntax -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679968797"><span class="annot"><span class="annottext">HeaderName -&gt; H264Syntax -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679970287"><span class="annot"><span class="annottext">HeaderName -&gt; H264Syntax -&gt; [Header]
 (HeaderName -&gt; H264Syntax -&gt; [Header]) -&gt; ToHeader H264Syntax
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264Syntax -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264Syntax -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679968794"><span class="annot"><span class="annottext">H264Syntax -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679970284"><span class="annot"><span class="annottext">H264Syntax -&gt; QueryString
 (H264Syntax -&gt; QueryString) -&gt; ToQuery H264Syntax
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264Syntax -&gt; QueryString
 $ctoQuery :: H264Syntax -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679968789"><span id="local-6989586621679968791"><span class="annot"><span class="annottext">Value -&gt; Parser [H264Syntax]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679970279"><span id="local-6989586621679970281"><span class="annot"><span class="annottext">Value -&gt; Parser [H264Syntax]
 Value -&gt; Parser H264Syntax
 (Value -&gt; Parser H264Syntax)
 -&gt; (Value -&gt; Parser [H264Syntax]) -&gt; FromJSON H264Syntax
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [H264Syntax]
 parseJSON :: Value -&gt; Parser H264Syntax
 $cparseJSON :: Value -&gt; Parser H264Syntax
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679968784"><span id="local-6989586621679968786"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264Syntax]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679970274"><span id="local-6989586621679970276"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264Syntax]
 FromJSONKeyFunction H264Syntax
 FromJSONKeyFunction H264Syntax
 -&gt; FromJSONKeyFunction [H264Syntax] -&gt; FromJSONKey H264Syntax
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264Syntax]
 fromJSONKey :: FromJSONKeyFunction H264Syntax
 $cfromJSONKey :: FromJSONKeyFunction H264Syntax
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679968775"><span id="local-6989586621679968777"><span id="local-6989586621679968779"><span id="local-6989586621679968781"><span class="annot"><span class="annottext">[H264Syntax] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679970265"><span id="local-6989586621679970267"><span id="local-6989586621679970269"><span id="local-6989586621679970271"><span class="annot"><span class="annottext">[H264Syntax] -&gt; Encoding
 [H264Syntax] -&gt; Value
 H264Syntax -&gt; Encoding
 H264Syntax -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: H264Syntax -&gt; Encoding
 toJSON :: H264Syntax -&gt; Value
 $ctoJSON :: H264Syntax -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679968770"><span id="local-6989586621679968772"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264Syntax]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679970260"><span id="local-6989586621679970262"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264Syntax]
 ToJSONKeyFunction H264Syntax
 ToJSONKeyFunction H264Syntax
 -&gt; ToJSONKeyFunction [H264Syntax] -&gt; ToJSONKey H264Syntax
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264Syntax]
 toJSONKey :: ToJSONKeyFunction H264Syntax
 $ctoJSONKey :: ToJSONKeyFunction H264Syntax
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679968767"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264Syntax
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679970257"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264Syntax
 ([Node] -&gt; Either String H264Syntax) -&gt; FromXML H264Syntax
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264Syntax
 $cparseXML :: [Node] -&gt; Either String H264Syntax
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679968764"><span class="annot"><span class="annottext">H264Syntax -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679970254"><span class="annot"><span class="annottext">H264Syntax -&gt; XML
 (H264Syntax -&gt; XML) -&gt; ToXML H264Syntax
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264Syntax -&gt; XML

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- access tier, without additional operational overhead.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTiering' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679557420"><span id="local-6989586621679557421"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tiering"><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-var">Tiering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tiering%27"><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-var">Tiering'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679557530"><span id="local-6989586621679557531"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tiering"><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-var">Tiering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tiering%27"><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-var">Tiering'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of consecutive days of no access after which an object will</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- be eligible to be transitioned to the corresponding tier. The minimum</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- number of days specified for Archive Access tier must be at least 90</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AaccessTier%3ATiering%27"><span class="annot"><span class="annottext">Tiering -&gt; IntelligentTieringAccessTier
 </span><a href="Network.AWS.S3.Types.Tiering.html#%24sel%3AaccessTier%3ATiering%27"><span class="hs-identifier hs-var hs-var">accessTier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringAccessTier.html#IntelligentTieringAccessTier"><span class="hs-identifier hs-type">IntelligentTieringAccessTier</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557413"><span id="local-6989586621679557415"><span class="annot"><span class="annottext">Tiering -&gt; Tiering -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557523"><span id="local-6989586621679557525"><span class="annot"><span class="annottext">Tiering -&gt; Tiering -&gt; Bool
 (Tiering -&gt; Tiering -&gt; Bool)
 -&gt; (Tiering -&gt; Tiering -&gt; Bool) -&gt; Eq Tiering
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Tiering -&gt; Tiering -&gt; Bool
 == :: Tiering -&gt; Tiering -&gt; Bool
 $c== :: Tiering -&gt; Tiering -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557404"><span id="local-6989586621679557406"><span id="local-6989586621679557408"><span id="local-6989586621679557410"><span class="annot"><span class="annottext">ReadPrec [Tiering]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557514"><span id="local-6989586621679557516"><span id="local-6989586621679557518"><span id="local-6989586621679557520"><span class="annot"><span class="annottext">ReadPrec [Tiering]
 ReadPrec Tiering
 Int -&gt; ReadS Tiering
 ReadS [Tiering]
@@ -72,7 +72,7 @@ readList :: ReadS [Tiering]
 $creadList :: ReadS [Tiering]
 readsPrec :: Int -&gt; ReadS Tiering
 $creadsPrec :: Int -&gt; ReadS Tiering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557397"><span id="local-6989586621679557399"><span id="local-6989586621679557401"><span class="annot"><span class="annottext">Int -&gt; Tiering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557507"><span id="local-6989586621679557509"><span id="local-6989586621679557511"><span class="annot"><span class="annottext">Int -&gt; Tiering -&gt; ShowS
 [Tiering] -&gt; ShowS
 Tiering -&gt; String
 (Int -&gt; Tiering -&gt; ShowS)
@@ -119,15 +119,15 @@ $cfrom :: forall x. Tiering -&gt; Rep Tiering x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringAccessTier.html#IntelligentTieringAccessTier"><span class="hs-identifier hs-type">IntelligentTieringAccessTier</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span>
 </span><span id="line-70"></span><span id="newTiering"><span class="annot"><span class="annottext">newTiering :: Int -&gt; IntelligentTieringAccessTier -&gt; Tiering
-</span><a href="Network.AWS.S3.Types.Tiering.html#newTiering"><span class="hs-identifier hs-var hs-var">newTiering</span></a></span></span><span> </span><span id="local-6989586621679557391"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557391"><span class="hs-identifier hs-var">pDays_</span></a></span></span><span> </span><span id="local-6989586621679557390"><span class="annot"><span class="annottext">IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557390"><span class="hs-identifier hs-var">pAccessTier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.Tiering.html#newTiering"><span class="hs-identifier hs-var hs-var">newTiering</span></a></span></span><span> </span><span id="local-6989586621679557501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557501"><span class="hs-identifier hs-var">pDays_</span></a></span></span><span> </span><span id="local-6989586621679557500"><span class="annot"><span class="annottext">IntelligentTieringAccessTier
+</span><a href="#local-6989586621679557500"><span class="hs-identifier hs-var">pAccessTier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">Tiering' :: Int -&gt; IntelligentTieringAccessTier -&gt; Tiering
 </span><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:Tiering' :: Int
 </span><a href="Network.AWS.S3.Types.Tiering.html#%24sel%3Adays%3ATiering%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557391"><span class="hs-identifier hs-var">pDays_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:accessTier:Tiering' :: IntelligentTieringAccessTier
+</span><a href="#local-6989586621679557501"><span class="hs-identifier hs-var">pDays_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:accessTier:Tiering' :: IntelligentTieringAccessTier
 </span><a href="Network.AWS.S3.Types.Tiering.html#%24sel%3AaccessTier%3ATiering%27"><span class="hs-identifier hs-var">accessTier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557390"><span class="hs-identifier hs-var">pAccessTier_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679557500"><span class="hs-identifier hs-var">pAccessTier_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The number of consecutive days of no access after which an object will</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- be eligible to be transitioned to the corresponding tier. The minimum</span><span>
@@ -139,16 +139,16 @@ $cfrom :: forall x. Tiering -&gt; Rep Tiering x
 </span><a href="Network.AWS.S3.Types.Tiering.html#tiering_days"><span class="hs-identifier hs-var hs-var">tiering_days</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tiering -&gt; Int)
 -&gt; (Tiering -&gt; Int -&gt; Tiering) -&gt; Lens Tiering Tiering Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557386"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557496"><span class="annot"><span class="annottext">Int
 days :: Int
 $sel:days:Tiering' :: Tiering -&gt; Int
-</span><a href="#local-6989586621679557386"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557386"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557385"><span class="annot"><span class="annottext">s :: Tiering
-</span><a href="#local-6989586621679557385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557384"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tiering
-</span><a href="#local-6989586621679557385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:Tiering' :: Int
+</span><a href="#local-6989586621679557496"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557496"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557495"><span class="annot"><span class="annottext">s :: Tiering
+</span><a href="#local-6989586621679557495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557494"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679557494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tiering
+</span><a href="#local-6989586621679557495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:Tiering' :: Int
 </span><a href="Network.AWS.S3.Types.Tiering.html#%24sel%3Adays%3ATiering%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | S3 Intelligent-Tiering access tier. See</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access Storage class for automatically optimizing frequently and infrequently accessed objects&gt;</span><span>
@@ -164,21 +164,21 @@ $sel:days:Tiering' :: Tiering -&gt; Int
      IntelligentTieringAccessTier
      IntelligentTieringAccessTier
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557382"><span class="annot"><span class="annottext">IntelligentTieringAccessTier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557492"><span class="annot"><span class="annottext">IntelligentTieringAccessTier
 accessTier :: IntelligentTieringAccessTier
 $sel:accessTier:Tiering' :: Tiering -&gt; IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557382"><span class="hs-identifier hs-var hs-var">accessTier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557382"><span class="hs-identifier hs-var">accessTier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557381"><span class="annot"><span class="annottext">s :: Tiering
-</span><a href="#local-6989586621679557381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557380"><span class="annot"><span class="annottext">IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tiering
-</span><a href="#local-6989586621679557381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessTier:Tiering' :: IntelligentTieringAccessTier
+</span><a href="#local-6989586621679557492"><span class="hs-identifier hs-var hs-var">accessTier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringAccessTier
+</span><a href="#local-6989586621679557492"><span class="hs-identifier hs-var">accessTier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557491"><span class="annot"><span class="annottext">s :: Tiering
+</span><a href="#local-6989586621679557491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557490"><span class="annot"><span class="annottext">IntelligentTieringAccessTier
+</span><a href="#local-6989586621679557490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tiering
+</span><a href="#local-6989586621679557491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessTier:Tiering' :: IntelligentTieringAccessTier
 </span><a href="Network.AWS.S3.Types.Tiering.html#%24sel%3AaccessTier%3ATiering%27"><span class="hs-identifier hs-var">accessTier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679557490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679557377"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Tiering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557375"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679557487"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Tiering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557485"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679557485"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; IntelligentTieringAccessTier -&gt; Tiering
 </span><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-var">Tiering'</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; IntelligentTieringAccessTier -&gt; Tiering)
@@ -186,7 +186,7 @@ $sel:accessTier:Tiering' :: Tiering -&gt; IntelligentTieringAccessTier
 -&gt; Either String (IntelligentTieringAccessTier -&gt; Tiering)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679557485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Days&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,24 +195,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Tiering
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String IntelligentTieringAccessTier
+</span><a href="#local-6989586621679557485"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String IntelligentTieringAccessTier
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessTier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557369"><span id="local-6989586621679557371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557479"><span id="local-6989586621679557481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering"><span class="hs-identifier hs-type">Tiering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679557362"><span class="annot"><span class="annottext">toXML :: Tiering -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557359"><span id="local-6989586621679557360"><span class="annot"><span class="annottext">Int
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679557472"><span class="annot"><span class="annottext">toXML :: Tiering -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tiering.html#Tiering%27"><span class="hs-identifier hs-type">Tiering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557469"><span id="local-6989586621679557470"><span class="annot"><span class="annottext">Int
 IntelligentTieringAccessTier
 accessTier :: IntelligentTieringAccessTier
 days :: Int
 $sel:accessTier:Tiering' :: Tiering -&gt; IntelligentTieringAccessTier
 $sel:days:Tiering' :: Tiering -&gt; Int
-</span><a href="#local-6989586621679557359"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679557469"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -220,11 +220,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Days&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557360"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679557470"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AccessTier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; IntelligentTieringAccessTier -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">IntelligentTieringAccessTier
-</span><a href="#local-6989586621679557359"><span class="hs-identifier hs-var">accessTier</span></a></span><span>
+</span><a href="#local-6989586621679557469"><span class="hs-identifier hs-var">accessTier</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span></pre></body></html>

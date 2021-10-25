@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCORSConfiguration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679539045"><span id="local-6989586621679539046"></span></span><span class="hs-keyword">data</span><span> </span><span id="CORSConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-var">CORSConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CORSConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-var">CORSConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679539155"><span id="local-6989586621679539156"></span></span><span class="hs-keyword">data</span><span> </span><span id="CORSConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-var">CORSConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CORSConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-var">CORSConfiguration'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of origins and methods (cross-origin access that you want to</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- allow). You can add up to 100 rules to the configuration.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcORSRules%3ACORSConfiguration%27"><span class="annot"><span class="annottext">CORSConfiguration -&gt; [CORSRule]
 </span><a href="Network.AWS.S3.Types.CORSConfiguration.html#%24sel%3AcORSRules%3ACORSConfiguration%27"><span class="hs-identifier hs-var hs-var">cORSRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.CORSRule.html#CORSRule"><span class="hs-identifier hs-type">CORSRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539039"><span id="local-6989586621679539041"><span class="annot"><span class="annottext">CORSConfiguration -&gt; CORSConfiguration -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539149"><span id="local-6989586621679539151"><span class="annot"><span class="annottext">CORSConfiguration -&gt; CORSConfiguration -&gt; Bool
 (CORSConfiguration -&gt; CORSConfiguration -&gt; Bool)
 -&gt; (CORSConfiguration -&gt; CORSConfiguration -&gt; Bool)
 -&gt; Eq CORSConfiguration
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CORSConfiguration -&gt; CORSConfiguration -&gt; Bool
 == :: CORSConfiguration -&gt; CORSConfiguration -&gt; Bool
 $c== :: CORSConfiguration -&gt; CORSConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539030"><span id="local-6989586621679539032"><span id="local-6989586621679539034"><span id="local-6989586621679539036"><span class="annot"><span class="annottext">ReadPrec [CORSConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539140"><span id="local-6989586621679539142"><span id="local-6989586621679539144"><span id="local-6989586621679539146"><span class="annot"><span class="annottext">ReadPrec [CORSConfiguration]
 ReadPrec CORSConfiguration
 Int -&gt; ReadS CORSConfiguration
 ReadS [CORSConfiguration]
@@ -66,7 +66,7 @@ readList :: ReadS [CORSConfiguration]
 $creadList :: ReadS [CORSConfiguration]
 readsPrec :: Int -&gt; ReadS CORSConfiguration
 $creadsPrec :: Int -&gt; ReadS CORSConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539023"><span id="local-6989586621679539025"><span id="local-6989586621679539027"><span class="annot"><span class="annottext">Int -&gt; CORSConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539133"><span id="local-6989586621679539135"><span id="local-6989586621679539137"><span class="annot"><span class="annottext">Int -&gt; CORSConfiguration -&gt; ShowS
 [CORSConfiguration] -&gt; ShowS
 CORSConfiguration -&gt; String
 (Int -&gt; CORSConfiguration -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CORSConfiguration -&gt; [CORSRule] -&gt; CORSConfiguration)
 -&gt; Lens CORSConfiguration CORSConfiguration [CORSRule] [CORSRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-type">CORSConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539014"><span class="annot"><span class="annottext">[CORSRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-type">CORSConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539124"><span class="annot"><span class="annottext">[CORSRule]
 cORSRules :: [CORSRule]
 $sel:cORSRules:CORSConfiguration' :: CORSConfiguration -&gt; [CORSRule]
-</span><a href="#local-6989586621679539014"><span class="hs-identifier hs-var hs-var">cORSRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CORSRule]
-</span><a href="#local-6989586621679539014"><span class="hs-identifier hs-var">cORSRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539013"><span class="annot"><span class="annottext">s :: CORSConfiguration
-</span><a href="#local-6989586621679539013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-type">CORSConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539012"><span class="annot"><span class="annottext">[CORSRule]
-</span><a href="#local-6989586621679539012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSConfiguration
-</span><a href="#local-6989586621679539013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cORSRules:CORSConfiguration' :: [CORSRule]
+</span><a href="#local-6989586621679539124"><span class="hs-identifier hs-var hs-var">cORSRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CORSRule]
+</span><a href="#local-6989586621679539124"><span class="hs-identifier hs-var">cORSRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539123"><span class="annot"><span class="annottext">s :: CORSConfiguration
+</span><a href="#local-6989586621679539123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-type">CORSConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539122"><span class="annot"><span class="annottext">[CORSRule]
+</span><a href="#local-6989586621679539122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CORSConfiguration
+</span><a href="#local-6989586621679539123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cORSRules:CORSConfiguration' :: [CORSRule]
 </span><a href="Network.AWS.S3.Types.CORSConfiguration.html#%24sel%3AcORSRules%3ACORSConfiguration%27"><span class="hs-identifier hs-var">cORSRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CORSRule]
-</span><a href="#local-6989586621679539012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CORSRule] -&gt; f [CORSRule])
+</span><a href="#local-6989586621679539122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CORSRule] -&gt; f [CORSRule])
  -&gt; CORSConfiguration -&gt; f CORSConfiguration)
 -&gt; (([CORSRule] -&gt; f [CORSRule]) -&gt; [CORSRule] -&gt; f [CORSRule])
 -&gt; ([CORSRule] -&gt; f [CORSRule])
@@ -141,16 +141,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539006"><span id="local-6989586621679539008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539116"><span id="local-6989586621679539118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration"><span class="hs-identifier hs-type">CORSConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679538999"><span class="annot"><span class="annottext">toXML :: CORSConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-type">CORSConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538997"><span class="annot"><span class="annottext">[CORSRule]
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679539109"><span class="annot"><span class="annottext">toXML :: CORSConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CORSConfiguration.html#CORSConfiguration%27"><span class="hs-identifier hs-type">CORSConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539107"><span class="annot"><span class="annottext">[CORSRule]
 cORSRules :: [CORSRule]
 $sel:cORSRules:CORSConfiguration' :: CORSConfiguration -&gt; [CORSRule]
-</span><a href="#local-6989586621679538997"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679539107"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -158,5 +158,5 @@ forall a. Monoid a =&gt; [a] -&gt; a
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CORSRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[CORSRule]
-</span><a href="#local-6989586621679538997"><span class="hs-identifier hs-var">cORSRules</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679539107"><span class="hs-identifier hs-var">cORSRules</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span></pre></body></html>

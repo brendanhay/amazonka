@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- job specification, choose SPECIFIED. When you choose SPECIFIED for this</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- setting, you must also specify values for the parNumerator and</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- parDenominator settings.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680013961"><span id="local-6989586621680013962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9ParControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-var">Vp9ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9ParControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl%27"><span class="hs-identifier hs-var">Vp9ParControl'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680015451"><span id="local-6989586621680015452"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9ParControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-var">Vp9ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9ParControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl%27"><span class="hs-identifier hs-var">Vp9ParControl'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp9ParControl"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#fromVp9ParControl"><span class="hs-identifier hs-var hs-var">fromVp9ParControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680013953"><span id="local-6989586621680013955"><span id="local-6989586621680013957"><span class="annot"><span class="annottext">Int -&gt; Vp9ParControl -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015443"><span id="local-6989586621680015445"><span id="local-6989586621680015447"><span class="annot"><span class="annottext">Int -&gt; Vp9ParControl -&gt; ShowS
 [Vp9ParControl] -&gt; ShowS
 Vp9ParControl -&gt; String
 (Int -&gt; Vp9ParControl -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: Vp9ParControl -&gt; String
 showsPrec :: Int -&gt; Vp9ParControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp9ParControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680013944"><span id="local-6989586621680013946"><span id="local-6989586621680013948"><span id="local-6989586621680013950"><span class="annot"><span class="annottext">ReadPrec [Vp9ParControl]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680015434"><span id="local-6989586621680015436"><span id="local-6989586621680015438"><span id="local-6989586621680015440"><span class="annot"><span class="annottext">ReadPrec [Vp9ParControl]
 ReadPrec Vp9ParControl
 Int -&gt; ReadS Vp9ParControl
 ReadS [Vp9ParControl]
@@ -80,7 +80,7 @@ $creadList :: ReadS [Vp9ParControl]
 readsPrec :: Int -&gt; ReadS Vp9ParControl
 $creadsPrec :: Int -&gt; ReadS Vp9ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680013939"><span id="local-6989586621680013941"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680015429"><span id="local-6989586621680015431"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
 (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
 -&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool) -&gt; Eq Vp9ParControl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
 == :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
 $c== :: Vp9ParControl -&gt; Vp9ParControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680013923"><span id="local-6989586621680013925"><span id="local-6989586621680013927"><span id="local-6989586621680013929"><span id="local-6989586621680013931"><span id="local-6989586621680013933"><span id="local-6989586621680013935"><span class="annot"><span class="annottext">Eq Vp9ParControl
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680015413"><span id="local-6989586621680015415"><span id="local-6989586621680015417"><span id="local-6989586621680015419"><span id="local-6989586621680015421"><span id="local-6989586621680015423"><span id="local-6989586621680015425"><span class="annot"><span class="annottext">Eq Vp9ParControl
 Eq Vp9ParControl
 -&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Ordering)
 -&gt; (Vp9ParControl -&gt; Vp9ParControl -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. Vp9ParControl -&gt; Rep Vp9ParControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680013915"><span id="local-6989586621680013917"><span class="annot"><span class="annottext">Int -&gt; Vp9ParControl -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015405"><span id="local-6989586621680015407"><span class="annot"><span class="annottext">Int -&gt; Vp9ParControl -&gt; Int
 Vp9ParControl -&gt; Int
 (Int -&gt; Vp9ParControl -&gt; Int)
 -&gt; (Vp9ParControl -&gt; Int) -&gt; Hashable Vp9ParControl
@@ -150,49 +150,49 @@ $chash :: Vp9ParControl -&gt; Int
 hashWithSalt :: Int -&gt; Vp9ParControl -&gt; Int
 $chashWithSalt :: Int -&gt; Vp9ParControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680013912"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680015402"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ()
 (Vp9ParControl -&gt; ()) -&gt; NFData Vp9ParControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp9ParControl -&gt; ()
 $crnf :: Vp9ParControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680013909"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9ParControl
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680015399"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9ParControl
 (Text -&gt; Either String Vp9ParControl) -&gt; FromText Vp9ParControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp9ParControl
 $cfromText :: Text -&gt; Either String Vp9ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680013906"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680015396"><span class="annot"><span class="annottext">Vp9ParControl -&gt; Text
 (Vp9ParControl -&gt; Text) -&gt; ToText Vp9ParControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp9ParControl -&gt; Text
 $ctoText :: Vp9ParControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680013903"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680015393"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ByteString
 (Vp9ParControl -&gt; ByteString) -&gt; ToByteString Vp9ParControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp9ParControl -&gt; ByteString
 $ctoBS :: Vp9ParControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680013900"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680015390"><span class="annot"><span class="annottext">Vp9ParControl -&gt; ByteStringBuilder
 (Vp9ParControl -&gt; ByteStringBuilder) -&gt; ToLog Vp9ParControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp9ParControl -&gt; ByteStringBuilder
 $cbuild :: Vp9ParControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680013897"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9ParControl -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015387"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9ParControl -&gt; [Header]
 (HeaderName -&gt; Vp9ParControl -&gt; [Header]) -&gt; ToHeader Vp9ParControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp9ParControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp9ParControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680013894"><span class="annot"><span class="annottext">Vp9ParControl -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015384"><span class="annot"><span class="annottext">Vp9ParControl -&gt; QueryString
 (Vp9ParControl -&gt; QueryString) -&gt; ToQuery Vp9ParControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp9ParControl -&gt; QueryString
 $ctoQuery :: Vp9ParControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680013889"><span id="local-6989586621680013891"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9ParControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015379"><span id="local-6989586621680015381"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9ParControl]
 Value -&gt; Parser Vp9ParControl
 (Value -&gt; Parser Vp9ParControl)
 -&gt; (Value -&gt; Parser [Vp9ParControl]) -&gt; FromJSON Vp9ParControl
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp9ParControl]
 parseJSON :: Value -&gt; Parser Vp9ParControl
 $cparseJSON :: Value -&gt; Parser Vp9ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680013884"><span id="local-6989586621680013886"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9ParControl]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015374"><span id="local-6989586621680015376"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9ParControl]
 FromJSONKeyFunction Vp9ParControl
 FromJSONKeyFunction Vp9ParControl
 -&gt; FromJSONKeyFunction [Vp9ParControl] -&gt; FromJSONKey Vp9ParControl
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp9ParControl]
 fromJSONKey :: FromJSONKeyFunction Vp9ParControl
 $cfromJSONKey :: FromJSONKeyFunction Vp9ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680013875"><span id="local-6989586621680013877"><span id="local-6989586621680013879"><span id="local-6989586621680013881"><span class="annot"><span class="annottext">[Vp9ParControl] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015365"><span id="local-6989586621680015367"><span id="local-6989586621680015369"><span id="local-6989586621680015371"><span class="annot"><span class="annottext">[Vp9ParControl] -&gt; Encoding
 [Vp9ParControl] -&gt; Value
 Vp9ParControl -&gt; Encoding
 Vp9ParControl -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Vp9ParControl -&gt; Encoding
 toJSON :: Vp9ParControl -&gt; Value
 $ctoJSON :: Vp9ParControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680013870"><span id="local-6989586621680013872"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9ParControl]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680015360"><span id="local-6989586621680015362"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9ParControl]
 ToJSONKeyFunction Vp9ParControl
 ToJSONKeyFunction Vp9ParControl
 -&gt; ToJSONKeyFunction [Vp9ParControl] -&gt; ToJSONKey Vp9ParControl
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp9ParControl]
 toJSONKey :: ToJSONKeyFunction Vp9ParControl
 $ctoJSONKey :: ToJSONKeyFunction Vp9ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680013867"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9ParControl
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680015357"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9ParControl
 ([Node] -&gt; Either String Vp9ParControl) -&gt; FromXML Vp9ParControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp9ParControl
 $cparseXML :: [Node] -&gt; Either String Vp9ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680013864"><span class="annot"><span class="annottext">Vp9ParControl -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680015354"><span class="annot"><span class="annottext">Vp9ParControl -&gt; XML
 (Vp9ParControl -&gt; XML) -&gt; ToXML Vp9ParControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vp9ParControl -&gt; XML

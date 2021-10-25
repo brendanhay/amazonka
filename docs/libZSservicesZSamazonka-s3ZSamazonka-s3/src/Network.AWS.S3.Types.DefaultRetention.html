@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">--     same time.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newDefaultRetention' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679546096"><span id="local-6989586621679546097"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultRetention"><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-var">DefaultRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultRetention%27"><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-var">DefaultRetention'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679546206"><span id="local-6989586621679546207"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultRetention"><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-var">DefaultRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultRetention%27"><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-var">DefaultRetention'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of days that you want to specify for the default retention</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- period. Must be used with @Mode@.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Adays%3ADefaultRetention%27"><span class="annot"><span class="annottext">DefaultRetention -&gt; Maybe Int
@@ -50,7 +50,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Ayears%3ADefaultRetention%27"><span class="annot"><span class="annottext">DefaultRetention -&gt; Maybe Int
 </span><a href="Network.AWS.S3.Types.DefaultRetention.html#%24sel%3Ayears%3ADefaultRetention%27"><span class="hs-identifier hs-var hs-var">years</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679546088"><span id="local-6989586621679546090"><span class="annot"><span class="annottext">DefaultRetention -&gt; DefaultRetention -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679546198"><span id="local-6989586621679546200"><span class="annot"><span class="annottext">DefaultRetention -&gt; DefaultRetention -&gt; Bool
 (DefaultRetention -&gt; DefaultRetention -&gt; Bool)
 -&gt; (DefaultRetention -&gt; DefaultRetention -&gt; Bool)
 -&gt; Eq DefaultRetention
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DefaultRetention -&gt; DefaultRetention -&gt; Bool
 == :: DefaultRetention -&gt; DefaultRetention -&gt; Bool
 $c== :: DefaultRetention -&gt; DefaultRetention -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679546079"><span id="local-6989586621679546081"><span id="local-6989586621679546083"><span id="local-6989586621679546085"><span class="annot"><span class="annottext">ReadPrec [DefaultRetention]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679546189"><span id="local-6989586621679546191"><span id="local-6989586621679546193"><span id="local-6989586621679546195"><span class="annot"><span class="annottext">ReadPrec [DefaultRetention]
 ReadPrec DefaultRetention
 Int -&gt; ReadS DefaultRetention
 ReadS [DefaultRetention]
@@ -79,7 +79,7 @@ readList :: ReadS [DefaultRetention]
 $creadList :: ReadS [DefaultRetention]
 readsPrec :: Int -&gt; ReadS DefaultRetention
 $creadsPrec :: Int -&gt; ReadS DefaultRetention
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679546072"><span id="local-6989586621679546074"><span id="local-6989586621679546076"><span class="annot"><span class="annottext">Int -&gt; DefaultRetention -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679546182"><span id="local-6989586621679546184"><span id="local-6989586621679546186"><span class="annot"><span class="annottext">Int -&gt; DefaultRetention -&gt; ShowS
 [DefaultRetention] -&gt; ShowS
 DefaultRetention -&gt; String
 (Int -&gt; DefaultRetention -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (DefaultRetention -&gt; Maybe Int -&gt; DefaultRetention)
 -&gt; Lens DefaultRetention DefaultRetention (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546063"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546173"><span class="annot"><span class="annottext">Maybe Int
 days :: Maybe Int
 $sel:days:DefaultRetention' :: DefaultRetention -&gt; Maybe Int
-</span><a href="#local-6989586621679546063"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546063"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546062"><span class="annot"><span class="annottext">s :: DefaultRetention
-</span><a href="#local-6989586621679546062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546061"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultRetention
-</span><a href="#local-6989586621679546062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:DefaultRetention' :: Maybe Int
+</span><a href="#local-6989586621679546173"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679546173"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546172"><span class="annot"><span class="annottext">s :: DefaultRetention
+</span><a href="#local-6989586621679546172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546171"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679546171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultRetention
+</span><a href="#local-6989586621679546172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:DefaultRetention' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.DefaultRetention.html#%24sel%3Adays%3ADefaultRetention%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679546171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The default Object Lock retention mode you want to apply to new objects</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- placed in the specified bucket. Must be used with either @Days@ or</span><span>
@@ -179,16 +179,16 @@ $sel:days:DefaultRetention' :: DefaultRetention -&gt; Maybe Int
      (Maybe ObjectLockRetentionMode)
      (Maybe ObjectLockRetentionMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546059"><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546169"><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
 mode :: Maybe ObjectLockRetentionMode
 $sel:mode:DefaultRetention' :: DefaultRetention -&gt; Maybe ObjectLockRetentionMode
-</span><a href="#local-6989586621679546059"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
-</span><a href="#local-6989586621679546059"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546058"><span class="annot"><span class="annottext">s :: DefaultRetention
-</span><a href="#local-6989586621679546058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546057"><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
-</span><a href="#local-6989586621679546057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultRetention
-</span><a href="#local-6989586621679546058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:DefaultRetention' :: Maybe ObjectLockRetentionMode
+</span><a href="#local-6989586621679546169"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
+</span><a href="#local-6989586621679546169"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546168"><span class="annot"><span class="annottext">s :: DefaultRetention
+</span><a href="#local-6989586621679546168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546167"><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
+</span><a href="#local-6989586621679546167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultRetention
+</span><a href="#local-6989586621679546168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:DefaultRetention' :: Maybe ObjectLockRetentionMode
 </span><a href="Network.AWS.S3.Types.DefaultRetention.html#%24sel%3Amode%3ADefaultRetention%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
-</span><a href="#local-6989586621679546057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679546167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The number of years that you want to specify for the default retention</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- period. Must be used with @Mode@.</span><span>
@@ -199,21 +199,21 @@ $sel:mode:DefaultRetention' :: DefaultRetention -&gt; Maybe ObjectLockRetentionM
 -&gt; (DefaultRetention -&gt; Maybe Int -&gt; DefaultRetention)
 -&gt; Lens DefaultRetention DefaultRetention (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546055"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546165"><span class="annot"><span class="annottext">Maybe Int
 years :: Maybe Int
 $sel:years:DefaultRetention' :: DefaultRetention -&gt; Maybe Int
-</span><a href="#local-6989586621679546055"><span class="hs-identifier hs-var hs-var">years</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546055"><span class="hs-identifier hs-var">years</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546054"><span class="annot"><span class="annottext">s :: DefaultRetention
-</span><a href="#local-6989586621679546054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546053"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultRetention
-</span><a href="#local-6989586621679546054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:years:DefaultRetention' :: Maybe Int
+</span><a href="#local-6989586621679546165"><span class="hs-identifier hs-var hs-var">years</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679546165"><span class="hs-identifier hs-var">years</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546164"><span class="annot"><span class="annottext">s :: DefaultRetention
+</span><a href="#local-6989586621679546164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546163"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679546163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultRetention
+</span><a href="#local-6989586621679546164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:years:DefaultRetention' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.DefaultRetention.html#%24sel%3Ayears%3ADefaultRetention%27"><span class="hs-identifier hs-var">years</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679546163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679546050"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DefaultRetention
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679546048"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679546160"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DefaultRetention
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679546158"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679546158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe ObjectLockRetentionMode -&gt; Maybe Int -&gt; DefaultRetention
 </span><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-var">DefaultRetention'</span></a></span><span>
@@ -225,7 +225,7 @@ $sel:years:DefaultRetention' :: DefaultRetention -&gt; Maybe Int
      (Maybe ObjectLockRetentionMode -&gt; Maybe Int -&gt; DefaultRetention)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679546158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Days&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,7 +236,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int -&gt; DefaultRetention)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectLockRetentionMode)
+</span><a href="#local-6989586621679546158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectLockRetentionMode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,18 +244,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int) -&gt; Either String DefaultRetention
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679546158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Years&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679546042"><span id="local-6989586621679546044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679546152"><span id="local-6989586621679546154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679546039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679546149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention"><span class="hs-identifier hs-type">DefaultRetention</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679546035"><span class="annot"><span class="annottext">toXML :: DefaultRetention -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546031"><span id="local-6989586621679546032"><span id="local-6989586621679546033"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679546145"><span class="annot"><span class="annottext">toXML :: DefaultRetention -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DefaultRetention.html#DefaultRetention%27"><span class="hs-identifier hs-type">DefaultRetention'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546141"><span id="local-6989586621679546142"><span id="local-6989586621679546143"><span class="annot"><span class="annottext">Maybe Int
 Maybe ObjectLockRetentionMode
 years :: Maybe Int
 mode :: Maybe ObjectLockRetentionMode
@@ -263,7 +263,7 @@ days :: Maybe Int
 $sel:years:DefaultRetention' :: DefaultRetention -&gt; Maybe Int
 $sel:mode:DefaultRetention' :: DefaultRetention -&gt; Maybe ObjectLockRetentionMode
 $sel:days:DefaultRetention' :: DefaultRetention -&gt; Maybe Int
-</span><a href="#local-6989586621679546031"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679546141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -271,16 +271,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Days&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546033"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679546143"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ObjectLockRetentionMode -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockRetentionMode
-</span><a href="#local-6989586621679546032"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679546142"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Years&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679546031"><span class="hs-identifier hs-var">years</span></a></span><span>
+</span><a href="#local-6989586621679546141"><span class="hs-identifier hs-var">years</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span></pre></body></html>

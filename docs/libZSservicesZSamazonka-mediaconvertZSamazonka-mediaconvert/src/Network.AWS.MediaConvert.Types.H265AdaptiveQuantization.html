@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- settings: Flicker adaptive quantization (flickerAdaptiveQuantization),</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- Spatial adaptive quantization (spatialAdaptiveQuantization), and</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- Temporal adaptive quantization (temporalAdaptiveQuantization).</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679969935"><span id="local-6989586621679969936"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265AdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265AdaptiveQuantization.html#H265AdaptiveQuantization"><span class="hs-identifier hs-var">H265AdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265AdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265AdaptiveQuantization.html#H265AdaptiveQuantization%27"><span class="hs-identifier hs-var">H265AdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679971425"><span id="local-6989586621679971426"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265AdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265AdaptiveQuantization.html#H265AdaptiveQuantization"><span class="hs-identifier hs-var">H265AdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265AdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265AdaptiveQuantization.html#H265AdaptiveQuantization%27"><span class="hs-identifier hs-var">H265AdaptiveQuantization'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265AdaptiveQuantization"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265AdaptiveQuantization.html#fromH265AdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromH265AdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679969927"><span id="local-6989586621679969929"><span id="local-6989586621679969931"><span class="annot"><span class="annottext">Int -&gt; H265AdaptiveQuantization -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971417"><span id="local-6989586621679971419"><span id="local-6989586621679971421"><span class="annot"><span class="annottext">Int -&gt; H265AdaptiveQuantization -&gt; ShowS
 [H265AdaptiveQuantization] -&gt; ShowS
 H265AdaptiveQuantization -&gt; String
 (Int -&gt; H265AdaptiveQuantization -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: H265AdaptiveQuantization -&gt; String
 showsPrec :: Int -&gt; H265AdaptiveQuantization -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265AdaptiveQuantization -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679969918"><span id="local-6989586621679969920"><span id="local-6989586621679969922"><span id="local-6989586621679969924"><span class="annot"><span class="annottext">ReadPrec [H265AdaptiveQuantization]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679971408"><span id="local-6989586621679971410"><span id="local-6989586621679971412"><span id="local-6989586621679971414"><span class="annot"><span class="annottext">ReadPrec [H265AdaptiveQuantization]
 ReadPrec H265AdaptiveQuantization
 Int -&gt; ReadS H265AdaptiveQuantization
 ReadS [H265AdaptiveQuantization]
@@ -81,7 +81,7 @@ $creadList :: ReadS [H265AdaptiveQuantization]
 readsPrec :: Int -&gt; ReadS H265AdaptiveQuantization
 $creadsPrec :: Int -&gt; ReadS H265AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679969913"><span id="local-6989586621679969915"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679971403"><span id="local-6989586621679971405"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool
 (H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool)
 -&gt; (H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool)
 -&gt; Eq H265AdaptiveQuantization
@@ -91,7 +91,7 @@ $c/= :: H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool
 == :: H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool
 $c== :: H265AdaptiveQuantization -&gt; H265AdaptiveQuantization -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679969897"><span id="local-6989586621679969899"><span id="local-6989586621679969901"><span id="local-6989586621679969903"><span id="local-6989586621679969905"><span id="local-6989586621679969907"><span id="local-6989586621679969909"><span class="annot"><span class="annottext">Eq H265AdaptiveQuantization
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679971387"><span id="local-6989586621679971389"><span id="local-6989586621679971391"><span id="local-6989586621679971393"><span id="local-6989586621679971395"><span id="local-6989586621679971397"><span id="local-6989586621679971399"><span class="annot"><span class="annottext">Eq H265AdaptiveQuantization
 Eq H265AdaptiveQuantization
 -&gt; (H265AdaptiveQuantization
     -&gt; H265AdaptiveQuantization -&gt; Ordering)
@@ -156,7 +156,7 @@ H265AdaptiveQuantization -&gt; Rep H265AdaptiveQuantization x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679969889"><span id="local-6989586621679969891"><span class="annot"><span class="annottext">Int -&gt; H265AdaptiveQuantization -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971379"><span id="local-6989586621679971381"><span class="annot"><span class="annottext">Int -&gt; H265AdaptiveQuantization -&gt; Int
 H265AdaptiveQuantization -&gt; Int
 (Int -&gt; H265AdaptiveQuantization -&gt; Int)
 -&gt; (H265AdaptiveQuantization -&gt; Int)
@@ -167,55 +167,55 @@ $chash :: H265AdaptiveQuantization -&gt; Int
 hashWithSalt :: Int -&gt; H265AdaptiveQuantization -&gt; Int
 $chashWithSalt :: Int -&gt; H265AdaptiveQuantization -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679969886"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679971376"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; ()
 (H265AdaptiveQuantization -&gt; ()) -&gt; NFData H265AdaptiveQuantization
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265AdaptiveQuantization -&gt; ()
 $crnf :: H265AdaptiveQuantization -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679969883"><span class="annot"><span class="annottext">Text -&gt; Either String H265AdaptiveQuantization
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679971373"><span class="annot"><span class="annottext">Text -&gt; Either String H265AdaptiveQuantization
 (Text -&gt; Either String H265AdaptiveQuantization)
 -&gt; FromText H265AdaptiveQuantization
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265AdaptiveQuantization
 $cfromText :: Text -&gt; Either String H265AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679969880"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679971370"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; Text
 (H265AdaptiveQuantization -&gt; Text)
 -&gt; ToText H265AdaptiveQuantization
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265AdaptiveQuantization -&gt; Text
 $ctoText :: H265AdaptiveQuantization -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679969877"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679971367"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; ByteString
 (H265AdaptiveQuantization -&gt; ByteString)
 -&gt; ToByteString H265AdaptiveQuantization
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265AdaptiveQuantization -&gt; ByteString
 $ctoBS :: H265AdaptiveQuantization -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679969874"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679971364"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; ByteStringBuilder
 (H265AdaptiveQuantization -&gt; ByteStringBuilder)
 -&gt; ToLog H265AdaptiveQuantization
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265AdaptiveQuantization -&gt; ByteStringBuilder
 $cbuild :: H265AdaptiveQuantization -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679969871"><span class="annot"><span class="annottext">HeaderName -&gt; H265AdaptiveQuantization -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679971361"><span class="annot"><span class="annottext">HeaderName -&gt; H265AdaptiveQuantization -&gt; [Header]
 (HeaderName -&gt; H265AdaptiveQuantization -&gt; [Header])
 -&gt; ToHeader H265AdaptiveQuantization
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265AdaptiveQuantization -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265AdaptiveQuantization -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679969868"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679971358"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; QueryString
 (H265AdaptiveQuantization -&gt; QueryString)
 -&gt; ToQuery H265AdaptiveQuantization
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265AdaptiveQuantization -&gt; QueryString
 $ctoQuery :: H265AdaptiveQuantization -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679969863"><span id="local-6989586621679969865"><span class="annot"><span class="annottext">Value -&gt; Parser [H265AdaptiveQuantization]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679971353"><span id="local-6989586621679971355"><span class="annot"><span class="annottext">Value -&gt; Parser [H265AdaptiveQuantization]
 Value -&gt; Parser H265AdaptiveQuantization
 (Value -&gt; Parser H265AdaptiveQuantization)
 -&gt; (Value -&gt; Parser [H265AdaptiveQuantization])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [H265AdaptiveQuantization]
 parseJSON :: Value -&gt; Parser H265AdaptiveQuantization
 $cparseJSON :: Value -&gt; Parser H265AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679969858"><span id="local-6989586621679969860"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265AdaptiveQuantization]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679971348"><span id="local-6989586621679971350"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265AdaptiveQuantization]
 FromJSONKeyFunction H265AdaptiveQuantization
 FromJSONKeyFunction H265AdaptiveQuantization
 -&gt; FromJSONKeyFunction [H265AdaptiveQuantization]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265AdaptiveQuantization]
 fromJSONKey :: FromJSONKeyFunction H265AdaptiveQuantization
 $cfromJSONKey :: FromJSONKeyFunction H265AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679969849"><span id="local-6989586621679969851"><span id="local-6989586621679969853"><span id="local-6989586621679969855"><span class="annot"><span class="annottext">[H265AdaptiveQuantization] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679971339"><span id="local-6989586621679971341"><span id="local-6989586621679971343"><span id="local-6989586621679971345"><span class="annot"><span class="annottext">[H265AdaptiveQuantization] -&gt; Encoding
 [H265AdaptiveQuantization] -&gt; Value
 H265AdaptiveQuantization -&gt; Encoding
 H265AdaptiveQuantization -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: H265AdaptiveQuantization -&gt; Encoding
 toJSON :: H265AdaptiveQuantization -&gt; Value
 $ctoJSON :: H265AdaptiveQuantization -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679969844"><span id="local-6989586621679969846"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265AdaptiveQuantization]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679971334"><span id="local-6989586621679971336"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265AdaptiveQuantization]
 ToJSONKeyFunction H265AdaptiveQuantization
 ToJSONKeyFunction H265AdaptiveQuantization
 -&gt; ToJSONKeyFunction [H265AdaptiveQuantization]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265AdaptiveQuantization]
 toJSONKey :: ToJSONKeyFunction H265AdaptiveQuantization
 $ctoJSONKey :: ToJSONKeyFunction H265AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679969841"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265AdaptiveQuantization
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679971331"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265AdaptiveQuantization
 ([Node] -&gt; Either String H265AdaptiveQuantization)
 -&gt; FromXML H265AdaptiveQuantization
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265AdaptiveQuantization
 $cparseXML :: [Node] -&gt; Either String H265AdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679969838"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679971328"><span class="annot"><span class="annottext">H265AdaptiveQuantization -&gt; XML
 (H265AdaptiveQuantization -&gt; XML) -&gt; ToXML H265AdaptiveQuantization
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265AdaptiveQuantization -&gt; XML

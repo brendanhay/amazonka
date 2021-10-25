@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- no container. Regardless of the value that you specify here, if this</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- output has video, the service will place outputs into an MPEG2-TS</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- container.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679975248"><span id="local-6989586621679975249"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsAudioOnlyContainer"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer.html#HlsAudioOnlyContainer"><span class="hs-identifier hs-var">HlsAudioOnlyContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsAudioOnlyContainer%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer.html#HlsAudioOnlyContainer%27"><span class="hs-identifier hs-var">HlsAudioOnlyContainer'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679976738"><span id="local-6989586621679976739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsAudioOnlyContainer"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer.html#HlsAudioOnlyContainer"><span class="hs-identifier hs-var">HlsAudioOnlyContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsAudioOnlyContainer%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer.html#HlsAudioOnlyContainer%27"><span class="hs-identifier hs-var">HlsAudioOnlyContainer'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsAudioOnlyContainer"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer.html#fromHlsAudioOnlyContainer"><span class="hs-identifier hs-var hs-var">fromHlsAudioOnlyContainer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975240"><span id="local-6989586621679975242"><span id="local-6989586621679975244"><span class="annot"><span class="annottext">Int -&gt; HlsAudioOnlyContainer -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976730"><span id="local-6989586621679976732"><span id="local-6989586621679976734"><span class="annot"><span class="annottext">Int -&gt; HlsAudioOnlyContainer -&gt; ShowS
 [HlsAudioOnlyContainer] -&gt; ShowS
 HlsAudioOnlyContainer -&gt; String
 (Int -&gt; HlsAudioOnlyContainer -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: HlsAudioOnlyContainer -&gt; String
 showsPrec :: Int -&gt; HlsAudioOnlyContainer -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsAudioOnlyContainer -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679975231"><span id="local-6989586621679975233"><span id="local-6989586621679975235"><span id="local-6989586621679975237"><span class="annot"><span class="annottext">ReadPrec [HlsAudioOnlyContainer]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679976721"><span id="local-6989586621679976723"><span id="local-6989586621679976725"><span id="local-6989586621679976727"><span class="annot"><span class="annottext">ReadPrec [HlsAudioOnlyContainer]
 ReadPrec HlsAudioOnlyContainer
 Int -&gt; ReadS HlsAudioOnlyContainer
 ReadS [HlsAudioOnlyContainer]
@@ -78,7 +78,7 @@ $creadList :: ReadS [HlsAudioOnlyContainer]
 readsPrec :: Int -&gt; ReadS HlsAudioOnlyContainer
 $creadsPrec :: Int -&gt; ReadS HlsAudioOnlyContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679975226"><span id="local-6989586621679975228"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679976716"><span id="local-6989586621679976718"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool
 (HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool)
 -&gt; (HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool)
 -&gt; Eq HlsAudioOnlyContainer
@@ -88,7 +88,7 @@ $c/= :: HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool
 == :: HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool
 $c== :: HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679975210"><span id="local-6989586621679975212"><span id="local-6989586621679975214"><span id="local-6989586621679975216"><span id="local-6989586621679975218"><span id="local-6989586621679975220"><span id="local-6989586621679975222"><span class="annot"><span class="annottext">Eq HlsAudioOnlyContainer
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679976700"><span id="local-6989586621679976702"><span id="local-6989586621679976704"><span id="local-6989586621679976706"><span id="local-6989586621679976708"><span id="local-6989586621679976710"><span id="local-6989586621679976712"><span class="annot"><span class="annottext">Eq HlsAudioOnlyContainer
 Eq HlsAudioOnlyContainer
 -&gt; (HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Ordering)
 -&gt; (HlsAudioOnlyContainer -&gt; HlsAudioOnlyContainer -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. HlsAudioOnlyContainer -&gt; Rep HlsAudioOnlyContainer x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975202"><span id="local-6989586621679975204"><span class="annot"><span class="annottext">Int -&gt; HlsAudioOnlyContainer -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976692"><span id="local-6989586621679976694"><span class="annot"><span class="annottext">Int -&gt; HlsAudioOnlyContainer -&gt; Int
 HlsAudioOnlyContainer -&gt; Int
 (Int -&gt; HlsAudioOnlyContainer -&gt; Int)
 -&gt; (HlsAudioOnlyContainer -&gt; Int) -&gt; Hashable HlsAudioOnlyContainer
@@ -156,54 +156,54 @@ $chash :: HlsAudioOnlyContainer -&gt; Int
 hashWithSalt :: Int -&gt; HlsAudioOnlyContainer -&gt; Int
 $chashWithSalt :: Int -&gt; HlsAudioOnlyContainer -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679975199"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679976689"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; ()
 (HlsAudioOnlyContainer -&gt; ()) -&gt; NFData HlsAudioOnlyContainer
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsAudioOnlyContainer -&gt; ()
 $crnf :: HlsAudioOnlyContainer -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679975196"><span class="annot"><span class="annottext">Text -&gt; Either String HlsAudioOnlyContainer
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679976686"><span class="annot"><span class="annottext">Text -&gt; Either String HlsAudioOnlyContainer
 (Text -&gt; Either String HlsAudioOnlyContainer)
 -&gt; FromText HlsAudioOnlyContainer
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsAudioOnlyContainer
 $cfromText :: Text -&gt; Either String HlsAudioOnlyContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679975193"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679976683"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; Text
 (HlsAudioOnlyContainer -&gt; Text) -&gt; ToText HlsAudioOnlyContainer
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsAudioOnlyContainer -&gt; Text
 $ctoText :: HlsAudioOnlyContainer -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679975190"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679976680"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; ByteString
 (HlsAudioOnlyContainer -&gt; ByteString)
 -&gt; ToByteString HlsAudioOnlyContainer
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsAudioOnlyContainer -&gt; ByteString
 $ctoBS :: HlsAudioOnlyContainer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679975187"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679976677"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; ByteStringBuilder
 (HlsAudioOnlyContainer -&gt; ByteStringBuilder)
 -&gt; ToLog HlsAudioOnlyContainer
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsAudioOnlyContainer -&gt; ByteStringBuilder
 $cbuild :: HlsAudioOnlyContainer -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679975184"><span class="annot"><span class="annottext">HeaderName -&gt; HlsAudioOnlyContainer -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679976674"><span class="annot"><span class="annottext">HeaderName -&gt; HlsAudioOnlyContainer -&gt; [Header]
 (HeaderName -&gt; HlsAudioOnlyContainer -&gt; [Header])
 -&gt; ToHeader HlsAudioOnlyContainer
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsAudioOnlyContainer -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsAudioOnlyContainer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679975181"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679976671"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; QueryString
 (HlsAudioOnlyContainer -&gt; QueryString)
 -&gt; ToQuery HlsAudioOnlyContainer
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsAudioOnlyContainer -&gt; QueryString
 $ctoQuery :: HlsAudioOnlyContainer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679975176"><span id="local-6989586621679975178"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsAudioOnlyContainer]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679976666"><span id="local-6989586621679976668"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsAudioOnlyContainer]
 Value -&gt; Parser HlsAudioOnlyContainer
 (Value -&gt; Parser HlsAudioOnlyContainer)
 -&gt; (Value -&gt; Parser [HlsAudioOnlyContainer])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsAudioOnlyContainer]
 parseJSON :: Value -&gt; Parser HlsAudioOnlyContainer
 $cparseJSON :: Value -&gt; Parser HlsAudioOnlyContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679975171"><span id="local-6989586621679975173"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsAudioOnlyContainer]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679976661"><span id="local-6989586621679976663"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsAudioOnlyContainer]
 FromJSONKeyFunction HlsAudioOnlyContainer
 FromJSONKeyFunction HlsAudioOnlyContainer
 -&gt; FromJSONKeyFunction [HlsAudioOnlyContainer]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsAudioOnlyContainer]
 fromJSONKey :: FromJSONKeyFunction HlsAudioOnlyContainer
 $cfromJSONKey :: FromJSONKeyFunction HlsAudioOnlyContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679975162"><span id="local-6989586621679975164"><span id="local-6989586621679975166"><span id="local-6989586621679975168"><span class="annot"><span class="annottext">[HlsAudioOnlyContainer] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679976652"><span id="local-6989586621679976654"><span id="local-6989586621679976656"><span id="local-6989586621679976658"><span class="annot"><span class="annottext">[HlsAudioOnlyContainer] -&gt; Encoding
 [HlsAudioOnlyContainer] -&gt; Value
 HlsAudioOnlyContainer -&gt; Encoding
 HlsAudioOnlyContainer -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: HlsAudioOnlyContainer -&gt; Encoding
 toJSON :: HlsAudioOnlyContainer -&gt; Value
 $ctoJSON :: HlsAudioOnlyContainer -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679975157"><span id="local-6989586621679975159"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsAudioOnlyContainer]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679976647"><span id="local-6989586621679976649"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsAudioOnlyContainer]
 ToJSONKeyFunction HlsAudioOnlyContainer
 ToJSONKeyFunction HlsAudioOnlyContainer
 -&gt; ToJSONKeyFunction [HlsAudioOnlyContainer]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsAudioOnlyContainer]
 toJSONKey :: ToJSONKeyFunction HlsAudioOnlyContainer
 $ctoJSONKey :: ToJSONKeyFunction HlsAudioOnlyContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679975154"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsAudioOnlyContainer
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679976644"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsAudioOnlyContainer
 ([Node] -&gt; Either String HlsAudioOnlyContainer)
 -&gt; FromXML HlsAudioOnlyContainer
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsAudioOnlyContainer
 $cparseXML :: [Node] -&gt; Either String HlsAudioOnlyContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679975151"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679976641"><span class="annot"><span class="annottext">HlsAudioOnlyContainer -&gt; XML
 (HlsAudioOnlyContainer -&gt; XML) -&gt; ToXML HlsAudioOnlyContainer
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsAudioOnlyContainer -&gt; XML

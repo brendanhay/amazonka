@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Settings for color correction.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newColorCorrector' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680003909"><span id="local-6989586621680003910"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColorCorrector"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-var">ColorCorrector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColorCorrector%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-var">ColorCorrector'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680005399"><span id="local-6989586621680005400"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColorCorrector"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-var">ColorCorrector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColorCorrector%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-var">ColorCorrector'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Saturation level.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Asaturation%3AColorCorrector%27"><span class="annot"><span class="annottext">ColorCorrector -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Asaturation%3AColorCorrector%27"><span class="hs-identifier hs-var hs-var">saturation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -80,7 +80,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Abrightness%3AColorCorrector%27"><span class="annot"><span class="annottext">ColorCorrector -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Abrightness%3AColorCorrector%27"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003897"><span id="local-6989586621680003899"><span class="annot"><span class="annottext">ColorCorrector -&gt; ColorCorrector -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680005387"><span id="local-6989586621680005389"><span class="annot"><span class="annottext">ColorCorrector -&gt; ColorCorrector -&gt; Bool
 (ColorCorrector -&gt; ColorCorrector -&gt; Bool)
 -&gt; (ColorCorrector -&gt; ColorCorrector -&gt; Bool) -&gt; Eq ColorCorrector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ColorCorrector -&gt; ColorCorrector -&gt; Bool
 == :: ColorCorrector -&gt; ColorCorrector -&gt; Bool
 $c== :: ColorCorrector -&gt; ColorCorrector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003888"><span id="local-6989586621680003890"><span id="local-6989586621680003892"><span id="local-6989586621680003894"><span class="annot"><span class="annottext">ReadPrec [ColorCorrector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005378"><span id="local-6989586621680005380"><span id="local-6989586621680005382"><span id="local-6989586621680005384"><span class="annot"><span class="annottext">ReadPrec [ColorCorrector]
 ReadPrec ColorCorrector
 Int -&gt; ReadS ColorCorrector
 ReadS [ColorCorrector]
@@ -108,7 +108,7 @@ readList :: ReadS [ColorCorrector]
 $creadList :: ReadS [ColorCorrector]
 readsPrec :: Int -&gt; ReadS ColorCorrector
 $creadsPrec :: Int -&gt; ReadS ColorCorrector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003881"><span id="local-6989586621680003883"><span id="local-6989586621680003885"><span class="annot"><span class="annottext">Int -&gt; ColorCorrector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005371"><span id="local-6989586621680005373"><span id="local-6989586621680005375"><span class="annot"><span class="annottext">Int -&gt; ColorCorrector -&gt; ShowS
 [ColorCorrector] -&gt; ShowS
 ColorCorrector -&gt; String
 (Int -&gt; ColorCorrector -&gt; ShowS)
@@ -235,16 +235,16 @@ forall a. Maybe a
 -&gt; Lens
      ColorCorrector ColorCorrector (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003872"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005362"><span class="annot"><span class="annottext">Maybe Natural
 saturation :: Maybe Natural
 $sel:saturation:ColorCorrector' :: ColorCorrector -&gt; Maybe Natural
-</span><a href="#local-6989586621680003872"><span class="hs-identifier hs-var hs-var">saturation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003872"><span class="hs-identifier hs-var">saturation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003871"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003870"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:saturation:ColorCorrector' :: Maybe Natural
+</span><a href="#local-6989586621680005362"><span class="hs-identifier hs-var hs-var">saturation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680005362"><span class="hs-identifier hs-var">saturation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005361"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005360"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680005360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:saturation:ColorCorrector' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Asaturation%3AColorCorrector%27"><span class="hs-identifier hs-var">saturation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | Hue in degrees.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#colorCorrector_hue"><span class="hs-identifier hs-type">colorCorrector_hue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -253,16 +253,16 @@ $sel:saturation:ColorCorrector' :: ColorCorrector -&gt; Maybe Natural
 -&gt; (ColorCorrector -&gt; Maybe Int -&gt; ColorCorrector)
 -&gt; Lens ColorCorrector ColorCorrector (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003868"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005358"><span class="annot"><span class="annottext">Maybe Int
 hue :: Maybe Int
 $sel:hue:ColorCorrector' :: ColorCorrector -&gt; Maybe Int
-</span><a href="#local-6989586621680003868"><span class="hs-identifier hs-var hs-var">hue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680003868"><span class="hs-identifier hs-var">hue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003867"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003866"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680003866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hue:ColorCorrector' :: Maybe Int
+</span><a href="#local-6989586621680005358"><span class="hs-identifier hs-var hs-var">hue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680005358"><span class="hs-identifier hs-var">hue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005357"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005356"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680005356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hue:ColorCorrector' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Ahue%3AColorCorrector%27"><span class="hs-identifier hs-var">hue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680003866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Specify the video color sample range for this output. To create a full</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- range output, you must start with a full range YUV input and keep the</span><span>
@@ -287,16 +287,16 @@ $sel:hue:ColorCorrector' :: ColorCorrector -&gt; Maybe Int
      (Maybe SampleRangeConversion)
      (Maybe SampleRangeConversion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003864"><span class="annot"><span class="annottext">Maybe SampleRangeConversion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005354"><span class="annot"><span class="annottext">Maybe SampleRangeConversion
 sampleRangeConversion :: Maybe SampleRangeConversion
 $sel:sampleRangeConversion:ColorCorrector' :: ColorCorrector -&gt; Maybe SampleRangeConversion
-</span><a href="#local-6989586621680003864"><span class="hs-identifier hs-var hs-var">sampleRangeConversion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SampleRangeConversion
-</span><a href="#local-6989586621680003864"><span class="hs-identifier hs-var">sampleRangeConversion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003863"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003862"><span class="annot"><span class="annottext">Maybe SampleRangeConversion
-</span><a href="#local-6989586621680003862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRangeConversion:ColorCorrector' :: Maybe SampleRangeConversion
+</span><a href="#local-6989586621680005354"><span class="hs-identifier hs-var hs-var">sampleRangeConversion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SampleRangeConversion
+</span><a href="#local-6989586621680005354"><span class="hs-identifier hs-var">sampleRangeConversion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005353"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005352"><span class="annot"><span class="annottext">Maybe SampleRangeConversion
+</span><a href="#local-6989586621680005352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRangeConversion:ColorCorrector' :: Maybe SampleRangeConversion
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3AsampleRangeConversion%3AColorCorrector%27"><span class="hs-identifier hs-var">sampleRangeConversion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SampleRangeConversion
-</span><a href="#local-6989586621680003862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | Specify the color space you want for this output. The service supports</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- conversion between HDR formats, between SDR formats, from SDR to HDR,</span><span>
@@ -316,16 +316,16 @@ $sel:sampleRangeConversion:ColorCorrector' :: ColorCorrector -&gt; Maybe SampleR
      (Maybe ColorSpaceConversion)
      (Maybe ColorSpaceConversion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003860"><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005350"><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
 colorSpaceConversion :: Maybe ColorSpaceConversion
 $sel:colorSpaceConversion:ColorCorrector' :: ColorCorrector -&gt; Maybe ColorSpaceConversion
-</span><a href="#local-6989586621680003860"><span class="hs-identifier hs-var hs-var">colorSpaceConversion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
-</span><a href="#local-6989586621680003860"><span class="hs-identifier hs-var">colorSpaceConversion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003859"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003858"><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
-</span><a href="#local-6989586621680003858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceConversion:ColorCorrector' :: Maybe ColorSpaceConversion
+</span><a href="#local-6989586621680005350"><span class="hs-identifier hs-var hs-var">colorSpaceConversion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
+</span><a href="#local-6989586621680005350"><span class="hs-identifier hs-var">colorSpaceConversion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005349"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005348"><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
+</span><a href="#local-6989586621680005348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceConversion:ColorCorrector' :: Maybe ColorSpaceConversion
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3AcolorSpaceConversion%3AColorCorrector%27"><span class="hs-identifier hs-var">colorSpaceConversion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
-</span><a href="#local-6989586621680003858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | Use these settings when you convert to the HDR 10 color space. Specify</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- the SMPTE ST 2086 Mastering Display Color Volume static metadata that</span><span>
@@ -351,16 +351,16 @@ $sel:colorSpaceConversion:ColorCorrector' :: ColorCorrector -&gt; Maybe ColorSpa
      (Maybe Hdr10Metadata)
      (Maybe Hdr10Metadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003856"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005346"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
 hdr10Metadata :: Maybe Hdr10Metadata
 $sel:hdr10Metadata:ColorCorrector' :: ColorCorrector -&gt; Maybe Hdr10Metadata
-</span><a href="#local-6989586621680003856"><span class="hs-identifier hs-var hs-var">hdr10Metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680003856"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003855"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003854"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680003854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Metadata:ColorCorrector' :: Maybe Hdr10Metadata
+</span><a href="#local-6989586621680005346"><span class="hs-identifier hs-var hs-var">hdr10Metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680005346"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005345"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005344"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680005344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Metadata:ColorCorrector' :: Maybe Hdr10Metadata
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Ahdr10Metadata%3AColorCorrector%27"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680003854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Contrast level.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#colorCorrector_contrast"><span class="hs-identifier hs-type">colorCorrector_contrast</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -371,16 +371,16 @@ $sel:hdr10Metadata:ColorCorrector' :: ColorCorrector -&gt; Maybe Hdr10Metadata
 -&gt; Lens
      ColorCorrector ColorCorrector (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003852"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005342"><span class="annot"><span class="annottext">Maybe Natural
 contrast :: Maybe Natural
 $sel:contrast:ColorCorrector' :: ColorCorrector -&gt; Maybe Natural
-</span><a href="#local-6989586621680003852"><span class="hs-identifier hs-var hs-var">contrast</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003852"><span class="hs-identifier hs-var">contrast</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003851"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003850"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contrast:ColorCorrector' :: Maybe Natural
+</span><a href="#local-6989586621680005342"><span class="hs-identifier hs-var hs-var">contrast</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680005342"><span class="hs-identifier hs-var">contrast</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005341"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005340"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680005340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contrast:ColorCorrector' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Acontrast%3AColorCorrector%27"><span class="hs-identifier hs-var">contrast</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | Brightness level.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#colorCorrector_brightness"><span class="hs-identifier hs-type">colorCorrector_brightness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -391,19 +391,19 @@ $sel:contrast:ColorCorrector' :: ColorCorrector -&gt; Maybe Natural
 -&gt; Lens
      ColorCorrector ColorCorrector (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003848"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005338"><span class="annot"><span class="annottext">Maybe Natural
 brightness :: Maybe Natural
 $sel:brightness:ColorCorrector' :: ColorCorrector -&gt; Maybe Natural
-</span><a href="#local-6989586621680003848"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003848"><span class="hs-identifier hs-var">brightness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003847"><span class="annot"><span class="annottext">s :: ColorCorrector
-</span><a href="#local-6989586621680003847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003846"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
-</span><a href="#local-6989586621680003847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brightness:ColorCorrector' :: Maybe Natural
+</span><a href="#local-6989586621680005338"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680005338"><span class="hs-identifier hs-var">brightness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005337"><span class="annot"><span class="annottext">s :: ColorCorrector
+</span><a href="#local-6989586621680005337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005336"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680005336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColorCorrector
+</span><a href="#local-6989586621680005337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brightness:ColorCorrector' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#%24sel%3Abrightness%3AColorCorrector%27"><span class="hs-identifier hs-var">brightness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003843"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621680003841"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColorCorrector
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005333"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621680005331"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColorCorrector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ColorCorrector)
@@ -413,8 +413,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ColorCorrector&quot;</span></span><span>
-</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003838"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680005328"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Int
 -&gt; Maybe SampleRangeConversion
@@ -443,7 +443,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ColorCorrector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;saturation&quot;</span></span><span class="hs-special">)</span><span>
@@ -465,7 +465,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ColorCorrector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hue&quot;</span></span><span class="hs-special">)</span><span>
@@ -485,7 +485,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ColorCorrector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SampleRangeConversion)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SampleRangeConversion)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRangeConversion&quot;</span></span><span class="hs-special">)</span><span>
@@ -501,7 +501,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ColorCorrector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpaceConversion)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpaceConversion)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpaceConversion&quot;</span></span><span class="hs-special">)</span><span>
@@ -512,7 +512,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; ColorCorrector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Metadata)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Metadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hdr10Metadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -521,7 +521,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; ColorCorrector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contrast&quot;</span></span><span class="hs-special">)</span><span>
@@ -529,19 +529,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser ColorCorrector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680005328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;brightness&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003832"><span id="local-6989586621680003834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005322"><span id="local-6989586621680005324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span></span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003821"><span id="local-6989586621680003823"><span id="local-6989586621680003825"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621680003819"><span class="annot"><span class="annottext">toJSON :: ColorCorrector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003811"><span id="local-6989586621680003812"><span id="local-6989586621680003813"><span id="local-6989586621680003814"><span id="local-6989586621680003815"><span id="local-6989586621680003816"><span id="local-6989586621680003817"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005311"><span id="local-6989586621680005313"><span id="local-6989586621680005315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector"><span class="hs-identifier hs-type">ColorCorrector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621680005309"><span class="annot"><span class="annottext">toJSON :: ColorCorrector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorCorrector.html#ColorCorrector%27"><span class="hs-identifier hs-type">ColorCorrector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005301"><span id="local-6989586621680005302"><span id="local-6989586621680005303"><span id="local-6989586621680005304"><span id="local-6989586621680005305"><span id="local-6989586621680005306"><span id="local-6989586621680005307"><span class="annot"><span class="annottext">Maybe Int
 Maybe Natural
 Maybe ColorSpaceConversion
 Maybe Hdr10Metadata
@@ -560,7 +560,7 @@ $sel:colorSpaceConversion:ColorCorrector' :: ColorCorrector -&gt; Maybe ColorSpa
 $sel:sampleRangeConversion:ColorCorrector' :: ColorCorrector -&gt; Maybe SampleRangeConversion
 $sel:hue:ColorCorrector' :: ColorCorrector -&gt; Maybe Int
 $sel:saturation:ColorCorrector' :: ColorCorrector -&gt; Maybe Natural
-</span><a href="#local-6989586621680003811"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680005301"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -572,14 +572,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003817"><span class="hs-identifier hs-var">saturation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005307"><span class="hs-identifier hs-var">saturation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680003816"><span class="hs-identifier hs-var">hue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005306"><span class="hs-identifier hs-var">hue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRangeConversion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SampleRangeConversion -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -588,7 +588,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SampleRangeConversion -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SampleRangeConversion
-</span><a href="#local-6989586621680003815"><span class="hs-identifier hs-var">sampleRangeConversion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005305"><span class="hs-identifier hs-var">sampleRangeConversion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpaceConversion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorSpaceConversion -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -597,28 +597,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ColorSpaceConversion -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceConversion
-</span><a href="#local-6989586621680003814"><span class="hs-identifier hs-var">colorSpaceConversion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005304"><span class="hs-identifier hs-var">colorSpaceConversion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hdr10Metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Hdr10Metadata -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Pair) -&gt; Maybe Hdr10Metadata -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680003813"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005303"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contrast&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003812"><span class="hs-identifier hs-var">contrast</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005302"><span class="hs-identifier hs-var">contrast</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;brightness&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003811"><span class="hs-identifier hs-var">brightness</span></a></span><span>
+</span><a href="#local-6989586621680005301"><span class="hs-identifier hs-var">brightness</span></a></span><span>
 </span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span></pre></body></html>

@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- subsequent segment will likely be truncated as well. However, all</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- segments after that will have a duration of $segmentation_time seconds.</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- Note that EBP lookahead is a slight exception to this rule.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679986115"><span id="local-6989586621679986116"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsSegmentationStyle"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsSegmentationStyle.html#M2tsSegmentationStyle"><span class="hs-identifier hs-var">M2tsSegmentationStyle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsSegmentationStyle%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsSegmentationStyle.html#M2tsSegmentationStyle%27"><span class="hs-identifier hs-var">M2tsSegmentationStyle'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679987605"><span id="local-6989586621679987606"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsSegmentationStyle"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsSegmentationStyle.html#M2tsSegmentationStyle"><span class="hs-identifier hs-var">M2tsSegmentationStyle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsSegmentationStyle%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsSegmentationStyle.html#M2tsSegmentationStyle%27"><span class="hs-identifier hs-var">M2tsSegmentationStyle'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsSegmentationStyle"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M2tsSegmentationStyle.html#fromM2tsSegmentationStyle"><span class="hs-identifier hs-var hs-var">fromM2tsSegmentationStyle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986107"><span id="local-6989586621679986109"><span id="local-6989586621679986111"><span class="annot"><span class="annottext">Int -&gt; M2tsSegmentationStyle -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987597"><span id="local-6989586621679987599"><span id="local-6989586621679987601"><span class="annot"><span class="annottext">Int -&gt; M2tsSegmentationStyle -&gt; ShowS
 [M2tsSegmentationStyle] -&gt; ShowS
 M2tsSegmentationStyle -&gt; String
 (Int -&gt; M2tsSegmentationStyle -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: M2tsSegmentationStyle -&gt; String
 showsPrec :: Int -&gt; M2tsSegmentationStyle -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsSegmentationStyle -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986098"><span id="local-6989586621679986100"><span id="local-6989586621679986102"><span id="local-6989586621679986104"><span class="annot"><span class="annottext">ReadPrec [M2tsSegmentationStyle]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679987588"><span id="local-6989586621679987590"><span id="local-6989586621679987592"><span id="local-6989586621679987594"><span class="annot"><span class="annottext">ReadPrec [M2tsSegmentationStyle]
 ReadPrec M2tsSegmentationStyle
 Int -&gt; ReadS M2tsSegmentationStyle
 ReadS [M2tsSegmentationStyle]
@@ -84,7 +84,7 @@ $creadList :: ReadS [M2tsSegmentationStyle]
 readsPrec :: Int -&gt; ReadS M2tsSegmentationStyle
 $creadsPrec :: Int -&gt; ReadS M2tsSegmentationStyle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986093"><span id="local-6989586621679986095"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679987583"><span id="local-6989586621679987585"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool
 (M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool)
 -&gt; (M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool)
 -&gt; Eq M2tsSegmentationStyle
@@ -94,7 +94,7 @@ $c/= :: M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool
 == :: M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool
 $c== :: M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986077"><span id="local-6989586621679986079"><span id="local-6989586621679986081"><span id="local-6989586621679986083"><span id="local-6989586621679986085"><span id="local-6989586621679986087"><span id="local-6989586621679986089"><span class="annot"><span class="annottext">Eq M2tsSegmentationStyle
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679987567"><span id="local-6989586621679987569"><span id="local-6989586621679987571"><span id="local-6989586621679987573"><span id="local-6989586621679987575"><span id="local-6989586621679987577"><span id="local-6989586621679987579"><span class="annot"><span class="annottext">Eq M2tsSegmentationStyle
 Eq M2tsSegmentationStyle
 -&gt; (M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Ordering)
 -&gt; (M2tsSegmentationStyle -&gt; M2tsSegmentationStyle -&gt; Bool)
@@ -152,7 +152,7 @@ $cfrom :: forall x. M2tsSegmentationStyle -&gt; Rep M2tsSegmentationStyle x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986069"><span id="local-6989586621679986071"><span class="annot"><span class="annottext">Int -&gt; M2tsSegmentationStyle -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987559"><span id="local-6989586621679987561"><span class="annot"><span class="annottext">Int -&gt; M2tsSegmentationStyle -&gt; Int
 M2tsSegmentationStyle -&gt; Int
 (Int -&gt; M2tsSegmentationStyle -&gt; Int)
 -&gt; (M2tsSegmentationStyle -&gt; Int) -&gt; Hashable M2tsSegmentationStyle
@@ -162,54 +162,54 @@ $chash :: M2tsSegmentationStyle -&gt; Int
 hashWithSalt :: Int -&gt; M2tsSegmentationStyle -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsSegmentationStyle -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986066"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679987556"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; ()
 (M2tsSegmentationStyle -&gt; ()) -&gt; NFData M2tsSegmentationStyle
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsSegmentationStyle -&gt; ()
 $crnf :: M2tsSegmentationStyle -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986063"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsSegmentationStyle
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679987553"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsSegmentationStyle
 (Text -&gt; Either String M2tsSegmentationStyle)
 -&gt; FromText M2tsSegmentationStyle
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsSegmentationStyle
 $cfromText :: Text -&gt; Either String M2tsSegmentationStyle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986060"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679987550"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; Text
 (M2tsSegmentationStyle -&gt; Text) -&gt; ToText M2tsSegmentationStyle
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsSegmentationStyle -&gt; Text
 $ctoText :: M2tsSegmentationStyle -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986057"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679987547"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; ByteString
 (M2tsSegmentationStyle -&gt; ByteString)
 -&gt; ToByteString M2tsSegmentationStyle
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsSegmentationStyle -&gt; ByteString
 $ctoBS :: M2tsSegmentationStyle -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679986054"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679987544"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; ByteStringBuilder
 (M2tsSegmentationStyle -&gt; ByteStringBuilder)
 -&gt; ToLog M2tsSegmentationStyle
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsSegmentationStyle -&gt; ByteStringBuilder
 $cbuild :: M2tsSegmentationStyle -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679986051"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsSegmentationStyle -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679987541"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsSegmentationStyle -&gt; [Header]
 (HeaderName -&gt; M2tsSegmentationStyle -&gt; [Header])
 -&gt; ToHeader M2tsSegmentationStyle
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsSegmentationStyle -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsSegmentationStyle -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679986048"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679987538"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; QueryString
 (M2tsSegmentationStyle -&gt; QueryString)
 -&gt; ToQuery M2tsSegmentationStyle
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsSegmentationStyle -&gt; QueryString
 $ctoQuery :: M2tsSegmentationStyle -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679986043"><span id="local-6989586621679986045"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsSegmentationStyle]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679987533"><span id="local-6989586621679987535"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsSegmentationStyle]
 Value -&gt; Parser M2tsSegmentationStyle
 (Value -&gt; Parser M2tsSegmentationStyle)
 -&gt; (Value -&gt; Parser [M2tsSegmentationStyle])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsSegmentationStyle]
 parseJSON :: Value -&gt; Parser M2tsSegmentationStyle
 $cparseJSON :: Value -&gt; Parser M2tsSegmentationStyle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679986038"><span id="local-6989586621679986040"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsSegmentationStyle]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679987528"><span id="local-6989586621679987530"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsSegmentationStyle]
 FromJSONKeyFunction M2tsSegmentationStyle
 FromJSONKeyFunction M2tsSegmentationStyle
 -&gt; FromJSONKeyFunction [M2tsSegmentationStyle]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsSegmentationStyle]
 fromJSONKey :: FromJSONKeyFunction M2tsSegmentationStyle
 $cfromJSONKey :: FromJSONKeyFunction M2tsSegmentationStyle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679986029"><span id="local-6989586621679986031"><span id="local-6989586621679986033"><span id="local-6989586621679986035"><span class="annot"><span class="annottext">[M2tsSegmentationStyle] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679987519"><span id="local-6989586621679987521"><span id="local-6989586621679987523"><span id="local-6989586621679987525"><span class="annot"><span class="annottext">[M2tsSegmentationStyle] -&gt; Encoding
 [M2tsSegmentationStyle] -&gt; Value
 M2tsSegmentationStyle -&gt; Encoding
 M2tsSegmentationStyle -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: M2tsSegmentationStyle -&gt; Encoding
 toJSON :: M2tsSegmentationStyle -&gt; Value
 $ctoJSON :: M2tsSegmentationStyle -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679986024"><span id="local-6989586621679986026"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsSegmentationStyle]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679987514"><span id="local-6989586621679987516"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsSegmentationStyle]
 ToJSONKeyFunction M2tsSegmentationStyle
 ToJSONKeyFunction M2tsSegmentationStyle
 -&gt; ToJSONKeyFunction [M2tsSegmentationStyle]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsSegmentationStyle]
 toJSONKey :: ToJSONKeyFunction M2tsSegmentationStyle
 $ctoJSONKey :: ToJSONKeyFunction M2tsSegmentationStyle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679986021"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsSegmentationStyle
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679987511"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsSegmentationStyle
 ([Node] -&gt; Either String M2tsSegmentationStyle)
 -&gt; FromXML M2tsSegmentationStyle
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsSegmentationStyle
 $cparseXML :: [Node] -&gt; Either String M2tsSegmentationStyle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679986018"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679987508"><span class="annot"><span class="annottext">M2tsSegmentationStyle -&gt; XML
 (M2tsSegmentationStyle -&gt; XML) -&gt; ToXML M2tsSegmentationStyle
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsSegmentationStyle -&gt; XML

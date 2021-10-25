@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- LanguageCode is not sufficient for determining the script type. Where</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- LanguageCode or CustomLanguageCode is sufficient, use \&quot;AUTOMATIC\&quot; or</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- leave unset.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679964510"><span id="local-6989586621679964511"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FontScript"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier hs-var">FontScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FontScript%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-identifier hs-var">FontScript'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679966000"><span id="local-6989586621679966001"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FontScript"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript"><span class="hs-identifier hs-var">FontScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FontScript%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FontScript.html#FontScript%27"><span class="hs-identifier hs-var">FontScript'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFontScript"><span class="annot"><span class="annottext">FontScript -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.FontScript.html#fromFontScript"><span class="hs-identifier hs-var hs-var">fromFontScript</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964502"><span id="local-6989586621679964504"><span id="local-6989586621679964506"><span class="annot"><span class="annottext">Int -&gt; FontScript -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965992"><span id="local-6989586621679965994"><span id="local-6989586621679965996"><span class="annot"><span class="annottext">Int -&gt; FontScript -&gt; ShowS
 [FontScript] -&gt; ShowS
 FontScript -&gt; String
 (Int -&gt; FontScript -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: FontScript -&gt; String
 showsPrec :: Int -&gt; FontScript -&gt; ShowS
 $cshowsPrec :: Int -&gt; FontScript -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679964493"><span id="local-6989586621679964495"><span id="local-6989586621679964497"><span id="local-6989586621679964499"><span class="annot"><span class="annottext">ReadPrec [FontScript]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679965983"><span id="local-6989586621679965985"><span id="local-6989586621679965987"><span id="local-6989586621679965989"><span class="annot"><span class="annottext">ReadPrec [FontScript]
 ReadPrec FontScript
 Int -&gt; ReadS FontScript
 ReadS [FontScript]
@@ -77,7 +77,7 @@ $creadList :: ReadS [FontScript]
 readsPrec :: Int -&gt; ReadS FontScript
 $creadsPrec :: Int -&gt; ReadS FontScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679964488"><span id="local-6989586621679964490"><span class="annot"><span class="annottext">FontScript -&gt; FontScript -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679965978"><span id="local-6989586621679965980"><span class="annot"><span class="annottext">FontScript -&gt; FontScript -&gt; Bool
 (FontScript -&gt; FontScript -&gt; Bool)
 -&gt; (FontScript -&gt; FontScript -&gt; Bool) -&gt; Eq FontScript
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: FontScript -&gt; FontScript -&gt; Bool
 == :: FontScript -&gt; FontScript -&gt; Bool
 $c== :: FontScript -&gt; FontScript -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679964472"><span id="local-6989586621679964474"><span id="local-6989586621679964476"><span id="local-6989586621679964478"><span id="local-6989586621679964480"><span id="local-6989586621679964482"><span id="local-6989586621679964484"><span class="annot"><span class="annottext">Eq FontScript
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679965962"><span id="local-6989586621679965964"><span id="local-6989586621679965966"><span id="local-6989586621679965968"><span id="local-6989586621679965970"><span id="local-6989586621679965972"><span id="local-6989586621679965974"><span class="annot"><span class="annottext">Eq FontScript
 Eq FontScript
 -&gt; (FontScript -&gt; FontScript -&gt; Ordering)
 -&gt; (FontScript -&gt; FontScript -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. FontScript -&gt; Rep FontScript x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964464"><span id="local-6989586621679964466"><span class="annot"><span class="annottext">Int -&gt; FontScript -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965954"><span id="local-6989586621679965956"><span class="annot"><span class="annottext">Int -&gt; FontScript -&gt; Int
 FontScript -&gt; Int
 (Int -&gt; FontScript -&gt; Int)
 -&gt; (FontScript -&gt; Int) -&gt; Hashable FontScript
@@ -146,49 +146,49 @@ $chash :: FontScript -&gt; Int
 hashWithSalt :: Int -&gt; FontScript -&gt; Int
 $chashWithSalt :: Int -&gt; FontScript -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679964461"><span class="annot"><span class="annottext">FontScript -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679965951"><span class="annot"><span class="annottext">FontScript -&gt; ()
 (FontScript -&gt; ()) -&gt; NFData FontScript
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FontScript -&gt; ()
 $crnf :: FontScript -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679964458"><span class="annot"><span class="annottext">Text -&gt; Either String FontScript
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679965948"><span class="annot"><span class="annottext">Text -&gt; Either String FontScript
 (Text -&gt; Either String FontScript) -&gt; FromText FontScript
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FontScript
 $cfromText :: Text -&gt; Either String FontScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679964455"><span class="annot"><span class="annottext">FontScript -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679965945"><span class="annot"><span class="annottext">FontScript -&gt; Text
 (FontScript -&gt; Text) -&gt; ToText FontScript
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FontScript -&gt; Text
 $ctoText :: FontScript -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679964452"><span class="annot"><span class="annottext">FontScript -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679965942"><span class="annot"><span class="annottext">FontScript -&gt; ByteString
 (FontScript -&gt; ByteString) -&gt; ToByteString FontScript
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FontScript -&gt; ByteString
 $ctoBS :: FontScript -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679964449"><span class="annot"><span class="annottext">FontScript -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679965939"><span class="annot"><span class="annottext">FontScript -&gt; ByteStringBuilder
 (FontScript -&gt; ByteStringBuilder) -&gt; ToLog FontScript
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FontScript -&gt; ByteStringBuilder
 $cbuild :: FontScript -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679964446"><span class="annot"><span class="annottext">HeaderName -&gt; FontScript -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679965936"><span class="annot"><span class="annottext">HeaderName -&gt; FontScript -&gt; [Header]
 (HeaderName -&gt; FontScript -&gt; [Header]) -&gt; ToHeader FontScript
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FontScript -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FontScript -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679964443"><span class="annot"><span class="annottext">FontScript -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679965933"><span class="annot"><span class="annottext">FontScript -&gt; QueryString
 (FontScript -&gt; QueryString) -&gt; ToQuery FontScript
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FontScript -&gt; QueryString
 $ctoQuery :: FontScript -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679964438"><span id="local-6989586621679964440"><span class="annot"><span class="annottext">Value -&gt; Parser [FontScript]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679965928"><span id="local-6989586621679965930"><span class="annot"><span class="annottext">Value -&gt; Parser [FontScript]
 Value -&gt; Parser FontScript
 (Value -&gt; Parser FontScript)
 -&gt; (Value -&gt; Parser [FontScript]) -&gt; FromJSON FontScript
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [FontScript]
 parseJSON :: Value -&gt; Parser FontScript
 $cparseJSON :: Value -&gt; Parser FontScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679964433"><span id="local-6989586621679964435"><span class="annot"><span class="annottext">FromJSONKeyFunction [FontScript]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679965923"><span id="local-6989586621679965925"><span class="annot"><span class="annottext">FromJSONKeyFunction [FontScript]
 FromJSONKeyFunction FontScript
 FromJSONKeyFunction FontScript
 -&gt; FromJSONKeyFunction [FontScript] -&gt; FromJSONKey FontScript
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FontScript]
 fromJSONKey :: FromJSONKeyFunction FontScript
 $cfromJSONKey :: FromJSONKeyFunction FontScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679964424"><span id="local-6989586621679964426"><span id="local-6989586621679964428"><span id="local-6989586621679964430"><span class="annot"><span class="annottext">[FontScript] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679965914"><span id="local-6989586621679965916"><span id="local-6989586621679965918"><span id="local-6989586621679965920"><span class="annot"><span class="annottext">[FontScript] -&gt; Encoding
 [FontScript] -&gt; Value
 FontScript -&gt; Encoding
 FontScript -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: FontScript -&gt; Encoding
 toJSON :: FontScript -&gt; Value
 $ctoJSON :: FontScript -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679964419"><span id="local-6989586621679964421"><span class="annot"><span class="annottext">ToJSONKeyFunction [FontScript]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679965909"><span id="local-6989586621679965911"><span class="annot"><span class="annottext">ToJSONKeyFunction [FontScript]
 ToJSONKeyFunction FontScript
 ToJSONKeyFunction FontScript
 -&gt; ToJSONKeyFunction [FontScript] -&gt; ToJSONKey FontScript
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FontScript]
 toJSONKey :: ToJSONKeyFunction FontScript
 $ctoJSONKey :: ToJSONKeyFunction FontScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679964416"><span class="annot"><span class="annottext">[Node] -&gt; Either String FontScript
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679965906"><span class="annot"><span class="annottext">[Node] -&gt; Either String FontScript
 ([Node] -&gt; Either String FontScript) -&gt; FromXML FontScript
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FontScript
 $cparseXML :: [Node] -&gt; Either String FontScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679964413"><span class="annot"><span class="annottext">FontScript -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679965903"><span class="annot"><span class="annottext">FontScript -&gt; XML
 (FontScript -&gt; XML) -&gt; ToXML FontScript
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FontScript -&gt; XML

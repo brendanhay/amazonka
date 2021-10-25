@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-comment">-- MediaConvert defaults to Alternate audio, auto select, default. When</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- there is more than one variant in your output group, you must explicitly</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- choose a value for this setting.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679950417"><span id="local-6989586621679950418"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcAudioTrackType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-var">CmfcAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcAudioTrackType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-identifier hs-var">CmfcAudioTrackType'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679951736"><span id="local-6989586621679951737"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcAudioTrackType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-var">CmfcAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcAudioTrackType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-identifier hs-var">CmfcAudioTrackType'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmfcAudioTrackType"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#fromCmfcAudioTrackType"><span class="hs-identifier hs-var hs-var">fromCmfcAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950409"><span id="local-6989586621679950411"><span id="local-6989586621679950413"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioTrackType -&gt; ShowS
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951728"><span id="local-6989586621679951730"><span id="local-6989586621679951732"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioTrackType -&gt; ShowS
 [CmfcAudioTrackType] -&gt; ShowS
 CmfcAudioTrackType -&gt; String
 (Int -&gt; CmfcAudioTrackType -&gt; ShowS)
@@ -69,7 +69,7 @@ $cshow :: CmfcAudioTrackType -&gt; String
 showsPrec :: Int -&gt; CmfcAudioTrackType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmfcAudioTrackType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950400"><span id="local-6989586621679950402"><span id="local-6989586621679950404"><span id="local-6989586621679950406"><span class="annot"><span class="annottext">ReadPrec [CmfcAudioTrackType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679951719"><span id="local-6989586621679951721"><span id="local-6989586621679951723"><span id="local-6989586621679951725"><span class="annot"><span class="annottext">ReadPrec [CmfcAudioTrackType]
 ReadPrec CmfcAudioTrackType
 Int -&gt; ReadS CmfcAudioTrackType
 ReadS [CmfcAudioTrackType]
@@ -90,7 +90,7 @@ $creadList :: ReadS [CmfcAudioTrackType]
 readsPrec :: Int -&gt; ReadS CmfcAudioTrackType
 $creadsPrec :: Int -&gt; ReadS CmfcAudioTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950395"><span id="local-6989586621679950397"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679951714"><span id="local-6989586621679951716"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
 (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
 -&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
 -&gt; Eq CmfcAudioTrackType
@@ -100,7 +100,7 @@ $c/= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
 == :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
 $c== :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950379"><span id="local-6989586621679950381"><span id="local-6989586621679950383"><span id="local-6989586621679950385"><span id="local-6989586621679950387"><span id="local-6989586621679950389"><span id="local-6989586621679950391"><span class="annot"><span class="annottext">Eq CmfcAudioTrackType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679951698"><span id="local-6989586621679951700"><span id="local-6989586621679951702"><span id="local-6989586621679951704"><span id="local-6989586621679951706"><span id="local-6989586621679951708"><span id="local-6989586621679951710"><span class="annot"><span class="annottext">Eq CmfcAudioTrackType
 Eq CmfcAudioTrackType
 -&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Ordering)
 -&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. CmfcAudioTrackType -&gt; Rep CmfcAudioTrackType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950371"><span id="local-6989586621679950373"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioTrackType -&gt; Int
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951690"><span id="local-6989586621679951692"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioTrackType -&gt; Int
 CmfcAudioTrackType -&gt; Int
 (Int -&gt; CmfcAudioTrackType -&gt; Int)
 -&gt; (CmfcAudioTrackType -&gt; Int) -&gt; Hashable CmfcAudioTrackType
@@ -161,53 +161,53 @@ $chash :: CmfcAudioTrackType -&gt; Int
 hashWithSalt :: Int -&gt; CmfcAudioTrackType -&gt; Int
 $chashWithSalt :: Int -&gt; CmfcAudioTrackType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679950368"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ()
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679951687"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ()
 (CmfcAudioTrackType -&gt; ()) -&gt; NFData CmfcAudioTrackType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmfcAudioTrackType -&gt; ()
 $crnf :: CmfcAudioTrackType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679950365"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcAudioTrackType
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679951684"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcAudioTrackType
 (Text -&gt; Either String CmfcAudioTrackType)
 -&gt; FromText CmfcAudioTrackType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmfcAudioTrackType
 $cfromText :: Text -&gt; Either String CmfcAudioTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679950362"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; Text
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679951681"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; Text
 (CmfcAudioTrackType -&gt; Text) -&gt; ToText CmfcAudioTrackType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmfcAudioTrackType -&gt; Text
 $ctoText :: CmfcAudioTrackType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679950359"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ByteString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679951678"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ByteString
 (CmfcAudioTrackType -&gt; ByteString)
 -&gt; ToByteString CmfcAudioTrackType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmfcAudioTrackType -&gt; ByteString
 $ctoBS :: CmfcAudioTrackType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679950356"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ByteStringBuilder
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679951675"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ByteStringBuilder
 (CmfcAudioTrackType -&gt; ByteStringBuilder)
 -&gt; ToLog CmfcAudioTrackType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmfcAudioTrackType -&gt; ByteStringBuilder
 $cbuild :: CmfcAudioTrackType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679950353"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679951672"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
 (HeaderName -&gt; CmfcAudioTrackType -&gt; [Header])
 -&gt; ToHeader CmfcAudioTrackType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679950350"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; QueryString
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679951669"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; QueryString
 (CmfcAudioTrackType -&gt; QueryString) -&gt; ToQuery CmfcAudioTrackType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmfcAudioTrackType -&gt; QueryString
 $ctoQuery :: CmfcAudioTrackType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679950345"><span id="local-6989586621679950347"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcAudioTrackType]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679951664"><span id="local-6989586621679951666"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcAudioTrackType]
 Value -&gt; Parser CmfcAudioTrackType
 (Value -&gt; Parser CmfcAudioTrackType)
 -&gt; (Value -&gt; Parser [CmfcAudioTrackType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [CmfcAudioTrackType]
 parseJSON :: Value -&gt; Parser CmfcAudioTrackType
 $cparseJSON :: Value -&gt; Parser CmfcAudioTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679950340"><span id="local-6989586621679950342"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcAudioTrackType]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679951659"><span id="local-6989586621679951661"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcAudioTrackType]
 FromJSONKeyFunction CmfcAudioTrackType
 FromJSONKeyFunction CmfcAudioTrackType
 -&gt; FromJSONKeyFunction [CmfcAudioTrackType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmfcAudioTrackType]
 fromJSONKey :: FromJSONKeyFunction CmfcAudioTrackType
 $cfromJSONKey :: FromJSONKeyFunction CmfcAudioTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679950331"><span id="local-6989586621679950333"><span id="local-6989586621679950335"><span id="local-6989586621679950337"><span class="annot"><span class="annottext">[CmfcAudioTrackType] -&gt; Encoding
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679951650"><span id="local-6989586621679951652"><span id="local-6989586621679951654"><span id="local-6989586621679951656"><span class="annot"><span class="annottext">[CmfcAudioTrackType] -&gt; Encoding
 [CmfcAudioTrackType] -&gt; Value
 CmfcAudioTrackType -&gt; Encoding
 CmfcAudioTrackType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: CmfcAudioTrackType -&gt; Encoding
 toJSON :: CmfcAudioTrackType -&gt; Value
 $ctoJSON :: CmfcAudioTrackType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679950326"><span id="local-6989586621679950328"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcAudioTrackType]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679951645"><span id="local-6989586621679951647"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcAudioTrackType]
 ToJSONKeyFunction CmfcAudioTrackType
 ToJSONKeyFunction CmfcAudioTrackType
 -&gt; ToJSONKeyFunction [CmfcAudioTrackType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmfcAudioTrackType]
 toJSONKey :: ToJSONKeyFunction CmfcAudioTrackType
 $ctoJSONKey :: ToJSONKeyFunction CmfcAudioTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679950323"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcAudioTrackType
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679951642"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcAudioTrackType
 ([Node] -&gt; Either String CmfcAudioTrackType)
 -&gt; FromXML CmfcAudioTrackType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmfcAudioTrackType
 $cparseXML :: [Node] -&gt; Either String CmfcAudioTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679950320"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; XML
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679951639"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; XML
 (CmfcAudioTrackType -&gt; XML) -&gt; ToXML CmfcAudioTrackType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmfcAudioTrackType -&gt; XML

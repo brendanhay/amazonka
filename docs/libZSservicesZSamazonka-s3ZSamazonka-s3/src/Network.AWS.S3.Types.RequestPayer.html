@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- buckets, see</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html Downloading Objects in Requestor Pays Buckets&gt;</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679551010"><span id="local-6989586621679551011"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequestPayer"><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-var">RequestPayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestPayer%27"><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer%27"><span class="hs-identifier hs-var">RequestPayer'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679551120"><span id="local-6989586621679551121"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequestPayer"><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-var">RequestPayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestPayer%27"><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer%27"><span class="hs-identifier hs-var">RequestPayer'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequestPayer"><span class="annot"><span class="annottext">RequestPayer -&gt; Text
 </span><a href="Network.AWS.S3.Types.RequestPayer.html#fromRequestPayer"><span class="hs-identifier hs-var hs-var">fromRequestPayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551002"><span id="local-6989586621679551004"><span id="local-6989586621679551006"><span class="annot"><span class="annottext">Int -&gt; RequestPayer -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551112"><span id="local-6989586621679551114"><span id="local-6989586621679551116"><span class="annot"><span class="annottext">Int -&gt; RequestPayer -&gt; ShowS
 [RequestPayer] -&gt; ShowS
 RequestPayer -&gt; String
 (Int -&gt; RequestPayer -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: RequestPayer -&gt; String
 showsPrec :: Int -&gt; RequestPayer -&gt; ShowS
 $cshowsPrec :: Int -&gt; RequestPayer -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679550993"><span id="local-6989586621679550995"><span id="local-6989586621679550997"><span id="local-6989586621679550999"><span class="annot"><span class="annottext">ReadPrec [RequestPayer]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679551103"><span id="local-6989586621679551105"><span id="local-6989586621679551107"><span id="local-6989586621679551109"><span class="annot"><span class="annottext">ReadPrec [RequestPayer]
 ReadPrec RequestPayer
 Int -&gt; ReadS RequestPayer
 ReadS [RequestPayer]
@@ -78,7 +78,7 @@ $creadList :: ReadS [RequestPayer]
 readsPrec :: Int -&gt; ReadS RequestPayer
 $creadsPrec :: Int -&gt; ReadS RequestPayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679550988"><span id="local-6989586621679550990"><span class="annot"><span class="annottext">RequestPayer -&gt; RequestPayer -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679551098"><span id="local-6989586621679551100"><span class="annot"><span class="annottext">RequestPayer -&gt; RequestPayer -&gt; Bool
 (RequestPayer -&gt; RequestPayer -&gt; Bool)
 -&gt; (RequestPayer -&gt; RequestPayer -&gt; Bool) -&gt; Eq RequestPayer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: RequestPayer -&gt; RequestPayer -&gt; Bool
 == :: RequestPayer -&gt; RequestPayer -&gt; Bool
 $c== :: RequestPayer -&gt; RequestPayer -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679550972"><span id="local-6989586621679550974"><span id="local-6989586621679550976"><span id="local-6989586621679550978"><span id="local-6989586621679550980"><span id="local-6989586621679550982"><span id="local-6989586621679550984"><span class="annot"><span class="annottext">Eq RequestPayer
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679551082"><span id="local-6989586621679551084"><span id="local-6989586621679551086"><span id="local-6989586621679551088"><span id="local-6989586621679551090"><span id="local-6989586621679551092"><span id="local-6989586621679551094"><span class="annot"><span class="annottext">Eq RequestPayer
 Eq RequestPayer
 -&gt; (RequestPayer -&gt; RequestPayer -&gt; Ordering)
 -&gt; (RequestPayer -&gt; RequestPayer -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. RequestPayer -&gt; Rep RequestPayer x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679550964"><span id="local-6989586621679550966"><span class="annot"><span class="annottext">Int -&gt; RequestPayer -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551074"><span id="local-6989586621679551076"><span class="annot"><span class="annottext">Int -&gt; RequestPayer -&gt; Int
 RequestPayer -&gt; Int
 (Int -&gt; RequestPayer -&gt; Int)
 -&gt; (RequestPayer -&gt; Int) -&gt; Hashable RequestPayer
@@ -148,49 +148,49 @@ $chash :: RequestPayer -&gt; Int
 hashWithSalt :: Int -&gt; RequestPayer -&gt; Int
 $chashWithSalt :: Int -&gt; RequestPayer -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679550961"><span class="annot"><span class="annottext">RequestPayer -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679551071"><span class="annot"><span class="annottext">RequestPayer -&gt; ()
 (RequestPayer -&gt; ()) -&gt; NFData RequestPayer
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RequestPayer -&gt; ()
 $crnf :: RequestPayer -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679550958"><span class="annot"><span class="annottext">Text -&gt; Either String RequestPayer
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679551068"><span class="annot"><span class="annottext">Text -&gt; Either String RequestPayer
 (Text -&gt; Either String RequestPayer) -&gt; FromText RequestPayer
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RequestPayer
 $cfromText :: Text -&gt; Either String RequestPayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679550955"><span class="annot"><span class="annottext">RequestPayer -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679551065"><span class="annot"><span class="annottext">RequestPayer -&gt; Text
 (RequestPayer -&gt; Text) -&gt; ToText RequestPayer
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RequestPayer -&gt; Text
 $ctoText :: RequestPayer -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679550952"><span class="annot"><span class="annottext">RequestPayer -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679551062"><span class="annot"><span class="annottext">RequestPayer -&gt; ByteString
 (RequestPayer -&gt; ByteString) -&gt; ToByteString RequestPayer
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RequestPayer -&gt; ByteString
 $ctoBS :: RequestPayer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679550949"><span class="annot"><span class="annottext">RequestPayer -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679551059"><span class="annot"><span class="annottext">RequestPayer -&gt; ByteStringBuilder
 (RequestPayer -&gt; ByteStringBuilder) -&gt; ToLog RequestPayer
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RequestPayer -&gt; ByteStringBuilder
 $cbuild :: RequestPayer -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679550946"><span class="annot"><span class="annottext">HeaderName -&gt; RequestPayer -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679551056"><span class="annot"><span class="annottext">HeaderName -&gt; RequestPayer -&gt; [Header]
 (HeaderName -&gt; RequestPayer -&gt; [Header]) -&gt; ToHeader RequestPayer
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RequestPayer -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RequestPayer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679550943"><span class="annot"><span class="annottext">RequestPayer -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679551053"><span class="annot"><span class="annottext">RequestPayer -&gt; QueryString
 (RequestPayer -&gt; QueryString) -&gt; ToQuery RequestPayer
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RequestPayer -&gt; QueryString
 $ctoQuery :: RequestPayer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679550938"><span id="local-6989586621679550940"><span class="annot"><span class="annottext">Value -&gt; Parser [RequestPayer]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679551048"><span id="local-6989586621679551050"><span class="annot"><span class="annottext">Value -&gt; Parser [RequestPayer]
 Value -&gt; Parser RequestPayer
 (Value -&gt; Parser RequestPayer)
 -&gt; (Value -&gt; Parser [RequestPayer]) -&gt; FromJSON RequestPayer
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [RequestPayer]
 parseJSON :: Value -&gt; Parser RequestPayer
 $cparseJSON :: Value -&gt; Parser RequestPayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679550933"><span id="local-6989586621679550935"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequestPayer]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679551043"><span id="local-6989586621679551045"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequestPayer]
 FromJSONKeyFunction RequestPayer
 FromJSONKeyFunction RequestPayer
 -&gt; FromJSONKeyFunction [RequestPayer] -&gt; FromJSONKey RequestPayer
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RequestPayer]
 fromJSONKey :: FromJSONKeyFunction RequestPayer
 $cfromJSONKey :: FromJSONKeyFunction RequestPayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679550924"><span id="local-6989586621679550926"><span id="local-6989586621679550928"><span id="local-6989586621679550930"><span class="annot"><span class="annottext">[RequestPayer] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679551034"><span id="local-6989586621679551036"><span id="local-6989586621679551038"><span id="local-6989586621679551040"><span class="annot"><span class="annottext">[RequestPayer] -&gt; Encoding
 [RequestPayer] -&gt; Value
 RequestPayer -&gt; Encoding
 RequestPayer -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: RequestPayer -&gt; Encoding
 toJSON :: RequestPayer -&gt; Value
 $ctoJSON :: RequestPayer -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679550919"><span id="local-6989586621679550921"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequestPayer]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679551029"><span id="local-6989586621679551031"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequestPayer]
 ToJSONKeyFunction RequestPayer
 ToJSONKeyFunction RequestPayer
 -&gt; ToJSONKeyFunction [RequestPayer] -&gt; ToJSONKey RequestPayer
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RequestPayer]
 toJSONKey :: ToJSONKeyFunction RequestPayer
 $ctoJSONKey :: ToJSONKeyFunction RequestPayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679550916"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequestPayer
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679551026"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequestPayer
 ([Node] -&gt; Either String RequestPayer) -&gt; FromXML RequestPayer
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RequestPayer
 $cparseXML :: [Node] -&gt; Either String RequestPayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679550913"><span class="annot"><span class="annottext">RequestPayer -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679551023"><span class="annot"><span class="annottext">RequestPayer -&gt; XML
 (RequestPayer -&gt; XML) -&gt; ToXML RequestPayer
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RequestPayer -&gt; XML

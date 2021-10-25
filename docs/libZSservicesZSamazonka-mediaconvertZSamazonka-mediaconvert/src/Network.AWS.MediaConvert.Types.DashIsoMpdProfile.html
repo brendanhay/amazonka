@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- On-demand, you must also set the output group setting Segment control</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- (SegmentControl) to Single file (SINGLE_FILE).</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679953532"><span id="local-6989586621679953533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoMpdProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoMpdProfile.html#DashIsoMpdProfile"><span class="hs-identifier hs-var">DashIsoMpdProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoMpdProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoMpdProfile.html#DashIsoMpdProfile%27"><span class="hs-identifier hs-var">DashIsoMpdProfile'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679954851"><span id="local-6989586621679954852"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoMpdProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoMpdProfile.html#DashIsoMpdProfile"><span class="hs-identifier hs-var">DashIsoMpdProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoMpdProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoMpdProfile.html#DashIsoMpdProfile%27"><span class="hs-identifier hs-var">DashIsoMpdProfile'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDashIsoMpdProfile"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoMpdProfile.html#fromDashIsoMpdProfile"><span class="hs-identifier hs-var hs-var">fromDashIsoMpdProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953524"><span id="local-6989586621679953526"><span id="local-6989586621679953528"><span class="annot"><span class="annottext">Int -&gt; DashIsoMpdProfile -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679954843"><span id="local-6989586621679954845"><span id="local-6989586621679954847"><span class="annot"><span class="annottext">Int -&gt; DashIsoMpdProfile -&gt; ShowS
 [DashIsoMpdProfile] -&gt; ShowS
 DashIsoMpdProfile -&gt; String
 (Int -&gt; DashIsoMpdProfile -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: DashIsoMpdProfile -&gt; String
 showsPrec :: Int -&gt; DashIsoMpdProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; DashIsoMpdProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679953515"><span id="local-6989586621679953517"><span id="local-6989586621679953519"><span id="local-6989586621679953521"><span class="annot"><span class="annottext">ReadPrec [DashIsoMpdProfile]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679954834"><span id="local-6989586621679954836"><span id="local-6989586621679954838"><span id="local-6989586621679954840"><span class="annot"><span class="annottext">ReadPrec [DashIsoMpdProfile]
 ReadPrec DashIsoMpdProfile
 Int -&gt; ReadS DashIsoMpdProfile
 ReadS [DashIsoMpdProfile]
@@ -79,7 +79,7 @@ $creadList :: ReadS [DashIsoMpdProfile]
 readsPrec :: Int -&gt; ReadS DashIsoMpdProfile
 $creadsPrec :: Int -&gt; ReadS DashIsoMpdProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679953510"><span id="local-6989586621679953512"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679954829"><span id="local-6989586621679954831"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool
 (DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool)
 -&gt; (DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool)
 -&gt; Eq DashIsoMpdProfile
@@ -89,7 +89,7 @@ $c/= :: DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool
 == :: DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool
 $c== :: DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679953494"><span id="local-6989586621679953496"><span id="local-6989586621679953498"><span id="local-6989586621679953500"><span id="local-6989586621679953502"><span id="local-6989586621679953504"><span id="local-6989586621679953506"><span class="annot"><span class="annottext">Eq DashIsoMpdProfile
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679954813"><span id="local-6989586621679954815"><span id="local-6989586621679954817"><span id="local-6989586621679954819"><span id="local-6989586621679954821"><span id="local-6989586621679954823"><span id="local-6989586621679954825"><span class="annot"><span class="annottext">Eq DashIsoMpdProfile
 Eq DashIsoMpdProfile
 -&gt; (DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Ordering)
 -&gt; (DashIsoMpdProfile -&gt; DashIsoMpdProfile -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. DashIsoMpdProfile -&gt; Rep DashIsoMpdProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953486"><span id="local-6989586621679953488"><span class="annot"><span class="annottext">Int -&gt; DashIsoMpdProfile -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679954805"><span id="local-6989586621679954807"><span class="annot"><span class="annottext">Int -&gt; DashIsoMpdProfile -&gt; Int
 DashIsoMpdProfile -&gt; Int
 (Int -&gt; DashIsoMpdProfile -&gt; Int)
 -&gt; (DashIsoMpdProfile -&gt; Int) -&gt; Hashable DashIsoMpdProfile
@@ -150,51 +150,51 @@ $chash :: DashIsoMpdProfile -&gt; Int
 hashWithSalt :: Int -&gt; DashIsoMpdProfile -&gt; Int
 $chashWithSalt :: Int -&gt; DashIsoMpdProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679953483"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679954802"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; ()
 (DashIsoMpdProfile -&gt; ()) -&gt; NFData DashIsoMpdProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DashIsoMpdProfile -&gt; ()
 $crnf :: DashIsoMpdProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679953480"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoMpdProfile
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679954799"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoMpdProfile
 (Text -&gt; Either String DashIsoMpdProfile)
 -&gt; FromText DashIsoMpdProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DashIsoMpdProfile
 $cfromText :: Text -&gt; Either String DashIsoMpdProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679953477"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679954796"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; Text
 (DashIsoMpdProfile -&gt; Text) -&gt; ToText DashIsoMpdProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DashIsoMpdProfile -&gt; Text
 $ctoText :: DashIsoMpdProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679953474"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679954793"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; ByteString
 (DashIsoMpdProfile -&gt; ByteString) -&gt; ToByteString DashIsoMpdProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DashIsoMpdProfile -&gt; ByteString
 $ctoBS :: DashIsoMpdProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953471"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679954790"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; ByteStringBuilder
 (DashIsoMpdProfile -&gt; ByteStringBuilder) -&gt; ToLog DashIsoMpdProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DashIsoMpdProfile -&gt; ByteStringBuilder
 $cbuild :: DashIsoMpdProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953468"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoMpdProfile -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679954787"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoMpdProfile -&gt; [Header]
 (HeaderName -&gt; DashIsoMpdProfile -&gt; [Header])
 -&gt; ToHeader DashIsoMpdProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DashIsoMpdProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DashIsoMpdProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953465"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679954784"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; QueryString
 (DashIsoMpdProfile -&gt; QueryString) -&gt; ToQuery DashIsoMpdProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DashIsoMpdProfile -&gt; QueryString
 $ctoQuery :: DashIsoMpdProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953460"><span id="local-6989586621679953462"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoMpdProfile]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679954779"><span id="local-6989586621679954781"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoMpdProfile]
 Value -&gt; Parser DashIsoMpdProfile
 (Value -&gt; Parser DashIsoMpdProfile)
 -&gt; (Value -&gt; Parser [DashIsoMpdProfile])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [DashIsoMpdProfile]
 parseJSON :: Value -&gt; Parser DashIsoMpdProfile
 $cparseJSON :: Value -&gt; Parser DashIsoMpdProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679953455"><span id="local-6989586621679953457"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoMpdProfile]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679954774"><span id="local-6989586621679954776"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoMpdProfile]
 FromJSONKeyFunction DashIsoMpdProfile
 FromJSONKeyFunction DashIsoMpdProfile
 -&gt; FromJSONKeyFunction [DashIsoMpdProfile]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DashIsoMpdProfile]
 fromJSONKey :: FromJSONKeyFunction DashIsoMpdProfile
 $cfromJSONKey :: FromJSONKeyFunction DashIsoMpdProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679953446"><span id="local-6989586621679953448"><span id="local-6989586621679953450"><span id="local-6989586621679953452"><span class="annot"><span class="annottext">[DashIsoMpdProfile] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679954765"><span id="local-6989586621679954767"><span id="local-6989586621679954769"><span id="local-6989586621679954771"><span class="annot"><span class="annottext">[DashIsoMpdProfile] -&gt; Encoding
 [DashIsoMpdProfile] -&gt; Value
 DashIsoMpdProfile -&gt; Encoding
 DashIsoMpdProfile -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: DashIsoMpdProfile -&gt; Encoding
 toJSON :: DashIsoMpdProfile -&gt; Value
 $ctoJSON :: DashIsoMpdProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679953441"><span id="local-6989586621679953443"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoMpdProfile]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679954760"><span id="local-6989586621679954762"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoMpdProfile]
 ToJSONKeyFunction DashIsoMpdProfile
 ToJSONKeyFunction DashIsoMpdProfile
 -&gt; ToJSONKeyFunction [DashIsoMpdProfile]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DashIsoMpdProfile]
 toJSONKey :: ToJSONKeyFunction DashIsoMpdProfile
 $ctoJSONKey :: ToJSONKeyFunction DashIsoMpdProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679953438"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoMpdProfile
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679954757"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoMpdProfile
 ([Node] -&gt; Either String DashIsoMpdProfile)
 -&gt; FromXML DashIsoMpdProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DashIsoMpdProfile
 $cparseXML :: [Node] -&gt; Either String DashIsoMpdProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679953435"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679954754"><span class="annot"><span class="annottext">DashIsoMpdProfile -&gt; XML
 (DashIsoMpdProfile -&gt; XML) -&gt; ToXML DashIsoMpdProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DashIsoMpdProfile -&gt; XML

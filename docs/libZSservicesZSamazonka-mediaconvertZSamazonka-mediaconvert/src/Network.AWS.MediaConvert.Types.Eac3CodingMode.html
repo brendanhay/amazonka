@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | Dolby Digital Plus coding mode. Determines number of channels.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679960656"><span id="local-6989586621679960657"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3CodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3CodingMode.html#Eac3CodingMode"><span class="hs-identifier hs-var">Eac3CodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3CodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3CodingMode.html#Eac3CodingMode%27"><span class="hs-identifier hs-var">Eac3CodingMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679961975"><span id="local-6989586621679961976"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3CodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3CodingMode.html#Eac3CodingMode"><span class="hs-identifier hs-var">Eac3CodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3CodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3CodingMode.html#Eac3CodingMode%27"><span class="hs-identifier hs-var">Eac3CodingMode'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3CodingMode"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3CodingMode.html#fromEac3CodingMode"><span class="hs-identifier hs-var hs-var">fromEac3CodingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679960648"><span id="local-6989586621679960650"><span id="local-6989586621679960652"><span class="annot"><span class="annottext">Int -&gt; Eac3CodingMode -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961967"><span id="local-6989586621679961969"><span id="local-6989586621679961971"><span class="annot"><span class="annottext">Int -&gt; Eac3CodingMode -&gt; ShowS
 [Eac3CodingMode] -&gt; ShowS
 Eac3CodingMode -&gt; String
 (Int -&gt; Eac3CodingMode -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: Eac3CodingMode -&gt; String
 showsPrec :: Int -&gt; Eac3CodingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3CodingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679960639"><span id="local-6989586621679960641"><span id="local-6989586621679960643"><span id="local-6989586621679960645"><span class="annot"><span class="annottext">ReadPrec [Eac3CodingMode]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679961958"><span id="local-6989586621679961960"><span id="local-6989586621679961962"><span id="local-6989586621679961964"><span class="annot"><span class="annottext">ReadPrec [Eac3CodingMode]
 ReadPrec Eac3CodingMode
 Int -&gt; ReadS Eac3CodingMode
 ReadS [Eac3CodingMode]
@@ -74,7 +74,7 @@ $creadList :: ReadS [Eac3CodingMode]
 readsPrec :: Int -&gt; ReadS Eac3CodingMode
 $creadsPrec :: Int -&gt; ReadS Eac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679960634"><span id="local-6989586621679960636"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679961953"><span id="local-6989586621679961955"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool
 (Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool)
 -&gt; (Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool) -&gt; Eq Eac3CodingMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool
 == :: Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool
 $c== :: Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679960618"><span id="local-6989586621679960620"><span id="local-6989586621679960622"><span id="local-6989586621679960624"><span id="local-6989586621679960626"><span id="local-6989586621679960628"><span id="local-6989586621679960630"><span class="annot"><span class="annottext">Eq Eac3CodingMode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679961937"><span id="local-6989586621679961939"><span id="local-6989586621679961941"><span id="local-6989586621679961943"><span id="local-6989586621679961945"><span id="local-6989586621679961947"><span id="local-6989586621679961949"><span class="annot"><span class="annottext">Eq Eac3CodingMode
 Eq Eac3CodingMode
 -&gt; (Eac3CodingMode -&gt; Eac3CodingMode -&gt; Ordering)
 -&gt; (Eac3CodingMode -&gt; Eac3CodingMode -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Eac3CodingMode -&gt; Rep Eac3CodingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679960610"><span id="local-6989586621679960612"><span class="annot"><span class="annottext">Int -&gt; Eac3CodingMode -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961929"><span id="local-6989586621679961931"><span class="annot"><span class="annottext">Int -&gt; Eac3CodingMode -&gt; Int
 Eac3CodingMode -&gt; Int
 (Int -&gt; Eac3CodingMode -&gt; Int)
 -&gt; (Eac3CodingMode -&gt; Int) -&gt; Hashable Eac3CodingMode
@@ -144,50 +144,50 @@ $chash :: Eac3CodingMode -&gt; Int
 hashWithSalt :: Int -&gt; Eac3CodingMode -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3CodingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679960607"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679961926"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; ()
 (Eac3CodingMode -&gt; ()) -&gt; NFData Eac3CodingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3CodingMode -&gt; ()
 $crnf :: Eac3CodingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679960604"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3CodingMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679961923"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3CodingMode
 (Text -&gt; Either String Eac3CodingMode) -&gt; FromText Eac3CodingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3CodingMode
 $cfromText :: Text -&gt; Either String Eac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679960601"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679961920"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; Text
 (Eac3CodingMode -&gt; Text) -&gt; ToText Eac3CodingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3CodingMode -&gt; Text
 $ctoText :: Eac3CodingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679960598"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679961917"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; ByteString
 (Eac3CodingMode -&gt; ByteString) -&gt; ToByteString Eac3CodingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3CodingMode -&gt; ByteString
 $ctoBS :: Eac3CodingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679960595"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679961914"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; ByteStringBuilder
 (Eac3CodingMode -&gt; ByteStringBuilder) -&gt; ToLog Eac3CodingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3CodingMode -&gt; ByteStringBuilder
 $cbuild :: Eac3CodingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679960592"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3CodingMode -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961911"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3CodingMode -&gt; [Header]
 (HeaderName -&gt; Eac3CodingMode -&gt; [Header])
 -&gt; ToHeader Eac3CodingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3CodingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3CodingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679960589"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961908"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; QueryString
 (Eac3CodingMode -&gt; QueryString) -&gt; ToQuery Eac3CodingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3CodingMode -&gt; QueryString
 $ctoQuery :: Eac3CodingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679960584"><span id="local-6989586621679960586"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3CodingMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961903"><span id="local-6989586621679961905"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3CodingMode]
 Value -&gt; Parser Eac3CodingMode
 (Value -&gt; Parser Eac3CodingMode)
 -&gt; (Value -&gt; Parser [Eac3CodingMode]) -&gt; FromJSON Eac3CodingMode
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3CodingMode]
 parseJSON :: Value -&gt; Parser Eac3CodingMode
 $cparseJSON :: Value -&gt; Parser Eac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679960579"><span id="local-6989586621679960581"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3CodingMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679961898"><span id="local-6989586621679961900"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3CodingMode]
 FromJSONKeyFunction Eac3CodingMode
 FromJSONKeyFunction Eac3CodingMode
 -&gt; FromJSONKeyFunction [Eac3CodingMode]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3CodingMode]
 fromJSONKey :: FromJSONKeyFunction Eac3CodingMode
 $cfromJSONKey :: FromJSONKeyFunction Eac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679960570"><span id="local-6989586621679960572"><span id="local-6989586621679960574"><span id="local-6989586621679960576"><span class="annot"><span class="annottext">[Eac3CodingMode] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679961889"><span id="local-6989586621679961891"><span id="local-6989586621679961893"><span id="local-6989586621679961895"><span class="annot"><span class="annottext">[Eac3CodingMode] -&gt; Encoding
 [Eac3CodingMode] -&gt; Value
 Eac3CodingMode -&gt; Encoding
 Eac3CodingMode -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: Eac3CodingMode -&gt; Encoding
 toJSON :: Eac3CodingMode -&gt; Value
 $ctoJSON :: Eac3CodingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679960565"><span id="local-6989586621679960567"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3CodingMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679961884"><span id="local-6989586621679961886"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3CodingMode]
 ToJSONKeyFunction Eac3CodingMode
 ToJSONKeyFunction Eac3CodingMode
 -&gt; ToJSONKeyFunction [Eac3CodingMode] -&gt; ToJSONKey Eac3CodingMode
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3CodingMode]
 toJSONKey :: ToJSONKeyFunction Eac3CodingMode
 $ctoJSONKey :: ToJSONKeyFunction Eac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679960562"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3CodingMode
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679961881"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3CodingMode
 ([Node] -&gt; Either String Eac3CodingMode) -&gt; FromXML Eac3CodingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3CodingMode
 $cparseXML :: [Node] -&gt; Either String Eac3CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679960559"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961878"><span class="annot"><span class="annottext">Eac3CodingMode -&gt; XML
 (Eac3CodingMode -&gt; XML) -&gt; ToXML Eac3CodingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3CodingMode -&gt; XML

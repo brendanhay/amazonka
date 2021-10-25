@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetJob' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621680031479"><span id="local-6989586621680031480"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJob"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-var">GetJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJob%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-var">GetJob'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621680032976"><span id="local-6989586621680032977"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJob"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-var">GetJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJob%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-var">GetJob'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | the job ID of the job.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AGetJob%27"><span class="annot"><span class="annottext">GetJob -&gt; Text
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3Aid%3AGetJob%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680031473"><span id="local-6989586621680031475"><span class="annot"><span class="annottext">GetJob -&gt; GetJob -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032970"><span id="local-6989586621680032972"><span class="annot"><span class="annottext">GetJob -&gt; GetJob -&gt; Bool
 (GetJob -&gt; GetJob -&gt; Bool)
 -&gt; (GetJob -&gt; GetJob -&gt; Bool) -&gt; Eq GetJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJob -&gt; GetJob -&gt; Bool
 == :: GetJob -&gt; GetJob -&gt; Bool
 $c== :: GetJob -&gt; GetJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031464"><span id="local-6989586621680031466"><span id="local-6989586621680031468"><span id="local-6989586621680031470"><span class="annot"><span class="annottext">ReadPrec [GetJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032961"><span id="local-6989586621680032963"><span id="local-6989586621680032965"><span id="local-6989586621680032967"><span class="annot"><span class="annottext">ReadPrec [GetJob]
 ReadPrec GetJob
 Int -&gt; ReadS GetJob
 ReadS [GetJob]
@@ -80,7 +80,7 @@ readList :: ReadS [GetJob]
 $creadList :: ReadS [GetJob]
 readsPrec :: Int -&gt; ReadS GetJob
 $creadsPrec :: Int -&gt; ReadS GetJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031457"><span id="local-6989586621680031459"><span id="local-6989586621680031461"><span class="annot"><span class="annottext">Int -&gt; GetJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032954"><span id="local-6989586621680032956"><span id="local-6989586621680032958"><span class="annot"><span class="annottext">Int -&gt; GetJob -&gt; ShowS
 [GetJob] -&gt; ShowS
 GetJob -&gt; String
 (Int -&gt; GetJob -&gt; ShowS)
@@ -117,11 +117,11 @@ $cfrom :: forall x. GetJob -&gt; Rep GetJob x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetJob"><span class="annot"><span class="annottext">newGetJob :: Text -&gt; GetJob
-</span><a href="Network.AWS.MediaConvert.GetJob.html#newGetJob"><span class="hs-identifier hs-var hs-var">newGetJob</span></a></span></span><span> </span><span id="local-6989586621680031452"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680031452"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetJob' :: Text -&gt; GetJob
+</span><a href="Network.AWS.MediaConvert.GetJob.html#newGetJob"><span class="hs-identifier hs-var hs-var">newGetJob</span></a></span></span><span> </span><span id="local-6989586621680032949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032949"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetJob' :: Text -&gt; GetJob
 </span><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetJob' :: Text
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3Aid%3AGetJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680031452"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680032949"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | the job ID of the job.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#getJob_id"><span class="hs-identifier hs-type">getJob_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -129,25 +129,25 @@ $cfrom :: forall x. GetJob -&gt; Rep GetJob x
 </span><a href="Network.AWS.MediaConvert.GetJob.html#getJob_id"><span class="hs-identifier hs-var hs-var">getJob_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJob -&gt; Text)
 -&gt; (GetJob -&gt; Text -&gt; GetJob) -&gt; Lens GetJob GetJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031449"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032946"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetJob' :: GetJob -&gt; Text
-</span><a href="#local-6989586621680031449"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680031449"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031448"><span class="annot"><span class="annottext">s :: GetJob
-</span><a href="#local-6989586621680031448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031447"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680031447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJob
-</span><a href="#local-6989586621680031448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetJob' :: Text
+</span><a href="#local-6989586621680032946"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032946"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032945"><span class="annot"><span class="annottext">s :: GetJob
+</span><a href="#local-6989586621680032945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJob
+</span><a href="#local-6989586621680032945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetJob' :: Text
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3Aid%3AGetJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680031447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680031443"><span class="annot"><span class="annottext">request :: GetJob -&gt; Request GetJob
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680032940"><span class="annot"><span class="annottext">request :: GetJob -&gt; Request GetJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJob -&gt; Request GetJob
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680031439"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680032936"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJob
 -&gt; ClientResponse ClientBody
@@ -169,10 +169,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680031436"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031436"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680031435"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680031435"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680031434"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680031434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680032933"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032933"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680032932"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680032932"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680032931"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680032931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Job -&gt; Int -&gt; GetJobResponse
 </span><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Job -&gt; Int -&gt; GetJobResponse)
@@ -180,7 +180,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680031434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Job)
+</span><a href="#local-6989586621680032931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Job)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;job&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,15 +192,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031436"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032933"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031426"><span id="local-6989586621680031428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032923"><span id="local-6989586621680032925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680031419"><span class="annot"><span class="annottext">toHeaders :: GetJob -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680032916"><span class="annot"><span class="annottext">toHeaders :: GetJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -220,21 +220,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621680031413"><span class="annot"><span class="annottext">toPath :: GetJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031411"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621680032910"><span class="annot"><span class="annottext">toPath :: GetJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032908"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetJob' :: GetJob -&gt; Text
-</span><a href="#local-6989586621680031411"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680032908"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2017-08-29/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680031411"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680032908"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621680031407"><span class="annot"><span class="annottext">toQuery :: GetJob -&gt; QueryString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680032904"><span class="annot"><span class="annottext">toQuery :: GetJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -242,7 +242,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newGetJobResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621680031404"><span id="local-6989586621680031405"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobResponse"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-var">GetJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621680032901"><span id="local-6989586621680032902"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobResponse"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-var">GetJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Each job converts an input file into an output file or files. For more</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- information, see the User Guide at</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html</span><span>
@@ -252,7 +252,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680031398"><span id="local-6989586621680031400"><span class="annot"><span class="annottext">GetJobResponse -&gt; GetJobResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032895"><span id="local-6989586621680032897"><span class="annot"><span class="annottext">GetJobResponse -&gt; GetJobResponse -&gt; Bool
 (GetJobResponse -&gt; GetJobResponse -&gt; Bool)
 -&gt; (GetJobResponse -&gt; GetJobResponse -&gt; Bool) -&gt; Eq GetJobResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -260,7 +260,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
 == :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
 $c== :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031390"><span id="local-6989586621680031392"><span id="local-6989586621680031394"><span id="local-6989586621680031396"><span class="annot"><span class="annottext">ReadPrec [GetJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032887"><span id="local-6989586621680032889"><span id="local-6989586621680032891"><span id="local-6989586621680032893"><span class="annot"><span class="annottext">ReadPrec [GetJobResponse]
 ReadPrec GetJobResponse
 Int -&gt; ReadS GetJobResponse
 ReadS [GetJobResponse]
@@ -280,7 +280,7 @@ readList :: ReadS [GetJobResponse]
 $creadList :: ReadS [GetJobResponse]
 readsPrec :: Int -&gt; ReadS GetJobResponse
 $creadsPrec :: Int -&gt; ReadS GetJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680031384"><span id="local-6989586621680031386"><span id="local-6989586621680031388"><span class="annot"><span class="annottext">Int -&gt; GetJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032881"><span id="local-6989586621680032883"><span id="local-6989586621680032885"><span class="annot"><span class="annottext">Int -&gt; GetJobResponse -&gt; ShowS
 [GetJobResponse] -&gt; ShowS
 GetJobResponse -&gt; String
 (Int -&gt; GetJobResponse -&gt; ShowS)
@@ -324,8 +324,8 @@ $cfrom :: forall x. GetJobResponse -&gt; Rep GetJobResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span>
 </span><span id="line-136"></span><span id="newGetJobResponse"><span class="annot"><span class="annottext">newGetJobResponse :: Int -&gt; GetJobResponse
-</span><a href="Network.AWS.MediaConvert.GetJob.html#newGetJobResponse"><span class="hs-identifier hs-var hs-var">newGetJobResponse</span></a></span></span><span> </span><span id="local-6989586621680031381"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.GetJob.html#newGetJobResponse"><span class="hs-identifier hs-var hs-var">newGetJobResponse</span></a></span></span><span> </span><span id="local-6989586621680032878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">GetJobResponse' :: Maybe Job -&gt; Int -&gt; GetJobResponse
 </span><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:job:GetJobResponse' :: Maybe Job
@@ -334,7 +334,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680032878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Each job converts an input file into an output file or files. For more</span><span>
@@ -346,16 +346,16 @@ forall a. Maybe a
 -&gt; (GetJobResponse -&gt; Maybe Job -&gt; GetJobResponse)
 -&gt; Lens GetJobResponse GetJobResponse (Maybe Job) (Maybe Job)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031380"><span class="annot"><span class="annottext">Maybe Job
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032877"><span class="annot"><span class="annottext">Maybe Job
 job :: Maybe Job
 $sel:job:GetJobResponse' :: GetJobResponse -&gt; Maybe Job
-</span><a href="#local-6989586621680031380"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621680031380"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031379"><span class="annot"><span class="annottext">s :: GetJobResponse
-</span><a href="#local-6989586621680031379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031378"><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621680031378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
-</span><a href="#local-6989586621680031379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:GetJobResponse' :: Maybe Job
+</span><a href="#local-6989586621680032877"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Job
+</span><a href="#local-6989586621680032877"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032876"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621680032876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032875"><span class="annot"><span class="annottext">Maybe Job
+</span><a href="#local-6989586621680032875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621680032876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:GetJobResponse' :: Maybe Job
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3Ajob%3AGetJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621680031378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#getJobResponse_httpStatus"><span class="hs-identifier hs-type">getJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -364,16 +364,16 @@ $sel:job:GetJobResponse' :: GetJobResponse -&gt; Maybe Job
 -&gt; (GetJobResponse -&gt; Int -&gt; GetJobResponse)
 -&gt; Lens GetJobResponse GetJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680031377"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032874"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetJobResponse' :: GetJobResponse -&gt; Int
-</span><a href="#local-6989586621680031377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680031376"><span class="annot"><span class="annottext">s :: GetJobResponse
-</span><a href="#local-6989586621680031376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680031375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
-</span><a href="#local-6989586621680031376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
+</span><a href="#local-6989586621680032874"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032874"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032873"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621680032873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621680032873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680031375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680031373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span></span><span>
 </span><span id="line-153"></span></pre></body></html>

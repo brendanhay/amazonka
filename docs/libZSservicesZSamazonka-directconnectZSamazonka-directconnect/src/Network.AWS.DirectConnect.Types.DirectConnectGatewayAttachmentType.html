@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679279167"><span id="local-6989586621679279168"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectConnectGatewayAttachmentType"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachmentType%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679287295"><span id="local-6989586621679287296"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectConnectGatewayAttachmentType"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachmentType%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectConnectGatewayAttachmentType"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#fromDirectConnectGatewayAttachmentType"><span class="hs-identifier hs-var hs-var">fromDirectConnectGatewayAttachmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279159"><span id="local-6989586621679279161"><span id="local-6989586621679279163"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287287"><span id="local-6989586621679287289"><span id="local-6989586621679287291"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentType -&gt; ShowS
 [DirectConnectGatewayAttachmentType] -&gt; ShowS
 DirectConnectGatewayAttachmentType -&gt; String
 (Int -&gt; DirectConnectGatewayAttachmentType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DirectConnectGatewayAttachmentType -&gt; String
 showsPrec :: Int -&gt; DirectConnectGatewayAttachmentType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DirectConnectGatewayAttachmentType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679279150"><span id="local-6989586621679279152"><span id="local-6989586621679279154"><span id="local-6989586621679279156"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachmentType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679287278"><span id="local-6989586621679287280"><span id="local-6989586621679287282"><span id="local-6989586621679287284"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachmentType]
 ReadPrec DirectConnectGatewayAttachmentType
 Int -&gt; ReadS DirectConnectGatewayAttachmentType
 ReadS [DirectConnectGatewayAttachmentType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DirectConnectGatewayAttachmentType]
 readsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachmentType
 $creadsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679279145"><span id="local-6989586621679279147"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679287273"><span id="local-6989586621679287275"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType
 -&gt; DirectConnectGatewayAttachmentType -&gt; Bool
 (DirectConnectGatewayAttachmentType
  -&gt; DirectConnectGatewayAttachmentType -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: DirectConnectGatewayAttachmentType
 $c== :: DirectConnectGatewayAttachmentType
 -&gt; DirectConnectGatewayAttachmentType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679279129"><span id="local-6989586621679279131"><span id="local-6989586621679279133"><span id="local-6989586621679279135"><span id="local-6989586621679279137"><span id="local-6989586621679279139"><span id="local-6989586621679279141"><span class="annot"><span class="annottext">Eq DirectConnectGatewayAttachmentType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679287257"><span id="local-6989586621679287259"><span id="local-6989586621679287261"><span id="local-6989586621679287263"><span id="local-6989586621679287265"><span id="local-6989586621679287267"><span id="local-6989586621679287269"><span class="annot"><span class="annottext">Eq DirectConnectGatewayAttachmentType
 Eq DirectConnectGatewayAttachmentType
 -&gt; (DirectConnectGatewayAttachmentType
     -&gt; DirectConnectGatewayAttachmentType -&gt; Ordering)
@@ -183,7 +183,7 @@ DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279121"><span id="local-6989586621679279123"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287249"><span id="local-6989586621679287251"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentType -&gt; Int
 DirectConnectGatewayAttachmentType -&gt; Int
 (Int -&gt; DirectConnectGatewayAttachmentType -&gt; Int)
 -&gt; (DirectConnectGatewayAttachmentType -&gt; Int)
@@ -194,56 +194,56 @@ $chash :: DirectConnectGatewayAttachmentType -&gt; Int
 hashWithSalt :: Int -&gt; DirectConnectGatewayAttachmentType -&gt; Int
 $chashWithSalt :: Int -&gt; DirectConnectGatewayAttachmentType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679279118"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679287246"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; ()
 (DirectConnectGatewayAttachmentType -&gt; ())
 -&gt; NFData DirectConnectGatewayAttachmentType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DirectConnectGatewayAttachmentType -&gt; ()
 $crnf :: DirectConnectGatewayAttachmentType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679279115"><span class="annot"><span class="annottext">Text -&gt; Either String DirectConnectGatewayAttachmentType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679287243"><span class="annot"><span class="annottext">Text -&gt; Either String DirectConnectGatewayAttachmentType
 (Text -&gt; Either String DirectConnectGatewayAttachmentType)
 -&gt; FromText DirectConnectGatewayAttachmentType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DirectConnectGatewayAttachmentType
 $cfromText :: Text -&gt; Either String DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279112"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679287240"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; Text
 (DirectConnectGatewayAttachmentType -&gt; Text)
 -&gt; ToText DirectConnectGatewayAttachmentType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DirectConnectGatewayAttachmentType -&gt; Text
 $ctoText :: DirectConnectGatewayAttachmentType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279109"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679287237"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; ByteString
 (DirectConnectGatewayAttachmentType -&gt; ByteString)
 -&gt; ToByteString DirectConnectGatewayAttachmentType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DirectConnectGatewayAttachmentType -&gt; ByteString
 $ctoBS :: DirectConnectGatewayAttachmentType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279106"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679287234"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; ByteStringBuilder
 (DirectConnectGatewayAttachmentType -&gt; ByteStringBuilder)
 -&gt; ToLog DirectConnectGatewayAttachmentType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DirectConnectGatewayAttachmentType -&gt; ByteStringBuilder
 $cbuild :: DirectConnectGatewayAttachmentType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279103"><span class="annot"><span class="annottext">HeaderName -&gt; DirectConnectGatewayAttachmentType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679287231"><span class="annot"><span class="annottext">HeaderName -&gt; DirectConnectGatewayAttachmentType -&gt; [Header]
 (HeaderName -&gt; DirectConnectGatewayAttachmentType -&gt; [Header])
 -&gt; ToHeader DirectConnectGatewayAttachmentType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DirectConnectGatewayAttachmentType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DirectConnectGatewayAttachmentType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279100"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679287228"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; QueryString
 (DirectConnectGatewayAttachmentType -&gt; QueryString)
 -&gt; ToQuery DirectConnectGatewayAttachmentType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DirectConnectGatewayAttachmentType -&gt; QueryString
 $ctoQuery :: DirectConnectGatewayAttachmentType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279095"><span id="local-6989586621679279097"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectConnectGatewayAttachmentType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679287223"><span id="local-6989586621679287225"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectConnectGatewayAttachmentType]
 Value -&gt; Parser DirectConnectGatewayAttachmentType
 (Value -&gt; Parser DirectConnectGatewayAttachmentType)
 -&gt; (Value -&gt; Parser [DirectConnectGatewayAttachmentType])
@@ -255,7 +255,7 @@ $cparseJSONList :: Value -&gt; Parser [DirectConnectGatewayAttachmentType]
 parseJSON :: Value -&gt; Parser DirectConnectGatewayAttachmentType
 $cparseJSON :: Value -&gt; Parser DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279090"><span id="local-6989586621679279092"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectConnectGatewayAttachmentType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679287218"><span id="local-6989586621679287220"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectConnectGatewayAttachmentType]
 FromJSONKeyFunction DirectConnectGatewayAttachmentType
 FromJSONKeyFunction DirectConnectGatewayAttachmentType
 -&gt; FromJSONKeyFunction [DirectConnectGatewayAttachmentType]
@@ -267,7 +267,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DirectConnectGatewayAttachmentType]
 fromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAttachmentType
 $cfromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279081"><span id="local-6989586621679279083"><span id="local-6989586621679279085"><span id="local-6989586621679279087"><span class="annot"><span class="annottext">[DirectConnectGatewayAttachmentType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679287209"><span id="local-6989586621679287211"><span id="local-6989586621679287213"><span id="local-6989586621679287215"><span class="annot"><span class="annottext">[DirectConnectGatewayAttachmentType] -&gt; Encoding
 [DirectConnectGatewayAttachmentType] -&gt; Value
 DirectConnectGatewayAttachmentType -&gt; Encoding
 DirectConnectGatewayAttachmentType -&gt; Value
@@ -291,7 +291,7 @@ $ctoEncoding :: DirectConnectGatewayAttachmentType -&gt; Encoding
 toJSON :: DirectConnectGatewayAttachmentType -&gt; Value
 $ctoJSON :: DirectConnectGatewayAttachmentType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279076"><span id="local-6989586621679279078"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectConnectGatewayAttachmentType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679287204"><span id="local-6989586621679287206"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectConnectGatewayAttachmentType]
 ToJSONKeyFunction DirectConnectGatewayAttachmentType
 ToJSONKeyFunction DirectConnectGatewayAttachmentType
 -&gt; ToJSONKeyFunction [DirectConnectGatewayAttachmentType]
@@ -303,14 +303,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DirectConnectGatewayAttachmentType]
 toJSONKey :: ToJSONKeyFunction DirectConnectGatewayAttachmentType
 $ctoJSONKey :: ToJSONKeyFunction DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279073"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectConnectGatewayAttachmentType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679287201"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectConnectGatewayAttachmentType
 ([Node] -&gt; Either String DirectConnectGatewayAttachmentType)
 -&gt; FromXML DirectConnectGatewayAttachmentType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DirectConnectGatewayAttachmentType
 $cparseXML :: [Node] -&gt; Either String DirectConnectGatewayAttachmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279070"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679287198"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentType -&gt; XML
 (DirectConnectGatewayAttachmentType -&gt; XML)
 -&gt; ToXML DirectConnectGatewayAttachmentType
 forall a. (a -&gt; XML) -&gt; ToXML a

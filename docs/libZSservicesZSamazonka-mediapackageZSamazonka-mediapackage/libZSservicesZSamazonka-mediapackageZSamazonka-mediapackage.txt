@@ -1722,12 +1722,16 @@ module Network.AWS.MediaPackage.Types.HlsPackage
 --   
 --   <i>See:</i> <a>newHlsPackage</a> smart constructor.
 data HlsPackage
-HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe PlaylistType -> Maybe Int -> Maybe Int -> Maybe StreamSelection -> Maybe AdMarkers -> Maybe HlsEncryption -> Maybe Bool -> Maybe [AdTriggersElement] -> Maybe Int -> HlsPackage
+HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe Bool -> Maybe PlaylistType -> Maybe Int -> Maybe Int -> Maybe StreamSelection -> Maybe AdMarkers -> Maybe HlsEncryption -> Maybe Bool -> Maybe [AdTriggersElement] -> Maybe Int -> HlsPackage
 [$sel:adsOnDeliveryRestrictions:HlsPackage'] :: HlsPackage -> Maybe AdsOnDeliveryRestrictions
 
 -- | When enabled, audio streams will be placed in rendition groups in the
 --   output.
 [$sel:useAudioRenditionGroup:HlsPackage'] :: HlsPackage -> Maybe Bool
+
+-- | When enabled, MediaPackage passes through digital video broadcasting
+--   (DVB) subtitles into the output.
+[$sel:includeDvbSubtitles:HlsPackage'] :: HlsPackage -> Maybe Bool
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
 --   "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
@@ -1783,6 +1787,11 @@ HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe PlaylistTy
 --   <a>$sel:useAudioRenditionGroup:HlsPackage'</a>,
 --   <a>hlsPackage_useAudioRenditionGroup</a> - When enabled, audio streams
 --   will be placed in rendition groups in the output.
+--   
+--   <a>$sel:includeDvbSubtitles:HlsPackage'</a>,
+--   <a>hlsPackage_includeDvbSubtitles</a> - When enabled, MediaPackage
+--   passes through digital video broadcasting (DVB) subtitles into the
+--   output.
 --   
 --   <a>$sel:playlistType:HlsPackage'</a>, <a>hlsPackage_playlistType</a> -
 --   The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
@@ -1841,6 +1850,10 @@ hlsPackage_adsOnDeliveryRestrictions :: Lens' HlsPackage (Maybe AdsOnDeliveryRes
 -- | When enabled, audio streams will be placed in rendition groups in the
 --   output.
 hlsPackage_useAudioRenditionGroup :: Lens' HlsPackage (Maybe Bool)
+
+-- | When enabled, MediaPackage passes through digital video broadcasting
+--   (DVB) subtitles into the output.
+hlsPackage_includeDvbSubtitles :: Lens' HlsPackage (Maybe Bool)
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
 --   "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
@@ -3756,12 +3769,16 @@ hlsManifestCreateOrUpdateParameters_id :: Lens' HlsManifestCreateOrUpdateParamet
 --   
 --   <i>See:</i> <a>newHlsPackage</a> smart constructor.
 data HlsPackage
-HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe PlaylistType -> Maybe Int -> Maybe Int -> Maybe StreamSelection -> Maybe AdMarkers -> Maybe HlsEncryption -> Maybe Bool -> Maybe [AdTriggersElement] -> Maybe Int -> HlsPackage
+HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe Bool -> Maybe PlaylistType -> Maybe Int -> Maybe Int -> Maybe StreamSelection -> Maybe AdMarkers -> Maybe HlsEncryption -> Maybe Bool -> Maybe [AdTriggersElement] -> Maybe Int -> HlsPackage
 [$sel:adsOnDeliveryRestrictions:HlsPackage'] :: HlsPackage -> Maybe AdsOnDeliveryRestrictions
 
 -- | When enabled, audio streams will be placed in rendition groups in the
 --   output.
 [$sel:useAudioRenditionGroup:HlsPackage'] :: HlsPackage -> Maybe Bool
+
+-- | When enabled, MediaPackage passes through digital video broadcasting
+--   (DVB) subtitles into the output.
+[$sel:includeDvbSubtitles:HlsPackage'] :: HlsPackage -> Maybe Bool
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
 --   "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
@@ -3817,6 +3834,11 @@ HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe PlaylistTy
 --   <a>$sel:useAudioRenditionGroup:HlsPackage'</a>,
 --   <a>hlsPackage_useAudioRenditionGroup</a> - When enabled, audio streams
 --   will be placed in rendition groups in the output.
+--   
+--   <a>$sel:includeDvbSubtitles:HlsPackage'</a>,
+--   <a>hlsPackage_includeDvbSubtitles</a> - When enabled, MediaPackage
+--   passes through digital video broadcasting (DVB) subtitles into the
+--   output.
 --   
 --   <a>$sel:playlistType:HlsPackage'</a>, <a>hlsPackage_playlistType</a> -
 --   The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
@@ -3875,6 +3897,10 @@ hlsPackage_adsOnDeliveryRestrictions :: Lens' HlsPackage (Maybe AdsOnDeliveryRes
 -- | When enabled, audio streams will be placed in rendition groups in the
 --   output.
 hlsPackage_useAudioRenditionGroup :: Lens' HlsPackage (Maybe Bool)
+
+-- | When enabled, MediaPackage passes through digital video broadcasting
+--   (DVB) subtitles into the output.
+hlsPackage_includeDvbSubtitles :: Lens' HlsPackage (Maybe Bool)
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
 --   "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
@@ -8069,6 +8095,10 @@ hlsPackage_adsOnDeliveryRestrictions :: Lens' HlsPackage (Maybe AdsOnDeliveryRes
 --   output.
 hlsPackage_useAudioRenditionGroup :: Lens' HlsPackage (Maybe Bool)
 
+-- | When enabled, MediaPackage passes through digital video broadcasting
+--   (DVB) subtitles into the output.
+hlsPackage_includeDvbSubtitles :: Lens' HlsPackage (Maybe Bool)
+
 -- | The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or
 --   "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
 --   included in the media playlist.
@@ -10175,7 +10205,7 @@ newHlsManifestCreateOrUpdateParameters :: Text -> HlsManifestCreateOrUpdateParam
 --   
 --   <i>See:</i> <a>newHlsPackage</a> smart constructor.
 data HlsPackage
-HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe PlaylistType -> Maybe Int -> Maybe Int -> Maybe StreamSelection -> Maybe AdMarkers -> Maybe HlsEncryption -> Maybe Bool -> Maybe [AdTriggersElement] -> Maybe Int -> HlsPackage
+HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe Bool -> Maybe PlaylistType -> Maybe Int -> Maybe Int -> Maybe StreamSelection -> Maybe AdMarkers -> Maybe HlsEncryption -> Maybe Bool -> Maybe [AdTriggersElement] -> Maybe Int -> HlsPackage
 
 -- | Create a value of <a>HlsPackage</a> with all optional fields omitted.
 --   
@@ -10191,6 +10221,11 @@ HlsPackage' :: Maybe AdsOnDeliveryRestrictions -> Maybe Bool -> Maybe PlaylistTy
 --   <a>$sel:useAudioRenditionGroup:HlsPackage'</a>,
 --   <a>hlsPackage_useAudioRenditionGroup</a> - When enabled, audio streams
 --   will be placed in rendition groups in the output.
+--   
+--   <a>$sel:includeDvbSubtitles:HlsPackage'</a>,
+--   <a>hlsPackage_includeDvbSubtitles</a> - When enabled, MediaPackage
+--   passes through digital video broadcasting (DVB) subtitles into the
+--   output.
 --   
 --   <a>$sel:playlistType:HlsPackage'</a>, <a>hlsPackage_playlistType</a> -
 --   The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or

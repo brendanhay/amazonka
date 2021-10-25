@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- when you set this to Drop frames for compliance depends on the output</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- frame rate and duration.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679995253"><span id="local-6989586621679995254"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfXavcDurationMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfXavcDurationMode.html#MxfXavcDurationMode"><span class="hs-identifier hs-var">MxfXavcDurationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfXavcDurationMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfXavcDurationMode.html#MxfXavcDurationMode%27"><span class="hs-identifier hs-var">MxfXavcDurationMode'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679996743"><span id="local-6989586621679996744"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfXavcDurationMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfXavcDurationMode.html#MxfXavcDurationMode"><span class="hs-identifier hs-var">MxfXavcDurationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfXavcDurationMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfXavcDurationMode.html#MxfXavcDurationMode%27"><span class="hs-identifier hs-var">MxfXavcDurationMode'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMxfXavcDurationMode"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MxfXavcDurationMode.html#fromMxfXavcDurationMode"><span class="hs-identifier hs-var hs-var">fromMxfXavcDurationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995245"><span id="local-6989586621679995247"><span id="local-6989586621679995249"><span class="annot"><span class="annottext">Int -&gt; MxfXavcDurationMode -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996735"><span id="local-6989586621679996737"><span id="local-6989586621679996739"><span class="annot"><span class="annottext">Int -&gt; MxfXavcDurationMode -&gt; ShowS
 [MxfXavcDurationMode] -&gt; ShowS
 MxfXavcDurationMode -&gt; String
 (Int -&gt; MxfXavcDurationMode -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: MxfXavcDurationMode -&gt; String
 showsPrec :: Int -&gt; MxfXavcDurationMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; MxfXavcDurationMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679995236"><span id="local-6989586621679995238"><span id="local-6989586621679995240"><span id="local-6989586621679995242"><span class="annot"><span class="annottext">ReadPrec [MxfXavcDurationMode]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679996726"><span id="local-6989586621679996728"><span id="local-6989586621679996730"><span id="local-6989586621679996732"><span class="annot"><span class="annottext">ReadPrec [MxfXavcDurationMode]
 ReadPrec MxfXavcDurationMode
 Int -&gt; ReadS MxfXavcDurationMode
 ReadS [MxfXavcDurationMode]
@@ -79,7 +79,7 @@ $creadList :: ReadS [MxfXavcDurationMode]
 readsPrec :: Int -&gt; ReadS MxfXavcDurationMode
 $creadsPrec :: Int -&gt; ReadS MxfXavcDurationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679995231"><span id="local-6989586621679995233"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679996721"><span id="local-6989586621679996723"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool
 (MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool)
 -&gt; (MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool)
 -&gt; Eq MxfXavcDurationMode
@@ -89,7 +89,7 @@ $c/= :: MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool
 == :: MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool
 $c== :: MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679995215"><span id="local-6989586621679995217"><span id="local-6989586621679995219"><span id="local-6989586621679995221"><span id="local-6989586621679995223"><span id="local-6989586621679995225"><span id="local-6989586621679995227"><span class="annot"><span class="annottext">Eq MxfXavcDurationMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679996705"><span id="local-6989586621679996707"><span id="local-6989586621679996709"><span id="local-6989586621679996711"><span id="local-6989586621679996713"><span id="local-6989586621679996715"><span id="local-6989586621679996717"><span class="annot"><span class="annottext">Eq MxfXavcDurationMode
 Eq MxfXavcDurationMode
 -&gt; (MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Ordering)
 -&gt; (MxfXavcDurationMode -&gt; MxfXavcDurationMode -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. MxfXavcDurationMode -&gt; Rep MxfXavcDurationMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995207"><span id="local-6989586621679995209"><span class="annot"><span class="annottext">Int -&gt; MxfXavcDurationMode -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996697"><span id="local-6989586621679996699"><span class="annot"><span class="annottext">Int -&gt; MxfXavcDurationMode -&gt; Int
 MxfXavcDurationMode -&gt; Int
 (Int -&gt; MxfXavcDurationMode -&gt; Int)
 -&gt; (MxfXavcDurationMode -&gt; Int) -&gt; Hashable MxfXavcDurationMode
@@ -152,53 +152,53 @@ $chash :: MxfXavcDurationMode -&gt; Int
 hashWithSalt :: Int -&gt; MxfXavcDurationMode -&gt; Int
 $chashWithSalt :: Int -&gt; MxfXavcDurationMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679995204"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679996694"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; ()
 (MxfXavcDurationMode -&gt; ()) -&gt; NFData MxfXavcDurationMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MxfXavcDurationMode -&gt; ()
 $crnf :: MxfXavcDurationMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679995201"><span class="annot"><span class="annottext">Text -&gt; Either String MxfXavcDurationMode
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679996691"><span class="annot"><span class="annottext">Text -&gt; Either String MxfXavcDurationMode
 (Text -&gt; Either String MxfXavcDurationMode)
 -&gt; FromText MxfXavcDurationMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MxfXavcDurationMode
 $cfromText :: Text -&gt; Either String MxfXavcDurationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679995198"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679996688"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; Text
 (MxfXavcDurationMode -&gt; Text) -&gt; ToText MxfXavcDurationMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MxfXavcDurationMode -&gt; Text
 $ctoText :: MxfXavcDurationMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679995195"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679996685"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; ByteString
 (MxfXavcDurationMode -&gt; ByteString)
 -&gt; ToByteString MxfXavcDurationMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MxfXavcDurationMode -&gt; ByteString
 $ctoBS :: MxfXavcDurationMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679995192"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679996682"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; ByteStringBuilder
 (MxfXavcDurationMode -&gt; ByteStringBuilder)
 -&gt; ToLog MxfXavcDurationMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MxfXavcDurationMode -&gt; ByteStringBuilder
 $cbuild :: MxfXavcDurationMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679995189"><span class="annot"><span class="annottext">HeaderName -&gt; MxfXavcDurationMode -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679996679"><span class="annot"><span class="annottext">HeaderName -&gt; MxfXavcDurationMode -&gt; [Header]
 (HeaderName -&gt; MxfXavcDurationMode -&gt; [Header])
 -&gt; ToHeader MxfXavcDurationMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MxfXavcDurationMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MxfXavcDurationMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679995186"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679996676"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; QueryString
 (MxfXavcDurationMode -&gt; QueryString) -&gt; ToQuery MxfXavcDurationMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MxfXavcDurationMode -&gt; QueryString
 $ctoQuery :: MxfXavcDurationMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679995181"><span id="local-6989586621679995183"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfXavcDurationMode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679996671"><span id="local-6989586621679996673"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfXavcDurationMode]
 Value -&gt; Parser MxfXavcDurationMode
 (Value -&gt; Parser MxfXavcDurationMode)
 -&gt; (Value -&gt; Parser [MxfXavcDurationMode])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [MxfXavcDurationMode]
 parseJSON :: Value -&gt; Parser MxfXavcDurationMode
 $cparseJSON :: Value -&gt; Parser MxfXavcDurationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679995176"><span id="local-6989586621679995178"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfXavcDurationMode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679996666"><span id="local-6989586621679996668"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfXavcDurationMode]
 FromJSONKeyFunction MxfXavcDurationMode
 FromJSONKeyFunction MxfXavcDurationMode
 -&gt; FromJSONKeyFunction [MxfXavcDurationMode]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MxfXavcDurationMode]
 fromJSONKey :: FromJSONKeyFunction MxfXavcDurationMode
 $cfromJSONKey :: FromJSONKeyFunction MxfXavcDurationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679995167"><span id="local-6989586621679995169"><span id="local-6989586621679995171"><span id="local-6989586621679995173"><span class="annot"><span class="annottext">[MxfXavcDurationMode] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679996657"><span id="local-6989586621679996659"><span id="local-6989586621679996661"><span id="local-6989586621679996663"><span class="annot"><span class="annottext">[MxfXavcDurationMode] -&gt; Encoding
 [MxfXavcDurationMode] -&gt; Value
 MxfXavcDurationMode -&gt; Encoding
 MxfXavcDurationMode -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: MxfXavcDurationMode -&gt; Encoding
 toJSON :: MxfXavcDurationMode -&gt; Value
 $ctoJSON :: MxfXavcDurationMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679995162"><span id="local-6989586621679995164"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfXavcDurationMode]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679996652"><span id="local-6989586621679996654"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfXavcDurationMode]
 ToJSONKeyFunction MxfXavcDurationMode
 ToJSONKeyFunction MxfXavcDurationMode
 -&gt; ToJSONKeyFunction [MxfXavcDurationMode]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MxfXavcDurationMode]
 toJSONKey :: ToJSONKeyFunction MxfXavcDurationMode
 $ctoJSONKey :: ToJSONKeyFunction MxfXavcDurationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679995159"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfXavcDurationMode
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679996649"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfXavcDurationMode
 ([Node] -&gt; Either String MxfXavcDurationMode)
 -&gt; FromXML MxfXavcDurationMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MxfXavcDurationMode
 $cparseXML :: [Node] -&gt; Either String MxfXavcDurationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679995156"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679996646"><span class="annot"><span class="annottext">MxfXavcDurationMode -&gt; XML
 (MxfXavcDurationMode -&gt; XML) -&gt; ToXML MxfXavcDurationMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MxfXavcDurationMode -&gt; XML

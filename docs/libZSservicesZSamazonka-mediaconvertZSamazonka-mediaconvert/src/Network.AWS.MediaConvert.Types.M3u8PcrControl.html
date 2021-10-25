@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- inserted for every Packetized Elementary Stream (PES) header. This</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- parameter is effective only when the PCR PID is the same as the video or</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- audio elementary stream.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679986767"><span id="local-6989586621679986768"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8PcrControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier hs-var">M3u8PcrControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8PcrControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl%27"><span class="hs-identifier hs-var">M3u8PcrControl'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679988257"><span id="local-6989586621679988258"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8PcrControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier hs-var">M3u8PcrControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8PcrControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl%27"><span class="hs-identifier hs-var">M3u8PcrControl'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM3u8PcrControl"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#fromM3u8PcrControl"><span class="hs-identifier hs-var hs-var">fromM3u8PcrControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986759"><span id="local-6989586621679986761"><span id="local-6989586621679986763"><span class="annot"><span class="annottext">Int -&gt; M3u8PcrControl -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988249"><span id="local-6989586621679988251"><span id="local-6989586621679988253"><span class="annot"><span class="annottext">Int -&gt; M3u8PcrControl -&gt; ShowS
 [M3u8PcrControl] -&gt; ShowS
 M3u8PcrControl -&gt; String
 (Int -&gt; M3u8PcrControl -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: M3u8PcrControl -&gt; String
 showsPrec :: Int -&gt; M3u8PcrControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; M3u8PcrControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679986750"><span id="local-6989586621679986752"><span id="local-6989586621679986754"><span id="local-6989586621679986756"><span class="annot"><span class="annottext">ReadPrec [M3u8PcrControl]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679988240"><span id="local-6989586621679988242"><span id="local-6989586621679988244"><span id="local-6989586621679988246"><span class="annot"><span class="annottext">ReadPrec [M3u8PcrControl]
 ReadPrec M3u8PcrControl
 Int -&gt; ReadS M3u8PcrControl
 ReadS [M3u8PcrControl]
@@ -76,7 +76,7 @@ $creadList :: ReadS [M3u8PcrControl]
 readsPrec :: Int -&gt; ReadS M3u8PcrControl
 $creadsPrec :: Int -&gt; ReadS M3u8PcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679986745"><span id="local-6989586621679986747"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679988235"><span id="local-6989586621679988237"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
 (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
 -&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool) -&gt; Eq M3u8PcrControl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
 == :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
 $c== :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679986729"><span id="local-6989586621679986731"><span id="local-6989586621679986733"><span id="local-6989586621679986735"><span id="local-6989586621679986737"><span id="local-6989586621679986739"><span id="local-6989586621679986741"><span class="annot"><span class="annottext">Eq M3u8PcrControl
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679988219"><span id="local-6989586621679988221"><span id="local-6989586621679988223"><span id="local-6989586621679988225"><span id="local-6989586621679988227"><span id="local-6989586621679988229"><span id="local-6989586621679988231"><span class="annot"><span class="annottext">Eq M3u8PcrControl
 Eq M3u8PcrControl
 -&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Ordering)
 -&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. M3u8PcrControl -&gt; Rep M3u8PcrControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986721"><span id="local-6989586621679986723"><span class="annot"><span class="annottext">Int -&gt; M3u8PcrControl -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988211"><span id="local-6989586621679988213"><span class="annot"><span class="annottext">Int -&gt; M3u8PcrControl -&gt; Int
 M3u8PcrControl -&gt; Int
 (Int -&gt; M3u8PcrControl -&gt; Int)
 -&gt; (M3u8PcrControl -&gt; Int) -&gt; Hashable M3u8PcrControl
@@ -146,50 +146,50 @@ $chash :: M3u8PcrControl -&gt; Int
 hashWithSalt :: Int -&gt; M3u8PcrControl -&gt; Int
 $chashWithSalt :: Int -&gt; M3u8PcrControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679986718"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679988208"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ()
 (M3u8PcrControl -&gt; ()) -&gt; NFData M3u8PcrControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M3u8PcrControl -&gt; ()
 $crnf :: M3u8PcrControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986715"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8PcrControl
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679988205"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8PcrControl
 (Text -&gt; Either String M3u8PcrControl) -&gt; FromText M3u8PcrControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M3u8PcrControl
 $cfromText :: Text -&gt; Either String M3u8PcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986712"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679988202"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; Text
 (M3u8PcrControl -&gt; Text) -&gt; ToText M3u8PcrControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M3u8PcrControl -&gt; Text
 $ctoText :: M3u8PcrControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986709"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679988199"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ByteString
 (M3u8PcrControl -&gt; ByteString) -&gt; ToByteString M3u8PcrControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M3u8PcrControl -&gt; ByteString
 $ctoBS :: M3u8PcrControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986706"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679988196"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ByteStringBuilder
 (M3u8PcrControl -&gt; ByteStringBuilder) -&gt; ToLog M3u8PcrControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M3u8PcrControl -&gt; ByteStringBuilder
 $cbuild :: M3u8PcrControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679986703"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8PcrControl -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679988193"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8PcrControl -&gt; [Header]
 (HeaderName -&gt; M3u8PcrControl -&gt; [Header])
 -&gt; ToHeader M3u8PcrControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M3u8PcrControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M3u8PcrControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679986700"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679988190"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; QueryString
 (M3u8PcrControl -&gt; QueryString) -&gt; ToQuery M3u8PcrControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M3u8PcrControl -&gt; QueryString
 $ctoQuery :: M3u8PcrControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679986695"><span id="local-6989586621679986697"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8PcrControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679988185"><span id="local-6989586621679988187"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8PcrControl]
 Value -&gt; Parser M3u8PcrControl
 (Value -&gt; Parser M3u8PcrControl)
 -&gt; (Value -&gt; Parser [M3u8PcrControl]) -&gt; FromJSON M3u8PcrControl
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [M3u8PcrControl]
 parseJSON :: Value -&gt; Parser M3u8PcrControl
 $cparseJSON :: Value -&gt; Parser M3u8PcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986690"><span id="local-6989586621679986692"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8PcrControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679988180"><span id="local-6989586621679988182"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8PcrControl]
 FromJSONKeyFunction M3u8PcrControl
 FromJSONKeyFunction M3u8PcrControl
 -&gt; FromJSONKeyFunction [M3u8PcrControl]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M3u8PcrControl]
 fromJSONKey :: FromJSONKeyFunction M3u8PcrControl
 $cfromJSONKey :: FromJSONKeyFunction M3u8PcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986681"><span id="local-6989586621679986683"><span id="local-6989586621679986685"><span id="local-6989586621679986687"><span class="annot"><span class="annottext">[M3u8PcrControl] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679988171"><span id="local-6989586621679988173"><span id="local-6989586621679988175"><span id="local-6989586621679988177"><span class="annot"><span class="annottext">[M3u8PcrControl] -&gt; Encoding
 [M3u8PcrControl] -&gt; Value
 M3u8PcrControl -&gt; Encoding
 M3u8PcrControl -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: M3u8PcrControl -&gt; Encoding
 toJSON :: M3u8PcrControl -&gt; Value
 $ctoJSON :: M3u8PcrControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986676"><span id="local-6989586621679986678"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8PcrControl]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679988166"><span id="local-6989586621679988168"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8PcrControl]
 ToJSONKeyFunction M3u8PcrControl
 ToJSONKeyFunction M3u8PcrControl
 -&gt; ToJSONKeyFunction [M3u8PcrControl] -&gt; ToJSONKey M3u8PcrControl
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M3u8PcrControl]
 toJSONKey :: ToJSONKeyFunction M3u8PcrControl
 $ctoJSONKey :: ToJSONKeyFunction M3u8PcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986673"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8PcrControl
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679988163"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8PcrControl
 ([Node] -&gt; Either String M3u8PcrControl) -&gt; FromXML M3u8PcrControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M3u8PcrControl
 $cparseXML :: [Node] -&gt; Either String M3u8PcrControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679986670"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679988160"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; XML
 (M3u8PcrControl -&gt; XML) -&gt; ToXML M3u8PcrControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M3u8PcrControl -&gt; XML

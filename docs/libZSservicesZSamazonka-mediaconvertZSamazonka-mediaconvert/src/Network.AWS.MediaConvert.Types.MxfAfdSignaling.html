@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- video stream. Related settings: To set up your output to include or</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- exclude AFD values, see AfdSignaling, under VideoDescription. On the</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- console, find AFD signaling under the output\'s video encoding settings.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679994921"><span id="local-6989586621679994922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfAfdSignaling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling"><span class="hs-identifier hs-var">MxfAfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfAfdSignaling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling%27"><span class="hs-identifier hs-var">MxfAfdSignaling'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679996411"><span id="local-6989586621679996412"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MxfAfdSignaling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling"><span class="hs-identifier hs-var">MxfAfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfAfdSignaling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#MxfAfdSignaling%27"><span class="hs-identifier hs-var">MxfAfdSignaling'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMxfAfdSignaling"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MxfAfdSignaling.html#fromMxfAfdSignaling"><span class="hs-identifier hs-var hs-var">fromMxfAfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994913"><span id="local-6989586621679994915"><span id="local-6989586621679994917"><span class="annot"><span class="annottext">Int -&gt; MxfAfdSignaling -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996403"><span id="local-6989586621679996405"><span id="local-6989586621679996407"><span class="annot"><span class="annottext">Int -&gt; MxfAfdSignaling -&gt; ShowS
 [MxfAfdSignaling] -&gt; ShowS
 MxfAfdSignaling -&gt; String
 (Int -&gt; MxfAfdSignaling -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: MxfAfdSignaling -&gt; String
 showsPrec :: Int -&gt; MxfAfdSignaling -&gt; ShowS
 $cshowsPrec :: Int -&gt; MxfAfdSignaling -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679994904"><span id="local-6989586621679994906"><span id="local-6989586621679994908"><span id="local-6989586621679994910"><span class="annot"><span class="annottext">ReadPrec [MxfAfdSignaling]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679996394"><span id="local-6989586621679996396"><span id="local-6989586621679996398"><span id="local-6989586621679996400"><span class="annot"><span class="annottext">ReadPrec [MxfAfdSignaling]
 ReadPrec MxfAfdSignaling
 Int -&gt; ReadS MxfAfdSignaling
 ReadS [MxfAfdSignaling]
@@ -81,7 +81,7 @@ $creadList :: ReadS [MxfAfdSignaling]
 readsPrec :: Int -&gt; ReadS MxfAfdSignaling
 $creadsPrec :: Int -&gt; ReadS MxfAfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679994899"><span id="local-6989586621679994901"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679996389"><span id="local-6989586621679996391"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
 (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
 -&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
 -&gt; Eq MxfAfdSignaling
@@ -91,7 +91,7 @@ $c/= :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
 == :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
 $c== :: MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679994883"><span id="local-6989586621679994885"><span id="local-6989586621679994887"><span id="local-6989586621679994889"><span id="local-6989586621679994891"><span id="local-6989586621679994893"><span id="local-6989586621679994895"><span class="annot"><span class="annottext">Eq MxfAfdSignaling
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679996373"><span id="local-6989586621679996375"><span id="local-6989586621679996377"><span id="local-6989586621679996379"><span id="local-6989586621679996381"><span id="local-6989586621679996383"><span id="local-6989586621679996385"><span class="annot"><span class="annottext">Eq MxfAfdSignaling
 Eq MxfAfdSignaling
 -&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Ordering)
 -&gt; (MxfAfdSignaling -&gt; MxfAfdSignaling -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. MxfAfdSignaling -&gt; Rep MxfAfdSignaling x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994875"><span id="local-6989586621679994877"><span class="annot"><span class="annottext">Int -&gt; MxfAfdSignaling -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996365"><span id="local-6989586621679996367"><span class="annot"><span class="annottext">Int -&gt; MxfAfdSignaling -&gt; Int
 MxfAfdSignaling -&gt; Int
 (Int -&gt; MxfAfdSignaling -&gt; Int)
 -&gt; (MxfAfdSignaling -&gt; Int) -&gt; Hashable MxfAfdSignaling
@@ -152,50 +152,50 @@ $chash :: MxfAfdSignaling -&gt; Int
 hashWithSalt :: Int -&gt; MxfAfdSignaling -&gt; Int
 $chashWithSalt :: Int -&gt; MxfAfdSignaling -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679994872"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679996362"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ()
 (MxfAfdSignaling -&gt; ()) -&gt; NFData MxfAfdSignaling
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MxfAfdSignaling -&gt; ()
 $crnf :: MxfAfdSignaling -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679994869"><span class="annot"><span class="annottext">Text -&gt; Either String MxfAfdSignaling
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679996359"><span class="annot"><span class="annottext">Text -&gt; Either String MxfAfdSignaling
 (Text -&gt; Either String MxfAfdSignaling) -&gt; FromText MxfAfdSignaling
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MxfAfdSignaling
 $cfromText :: Text -&gt; Either String MxfAfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679994866"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679996356"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; Text
 (MxfAfdSignaling -&gt; Text) -&gt; ToText MxfAfdSignaling
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MxfAfdSignaling -&gt; Text
 $ctoText :: MxfAfdSignaling -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679994863"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679996353"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ByteString
 (MxfAfdSignaling -&gt; ByteString) -&gt; ToByteString MxfAfdSignaling
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MxfAfdSignaling -&gt; ByteString
 $ctoBS :: MxfAfdSignaling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679994860"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679996350"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; ByteStringBuilder
 (MxfAfdSignaling -&gt; ByteStringBuilder) -&gt; ToLog MxfAfdSignaling
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MxfAfdSignaling -&gt; ByteStringBuilder
 $cbuild :: MxfAfdSignaling -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679994857"><span class="annot"><span class="annottext">HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679996347"><span class="annot"><span class="annottext">HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
 (HeaderName -&gt; MxfAfdSignaling -&gt; [Header])
 -&gt; ToHeader MxfAfdSignaling
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MxfAfdSignaling -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679994854"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679996344"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; QueryString
 (MxfAfdSignaling -&gt; QueryString) -&gt; ToQuery MxfAfdSignaling
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MxfAfdSignaling -&gt; QueryString
 $ctoQuery :: MxfAfdSignaling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679994849"><span id="local-6989586621679994851"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfAfdSignaling]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679996339"><span id="local-6989586621679996341"><span class="annot"><span class="annottext">Value -&gt; Parser [MxfAfdSignaling]
 Value -&gt; Parser MxfAfdSignaling
 (Value -&gt; Parser MxfAfdSignaling)
 -&gt; (Value -&gt; Parser [MxfAfdSignaling]) -&gt; FromJSON MxfAfdSignaling
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [MxfAfdSignaling]
 parseJSON :: Value -&gt; Parser MxfAfdSignaling
 $cparseJSON :: Value -&gt; Parser MxfAfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679994844"><span id="local-6989586621679994846"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfAfdSignaling]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679996334"><span id="local-6989586621679996336"><span class="annot"><span class="annottext">FromJSONKeyFunction [MxfAfdSignaling]
 FromJSONKeyFunction MxfAfdSignaling
 FromJSONKeyFunction MxfAfdSignaling
 -&gt; FromJSONKeyFunction [MxfAfdSignaling]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MxfAfdSignaling]
 fromJSONKey :: FromJSONKeyFunction MxfAfdSignaling
 $cfromJSONKey :: FromJSONKeyFunction MxfAfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679994835"><span id="local-6989586621679994837"><span id="local-6989586621679994839"><span id="local-6989586621679994841"><span class="annot"><span class="annottext">[MxfAfdSignaling] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679996325"><span id="local-6989586621679996327"><span id="local-6989586621679996329"><span id="local-6989586621679996331"><span class="annot"><span class="annottext">[MxfAfdSignaling] -&gt; Encoding
 [MxfAfdSignaling] -&gt; Value
 MxfAfdSignaling -&gt; Encoding
 MxfAfdSignaling -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: MxfAfdSignaling -&gt; Encoding
 toJSON :: MxfAfdSignaling -&gt; Value
 $ctoJSON :: MxfAfdSignaling -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679994830"><span id="local-6989586621679994832"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfAfdSignaling]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679996320"><span id="local-6989586621679996322"><span class="annot"><span class="annottext">ToJSONKeyFunction [MxfAfdSignaling]
 ToJSONKeyFunction MxfAfdSignaling
 ToJSONKeyFunction MxfAfdSignaling
 -&gt; ToJSONKeyFunction [MxfAfdSignaling] -&gt; ToJSONKey MxfAfdSignaling
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MxfAfdSignaling]
 toJSONKey :: ToJSONKeyFunction MxfAfdSignaling
 $ctoJSONKey :: ToJSONKeyFunction MxfAfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679994827"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfAfdSignaling
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679996317"><span class="annot"><span class="annottext">[Node] -&gt; Either String MxfAfdSignaling
 ([Node] -&gt; Either String MxfAfdSignaling)
 -&gt; FromXML MxfAfdSignaling
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MxfAfdSignaling
 $cparseXML :: [Node] -&gt; Either String MxfAfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679994824"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679996314"><span class="annot"><span class="annottext">MxfAfdSignaling -&gt; XML
 (MxfAfdSignaling -&gt; XML) -&gt; ToXML MxfAfdSignaling
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MxfAfdSignaling -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- to the value MP2.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMp2Settings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679988747"><span id="local-6989586621679988748"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mp2Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-var">Mp2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp2Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-var">Mp2Settings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679990237"><span id="local-6989586621679990238"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mp2Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-var">Mp2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp2Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-var">Mp2Settings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set Channels to specify the number of channels in this output audio</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- track. Choosing Mono in the console will give you 1 output channel;</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- choosing Stereo will give you 2. In the API, valid values are 1 and 2.</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Abitrate%3AMp2Settings%27"><span class="annot"><span class="annottext">Mp2Settings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#%24sel%3Abitrate%3AMp2Settings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679988739"><span id="local-6989586621679988741"><span class="annot"><span class="annottext">Mp2Settings -&gt; Mp2Settings -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679990229"><span id="local-6989586621679990231"><span class="annot"><span class="annottext">Mp2Settings -&gt; Mp2Settings -&gt; Bool
 (Mp2Settings -&gt; Mp2Settings -&gt; Bool)
 -&gt; (Mp2Settings -&gt; Mp2Settings -&gt; Bool) -&gt; Eq Mp2Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
 == :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
 $c== :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679988730"><span id="local-6989586621679988732"><span id="local-6989586621679988734"><span id="local-6989586621679988736"><span class="annot"><span class="annottext">ReadPrec [Mp2Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990220"><span id="local-6989586621679990222"><span id="local-6989586621679990224"><span id="local-6989586621679990226"><span class="annot"><span class="annottext">ReadPrec [Mp2Settings]
 ReadPrec Mp2Settings
 Int -&gt; ReadS Mp2Settings
 ReadS [Mp2Settings]
@@ -68,7 +68,7 @@ readList :: ReadS [Mp2Settings]
 $creadList :: ReadS [Mp2Settings]
 readsPrec :: Int -&gt; ReadS Mp2Settings
 $creadsPrec :: Int -&gt; ReadS Mp2Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679988723"><span id="local-6989586621679988725"><span id="local-6989586621679988727"><span class="annot"><span class="annottext">Int -&gt; Mp2Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990213"><span id="local-6989586621679990215"><span id="local-6989586621679990217"><span class="annot"><span class="annottext">Int -&gt; Mp2Settings -&gt; ShowS
 [Mp2Settings] -&gt; ShowS
 Mp2Settings -&gt; String
 (Int -&gt; Mp2Settings -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; (Mp2Settings -&gt; Maybe Natural -&gt; Mp2Settings)
 -&gt; Lens Mp2Settings Mp2Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679988714"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990204"><span class="annot"><span class="annottext">Maybe Natural
 channels :: Maybe Natural
 $sel:channels:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679988714"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988714"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679988713"><span class="annot"><span class="annottext">s :: Mp2Settings
-</span><a href="#local-6989586621679988713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679988712"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
-</span><a href="#local-6989586621679988713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:Mp2Settings' :: Maybe Natural
+</span><a href="#local-6989586621679990204"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679990204"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990203"><span class="annot"><span class="annottext">s :: Mp2Settings
+</span><a href="#local-6989586621679990203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990202"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679990202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
+</span><a href="#local-6989586621679990203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:Mp2Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#%24sel%3Achannels%3AMp2Settings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Sample rate in hz.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#mp2Settings_sampleRate"><span class="hs-identifier hs-type">mp2Settings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -158,16 +158,16 @@ $sel:channels:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
 -&gt; (Mp2Settings -&gt; Maybe Natural -&gt; Mp2Settings)
 -&gt; Lens Mp2Settings Mp2Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679988710"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990200"><span class="annot"><span class="annottext">Maybe Natural
 sampleRate :: Maybe Natural
 $sel:sampleRate:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679988710"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988710"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679988709"><span class="annot"><span class="annottext">s :: Mp2Settings
-</span><a href="#local-6989586621679988709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679988708"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
-</span><a href="#local-6989586621679988709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:Mp2Settings' :: Maybe Natural
+</span><a href="#local-6989586621679990200"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679990200"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990199"><span class="annot"><span class="annottext">s :: Mp2Settings
+</span><a href="#local-6989586621679990199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990198"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679990198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
+</span><a href="#local-6989586621679990199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:Mp2Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#%24sel%3AsampleRate%3AMp2Settings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Specify the average bitrate in bits per second.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#mp2Settings_bitrate"><span class="hs-identifier hs-type">mp2Settings_bitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -177,19 +177,19 @@ $sel:sampleRate:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
 -&gt; (Mp2Settings -&gt; Maybe Natural -&gt; Mp2Settings)
 -&gt; Lens Mp2Settings Mp2Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679988706"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990196"><span class="annot"><span class="annottext">Maybe Natural
 bitrate :: Maybe Natural
 $sel:bitrate:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679988706"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988706"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679988705"><span class="annot"><span class="annottext">s :: Mp2Settings
-</span><a href="#local-6989586621679988705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679988704"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
-</span><a href="#local-6989586621679988705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Mp2Settings' :: Maybe Natural
+</span><a href="#local-6989586621679990196"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679990196"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990195"><span class="annot"><span class="annottext">s :: Mp2Settings
+</span><a href="#local-6989586621679990195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990194"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679990194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
+</span><a href="#local-6989586621679990195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Mp2Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#%24sel%3Abitrate%3AMp2Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679988701"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679988699"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mp2Settings
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990191"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679990189"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mp2Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Mp2Settings) -&gt; Value -&gt; Parser Mp2Settings
@@ -197,8 +197,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Mp2Settings&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679988696"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679988696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679990186"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679990186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Mp2Settings
 </span><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-var">Mp2Settings'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Mp2Settings)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; Mp2Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679988696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679990186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channels&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,7 +214,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; Mp2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679988696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679990186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,26 +222,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser Mp2Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679988696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679990186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679988690"><span id="local-6989586621679988692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990180"><span id="local-6989586621679990182"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679988687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679988679"><span id="local-6989586621679988681"><span id="local-6989586621679988683"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679988677"><span class="annot"><span class="annottext">toJSON :: Mp2Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679988673"><span id="local-6989586621679988674"><span id="local-6989586621679988675"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990169"><span id="local-6989586621679990171"><span id="local-6989586621679990173"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679990167"><span class="annot"><span class="annottext">toJSON :: Mp2Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990163"><span id="local-6989586621679990164"><span id="local-6989586621679990165"><span class="annot"><span class="annottext">Maybe Natural
 bitrate :: Maybe Natural
 sampleRate :: Maybe Natural
 channels :: Maybe Natural
 $sel:bitrate:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
 $sel:sampleRate:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
 $sel:channels:Mp2Settings' :: Mp2Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679988673"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679990163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,21 +253,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988675"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679990165"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988674"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679990164"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679988673"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
+</span><a href="#local-6989586621679990163"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

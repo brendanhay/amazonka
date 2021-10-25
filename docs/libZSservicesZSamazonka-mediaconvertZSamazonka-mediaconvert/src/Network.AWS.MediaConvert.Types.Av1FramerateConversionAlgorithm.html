@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679942284"><span id="local-6989586621679942285"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm.html#Av1FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Av1FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm.html#Av1FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Av1FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679943603"><span id="local-6989586621679943604"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm.html#Av1FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Av1FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm.html#Av1FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Av1FramerateConversionAlgorithm'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAv1FramerateConversionAlgorithm"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm.html#fromAv1FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromAv1FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942276"><span id="local-6989586621679942278"><span id="local-6989586621679942280"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateConversionAlgorithm -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943595"><span id="local-6989586621679943597"><span id="local-6989586621679943599"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateConversionAlgorithm -&gt; ShowS
 [Av1FramerateConversionAlgorithm] -&gt; ShowS
 Av1FramerateConversionAlgorithm -&gt; String
 (Int -&gt; Av1FramerateConversionAlgorithm -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: Av1FramerateConversionAlgorithm -&gt; String
 showsPrec :: Int -&gt; Av1FramerateConversionAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; Av1FramerateConversionAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679942267"><span id="local-6989586621679942269"><span id="local-6989586621679942271"><span id="local-6989586621679942273"><span class="annot"><span class="annottext">ReadPrec [Av1FramerateConversionAlgorithm]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679943586"><span id="local-6989586621679943588"><span id="local-6989586621679943590"><span id="local-6989586621679943592"><span class="annot"><span class="annottext">ReadPrec [Av1FramerateConversionAlgorithm]
 ReadPrec Av1FramerateConversionAlgorithm
 Int -&gt; ReadS Av1FramerateConversionAlgorithm
 ReadS [Av1FramerateConversionAlgorithm]
@@ -84,7 +84,7 @@ $creadList :: ReadS [Av1FramerateConversionAlgorithm]
 readsPrec :: Int -&gt; ReadS Av1FramerateConversionAlgorithm
 $creadsPrec :: Int -&gt; ReadS Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942262"><span id="local-6989586621679942264"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679943581"><span id="local-6989586621679943583"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm
 -&gt; Av1FramerateConversionAlgorithm -&gt; Bool
 (Av1FramerateConversionAlgorithm
  -&gt; Av1FramerateConversionAlgorithm -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: Av1FramerateConversionAlgorithm
 $c== :: Av1FramerateConversionAlgorithm
 -&gt; Av1FramerateConversionAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942246"><span id="local-6989586621679942248"><span id="local-6989586621679942250"><span id="local-6989586621679942252"><span id="local-6989586621679942254"><span id="local-6989586621679942256"><span id="local-6989586621679942258"><span class="annot"><span class="annottext">Eq Av1FramerateConversionAlgorithm
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943565"><span id="local-6989586621679943567"><span id="local-6989586621679943569"><span id="local-6989586621679943571"><span id="local-6989586621679943573"><span id="local-6989586621679943575"><span id="local-6989586621679943577"><span class="annot"><span class="annottext">Eq Av1FramerateConversionAlgorithm
 Eq Av1FramerateConversionAlgorithm
 -&gt; (Av1FramerateConversionAlgorithm
     -&gt; Av1FramerateConversionAlgorithm -&gt; Ordering)
@@ -195,7 +195,7 @@ Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942238"><span id="local-6989586621679942240"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateConversionAlgorithm -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943557"><span id="local-6989586621679943559"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateConversionAlgorithm -&gt; Int
 Av1FramerateConversionAlgorithm -&gt; Int
 (Int -&gt; Av1FramerateConversionAlgorithm -&gt; Int)
 -&gt; (Av1FramerateConversionAlgorithm -&gt; Int)
@@ -206,56 +206,56 @@ $chash :: Av1FramerateConversionAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; Av1FramerateConversionAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; Av1FramerateConversionAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679942235"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943554"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; ()
 (Av1FramerateConversionAlgorithm -&gt; ())
 -&gt; NFData Av1FramerateConversionAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Av1FramerateConversionAlgorithm -&gt; ()
 $crnf :: Av1FramerateConversionAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679942232"><span class="annot"><span class="annottext">Text -&gt; Either String Av1FramerateConversionAlgorithm
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943551"><span class="annot"><span class="annottext">Text -&gt; Either String Av1FramerateConversionAlgorithm
 (Text -&gt; Either String Av1FramerateConversionAlgorithm)
 -&gt; FromText Av1FramerateConversionAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Av1FramerateConversionAlgorithm
 $cfromText :: Text -&gt; Either String Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679942229"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943548"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; Text
 (Av1FramerateConversionAlgorithm -&gt; Text)
 -&gt; ToText Av1FramerateConversionAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Av1FramerateConversionAlgorithm -&gt; Text
 $ctoText :: Av1FramerateConversionAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679942226"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943545"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; ByteString
 (Av1FramerateConversionAlgorithm -&gt; ByteString)
 -&gt; ToByteString Av1FramerateConversionAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Av1FramerateConversionAlgorithm -&gt; ByteString
 $ctoBS :: Av1FramerateConversionAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679942223"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943542"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; ByteStringBuilder
 (Av1FramerateConversionAlgorithm -&gt; ByteStringBuilder)
 -&gt; ToLog Av1FramerateConversionAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Av1FramerateConversionAlgorithm -&gt; ByteStringBuilder
 $cbuild :: Av1FramerateConversionAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679942220"><span class="annot"><span class="annottext">HeaderName -&gt; Av1FramerateConversionAlgorithm -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943539"><span class="annot"><span class="annottext">HeaderName -&gt; Av1FramerateConversionAlgorithm -&gt; [Header]
 (HeaderName -&gt; Av1FramerateConversionAlgorithm -&gt; [Header])
 -&gt; ToHeader Av1FramerateConversionAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Av1FramerateConversionAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Av1FramerateConversionAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679942217"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943536"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; QueryString
 (Av1FramerateConversionAlgorithm -&gt; QueryString)
 -&gt; ToQuery Av1FramerateConversionAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Av1FramerateConversionAlgorithm -&gt; QueryString
 $ctoQuery :: Av1FramerateConversionAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679942212"><span id="local-6989586621679942214"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1FramerateConversionAlgorithm]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943531"><span id="local-6989586621679943533"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1FramerateConversionAlgorithm]
 Value -&gt; Parser Av1FramerateConversionAlgorithm
 (Value -&gt; Parser Av1FramerateConversionAlgorithm)
 -&gt; (Value -&gt; Parser [Av1FramerateConversionAlgorithm])
@@ -267,7 +267,7 @@ $cparseJSONList :: Value -&gt; Parser [Av1FramerateConversionAlgorithm]
 parseJSON :: Value -&gt; Parser Av1FramerateConversionAlgorithm
 $cparseJSON :: Value -&gt; Parser Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679942207"><span id="local-6989586621679942209"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1FramerateConversionAlgorithm]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679943526"><span id="local-6989586621679943528"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1FramerateConversionAlgorithm]
 FromJSONKeyFunction Av1FramerateConversionAlgorithm
 FromJSONKeyFunction Av1FramerateConversionAlgorithm
 -&gt; FromJSONKeyFunction [Av1FramerateConversionAlgorithm]
@@ -279,7 +279,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Av1FramerateConversionAlgorithm]
 fromJSONKey :: FromJSONKeyFunction Av1FramerateConversionAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679942198"><span id="local-6989586621679942200"><span id="local-6989586621679942202"><span id="local-6989586621679942204"><span class="annot"><span class="annottext">[Av1FramerateConversionAlgorithm] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679943517"><span id="local-6989586621679943519"><span id="local-6989586621679943521"><span id="local-6989586621679943523"><span class="annot"><span class="annottext">[Av1FramerateConversionAlgorithm] -&gt; Encoding
 [Av1FramerateConversionAlgorithm] -&gt; Value
 Av1FramerateConversionAlgorithm -&gt; Encoding
 Av1FramerateConversionAlgorithm -&gt; Value
@@ -303,7 +303,7 @@ $ctoEncoding :: Av1FramerateConversionAlgorithm -&gt; Encoding
 toJSON :: Av1FramerateConversionAlgorithm -&gt; Value
 $ctoJSON :: Av1FramerateConversionAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679942193"><span id="local-6989586621679942195"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1FramerateConversionAlgorithm]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679943512"><span id="local-6989586621679943514"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1FramerateConversionAlgorithm]
 ToJSONKeyFunction Av1FramerateConversionAlgorithm
 ToJSONKeyFunction Av1FramerateConversionAlgorithm
 -&gt; ToJSONKeyFunction [Av1FramerateConversionAlgorithm]
@@ -315,14 +315,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Av1FramerateConversionAlgorithm]
 toJSONKey :: ToJSONKeyFunction Av1FramerateConversionAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679942190"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1FramerateConversionAlgorithm
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679943509"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1FramerateConversionAlgorithm
 ([Node] -&gt; Either String Av1FramerateConversionAlgorithm)
 -&gt; FromXML Av1FramerateConversionAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Av1FramerateConversionAlgorithm
 $cparseXML :: [Node] -&gt; Either String Av1FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679942187"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679943506"><span class="annot"><span class="annottext">Av1FramerateConversionAlgorithm -&gt; XML
 (Av1FramerateConversionAlgorithm -&gt; XML)
 -&gt; ToXML Av1FramerateConversionAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a

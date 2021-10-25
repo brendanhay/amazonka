@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- (ENABLED) and control caching in your video distribution set up. For</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- example, use the Cache-Control http header.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679975909"><span id="local-6989586621679975910"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsClientCache"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsClientCache.html#HlsClientCache"><span class="hs-identifier hs-var">HlsClientCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsClientCache%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsClientCache.html#HlsClientCache%27"><span class="hs-identifier hs-var">HlsClientCache'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679977399"><span id="local-6989586621679977400"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsClientCache"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsClientCache.html#HlsClientCache"><span class="hs-identifier hs-var">HlsClientCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsClientCache%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsClientCache.html#HlsClientCache%27"><span class="hs-identifier hs-var">HlsClientCache'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsClientCache"><span class="annot"><span class="annottext">HlsClientCache -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsClientCache.html#fromHlsClientCache"><span class="hs-identifier hs-var hs-var">fromHlsClientCache</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975901"><span id="local-6989586621679975903"><span id="local-6989586621679975905"><span class="annot"><span class="annottext">Int -&gt; HlsClientCache -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977391"><span id="local-6989586621679977393"><span id="local-6989586621679977395"><span class="annot"><span class="annottext">Int -&gt; HlsClientCache -&gt; ShowS
 [HlsClientCache] -&gt; ShowS
 HlsClientCache -&gt; String
 (Int -&gt; HlsClientCache -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: HlsClientCache -&gt; String
 showsPrec :: Int -&gt; HlsClientCache -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsClientCache -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679975892"><span id="local-6989586621679975894"><span id="local-6989586621679975896"><span id="local-6989586621679975898"><span class="annot"><span class="annottext">ReadPrec [HlsClientCache]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679977382"><span id="local-6989586621679977384"><span id="local-6989586621679977386"><span id="local-6989586621679977388"><span class="annot"><span class="annottext">ReadPrec [HlsClientCache]
 ReadPrec HlsClientCache
 Int -&gt; ReadS HlsClientCache
 ReadS [HlsClientCache]
@@ -76,7 +76,7 @@ $creadList :: ReadS [HlsClientCache]
 readsPrec :: Int -&gt; ReadS HlsClientCache
 $creadsPrec :: Int -&gt; ReadS HlsClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679975887"><span id="local-6989586621679975889"><span class="annot"><span class="annottext">HlsClientCache -&gt; HlsClientCache -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679977377"><span id="local-6989586621679977379"><span class="annot"><span class="annottext">HlsClientCache -&gt; HlsClientCache -&gt; Bool
 (HlsClientCache -&gt; HlsClientCache -&gt; Bool)
 -&gt; (HlsClientCache -&gt; HlsClientCache -&gt; Bool) -&gt; Eq HlsClientCache
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: HlsClientCache -&gt; HlsClientCache -&gt; Bool
 == :: HlsClientCache -&gt; HlsClientCache -&gt; Bool
 $c== :: HlsClientCache -&gt; HlsClientCache -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679975871"><span id="local-6989586621679975873"><span id="local-6989586621679975875"><span id="local-6989586621679975877"><span id="local-6989586621679975879"><span id="local-6989586621679975881"><span id="local-6989586621679975883"><span class="annot"><span class="annottext">Eq HlsClientCache
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679977361"><span id="local-6989586621679977363"><span id="local-6989586621679977365"><span id="local-6989586621679977367"><span id="local-6989586621679977369"><span id="local-6989586621679977371"><span id="local-6989586621679977373"><span class="annot"><span class="annottext">Eq HlsClientCache
 Eq HlsClientCache
 -&gt; (HlsClientCache -&gt; HlsClientCache -&gt; Ordering)
 -&gt; (HlsClientCache -&gt; HlsClientCache -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. HlsClientCache -&gt; Rep HlsClientCache x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975863"><span id="local-6989586621679975865"><span class="annot"><span class="annottext">Int -&gt; HlsClientCache -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977353"><span id="local-6989586621679977355"><span class="annot"><span class="annottext">Int -&gt; HlsClientCache -&gt; Int
 HlsClientCache -&gt; Int
 (Int -&gt; HlsClientCache -&gt; Int)
 -&gt; (HlsClientCache -&gt; Int) -&gt; Hashable HlsClientCache
@@ -146,50 +146,50 @@ $chash :: HlsClientCache -&gt; Int
 hashWithSalt :: Int -&gt; HlsClientCache -&gt; Int
 $chashWithSalt :: Int -&gt; HlsClientCache -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679975860"><span class="annot"><span class="annottext">HlsClientCache -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679977350"><span class="annot"><span class="annottext">HlsClientCache -&gt; ()
 (HlsClientCache -&gt; ()) -&gt; NFData HlsClientCache
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsClientCache -&gt; ()
 $crnf :: HlsClientCache -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679975857"><span class="annot"><span class="annottext">Text -&gt; Either String HlsClientCache
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679977347"><span class="annot"><span class="annottext">Text -&gt; Either String HlsClientCache
 (Text -&gt; Either String HlsClientCache) -&gt; FromText HlsClientCache
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsClientCache
 $cfromText :: Text -&gt; Either String HlsClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679975854"><span class="annot"><span class="annottext">HlsClientCache -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679977344"><span class="annot"><span class="annottext">HlsClientCache -&gt; Text
 (HlsClientCache -&gt; Text) -&gt; ToText HlsClientCache
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsClientCache -&gt; Text
 $ctoText :: HlsClientCache -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679975851"><span class="annot"><span class="annottext">HlsClientCache -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679977341"><span class="annot"><span class="annottext">HlsClientCache -&gt; ByteString
 (HlsClientCache -&gt; ByteString) -&gt; ToByteString HlsClientCache
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsClientCache -&gt; ByteString
 $ctoBS :: HlsClientCache -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679975848"><span class="annot"><span class="annottext">HlsClientCache -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679977338"><span class="annot"><span class="annottext">HlsClientCache -&gt; ByteStringBuilder
 (HlsClientCache -&gt; ByteStringBuilder) -&gt; ToLog HlsClientCache
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsClientCache -&gt; ByteStringBuilder
 $cbuild :: HlsClientCache -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679975845"><span class="annot"><span class="annottext">HeaderName -&gt; HlsClientCache -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679977335"><span class="annot"><span class="annottext">HeaderName -&gt; HlsClientCache -&gt; [Header]
 (HeaderName -&gt; HlsClientCache -&gt; [Header])
 -&gt; ToHeader HlsClientCache
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsClientCache -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsClientCache -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679975842"><span class="annot"><span class="annottext">HlsClientCache -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679977332"><span class="annot"><span class="annottext">HlsClientCache -&gt; QueryString
 (HlsClientCache -&gt; QueryString) -&gt; ToQuery HlsClientCache
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsClientCache -&gt; QueryString
 $ctoQuery :: HlsClientCache -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679975837"><span id="local-6989586621679975839"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsClientCache]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679977327"><span id="local-6989586621679977329"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsClientCache]
 Value -&gt; Parser HlsClientCache
 (Value -&gt; Parser HlsClientCache)
 -&gt; (Value -&gt; Parser [HlsClientCache]) -&gt; FromJSON HlsClientCache
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsClientCache]
 parseJSON :: Value -&gt; Parser HlsClientCache
 $cparseJSON :: Value -&gt; Parser HlsClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679975832"><span id="local-6989586621679975834"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsClientCache]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679977322"><span id="local-6989586621679977324"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsClientCache]
 FromJSONKeyFunction HlsClientCache
 FromJSONKeyFunction HlsClientCache
 -&gt; FromJSONKeyFunction [HlsClientCache]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsClientCache]
 fromJSONKey :: FromJSONKeyFunction HlsClientCache
 $cfromJSONKey :: FromJSONKeyFunction HlsClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679975823"><span id="local-6989586621679975825"><span id="local-6989586621679975827"><span id="local-6989586621679975829"><span class="annot"><span class="annottext">[HlsClientCache] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679977313"><span id="local-6989586621679977315"><span id="local-6989586621679977317"><span id="local-6989586621679977319"><span class="annot"><span class="annottext">[HlsClientCache] -&gt; Encoding
 [HlsClientCache] -&gt; Value
 HlsClientCache -&gt; Encoding
 HlsClientCache -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: HlsClientCache -&gt; Encoding
 toJSON :: HlsClientCache -&gt; Value
 $ctoJSON :: HlsClientCache -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679975818"><span id="local-6989586621679975820"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsClientCache]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679977308"><span id="local-6989586621679977310"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsClientCache]
 ToJSONKeyFunction HlsClientCache
 ToJSONKeyFunction HlsClientCache
 -&gt; ToJSONKeyFunction [HlsClientCache] -&gt; ToJSONKey HlsClientCache
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsClientCache]
 toJSONKey :: ToJSONKeyFunction HlsClientCache
 $ctoJSONKey :: ToJSONKeyFunction HlsClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679975815"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsClientCache
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679977305"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsClientCache
 ([Node] -&gt; Either String HlsClientCache) -&gt; FromXML HlsClientCache
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsClientCache
 $cparseXML :: [Node] -&gt; Either String HlsClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679975812"><span class="annot"><span class="annottext">HlsClientCache -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679977302"><span class="annot"><span class="annottext">HlsClientCache -&gt; XML
 (HlsClientCache -&gt; XML) -&gt; ToXML HlsClientCache
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsClientCache -&gt; XML

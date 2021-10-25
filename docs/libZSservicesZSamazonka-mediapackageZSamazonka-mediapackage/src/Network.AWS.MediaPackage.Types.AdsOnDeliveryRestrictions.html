@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- specified in AdTriggers will be treated as ads. Note that Splice Insert</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- messages do not have these flags and are always treated as ads if</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- specified in AdTriggers.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679234915"><span id="local-6989586621679234916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdsOnDeliveryRestrictions"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.html#AdsOnDeliveryRestrictions"><span class="hs-identifier hs-var">AdsOnDeliveryRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdsOnDeliveryRestrictions%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.html#AdsOnDeliveryRestrictions%27"><span class="hs-identifier hs-var">AdsOnDeliveryRestrictions'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679235231"><span id="local-6989586621679235232"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdsOnDeliveryRestrictions"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.html#AdsOnDeliveryRestrictions"><span class="hs-identifier hs-var">AdsOnDeliveryRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdsOnDeliveryRestrictions%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.html#AdsOnDeliveryRestrictions%27"><span class="hs-identifier hs-var">AdsOnDeliveryRestrictions'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAdsOnDeliveryRestrictions"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions.html#fromAdsOnDeliveryRestrictions"><span class="hs-identifier hs-var hs-var">fromAdsOnDeliveryRestrictions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234907"><span id="local-6989586621679234909"><span id="local-6989586621679234911"><span class="annot"><span class="annottext">Int -&gt; AdsOnDeliveryRestrictions -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235223"><span id="local-6989586621679235225"><span id="local-6989586621679235227"><span class="annot"><span class="annottext">Int -&gt; AdsOnDeliveryRestrictions -&gt; ShowS
 [AdsOnDeliveryRestrictions] -&gt; ShowS
 AdsOnDeliveryRestrictions -&gt; String
 (Int -&gt; AdsOnDeliveryRestrictions -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: AdsOnDeliveryRestrictions -&gt; String
 showsPrec :: Int -&gt; AdsOnDeliveryRestrictions -&gt; ShowS
 $cshowsPrec :: Int -&gt; AdsOnDeliveryRestrictions -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234898"><span id="local-6989586621679234900"><span id="local-6989586621679234902"><span id="local-6989586621679234904"><span class="annot"><span class="annottext">ReadPrec [AdsOnDeliveryRestrictions]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235214"><span id="local-6989586621679235216"><span id="local-6989586621679235218"><span id="local-6989586621679235220"><span class="annot"><span class="annottext">ReadPrec [AdsOnDeliveryRestrictions]
 ReadPrec AdsOnDeliveryRestrictions
 Int -&gt; ReadS AdsOnDeliveryRestrictions
 ReadS [AdsOnDeliveryRestrictions]
@@ -85,7 +85,7 @@ $creadList :: ReadS [AdsOnDeliveryRestrictions]
 readsPrec :: Int -&gt; ReadS AdsOnDeliveryRestrictions
 $creadsPrec :: Int -&gt; ReadS AdsOnDeliveryRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234893"><span id="local-6989586621679234895"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235209"><span id="local-6989586621679235211"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool
 (AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool)
 -&gt; (AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool)
 -&gt; Eq AdsOnDeliveryRestrictions
@@ -95,7 +95,7 @@ $c/= :: AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool
 == :: AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool
 $c== :: AdsOnDeliveryRestrictions -&gt; AdsOnDeliveryRestrictions -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234877"><span id="local-6989586621679234879"><span id="local-6989586621679234881"><span id="local-6989586621679234883"><span id="local-6989586621679234885"><span id="local-6989586621679234887"><span id="local-6989586621679234889"><span class="annot"><span class="annottext">Eq AdsOnDeliveryRestrictions
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235193"><span id="local-6989586621679235195"><span id="local-6989586621679235197"><span id="local-6989586621679235199"><span id="local-6989586621679235201"><span id="local-6989586621679235203"><span id="local-6989586621679235205"><span class="annot"><span class="annottext">Eq AdsOnDeliveryRestrictions
 Eq AdsOnDeliveryRestrictions
 -&gt; (AdsOnDeliveryRestrictions
     -&gt; AdsOnDeliveryRestrictions -&gt; Ordering)
@@ -160,7 +160,7 @@ AdsOnDeliveryRestrictions -&gt; Rep AdsOnDeliveryRestrictions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234869"><span id="local-6989586621679234871"><span class="annot"><span class="annottext">Int -&gt; AdsOnDeliveryRestrictions -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235185"><span id="local-6989586621679235187"><span class="annot"><span class="annottext">Int -&gt; AdsOnDeliveryRestrictions -&gt; Int
 AdsOnDeliveryRestrictions -&gt; Int
 (Int -&gt; AdsOnDeliveryRestrictions -&gt; Int)
 -&gt; (AdsOnDeliveryRestrictions -&gt; Int)
@@ -171,56 +171,56 @@ $chash :: AdsOnDeliveryRestrictions -&gt; Int
 hashWithSalt :: Int -&gt; AdsOnDeliveryRestrictions -&gt; Int
 $chashWithSalt :: Int -&gt; AdsOnDeliveryRestrictions -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679234866"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235182"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; ()
 (AdsOnDeliveryRestrictions -&gt; ())
 -&gt; NFData AdsOnDeliveryRestrictions
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AdsOnDeliveryRestrictions -&gt; ()
 $crnf :: AdsOnDeliveryRestrictions -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679234863"><span class="annot"><span class="annottext">Text -&gt; Either String AdsOnDeliveryRestrictions
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679235179"><span class="annot"><span class="annottext">Text -&gt; Either String AdsOnDeliveryRestrictions
 (Text -&gt; Either String AdsOnDeliveryRestrictions)
 -&gt; FromText AdsOnDeliveryRestrictions
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AdsOnDeliveryRestrictions
 $cfromText :: Text -&gt; Either String AdsOnDeliveryRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679234860"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679235176"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; Text
 (AdsOnDeliveryRestrictions -&gt; Text)
 -&gt; ToText AdsOnDeliveryRestrictions
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AdsOnDeliveryRestrictions -&gt; Text
 $ctoText :: AdsOnDeliveryRestrictions -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679234857"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679235173"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; ByteString
 (AdsOnDeliveryRestrictions -&gt; ByteString)
 -&gt; ToByteString AdsOnDeliveryRestrictions
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AdsOnDeliveryRestrictions -&gt; ByteString
 $ctoBS :: AdsOnDeliveryRestrictions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679234854"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679235170"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; ByteStringBuilder
 (AdsOnDeliveryRestrictions -&gt; ByteStringBuilder)
 -&gt; ToLog AdsOnDeliveryRestrictions
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AdsOnDeliveryRestrictions -&gt; ByteStringBuilder
 $cbuild :: AdsOnDeliveryRestrictions -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679234851"><span class="annot"><span class="annottext">HeaderName -&gt; AdsOnDeliveryRestrictions -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679235167"><span class="annot"><span class="annottext">HeaderName -&gt; AdsOnDeliveryRestrictions -&gt; [Header]
 (HeaderName -&gt; AdsOnDeliveryRestrictions -&gt; [Header])
 -&gt; ToHeader AdsOnDeliveryRestrictions
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AdsOnDeliveryRestrictions -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AdsOnDeliveryRestrictions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679234848"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679235164"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; QueryString
 (AdsOnDeliveryRestrictions -&gt; QueryString)
 -&gt; ToQuery AdsOnDeliveryRestrictions
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AdsOnDeliveryRestrictions -&gt; QueryString
 $ctoQuery :: AdsOnDeliveryRestrictions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679234843"><span id="local-6989586621679234845"><span class="annot"><span class="annottext">Value -&gt; Parser [AdsOnDeliveryRestrictions]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679235159"><span id="local-6989586621679235161"><span class="annot"><span class="annottext">Value -&gt; Parser [AdsOnDeliveryRestrictions]
 Value -&gt; Parser AdsOnDeliveryRestrictions
 (Value -&gt; Parser AdsOnDeliveryRestrictions)
 -&gt; (Value -&gt; Parser [AdsOnDeliveryRestrictions])
@@ -232,7 +232,7 @@ $cparseJSONList :: Value -&gt; Parser [AdsOnDeliveryRestrictions]
 parseJSON :: Value -&gt; Parser AdsOnDeliveryRestrictions
 $cparseJSON :: Value -&gt; Parser AdsOnDeliveryRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679234838"><span id="local-6989586621679234840"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdsOnDeliveryRestrictions]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679235154"><span id="local-6989586621679235156"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdsOnDeliveryRestrictions]
 FromJSONKeyFunction AdsOnDeliveryRestrictions
 FromJSONKeyFunction AdsOnDeliveryRestrictions
 -&gt; FromJSONKeyFunction [AdsOnDeliveryRestrictions]
@@ -244,7 +244,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AdsOnDeliveryRestrictions]
 fromJSONKey :: FromJSONKeyFunction AdsOnDeliveryRestrictions
 $cfromJSONKey :: FromJSONKeyFunction AdsOnDeliveryRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679234829"><span id="local-6989586621679234831"><span id="local-6989586621679234833"><span id="local-6989586621679234835"><span class="annot"><span class="annottext">[AdsOnDeliveryRestrictions] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679235145"><span id="local-6989586621679235147"><span id="local-6989586621679235149"><span id="local-6989586621679235151"><span class="annot"><span class="annottext">[AdsOnDeliveryRestrictions] -&gt; Encoding
 [AdsOnDeliveryRestrictions] -&gt; Value
 AdsOnDeliveryRestrictions -&gt; Encoding
 AdsOnDeliveryRestrictions -&gt; Value
@@ -268,7 +268,7 @@ $ctoEncoding :: AdsOnDeliveryRestrictions -&gt; Encoding
 toJSON :: AdsOnDeliveryRestrictions -&gt; Value
 $ctoJSON :: AdsOnDeliveryRestrictions -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679234824"><span id="local-6989586621679234826"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdsOnDeliveryRestrictions]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679235140"><span id="local-6989586621679235142"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdsOnDeliveryRestrictions]
 ToJSONKeyFunction AdsOnDeliveryRestrictions
 ToJSONKeyFunction AdsOnDeliveryRestrictions
 -&gt; ToJSONKeyFunction [AdsOnDeliveryRestrictions]
@@ -280,14 +280,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AdsOnDeliveryRestrictions]
 toJSONKey :: ToJSONKeyFunction AdsOnDeliveryRestrictions
 $ctoJSONKey :: ToJSONKeyFunction AdsOnDeliveryRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679234821"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdsOnDeliveryRestrictions
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679235137"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdsOnDeliveryRestrictions
 ([Node] -&gt; Either String AdsOnDeliveryRestrictions)
 -&gt; FromXML AdsOnDeliveryRestrictions
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AdsOnDeliveryRestrictions
 $cparseXML :: [Node] -&gt; Either String AdsOnDeliveryRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679234818"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679235134"><span class="annot"><span class="annottext">AdsOnDeliveryRestrictions -&gt; XML
 (AdsOnDeliveryRestrictions -&gt; XML)
 -&gt; ToXML AdsOnDeliveryRestrictions
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679544226"><span id="local-6989586621679544227"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MFADeleteStatus"><span class="annot"><a href="Network.AWS.S3.Types.MFADeleteStatus.html#MFADeleteStatus"><span class="hs-identifier hs-var">MFADeleteStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MFADeleteStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.MFADeleteStatus.html#MFADeleteStatus%27"><span class="hs-identifier hs-var">MFADeleteStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679544336"><span id="local-6989586621679544337"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MFADeleteStatus"><span class="annot"><a href="Network.AWS.S3.Types.MFADeleteStatus.html#MFADeleteStatus"><span class="hs-identifier hs-var">MFADeleteStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MFADeleteStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.MFADeleteStatus.html#MFADeleteStatus%27"><span class="hs-identifier hs-var">MFADeleteStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMFADeleteStatus"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.MFADeleteStatus.html#fromMFADeleteStatus"><span class="hs-identifier hs-var hs-var">fromMFADeleteStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544218"><span id="local-6989586621679544220"><span id="local-6989586621679544222"><span class="annot"><span class="annottext">Int -&gt; MFADeleteStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544328"><span id="local-6989586621679544330"><span id="local-6989586621679544332"><span class="annot"><span class="annottext">Int -&gt; MFADeleteStatus -&gt; ShowS
 [MFADeleteStatus] -&gt; ShowS
 MFADeleteStatus -&gt; String
 (Int -&gt; MFADeleteStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MFADeleteStatus -&gt; String
 showsPrec :: Int -&gt; MFADeleteStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; MFADeleteStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679544209"><span id="local-6989586621679544211"><span id="local-6989586621679544213"><span id="local-6989586621679544215"><span class="annot"><span class="annottext">ReadPrec [MFADeleteStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679544319"><span id="local-6989586621679544321"><span id="local-6989586621679544323"><span id="local-6989586621679544325"><span class="annot"><span class="annottext">ReadPrec [MFADeleteStatus]
 ReadPrec MFADeleteStatus
 Int -&gt; ReadS MFADeleteStatus
 ReadS [MFADeleteStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MFADeleteStatus]
 readsPrec :: Int -&gt; ReadS MFADeleteStatus
 $creadsPrec :: Int -&gt; ReadS MFADeleteStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679544204"><span id="local-6989586621679544206"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679544314"><span id="local-6989586621679544316"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool
 (MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool)
 -&gt; (MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool)
 -&gt; Eq MFADeleteStatus
@@ -83,7 +83,7 @@ $c/= :: MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool
 == :: MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool
 $c== :: MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679544188"><span id="local-6989586621679544190"><span id="local-6989586621679544192"><span id="local-6989586621679544194"><span id="local-6989586621679544196"><span id="local-6989586621679544198"><span id="local-6989586621679544200"><span class="annot"><span class="annottext">Eq MFADeleteStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679544298"><span id="local-6989586621679544300"><span id="local-6989586621679544302"><span id="local-6989586621679544304"><span id="local-6989586621679544306"><span id="local-6989586621679544308"><span id="local-6989586621679544310"><span class="annot"><span class="annottext">Eq MFADeleteStatus
 Eq MFADeleteStatus
 -&gt; (MFADeleteStatus -&gt; MFADeleteStatus -&gt; Ordering)
 -&gt; (MFADeleteStatus -&gt; MFADeleteStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. MFADeleteStatus -&gt; Rep MFADeleteStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544180"><span id="local-6989586621679544182"><span class="annot"><span class="annottext">Int -&gt; MFADeleteStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544290"><span id="local-6989586621679544292"><span class="annot"><span class="annottext">Int -&gt; MFADeleteStatus -&gt; Int
 MFADeleteStatus -&gt; Int
 (Int -&gt; MFADeleteStatus -&gt; Int)
 -&gt; (MFADeleteStatus -&gt; Int) -&gt; Hashable MFADeleteStatus
@@ -144,50 +144,50 @@ $chash :: MFADeleteStatus -&gt; Int
 hashWithSalt :: Int -&gt; MFADeleteStatus -&gt; Int
 $chashWithSalt :: Int -&gt; MFADeleteStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679544177"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679544287"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; ()
 (MFADeleteStatus -&gt; ()) -&gt; NFData MFADeleteStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MFADeleteStatus -&gt; ()
 $crnf :: MFADeleteStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679544174"><span class="annot"><span class="annottext">Text -&gt; Either String MFADeleteStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679544284"><span class="annot"><span class="annottext">Text -&gt; Either String MFADeleteStatus
 (Text -&gt; Either String MFADeleteStatus) -&gt; FromText MFADeleteStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MFADeleteStatus
 $cfromText :: Text -&gt; Either String MFADeleteStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679544171"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679544281"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; Text
 (MFADeleteStatus -&gt; Text) -&gt; ToText MFADeleteStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MFADeleteStatus -&gt; Text
 $ctoText :: MFADeleteStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679544168"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679544278"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; ByteString
 (MFADeleteStatus -&gt; ByteString) -&gt; ToByteString MFADeleteStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MFADeleteStatus -&gt; ByteString
 $ctoBS :: MFADeleteStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679544165"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679544275"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; ByteStringBuilder
 (MFADeleteStatus -&gt; ByteStringBuilder) -&gt; ToLog MFADeleteStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MFADeleteStatus -&gt; ByteStringBuilder
 $cbuild :: MFADeleteStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679544162"><span class="annot"><span class="annottext">HeaderName -&gt; MFADeleteStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679544272"><span class="annot"><span class="annottext">HeaderName -&gt; MFADeleteStatus -&gt; [Header]
 (HeaderName -&gt; MFADeleteStatus -&gt; [Header])
 -&gt; ToHeader MFADeleteStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MFADeleteStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MFADeleteStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679544159"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679544269"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; QueryString
 (MFADeleteStatus -&gt; QueryString) -&gt; ToQuery MFADeleteStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MFADeleteStatus -&gt; QueryString
 $ctoQuery :: MFADeleteStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679544154"><span id="local-6989586621679544156"><span class="annot"><span class="annottext">Value -&gt; Parser [MFADeleteStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679544264"><span id="local-6989586621679544266"><span class="annot"><span class="annottext">Value -&gt; Parser [MFADeleteStatus]
 Value -&gt; Parser MFADeleteStatus
 (Value -&gt; Parser MFADeleteStatus)
 -&gt; (Value -&gt; Parser [MFADeleteStatus]) -&gt; FromJSON MFADeleteStatus
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [MFADeleteStatus]
 parseJSON :: Value -&gt; Parser MFADeleteStatus
 $cparseJSON :: Value -&gt; Parser MFADeleteStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679544149"><span id="local-6989586621679544151"><span class="annot"><span class="annottext">FromJSONKeyFunction [MFADeleteStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679544259"><span id="local-6989586621679544261"><span class="annot"><span class="annottext">FromJSONKeyFunction [MFADeleteStatus]
 FromJSONKeyFunction MFADeleteStatus
 FromJSONKeyFunction MFADeleteStatus
 -&gt; FromJSONKeyFunction [MFADeleteStatus]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MFADeleteStatus]
 fromJSONKey :: FromJSONKeyFunction MFADeleteStatus
 $cfromJSONKey :: FromJSONKeyFunction MFADeleteStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679544140"><span id="local-6989586621679544142"><span id="local-6989586621679544144"><span id="local-6989586621679544146"><span class="annot"><span class="annottext">[MFADeleteStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679544250"><span id="local-6989586621679544252"><span id="local-6989586621679544254"><span id="local-6989586621679544256"><span class="annot"><span class="annottext">[MFADeleteStatus] -&gt; Encoding
 [MFADeleteStatus] -&gt; Value
 MFADeleteStatus -&gt; Encoding
 MFADeleteStatus -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: MFADeleteStatus -&gt; Encoding
 toJSON :: MFADeleteStatus -&gt; Value
 $ctoJSON :: MFADeleteStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679544135"><span id="local-6989586621679544137"><span class="annot"><span class="annottext">ToJSONKeyFunction [MFADeleteStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679544245"><span id="local-6989586621679544247"><span class="annot"><span class="annottext">ToJSONKeyFunction [MFADeleteStatus]
 ToJSONKeyFunction MFADeleteStatus
 ToJSONKeyFunction MFADeleteStatus
 -&gt; ToJSONKeyFunction [MFADeleteStatus] -&gt; ToJSONKey MFADeleteStatus
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MFADeleteStatus]
 toJSONKey :: ToJSONKeyFunction MFADeleteStatus
 $ctoJSONKey :: ToJSONKeyFunction MFADeleteStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679544132"><span class="annot"><span class="annottext">[Node] -&gt; Either String MFADeleteStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679544242"><span class="annot"><span class="annottext">[Node] -&gt; Either String MFADeleteStatus
 ([Node] -&gt; Either String MFADeleteStatus)
 -&gt; FromXML MFADeleteStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MFADeleteStatus
 $cparseXML :: [Node] -&gt; Either String MFADeleteStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679544129"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679544239"><span class="annot"><span class="annottext">MFADeleteStatus -&gt; XML
 (MFADeleteStatus -&gt; XML) -&gt; ToXML MFADeleteStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MFADeleteStatus -&gt; XML

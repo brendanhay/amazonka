@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- This setting is disabled by default.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newImageInserter' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679981897"><span id="local-6989586621679981898"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageInserter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-var">ImageInserter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageInserter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-var">ImageInserter'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679983387"><span id="local-6989586621679983388"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageInserter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-var">ImageInserter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageInserter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-var">ImageInserter'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the images that you want to overlay on your video. The images</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- must be PNG or TGA files.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AinsertableImages%3AImageInserter%27"><span class="annot"><span class="annottext">ImageInserter -&gt; Maybe [InsertableImage]
 </span><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#%24sel%3AinsertableImages%3AImageInserter%27"><span class="hs-identifier hs-var hs-var">insertableImages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InsertableImage.html#InsertableImage"><span class="hs-identifier hs-type">InsertableImage</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679981891"><span id="local-6989586621679981893"><span class="annot"><span class="annottext">ImageInserter -&gt; ImageInserter -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679983381"><span id="local-6989586621679983383"><span class="annot"><span class="annottext">ImageInserter -&gt; ImageInserter -&gt; Bool
 (ImageInserter -&gt; ImageInserter -&gt; Bool)
 -&gt; (ImageInserter -&gt; ImageInserter -&gt; Bool) -&gt; Eq ImageInserter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImageInserter -&gt; ImageInserter -&gt; Bool
 == :: ImageInserter -&gt; ImageInserter -&gt; Bool
 $c== :: ImageInserter -&gt; ImageInserter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981882"><span id="local-6989586621679981884"><span id="local-6989586621679981886"><span id="local-6989586621679981888"><span class="annot"><span class="annottext">ReadPrec [ImageInserter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679983372"><span id="local-6989586621679983374"><span id="local-6989586621679983376"><span id="local-6989586621679983378"><span class="annot"><span class="annottext">ReadPrec [ImageInserter]
 ReadPrec ImageInserter
 Int -&gt; ReadS ImageInserter
 ReadS [ImageInserter]
@@ -65,7 +65,7 @@ readList :: ReadS [ImageInserter]
 $creadList :: ReadS [ImageInserter]
 readsPrec :: Int -&gt; ReadS ImageInserter
 $creadsPrec :: Int -&gt; ReadS ImageInserter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981875"><span id="local-6989586621679981877"><span id="local-6989586621679981879"><span class="annot"><span class="annottext">Int -&gt; ImageInserter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679983365"><span id="local-6989586621679983367"><span id="local-6989586621679983369"><span class="annot"><span class="annottext">Int -&gt; ImageInserter -&gt; ShowS
 [ImageInserter] -&gt; ShowS
 ImageInserter -&gt; String
 (Int -&gt; ImageInserter -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
      (Maybe [InsertableImage])
      (Maybe [InsertableImage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-type">ImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981866"><span class="annot"><span class="annottext">Maybe [InsertableImage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-type">ImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983356"><span class="annot"><span class="annottext">Maybe [InsertableImage]
 insertableImages :: Maybe [InsertableImage]
 $sel:insertableImages:ImageInserter' :: ImageInserter -&gt; Maybe [InsertableImage]
-</span><a href="#local-6989586621679981866"><span class="hs-identifier hs-var hs-var">insertableImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsertableImage]
-</span><a href="#local-6989586621679981866"><span class="hs-identifier hs-var">insertableImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981865"><span class="annot"><span class="annottext">s :: ImageInserter
-</span><a href="#local-6989586621679981865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-type">ImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981864"><span class="annot"><span class="annottext">Maybe [InsertableImage]
-</span><a href="#local-6989586621679981864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageInserter
-</span><a href="#local-6989586621679981865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insertableImages:ImageInserter' :: Maybe [InsertableImage]
+</span><a href="#local-6989586621679983356"><span class="hs-identifier hs-var hs-var">insertableImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsertableImage]
+</span><a href="#local-6989586621679983356"><span class="hs-identifier hs-var">insertableImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983355"><span class="annot"><span class="annottext">s :: ImageInserter
+</span><a href="#local-6989586621679983355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-type">ImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983354"><span class="annot"><span class="annottext">Maybe [InsertableImage]
+</span><a href="#local-6989586621679983354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageInserter
+</span><a href="#local-6989586621679983355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insertableImages:ImageInserter' :: Maybe [InsertableImage]
 </span><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#%24sel%3AinsertableImages%3AImageInserter%27"><span class="hs-identifier hs-var">insertableImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsertableImage]
-</span><a href="#local-6989586621679981864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsertableImage] -&gt; f (Maybe [InsertableImage]))
+</span><a href="#local-6989586621679983354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsertableImage] -&gt; f (Maybe [InsertableImage]))
  -&gt; ImageInserter -&gt; f ImageInserter)
 -&gt; ((Maybe [InsertableImage] -&gt; f (Maybe [InsertableImage]))
     -&gt; Maybe [InsertableImage] -&gt; f (Maybe [InsertableImage]))
@@ -162,8 +162,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981858"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679981856"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageInserter
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983348"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679983346"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageInserter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImageInserter)
@@ -173,15 +173,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImageInserter&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679981853"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981853"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679983343"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983343"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InsertableImage] -&gt; ImageInserter
 </span><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-var">ImageInserter'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InsertableImage] -&gt; ImageInserter)
 -&gt; Parser (Maybe [InsertableImage]) -&gt; Parser ImageInserter
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InsertableImage]))
+</span><a href="#local-6989586621679983343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InsertableImage]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;insertableImages&quot;</span></span><span>
@@ -194,16 +194,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-69"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981846"><span id="local-6989586621679981848"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983336"><span id="local-6989586621679983338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981835"><span id="local-6989586621679981837"><span id="local-6989586621679981839"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679981833"><span class="annot"><span class="annottext">toJSON :: ImageInserter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-type">ImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981831"><span class="annot"><span class="annottext">Maybe [InsertableImage]
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983325"><span id="local-6989586621679983327"><span id="local-6989586621679983329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter"><span class="hs-identifier hs-type">ImageInserter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679983323"><span class="annot"><span class="annottext">toJSON :: ImageInserter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ImageInserter.html#ImageInserter%27"><span class="hs-identifier hs-type">ImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983321"><span class="annot"><span class="annottext">Maybe [InsertableImage]
 insertableImages :: Maybe [InsertableImage]
 $sel:insertableImages:ImageInserter' :: ImageInserter -&gt; Maybe [InsertableImage]
-</span><a href="#local-6989586621679981831"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679983321"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,7 +217,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [InsertableImage] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InsertableImage]
-</span><a href="#local-6989586621679981831"><span class="hs-identifier hs-var">insertableImages</span></a></span><span>
+</span><a href="#local-6989586621679983321"><span class="hs-identifier hs-var">insertableImages</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

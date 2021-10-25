@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A Legal Hold configuration for an object.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newObjectLockLegalHold' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679545538"><span id="local-6989586621679545539"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectLockLegalHold"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-var">ObjectLockLegalHold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockLegalHold%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-var">ObjectLockLegalHold'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679545648"><span id="local-6989586621679545649"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectLockLegalHold"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-var">ObjectLockLegalHold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockLegalHold%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-var">ObjectLockLegalHold'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the specified object has a Legal Hold in place.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AObjectLockLegalHold%27"><span class="annot"><span class="annottext">ObjectLockLegalHold -&gt; Maybe ObjectLockLegalHoldStatus
 </span><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#%24sel%3Astatus%3AObjectLockLegalHold%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHoldStatus.html#ObjectLockLegalHoldStatus"><span class="hs-identifier hs-type">ObjectLockLegalHoldStatus</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679545532"><span id="local-6989586621679545534"><span class="annot"><span class="annottext">ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679545642"><span id="local-6989586621679545644"><span class="annot"><span class="annottext">ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool
 (ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool)
 -&gt; (ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool)
 -&gt; Eq ObjectLockLegalHold
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool
 == :: ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool
 $c== :: ObjectLockLegalHold -&gt; ObjectLockLegalHold -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545523"><span id="local-6989586621679545525"><span id="local-6989586621679545527"><span id="local-6989586621679545529"><span class="annot"><span class="annottext">ReadPrec [ObjectLockLegalHold]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545633"><span id="local-6989586621679545635"><span id="local-6989586621679545637"><span id="local-6989586621679545639"><span class="annot"><span class="annottext">ReadPrec [ObjectLockLegalHold]
 ReadPrec ObjectLockLegalHold
 Int -&gt; ReadS ObjectLockLegalHold
 ReadS [ObjectLockLegalHold]
@@ -62,7 +62,7 @@ readList :: ReadS [ObjectLockLegalHold]
 $creadList :: ReadS [ObjectLockLegalHold]
 readsPrec :: Int -&gt; ReadS ObjectLockLegalHold
 $creadsPrec :: Int -&gt; ReadS ObjectLockLegalHold
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545516"><span id="local-6989586621679545518"><span id="local-6989586621679545520"><span class="annot"><span class="annottext">Int -&gt; ObjectLockLegalHold -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545626"><span id="local-6989586621679545628"><span id="local-6989586621679545630"><span class="annot"><span class="annottext">Int -&gt; ObjectLockLegalHold -&gt; ShowS
 [ObjectLockLegalHold] -&gt; ShowS
 ObjectLockLegalHold -&gt; String
 (Int -&gt; ObjectLockLegalHold -&gt; ShowS)
@@ -121,21 +121,21 @@ forall a. Maybe a
      (Maybe ObjectLockLegalHoldStatus)
      (Maybe ObjectLockLegalHoldStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-type">ObjectLockLegalHold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545507"><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-type">ObjectLockLegalHold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545617"><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
 status :: Maybe ObjectLockLegalHoldStatus
 $sel:status:ObjectLockLegalHold' :: ObjectLockLegalHold -&gt; Maybe ObjectLockLegalHoldStatus
-</span><a href="#local-6989586621679545507"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
-</span><a href="#local-6989586621679545507"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679545506"><span class="annot"><span class="annottext">s :: ObjectLockLegalHold
-</span><a href="#local-6989586621679545506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-type">ObjectLockLegalHold'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679545505"><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
-</span><a href="#local-6989586621679545505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectLockLegalHold
-</span><a href="#local-6989586621679545506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ObjectLockLegalHold' :: Maybe ObjectLockLegalHoldStatus
+</span><a href="#local-6989586621679545617"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
+</span><a href="#local-6989586621679545617"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679545616"><span class="annot"><span class="annottext">s :: ObjectLockLegalHold
+</span><a href="#local-6989586621679545616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-type">ObjectLockLegalHold'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679545615"><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
+</span><a href="#local-6989586621679545615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectLockLegalHold
+</span><a href="#local-6989586621679545616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ObjectLockLegalHold' :: Maybe ObjectLockLegalHoldStatus
 </span><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#%24sel%3Astatus%3AObjectLockLegalHold%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
-</span><a href="#local-6989586621679545505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679545615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679545502"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ObjectLockLegalHold
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679545500"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679545500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679545612"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ObjectLockLegalHold
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679545610"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679545610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus -&gt; ObjectLockLegalHold
 </span><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-var">ObjectLockLegalHold'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ObjectLockLegalHoldStatus -&gt; ObjectLockLegalHold)
@@ -143,26 +143,26 @@ $sel:status:ObjectLockLegalHold' :: ObjectLockLegalHold -&gt; Maybe ObjectLockLe
 -&gt; Either String ObjectLockLegalHold
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679545500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectLockLegalHoldStatus)
+</span><a href="#local-6989586621679545610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectLockLegalHoldStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545494"><span id="local-6989586621679545496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545604"><span id="local-6989586621679545606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679545601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold"><span class="hs-identifier hs-type">ObjectLockLegalHold</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679545487"><span class="annot"><span class="annottext">toXML :: ObjectLockLegalHold -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-type">ObjectLockLegalHold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545485"><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679545597"><span class="annot"><span class="annottext">toXML :: ObjectLockLegalHold -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockLegalHold.html#ObjectLockLegalHold%27"><span class="hs-identifier hs-type">ObjectLockLegalHold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679545595"><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
 status :: Maybe ObjectLockLegalHoldStatus
 $sel:status:ObjectLockLegalHold' :: ObjectLockLegalHold -&gt; Maybe ObjectLockLegalHoldStatus
-</span><a href="#local-6989586621679545485"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679545595"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ObjectLockLegalHoldStatus -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectLockLegalHoldStatus
-</span><a href="#local-6989586621679545485"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679545595"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span></pre></body></html>

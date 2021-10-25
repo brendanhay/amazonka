@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- | Container for this output. Some containers require a container settings</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- object. If not specified, the default object will be created.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679952249"><span id="local-6989586621679952250"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-var">ContainerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-var">ContainerType'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679953568"><span id="local-6989586621679953569"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerType.html#ContainerType"><span class="hs-identifier hs-var">ContainerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerType.html#ContainerType%27"><span class="hs-identifier hs-var">ContainerType'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerType"><span class="annot"><span class="annottext">ContainerType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ContainerType.html#fromContainerType"><span class="hs-identifier hs-var hs-var">fromContainerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952241"><span id="local-6989586621679952243"><span id="local-6989586621679952245"><span class="annot"><span class="annottext">Int -&gt; ContainerType -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953560"><span id="local-6989586621679953562"><span id="local-6989586621679953564"><span class="annot"><span class="annottext">Int -&gt; ContainerType -&gt; ShowS
 [ContainerType] -&gt; ShowS
 ContainerType -&gt; String
 (Int -&gt; ContainerType -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: ContainerType -&gt; String
 showsPrec :: Int -&gt; ContainerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679952232"><span id="local-6989586621679952234"><span id="local-6989586621679952236"><span id="local-6989586621679952238"><span class="annot"><span class="annottext">ReadPrec [ContainerType]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679953551"><span id="local-6989586621679953553"><span id="local-6989586621679953555"><span id="local-6989586621679953557"><span class="annot"><span class="annottext">ReadPrec [ContainerType]
 ReadPrec ContainerType
 Int -&gt; ReadS ContainerType
 ReadS [ContainerType]
@@ -83,7 +83,7 @@ $creadList :: ReadS [ContainerType]
 readsPrec :: Int -&gt; ReadS ContainerType
 $creadsPrec :: Int -&gt; ReadS ContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679952227"><span id="local-6989586621679952229"><span class="annot"><span class="annottext">ContainerType -&gt; ContainerType -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679953546"><span id="local-6989586621679953548"><span class="annot"><span class="annottext">ContainerType -&gt; ContainerType -&gt; Bool
 (ContainerType -&gt; ContainerType -&gt; Bool)
 -&gt; (ContainerType -&gt; ContainerType -&gt; Bool) -&gt; Eq ContainerType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ $c/= :: ContainerType -&gt; ContainerType -&gt; Bool
 == :: ContainerType -&gt; ContainerType -&gt; Bool
 $c== :: ContainerType -&gt; ContainerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679952211"><span id="local-6989586621679952213"><span id="local-6989586621679952215"><span id="local-6989586621679952217"><span id="local-6989586621679952219"><span id="local-6989586621679952221"><span id="local-6989586621679952223"><span class="annot"><span class="annottext">Eq ContainerType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679953530"><span id="local-6989586621679953532"><span id="local-6989586621679953534"><span id="local-6989586621679953536"><span id="local-6989586621679953538"><span id="local-6989586621679953540"><span id="local-6989586621679953542"><span class="annot"><span class="annottext">Eq ContainerType
 Eq ContainerType
 -&gt; (ContainerType -&gt; ContainerType -&gt; Ordering)
 -&gt; (ContainerType -&gt; ContainerType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. ContainerType -&gt; Rep ContainerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952203"><span id="local-6989586621679952205"><span class="annot"><span class="annottext">Int -&gt; ContainerType -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953522"><span id="local-6989586621679953524"><span class="annot"><span class="annottext">Int -&gt; ContainerType -&gt; Int
 ContainerType -&gt; Int
 (Int -&gt; ContainerType -&gt; Int)
 -&gt; (ContainerType -&gt; Int) -&gt; Hashable ContainerType
@@ -153,49 +153,49 @@ $chash :: ContainerType -&gt; Int
 hashWithSalt :: Int -&gt; ContainerType -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679952200"><span class="annot"><span class="annottext">ContainerType -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953519"><span class="annot"><span class="annottext">ContainerType -&gt; ()
 (ContainerType -&gt; ()) -&gt; NFData ContainerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerType -&gt; ()
 $crnf :: ContainerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679952197"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953516"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerType
 (Text -&gt; Either String ContainerType) -&gt; FromText ContainerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerType
 $cfromText :: Text -&gt; Either String ContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679952194"><span class="annot"><span class="annottext">ContainerType -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953513"><span class="annot"><span class="annottext">ContainerType -&gt; Text
 (ContainerType -&gt; Text) -&gt; ToText ContainerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerType -&gt; Text
 $ctoText :: ContainerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679952191"><span class="annot"><span class="annottext">ContainerType -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953510"><span class="annot"><span class="annottext">ContainerType -&gt; ByteString
 (ContainerType -&gt; ByteString) -&gt; ToByteString ContainerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerType -&gt; ByteString
 $ctoBS :: ContainerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679952188"><span class="annot"><span class="annottext">ContainerType -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679953507"><span class="annot"><span class="annottext">ContainerType -&gt; ByteStringBuilder
 (ContainerType -&gt; ByteStringBuilder) -&gt; ToLog ContainerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerType -&gt; ByteStringBuilder
 $cbuild :: ContainerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679952185"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerType -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679953504"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerType -&gt; [Header]
 (HeaderName -&gt; ContainerType -&gt; [Header]) -&gt; ToHeader ContainerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679952182"><span class="annot"><span class="annottext">ContainerType -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679953501"><span class="annot"><span class="annottext">ContainerType -&gt; QueryString
 (ContainerType -&gt; QueryString) -&gt; ToQuery ContainerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerType -&gt; QueryString
 $ctoQuery :: ContainerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679952177"><span id="local-6989586621679952179"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679953496"><span id="local-6989586621679953498"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerType]
 Value -&gt; Parser ContainerType
 (Value -&gt; Parser ContainerType)
 -&gt; (Value -&gt; Parser [ContainerType]) -&gt; FromJSON ContainerType
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerType]
 parseJSON :: Value -&gt; Parser ContainerType
 $cparseJSON :: Value -&gt; Parser ContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679952172"><span id="local-6989586621679952174"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679953491"><span id="local-6989586621679953493"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerType]
 FromJSONKeyFunction ContainerType
 FromJSONKeyFunction ContainerType
 -&gt; FromJSONKeyFunction [ContainerType] -&gt; FromJSONKey ContainerType
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerType]
 fromJSONKey :: FromJSONKeyFunction ContainerType
 $cfromJSONKey :: FromJSONKeyFunction ContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679952163"><span id="local-6989586621679952165"><span id="local-6989586621679952167"><span id="local-6989586621679952169"><span class="annot"><span class="annottext">[ContainerType] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679953482"><span id="local-6989586621679953484"><span id="local-6989586621679953486"><span id="local-6989586621679953488"><span class="annot"><span class="annottext">[ContainerType] -&gt; Encoding
 [ContainerType] -&gt; Value
 ContainerType -&gt; Encoding
 ContainerType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: ContainerType -&gt; Encoding
 toJSON :: ContainerType -&gt; Value
 $ctoJSON :: ContainerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679952158"><span id="local-6989586621679952160"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerType]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679953477"><span id="local-6989586621679953479"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerType]
 ToJSONKeyFunction ContainerType
 ToJSONKeyFunction ContainerType
 -&gt; ToJSONKeyFunction [ContainerType] -&gt; ToJSONKey ContainerType
@@ -252,13 +252,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerType]
 toJSONKey :: ToJSONKeyFunction ContainerType
 $ctoJSONKey :: ToJSONKeyFunction ContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679952155"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerType
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679953474"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerType
 ([Node] -&gt; Either String ContainerType) -&gt; FromXML ContainerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerType
 $cparseXML :: [Node] -&gt; Either String ContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679952152"><span class="annot"><span class="annottext">ContainerType -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679953471"><span class="annot"><span class="annottext">ContainerType -&gt; XML
 (ContainerType -&gt; XML) -&gt; ToXML ContainerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContainerType -&gt; XML

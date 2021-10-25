@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- has moved, along with the timestamp of the move</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQueueTransition' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680001325"><span id="local-6989586621680001326"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueTransition"><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-var">QueueTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueTransition%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-var">QueueTransition'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680002815"><span id="local-6989586621680002816"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueTransition"><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-var">QueueTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueTransition%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-var">QueueTransition'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The queue that the job was on before the transition.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceQueue%3AQueueTransition%27"><span class="annot"><span class="annottext">QueueTransition -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#%24sel%3AsourceQueue%3AQueueTransition%27"><span class="hs-identifier hs-var hs-var">sourceQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Atimestamp%3AQueueTransition%27"><span class="annot"><span class="annottext">QueueTransition -&gt; Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#%24sel%3Atimestamp%3AQueueTransition%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680001317"><span id="local-6989586621680001319"><span class="annot"><span class="annottext">QueueTransition -&gt; QueueTransition -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680002807"><span id="local-6989586621680002809"><span class="annot"><span class="annottext">QueueTransition -&gt; QueueTransition -&gt; Bool
 (QueueTransition -&gt; QueueTransition -&gt; Bool)
 -&gt; (QueueTransition -&gt; QueueTransition -&gt; Bool)
 -&gt; Eq QueueTransition
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueueTransition -&gt; QueueTransition -&gt; Bool
 == :: QueueTransition -&gt; QueueTransition -&gt; Bool
 $c== :: QueueTransition -&gt; QueueTransition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680001308"><span id="local-6989586621680001310"><span id="local-6989586621680001312"><span id="local-6989586621680001314"><span class="annot"><span class="annottext">ReadPrec [QueueTransition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002798"><span id="local-6989586621680002800"><span id="local-6989586621680002802"><span id="local-6989586621680002804"><span class="annot"><span class="annottext">ReadPrec [QueueTransition]
 ReadPrec QueueTransition
 Int -&gt; ReadS QueueTransition
 ReadS [QueueTransition]
@@ -68,7 +68,7 @@ readList :: ReadS [QueueTransition]
 $creadList :: ReadS [QueueTransition]
 readsPrec :: Int -&gt; ReadS QueueTransition
 $creadsPrec :: Int -&gt; ReadS QueueTransition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680001301"><span id="local-6989586621680001303"><span id="local-6989586621680001305"><span class="annot"><span class="annottext">Int -&gt; QueueTransition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002791"><span id="local-6989586621680002793"><span id="local-6989586621680002795"><span class="annot"><span class="annottext">Int -&gt; QueueTransition -&gt; ShowS
 [QueueTransition] -&gt; ShowS
 QueueTransition -&gt; String
 (Int -&gt; QueueTransition -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
 -&gt; (QueueTransition -&gt; Maybe Text -&gt; QueueTransition)
 -&gt; Lens QueueTransition QueueTransition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001292"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002782"><span class="annot"><span class="annottext">Maybe Text
 sourceQueue :: Maybe Text
 $sel:sourceQueue:QueueTransition' :: QueueTransition -&gt; Maybe Text
-</span><a href="#local-6989586621680001292"><span class="hs-identifier hs-var hs-var">sourceQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001292"><span class="hs-identifier hs-var">sourceQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001291"><span class="annot"><span class="annottext">s :: QueueTransition
-</span><a href="#local-6989586621680001291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001290"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
-</span><a href="#local-6989586621680001291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceQueue:QueueTransition' :: Maybe Text
+</span><a href="#local-6989586621680002782"><span class="hs-identifier hs-var hs-var">sourceQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002782"><span class="hs-identifier hs-var">sourceQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002781"><span class="annot"><span class="annottext">s :: QueueTransition
+</span><a href="#local-6989586621680002781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002780"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
+</span><a href="#local-6989586621680002781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceQueue:QueueTransition' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#%24sel%3AsourceQueue%3AQueueTransition%27"><span class="hs-identifier hs-var">sourceQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680002780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The queue that the job was on after the transition.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#queueTransition_destinationQueue"><span class="hs-identifier hs-type">queueTransition_destinationQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -155,16 +155,16 @@ $sel:sourceQueue:QueueTransition' :: QueueTransition -&gt; Maybe Text
 -&gt; (QueueTransition -&gt; Maybe Text -&gt; QueueTransition)
 -&gt; Lens QueueTransition QueueTransition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001288"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002778"><span class="annot"><span class="annottext">Maybe Text
 destinationQueue :: Maybe Text
 $sel:destinationQueue:QueueTransition' :: QueueTransition -&gt; Maybe Text
-</span><a href="#local-6989586621680001288"><span class="hs-identifier hs-var hs-var">destinationQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001288"><span class="hs-identifier hs-var">destinationQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001287"><span class="annot"><span class="annottext">s :: QueueTransition
-</span><a href="#local-6989586621680001287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001286"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
-</span><a href="#local-6989586621680001287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationQueue:QueueTransition' :: Maybe Text
+</span><a href="#local-6989586621680002778"><span class="hs-identifier hs-var hs-var">destinationQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002778"><span class="hs-identifier hs-var">destinationQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002777"><span class="annot"><span class="annottext">s :: QueueTransition
+</span><a href="#local-6989586621680002777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
+</span><a href="#local-6989586621680002777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationQueue:QueueTransition' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#%24sel%3AdestinationQueue%3AQueueTransition%27"><span class="hs-identifier hs-var">destinationQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680002776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The time, in Unix epoch format, that the job moved from the source queue</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- to the destination queue.</span><span>
@@ -175,16 +175,16 @@ $sel:destinationQueue:QueueTransition' :: QueueTransition -&gt; Maybe Text
 -&gt; (QueueTransition -&gt; Maybe POSIX -&gt; QueueTransition)
 -&gt; Lens QueueTransition QueueTransition (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001284"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002774"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:QueueTransition' :: QueueTransition -&gt; Maybe POSIX
-</span><a href="#local-6989586621680001284"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680001284"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001283"><span class="annot"><span class="annottext">s :: QueueTransition
-</span><a href="#local-6989586621680001283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001282"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680001282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
-</span><a href="#local-6989586621680001283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:QueueTransition' :: Maybe POSIX
+</span><a href="#local-6989586621680002774"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680002774"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002773"><span class="annot"><span class="annottext">s :: QueueTransition
+</span><a href="#local-6989586621680002773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002772"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680002772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
+</span><a href="#local-6989586621680002773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:QueueTransition' :: Maybe POSIX
 </span><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#%24sel%3Atimestamp%3AQueueTransition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680001282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680002772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; QueueTransition -&gt; f QueueTransition)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -201,8 +201,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001276"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680001274"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueueTransition
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002766"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680002764"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueueTransition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser QueueTransition)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;QueueTransition&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680001271"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680002761"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680002761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition
 </span><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-var">QueueTransition'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition)
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680002761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceQueue&quot;</span></span><span class="hs-special">)</span><span>
@@ -229,7 +229,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; QueueTransition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680002761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationQueue&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,13 +237,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser QueueTransition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680002761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001265"><span id="local-6989586621680001267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002755"><span id="local-6989586621680002757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span><span>
 </span><span id="line-91"></span></pre></body></html>

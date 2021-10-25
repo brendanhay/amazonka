@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- OutputGroupSettings, to MS_SMOOTH_GROUP_SETTINGS.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newMsSmoothGroupSettings' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680004952"><span id="local-6989586621680004953"></span></span><span class="hs-keyword">data</span><span> </span><span id="MsSmoothGroupSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-var">MsSmoothGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-var">MsSmoothGroupSettings'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680006442"><span id="local-6989586621680006443"></span></span><span class="hs-keyword">data</span><span> </span><span id="MsSmoothGroupSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-var">MsSmoothGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-var">MsSmoothGroupSettings'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify how you want MediaConvert to determine the fragment length.</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Choose Exact (EXACT) to have the encoder use the exact length that you</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specify with the setting Fragment length (FragmentLength). This might</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Aencryption%3AMsSmoothGroupSettings%27"><span class="annot"><span class="annottext">MsSmoothGroupSettings -&gt; Maybe MsSmoothEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3Aencryption%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings.html#MsSmoothEncryptionSettings"><span class="hs-identifier hs-type">MsSmoothEncryptionSettings</span></a></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680004939"><span id="local-6989586621680004941"><span class="annot"><span class="annottext">MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680006429"><span id="local-6989586621680006431"><span class="annot"><span class="annottext">MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool
 (MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool)
 -&gt; (MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool)
 -&gt; Eq MsSmoothGroupSettings
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool
 == :: MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool
 $c== :: MsSmoothGroupSettings -&gt; MsSmoothGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004930"><span id="local-6989586621680004932"><span id="local-6989586621680004934"><span id="local-6989586621680004936"><span class="annot"><span class="annottext">ReadPrec [MsSmoothGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680006420"><span id="local-6989586621680006422"><span id="local-6989586621680006424"><span id="local-6989586621680006426"><span class="annot"><span class="annottext">ReadPrec [MsSmoothGroupSettings]
 ReadPrec MsSmoothGroupSettings
 Int -&gt; ReadS MsSmoothGroupSettings
 ReadS [MsSmoothGroupSettings]
@@ -113,7 +113,7 @@ readList :: ReadS [MsSmoothGroupSettings]
 $creadList :: ReadS [MsSmoothGroupSettings]
 readsPrec :: Int -&gt; ReadS MsSmoothGroupSettings
 $creadsPrec :: Int -&gt; ReadS MsSmoothGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004923"><span id="local-6989586621680004925"><span id="local-6989586621680004927"><span class="annot"><span class="annottext">Int -&gt; MsSmoothGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680006413"><span id="local-6989586621680006415"><span id="local-6989586621680006417"><span class="annot"><span class="annottext">Int -&gt; MsSmoothGroupSettings -&gt; ShowS
 [MsSmoothGroupSettings] -&gt; ShowS
 MsSmoothGroupSettings -&gt; String
 (Int -&gt; MsSmoothGroupSettings -&gt; ShowS)
@@ -249,16 +249,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004914"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006404"><span class="annot"><span class="annottext">Maybe Natural
 fragmentLength :: Maybe Natural
 $sel:fragmentLength:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680004914"><span class="hs-identifier hs-var hs-var">fragmentLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680004914"><span class="hs-identifier hs-var">fragmentLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004913"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004912"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680004912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentLength:MsSmoothGroupSettings' :: Maybe Natural
+</span><a href="#local-6989586621680006404"><span class="hs-identifier hs-var hs-var">fragmentLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680006404"><span class="hs-identifier hs-var">fragmentLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006403"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006402"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680006402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentLength:MsSmoothGroupSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3AfragmentLength%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">fragmentLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680004912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- format for the server and client manifest. Valid options are utf8 and</span><span>
@@ -276,16 +276,16 @@ $sel:fragmentLength:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe 
      (Maybe MsSmoothManifestEncoding)
      (Maybe MsSmoothManifestEncoding)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004910"><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006400"><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
 manifestEncoding :: Maybe MsSmoothManifestEncoding
 $sel:manifestEncoding:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe MsSmoothManifestEncoding
-</span><a href="#local-6989586621680004910"><span class="hs-identifier hs-var hs-var">manifestEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
-</span><a href="#local-6989586621680004910"><span class="hs-identifier hs-var">manifestEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004909"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004908"><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
-</span><a href="#local-6989586621680004908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestEncoding:MsSmoothGroupSettings' :: Maybe MsSmoothManifestEncoding
+</span><a href="#local-6989586621680006400"><span class="hs-identifier hs-var hs-var">manifestEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
+</span><a href="#local-6989586621680006400"><span class="hs-identifier hs-var">manifestEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006399"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006398"><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
+</span><a href="#local-6989586621680006398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestEncoding:MsSmoothGroupSettings' :: Maybe MsSmoothManifestEncoding
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3AmanifestEncoding%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">manifestEncoding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
-</span><a href="#local-6989586621680004908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | Use Destination (Destination) to specify the S3 output location and the</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- output filename base. Destination accepts format identifiers. If you do</span><span>
@@ -303,16 +303,16 @@ $sel:manifestEncoding:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004906"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006396"><span class="annot"><span class="annottext">Maybe Text
 destination :: Maybe Text
 $sel:destination:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680004906"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004906"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004905"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004904"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MsSmoothGroupSettings' :: Maybe Text
+</span><a href="#local-6989586621680006396"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680006396"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006395"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680006394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MsSmoothGroupSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3Adestination%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- across a Microsoft Smooth output group into a single audio stream.</span><span>
@@ -329,16 +329,16 @@ $sel:destination:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe Tex
      (Maybe MsSmoothAudioDeduplication)
      (Maybe MsSmoothAudioDeduplication)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004902"><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006392"><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
 audioDeduplication :: Maybe MsSmoothAudioDeduplication
 $sel:audioDeduplication:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe MsSmoothAudioDeduplication
-</span><a href="#local-6989586621680004902"><span class="hs-identifier hs-var hs-var">audioDeduplication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
-</span><a href="#local-6989586621680004902"><span class="hs-identifier hs-var">audioDeduplication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004901"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004900"><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
-</span><a href="#local-6989586621680004900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDeduplication:MsSmoothGroupSettings' :: Maybe MsSmoothAudioDeduplication
+</span><a href="#local-6989586621680006392"><span class="hs-identifier hs-var hs-var">audioDeduplication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
+</span><a href="#local-6989586621680006392"><span class="hs-identifier hs-var">audioDeduplication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006391"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006390"><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
+</span><a href="#local-6989586621680006390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDeduplication:MsSmoothGroupSettings' :: Maybe MsSmoothAudioDeduplication
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3AaudioDeduplication%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">audioDeduplication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
-</span><a href="#local-6989586621680004900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | By default, the service creates one .ism Microsoft Smooth Streaming</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- manifest for each Microsoft Smooth Streaming output group in your job.</span><span>
@@ -358,16 +358,16 @@ $sel:audioDeduplication:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Ma
      (Maybe [MsSmoothAdditionalManifest])
      (Maybe [MsSmoothAdditionalManifest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004898"><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006388"><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
 additionalManifests :: Maybe [MsSmoothAdditionalManifest]
 $sel:additionalManifests:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe [MsSmoothAdditionalManifest]
-</span><a href="#local-6989586621680004898"><span class="hs-identifier hs-var hs-var">additionalManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
-</span><a href="#local-6989586621680004898"><span class="hs-identifier hs-var">additionalManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004897"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004896"><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
-</span><a href="#local-6989586621680004896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalManifests:MsSmoothGroupSettings' :: Maybe [MsSmoothAdditionalManifest]
+</span><a href="#local-6989586621680006388"><span class="hs-identifier hs-var hs-var">additionalManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
+</span><a href="#local-6989586621680006388"><span class="hs-identifier hs-var">additionalManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006387"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006386"><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
+</span><a href="#local-6989586621680006386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalManifests:MsSmoothGroupSettings' :: Maybe [MsSmoothAdditionalManifest]
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3AadditionalManifests%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">additionalManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
-</span><a href="#local-6989586621680004896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MsSmoothAdditionalManifest]
+</span><a href="#local-6989586621680006386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MsSmoothAdditionalManifest]
   -&gt; f (Maybe [MsSmoothAdditionalManifest]))
  -&gt; MsSmoothGroupSettings -&gt; f MsSmoothGroupSettings)
 -&gt; ((Maybe [MsSmoothAdditionalManifest]
@@ -418,16 +418,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe MsSmoothFragmentLengthControl)
      (Maybe MsSmoothFragmentLengthControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004891"><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006381"><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
 fragmentLengthControl :: Maybe MsSmoothFragmentLengthControl
 $sel:fragmentLengthControl:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe MsSmoothFragmentLengthControl
-</span><a href="#local-6989586621680004891"><span class="hs-identifier hs-var hs-var">fragmentLengthControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
-</span><a href="#local-6989586621680004891"><span class="hs-identifier hs-var">fragmentLengthControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004890"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004889"><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
-</span><a href="#local-6989586621680004889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentLengthControl:MsSmoothGroupSettings' :: Maybe MsSmoothFragmentLengthControl
+</span><a href="#local-6989586621680006381"><span class="hs-identifier hs-var hs-var">fragmentLengthControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
+</span><a href="#local-6989586621680006381"><span class="hs-identifier hs-var">fragmentLengthControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006380"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006379"><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
+</span><a href="#local-6989586621680006379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fragmentLengthControl:MsSmoothGroupSettings' :: Maybe MsSmoothFragmentLengthControl
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3AfragmentLengthControl%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">fragmentLengthControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
-</span><a href="#local-6989586621680004889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Settings associated with the destination. Will vary based on the type of</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- destination</span><span>
@@ -443,16 +443,16 @@ $sel:fragmentLengthControl:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt;
      (Maybe DestinationSettings)
      (Maybe DestinationSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004887"><span class="annot"><span class="annottext">Maybe DestinationSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006377"><span class="annot"><span class="annottext">Maybe DestinationSettings
 destinationSettings :: Maybe DestinationSettings
 $sel:destinationSettings:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe DestinationSettings
-</span><a href="#local-6989586621680004887"><span class="hs-identifier hs-var hs-var">destinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationSettings
-</span><a href="#local-6989586621680004887"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004886"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004885"><span class="annot"><span class="annottext">Maybe DestinationSettings
-</span><a href="#local-6989586621680004885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationSettings:MsSmoothGroupSettings' :: Maybe DestinationSettings
+</span><a href="#local-6989586621680006377"><span class="hs-identifier hs-var hs-var">destinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationSettings
+</span><a href="#local-6989586621680006377"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006376"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006375"><span class="annot"><span class="annottext">Maybe DestinationSettings
+</span><a href="#local-6989586621680006375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationSettings:MsSmoothGroupSettings' :: Maybe DestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3AdestinationSettings%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationSettings
-</span><a href="#local-6989586621680004885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- specify the value SpekeKeyProvider.</span><span>
@@ -469,19 +469,19 @@ $sel:destinationSettings:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; M
      (Maybe MsSmoothEncryptionSettings)
      (Maybe MsSmoothEncryptionSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004883"><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006373"><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
 encryption :: Maybe MsSmoothEncryptionSettings
 $sel:encryption:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe MsSmoothEncryptionSettings
-</span><a href="#local-6989586621680004883"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
-</span><a href="#local-6989586621680004883"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004882"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
-</span><a href="#local-6989586621680004882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004881"><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
-</span><a href="#local-6989586621680004881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
-</span><a href="#local-6989586621680004882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:MsSmoothGroupSettings' :: Maybe MsSmoothEncryptionSettings
+</span><a href="#local-6989586621680006373"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
+</span><a href="#local-6989586621680006373"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006372"><span class="annot"><span class="annottext">s :: MsSmoothGroupSettings
+</span><a href="#local-6989586621680006372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006371"><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
+</span><a href="#local-6989586621680006371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothGroupSettings
+</span><a href="#local-6989586621680006372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:MsSmoothGroupSettings' :: Maybe MsSmoothEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#%24sel%3Aencryption%3AMsSmoothGroupSettings%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
-</span><a href="#local-6989586621680004881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004878"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621680004876"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MsSmoothGroupSettings
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006368"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621680006366"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MsSmoothGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MsSmoothGroupSettings)
@@ -491,8 +491,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MsSmoothGroupSettings&quot;</span></span><span>
-</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680004873"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680006363"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe MsSmoothManifestEncoding
 -&gt; Maybe Text
@@ -524,7 +524,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fragmentLength&quot;</span></span><span class="hs-special">)</span><span>
@@ -548,7 +548,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothManifestEncoding)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothManifestEncoding)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;manifestEncoding&quot;</span></span><span class="hs-special">)</span><span>
@@ -570,7 +570,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
@@ -590,7 +590,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothAudioDeduplication)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothAudioDeduplication)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDeduplication&quot;</span></span><span class="hs-special">)</span><span>
@@ -608,7 +608,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [MsSmoothAdditionalManifest]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -632,7 +632,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe MsSmoothEncryptionSettings -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothFragmentLengthControl)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothFragmentLengthControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fragmentLengthControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -644,7 +644,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe MsSmoothEncryptionSettings -&gt; MsSmoothGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationSettings)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -653,19 +653,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser MsSmoothGroupSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothEncryptionSettings)
+</span><a href="#local-6989586621680006363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothEncryptionSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004866"><span id="local-6989586621680004868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006356"><span id="local-6989586621680006358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span></span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004855"><span id="local-6989586621680004857"><span id="local-6989586621680004859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621680004853"><span class="annot"><span class="annottext">toJSON :: MsSmoothGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004844"><span id="local-6989586621680004845"><span id="local-6989586621680004846"><span id="local-6989586621680004847"><span id="local-6989586621680004848"><span id="local-6989586621680004849"><span id="local-6989586621680004850"><span id="local-6989586621680004851"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006345"><span id="local-6989586621680006347"><span id="local-6989586621680006349"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings"><span class="hs-identifier hs-type">MsSmoothGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621680006343"><span class="annot"><span class="annottext">toJSON :: MsSmoothGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MsSmoothGroupSettings.html#MsSmoothGroupSettings%27"><span class="hs-identifier hs-type">MsSmoothGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006334"><span id="local-6989586621680006335"><span id="local-6989586621680006336"><span id="local-6989586621680006337"><span id="local-6989586621680006338"><span id="local-6989586621680006339"><span id="local-6989586621680006340"><span id="local-6989586621680006341"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [MsSmoothAdditionalManifest]
 Maybe Text
 Maybe MsSmoothAudioDeduplication
@@ -689,7 +689,7 @@ $sel:audioDeduplication:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Ma
 $sel:destination:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe Text
 $sel:manifestEncoding:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe MsSmoothManifestEncoding
 $sel:fragmentLength:MsSmoothGroupSettings' :: MsSmoothGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680004844"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680006334"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -702,7 +702,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680004851"><span class="hs-identifier hs-var">fragmentLength</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006341"><span class="hs-identifier hs-var">fragmentLength</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;manifestEncoding&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MsSmoothManifestEncoding -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -711,14 +711,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MsSmoothManifestEncoding -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothManifestEncoding
-</span><a href="#local-6989586621680004850"><span class="hs-identifier hs-var">manifestEncoding</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006340"><span class="hs-identifier hs-var">manifestEncoding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004849"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006339"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDeduplication&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MsSmoothAudioDeduplication -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -727,7 +727,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MsSmoothAudioDeduplication -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothAudioDeduplication
-</span><a href="#local-6989586621680004848"><span class="hs-identifier hs-var">audioDeduplication</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006338"><span class="hs-identifier hs-var">audioDeduplication</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;additionalManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MsSmoothAdditionalManifest] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -736,7 +736,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [MsSmoothAdditionalManifest] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MsSmoothAdditionalManifest]
-</span><a href="#local-6989586621680004847"><span class="hs-identifier hs-var">additionalManifests</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006337"><span class="hs-identifier hs-var">additionalManifests</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fragmentLengthControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MsSmoothFragmentLengthControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -745,7 +745,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MsSmoothFragmentLengthControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothFragmentLengthControl
-</span><a href="#local-6989586621680004846"><span class="hs-identifier hs-var">fragmentLengthControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006336"><span class="hs-identifier hs-var">fragmentLengthControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DestinationSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -754,7 +754,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DestinationSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DestinationSettings
-</span><a href="#local-6989586621680004845"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680006335"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MsSmoothEncryptionSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -762,7 +762,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MsSmoothEncryptionSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothEncryptionSettings
-</span><a href="#local-6989586621680004844"><span class="hs-identifier hs-var">encryption</span></a></span><span>
+</span><a href="#local-6989586621680006334"><span class="hs-identifier hs-var">encryption</span></a></span><span>
 </span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span></pre></body></html>

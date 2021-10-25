@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newGetBucketLocation' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679576382"><span id="local-6989586621679576383"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketLocation"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-var">GetBucketLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketLocation%27"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-var">GetBucketLocation'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679576529"><span id="local-6989586621679576530"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketLocation"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-var">GetBucketLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketLocation%27"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-var">GetBucketLocation'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketLocation%27"><span class="annot"><span class="annottext">GetBucketLocation -&gt; BucketName
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3Abucket%3AGetBucketLocation%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679576375"><span id="local-6989586621679576377"><span class="annot"><span class="annottext">GetBucketLocation -&gt; GetBucketLocation -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679576522"><span id="local-6989586621679576524"><span class="annot"><span class="annottext">GetBucketLocation -&gt; GetBucketLocation -&gt; Bool
 (GetBucketLocation -&gt; GetBucketLocation -&gt; Bool)
 -&gt; (GetBucketLocation -&gt; GetBucketLocation -&gt; Bool)
 -&gt; Eq GetBucketLocation
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketLocation -&gt; GetBucketLocation -&gt; Bool
 == :: GetBucketLocation -&gt; GetBucketLocation -&gt; Bool
 $c== :: GetBucketLocation -&gt; GetBucketLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576366"><span id="local-6989586621679576368"><span id="local-6989586621679576370"><span id="local-6989586621679576372"><span class="annot"><span class="annottext">ReadPrec [GetBucketLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576513"><span id="local-6989586621679576515"><span id="local-6989586621679576517"><span id="local-6989586621679576519"><span class="annot"><span class="annottext">ReadPrec [GetBucketLocation]
 ReadPrec GetBucketLocation
 Int -&gt; ReadS GetBucketLocation
 ReadS [GetBucketLocation]
@@ -102,7 +102,7 @@ readList :: ReadS [GetBucketLocation]
 $creadList :: ReadS [GetBucketLocation]
 readsPrec :: Int -&gt; ReadS GetBucketLocation
 $creadsPrec :: Int -&gt; ReadS GetBucketLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576359"><span id="local-6989586621679576361"><span id="local-6989586621679576363"><span class="annot"><span class="annottext">Int -&gt; GetBucketLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576506"><span id="local-6989586621679576508"><span id="local-6989586621679576510"><span class="annot"><span class="annottext">Int -&gt; GetBucketLocation -&gt; ShowS
 [GetBucketLocation] -&gt; ShowS
 GetBucketLocation -&gt; String
 (Int -&gt; GetBucketLocation -&gt; ShowS)
@@ -146,8 +146,8 @@ $cfrom :: forall x. GetBucketLocation -&gt; Rep GetBucketLocation x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span>
 </span><span id="line-93"></span><span id="newGetBucketLocation"><span class="annot"><span class="annottext">newGetBucketLocation :: BucketName -&gt; GetBucketLocation
-</span><a href="Network.AWS.S3.GetBucketLocation.html#newGetBucketLocation"><span class="hs-identifier hs-var hs-var">newGetBucketLocation</span></a></span></span><span> </span><span id="local-6989586621679576354"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679576354"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketLocation.html#newGetBucketLocation"><span class="hs-identifier hs-var hs-var">newGetBucketLocation</span></a></span></span><span> </span><span id="local-6989586621679576501"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679576501"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">GetBucketLocation' :: Maybe Text -&gt; BucketName -&gt; GetBucketLocation
 </span><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketLocation' :: Maybe Text
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketLocation' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3Abucket%3AGetBucketLocation%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679576354"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679576501"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; Lens
      GetBucketLocation GetBucketLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576351"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576498"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetBucketLocation' :: GetBucketLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679576351"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679576351"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576350"><span class="annot"><span class="annottext">s :: GetBucketLocation
-</span><a href="#local-6989586621679576350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576349"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679576349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocation
-</span><a href="#local-6989586621679576350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketLocation' :: Maybe Text
+</span><a href="#local-6989586621679576498"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679576498"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576497"><span class="annot"><span class="annottext">s :: GetBucketLocation
+</span><a href="#local-6989586621679576497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576496"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679576496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocation
+</span><a href="#local-6989586621679576497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketLocation' :: Maybe Text
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AexpectedBucketOwner%3AGetBucketLocation%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679576349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679576496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the bucket for which to get the location.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#getBucketLocation_bucket"><span class="hs-identifier hs-type">getBucketLocation_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -190,27 +190,27 @@ $sel:expectedBucketOwner:GetBucketLocation' :: GetBucketLocation -&gt; Maybe Tex
 -&gt; (GetBucketLocation -&gt; BucketName -&gt; GetBucketLocation)
 -&gt; Lens GetBucketLocation GetBucketLocation BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576348"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576495"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetBucketLocation' :: GetBucketLocation -&gt; BucketName
-</span><a href="#local-6989586621679576348"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679576348"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576347"><span class="annot"><span class="annottext">s :: GetBucketLocation
-</span><a href="#local-6989586621679576347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576346"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679576346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocation
-</span><a href="#local-6989586621679576347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketLocation' :: BucketName
+</span><a href="#local-6989586621679576495"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679576495"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576494"><span class="annot"><span class="annottext">s :: GetBucketLocation
+</span><a href="#local-6989586621679576494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576493"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679576493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocation
+</span><a href="#local-6989586621679576494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketLocation' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3Abucket%3AGetBucketLocation%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679576346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679576493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679576342"><span class="annot"><span class="annottext">request :: GetBucketLocation -&gt; Request GetBucketLocation
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679576489"><span class="annot"><span class="annottext">request :: GetBucketLocation -&gt; Request GetBucketLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBucketLocation -&gt; Request GetBucketLocation
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679576338"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679576485"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBucketLocation
 -&gt; ClientResponse ClientBody
@@ -236,10 +236,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679576335"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576335"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679576334"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679576334"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679576333"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679576333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679576482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679576482"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679576481"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679576481"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679576480"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679576480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; LocationConstraint -&gt; GetBucketLocationResponse
 </span><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-var">GetBucketLocationResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; LocationConstraint -&gt; GetBucketLocationResponse)
@@ -251,7 +251,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576335"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679576482"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (LocationConstraint -&gt; GetBucketLocationResponse)
 -&gt; Either String LocationConstraint
 -&gt; Either String GetBucketLocationResponse
@@ -259,22 +259,22 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String LocationConstraint
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679576333"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679576480"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679576325"><span id="local-6989586621679576327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679576472"><span id="local-6989586621679576474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679576322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679576469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679576318"><span class="annot"><span class="annottext">toHeaders :: GetBucketLocation -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576315"><span id="local-6989586621679576316"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679576465"><span class="annot"><span class="annottext">toHeaders :: GetBucketLocation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576462"><span id="local-6989586621679576463"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketLocation' :: GetBucketLocation -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketLocation' :: GetBucketLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679576315"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679576462"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -283,28 +283,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679576316"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679576463"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679576311"><span class="annot"><span class="annottext">toPath :: GetBucketLocation -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576308"><span id="local-6989586621679576309"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679576458"><span class="annot"><span class="annottext">toPath :: GetBucketLocation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation%27"><span class="hs-identifier hs-type">GetBucketLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576455"><span id="local-6989586621679576456"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketLocation' :: GetBucketLocation -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketLocation' :: GetBucketLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679576308"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679576455"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679576308"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679576455"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocation"><span class="hs-identifier hs-type">GetBucketLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679576304"><span class="annot"><span class="annottext">toQuery :: GetBucketLocation -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679576451"><span class="annot"><span class="annottext">toQuery :: GetBucketLocation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketLocation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newGetBucketLocationResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679576300"><span id="local-6989586621679576301"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketLocationResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-var">GetBucketLocationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketLocationResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-var">GetBucketLocationResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679576447"><span id="local-6989586621679576448"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketLocationResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-var">GetBucketLocationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketLocationResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-var">GetBucketLocationResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketLocationResponse%27"><span class="annot"><span class="annottext">GetBucketLocationResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AhttpStatus%3AGetBucketLocationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AlocationConstraint%3AGetBucketLocationResponse%27"><span class="annot"><span class="annottext">GetBucketLocationResponse -&gt; LocationConstraint
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AlocationConstraint%3AGetBucketLocationResponse%27"><span class="hs-identifier hs-var hs-var">locationConstraint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679576294"><span id="local-6989586621679576296"><span class="annot"><span class="annottext">GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679576441"><span id="local-6989586621679576443"><span class="annot"><span class="annottext">GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool
 (GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool)
 -&gt; (GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool)
 -&gt; Eq GetBucketLocationResponse
@@ -334,7 +334,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool
 == :: GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool
 $c== :: GetBucketLocationResponse -&gt; GetBucketLocationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576286"><span id="local-6989586621679576288"><span id="local-6989586621679576290"><span id="local-6989586621679576292"><span class="annot"><span class="annottext">ReadPrec [GetBucketLocationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576433"><span id="local-6989586621679576435"><span id="local-6989586621679576437"><span id="local-6989586621679576439"><span class="annot"><span class="annottext">ReadPrec [GetBucketLocationResponse]
 ReadPrec GetBucketLocationResponse
 Int -&gt; ReadS GetBucketLocationResponse
 ReadS [GetBucketLocationResponse]
@@ -354,7 +354,7 @@ readList :: ReadS [GetBucketLocationResponse]
 $creadList :: ReadS [GetBucketLocationResponse]
 readsPrec :: Int -&gt; ReadS GetBucketLocationResponse
 $creadsPrec :: Int -&gt; ReadS GetBucketLocationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576280"><span id="local-6989586621679576282"><span id="local-6989586621679576284"><span class="annot"><span class="annottext">Int -&gt; GetBucketLocationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679576427"><span id="local-6989586621679576429"><span id="local-6989586621679576431"><span class="annot"><span class="annottext">Int -&gt; GetBucketLocationResponse -&gt; ShowS
 [GetBucketLocationResponse] -&gt; ShowS
 GetBucketLocationResponse -&gt; String
 (Int -&gt; GetBucketLocationResponse -&gt; ShowS)
@@ -408,19 +408,19 @@ GetBucketLocationResponse -&gt; Rep GetBucketLocationResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newGetBucketLocationResponse"><span class="annot"><span class="annottext">newGetBucketLocationResponse :: Int -&gt; LocationConstraint -&gt; GetBucketLocationResponse
 </span><a href="Network.AWS.S3.GetBucketLocation.html#newGetBucketLocationResponse"><span class="hs-identifier hs-var hs-var">newGetBucketLocationResponse</span></a></span></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679576277"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576277"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679576276"><span class="annot"><span class="annottext">LocationConstraint
-</span><a href="#local-6989586621679576276"><span class="hs-identifier hs-var">pLocationConstraint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679576424"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679576424"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679576423"><span class="annot"><span class="annottext">LocationConstraint
+</span><a href="#local-6989586621679576423"><span class="hs-identifier hs-var">pLocationConstraint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">GetBucketLocationResponse' :: Int -&gt; LocationConstraint -&gt; GetBucketLocationResponse
 </span><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketLocationResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AhttpStatus%3AGetBucketLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576277"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679576424"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:locationConstraint:GetBucketLocationResponse' :: LocationConstraint
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AlocationConstraint%3AGetBucketLocationResponse%27"><span class="hs-identifier hs-var">locationConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LocationConstraint
-</span><a href="#local-6989586621679576276"><span class="hs-identifier hs-var">pLocationConstraint_</span></a></span><span>
+</span><a href="#local-6989586621679576423"><span class="hs-identifier hs-var">pLocationConstraint_</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -431,16 +431,16 @@ GetBucketLocationResponse -&gt; Rep GetBucketLocationResponse x
 -&gt; (GetBucketLocationResponse -&gt; Int -&gt; GetBucketLocationResponse)
 -&gt; Lens GetBucketLocationResponse GetBucketLocationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576275"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576422"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketLocationResponse' :: GetBucketLocationResponse -&gt; Int
-</span><a href="#local-6989586621679576275"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576275"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576274"><span class="annot"><span class="annottext">s :: GetBucketLocationResponse
-</span><a href="#local-6989586621679576274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocationResponse
-</span><a href="#local-6989586621679576274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketLocationResponse' :: Int
+</span><a href="#local-6989586621679576422"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679576422"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576421"><span class="annot"><span class="annottext">s :: GetBucketLocationResponse
+</span><a href="#local-6989586621679576421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679576420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocationResponse
+</span><a href="#local-6989586621679576421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketLocationResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AhttpStatus%3AGetBucketLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679576273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679576420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Specifies the Region where the bucket resides. For a list of all the</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- Amazon S3 supported location constraints by Region, see</span><span>
@@ -458,16 +458,16 @@ $sel:httpStatus:GetBucketLocationResponse' :: GetBucketLocationResponse -&gt; In
      LocationConstraint
      LocationConstraint
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576272"><span class="annot"><span class="annottext">LocationConstraint
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679576419"><span class="annot"><span class="annottext">LocationConstraint
 locationConstraint :: LocationConstraint
 $sel:locationConstraint:GetBucketLocationResponse' :: GetBucketLocationResponse -&gt; LocationConstraint
-</span><a href="#local-6989586621679576272"><span class="hs-identifier hs-var hs-var">locationConstraint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationConstraint
-</span><a href="#local-6989586621679576272"><span class="hs-identifier hs-var">locationConstraint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576271"><span class="annot"><span class="annottext">s :: GetBucketLocationResponse
-</span><a href="#local-6989586621679576271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576270"><span class="annot"><span class="annottext">LocationConstraint
-</span><a href="#local-6989586621679576270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocationResponse
-</span><a href="#local-6989586621679576271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationConstraint:GetBucketLocationResponse' :: LocationConstraint
+</span><a href="#local-6989586621679576419"><span class="hs-identifier hs-var hs-var">locationConstraint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationConstraint
+</span><a href="#local-6989586621679576419"><span class="hs-identifier hs-var">locationConstraint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679576418"><span class="annot"><span class="annottext">s :: GetBucketLocationResponse
+</span><a href="#local-6989586621679576418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse%27"><span class="hs-identifier hs-type">GetBucketLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679576417"><span class="annot"><span class="annottext">LocationConstraint
+</span><a href="#local-6989586621679576417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketLocationResponse
+</span><a href="#local-6989586621679576418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationConstraint:GetBucketLocationResponse' :: LocationConstraint
 </span><a href="Network.AWS.S3.GetBucketLocation.html#%24sel%3AlocationConstraint%3AGetBucketLocationResponse%27"><span class="hs-identifier hs-var">locationConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LocationConstraint
-</span><a href="#local-6989586621679576270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679576417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679576268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679576415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketLocation.html#GetBucketLocationResponse"><span class="hs-identifier hs-type">GetBucketLocationResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

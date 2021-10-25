@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | These settings relate to your MXF output container.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMxfSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679995512"><span id="local-6989586621679995513"></span></span><span class="hs-keyword">data</span><span> </span><span id="MxfSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-var">MxfSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-var">MxfSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679997002"><span id="local-6989586621679997003"></span></span><span class="hs-keyword">data</span><span> </span><span id="MxfSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-var">MxfSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MxfSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-var">MxfSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the XAVC profile settings for MXF outputs when you set your MXF</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- profile to XAVC.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AxavcProfileSettings%3AMxfSettings%27"><span class="annot"><span class="annottext">MxfSettings -&gt; Maybe MxfXavcProfileSettings
@@ -54,7 +54,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aprofile%3AMxfSettings%27"><span class="annot"><span class="annottext">MxfSettings -&gt; Maybe MxfProfile
 </span><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#%24sel%3Aprofile%3AMxfSettings%27"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfProfile.html#MxfProfile"><span class="hs-identifier hs-type">MxfProfile</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679995504"><span id="local-6989586621679995506"><span class="annot"><span class="annottext">MxfSettings -&gt; MxfSettings -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679996994"><span id="local-6989586621679996996"><span class="annot"><span class="annottext">MxfSettings -&gt; MxfSettings -&gt; Bool
 (MxfSettings -&gt; MxfSettings -&gt; Bool)
 -&gt; (MxfSettings -&gt; MxfSettings -&gt; Bool) -&gt; Eq MxfSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MxfSettings -&gt; MxfSettings -&gt; Bool
 == :: MxfSettings -&gt; MxfSettings -&gt; Bool
 $c== :: MxfSettings -&gt; MxfSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679995495"><span id="local-6989586621679995497"><span id="local-6989586621679995499"><span id="local-6989586621679995501"><span class="annot"><span class="annottext">ReadPrec [MxfSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679996985"><span id="local-6989586621679996987"><span id="local-6989586621679996989"><span id="local-6989586621679996991"><span class="annot"><span class="annottext">ReadPrec [MxfSettings]
 ReadPrec MxfSettings
 Int -&gt; ReadS MxfSettings
 ReadS [MxfSettings]
@@ -82,7 +82,7 @@ readList :: ReadS [MxfSettings]
 $creadList :: ReadS [MxfSettings]
 readsPrec :: Int -&gt; ReadS MxfSettings
 $creadsPrec :: Int -&gt; ReadS MxfSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679995488"><span id="local-6989586621679995490"><span id="local-6989586621679995492"><span class="annot"><span class="annottext">Int -&gt; MxfSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679996978"><span id="local-6989586621679996980"><span id="local-6989586621679996982"><span class="annot"><span class="annottext">Int -&gt; MxfSettings -&gt; ShowS
 [MxfSettings] -&gt; ShowS
 MxfSettings -&gt; String
 (Int -&gt; MxfSettings -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
      (Maybe MxfXavcProfileSettings)
      (Maybe MxfXavcProfileSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995479"><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679996969"><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
 xavcProfileSettings :: Maybe MxfXavcProfileSettings
 $sel:xavcProfileSettings:MxfSettings' :: MxfSettings -&gt; Maybe MxfXavcProfileSettings
-</span><a href="#local-6989586621679995479"><span class="hs-identifier hs-var hs-var">xavcProfileSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
-</span><a href="#local-6989586621679995479"><span class="hs-identifier hs-var">xavcProfileSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995478"><span class="annot"><span class="annottext">s :: MxfSettings
-</span><a href="#local-6989586621679995478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995477"><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
-</span><a href="#local-6989586621679995477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MxfSettings
-</span><a href="#local-6989586621679995478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xavcProfileSettings:MxfSettings' :: Maybe MxfXavcProfileSettings
+</span><a href="#local-6989586621679996969"><span class="hs-identifier hs-var hs-var">xavcProfileSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
+</span><a href="#local-6989586621679996969"><span class="hs-identifier hs-var">xavcProfileSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679996968"><span class="annot"><span class="annottext">s :: MxfSettings
+</span><a href="#local-6989586621679996968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679996967"><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
+</span><a href="#local-6989586621679996967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MxfSettings
+</span><a href="#local-6989586621679996968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xavcProfileSettings:MxfSettings' :: Maybe MxfXavcProfileSettings
 </span><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#%24sel%3AxavcProfileSettings%3AMxfSettings%27"><span class="hs-identifier hs-var">xavcProfileSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
-</span><a href="#local-6989586621679995477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679996967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Optional. When you have AFD signaling set up in your output video</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- stream, use this setting to choose whether to also include it in the MXF</span><span>
@@ -200,16 +200,16 @@ $sel:xavcProfileSettings:MxfSettings' :: MxfSettings -&gt; Maybe MxfXavcProfileS
      (Maybe MxfAfdSignaling)
      (Maybe MxfAfdSignaling)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995475"><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679996965"><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
 afdSignaling :: Maybe MxfAfdSignaling
 $sel:afdSignaling:MxfSettings' :: MxfSettings -&gt; Maybe MxfAfdSignaling
-</span><a href="#local-6989586621679995475"><span class="hs-identifier hs-var hs-var">afdSignaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
-</span><a href="#local-6989586621679995475"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995474"><span class="annot"><span class="annottext">s :: MxfSettings
-</span><a href="#local-6989586621679995474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995473"><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
-</span><a href="#local-6989586621679995473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MxfSettings
-</span><a href="#local-6989586621679995474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afdSignaling:MxfSettings' :: Maybe MxfAfdSignaling
+</span><a href="#local-6989586621679996965"><span class="hs-identifier hs-var hs-var">afdSignaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
+</span><a href="#local-6989586621679996965"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679996964"><span class="annot"><span class="annottext">s :: MxfSettings
+</span><a href="#local-6989586621679996964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679996963"><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
+</span><a href="#local-6989586621679996963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MxfSettings
+</span><a href="#local-6989586621679996964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afdSignaling:MxfSettings' :: Maybe MxfAfdSignaling
 </span><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#%24sel%3AafdSignaling%3AMxfSettings%27"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
-</span><a href="#local-6989586621679995473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679996963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Specify the MXF profile, also called shim, for this output. When you</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- choose Auto, MediaConvert chooses a profile based on the video codec and</span><span>
@@ -225,19 +225,19 @@ $sel:afdSignaling:MxfSettings' :: MxfSettings -&gt; Maybe MxfAfdSignaling
 -&gt; Lens
      MxfSettings MxfSettings (Maybe MxfProfile) (Maybe MxfProfile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995471"><span class="annot"><span class="annottext">Maybe MxfProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679996961"><span class="annot"><span class="annottext">Maybe MxfProfile
 profile :: Maybe MxfProfile
 $sel:profile:MxfSettings' :: MxfSettings -&gt; Maybe MxfProfile
-</span><a href="#local-6989586621679995471"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MxfProfile
-</span><a href="#local-6989586621679995471"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679995470"><span class="annot"><span class="annottext">s :: MxfSettings
-</span><a href="#local-6989586621679995470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679995469"><span class="annot"><span class="annottext">Maybe MxfProfile
-</span><a href="#local-6989586621679995469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MxfSettings
-</span><a href="#local-6989586621679995470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:MxfSettings' :: Maybe MxfProfile
+</span><a href="#local-6989586621679996961"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MxfProfile
+</span><a href="#local-6989586621679996961"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679996960"><span class="annot"><span class="annottext">s :: MxfSettings
+</span><a href="#local-6989586621679996960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679996959"><span class="annot"><span class="annottext">Maybe MxfProfile
+</span><a href="#local-6989586621679996959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MxfSettings
+</span><a href="#local-6989586621679996960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:MxfSettings' :: Maybe MxfProfile
 </span><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#%24sel%3Aprofile%3AMxfSettings%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MxfProfile
-</span><a href="#local-6989586621679995469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679996959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995466"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679995464"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MxfSettings
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679996956"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679996954"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MxfSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MxfSettings) -&gt; Value -&gt; Parser MxfSettings
@@ -245,8 +245,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MxfSettings&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679995461"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679996951"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679996951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
 -&gt; Maybe MxfAfdSignaling -&gt; Maybe MxfProfile -&gt; MxfSettings
 </span><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-var">MxfSettings'</span></a></span><span>
@@ -257,7 +257,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe MxfAfdSignaling -&gt; Maybe MxfProfile -&gt; MxfSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MxfXavcProfileSettings)
+</span><a href="#local-6989586621679996951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MxfXavcProfileSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;xavcProfileSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -266,7 +266,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MxfProfile -&gt; MxfSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MxfAfdSignaling)
+</span><a href="#local-6989586621679996951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MxfAfdSignaling)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;afdSignaling&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,19 +274,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MxfProfile) -&gt; Parser MxfSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679995461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MxfProfile)
+</span><a href="#local-6989586621679996951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MxfProfile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;profile&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995455"><span id="local-6989586621679995457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679996945"><span id="local-6989586621679996947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679996942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679995444"><span id="local-6989586621679995446"><span id="local-6989586621679995448"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679995442"><span class="annot"><span class="annottext">toJSON :: MxfSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679995438"><span id="local-6989586621679995439"><span id="local-6989586621679995440"><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679996934"><span id="local-6989586621679996936"><span id="local-6989586621679996938"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings"><span class="hs-identifier hs-type">MxfSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679996932"><span class="annot"><span class="annottext">toJSON :: MxfSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MxfSettings.html#MxfSettings%27"><span class="hs-identifier hs-type">MxfSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679996928"><span id="local-6989586621679996929"><span id="local-6989586621679996930"><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
 Maybe MxfProfile
 Maybe MxfXavcProfileSettings
 profile :: Maybe MxfProfile
@@ -295,7 +295,7 @@ xavcProfileSettings :: Maybe MxfXavcProfileSettings
 $sel:profile:MxfSettings' :: MxfSettings -&gt; Maybe MxfProfile
 $sel:afdSignaling:MxfSettings' :: MxfSettings -&gt; Maybe MxfAfdSignaling
 $sel:xavcProfileSettings:MxfSettings' :: MxfSettings -&gt; Maybe MxfXavcProfileSettings
-</span><a href="#local-6989586621679995438"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679996928"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -309,21 +309,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MxfXavcProfileSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MxfXavcProfileSettings
-</span><a href="#local-6989586621679995440"><span class="hs-identifier hs-var">xavcProfileSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679996930"><span class="hs-identifier hs-var">xavcProfileSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;afdSignaling&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MxfAfdSignaling -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MxfAfdSignaling -&gt; Pair) -&gt; Maybe MxfAfdSignaling -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MxfAfdSignaling
-</span><a href="#local-6989586621679995439"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679996929"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;profile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MxfProfile -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MxfProfile -&gt; Pair) -&gt; Maybe MxfProfile -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MxfProfile
-</span><a href="#local-6989586621679995438"><span class="hs-identifier hs-var">profile</span></a></span><span>
+</span><a href="#local-6989586621679996928"><span class="hs-identifier hs-var">profile</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679279002"><span id="local-6989586621679279003"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectConnectGatewayAttachmentState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachmentState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentState'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679287130"><span id="local-6989586621679287131"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectConnectGatewayAttachmentState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachmentState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentState'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectConnectGatewayAttachmentState"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#fromDirectConnectGatewayAttachmentState"><span class="hs-identifier hs-var hs-var">fromDirectConnectGatewayAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278994"><span id="local-6989586621679278996"><span id="local-6989586621679278998"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287122"><span id="local-6989586621679287124"><span id="local-6989586621679287126"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
 [DirectConnectGatewayAttachmentState] -&gt; ShowS
 DirectConnectGatewayAttachmentState -&gt; String
 (Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DirectConnectGatewayAttachmentState -&gt; String
 showsPrec :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
 $cshowsPrec :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679278985"><span id="local-6989586621679278987"><span id="local-6989586621679278989"><span id="local-6989586621679278991"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachmentState]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679287113"><span id="local-6989586621679287115"><span id="local-6989586621679287117"><span id="local-6989586621679287119"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachmentState]
 ReadPrec DirectConnectGatewayAttachmentState
 Int -&gt; ReadS DirectConnectGatewayAttachmentState
 ReadS [DirectConnectGatewayAttachmentState]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DirectConnectGatewayAttachmentState]
 readsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachmentState
 $creadsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679278980"><span id="local-6989586621679278982"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679287108"><span id="local-6989586621679287110"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState
 -&gt; DirectConnectGatewayAttachmentState -&gt; Bool
 (DirectConnectGatewayAttachmentState
  -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: DirectConnectGatewayAttachmentState
 $c== :: DirectConnectGatewayAttachmentState
 -&gt; DirectConnectGatewayAttachmentState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679278964"><span id="local-6989586621679278966"><span id="local-6989586621679278968"><span id="local-6989586621679278970"><span id="local-6989586621679278972"><span id="local-6989586621679278974"><span id="local-6989586621679278976"><span class="annot"><span class="annottext">Eq DirectConnectGatewayAttachmentState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679287092"><span id="local-6989586621679287094"><span id="local-6989586621679287096"><span id="local-6989586621679287098"><span id="local-6989586621679287100"><span id="local-6989586621679287102"><span id="local-6989586621679287104"><span class="annot"><span class="annottext">Eq DirectConnectGatewayAttachmentState
 Eq DirectConnectGatewayAttachmentState
 -&gt; (DirectConnectGatewayAttachmentState
     -&gt; DirectConnectGatewayAttachmentState -&gt; Ordering)
@@ -185,7 +185,7 @@ DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278956"><span id="local-6989586621679278958"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287084"><span id="local-6989586621679287086"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
 DirectConnectGatewayAttachmentState -&gt; Int
 (Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int)
 -&gt; (DirectConnectGatewayAttachmentState -&gt; Int)
@@ -196,56 +196,56 @@ $chash :: DirectConnectGatewayAttachmentState -&gt; Int
 hashWithSalt :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
 $chashWithSalt :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679278953"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679287081"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ()
 (DirectConnectGatewayAttachmentState -&gt; ())
 -&gt; NFData DirectConnectGatewayAttachmentState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DirectConnectGatewayAttachmentState -&gt; ()
 $crnf :: DirectConnectGatewayAttachmentState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679278950"><span class="annot"><span class="annottext">Text -&gt; Either String DirectConnectGatewayAttachmentState
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679287078"><span class="annot"><span class="annottext">Text -&gt; Either String DirectConnectGatewayAttachmentState
 (Text -&gt; Either String DirectConnectGatewayAttachmentState)
 -&gt; FromText DirectConnectGatewayAttachmentState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DirectConnectGatewayAttachmentState
 $cfromText :: Text -&gt; Either String DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679278947"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679287075"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; Text
 (DirectConnectGatewayAttachmentState -&gt; Text)
 -&gt; ToText DirectConnectGatewayAttachmentState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DirectConnectGatewayAttachmentState -&gt; Text
 $ctoText :: DirectConnectGatewayAttachmentState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679278944"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679287072"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ByteString
 (DirectConnectGatewayAttachmentState -&gt; ByteString)
 -&gt; ToByteString DirectConnectGatewayAttachmentState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DirectConnectGatewayAttachmentState -&gt; ByteString
 $ctoBS :: DirectConnectGatewayAttachmentState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679278941"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679287069"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
 (DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder)
 -&gt; ToLog DirectConnectGatewayAttachmentState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
 $cbuild :: DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679278938"><span class="annot"><span class="annottext">HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679287066"><span class="annot"><span class="annottext">HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
 (HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header])
 -&gt; ToHeader DirectConnectGatewayAttachmentState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679278935"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679287063"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; QueryString
 (DirectConnectGatewayAttachmentState -&gt; QueryString)
 -&gt; ToQuery DirectConnectGatewayAttachmentState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DirectConnectGatewayAttachmentState -&gt; QueryString
 $ctoQuery :: DirectConnectGatewayAttachmentState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679278930"><span id="local-6989586621679278932"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectConnectGatewayAttachmentState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679287058"><span id="local-6989586621679287060"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectConnectGatewayAttachmentState]
 Value -&gt; Parser DirectConnectGatewayAttachmentState
 (Value -&gt; Parser DirectConnectGatewayAttachmentState)
 -&gt; (Value -&gt; Parser [DirectConnectGatewayAttachmentState])
@@ -257,7 +257,7 @@ $cparseJSONList :: Value -&gt; Parser [DirectConnectGatewayAttachmentState]
 parseJSON :: Value -&gt; Parser DirectConnectGatewayAttachmentState
 $cparseJSON :: Value -&gt; Parser DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679278925"><span id="local-6989586621679278927"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679287053"><span id="local-6989586621679287055"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
 FromJSONKeyFunction DirectConnectGatewayAttachmentState
 FromJSONKeyFunction DirectConnectGatewayAttachmentState
 -&gt; FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
@@ -269,7 +269,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
 fromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAttachmentState
 $cfromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679278916"><span id="local-6989586621679278918"><span id="local-6989586621679278920"><span id="local-6989586621679278922"><span class="annot"><span class="annottext">[DirectConnectGatewayAttachmentState] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679287044"><span id="local-6989586621679287046"><span id="local-6989586621679287048"><span id="local-6989586621679287050"><span class="annot"><span class="annottext">[DirectConnectGatewayAttachmentState] -&gt; Encoding
 [DirectConnectGatewayAttachmentState] -&gt; Value
 DirectConnectGatewayAttachmentState -&gt; Encoding
 DirectConnectGatewayAttachmentState -&gt; Value
@@ -293,7 +293,7 @@ $ctoEncoding :: DirectConnectGatewayAttachmentState -&gt; Encoding
 toJSON :: DirectConnectGatewayAttachmentState -&gt; Value
 $ctoJSON :: DirectConnectGatewayAttachmentState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679278911"><span id="local-6989586621679278913"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679287039"><span id="local-6989586621679287041"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
 ToJSONKeyFunction DirectConnectGatewayAttachmentState
 ToJSONKeyFunction DirectConnectGatewayAttachmentState
 -&gt; ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
@@ -305,14 +305,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
 toJSONKey :: ToJSONKeyFunction DirectConnectGatewayAttachmentState
 $ctoJSONKey :: ToJSONKeyFunction DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679278908"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectConnectGatewayAttachmentState
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679287036"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectConnectGatewayAttachmentState
 ([Node] -&gt; Either String DirectConnectGatewayAttachmentState)
 -&gt; FromXML DirectConnectGatewayAttachmentState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DirectConnectGatewayAttachmentState
 $cparseXML :: [Node] -&gt; Either String DirectConnectGatewayAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679278905"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679287033"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; XML
 (DirectConnectGatewayAttachmentState -&gt; XML)
 -&gt; ToXML DirectConnectGatewayAttachmentState
 forall a. (a -&gt; XML) -&gt; ToXML a

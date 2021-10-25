@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newGetBucketPolicyStatus' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679575198"><span id="local-6989586621679575199"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketPolicyStatus"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-var">GetBucketPolicyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketPolicyStatus%27"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-var">GetBucketPolicyStatus'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679575345"><span id="local-6989586621679575346"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketPolicyStatus"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-var">GetBucketPolicyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketPolicyStatus%27"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-var">GetBucketPolicyStatus'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketPolicyStatus%27"><span class="annot"><span class="annottext">GetBucketPolicyStatus -&gt; BucketName
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3Abucket%3AGetBucketPolicyStatus%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575191"><span id="local-6989586621679575193"><span class="annot"><span class="annottext">GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575338"><span id="local-6989586621679575340"><span class="annot"><span class="annottext">GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool
 (GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool)
 -&gt; (GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool)
 -&gt; Eq GetBucketPolicyStatus
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool
 == :: GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool
 $c== :: GetBucketPolicyStatus -&gt; GetBucketPolicyStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575182"><span id="local-6989586621679575184"><span id="local-6989586621679575186"><span id="local-6989586621679575188"><span class="annot"><span class="annottext">ReadPrec [GetBucketPolicyStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575329"><span id="local-6989586621679575331"><span id="local-6989586621679575333"><span id="local-6989586621679575335"><span class="annot"><span class="annottext">ReadPrec [GetBucketPolicyStatus]
 ReadPrec GetBucketPolicyStatus
 Int -&gt; ReadS GetBucketPolicyStatus
 ReadS [GetBucketPolicyStatus]
@@ -105,7 +105,7 @@ readList :: ReadS [GetBucketPolicyStatus]
 $creadList :: ReadS [GetBucketPolicyStatus]
 readsPrec :: Int -&gt; ReadS GetBucketPolicyStatus
 $creadsPrec :: Int -&gt; ReadS GetBucketPolicyStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575175"><span id="local-6989586621679575177"><span id="local-6989586621679575179"><span class="annot"><span class="annottext">Int -&gt; GetBucketPolicyStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575322"><span id="local-6989586621679575324"><span id="local-6989586621679575326"><span class="annot"><span class="annottext">Int -&gt; GetBucketPolicyStatus -&gt; ShowS
 [GetBucketPolicyStatus] -&gt; ShowS
 GetBucketPolicyStatus -&gt; String
 (Int -&gt; GetBucketPolicyStatus -&gt; ShowS)
@@ -150,8 +150,8 @@ $cfrom :: forall x. GetBucketPolicyStatus -&gt; Rep GetBucketPolicyStatus x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span>
 </span><span id="line-97"></span><span id="newGetBucketPolicyStatus"><span class="annot"><span class="annottext">newGetBucketPolicyStatus :: BucketName -&gt; GetBucketPolicyStatus
-</span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#newGetBucketPolicyStatus"><span class="hs-identifier hs-var hs-var">newGetBucketPolicyStatus</span></a></span></span><span> </span><span id="local-6989586621679575170"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575170"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#newGetBucketPolicyStatus"><span class="hs-identifier hs-var hs-var">newGetBucketPolicyStatus</span></a></span></span><span> </span><span id="local-6989586621679575317"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679575317"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">GetBucketPolicyStatus' :: Maybe Text -&gt; BucketName -&gt; GetBucketPolicyStatus
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketPolicyStatus' :: Maybe Text
@@ -161,7 +161,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketPolicyStatus' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3Abucket%3AGetBucketPolicyStatus%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575170"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679575317"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575167"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575314"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679575167"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575167"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575166"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatus
-</span><a href="#local-6989586621679575166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatus
-</span><a href="#local-6989586621679575166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketPolicyStatus' :: Maybe Text
+</span><a href="#local-6989586621679575314"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575314"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575313"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatus
+</span><a href="#local-6989586621679575313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatus
+</span><a href="#local-6989586621679575313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketPolicyStatus' :: Maybe Text
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3AexpectedBucketOwner%3AGetBucketPolicyStatus%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket whose policy status you want to</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- retrieve.</span><span>
@@ -199,22 +199,22 @@ $sel:expectedBucketOwner:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; M
 -&gt; Lens
      GetBucketPolicyStatus GetBucketPolicyStatus BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575164"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575311"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; BucketName
-</span><a href="#local-6989586621679575164"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575164"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575163"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatus
-</span><a href="#local-6989586621679575163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575162"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatus
-</span><a href="#local-6989586621679575163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketPolicyStatus' :: BucketName
+</span><a href="#local-6989586621679575311"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679575311"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575310"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatus
+</span><a href="#local-6989586621679575310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575309"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679575309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatus
+</span><a href="#local-6989586621679575310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketPolicyStatus' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3Abucket%3AGetBucketPolicyStatus%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679575158"><span class="annot"><span class="annottext">request :: GetBucketPolicyStatus -&gt; Request GetBucketPolicyStatus
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679575305"><span class="annot"><span class="annottext">request :: GetBucketPolicyStatus -&gt; Request GetBucketPolicyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">Request GetBucketPolicyStatus -&gt; Request GetBucketPolicyStatus
 forall a. Request a -&gt; Request a
@@ -228,7 +228,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679575152"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679575299"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBucketPolicyStatus
 -&gt; ClientResponse ClientBody
@@ -254,10 +254,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679575149"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575149"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679575148"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679575148"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679575147"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679575147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679575296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575296"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679575295"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679575295"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679575294"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679575294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe PolicyStatus -&gt; Int -&gt; GetBucketPolicyStatusResponse
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var">GetBucketPolicyStatusResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PolicyStatus -&gt; Int -&gt; GetBucketPolicyStatusResponse)
@@ -267,7 +267,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe PolicyStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679575147"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575294"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBucketPolicyStatusResponse)
 -&gt; Either String Int -&gt; Either String GetBucketPolicyStatusResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -276,22 +276,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575149"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575296"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575139"><span id="local-6989586621679575141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575286"><span id="local-6989586621679575288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679575132"><span class="annot"><span class="annottext">toHeaders :: GetBucketPolicyStatus -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575129"><span id="local-6989586621679575130"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679575279"><span class="annot"><span class="annottext">toHeaders :: GetBucketPolicyStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575276"><span id="local-6989586621679575277"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679575129"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679575276"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -300,28 +300,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575130"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679575277"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679575125"><span class="annot"><span class="annottext">toPath :: GetBucketPolicyStatus -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575122"><span id="local-6989586621679575123"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679575272"><span class="annot"><span class="annottext">toPath :: GetBucketPolicyStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus%27"><span class="hs-identifier hs-type">GetBucketPolicyStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575269"><span id="local-6989586621679575270"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketPolicyStatus' :: GetBucketPolicyStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679575122"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679575269"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575122"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679575269"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatus"><span class="hs-identifier hs-type">GetBucketPolicyStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679575118"><span class="annot"><span class="annottext">toQuery :: GetBucketPolicyStatus -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679575265"><span class="annot"><span class="annottext">toQuery :: GetBucketPolicyStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketPolicyStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -331,7 +331,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;policyStatus&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newGetBucketPolicyStatusResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679575114"><span id="local-6989586621679575115"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketPolicyStatusResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-var">GetBucketPolicyStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketPolicyStatusResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var">GetBucketPolicyStatusResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679575261"><span id="local-6989586621679575262"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketPolicyStatusResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-var">GetBucketPolicyStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketPolicyStatusResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var">GetBucketPolicyStatusResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy status for the specified bucket.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3ApolicyStatus%3AGetBucketPolicyStatusResponse%27"><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse -&gt; Maybe PolicyStatus
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3ApolicyStatus%3AGetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PolicyStatus.html#PolicyStatus"><span class="hs-identifier hs-type">PolicyStatus</span></a></span><span class="hs-special">,</span><span>
@@ -339,7 +339,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketPolicyStatusResponse%27"><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3AhttpStatus%3AGetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575108"><span id="local-6989586621679575110"><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575255"><span id="local-6989586621679575257"><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse
 -&gt; GetBucketPolicyStatusResponse -&gt; Bool
 (GetBucketPolicyStatusResponse
  -&gt; GetBucketPolicyStatusResponse -&gt; Bool)
@@ -355,7 +355,7 @@ $c/= :: GetBucketPolicyStatusResponse
 -&gt; GetBucketPolicyStatusResponse -&gt; Bool
 $c== :: GetBucketPolicyStatusResponse
 -&gt; GetBucketPolicyStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575100"><span id="local-6989586621679575102"><span id="local-6989586621679575104"><span id="local-6989586621679575106"><span class="annot"><span class="annottext">ReadPrec [GetBucketPolicyStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575247"><span id="local-6989586621679575249"><span id="local-6989586621679575251"><span id="local-6989586621679575253"><span class="annot"><span class="annottext">ReadPrec [GetBucketPolicyStatusResponse]
 ReadPrec GetBucketPolicyStatusResponse
 Int -&gt; ReadS GetBucketPolicyStatusResponse
 ReadS [GetBucketPolicyStatusResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [GetBucketPolicyStatusResponse]
 $creadList :: ReadS [GetBucketPolicyStatusResponse]
 readsPrec :: Int -&gt; ReadS GetBucketPolicyStatusResponse
 $creadsPrec :: Int -&gt; ReadS GetBucketPolicyStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575094"><span id="local-6989586621679575096"><span id="local-6989586621679575098"><span class="annot"><span class="annottext">Int -&gt; GetBucketPolicyStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575241"><span id="local-6989586621679575243"><span id="local-6989586621679575245"><span class="annot"><span class="annottext">Int -&gt; GetBucketPolicyStatusResponse -&gt; ShowS
 [GetBucketPolicyStatusResponse] -&gt; ShowS
 GetBucketPolicyStatusResponse -&gt; String
 (Int -&gt; GetBucketPolicyStatusResponse -&gt; ShowS)
@@ -429,8 +429,8 @@ GetBucketPolicyStatusResponse
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newGetBucketPolicyStatusResponse"><span class="annot"><span class="annottext">newGetBucketPolicyStatusResponse :: Int -&gt; GetBucketPolicyStatusResponse
-</span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#newGetBucketPolicyStatusResponse"><span class="hs-identifier hs-var hs-var">newGetBucketPolicyStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679575091"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575091"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#newGetBucketPolicyStatusResponse"><span class="hs-identifier hs-var hs-var">newGetBucketPolicyStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679575238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse' :: Maybe PolicyStatus -&gt; Int -&gt; GetBucketPolicyStatusResponse
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyStatus:GetBucketPolicyStatusResponse' :: Maybe PolicyStatus
@@ -440,7 +440,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketPolicyStatusResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3AhttpStatus%3AGetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575091"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679575238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The policy status for the specified bucket.</span><span>
@@ -456,16 +456,16 @@ forall a. Maybe a
      (Maybe PolicyStatus)
      (Maybe PolicyStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575090"><span class="annot"><span class="annottext">Maybe PolicyStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575237"><span class="annot"><span class="annottext">Maybe PolicyStatus
 policyStatus :: Maybe PolicyStatus
 $sel:policyStatus:GetBucketPolicyStatusResponse' :: GetBucketPolicyStatusResponse -&gt; Maybe PolicyStatus
-</span><a href="#local-6989586621679575090"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyStatus
-</span><a href="#local-6989586621679575090"><span class="hs-identifier hs-var">policyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575089"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatusResponse
-</span><a href="#local-6989586621679575089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575088"><span class="annot"><span class="annottext">Maybe PolicyStatus
-</span><a href="#local-6989586621679575088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse
-</span><a href="#local-6989586621679575089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyStatus:GetBucketPolicyStatusResponse' :: Maybe PolicyStatus
+</span><a href="#local-6989586621679575237"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyStatus
+</span><a href="#local-6989586621679575237"><span class="hs-identifier hs-var">policyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575236"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatusResponse
+</span><a href="#local-6989586621679575236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575235"><span class="annot"><span class="annottext">Maybe PolicyStatus
+</span><a href="#local-6989586621679575235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse
+</span><a href="#local-6989586621679575236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyStatus:GetBucketPolicyStatusResponse' :: Maybe PolicyStatus
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3ApolicyStatus%3AGetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var">policyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyStatus
-</span><a href="#local-6989586621679575088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#getBucketPolicyStatusResponse_httpStatus"><span class="hs-identifier hs-type">getBucketPolicyStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -477,16 +477,16 @@ $sel:policyStatus:GetBucketPolicyStatusResponse' :: GetBucketPolicyStatusRespons
 -&gt; Lens
      GetBucketPolicyStatusResponse GetBucketPolicyStatusResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575087"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575234"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketPolicyStatusResponse' :: GetBucketPolicyStatusResponse -&gt; Int
-</span><a href="#local-6989586621679575087"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575087"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575086"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatusResponse
-</span><a href="#local-6989586621679575086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575085"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse
-</span><a href="#local-6989586621679575086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketPolicyStatusResponse' :: Int
+</span><a href="#local-6989586621679575234"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575234"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575233"><span class="annot"><span class="annottext">s :: GetBucketPolicyStatusResponse
+</span><a href="#local-6989586621679575233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketPolicyStatusResponse
+</span><a href="#local-6989586621679575233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketPolicyStatusResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketPolicyStatus.html#%24sel%3AhttpStatus%3AGetBucketPolicyStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketPolicyStatus.html#GetBucketPolicyStatusResponse"><span class="hs-identifier hs-type">GetBucketPolicyStatusResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

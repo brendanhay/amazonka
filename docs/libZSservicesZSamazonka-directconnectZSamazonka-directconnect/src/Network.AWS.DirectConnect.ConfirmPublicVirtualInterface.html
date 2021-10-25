@@ -21,7 +21,7 @@
 </span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
 </span><span id="line-22"></span><span class="hs-comment">--</span><span>
 </span><span id="line-23"></span><span class="hs-comment">-- Accepts ownership of a public virtual interface created by another</span><span>
-</span><span id="line-24"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Web Services account.</span><span>
 </span><span id="line-25"></span><span class="hs-comment">--</span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- After the virtual interface owner makes this call, the specified virtual</span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- interface is created and made available to handle traffic.</span><span>
@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newConfirmPublicVirtualInterface' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679293760"><span id="local-6989586621679293761"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmPublicVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmPublicVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterface'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679302657"><span id="local-6989586621679302658"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmPublicVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmPublicVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterface'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3AConfirmPublicVirtualInterface%27"><span class="annot"><span class="annottext">ConfirmPublicVirtualInterface -&gt; Text
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AvirtualInterfaceId%3AConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293754"><span id="local-6989586621679293756"><span class="annot"><span class="annottext">ConfirmPublicVirtualInterface
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302651"><span id="local-6989586621679302653"><span class="annot"><span class="annottext">ConfirmPublicVirtualInterface
 -&gt; ConfirmPublicVirtualInterface -&gt; Bool
 (ConfirmPublicVirtualInterface
  -&gt; ConfirmPublicVirtualInterface -&gt; Bool)
@@ -72,7 +72,7 @@ $c/= :: ConfirmPublicVirtualInterface
 -&gt; ConfirmPublicVirtualInterface -&gt; Bool
 $c== :: ConfirmPublicVirtualInterface
 -&gt; ConfirmPublicVirtualInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293745"><span id="local-6989586621679293747"><span id="local-6989586621679293749"><span id="local-6989586621679293751"><span class="annot"><span class="annottext">ReadPrec [ConfirmPublicVirtualInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302642"><span id="local-6989586621679302644"><span id="local-6989586621679302646"><span id="local-6989586621679302648"><span class="annot"><span class="annottext">ReadPrec [ConfirmPublicVirtualInterface]
 ReadPrec ConfirmPublicVirtualInterface
 Int -&gt; ReadS ConfirmPublicVirtualInterface
 ReadS [ConfirmPublicVirtualInterface]
@@ -92,7 +92,7 @@ readList :: ReadS [ConfirmPublicVirtualInterface]
 $creadList :: ReadS [ConfirmPublicVirtualInterface]
 readsPrec :: Int -&gt; ReadS ConfirmPublicVirtualInterface
 $creadsPrec :: Int -&gt; ReadS ConfirmPublicVirtualInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293738"><span id="local-6989586621679293740"><span id="local-6989586621679293742"><span class="annot"><span class="annottext">Int -&gt; ConfirmPublicVirtualInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302635"><span id="local-6989586621679302637"><span id="local-6989586621679302639"><span class="annot"><span class="annottext">Int -&gt; ConfirmPublicVirtualInterface -&gt; ShowS
 [ConfirmPublicVirtualInterface] -&gt; ShowS
 ConfirmPublicVirtualInterface -&gt; String
 (Int -&gt; ConfirmPublicVirtualInterface -&gt; ShowS)
@@ -144,14 +144,14 @@ ConfirmPublicVirtualInterface
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span>
 </span><span id="line-73"></span><span id="newConfirmPublicVirtualInterface"><span class="annot"><span class="annottext">newConfirmPublicVirtualInterface :: Text -&gt; ConfirmPublicVirtualInterface
-</span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#newConfirmPublicVirtualInterface"><span class="hs-identifier hs-var hs-var">newConfirmPublicVirtualInterface</span></a></span></span><span> </span><span id="local-6989586621679293733"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293733"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#newConfirmPublicVirtualInterface"><span class="hs-identifier hs-var hs-var">newConfirmPublicVirtualInterface</span></a></span></span><span> </span><span id="local-6989586621679302630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302630"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterface' :: Text -&gt; ConfirmPublicVirtualInterface
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AvirtualInterfaceId%3AConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293733"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span><span>
+</span><a href="#local-6989586621679302630"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
@@ -167,16 +167,16 @@ ConfirmPublicVirtualInterface
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293730"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302627"><span class="annot"><span class="annottext">Text
 virtualInterfaceId :: Text
 $sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: ConfirmPublicVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679293730"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293730"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293729"><span class="annot"><span class="annottext">s :: ConfirmPublicVirtualInterface
-</span><a href="#local-6989586621679293729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293728"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterface
-</span><a href="#local-6989586621679293729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: Text
+</span><a href="#local-6989586621679302627"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302627"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302626"><span class="annot"><span class="annottext">s :: ConfirmPublicVirtualInterface
+</span><a href="#local-6989586621679302626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302625"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterface
+</span><a href="#local-6989586621679302626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AvirtualInterfaceId%3AConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -185,7 +185,7 @@ $sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: ConfirmPublicVirtualIn
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679293724"><span class="annot"><span class="annottext">request :: ConfirmPublicVirtualInterface
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679302621"><span class="annot"><span class="annottext">request :: ConfirmPublicVirtualInterface
 -&gt; Request ConfirmPublicVirtualInterface
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ConfirmPublicVirtualInterface
@@ -193,7 +193,7 @@ $sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: ConfirmPublicVirtualIn
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679293720"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679302617"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ConfirmPublicVirtualInterface
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293717"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293717"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293716"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679293716"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293715"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302614"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302613"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302613"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302612"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
 -&gt; Int -&gt; ConfirmPublicVirtualInterfaceResponse
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span>
@@ -232,7 +232,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ConfirmPublicVirtualInterfaceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterfaceState)
+</span><a href="#local-6989586621679302612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterfaceState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterfaceState&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,17 +245,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293717"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302614"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679293707"><span id="local-6989586621679293709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679302604"><span id="local-6989586621679302606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679293700"><span class="annot"><span class="annottext">toHeaders :: ConfirmPublicVirtualInterface -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679302597"><span class="annot"><span class="annottext">toHeaders :: ConfirmPublicVirtualInterface -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ConfirmPublicVirtualInterface -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -282,12 +282,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293690"><span id="local-6989586621679293692"><span id="local-6989586621679293694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679293688"><span class="annot"><span class="annottext">toJSON :: ConfirmPublicVirtualInterface -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293686"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302587"><span id="local-6989586621679302589"><span id="local-6989586621679302591"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679302585"><span class="annot"><span class="annottext">toJSON :: ConfirmPublicVirtualInterface -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302583"><span class="annot"><span class="annottext">Text
 virtualInterfaceId :: Text
 $sel:virtualInterfaceId:ConfirmPublicVirtualInterface' :: ConfirmPublicVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679293686"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302583"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,19 +300,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293686"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302583"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679293680"><span class="annot"><span class="annottext">toPath :: ConfirmPublicVirtualInterface -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679302577"><span class="annot"><span class="annottext">toPath :: ConfirmPublicVirtualInterface -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ConfirmPublicVirtualInterface -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterface"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679293676"><span class="annot"><span class="annottext">toQuery :: ConfirmPublicVirtualInterface -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679302573"><span class="annot"><span class="annottext">toQuery :: ConfirmPublicVirtualInterface -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ConfirmPublicVirtualInterface -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -320,7 +320,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newConfirmPublicVirtualInterfaceResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679293673"><span id="local-6989586621679293674"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmPublicVirtualInterfaceResponse"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmPublicVirtualInterfaceResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterfaceResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679302570"><span id="local-6989586621679302571"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmPublicVirtualInterfaceResponse"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmPublicVirtualInterfaceResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">ConfirmPublicVirtualInterfaceResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the virtual interface. The following are the possible</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- values:</span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -361,7 +361,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AConfirmPublicVirtualInterfaceResponse%27"><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AhttpStatus%3AConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293667"><span id="local-6989586621679293669"><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302564"><span id="local-6989586621679302566"><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse
 -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; Bool
 (ConfirmPublicVirtualInterfaceResponse
  -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; Bool)
@@ -377,7 +377,7 @@ $c/= :: ConfirmPublicVirtualInterfaceResponse
 -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; Bool
 $c== :: ConfirmPublicVirtualInterfaceResponse
 -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293659"><span id="local-6989586621679293661"><span id="local-6989586621679293663"><span id="local-6989586621679293665"><span class="annot"><span class="annottext">ReadPrec [ConfirmPublicVirtualInterfaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302556"><span id="local-6989586621679302558"><span id="local-6989586621679302560"><span id="local-6989586621679302562"><span class="annot"><span class="annottext">ReadPrec [ConfirmPublicVirtualInterfaceResponse]
 ReadPrec ConfirmPublicVirtualInterfaceResponse
 Int -&gt; ReadS ConfirmPublicVirtualInterfaceResponse
 ReadS [ConfirmPublicVirtualInterfaceResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [ConfirmPublicVirtualInterfaceResponse]
 $creadList :: ReadS [ConfirmPublicVirtualInterfaceResponse]
 readsPrec :: Int -&gt; ReadS ConfirmPublicVirtualInterfaceResponse
 $creadsPrec :: Int -&gt; ReadS ConfirmPublicVirtualInterfaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293653"><span id="local-6989586621679293655"><span id="local-6989586621679293657"><span class="annot"><span class="annottext">Int -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302550"><span id="local-6989586621679302552"><span id="local-6989586621679302554"><span class="annot"><span class="annottext">Int -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; ShowS
 [ConfirmPublicVirtualInterfaceResponse] -&gt; ShowS
 ConfirmPublicVirtualInterfaceResponse -&gt; String
 (Int -&gt; ConfirmPublicVirtualInterfaceResponse -&gt; ShowS)
@@ -483,8 +483,8 @@ ConfirmPublicVirtualInterfaceResponse
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newConfirmPublicVirtualInterfaceResponse"><span class="annot"><span class="annottext">newConfirmPublicVirtualInterfaceResponse :: Int -&gt; ConfirmPublicVirtualInterfaceResponse
-</span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#newConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-var hs-var">newConfirmPublicVirtualInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621679293650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#newConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-var hs-var">newConfirmPublicVirtualInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621679302547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302547"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse' :: Maybe VirtualInterfaceState
 -&gt; Int -&gt; ConfirmPublicVirtualInterfaceResponse
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span>
@@ -495,7 +495,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmPublicVirtualInterfaceResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AhttpStatus%3AConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679302547"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The state of the virtual interface. The following are the possible</span><span>
@@ -546,17 +546,17 @@ forall a. Maybe a
      (Maybe VirtualInterfaceState)
      (Maybe VirtualInterfaceState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293649"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302546"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
 virtualInterfaceState :: Maybe VirtualInterfaceState
 $sel:virtualInterfaceState:ConfirmPublicVirtualInterfaceResponse' :: ConfirmPublicVirtualInterfaceResponse
 -&gt; Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679293649"><span class="hs-identifier hs-var hs-var">virtualInterfaceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679293649"><span class="hs-identifier hs-var">virtualInterfaceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293648"><span class="annot"><span class="annottext">s :: ConfirmPublicVirtualInterfaceResponse
-</span><a href="#local-6989586621679293648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293647"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679293647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse
-</span><a href="#local-6989586621679293648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceState:ConfirmPublicVirtualInterfaceResponse' :: Maybe VirtualInterfaceState
+</span><a href="#local-6989586621679302546"><span class="hs-identifier hs-var hs-var">virtualInterfaceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
+</span><a href="#local-6989586621679302546"><span class="hs-identifier hs-var">virtualInterfaceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302545"><span class="annot"><span class="annottext">s :: ConfirmPublicVirtualInterfaceResponse
+</span><a href="#local-6989586621679302545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302544"><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
+</span><a href="#local-6989586621679302544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse
+</span><a href="#local-6989586621679302545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceState:ConfirmPublicVirtualInterfaceResponse' :: Maybe VirtualInterfaceState
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AvirtualInterfaceState%3AConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">virtualInterfaceState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterfaceState
-</span><a href="#local-6989586621679293647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-267"></span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#confirmPublicVirtualInterfaceResponse_httpStatus"><span class="hs-identifier hs-type">confirmPublicVirtualInterfaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -572,18 +572,18 @@ $sel:virtualInterfaceState:ConfirmPublicVirtualInterfaceResponse' :: ConfirmPubl
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293646"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302543"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ConfirmPublicVirtualInterfaceResponse' :: ConfirmPublicVirtualInterfaceResponse -&gt; Int
-</span><a href="#local-6989586621679293646"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293646"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293645"><span class="annot"><span class="annottext">s :: ConfirmPublicVirtualInterfaceResponse
-</span><a href="#local-6989586621679293645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293644"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse
-</span><a href="#local-6989586621679293645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmPublicVirtualInterfaceResponse' :: Int
+</span><a href="#local-6989586621679302543"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302543"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302542"><span class="annot"><span class="annottext">s :: ConfirmPublicVirtualInterfaceResponse
+</span><a href="#local-6989586621679302542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmPublicVirtualInterfaceResponse
+</span><a href="#local-6989586621679302542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmPublicVirtualInterfaceResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#%24sel%3AhttpStatus%3AConfirmPublicVirtualInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679293642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679302539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.ConfirmPublicVirtualInterface.html#ConfirmPublicVirtualInterfaceResponse"><span class="hs-identifier hs-type">ConfirmPublicVirtualInterfaceResponse</span></a></span></span><span>
 </span><span id="line-273"></span></pre></body></html>

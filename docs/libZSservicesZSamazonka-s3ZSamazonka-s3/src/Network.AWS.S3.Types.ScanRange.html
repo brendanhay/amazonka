@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- range.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newScanRange' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679552783"><span id="local-6989586621679552784"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanRange"><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-var">ScanRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanRange%27"><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-var">ScanRange'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679552893"><span id="local-6989586621679552894"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanRange"><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-var">ScanRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanRange%27"><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-var">ScanRange'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the start of the byte range. This parameter is optional. Valid</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- values: non-negative integers. The default value is 0. If only start is</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- supplied, it means scan from that point to the end of the file.For</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Aend%3AScanRange%27"><span class="annot"><span class="annottext">ScanRange -&gt; Maybe Integer
 </span><a href="Network.AWS.S3.Types.ScanRange.html#%24sel%3Aend%3AScanRange%27"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552776"><span id="local-6989586621679552778"><span class="annot"><span class="annottext">ScanRange -&gt; ScanRange -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552886"><span id="local-6989586621679552888"><span class="annot"><span class="annottext">ScanRange -&gt; ScanRange -&gt; Bool
 (ScanRange -&gt; ScanRange -&gt; Bool)
 -&gt; (ScanRange -&gt; ScanRange -&gt; Bool) -&gt; Eq ScanRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScanRange -&gt; ScanRange -&gt; Bool
 == :: ScanRange -&gt; ScanRange -&gt; Bool
 $c== :: ScanRange -&gt; ScanRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552767"><span id="local-6989586621679552769"><span id="local-6989586621679552771"><span id="local-6989586621679552773"><span class="annot"><span class="annottext">ReadPrec [ScanRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552877"><span id="local-6989586621679552879"><span id="local-6989586621679552881"><span id="local-6989586621679552883"><span class="annot"><span class="annottext">ReadPrec [ScanRange]
 ReadPrec ScanRange
 Int -&gt; ReadS ScanRange
 ReadS [ScanRange]
@@ -76,7 +76,7 @@ readList :: ReadS [ScanRange]
 $creadList :: ReadS [ScanRange]
 readsPrec :: Int -&gt; ReadS ScanRange
 $creadsPrec :: Int -&gt; ReadS ScanRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552760"><span id="local-6989586621679552762"><span id="local-6989586621679552764"><span class="annot"><span class="annottext">Int -&gt; ScanRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552870"><span id="local-6989586621679552872"><span id="local-6989586621679552874"><span class="annot"><span class="annottext">Int -&gt; ScanRange -&gt; ShowS
 [ScanRange] -&gt; ShowS
 ScanRange -&gt; String
 (Int -&gt; ScanRange -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; (ScanRange -&gt; Maybe Integer -&gt; ScanRange)
 -&gt; Lens ScanRange ScanRange (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552751"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552861"><span class="annot"><span class="annottext">Maybe Integer
 start :: Maybe Integer
 $sel:start:ScanRange' :: ScanRange -&gt; Maybe Integer
-</span><a href="#local-6989586621679552751"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552751"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552750"><span class="annot"><span class="annottext">s :: ScanRange
-</span><a href="#local-6989586621679552750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552749"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanRange
-</span><a href="#local-6989586621679552750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:ScanRange' :: Maybe Integer
+</span><a href="#local-6989586621679552861"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679552861"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552860"><span class="annot"><span class="annottext">s :: ScanRange
+</span><a href="#local-6989586621679552860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552859"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679552859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanRange
+</span><a href="#local-6989586621679552860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:ScanRange' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.ScanRange.html#%24sel%3Astart%3AScanRange%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Specifies the end of the byte range. This parameter is optional. Valid</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- values: non-negative integers. The default value is one less than the</span><span>
@@ -171,29 +171,29 @@ $sel:start:ScanRange' :: ScanRange -&gt; Maybe Integer
 -&gt; (ScanRange -&gt; Maybe Integer -&gt; ScanRange)
 -&gt; Lens ScanRange ScanRange (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552747"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552857"><span class="annot"><span class="annottext">Maybe Integer
 end :: Maybe Integer
 $sel:end:ScanRange' :: ScanRange -&gt; Maybe Integer
-</span><a href="#local-6989586621679552747"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552747"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552746"><span class="annot"><span class="annottext">s :: ScanRange
-</span><a href="#local-6989586621679552746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552745"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanRange
-</span><a href="#local-6989586621679552746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:ScanRange' :: Maybe Integer
+</span><a href="#local-6989586621679552857"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679552857"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552856"><span class="annot"><span class="annottext">s :: ScanRange
+</span><a href="#local-6989586621679552856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552855"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679552855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanRange
+</span><a href="#local-6989586621679552856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:ScanRange' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.ScanRange.html#%24sel%3Aend%3AScanRange%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552741"><span id="local-6989586621679552743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552851"><span id="local-6989586621679552853"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange"><span class="hs-identifier hs-type">ScanRange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679552734"><span class="annot"><span class="annottext">toXML :: ScanRange -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552731"><span id="local-6989586621679552732"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679552844"><span class="annot"><span class="annottext">toXML :: ScanRange -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ScanRange.html#ScanRange%27"><span class="hs-identifier hs-type">ScanRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552841"><span id="local-6989586621679552842"><span class="annot"><span class="annottext">Maybe Integer
 end :: Maybe Integer
 start :: Maybe Integer
 $sel:end:ScanRange' :: ScanRange -&gt; Maybe Integer
 $sel:start:ScanRange' :: ScanRange -&gt; Maybe Integer
-</span><a href="#local-6989586621679552731"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679552841"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -201,9 +201,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Start&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552732"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
+</span><a href="#local-6989586621679552842"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;End&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679552731"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679552841"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span></pre></body></html>

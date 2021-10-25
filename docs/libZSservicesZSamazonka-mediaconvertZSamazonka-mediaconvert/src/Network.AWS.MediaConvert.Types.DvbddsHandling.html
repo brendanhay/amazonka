@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">-- y-coordinate (ddsYCoordinate) to specify the offset between the top left</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- corner of the display window and the top left corner of the video frame.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- All burn-in and DVB-Sub font settings must match.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679958245"><span id="local-6989586621679958246"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbddsHandling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier hs-var">DvbddsHandling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbddsHandling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-identifier hs-var">DvbddsHandling'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679959564"><span id="local-6989586621679959565"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbddsHandling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling"><span class="hs-identifier hs-var">DvbddsHandling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbddsHandling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbddsHandling.html#DvbddsHandling%27"><span class="hs-identifier hs-var">DvbddsHandling'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbddsHandling"><span class="annot"><span class="annottext">DvbddsHandling -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DvbddsHandling.html#fromDvbddsHandling"><span class="hs-identifier hs-var hs-var">fromDvbddsHandling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958237"><span id="local-6989586621679958239"><span id="local-6989586621679958241"><span class="annot"><span class="annottext">Int -&gt; DvbddsHandling -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959556"><span id="local-6989586621679959558"><span id="local-6989586621679959560"><span class="annot"><span class="annottext">Int -&gt; DvbddsHandling -&gt; ShowS
 [DvbddsHandling] -&gt; ShowS
 DvbddsHandling -&gt; String
 (Int -&gt; DvbddsHandling -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: DvbddsHandling -&gt; String
 showsPrec :: Int -&gt; DvbddsHandling -&gt; ShowS
 $cshowsPrec :: Int -&gt; DvbddsHandling -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679958228"><span id="local-6989586621679958230"><span id="local-6989586621679958232"><span id="local-6989586621679958234"><span class="annot"><span class="annottext">ReadPrec [DvbddsHandling]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679959547"><span id="local-6989586621679959549"><span id="local-6989586621679959551"><span id="local-6989586621679959553"><span class="annot"><span class="annottext">ReadPrec [DvbddsHandling]
 ReadPrec DvbddsHandling
 Int -&gt; ReadS DvbddsHandling
 ReadS [DvbddsHandling]
@@ -88,7 +88,7 @@ $creadList :: ReadS [DvbddsHandling]
 readsPrec :: Int -&gt; ReadS DvbddsHandling
 $creadsPrec :: Int -&gt; ReadS DvbddsHandling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679958223"><span id="local-6989586621679958225"><span class="annot"><span class="annottext">DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679959542"><span id="local-6989586621679959544"><span class="annot"><span class="annottext">DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
 (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
 -&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool) -&gt; Eq DvbddsHandling
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ $c/= :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
 == :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
 $c== :: DvbddsHandling -&gt; DvbddsHandling -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679958207"><span id="local-6989586621679958209"><span id="local-6989586621679958211"><span id="local-6989586621679958213"><span id="local-6989586621679958215"><span id="local-6989586621679958217"><span id="local-6989586621679958219"><span class="annot"><span class="annottext">Eq DvbddsHandling
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679959526"><span id="local-6989586621679959528"><span id="local-6989586621679959530"><span id="local-6989586621679959532"><span id="local-6989586621679959534"><span id="local-6989586621679959536"><span id="local-6989586621679959538"><span class="annot"><span class="annottext">Eq DvbddsHandling
 Eq DvbddsHandling
 -&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Ordering)
 -&gt; (DvbddsHandling -&gt; DvbddsHandling -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. DvbddsHandling -&gt; Rep DvbddsHandling x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958199"><span id="local-6989586621679958201"><span class="annot"><span class="annottext">Int -&gt; DvbddsHandling -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679959518"><span id="local-6989586621679959520"><span class="annot"><span class="annottext">Int -&gt; DvbddsHandling -&gt; Int
 DvbddsHandling -&gt; Int
 (Int -&gt; DvbddsHandling -&gt; Int)
 -&gt; (DvbddsHandling -&gt; Int) -&gt; Hashable DvbddsHandling
@@ -158,50 +158,50 @@ $chash :: DvbddsHandling -&gt; Int
 hashWithSalt :: Int -&gt; DvbddsHandling -&gt; Int
 $chashWithSalt :: Int -&gt; DvbddsHandling -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679958196"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679959515"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ()
 (DvbddsHandling -&gt; ()) -&gt; NFData DvbddsHandling
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DvbddsHandling -&gt; ()
 $crnf :: DvbddsHandling -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679958193"><span class="annot"><span class="annottext">Text -&gt; Either String DvbddsHandling
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679959512"><span class="annot"><span class="annottext">Text -&gt; Either String DvbddsHandling
 (Text -&gt; Either String DvbddsHandling) -&gt; FromText DvbddsHandling
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DvbddsHandling
 $cfromText :: Text -&gt; Either String DvbddsHandling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679958190"><span class="annot"><span class="annottext">DvbddsHandling -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679959509"><span class="annot"><span class="annottext">DvbddsHandling -&gt; Text
 (DvbddsHandling -&gt; Text) -&gt; ToText DvbddsHandling
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DvbddsHandling -&gt; Text
 $ctoText :: DvbddsHandling -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679958187"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679959506"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ByteString
 (DvbddsHandling -&gt; ByteString) -&gt; ToByteString DvbddsHandling
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DvbddsHandling -&gt; ByteString
 $ctoBS :: DvbddsHandling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679958184"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679959503"><span class="annot"><span class="annottext">DvbddsHandling -&gt; ByteStringBuilder
 (DvbddsHandling -&gt; ByteStringBuilder) -&gt; ToLog DvbddsHandling
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DvbddsHandling -&gt; ByteStringBuilder
 $cbuild :: DvbddsHandling -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679958181"><span class="annot"><span class="annottext">HeaderName -&gt; DvbddsHandling -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679959500"><span class="annot"><span class="annottext">HeaderName -&gt; DvbddsHandling -&gt; [Header]
 (HeaderName -&gt; DvbddsHandling -&gt; [Header])
 -&gt; ToHeader DvbddsHandling
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DvbddsHandling -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DvbddsHandling -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679958178"><span class="annot"><span class="annottext">DvbddsHandling -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679959497"><span class="annot"><span class="annottext">DvbddsHandling -&gt; QueryString
 (DvbddsHandling -&gt; QueryString) -&gt; ToQuery DvbddsHandling
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DvbddsHandling -&gt; QueryString
 $ctoQuery :: DvbddsHandling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679958173"><span id="local-6989586621679958175"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbddsHandling]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679959492"><span id="local-6989586621679959494"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbddsHandling]
 Value -&gt; Parser DvbddsHandling
 (Value -&gt; Parser DvbddsHandling)
 -&gt; (Value -&gt; Parser [DvbddsHandling]) -&gt; FromJSON DvbddsHandling
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [DvbddsHandling]
 parseJSON :: Value -&gt; Parser DvbddsHandling
 $cparseJSON :: Value -&gt; Parser DvbddsHandling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679958168"><span id="local-6989586621679958170"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbddsHandling]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679959487"><span id="local-6989586621679959489"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbddsHandling]
 FromJSONKeyFunction DvbddsHandling
 FromJSONKeyFunction DvbddsHandling
 -&gt; FromJSONKeyFunction [DvbddsHandling]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DvbddsHandling]
 fromJSONKey :: FromJSONKeyFunction DvbddsHandling
 $cfromJSONKey :: FromJSONKeyFunction DvbddsHandling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679958159"><span id="local-6989586621679958161"><span id="local-6989586621679958163"><span id="local-6989586621679958165"><span class="annot"><span class="annottext">[DvbddsHandling] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679959478"><span id="local-6989586621679959480"><span id="local-6989586621679959482"><span id="local-6989586621679959484"><span class="annot"><span class="annottext">[DvbddsHandling] -&gt; Encoding
 [DvbddsHandling] -&gt; Value
 DvbddsHandling -&gt; Encoding
 DvbddsHandling -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: DvbddsHandling -&gt; Encoding
 toJSON :: DvbddsHandling -&gt; Value
 $ctoJSON :: DvbddsHandling -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679958154"><span id="local-6989586621679958156"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbddsHandling]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679959473"><span id="local-6989586621679959475"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbddsHandling]
 ToJSONKeyFunction DvbddsHandling
 ToJSONKeyFunction DvbddsHandling
 -&gt; ToJSONKeyFunction [DvbddsHandling] -&gt; ToJSONKey DvbddsHandling
@@ -259,13 +259,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DvbddsHandling]
 toJSONKey :: ToJSONKeyFunction DvbddsHandling
 $ctoJSONKey :: ToJSONKeyFunction DvbddsHandling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679958151"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbddsHandling
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679959470"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbddsHandling
 ([Node] -&gt; Either String DvbddsHandling) -&gt; FromXML DvbddsHandling
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DvbddsHandling
 $cparseXML :: [Node] -&gt; Either String DvbddsHandling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679958148"><span class="annot"><span class="annottext">DvbddsHandling -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679959467"><span class="annot"><span class="annottext">DvbddsHandling -&gt; XML
 (DvbddsHandling -&gt; XML) -&gt; ToXML DvbddsHandling
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DvbddsHandling -&gt; XML

@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetBucketOwnershipControls' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679575596"><span id="local-6989586621679575597"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketOwnershipControls"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-var">GetBucketOwnershipControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketOwnershipControls%27"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-var">GetBucketOwnershipControls'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679575743"><span id="local-6989586621679575744"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketOwnershipControls"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-var">GetBucketOwnershipControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketOwnershipControls%27"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-var">GetBucketOwnershipControls'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Abucket%3AGetBucketOwnershipControls%27"><span class="annot"><span class="annottext">GetBucketOwnershipControls -&gt; BucketName
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3Abucket%3AGetBucketOwnershipControls%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575589"><span id="local-6989586621679575591"><span class="annot"><span class="annottext">GetBucketOwnershipControls -&gt; GetBucketOwnershipControls -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575736"><span id="local-6989586621679575738"><span class="annot"><span class="annottext">GetBucketOwnershipControls -&gt; GetBucketOwnershipControls -&gt; Bool
 (GetBucketOwnershipControls -&gt; GetBucketOwnershipControls -&gt; Bool)
 -&gt; (GetBucketOwnershipControls
     -&gt; GetBucketOwnershipControls -&gt; Bool)
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBucketOwnershipControls -&gt; GetBucketOwnershipControls -&gt; Bool
 == :: GetBucketOwnershipControls -&gt; GetBucketOwnershipControls -&gt; Bool
 $c== :: GetBucketOwnershipControls -&gt; GetBucketOwnershipControls -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575580"><span id="local-6989586621679575582"><span id="local-6989586621679575584"><span id="local-6989586621679575586"><span class="annot"><span class="annottext">ReadPrec [GetBucketOwnershipControls]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575727"><span id="local-6989586621679575729"><span id="local-6989586621679575731"><span id="local-6989586621679575733"><span class="annot"><span class="annottext">ReadPrec [GetBucketOwnershipControls]
 ReadPrec GetBucketOwnershipControls
 Int -&gt; ReadS GetBucketOwnershipControls
 ReadS [GetBucketOwnershipControls]
@@ -101,7 +101,7 @@ readList :: ReadS [GetBucketOwnershipControls]
 $creadList :: ReadS [GetBucketOwnershipControls]
 readsPrec :: Int -&gt; ReadS GetBucketOwnershipControls
 $creadsPrec :: Int -&gt; ReadS GetBucketOwnershipControls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575573"><span id="local-6989586621679575575"><span id="local-6989586621679575577"><span class="annot"><span class="annottext">Int -&gt; GetBucketOwnershipControls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575720"><span id="local-6989586621679575722"><span id="local-6989586621679575724"><span class="annot"><span class="annottext">Int -&gt; GetBucketOwnershipControls -&gt; ShowS
 [GetBucketOwnershipControls] -&gt; ShowS
 GetBucketOwnershipControls -&gt; String
 (Int -&gt; GetBucketOwnershipControls -&gt; ShowS)
@@ -152,8 +152,8 @@ GetBucketOwnershipControls -&gt; Rep GetBucketOwnershipControls x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span>
 </span><span id="line-92"></span><span id="newGetBucketOwnershipControls"><span class="annot"><span class="annottext">newGetBucketOwnershipControls :: BucketName -&gt; GetBucketOwnershipControls
-</span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#newGetBucketOwnershipControls"><span class="hs-identifier hs-var hs-var">newGetBucketOwnershipControls</span></a></span></span><span> </span><span id="local-6989586621679575568"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575568"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#newGetBucketOwnershipControls"><span class="hs-identifier hs-var hs-var">newGetBucketOwnershipControls</span></a></span></span><span> </span><span id="local-6989586621679575715"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679575715"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">GetBucketOwnershipControls' :: Maybe Text -&gt; BucketName -&gt; GetBucketOwnershipControls
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketOwnershipControls' :: Maybe Text
@@ -163,7 +163,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetBucketOwnershipControls' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3Abucket%3AGetBucketOwnershipControls%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575568"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679575715"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575565"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575712"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetBucketOwnershipControls' :: GetBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679575565"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575565"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575564"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControls
-</span><a href="#local-6989586621679575564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControls
-</span><a href="#local-6989586621679575564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketOwnershipControls' :: Maybe Text
+</span><a href="#local-6989586621679575712"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575712"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575711"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControls
+</span><a href="#local-6989586621679575711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControls
+</span><a href="#local-6989586621679575711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetBucketOwnershipControls' :: Maybe Text
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3AGetBucketOwnershipControls%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- retrieve.</span><span>
@@ -206,22 +206,22 @@ $sel:expectedBucketOwner:GetBucketOwnershipControls' :: GetBucketOwnershipContro
      BucketName
      BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575562"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575709"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetBucketOwnershipControls' :: GetBucketOwnershipControls -&gt; BucketName
-</span><a href="#local-6989586621679575562"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575562"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575561"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControls
-</span><a href="#local-6989586621679575561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575560"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControls
-</span><a href="#local-6989586621679575561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketOwnershipControls' :: BucketName
+</span><a href="#local-6989586621679575709"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679575709"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575708"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControls
+</span><a href="#local-6989586621679575708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575707"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679575707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControls
+</span><a href="#local-6989586621679575708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetBucketOwnershipControls' :: BucketName
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3Abucket%3AGetBucketOwnershipControls%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679575556"><span class="annot"><span class="annottext">request :: GetBucketOwnershipControls -&gt; Request GetBucketOwnershipControls
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679575703"><span class="annot"><span class="annottext">request :: GetBucketOwnershipControls -&gt; Request GetBucketOwnershipControls
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Request GetBucketOwnershipControls
 -&gt; Request GetBucketOwnershipControls
@@ -239,7 +239,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679575550"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679575697"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBucketOwnershipControls
 -&gt; ClientResponse ClientBody
@@ -265,10 +265,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679575547"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575547"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679575546"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679575546"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679575545"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679575545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679575694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575694"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679575693"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679575693"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679575692"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679575692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe OwnershipControls
 -&gt; Int -&gt; GetBucketOwnershipControlsResponse
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">GetBucketOwnershipControlsResponse'</span></a></span><span>
@@ -280,7 +280,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe OwnershipControls)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679575545"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575692"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBucketOwnershipControlsResponse)
 -&gt; Either String Int
 -&gt; Either String GetBucketOwnershipControlsResponse
@@ -290,22 +290,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575547"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575694"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575537"><span id="local-6989586621679575539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575684"><span id="local-6989586621679575686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679575530"><span class="annot"><span class="annottext">toHeaders :: GetBucketOwnershipControls -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575527"><span id="local-6989586621679575528"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679575677"><span class="annot"><span class="annottext">toHeaders :: GetBucketOwnershipControls -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575674"><span id="local-6989586621679575675"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketOwnershipControls' :: GetBucketOwnershipControls -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketOwnershipControls' :: GetBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679575527"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679575674"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -314,28 +314,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679575528"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679575675"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679575523"><span class="annot"><span class="annottext">toPath :: GetBucketOwnershipControls -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575520"><span id="local-6989586621679575521"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679575670"><span class="annot"><span class="annottext">toPath :: GetBucketOwnershipControls -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls%27"><span class="hs-identifier hs-type">GetBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575667"><span id="local-6989586621679575668"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:GetBucketOwnershipControls' :: GetBucketOwnershipControls -&gt; BucketName
 $sel:expectedBucketOwner:GetBucketOwnershipControls' :: GetBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679575520"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679575667"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679575520"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679575667"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControls"><span class="hs-identifier hs-type">GetBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679575516"><span class="annot"><span class="annottext">toQuery :: GetBucketOwnershipControls -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679575663"><span class="annot"><span class="annottext">toQuery :: GetBucketOwnershipControls -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetBucketOwnershipControls -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -346,7 +346,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ownershipControls&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newGetBucketOwnershipControlsResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679575512"><span id="local-6989586621679575513"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketOwnershipControlsResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-var">GetBucketOwnershipControlsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketOwnershipControlsResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">GetBucketOwnershipControlsResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679575659"><span id="local-6989586621679575660"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBucketOwnershipControlsResponse"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-var">GetBucketOwnershipControlsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBucketOwnershipControlsResponse%27"><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">GetBucketOwnershipControlsResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- in effect for this Amazon S3 bucket.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AownershipControls%3AGetBucketOwnershipControlsResponse%27"><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse -&gt; Maybe OwnershipControls
@@ -355,7 +355,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBucketOwnershipControlsResponse%27"><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3AhttpStatus%3AGetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575506"><span id="local-6989586621679575508"><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575653"><span id="local-6989586621679575655"><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse
 -&gt; GetBucketOwnershipControlsResponse -&gt; Bool
 (GetBucketOwnershipControlsResponse
  -&gt; GetBucketOwnershipControlsResponse -&gt; Bool)
@@ -371,7 +371,7 @@ $c/= :: GetBucketOwnershipControlsResponse
 -&gt; GetBucketOwnershipControlsResponse -&gt; Bool
 $c== :: GetBucketOwnershipControlsResponse
 -&gt; GetBucketOwnershipControlsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575498"><span id="local-6989586621679575500"><span id="local-6989586621679575502"><span id="local-6989586621679575504"><span class="annot"><span class="annottext">ReadPrec [GetBucketOwnershipControlsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575645"><span id="local-6989586621679575647"><span id="local-6989586621679575649"><span id="local-6989586621679575651"><span class="annot"><span class="annottext">ReadPrec [GetBucketOwnershipControlsResponse]
 ReadPrec GetBucketOwnershipControlsResponse
 Int -&gt; ReadS GetBucketOwnershipControlsResponse
 ReadS [GetBucketOwnershipControlsResponse]
@@ -391,7 +391,7 @@ readList :: ReadS [GetBucketOwnershipControlsResponse]
 $creadList :: ReadS [GetBucketOwnershipControlsResponse]
 readsPrec :: Int -&gt; ReadS GetBucketOwnershipControlsResponse
 $creadsPrec :: Int -&gt; ReadS GetBucketOwnershipControlsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575492"><span id="local-6989586621679575494"><span id="local-6989586621679575496"><span class="annot"><span class="annottext">Int -&gt; GetBucketOwnershipControlsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575639"><span id="local-6989586621679575641"><span id="local-6989586621679575643"><span class="annot"><span class="annottext">Int -&gt; GetBucketOwnershipControlsResponse -&gt; ShowS
 [GetBucketOwnershipControlsResponse] -&gt; ShowS
 GetBucketOwnershipControlsResponse -&gt; String
 (Int -&gt; GetBucketOwnershipControlsResponse -&gt; ShowS)
@@ -446,8 +446,8 @@ GetBucketOwnershipControlsResponse
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newGetBucketOwnershipControlsResponse"><span class="annot"><span class="annottext">newGetBucketOwnershipControlsResponse :: Int -&gt; GetBucketOwnershipControlsResponse
-</span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#newGetBucketOwnershipControlsResponse"><span class="hs-identifier hs-var hs-var">newGetBucketOwnershipControlsResponse</span></a></span></span><span> </span><span id="local-6989586621679575489"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575489"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#newGetBucketOwnershipControlsResponse"><span class="hs-identifier hs-var hs-var">newGetBucketOwnershipControlsResponse</span></a></span></span><span> </span><span id="local-6989586621679575636"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse' :: Maybe OwnershipControls
 -&gt; Int -&gt; GetBucketOwnershipControlsResponse
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span>
@@ -458,7 +458,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketOwnershipControlsResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3AhttpStatus%3AGetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575489"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679575636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently</span><span>
@@ -476,16 +476,16 @@ forall a. Maybe a
      (Maybe OwnershipControls)
      (Maybe OwnershipControls)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575488"><span class="annot"><span class="annottext">Maybe OwnershipControls
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575635"><span class="annot"><span class="annottext">Maybe OwnershipControls
 ownershipControls :: Maybe OwnershipControls
 $sel:ownershipControls:GetBucketOwnershipControlsResponse' :: GetBucketOwnershipControlsResponse -&gt; Maybe OwnershipControls
-</span><a href="#local-6989586621679575488"><span class="hs-identifier hs-var hs-var">ownershipControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OwnershipControls
-</span><a href="#local-6989586621679575488"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575487"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControlsResponse
-</span><a href="#local-6989586621679575487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575486"><span class="annot"><span class="annottext">Maybe OwnershipControls
-</span><a href="#local-6989586621679575486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse
-</span><a href="#local-6989586621679575487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownershipControls:GetBucketOwnershipControlsResponse' :: Maybe OwnershipControls
+</span><a href="#local-6989586621679575635"><span class="hs-identifier hs-var hs-var">ownershipControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OwnershipControls
+</span><a href="#local-6989586621679575635"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575634"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControlsResponse
+</span><a href="#local-6989586621679575634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575633"><span class="annot"><span class="annottext">Maybe OwnershipControls
+</span><a href="#local-6989586621679575633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse
+</span><a href="#local-6989586621679575634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownershipControls:GetBucketOwnershipControlsResponse' :: Maybe OwnershipControls
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3AownershipControls%3AGetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OwnershipControls
-</span><a href="#local-6989586621679575486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#getBucketOwnershipControlsResponse_httpStatus"><span class="hs-identifier hs-type">getBucketOwnershipControlsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -501,18 +501,18 @@ $sel:ownershipControls:GetBucketOwnershipControlsResponse' :: GetBucketOwnership
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575485"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575632"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBucketOwnershipControlsResponse' :: GetBucketOwnershipControlsResponse -&gt; Int
-</span><a href="#local-6989586621679575485"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575485"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575484"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControlsResponse
-</span><a href="#local-6989586621679575484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575483"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse
-</span><a href="#local-6989586621679575484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketOwnershipControlsResponse' :: Int
+</span><a href="#local-6989586621679575632"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575632"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575631"><span class="annot"><span class="annottext">s :: GetBucketOwnershipControlsResponse
+</span><a href="#local-6989586621679575631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575630"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBucketOwnershipControlsResponse
+</span><a href="#local-6989586621679575631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBucketOwnershipControlsResponse' :: Int
 </span><a href="Network.AWS.S3.GetBucketOwnershipControls.html#%24sel%3AhttpStatus%3AGetBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679575483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679575630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679575481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679575628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetBucketOwnershipControls.html#GetBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">GetBucketOwnershipControlsResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

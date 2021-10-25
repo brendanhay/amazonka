@@ -76,7 +76,7 @@
 </span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | /See:/ 'newPutBucketEncryption' smart constructor.</span><span>
-</span><span id="line-79"></span><span id="local-6989586621679566990"><span id="local-6989586621679566991"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketEncryption"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-var">PutBucketEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketEncryption%27"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-var">PutBucketEncryption'</span></a></span></span><span>
+</span><span id="line-79"></span><span id="local-6989586621679567100"><span id="local-6989586621679567101"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketEncryption"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-var">PutBucketEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketEncryption%27"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-var">PutBucketEncryption'</span></a></span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the server-side encryption</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -100,7 +100,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3AserverSideEncryptionConfiguration%3APutBucketEncryption%27"><span class="annot"><span class="annottext">PutBucketEncryption -&gt; ServerSideEncryptionConfiguration
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3AserverSideEncryptionConfiguration%3APutBucketEncryption%27"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566981"><span id="local-6989586621679566983"><span class="annot"><span class="annottext">PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679567091"><span id="local-6989586621679567093"><span class="annot"><span class="annottext">PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool
 (PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool)
 -&gt; (PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool)
 -&gt; Eq PutBucketEncryption
@@ -109,7 +109,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool
 == :: PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool
 $c== :: PutBucketEncryption -&gt; PutBucketEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566974"><span id="local-6989586621679566976"><span id="local-6989586621679566978"><span class="annot"><span class="annottext">Int -&gt; PutBucketEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567084"><span id="local-6989586621679567086"><span id="local-6989586621679567088"><span class="annot"><span class="annottext">Int -&gt; PutBucketEncryption -&gt; ShowS
 [PutBucketEncryption] -&gt; ShowS
 PutBucketEncryption -&gt; String
 (Int -&gt; PutBucketEncryption -&gt; ShowS)
@@ -170,10 +170,10 @@ $cfrom :: forall x. PutBucketEncryption -&gt; Rep PutBucketEncryption x
 </span><span id="line-133"></span><span id="newPutBucketEncryption"><span class="annot"><span class="annottext">newPutBucketEncryption :: BucketName
 -&gt; ServerSideEncryptionConfiguration -&gt; PutBucketEncryption
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#newPutBucketEncryption"><span class="hs-identifier hs-var hs-var">newPutBucketEncryption</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679566969"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679566969"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679566968"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566968"><span class="hs-identifier hs-var">pServerSideEncryptionConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679567079"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567079"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679567078"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679567078"><span class="hs-identifier hs-var">pServerSideEncryptionConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">PutBucketEncryption' :: Maybe Text
 -&gt; Maybe Text
 -&gt; BucketName
@@ -190,11 +190,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketEncryption' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3Abucket%3APutBucketEncryption%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679566969"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679567079"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: ServerSideEncryptionConfiguration
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3AserverSideEncryptionConfiguration%3APutBucketEncryption%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566968"><span class="hs-identifier hs-var">pServerSideEncryptionConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679567078"><span class="hs-identifier hs-var">pServerSideEncryptionConfiguration_</span></a></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The base64-encoded 128-bit MD5 digest of the server-side encryption</span><span>
@@ -211,16 +211,16 @@ forall a. Maybe a
 -&gt; Lens
      PutBucketEncryption PutBucketEncryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566965"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567075"><span class="annot"><span class="annottext">Maybe Text
 contentMD5 :: Maybe Text
 $sel:contentMD5:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679566965"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566965"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566964"><span class="annot"><span class="annottext">s :: PutBucketEncryption
-</span><a href="#local-6989586621679566964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566963"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
-</span><a href="#local-6989586621679566964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketEncryption' :: Maybe Text
+</span><a href="#local-6989586621679567075"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567075"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567074"><span class="annot"><span class="annottext">s :: PutBucketEncryption
+</span><a href="#local-6989586621679567074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
+</span><a href="#local-6989586621679567074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketEncryption' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3AcontentMD5%3APutBucketEncryption%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679567073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -233,16 +233,16 @@ $sel:contentMD5:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
 -&gt; Lens
      PutBucketEncryption PutBucketEncryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567072"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679566962"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566962"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566961"><span class="annot"><span class="annottext">s :: PutBucketEncryption
-</span><a href="#local-6989586621679566961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
-</span><a href="#local-6989586621679566961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketEncryption' :: Maybe Text
+</span><a href="#local-6989586621679567072"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567072"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567071"><span class="annot"><span class="annottext">s :: PutBucketEncryption
+</span><a href="#local-6989586621679567071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
+</span><a href="#local-6989586621679567071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketEncryption' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3AexpectedBucketOwner%3APutBucketEncryption%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679567070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Specifies default encryption for a bucket using server-side encryption</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).</span><span>
@@ -257,16 +257,16 @@ $sel:expectedBucketOwner:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe
 -&gt; Lens
      PutBucketEncryption PutBucketEncryption BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566959"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567069"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:PutBucketEncryption' :: PutBucketEncryption -&gt; BucketName
-</span><a href="#local-6989586621679566959"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679566959"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566958"><span class="annot"><span class="annottext">s :: PutBucketEncryption
-</span><a href="#local-6989586621679566958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566957"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679566957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
-</span><a href="#local-6989586621679566958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketEncryption' :: BucketName
+</span><a href="#local-6989586621679567069"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567069"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567068"><span class="annot"><span class="annottext">s :: PutBucketEncryption
+</span><a href="#local-6989586621679567068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567067"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
+</span><a href="#local-6989586621679567068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketEncryption' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3Abucket%3APutBucketEncryption%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679566957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679567067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#putBucketEncryption_serverSideEncryptionConfiguration"><span class="hs-identifier hs-type">putBucketEncryption_serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier hs-type">ServerSideEncryptionConfiguration</span></a></span><span>
@@ -282,22 +282,22 @@ $sel:bucket:PutBucketEncryption' :: PutBucketEncryption -&gt; BucketName
      ServerSideEncryptionConfiguration
      ServerSideEncryptionConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566956"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567066"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
 serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
 $sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: PutBucketEncryption -&gt; ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566956"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566956"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566955"><span class="annot"><span class="annottext">s :: PutBucketEncryption
-</span><a href="#local-6989586621679566955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566954"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
-</span><a href="#local-6989586621679566955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679567066"><span class="hs-identifier hs-var hs-var">serverSideEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679567066"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567065"><span class="annot"><span class="annottext">s :: PutBucketEncryption
+</span><a href="#local-6989586621679567065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567064"><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
+</span><a href="#local-6989586621679567064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketEncryption
+</span><a href="#local-6989586621679567065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: ServerSideEncryptionConfiguration
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#%24sel%3AserverSideEncryptionConfiguration%3APutBucketEncryption%27"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679567064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-173"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse"><span class="hs-identifier hs-type">PutBucketEncryptionResponse</span></a></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679566950"><span class="annot"><span class="annottext">request :: PutBucketEncryption -&gt; Request PutBucketEncryption
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679567060"><span class="annot"><span class="annottext">request :: PutBucketEncryption -&gt; Request PutBucketEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketEncryption -&gt; Request PutBucketEncryption
 forall a. Request a -&gt; Request a
@@ -311,7 +311,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679566944"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679567054"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutBucketEncryption
 -&gt; ClientResponse ClientBody
@@ -337,13 +337,13 @@ AWSResponse a
 PutBucketEncryptionResponse
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse%27"><span class="hs-identifier hs-var">PutBucketEncryptionResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566937"><span id="local-6989586621679566939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567047"><span id="local-6989586621679567049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679567044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679566930"><span class="annot"><span class="annottext">toElement :: PutBucketEncryption -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566925"><span id="local-6989586621679566926"><span id="local-6989586621679566927"><span id="local-6989586621679566928"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679567040"><span class="annot"><span class="annottext">toElement :: PutBucketEncryption -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567035"><span id="local-6989586621679567036"><span id="local-6989586621679567037"><span id="local-6989586621679567038"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 ServerSideEncryptionConfiguration
 serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
@@ -354,18 +354,18 @@ $sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: PutBucketEncrypti
 $sel:bucket:PutBucketEncryption' :: PutBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
 $sel:contentMD5:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679566925"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679567035"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; ServerSideEncryptionConfiguration -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}ServerSideEncryptionConfiguration&quot;</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">ServerSideEncryptionConfiguration
-</span><a href="#local-6989586621679566925"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679567035"><span class="hs-identifier hs-var">serverSideEncryptionConfiguration</span></a></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679566921"><span class="annot"><span class="annottext">toHeaders :: PutBucketEncryption -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566916"><span id="local-6989586621679566917"><span id="local-6989586621679566918"><span id="local-6989586621679566919"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679567031"><span class="annot"><span class="annottext">toHeaders :: PutBucketEncryption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567026"><span id="local-6989586621679567027"><span id="local-6989586621679567028"><span id="local-6989586621679567029"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 ServerSideEncryptionConfiguration
 serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
@@ -376,7 +376,7 @@ $sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: PutBucketEncrypti
 $sel:bucket:PutBucketEncryption' :: PutBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
 $sel:contentMD5:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679566916"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679567026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -384,18 +384,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Content-MD5&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566919"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679567029"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679566918"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679567028"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679566912"><span class="annot"><span class="annottext">toPath :: PutBucketEncryption -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566907"><span id="local-6989586621679566908"><span id="local-6989586621679566909"><span id="local-6989586621679566910"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679567022"><span class="annot"><span class="annottext">toPath :: PutBucketEncryption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption%27"><span class="hs-identifier hs-type">PutBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567017"><span id="local-6989586621679567018"><span id="local-6989586621679567019"><span id="local-6989586621679567020"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 ServerSideEncryptionConfiguration
 serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
@@ -406,17 +406,17 @@ $sel:serverSideEncryptionConfiguration:PutBucketEncryption' :: PutBucketEncrypti
 $sel:bucket:PutBucketEncryption' :: PutBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
 $sel:contentMD5:PutBucketEncryption' :: PutBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679566907"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679567017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679566908"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679567018"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryption"><span class="hs-identifier hs-type">PutBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679566903"><span class="annot"><span class="annottext">toQuery :: PutBucketEncryption -&gt; QueryString
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679567013"><span class="annot"><span class="annottext">toQuery :: PutBucketEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketEncryption -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -426,10 +426,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | /See:/ 'newPutBucketEncryptionResponse' smart constructor.</span><span>
-</span><span id="line-208"></span><span id="local-6989586621679566899"><span id="local-6989586621679566900"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketEncryptionResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse"><span class="hs-identifier hs-var">PutBucketEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketEncryptionResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse%27"><span class="hs-identifier hs-var">PutBucketEncryptionResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span id="local-6989586621679567009"><span id="local-6989586621679567010"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketEncryptionResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse"><span class="hs-identifier hs-var">PutBucketEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketEncryptionResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse%27"><span class="hs-identifier hs-var">PutBucketEncryptionResponse'</span></a></span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566895"><span id="local-6989586621679566897"><span class="annot"><span class="annottext">PutBucketEncryptionResponse -&gt; PutBucketEncryptionResponse -&gt; Bool
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679567005"><span id="local-6989586621679567007"><span class="annot"><span class="annottext">PutBucketEncryptionResponse -&gt; PutBucketEncryptionResponse -&gt; Bool
 (PutBucketEncryptionResponse
  -&gt; PutBucketEncryptionResponse -&gt; Bool)
 -&gt; (PutBucketEncryptionResponse
@@ -440,7 +440,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutBucketEncryptionResponse -&gt; PutBucketEncryptionResponse -&gt; Bool
 == :: PutBucketEncryptionResponse -&gt; PutBucketEncryptionResponse -&gt; Bool
 $c== :: PutBucketEncryptionResponse -&gt; PutBucketEncryptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566887"><span id="local-6989586621679566889"><span id="local-6989586621679566891"><span id="local-6989586621679566893"><span class="annot"><span class="annottext">ReadPrec [PutBucketEncryptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566997"><span id="local-6989586621679566999"><span id="local-6989586621679567001"><span id="local-6989586621679567003"><span class="annot"><span class="annottext">ReadPrec [PutBucketEncryptionResponse]
 ReadPrec PutBucketEncryptionResponse
 Int -&gt; ReadS PutBucketEncryptionResponse
 ReadS [PutBucketEncryptionResponse]
@@ -460,7 +460,7 @@ readList :: ReadS [PutBucketEncryptionResponse]
 $creadList :: ReadS [PutBucketEncryptionResponse]
 readsPrec :: Int -&gt; ReadS PutBucketEncryptionResponse
 $creadsPrec :: Int -&gt; ReadS PutBucketEncryptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566880"><span id="local-6989586621679566882"><span id="local-6989586621679566884"><span class="annot"><span class="annottext">Int -&gt; PutBucketEncryptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566990"><span id="local-6989586621679566992"><span id="local-6989586621679566994"><span class="annot"><span class="annottext">Int -&gt; PutBucketEncryptionResponse -&gt; ShowS
 [PutBucketEncryptionResponse] -&gt; ShowS
 PutBucketEncryptionResponse -&gt; String
 (Int -&gt; PutBucketEncryptionResponse -&gt; ShowS)
@@ -503,5 +503,5 @@ PutBucketEncryptionResponse -&gt; Rep PutBucketEncryptionResponse x
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">PutBucketEncryptionResponse
 </span><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse%27"><span class="hs-identifier hs-var">PutBucketEncryptionResponse'</span></a></span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse"><span class="hs-identifier hs-type">PutBucketEncryptionResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679566986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketEncryption.html#PutBucketEncryptionResponse"><span class="hs-identifier hs-type">PutBucketEncryptionResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

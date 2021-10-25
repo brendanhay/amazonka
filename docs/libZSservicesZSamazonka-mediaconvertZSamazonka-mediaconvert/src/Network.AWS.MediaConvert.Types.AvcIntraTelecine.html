@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- the default value, None (NONE), MediaConvert does a standard frame rate</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- conversion to 29.97 without doing anything with the field polarity to</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- create a smoother picture.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679944193"><span id="local-6989586621679944194"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine"><span class="hs-identifier hs-var">AvcIntraTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine%27"><span class="hs-identifier hs-var">AvcIntraTelecine'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679945512"><span id="local-6989586621679945513"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine"><span class="hs-identifier hs-var">AvcIntraTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#AvcIntraTelecine%27"><span class="hs-identifier hs-var">AvcIntraTelecine'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraTelecine"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraTelecine.html#fromAvcIntraTelecine"><span class="hs-identifier hs-var hs-var">fromAvcIntraTelecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944185"><span id="local-6989586621679944187"><span id="local-6989586621679944189"><span class="annot"><span class="annottext">Int -&gt; AvcIntraTelecine -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945504"><span id="local-6989586621679945506"><span id="local-6989586621679945508"><span class="annot"><span class="annottext">Int -&gt; AvcIntraTelecine -&gt; ShowS
 [AvcIntraTelecine] -&gt; ShowS
 AvcIntraTelecine -&gt; String
 (Int -&gt; AvcIntraTelecine -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: AvcIntraTelecine -&gt; String
 showsPrec :: Int -&gt; AvcIntraTelecine -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvcIntraTelecine -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679944176"><span id="local-6989586621679944178"><span id="local-6989586621679944180"><span id="local-6989586621679944182"><span class="annot"><span class="annottext">ReadPrec [AvcIntraTelecine]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679945495"><span id="local-6989586621679945497"><span id="local-6989586621679945499"><span id="local-6989586621679945501"><span class="annot"><span class="annottext">ReadPrec [AvcIntraTelecine]
 ReadPrec AvcIntraTelecine
 Int -&gt; ReadS AvcIntraTelecine
 ReadS [AvcIntraTelecine]
@@ -78,7 +78,7 @@ $creadList :: ReadS [AvcIntraTelecine]
 readsPrec :: Int -&gt; ReadS AvcIntraTelecine
 $creadsPrec :: Int -&gt; ReadS AvcIntraTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679944171"><span id="local-6989586621679944173"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679945490"><span id="local-6989586621679945492"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
 (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
 -&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
 -&gt; Eq AvcIntraTelecine
@@ -88,7 +88,7 @@ $c/= :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
 == :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
 $c== :: AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679944155"><span id="local-6989586621679944157"><span id="local-6989586621679944159"><span id="local-6989586621679944161"><span id="local-6989586621679944163"><span id="local-6989586621679944165"><span id="local-6989586621679944167"><span class="annot"><span class="annottext">Eq AvcIntraTelecine
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679945474"><span id="local-6989586621679945476"><span id="local-6989586621679945478"><span id="local-6989586621679945480"><span id="local-6989586621679945482"><span id="local-6989586621679945484"><span id="local-6989586621679945486"><span class="annot"><span class="annottext">Eq AvcIntraTelecine
 Eq AvcIntraTelecine
 -&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Ordering)
 -&gt; (AvcIntraTelecine -&gt; AvcIntraTelecine -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. AvcIntraTelecine -&gt; Rep AvcIntraTelecine x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944147"><span id="local-6989586621679944149"><span class="annot"><span class="annottext">Int -&gt; AvcIntraTelecine -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945466"><span id="local-6989586621679945468"><span class="annot"><span class="annottext">Int -&gt; AvcIntraTelecine -&gt; Int
 AvcIntraTelecine -&gt; Int
 (Int -&gt; AvcIntraTelecine -&gt; Int)
 -&gt; (AvcIntraTelecine -&gt; Int) -&gt; Hashable AvcIntraTelecine
@@ -149,51 +149,51 @@ $chash :: AvcIntraTelecine -&gt; Int
 hashWithSalt :: Int -&gt; AvcIntraTelecine -&gt; Int
 $chashWithSalt :: Int -&gt; AvcIntraTelecine -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679944144"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679945463"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ()
 (AvcIntraTelecine -&gt; ()) -&gt; NFData AvcIntraTelecine
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvcIntraTelecine -&gt; ()
 $crnf :: AvcIntraTelecine -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679944141"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraTelecine
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679945460"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraTelecine
 (Text -&gt; Either String AvcIntraTelecine)
 -&gt; FromText AvcIntraTelecine
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvcIntraTelecine
 $cfromText :: Text -&gt; Either String AvcIntraTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679944138"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679945457"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; Text
 (AvcIntraTelecine -&gt; Text) -&gt; ToText AvcIntraTelecine
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvcIntraTelecine -&gt; Text
 $ctoText :: AvcIntraTelecine -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679944135"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679945454"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ByteString
 (AvcIntraTelecine -&gt; ByteString) -&gt; ToByteString AvcIntraTelecine
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvcIntraTelecine -&gt; ByteString
 $ctoBS :: AvcIntraTelecine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679944132"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679945451"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; ByteStringBuilder
 (AvcIntraTelecine -&gt; ByteStringBuilder) -&gt; ToLog AvcIntraTelecine
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvcIntraTelecine -&gt; ByteStringBuilder
 $cbuild :: AvcIntraTelecine -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679944129"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945448"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
 (HeaderName -&gt; AvcIntraTelecine -&gt; [Header])
 -&gt; ToHeader AvcIntraTelecine
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvcIntraTelecine -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679944126"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945445"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; QueryString
 (AvcIntraTelecine -&gt; QueryString) -&gt; ToQuery AvcIntraTelecine
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvcIntraTelecine -&gt; QueryString
 $ctoQuery :: AvcIntraTelecine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679944121"><span id="local-6989586621679944123"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraTelecine]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945440"><span id="local-6989586621679945442"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraTelecine]
 Value -&gt; Parser AvcIntraTelecine
 (Value -&gt; Parser AvcIntraTelecine)
 -&gt; (Value -&gt; Parser [AvcIntraTelecine])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [AvcIntraTelecine]
 parseJSON :: Value -&gt; Parser AvcIntraTelecine
 $cparseJSON :: Value -&gt; Parser AvcIntraTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679944116"><span id="local-6989586621679944118"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraTelecine]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945435"><span id="local-6989586621679945437"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraTelecine]
 FromJSONKeyFunction AvcIntraTelecine
 FromJSONKeyFunction AvcIntraTelecine
 -&gt; FromJSONKeyFunction [AvcIntraTelecine]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraTelecine]
 fromJSONKey :: FromJSONKeyFunction AvcIntraTelecine
 $cfromJSONKey :: FromJSONKeyFunction AvcIntraTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679944107"><span id="local-6989586621679944109"><span id="local-6989586621679944111"><span id="local-6989586621679944113"><span class="annot"><span class="annottext">[AvcIntraTelecine] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679945426"><span id="local-6989586621679945428"><span id="local-6989586621679945430"><span id="local-6989586621679945432"><span class="annot"><span class="annottext">[AvcIntraTelecine] -&gt; Encoding
 [AvcIntraTelecine] -&gt; Value
 AvcIntraTelecine -&gt; Encoding
 AvcIntraTelecine -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: AvcIntraTelecine -&gt; Encoding
 toJSON :: AvcIntraTelecine -&gt; Value
 $ctoJSON :: AvcIntraTelecine -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679944102"><span id="local-6989586621679944104"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraTelecine]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679945421"><span id="local-6989586621679945423"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraTelecine]
 ToJSONKeyFunction AvcIntraTelecine
 ToJSONKeyFunction AvcIntraTelecine
 -&gt; ToJSONKeyFunction [AvcIntraTelecine]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraTelecine]
 toJSONKey :: ToJSONKeyFunction AvcIntraTelecine
 $ctoJSONKey :: ToJSONKeyFunction AvcIntraTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679944099"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraTelecine
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679945418"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraTelecine
 ([Node] -&gt; Either String AvcIntraTelecine)
 -&gt; FromXML AvcIntraTelecine
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvcIntraTelecine
 $cparseXML :: [Node] -&gt; Either String AvcIntraTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679944096"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945415"><span class="annot"><span class="annottext">AvcIntraTelecine -&gt; XML
 (AvcIntraTelecine -&gt; XML) -&gt; ToXML AvcIntraTelecine
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AvcIntraTelecine -&gt; XML

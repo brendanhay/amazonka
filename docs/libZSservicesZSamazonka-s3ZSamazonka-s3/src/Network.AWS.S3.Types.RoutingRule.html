@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRoutingRule' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679551451"><span id="local-6989586621679551452"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoutingRule"><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-var">RoutingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoutingRule%27"><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-var">RoutingRule'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679551561"><span id="local-6989586621679551562"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoutingRule"><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-var">RoutingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoutingRule%27"><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-var">RoutingRule'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A container for describing a condition that must be met for the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specified redirect to apply. For example, 1. If request is for pages in</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the @\/docs@ folder, redirect to the @\/documents@ folder. 2. If request</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aredirect%3ARoutingRule%27"><span class="annot"><span class="annottext">RoutingRule -&gt; Redirect
 </span><a href="Network.AWS.S3.Types.RoutingRule.html#%24sel%3Aredirect%3ARoutingRule%27"><span class="hs-identifier hs-var hs-var">redirect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551444"><span id="local-6989586621679551446"><span class="annot"><span class="annottext">RoutingRule -&gt; RoutingRule -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551554"><span id="local-6989586621679551556"><span class="annot"><span class="annottext">RoutingRule -&gt; RoutingRule -&gt; Bool
 (RoutingRule -&gt; RoutingRule -&gt; Bool)
 -&gt; (RoutingRule -&gt; RoutingRule -&gt; Bool) -&gt; Eq RoutingRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RoutingRule -&gt; RoutingRule -&gt; Bool
 == :: RoutingRule -&gt; RoutingRule -&gt; Bool
 $c== :: RoutingRule -&gt; RoutingRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551435"><span id="local-6989586621679551437"><span id="local-6989586621679551439"><span id="local-6989586621679551441"><span class="annot"><span class="annottext">ReadPrec [RoutingRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551545"><span id="local-6989586621679551547"><span id="local-6989586621679551549"><span id="local-6989586621679551551"><span class="annot"><span class="annottext">ReadPrec [RoutingRule]
 ReadPrec RoutingRule
 Int -&gt; ReadS RoutingRule
 ReadS [RoutingRule]
@@ -74,7 +74,7 @@ readList :: ReadS [RoutingRule]
 $creadList :: ReadS [RoutingRule]
 readsPrec :: Int -&gt; ReadS RoutingRule
 $creadsPrec :: Int -&gt; ReadS RoutingRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551428"><span id="local-6989586621679551430"><span id="local-6989586621679551432"><span class="annot"><span class="annottext">Int -&gt; RoutingRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551538"><span id="local-6989586621679551540"><span id="local-6989586621679551542"><span class="annot"><span class="annottext">Int -&gt; RoutingRule -&gt; ShowS
 [RoutingRule] -&gt; ShowS
 RoutingRule -&gt; String
 (Int -&gt; RoutingRule -&gt; ShowS)
@@ -122,8 +122,8 @@ $cfrom :: forall x. RoutingRule -&gt; Rep RoutingRule x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span>
 </span><span id="line-70"></span><span id="newRoutingRule"><span class="annot"><span class="annottext">newRoutingRule :: Redirect -&gt; RoutingRule
-</span><a href="Network.AWS.S3.Types.RoutingRule.html#newRoutingRule"><span class="hs-identifier hs-var hs-var">newRoutingRule</span></a></span></span><span> </span><span id="local-6989586621679551422"><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679551422"><span class="hs-identifier hs-var">pRedirect_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.RoutingRule.html#newRoutingRule"><span class="hs-identifier hs-var hs-var">newRoutingRule</span></a></span></span><span> </span><span id="local-6989586621679551532"><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679551532"><span class="hs-identifier hs-var">pRedirect_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">RoutingRule' :: Maybe Condition -&gt; Redirect -&gt; RoutingRule
 </span><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:condition:RoutingRule' :: Maybe Condition
@@ -132,7 +132,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:redirect:RoutingRule' :: Redirect
 </span><a href="Network.AWS.S3.Types.RoutingRule.html#%24sel%3Aredirect%3ARoutingRule%27"><span class="hs-identifier hs-var">redirect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679551422"><span class="hs-identifier hs-var">pRedirect_</span></a></span><span>
+</span><a href="#local-6989586621679551532"><span class="hs-identifier hs-var">pRedirect_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | A container for describing a condition that must be met for the</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (RoutingRule -&gt; Maybe Condition -&gt; RoutingRule)
 -&gt; Lens RoutingRule RoutingRule (Maybe Condition) (Maybe Condition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551418"><span class="annot"><span class="annottext">Maybe Condition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551528"><span class="annot"><span class="annottext">Maybe Condition
 condition :: Maybe Condition
 $sel:condition:RoutingRule' :: RoutingRule -&gt; Maybe Condition
-</span><a href="#local-6989586621679551418"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679551418"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551417"><span class="annot"><span class="annottext">s :: RoutingRule
-</span><a href="#local-6989586621679551417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551416"><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679551416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingRule
-</span><a href="#local-6989586621679551417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:RoutingRule' :: Maybe Condition
+</span><a href="#local-6989586621679551528"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679551528"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551527"><span class="annot"><span class="annottext">s :: RoutingRule
+</span><a href="#local-6989586621679551527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551526"><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679551526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingRule
+</span><a href="#local-6989586621679551527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:RoutingRule' :: Maybe Condition
 </span><a href="Network.AWS.S3.Types.RoutingRule.html#%24sel%3Acondition%3ARoutingRule%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679551416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Container for redirect information. You can redirect requests to another</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- host, to another page, or with another protocol. In the event of an</span><span>
@@ -167,21 +167,21 @@ $sel:condition:RoutingRule' :: RoutingRule -&gt; Maybe Condition
 -&gt; (RoutingRule -&gt; Redirect -&gt; RoutingRule)
 -&gt; Lens RoutingRule RoutingRule Redirect Redirect
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551414"><span class="annot"><span class="annottext">Redirect
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551524"><span class="annot"><span class="annottext">Redirect
 redirect :: Redirect
 $sel:redirect:RoutingRule' :: RoutingRule -&gt; Redirect
-</span><a href="#local-6989586621679551414"><span class="hs-identifier hs-var hs-var">redirect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679551414"><span class="hs-identifier hs-var">redirect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551413"><span class="annot"><span class="annottext">s :: RoutingRule
-</span><a href="#local-6989586621679551413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551412"><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679551412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingRule
-</span><a href="#local-6989586621679551413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redirect:RoutingRule' :: Redirect
+</span><a href="#local-6989586621679551524"><span class="hs-identifier hs-var hs-var">redirect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679551524"><span class="hs-identifier hs-var">redirect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551523"><span class="annot"><span class="annottext">s :: RoutingRule
+</span><a href="#local-6989586621679551523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551522"><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679551522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingRule
+</span><a href="#local-6989586621679551523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redirect:RoutingRule' :: Redirect
 </span><a href="Network.AWS.S3.Types.RoutingRule.html#%24sel%3Aredirect%3ARoutingRule%27"><span class="hs-identifier hs-var">redirect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679551412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679551409"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RoutingRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551407"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679551519"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RoutingRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551517"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe Condition -&gt; Redirect -&gt; RoutingRule
 </span><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-var">RoutingRule'</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Condition -&gt; Redirect -&gt; RoutingRule)
@@ -189,7 +189,7 @@ $sel:redirect:RoutingRule' :: RoutingRule -&gt; Redirect
 -&gt; Either String (Redirect -&gt; RoutingRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Condition)
+</span><a href="#local-6989586621679551517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Condition)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Condition&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,24 +197,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Redirect -&gt; Either String RoutingRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Redirect
+</span><a href="#local-6989586621679551517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Redirect
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Redirect&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551400"><span id="local-6989586621679551402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551510"><span id="local-6989586621679551512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule"><span class="hs-identifier hs-type">RoutingRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679551393"><span class="annot"><span class="annottext">toXML :: RoutingRule -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551390"><span id="local-6989586621679551391"><span class="annot"><span class="annottext">Maybe Condition
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679551503"><span class="annot"><span class="annottext">toXML :: RoutingRule -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RoutingRule.html#RoutingRule%27"><span class="hs-identifier hs-type">RoutingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551500"><span id="local-6989586621679551501"><span class="annot"><span class="annottext">Maybe Condition
 Redirect
 redirect :: Redirect
 condition :: Maybe Condition
 $sel:redirect:RoutingRule' :: RoutingRule -&gt; Redirect
 $sel:condition:RoutingRule' :: RoutingRule -&gt; Maybe Condition
-</span><a href="#local-6989586621679551390"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679551500"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -222,11 +222,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Condition -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679551391"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551501"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Redirect&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Redirect -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679551390"><span class="hs-identifier hs-var">redirect</span></a></span><span>
+</span><a href="#local-6989586621679551500"><span class="hs-identifier hs-var">redirect</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span></pre></body></html>

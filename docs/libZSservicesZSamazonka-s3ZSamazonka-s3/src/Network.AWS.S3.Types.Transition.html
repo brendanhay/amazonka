@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTransition' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679558120"><span id="local-6989586621679558121"></span></span><span class="hs-keyword">data</span><span> </span><span id="Transition"><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-var">Transition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Transition%27"><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-var">Transition'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679558230"><span id="local-6989586621679558231"></span></span><span class="hs-keyword">data</span><span> </span><span id="Transition"><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-var">Transition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Transition%27"><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-var">Transition'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the number of days after creation when objects are</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- transitioned to the specified storage class. The value must be a</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- positive integer.</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AstorageClass%3ATransition%27"><span class="annot"><span class="annottext">Transition -&gt; Maybe TransitionStorageClass
 </span><a href="Network.AWS.S3.Types.Transition.html#%24sel%3AstorageClass%3ATransition%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558112"><span id="local-6989586621679558114"><span class="annot"><span class="annottext">Transition -&gt; Transition -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558222"><span id="local-6989586621679558224"><span class="annot"><span class="annottext">Transition -&gt; Transition -&gt; Bool
 (Transition -&gt; Transition -&gt; Bool)
 -&gt; (Transition -&gt; Transition -&gt; Bool) -&gt; Eq Transition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Transition -&gt; Transition -&gt; Bool
 == :: Transition -&gt; Transition -&gt; Bool
 $c== :: Transition -&gt; Transition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558103"><span id="local-6989586621679558105"><span id="local-6989586621679558107"><span id="local-6989586621679558109"><span class="annot"><span class="annottext">ReadPrec [Transition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558213"><span id="local-6989586621679558215"><span id="local-6989586621679558217"><span id="local-6989586621679558219"><span class="annot"><span class="annottext">ReadPrec [Transition]
 ReadPrec Transition
 Int -&gt; ReadS Transition
 ReadS [Transition]
@@ -74,7 +74,7 @@ readList :: ReadS [Transition]
 $creadList :: ReadS [Transition]
 readsPrec :: Int -&gt; ReadS Transition
 $creadsPrec :: Int -&gt; ReadS Transition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558096"><span id="local-6989586621679558098"><span id="local-6989586621679558100"><span class="annot"><span class="annottext">Int -&gt; Transition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558206"><span id="local-6989586621679558208"><span id="local-6989586621679558210"><span class="annot"><span class="annottext">Int -&gt; Transition -&gt; ShowS
 [Transition] -&gt; ShowS
 Transition -&gt; String
 (Int -&gt; Transition -&gt; ShowS)
@@ -146,16 +146,16 @@ forall a. Maybe a
 -&gt; (Transition -&gt; Maybe Int -&gt; Transition)
 -&gt; Lens Transition Transition (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558087"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558197"><span class="annot"><span class="annottext">Maybe Int
 days :: Maybe Int
 $sel:days:Transition' :: Transition -&gt; Maybe Int
-</span><a href="#local-6989586621679558087"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558087"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558086"><span class="annot"><span class="annottext">s :: Transition
-</span><a href="#local-6989586621679558086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558085"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
-</span><a href="#local-6989586621679558086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:Transition' :: Maybe Int
+</span><a href="#local-6989586621679558197"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679558197"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558196"><span class="annot"><span class="annottext">s :: Transition
+</span><a href="#local-6989586621679558196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558195"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679558195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
+</span><a href="#local-6989586621679558196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:Transition' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.Transition.html#%24sel%3Adays%3ATransition%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Indicates when objects are transitioned to the specified storage class.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- The date value must be in ISO 8601 format. The time is always midnight</span><span>
@@ -166,16 +166,16 @@ $sel:days:Transition' :: Transition -&gt; Maybe Int
 -&gt; (Transition -&gt; Maybe ISO8601 -&gt; Transition)
 -&gt; Lens Transition Transition (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558083"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558193"><span class="annot"><span class="annottext">Maybe ISO8601
 date :: Maybe ISO8601
 $sel:date:Transition' :: Transition -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679558083"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679558083"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558082"><span class="annot"><span class="annottext">s :: Transition
-</span><a href="#local-6989586621679558082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558081"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679558081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
-</span><a href="#local-6989586621679558082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Transition' :: Maybe ISO8601
+</span><a href="#local-6989586621679558193"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679558193"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558192"><span class="annot"><span class="annottext">s :: Transition
+</span><a href="#local-6989586621679558192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558191"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679558191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
+</span><a href="#local-6989586621679558192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Transition' :: Maybe ISO8601
 </span><a href="Network.AWS.S3.Types.Transition.html#%24sel%3Adate%3ATransition%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679558081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679558191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; Transition -&gt; f Transition)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -205,21 +205,21 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe TransitionStorageClass)
      (Maybe TransitionStorageClass)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558076"><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558186"><span class="annot"><span class="annottext">Maybe TransitionStorageClass
 storageClass :: Maybe TransitionStorageClass
 $sel:storageClass:Transition' :: Transition -&gt; Maybe TransitionStorageClass
-</span><a href="#local-6989586621679558076"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
-</span><a href="#local-6989586621679558076"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558075"><span class="annot"><span class="annottext">s :: Transition
-</span><a href="#local-6989586621679558075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558074"><span class="annot"><span class="annottext">Maybe TransitionStorageClass
-</span><a href="#local-6989586621679558074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
-</span><a href="#local-6989586621679558075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:Transition' :: Maybe TransitionStorageClass
+</span><a href="#local-6989586621679558186"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><a href="#local-6989586621679558186"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558185"><span class="annot"><span class="annottext">s :: Transition
+</span><a href="#local-6989586621679558185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558184"><span class="annot"><span class="annottext">Maybe TransitionStorageClass
+</span><a href="#local-6989586621679558184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transition
+</span><a href="#local-6989586621679558185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:Transition' :: Maybe TransitionStorageClass
 </span><a href="Network.AWS.S3.Types.Transition.html#%24sel%3AstorageClass%3ATransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
-</span><a href="#local-6989586621679558074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679558071"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Transition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558069"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558069"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679558181"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Transition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558179"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558179"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition
 </span><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-var">Transition'</span></a></span><span>
@@ -231,7 +231,7 @@ $sel:storageClass:Transition' :: Transition -&gt; Maybe TransitionStorageClass
      (Maybe ISO8601 -&gt; Maybe TransitionStorageClass -&gt; Transition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679558179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Days&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,7 +242,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe TransitionStorageClass -&gt; Transition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679558179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Date&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,18 +251,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Transition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitionStorageClass)
+</span><a href="#local-6989586621679558179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitionStorageClass)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558063"><span id="local-6989586621679558065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558173"><span id="local-6989586621679558175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition"><span class="hs-identifier hs-type">Transition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679558056"><span class="annot"><span class="annottext">toXML :: Transition -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558052"><span id="local-6989586621679558053"><span id="local-6989586621679558054"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679558166"><span class="annot"><span class="annottext">toXML :: Transition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Transition.html#Transition%27"><span class="hs-identifier hs-type">Transition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558162"><span id="local-6989586621679558163"><span id="local-6989586621679558164"><span class="annot"><span class="annottext">Maybe Int
 Maybe ISO8601
 Maybe TransitionStorageClass
 storageClass :: Maybe TransitionStorageClass
@@ -271,7 +271,7 @@ days :: Maybe Int
 $sel:storageClass:Transition' :: Transition -&gt; Maybe TransitionStorageClass
 $sel:date:Transition' :: Transition -&gt; Maybe ISO8601
 $sel:days:Transition' :: Transition -&gt; Maybe Int
-</span><a href="#local-6989586621679558052"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679558162"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -279,16 +279,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Days&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558054"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558164"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Date&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ISO8601 -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679558053"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558163"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe TransitionStorageClass -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransitionStorageClass
-</span><a href="#local-6989586621679558052"><span class="hs-identifier hs-var">storageClass</span></a></span><span>
+</span><a href="#local-6989586621679558162"><span class="hs-identifier hs-var">storageClass</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span></pre></body></html>

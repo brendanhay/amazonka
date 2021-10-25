@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Settings for embedded captions Source</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEmbeddedSourceSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679963343"><span id="local-6989586621679963344"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmbeddedSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-var">EmbeddedSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-var">EmbeddedSourceSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679964662"><span id="local-6989586621679964663"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmbeddedSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-var">EmbeddedSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-var">EmbeddedSourceSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify whether this set of input captions appears in your outputs in</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- both 608 and 708 format. If you choose Upconvert (UPCONVERT),</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- MediaConvert includes the captions data in two ways: it passes the 608</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Asource608ChannelNumber%3AEmbeddedSourceSettings%27"><span class="annot"><span class="annottext">EmbeddedSourceSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#%24sel%3Asource608ChannelNumber%3AEmbeddedSourceSettings%27"><span class="hs-identifier hs-var hs-var">source608ChannelNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679963334"><span id="local-6989586621679963336"><span class="annot"><span class="annottext">EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679964653"><span id="local-6989586621679964655"><span class="annot"><span class="annottext">EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool
 (EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool)
 -&gt; (EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool)
 -&gt; Eq EmbeddedSourceSettings
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool
 == :: EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool
 $c== :: EmbeddedSourceSettings -&gt; EmbeddedSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963325"><span id="local-6989586621679963327"><span id="local-6989586621679963329"><span id="local-6989586621679963331"><span class="annot"><span class="annottext">ReadPrec [EmbeddedSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679964644"><span id="local-6989586621679964646"><span id="local-6989586621679964648"><span id="local-6989586621679964650"><span class="annot"><span class="annottext">ReadPrec [EmbeddedSourceSettings]
 ReadPrec EmbeddedSourceSettings
 Int -&gt; ReadS EmbeddedSourceSettings
 ReadS [EmbeddedSourceSettings]
@@ -80,7 +80,7 @@ readList :: ReadS [EmbeddedSourceSettings]
 $creadList :: ReadS [EmbeddedSourceSettings]
 readsPrec :: Int -&gt; ReadS EmbeddedSourceSettings
 $creadsPrec :: Int -&gt; ReadS EmbeddedSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963318"><span id="local-6989586621679963320"><span id="local-6989586621679963322"><span class="annot"><span class="annottext">Int -&gt; EmbeddedSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679964637"><span id="local-6989586621679964639"><span id="local-6989586621679964641"><span class="annot"><span class="annottext">Int -&gt; EmbeddedSourceSettings -&gt; ShowS
 [EmbeddedSourceSettings] -&gt; ShowS
 EmbeddedSourceSettings -&gt; String
 (Int -&gt; EmbeddedSourceSettings -&gt; ShowS)
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe EmbeddedConvert608To708)
      (Maybe EmbeddedConvert608To708)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963309"><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964628"><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
 convert608To708 :: Maybe EmbeddedConvert608To708
 $sel:convert608To708:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe EmbeddedConvert608To708
-</span><a href="#local-6989586621679963309"><span class="hs-identifier hs-var hs-var">convert608To708</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
-</span><a href="#local-6989586621679963309"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963308"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
-</span><a href="#local-6989586621679963308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963307"><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
-</span><a href="#local-6989586621679963307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
-</span><a href="#local-6989586621679963308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:convert608To708:EmbeddedSourceSettings' :: Maybe EmbeddedConvert608To708
+</span><a href="#local-6989586621679964628"><span class="hs-identifier hs-var hs-var">convert608To708</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
+</span><a href="#local-6989586621679964628"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964627"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
+</span><a href="#local-6989586621679964627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964626"><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
+</span><a href="#local-6989586621679964626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
+</span><a href="#local-6989586621679964627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:convert608To708:EmbeddedSourceSettings' :: Maybe EmbeddedConvert608To708
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#%24sel%3Aconvert608To708%3AEmbeddedSourceSettings%27"><span class="hs-identifier hs-var">convert608To708</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
-</span><a href="#local-6989586621679963307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679964626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | By default, the service terminates any unterminated captions at the end</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- of each input. If you want the caption to continue onto your next input,</span><span>
@@ -205,16 +205,16 @@ $sel:convert608To708:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; May
      (Maybe EmbeddedTerminateCaptions)
      (Maybe EmbeddedTerminateCaptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963305"><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964624"><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
 terminateCaptions :: Maybe EmbeddedTerminateCaptions
 $sel:terminateCaptions:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe EmbeddedTerminateCaptions
-</span><a href="#local-6989586621679963305"><span class="hs-identifier hs-var hs-var">terminateCaptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
-</span><a href="#local-6989586621679963305"><span class="hs-identifier hs-var">terminateCaptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963304"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
-</span><a href="#local-6989586621679963304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963303"><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
-</span><a href="#local-6989586621679963303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
-</span><a href="#local-6989586621679963304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateCaptions:EmbeddedSourceSettings' :: Maybe EmbeddedTerminateCaptions
+</span><a href="#local-6989586621679964624"><span class="hs-identifier hs-var hs-var">terminateCaptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
+</span><a href="#local-6989586621679964624"><span class="hs-identifier hs-var">terminateCaptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964623"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
+</span><a href="#local-6989586621679964623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964622"><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
+</span><a href="#local-6989586621679964622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
+</span><a href="#local-6989586621679964623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateCaptions:EmbeddedSourceSettings' :: Maybe EmbeddedTerminateCaptions
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#%24sel%3AterminateCaptions%3AEmbeddedSourceSettings%27"><span class="hs-identifier hs-var">terminateCaptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
-</span><a href="#local-6989586621679963303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679964622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Specifies the video track index used for extracting captions. The system</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- only supports one input video track, so this should always be set to</span><span>
@@ -231,16 +231,16 @@ $sel:terminateCaptions:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; M
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963301"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964620"><span class="annot"><span class="annottext">Maybe Natural
 source608TrackNumber :: Maybe Natural
 $sel:source608TrackNumber:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679963301"><span class="hs-identifier hs-var hs-var">source608TrackNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963301"><span class="hs-identifier hs-var">source608TrackNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963300"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
-</span><a href="#local-6989586621679963300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963299"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
-</span><a href="#local-6989586621679963300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source608TrackNumber:EmbeddedSourceSettings' :: Maybe Natural
+</span><a href="#local-6989586621679964620"><span class="hs-identifier hs-var hs-var">source608TrackNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679964620"><span class="hs-identifier hs-var">source608TrackNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964619"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
+</span><a href="#local-6989586621679964619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964618"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679964618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
+</span><a href="#local-6989586621679964619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source608TrackNumber:EmbeddedSourceSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#%24sel%3Asource608TrackNumber%3AEmbeddedSourceSettings%27"><span class="hs-identifier hs-var">source608TrackNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679964618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Specifies the 608\/708 channel number within the video track from which</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- to extract captions. Unused for passthrough.</span><span>
@@ -256,19 +256,19 @@ $sel:source608TrackNumber:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963297"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964616"><span class="annot"><span class="annottext">Maybe Natural
 source608ChannelNumber :: Maybe Natural
 $sel:source608ChannelNumber:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679963297"><span class="hs-identifier hs-var hs-var">source608ChannelNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963297"><span class="hs-identifier hs-var">source608ChannelNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963296"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
-</span><a href="#local-6989586621679963296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963295"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
-</span><a href="#local-6989586621679963296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source608ChannelNumber:EmbeddedSourceSettings' :: Maybe Natural
+</span><a href="#local-6989586621679964616"><span class="hs-identifier hs-var hs-var">source608ChannelNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679964616"><span class="hs-identifier hs-var">source608ChannelNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964615"><span class="annot"><span class="annottext">s :: EmbeddedSourceSettings
+</span><a href="#local-6989586621679964615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964614"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679964614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedSourceSettings
+</span><a href="#local-6989586621679964615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source608ChannelNumber:EmbeddedSourceSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#%24sel%3Asource608ChannelNumber%3AEmbeddedSourceSettings%27"><span class="hs-identifier hs-var">source608ChannelNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679964614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963292"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679963290"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmbeddedSourceSettings
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964611"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679964609"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmbeddedSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EmbeddedSourceSettings)
@@ -278,8 +278,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EmbeddedSourceSettings&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679963287"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679964606"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679964606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
 -&gt; Maybe EmbeddedTerminateCaptions
 -&gt; Maybe Natural
@@ -297,7 +297,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; EmbeddedSourceSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedConvert608To708)
+</span><a href="#local-6989586621679964606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedConvert608To708)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;convert608To708&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,7 +309,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Natural -&gt; Maybe Natural -&gt; EmbeddedSourceSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedTerminateCaptions)
+</span><a href="#local-6989586621679964606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedTerminateCaptions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;terminateCaptions&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,7 +318,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; EmbeddedSourceSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679964606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source608TrackNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,19 +326,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser EmbeddedSourceSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679964606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source608ChannelNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963281"><span id="local-6989586621679963283"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964600"><span id="local-6989586621679964602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963270"><span id="local-6989586621679963272"><span id="local-6989586621679963274"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679963268"><span class="annot"><span class="annottext">toJSON :: EmbeddedSourceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963263"><span id="local-6989586621679963264"><span id="local-6989586621679963265"><span id="local-6989586621679963266"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964589"><span id="local-6989586621679964591"><span id="local-6989586621679964593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679964587"><span class="annot"><span class="annottext">toJSON :: EmbeddedSourceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings%27"><span class="hs-identifier hs-type">EmbeddedSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964582"><span id="local-6989586621679964583"><span id="local-6989586621679964584"><span id="local-6989586621679964585"><span class="annot"><span class="annottext">Maybe Natural
 Maybe EmbeddedConvert608To708
 Maybe EmbeddedTerminateCaptions
 source608ChannelNumber :: Maybe Natural
@@ -349,7 +349,7 @@ $sel:source608ChannelNumber:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&
 $sel:source608TrackNumber:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe Natural
 $sel:terminateCaptions:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe EmbeddedTerminateCaptions
 $sel:convert608To708:EmbeddedSourceSettings' :: EmbeddedSourceSettings -&gt; Maybe EmbeddedConvert608To708
-</span><a href="#local-6989586621679963263"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679964582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -363,7 +363,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EmbeddedConvert608To708 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedConvert608To708
-</span><a href="#local-6989586621679963266"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679964585"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;terminateCaptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmbeddedTerminateCaptions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -372,7 +372,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EmbeddedTerminateCaptions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedTerminateCaptions
-</span><a href="#local-6989586621679963265"><span class="hs-identifier hs-var">terminateCaptions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679964584"><span class="hs-identifier hs-var">terminateCaptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source608TrackNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -380,7 +380,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963264"><span class="hs-identifier hs-var">source608TrackNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679964583"><span class="hs-identifier hs-var">source608TrackNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source608ChannelNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -388,7 +388,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963263"><span class="hs-identifier hs-var">source608ChannelNumber</span></a></span><span>
+</span><a href="#local-6989586621679964582"><span class="hs-identifier hs-var">source608ChannelNumber</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | By default, the service terminates any unterminated captions at the end</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- of each input. If you want the caption to continue onto your next input,</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- disable this setting.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679963199"><span id="local-6989586621679963200"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmbeddedTerminateCaptions"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions.html#EmbeddedTerminateCaptions"><span class="hs-identifier hs-var">EmbeddedTerminateCaptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedTerminateCaptions%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions.html#EmbeddedTerminateCaptions%27"><span class="hs-identifier hs-var">EmbeddedTerminateCaptions'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679964518"><span id="local-6989586621679964519"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmbeddedTerminateCaptions"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions.html#EmbeddedTerminateCaptions"><span class="hs-identifier hs-var">EmbeddedTerminateCaptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedTerminateCaptions%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions.html#EmbeddedTerminateCaptions%27"><span class="hs-identifier hs-var">EmbeddedTerminateCaptions'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEmbeddedTerminateCaptions"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions.html#fromEmbeddedTerminateCaptions"><span class="hs-identifier hs-var hs-var">fromEmbeddedTerminateCaptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963191"><span id="local-6989586621679963193"><span id="local-6989586621679963195"><span class="annot"><span class="annottext">Int -&gt; EmbeddedTerminateCaptions -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964510"><span id="local-6989586621679964512"><span id="local-6989586621679964514"><span class="annot"><span class="annottext">Int -&gt; EmbeddedTerminateCaptions -&gt; ShowS
 [EmbeddedTerminateCaptions] -&gt; ShowS
 EmbeddedTerminateCaptions -&gt; String
 (Int -&gt; EmbeddedTerminateCaptions -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: EmbeddedTerminateCaptions -&gt; String
 showsPrec :: Int -&gt; EmbeddedTerminateCaptions -&gt; ShowS
 $cshowsPrec :: Int -&gt; EmbeddedTerminateCaptions -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679963182"><span id="local-6989586621679963184"><span id="local-6989586621679963186"><span id="local-6989586621679963188"><span class="annot"><span class="annottext">ReadPrec [EmbeddedTerminateCaptions]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679964501"><span id="local-6989586621679964503"><span id="local-6989586621679964505"><span id="local-6989586621679964507"><span class="annot"><span class="annottext">ReadPrec [EmbeddedTerminateCaptions]
 ReadPrec EmbeddedTerminateCaptions
 Int -&gt; ReadS EmbeddedTerminateCaptions
 ReadS [EmbeddedTerminateCaptions]
@@ -75,7 +75,7 @@ $creadList :: ReadS [EmbeddedTerminateCaptions]
 readsPrec :: Int -&gt; ReadS EmbeddedTerminateCaptions
 $creadsPrec :: Int -&gt; ReadS EmbeddedTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679963177"><span id="local-6989586621679963179"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679964496"><span id="local-6989586621679964498"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool
 (EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool)
 -&gt; (EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool)
 -&gt; Eq EmbeddedTerminateCaptions
@@ -85,7 +85,7 @@ $c/= :: EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool
 == :: EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool
 $c== :: EmbeddedTerminateCaptions -&gt; EmbeddedTerminateCaptions -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679963161"><span id="local-6989586621679963163"><span id="local-6989586621679963165"><span id="local-6989586621679963167"><span id="local-6989586621679963169"><span id="local-6989586621679963171"><span id="local-6989586621679963173"><span class="annot"><span class="annottext">Eq EmbeddedTerminateCaptions
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679964480"><span id="local-6989586621679964482"><span id="local-6989586621679964484"><span id="local-6989586621679964486"><span id="local-6989586621679964488"><span id="local-6989586621679964490"><span id="local-6989586621679964492"><span class="annot"><span class="annottext">Eq EmbeddedTerminateCaptions
 Eq EmbeddedTerminateCaptions
 -&gt; (EmbeddedTerminateCaptions
     -&gt; EmbeddedTerminateCaptions -&gt; Ordering)
@@ -150,7 +150,7 @@ EmbeddedTerminateCaptions -&gt; Rep EmbeddedTerminateCaptions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679963153"><span id="local-6989586621679963155"><span class="annot"><span class="annottext">Int -&gt; EmbeddedTerminateCaptions -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679964472"><span id="local-6989586621679964474"><span class="annot"><span class="annottext">Int -&gt; EmbeddedTerminateCaptions -&gt; Int
 EmbeddedTerminateCaptions -&gt; Int
 (Int -&gt; EmbeddedTerminateCaptions -&gt; Int)
 -&gt; (EmbeddedTerminateCaptions -&gt; Int)
@@ -161,56 +161,56 @@ $chash :: EmbeddedTerminateCaptions -&gt; Int
 hashWithSalt :: Int -&gt; EmbeddedTerminateCaptions -&gt; Int
 $chashWithSalt :: Int -&gt; EmbeddedTerminateCaptions -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679963150"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679964469"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; ()
 (EmbeddedTerminateCaptions -&gt; ())
 -&gt; NFData EmbeddedTerminateCaptions
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EmbeddedTerminateCaptions -&gt; ()
 $crnf :: EmbeddedTerminateCaptions -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679963147"><span class="annot"><span class="annottext">Text -&gt; Either String EmbeddedTerminateCaptions
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679964466"><span class="annot"><span class="annottext">Text -&gt; Either String EmbeddedTerminateCaptions
 (Text -&gt; Either String EmbeddedTerminateCaptions)
 -&gt; FromText EmbeddedTerminateCaptions
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EmbeddedTerminateCaptions
 $cfromText :: Text -&gt; Either String EmbeddedTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679963144"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679964463"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; Text
 (EmbeddedTerminateCaptions -&gt; Text)
 -&gt; ToText EmbeddedTerminateCaptions
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EmbeddedTerminateCaptions -&gt; Text
 $ctoText :: EmbeddedTerminateCaptions -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679963141"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679964460"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; ByteString
 (EmbeddedTerminateCaptions -&gt; ByteString)
 -&gt; ToByteString EmbeddedTerminateCaptions
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EmbeddedTerminateCaptions -&gt; ByteString
 $ctoBS :: EmbeddedTerminateCaptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679963138"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679964457"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; ByteStringBuilder
 (EmbeddedTerminateCaptions -&gt; ByteStringBuilder)
 -&gt; ToLog EmbeddedTerminateCaptions
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EmbeddedTerminateCaptions -&gt; ByteStringBuilder
 $cbuild :: EmbeddedTerminateCaptions -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679963135"><span class="annot"><span class="annottext">HeaderName -&gt; EmbeddedTerminateCaptions -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679964454"><span class="annot"><span class="annottext">HeaderName -&gt; EmbeddedTerminateCaptions -&gt; [Header]
 (HeaderName -&gt; EmbeddedTerminateCaptions -&gt; [Header])
 -&gt; ToHeader EmbeddedTerminateCaptions
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EmbeddedTerminateCaptions -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EmbeddedTerminateCaptions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679963132"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679964451"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; QueryString
 (EmbeddedTerminateCaptions -&gt; QueryString)
 -&gt; ToQuery EmbeddedTerminateCaptions
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EmbeddedTerminateCaptions -&gt; QueryString
 $ctoQuery :: EmbeddedTerminateCaptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679963127"><span id="local-6989586621679963129"><span class="annot"><span class="annottext">Value -&gt; Parser [EmbeddedTerminateCaptions]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679964446"><span id="local-6989586621679964448"><span class="annot"><span class="annottext">Value -&gt; Parser [EmbeddedTerminateCaptions]
 Value -&gt; Parser EmbeddedTerminateCaptions
 (Value -&gt; Parser EmbeddedTerminateCaptions)
 -&gt; (Value -&gt; Parser [EmbeddedTerminateCaptions])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [EmbeddedTerminateCaptions]
 parseJSON :: Value -&gt; Parser EmbeddedTerminateCaptions
 $cparseJSON :: Value -&gt; Parser EmbeddedTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679963122"><span id="local-6989586621679963124"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmbeddedTerminateCaptions]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679964441"><span id="local-6989586621679964443"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmbeddedTerminateCaptions]
 FromJSONKeyFunction EmbeddedTerminateCaptions
 FromJSONKeyFunction EmbeddedTerminateCaptions
 -&gt; FromJSONKeyFunction [EmbeddedTerminateCaptions]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EmbeddedTerminateCaptions]
 fromJSONKey :: FromJSONKeyFunction EmbeddedTerminateCaptions
 $cfromJSONKey :: FromJSONKeyFunction EmbeddedTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679963113"><span id="local-6989586621679963115"><span id="local-6989586621679963117"><span id="local-6989586621679963119"><span class="annot"><span class="annottext">[EmbeddedTerminateCaptions] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679964432"><span id="local-6989586621679964434"><span id="local-6989586621679964436"><span id="local-6989586621679964438"><span class="annot"><span class="annottext">[EmbeddedTerminateCaptions] -&gt; Encoding
 [EmbeddedTerminateCaptions] -&gt; Value
 EmbeddedTerminateCaptions -&gt; Encoding
 EmbeddedTerminateCaptions -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: EmbeddedTerminateCaptions -&gt; Encoding
 toJSON :: EmbeddedTerminateCaptions -&gt; Value
 $ctoJSON :: EmbeddedTerminateCaptions -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679963108"><span id="local-6989586621679963110"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmbeddedTerminateCaptions]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679964427"><span id="local-6989586621679964429"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmbeddedTerminateCaptions]
 ToJSONKeyFunction EmbeddedTerminateCaptions
 ToJSONKeyFunction EmbeddedTerminateCaptions
 -&gt; ToJSONKeyFunction [EmbeddedTerminateCaptions]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EmbeddedTerminateCaptions]
 toJSONKey :: ToJSONKeyFunction EmbeddedTerminateCaptions
 $ctoJSONKey :: ToJSONKeyFunction EmbeddedTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679963105"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmbeddedTerminateCaptions
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679964424"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmbeddedTerminateCaptions
 ([Node] -&gt; Either String EmbeddedTerminateCaptions)
 -&gt; FromXML EmbeddedTerminateCaptions
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EmbeddedTerminateCaptions
 $cparseXML :: [Node] -&gt; Either String EmbeddedTerminateCaptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679963102"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679964421"><span class="annot"><span class="annottext">EmbeddedTerminateCaptions -&gt; XML
 (EmbeddedTerminateCaptions -&gt; XML)
 -&gt; ToXML EmbeddedTerminateCaptions
 forall a. (a -&gt; XML) -&gt; ToXML a

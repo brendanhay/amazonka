@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configure ingress access logging.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIngressAccessLogs' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679235657"><span id="local-6989586621679235658"></span></span><span class="hs-keyword">data</span><span> </span><span id="IngressAccessLogs"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-var">IngressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IngressAccessLogs%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-var">IngressAccessLogs'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679235973"><span id="local-6989586621679235974"></span></span><span class="hs-keyword">data</span><span> </span><span id="IngressAccessLogs"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-var">IngressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IngressAccessLogs%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-var">IngressAccessLogs'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Customize the log group name.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AlogGroupName%3AIngressAccessLogs%27"><span class="annot"><span class="annottext">IngressAccessLogs -&gt; Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#%24sel%3AlogGroupName%3AIngressAccessLogs%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235651"><span id="local-6989586621679235653"><span class="annot"><span class="annottext">IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235967"><span id="local-6989586621679235969"><span class="annot"><span class="annottext">IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool
 (IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool)
 -&gt; (IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool)
 -&gt; Eq IngressAccessLogs
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool
 == :: IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool
 $c== :: IngressAccessLogs -&gt; IngressAccessLogs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235642"><span id="local-6989586621679235644"><span id="local-6989586621679235646"><span id="local-6989586621679235648"><span class="annot"><span class="annottext">ReadPrec [IngressAccessLogs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235958"><span id="local-6989586621679235960"><span id="local-6989586621679235962"><span id="local-6989586621679235964"><span class="annot"><span class="annottext">ReadPrec [IngressAccessLogs]
 ReadPrec IngressAccessLogs
 Int -&gt; ReadS IngressAccessLogs
 ReadS [IngressAccessLogs]
@@ -60,7 +60,7 @@ readList :: ReadS [IngressAccessLogs]
 $creadList :: ReadS [IngressAccessLogs]
 readsPrec :: Int -&gt; ReadS IngressAccessLogs
 $creadsPrec :: Int -&gt; ReadS IngressAccessLogs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235635"><span id="local-6989586621679235637"><span id="local-6989586621679235639"><span class="annot"><span class="annottext">Int -&gt; IngressAccessLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235951"><span id="local-6989586621679235953"><span id="local-6989586621679235955"><span class="annot"><span class="annottext">Int -&gt; IngressAccessLogs -&gt; ShowS
 [IngressAccessLogs] -&gt; ShowS
 IngressAccessLogs -&gt; String
 (Int -&gt; IngressAccessLogs -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      IngressAccessLogs IngressAccessLogs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-type">IngressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235626"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-type">IngressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235942"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:IngressAccessLogs' :: IngressAccessLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679235626"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235626"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235625"><span class="annot"><span class="annottext">s :: IngressAccessLogs
-</span><a href="#local-6989586621679235625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-type">IngressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngressAccessLogs
-</span><a href="#local-6989586621679235625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:IngressAccessLogs' :: Maybe Text
+</span><a href="#local-6989586621679235942"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235942"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235941"><span class="annot"><span class="annottext">s :: IngressAccessLogs
+</span><a href="#local-6989586621679235941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-type">IngressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngressAccessLogs
+</span><a href="#local-6989586621679235941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:IngressAccessLogs' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#%24sel%3AlogGroupName%3AIngressAccessLogs%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679235940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235621"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679235619"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IngressAccessLogs
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235937"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679235935"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IngressAccessLogs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IngressAccessLogs)
@@ -136,30 +136,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IngressAccessLogs&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235616"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235932"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; IngressAccessLogs
 </span><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-var">IngressAccessLogs'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; IngressAccessLogs)
 -&gt; Parser (Maybe Text) -&gt; Parser IngressAccessLogs
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235610"><span id="local-6989586621679235612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235926"><span id="local-6989586621679235928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235599"><span id="local-6989586621679235601"><span id="local-6989586621679235603"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679235597"><span class="annot"><span class="annottext">toJSON :: IngressAccessLogs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-type">IngressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235595"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235915"><span id="local-6989586621679235917"><span id="local-6989586621679235919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679235913"><span class="annot"><span class="annottext">toJSON :: IngressAccessLogs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs%27"><span class="hs-identifier hs-type">IngressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235911"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:IngressAccessLogs' :: IngressAccessLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679235595"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679235911"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -171,6 +171,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235595"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679235911"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

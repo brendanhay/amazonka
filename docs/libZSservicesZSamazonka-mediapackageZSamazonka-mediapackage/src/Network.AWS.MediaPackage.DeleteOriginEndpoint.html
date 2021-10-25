@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteOriginEndpoint' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679243095"><span id="local-6989586621679243096"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOriginEndpoint"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-var">DeleteOriginEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOriginEndpoint%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-var">DeleteOriginEndpoint'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679243420"><span id="local-6989586621679243421"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOriginEndpoint"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-var">DeleteOriginEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOriginEndpoint%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-var">DeleteOriginEndpoint'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the OriginEndpoint to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Aid%3ADeleteOriginEndpoint%27"><span class="annot"><span class="annottext">DeleteOriginEndpoint -&gt; Text
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#%24sel%3Aid%3ADeleteOriginEndpoint%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243089"><span id="local-6989586621679243091"><span class="annot"><span class="annottext">DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243414"><span id="local-6989586621679243416"><span class="annot"><span class="annottext">DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool
 (DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool)
 -&gt; (DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool)
 -&gt; Eq DeleteOriginEndpoint
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool
 == :: DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool
 $c== :: DeleteOriginEndpoint -&gt; DeleteOriginEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243080"><span id="local-6989586621679243082"><span id="local-6989586621679243084"><span id="local-6989586621679243086"><span class="annot"><span class="annottext">ReadPrec [DeleteOriginEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243405"><span id="local-6989586621679243407"><span id="local-6989586621679243409"><span id="local-6989586621679243411"><span class="annot"><span class="annottext">ReadPrec [DeleteOriginEndpoint]
 ReadPrec DeleteOriginEndpoint
 Int -&gt; ReadS DeleteOriginEndpoint
 ReadS [DeleteOriginEndpoint]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteOriginEndpoint]
 $creadList :: ReadS [DeleteOriginEndpoint]
 readsPrec :: Int -&gt; ReadS DeleteOriginEndpoint
 $creadsPrec :: Int -&gt; ReadS DeleteOriginEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243073"><span id="local-6989586621679243075"><span id="local-6989586621679243077"><span class="annot"><span class="annottext">Int -&gt; DeleteOriginEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243398"><span id="local-6989586621679243400"><span id="local-6989586621679243402"><span class="annot"><span class="annottext">Int -&gt; DeleteOriginEndpoint -&gt; ShowS
 [DeleteOriginEndpoint] -&gt; ShowS
 DeleteOriginEndpoint -&gt; String
 (Int -&gt; DeleteOriginEndpoint -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteOriginEndpoint -&gt; Rep DeleteOriginEndpoint x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteOriginEndpoint"><span class="annot"><span class="annottext">newDeleteOriginEndpoint :: Text -&gt; DeleteOriginEndpoint
-</span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#newDeleteOriginEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteOriginEndpoint</span></a></span></span><span> </span><span id="local-6989586621679243068"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243068"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#newDeleteOriginEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteOriginEndpoint</span></a></span></span><span> </span><span id="local-6989586621679243393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243393"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteOriginEndpoint' :: Text -&gt; DeleteOriginEndpoint
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteOriginEndpoint' :: Text
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#%24sel%3Aid%3ADeleteOriginEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243068"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679243393"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ID of the OriginEndpoint to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#deleteOriginEndpoint_id"><span class="hs-identifier hs-type">deleteOriginEndpoint_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteOriginEndpoint -&gt; Rep DeleteOriginEndpoint x
 -&gt; (DeleteOriginEndpoint -&gt; Text -&gt; DeleteOriginEndpoint)
 -&gt; Lens DeleteOriginEndpoint DeleteOriginEndpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243065"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243390"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteOriginEndpoint' :: DeleteOriginEndpoint -&gt; Text
-</span><a href="#local-6989586621679243065"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243065"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243064"><span class="annot"><span class="annottext">s :: DeleteOriginEndpoint
-</span><a href="#local-6989586621679243064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243063"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOriginEndpoint
-</span><a href="#local-6989586621679243064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteOriginEndpoint' :: Text
+</span><a href="#local-6989586621679243390"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243390"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243389"><span class="annot"><span class="annottext">s :: DeleteOriginEndpoint
+</span><a href="#local-6989586621679243389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOriginEndpoint
+</span><a href="#local-6989586621679243389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteOriginEndpoint' :: Text
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#%24sel%3Aid%3ADeleteOriginEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679243059"><span class="annot"><span class="annottext">request :: DeleteOriginEndpoint -&gt; Request DeleteOriginEndpoint
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679243384"><span class="annot"><span class="annottext">request :: DeleteOriginEndpoint -&gt; Request DeleteOriginEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteOriginEndpoint -&gt; Request DeleteOriginEndpoint
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaPackage.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679243055"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679243380"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteOriginEndpoint
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243052"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243051"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679243051"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243050"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679243050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243376"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679243376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243375"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679243375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteOriginEndpointResponse
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-var">DeleteOriginEndpointResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteOriginEndpointResponse)
@@ -194,15 +194,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243052"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243043"><span id="local-6989586621679243045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243368"><span id="local-6989586621679243370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679243036"><span class="annot"><span class="annottext">toHeaders :: DeleteOriginEndpoint -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679243361"><span class="annot"><span class="annottext">toHeaders :: DeleteOriginEndpoint -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteOriginEndpoint -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -222,11 +222,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679243030"><span class="annot"><span class="annottext">toPath :: DeleteOriginEndpoint -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243028"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679243355"><span class="annot"><span class="annottext">toPath :: DeleteOriginEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint%27"><span class="hs-identifier hs-type">DeleteOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243353"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteOriginEndpoint' :: DeleteOriginEndpoint -&gt; Text
-</span><a href="#local-6989586621679243028"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679243353"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -234,10 +234,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/origin_endpoints/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243028"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679243353"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpoint"><span class="hs-identifier hs-type">DeleteOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679243024"><span class="annot"><span class="annottext">toQuery :: DeleteOriginEndpoint -&gt; QueryString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679243349"><span class="annot"><span class="annottext">toQuery :: DeleteOriginEndpoint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteOriginEndpoint -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -245,12 +245,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteOriginEndpointResponse' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679243021"><span id="local-6989586621679243022"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOriginEndpointResponse"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-var">DeleteOriginEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOriginEndpointResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-var">DeleteOriginEndpointResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679243346"><span id="local-6989586621679243347"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOriginEndpointResponse"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-var">DeleteOriginEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOriginEndpointResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-var">DeleteOriginEndpointResponse'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteOriginEndpointResponse%27"><span class="annot"><span class="annottext">DeleteOriginEndpointResponse -&gt; Int
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#%24sel%3AhttpStatus%3ADeleteOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243016"><span id="local-6989586621679243018"><span class="annot"><span class="annottext">DeleteOriginEndpointResponse
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243341"><span id="local-6989586621679243343"><span class="annot"><span class="annottext">DeleteOriginEndpointResponse
 -&gt; DeleteOriginEndpointResponse -&gt; Bool
 (DeleteOriginEndpointResponse
  -&gt; DeleteOriginEndpointResponse -&gt; Bool)
@@ -266,7 +266,7 @@ $c/= :: DeleteOriginEndpointResponse
 -&gt; DeleteOriginEndpointResponse -&gt; Bool
 $c== :: DeleteOriginEndpointResponse
 -&gt; DeleteOriginEndpointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243008"><span id="local-6989586621679243010"><span id="local-6989586621679243012"><span id="local-6989586621679243014"><span class="annot"><span class="annottext">ReadPrec [DeleteOriginEndpointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243333"><span id="local-6989586621679243335"><span id="local-6989586621679243337"><span id="local-6989586621679243339"><span class="annot"><span class="annottext">ReadPrec [DeleteOriginEndpointResponse]
 ReadPrec DeleteOriginEndpointResponse
 Int -&gt; ReadS DeleteOriginEndpointResponse
 ReadS [DeleteOriginEndpointResponse]
@@ -286,7 +286,7 @@ readList :: ReadS [DeleteOriginEndpointResponse]
 $creadList :: ReadS [DeleteOriginEndpointResponse]
 readsPrec :: Int -&gt; ReadS DeleteOriginEndpointResponse
 $creadsPrec :: Int -&gt; ReadS DeleteOriginEndpointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243002"><span id="local-6989586621679243004"><span id="local-6989586621679243006"><span class="annot"><span class="annottext">Int -&gt; DeleteOriginEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243327"><span id="local-6989586621679243329"><span id="local-6989586621679243331"><span class="annot"><span class="annottext">Int -&gt; DeleteOriginEndpointResponse -&gt; ShowS
 [DeleteOriginEndpointResponse] -&gt; ShowS
 DeleteOriginEndpointResponse -&gt; String
 (Int -&gt; DeleteOriginEndpointResponse -&gt; ShowS)
@@ -332,14 +332,14 @@ DeleteOriginEndpointResponse -&gt; Rep DeleteOriginEndpointResponse x
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse</span></a></span><span>
 </span><span id="line-130"></span><span id="newDeleteOriginEndpointResponse"><span class="annot"><span class="annottext">newDeleteOriginEndpointResponse :: Int -&gt; DeleteOriginEndpointResponse
-</span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#newDeleteOriginEndpointResponse"><span class="hs-identifier hs-var hs-var">newDeleteOriginEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679242999"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#newDeleteOriginEndpointResponse"><span class="hs-identifier hs-var hs-var">newDeleteOriginEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679243324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243324"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DeleteOriginEndpointResponse' :: Int -&gt; DeleteOriginEndpointResponse
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOriginEndpointResponse' :: Int
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#%24sel%3AhttpStatus%3ADeleteOriginEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679243324"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -352,16 +352,16 @@ DeleteOriginEndpointResponse -&gt; Rep DeleteOriginEndpointResponse x
 -&gt; Lens
      DeleteOriginEndpointResponse DeleteOriginEndpointResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242998"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243323"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteOriginEndpointResponse' :: DeleteOriginEndpointResponse -&gt; Int
-</span><a href="#local-6989586621679242998"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242998"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242997"><span class="annot"><span class="annottext">s :: DeleteOriginEndpointResponse
-</span><a href="#local-6989586621679242997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242996"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOriginEndpointResponse
-</span><a href="#local-6989586621679242997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOriginEndpointResponse' :: Int
+</span><a href="#local-6989586621679243323"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243323"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243322"><span class="annot"><span class="annottext">s :: DeleteOriginEndpointResponse
+</span><a href="#local-6989586621679243322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse%27"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOriginEndpointResponse
+</span><a href="#local-6989586621679243322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOriginEndpointResponse' :: Int
 </span><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#%24sel%3AhttpStatus%3ADeleteOriginEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteOriginEndpoint.html#DeleteOriginEndpointResponse"><span class="hs-identifier hs-type">DeleteOriginEndpointResponse</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

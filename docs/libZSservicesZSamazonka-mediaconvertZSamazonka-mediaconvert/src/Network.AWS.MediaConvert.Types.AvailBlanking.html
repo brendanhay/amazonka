@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ad-avail-blanking.html.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAvailBlanking' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679943050"><span id="local-6989586621679943051"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailBlanking"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-var">AvailBlanking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailBlanking%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-var">AvailBlanking'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679944369"><span id="local-6989586621679944370"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailBlanking"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-var">AvailBlanking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailBlanking%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-var">AvailBlanking'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Blanking image to be used. Leave empty for solid black. Only bmp and png</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- images are supported.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AavailBlankingImage%3AAvailBlanking%27"><span class="annot"><span class="annottext">AvailBlanking -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#%24sel%3AavailBlankingImage%3AAvailBlanking%27"><span class="hs-identifier hs-var hs-var">availBlankingImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679943044"><span id="local-6989586621679943046"><span class="annot"><span class="annottext">AvailBlanking -&gt; AvailBlanking -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679944363"><span id="local-6989586621679944365"><span class="annot"><span class="annottext">AvailBlanking -&gt; AvailBlanking -&gt; Bool
 (AvailBlanking -&gt; AvailBlanking -&gt; Bool)
 -&gt; (AvailBlanking -&gt; AvailBlanking -&gt; Bool) -&gt; Eq AvailBlanking
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailBlanking -&gt; AvailBlanking -&gt; Bool
 == :: AvailBlanking -&gt; AvailBlanking -&gt; Bool
 $c== :: AvailBlanking -&gt; AvailBlanking -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679943035"><span id="local-6989586621679943037"><span id="local-6989586621679943039"><span id="local-6989586621679943041"><span class="annot"><span class="annottext">ReadPrec [AvailBlanking]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944354"><span id="local-6989586621679944356"><span id="local-6989586621679944358"><span id="local-6989586621679944360"><span class="annot"><span class="annottext">ReadPrec [AvailBlanking]
 ReadPrec AvailBlanking
 Int -&gt; ReadS AvailBlanking
 ReadS [AvailBlanking]
@@ -64,7 +64,7 @@ readList :: ReadS [AvailBlanking]
 $creadList :: ReadS [AvailBlanking]
 readsPrec :: Int -&gt; ReadS AvailBlanking
 $creadsPrec :: Int -&gt; ReadS AvailBlanking
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679943028"><span id="local-6989586621679943030"><span id="local-6989586621679943032"><span class="annot"><span class="annottext">Int -&gt; AvailBlanking -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944347"><span id="local-6989586621679944349"><span id="local-6989586621679944351"><span class="annot"><span class="annottext">Int -&gt; AvailBlanking -&gt; ShowS
 [AvailBlanking] -&gt; ShowS
 AvailBlanking -&gt; String
 (Int -&gt; AvailBlanking -&gt; ShowS)
@@ -121,19 +121,19 @@ forall a. Maybe a
 -&gt; (AvailBlanking -&gt; Maybe Text -&gt; AvailBlanking)
 -&gt; Lens AvailBlanking AvailBlanking (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-type">AvailBlanking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943019"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-type">AvailBlanking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944338"><span class="annot"><span class="annottext">Maybe Text
 availBlankingImage :: Maybe Text
 $sel:availBlankingImage:AvailBlanking' :: AvailBlanking -&gt; Maybe Text
-</span><a href="#local-6989586621679943019"><span class="hs-identifier hs-var hs-var">availBlankingImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679943019"><span class="hs-identifier hs-var">availBlankingImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943018"><span class="annot"><span class="annottext">s :: AvailBlanking
-</span><a href="#local-6989586621679943018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-type">AvailBlanking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943017"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679943017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailBlanking
-</span><a href="#local-6989586621679943018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availBlankingImage:AvailBlanking' :: Maybe Text
+</span><a href="#local-6989586621679944338"><span class="hs-identifier hs-var hs-var">availBlankingImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944338"><span class="hs-identifier hs-var">availBlankingImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944337"><span class="annot"><span class="annottext">s :: AvailBlanking
+</span><a href="#local-6989586621679944337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-type">AvailBlanking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679944336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailBlanking
+</span><a href="#local-6989586621679944337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availBlankingImage:AvailBlanking' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#%24sel%3AavailBlankingImage%3AAvailBlanking%27"><span class="hs-identifier hs-var">availBlankingImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679943017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679943014"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679943012"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailBlanking
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944333"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679944331"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailBlanking
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AvailBlanking)
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AvailBlanking&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679943009"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679944328"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; AvailBlanking
 </span><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-var">AvailBlanking'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AvailBlanking)
 -&gt; Parser (Maybe Text) -&gt; Parser AvailBlanking
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679944328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;availBlankingImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679943003"><span id="local-6989586621679943005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944322"><span id="local-6989586621679944324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679943000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942992"><span id="local-6989586621679942994"><span id="local-6989586621679942996"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679942990"><span class="annot"><span class="annottext">toJSON :: AvailBlanking -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-type">AvailBlanking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942988"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944311"><span id="local-6989586621679944313"><span id="local-6989586621679944315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking"><span class="hs-identifier hs-type">AvailBlanking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679944309"><span class="annot"><span class="annottext">toJSON :: AvailBlanking -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvailBlanking.html#AvailBlanking%27"><span class="hs-identifier hs-type">AvailBlanking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944307"><span class="annot"><span class="annottext">Maybe Text
 availBlankingImage :: Maybe Text
 $sel:availBlankingImage:AvailBlanking' :: AvailBlanking -&gt; Maybe Text
-</span><a href="#local-6989586621679942988"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679944307"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -179,7 +179,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-81"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679942988"><span class="hs-identifier hs-var">availBlankingImage</span></a></span><span>
+</span><a href="#local-6989586621679944307"><span class="hs-identifier hs-var">availBlankingImage</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

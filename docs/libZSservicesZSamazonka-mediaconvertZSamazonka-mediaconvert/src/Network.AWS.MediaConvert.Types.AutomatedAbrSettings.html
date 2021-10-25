@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- size of your ABR package.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutomatedAbrSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679941681"><span id="local-6989586621679941682"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomatedAbrSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-var">AutomatedAbrSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomatedAbrSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-var">AutomatedAbrSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679943000"><span id="local-6989586621679943001"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomatedAbrSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-var">AutomatedAbrSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomatedAbrSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-var">AutomatedAbrSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. The maximum number of renditions that MediaConvert will create</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in your automated ABR stack. The number of renditions is determined</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- automatically, based on analysis of each job, but will never exceed this</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AminAbrBitrate%3AAutomatedAbrSettings%27"><span class="annot"><span class="annottext">AutomatedAbrSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#%24sel%3AminAbrBitrate%3AAutomatedAbrSettings%27"><span class="hs-identifier hs-var hs-var">minAbrBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679941673"><span id="local-6989586621679941675"><span class="annot"><span class="annottext">AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942992"><span id="local-6989586621679942994"><span class="annot"><span class="annottext">AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool
 (AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool)
 -&gt; (AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool)
 -&gt; Eq AutomatedAbrSettings
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool
 == :: AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool
 $c== :: AutomatedAbrSettings -&gt; AutomatedAbrSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941664"><span id="local-6989586621679941666"><span id="local-6989586621679941668"><span id="local-6989586621679941670"><span class="annot"><span class="annottext">ReadPrec [AutomatedAbrSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942983"><span id="local-6989586621679942985"><span id="local-6989586621679942987"><span id="local-6989586621679942989"><span class="annot"><span class="annottext">ReadPrec [AutomatedAbrSettings]
 ReadPrec AutomatedAbrSettings
 Int -&gt; ReadS AutomatedAbrSettings
 ReadS [AutomatedAbrSettings]
@@ -81,7 +81,7 @@ readList :: ReadS [AutomatedAbrSettings]
 $creadList :: ReadS [AutomatedAbrSettings]
 readsPrec :: Int -&gt; ReadS AutomatedAbrSettings
 $creadsPrec :: Int -&gt; ReadS AutomatedAbrSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941657"><span id="local-6989586621679941659"><span id="local-6989586621679941661"><span class="annot"><span class="annottext">Int -&gt; AutomatedAbrSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942976"><span id="local-6989586621679942978"><span id="local-6989586621679942980"><span class="annot"><span class="annottext">Int -&gt; AutomatedAbrSettings -&gt; ShowS
 [AutomatedAbrSettings] -&gt; ShowS
 AutomatedAbrSettings -&gt; String
 (Int -&gt; AutomatedAbrSettings -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941648"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942967"><span class="annot"><span class="annottext">Maybe Natural
 maxRenditions :: Maybe Natural
 $sel:maxRenditions:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679941648"><span class="hs-identifier hs-var hs-var">maxRenditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941648"><span class="hs-identifier hs-var">maxRenditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941647"><span class="annot"><span class="annottext">s :: AutomatedAbrSettings
-</span><a href="#local-6989586621679941647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941646"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomatedAbrSettings
-</span><a href="#local-6989586621679941647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRenditions:AutomatedAbrSettings' :: Maybe Natural
+</span><a href="#local-6989586621679942967"><span class="hs-identifier hs-var hs-var">maxRenditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942967"><span class="hs-identifier hs-var">maxRenditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942966"><span class="annot"><span class="annottext">s :: AutomatedAbrSettings
+</span><a href="#local-6989586621679942966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942965"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomatedAbrSettings
+</span><a href="#local-6989586621679942966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRenditions:AutomatedAbrSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#%24sel%3AmaxRenditions%3AAutomatedAbrSettings%27"><span class="hs-identifier hs-var">maxRenditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Optional. The maximum target bit rate used in your automated ABR stack.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- Use this value to set an upper limit on the bandwidth consumed by the</span><span>
@@ -198,16 +198,16 @@ $sel:maxRenditions:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Nat
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941644"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942963"><span class="annot"><span class="annottext">Maybe Natural
 maxAbrBitrate :: Maybe Natural
 $sel:maxAbrBitrate:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679941644"><span class="hs-identifier hs-var hs-var">maxAbrBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941644"><span class="hs-identifier hs-var">maxAbrBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941643"><span class="annot"><span class="annottext">s :: AutomatedAbrSettings
-</span><a href="#local-6989586621679941643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941642"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomatedAbrSettings
-</span><a href="#local-6989586621679941643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAbrBitrate:AutomatedAbrSettings' :: Maybe Natural
+</span><a href="#local-6989586621679942963"><span class="hs-identifier hs-var hs-var">maxAbrBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942963"><span class="hs-identifier hs-var">maxAbrBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942962"><span class="annot"><span class="annottext">s :: AutomatedAbrSettings
+</span><a href="#local-6989586621679942962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942961"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomatedAbrSettings
+</span><a href="#local-6989586621679942962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAbrBitrate:AutomatedAbrSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#%24sel%3AmaxAbrBitrate%3AAutomatedAbrSettings%27"><span class="hs-identifier hs-var">maxAbrBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | Optional. The minimum target bitrate used in your automated ABR stack.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- Use this value to set a lower limit on the bitrate of video delivered to</span><span>
@@ -224,19 +224,19 @@ $sel:maxAbrBitrate:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Nat
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941640"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942959"><span class="annot"><span class="annottext">Maybe Natural
 minAbrBitrate :: Maybe Natural
 $sel:minAbrBitrate:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679941640"><span class="hs-identifier hs-var hs-var">minAbrBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941640"><span class="hs-identifier hs-var">minAbrBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941639"><span class="annot"><span class="annottext">s :: AutomatedAbrSettings
-</span><a href="#local-6989586621679941639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941638"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomatedAbrSettings
-</span><a href="#local-6989586621679941639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minAbrBitrate:AutomatedAbrSettings' :: Maybe Natural
+</span><a href="#local-6989586621679942959"><span class="hs-identifier hs-var hs-var">minAbrBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942959"><span class="hs-identifier hs-var">minAbrBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942958"><span class="annot"><span class="annottext">s :: AutomatedAbrSettings
+</span><a href="#local-6989586621679942958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942957"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomatedAbrSettings
+</span><a href="#local-6989586621679942958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minAbrBitrate:AutomatedAbrSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#%24sel%3AminAbrBitrate%3AAutomatedAbrSettings%27"><span class="hs-identifier hs-var">minAbrBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679941633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomatedAbrSettings
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942954"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679942952"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomatedAbrSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutomatedAbrSettings)
@@ -246,8 +246,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutomatedAbrSettings&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679941630"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679941630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679942949"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; AutomatedAbrSettings
 </span><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-var">AutomatedAbrSettings'</span></a></span><span>
@@ -257,7 +257,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; AutomatedAbrSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679941630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679942949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxRenditions&quot;</span></span><span class="hs-special">)</span><span>
@@ -266,7 +266,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; AutomatedAbrSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679941630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679942949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxAbrBitrate&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,26 +274,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser AutomatedAbrSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679941630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679942949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minAbrBitrate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941624"><span id="local-6989586621679941626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942943"><span id="local-6989586621679942945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941613"><span id="local-6989586621679941615"><span id="local-6989586621679941617"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679941611"><span class="annot"><span class="annottext">toJSON :: AutomatedAbrSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941607"><span id="local-6989586621679941608"><span id="local-6989586621679941609"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942932"><span id="local-6989586621679942934"><span id="local-6989586621679942936"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings"><span class="hs-identifier hs-type">AutomatedAbrSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679942930"><span class="annot"><span class="annottext">toJSON :: AutomatedAbrSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AutomatedAbrSettings.html#AutomatedAbrSettings%27"><span class="hs-identifier hs-type">AutomatedAbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942926"><span id="local-6989586621679942927"><span id="local-6989586621679942928"><span class="annot"><span class="annottext">Maybe Natural
 minAbrBitrate :: Maybe Natural
 maxAbrBitrate :: Maybe Natural
 maxRenditions :: Maybe Natural
 $sel:minAbrBitrate:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Natural
 $sel:maxAbrBitrate:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Natural
 $sel:maxRenditions:AutomatedAbrSettings' :: AutomatedAbrSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679941607"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679942926"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,21 +305,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941609"><span class="hs-identifier hs-var">maxRenditions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679942928"><span class="hs-identifier hs-var">maxRenditions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxAbrBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941608"><span class="hs-identifier hs-var">maxAbrBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679942927"><span class="hs-identifier hs-var">maxAbrBitrate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minAbrBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679941607"><span class="hs-identifier hs-var">minAbrBitrate</span></a></span><span>
+</span><a href="#local-6989586621679942926"><span class="hs-identifier hs-var">minAbrBitrate</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span></pre></body></html>

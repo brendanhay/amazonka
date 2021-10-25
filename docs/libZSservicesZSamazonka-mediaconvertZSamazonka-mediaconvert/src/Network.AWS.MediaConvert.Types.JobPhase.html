@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | A job\'s phase can be PROBING, TRANSCODING OR UPLOADING</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679982182"><span id="local-6989586621679982183"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobPhase"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier hs-var">JobPhase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobPhase%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-identifier hs-var">JobPhase'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679983672"><span id="local-6989586621679983673"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobPhase"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier hs-var">JobPhase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobPhase%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-identifier hs-var">JobPhase'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobPhase"><span class="annot"><span class="annottext">JobPhase -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.JobPhase.html#fromJobPhase"><span class="hs-identifier hs-var hs-var">fromJobPhase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982174"><span id="local-6989586621679982176"><span id="local-6989586621679982178"><span class="annot"><span class="annottext">Int -&gt; JobPhase -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983664"><span id="local-6989586621679983666"><span id="local-6989586621679983668"><span class="annot"><span class="annottext">Int -&gt; JobPhase -&gt; ShowS
 [JobPhase] -&gt; ShowS
 JobPhase -&gt; String
 (Int -&gt; JobPhase -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: JobPhase -&gt; String
 showsPrec :: Int -&gt; JobPhase -&gt; ShowS
 $cshowsPrec :: Int -&gt; JobPhase -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679982165"><span id="local-6989586621679982167"><span id="local-6989586621679982169"><span id="local-6989586621679982171"><span class="annot"><span class="annottext">ReadPrec [JobPhase]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679983655"><span id="local-6989586621679983657"><span id="local-6989586621679983659"><span id="local-6989586621679983661"><span class="annot"><span class="annottext">ReadPrec [JobPhase]
 ReadPrec JobPhase
 Int -&gt; ReadS JobPhase
 ReadS [JobPhase]
@@ -72,7 +72,7 @@ $creadList :: ReadS [JobPhase]
 readsPrec :: Int -&gt; ReadS JobPhase
 $creadsPrec :: Int -&gt; ReadS JobPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679982160"><span id="local-6989586621679982162"><span class="annot"><span class="annottext">JobPhase -&gt; JobPhase -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679983650"><span id="local-6989586621679983652"><span class="annot"><span class="annottext">JobPhase -&gt; JobPhase -&gt; Bool
 (JobPhase -&gt; JobPhase -&gt; Bool)
 -&gt; (JobPhase -&gt; JobPhase -&gt; Bool) -&gt; Eq JobPhase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: JobPhase -&gt; JobPhase -&gt; Bool
 == :: JobPhase -&gt; JobPhase -&gt; Bool
 $c== :: JobPhase -&gt; JobPhase -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679982144"><span id="local-6989586621679982146"><span id="local-6989586621679982148"><span id="local-6989586621679982150"><span id="local-6989586621679982152"><span id="local-6989586621679982154"><span id="local-6989586621679982156"><span class="annot"><span class="annottext">Eq JobPhase
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679983634"><span id="local-6989586621679983636"><span id="local-6989586621679983638"><span id="local-6989586621679983640"><span id="local-6989586621679983642"><span id="local-6989586621679983644"><span id="local-6989586621679983646"><span class="annot"><span class="annottext">Eq JobPhase
 Eq JobPhase
 -&gt; (JobPhase -&gt; JobPhase -&gt; Ordering)
 -&gt; (JobPhase -&gt; JobPhase -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. JobPhase -&gt; Rep JobPhase x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982136"><span id="local-6989586621679982138"><span class="annot"><span class="annottext">Int -&gt; JobPhase -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983626"><span id="local-6989586621679983628"><span class="annot"><span class="annottext">Int -&gt; JobPhase -&gt; Int
 JobPhase -&gt; Int
 (Int -&gt; JobPhase -&gt; Int) -&gt; (JobPhase -&gt; Int) -&gt; Hashable JobPhase
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: JobPhase -&gt; Int
 hashWithSalt :: Int -&gt; JobPhase -&gt; Int
 $chashWithSalt :: Int -&gt; JobPhase -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679982133"><span class="annot"><span class="annottext">JobPhase -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679983623"><span class="annot"><span class="annottext">JobPhase -&gt; ()
 (JobPhase -&gt; ()) -&gt; NFData JobPhase
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: JobPhase -&gt; ()
 $crnf :: JobPhase -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679982130"><span class="annot"><span class="annottext">Text -&gt; Either String JobPhase
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679983620"><span class="annot"><span class="annottext">Text -&gt; Either String JobPhase
 (Text -&gt; Either String JobPhase) -&gt; FromText JobPhase
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String JobPhase
 $cfromText :: Text -&gt; Either String JobPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679982127"><span class="annot"><span class="annottext">JobPhase -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679983617"><span class="annot"><span class="annottext">JobPhase -&gt; Text
 (JobPhase -&gt; Text) -&gt; ToText JobPhase
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: JobPhase -&gt; Text
 $ctoText :: JobPhase -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679982124"><span class="annot"><span class="annottext">JobPhase -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679983614"><span class="annot"><span class="annottext">JobPhase -&gt; ByteString
 (JobPhase -&gt; ByteString) -&gt; ToByteString JobPhase
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: JobPhase -&gt; ByteString
 $ctoBS :: JobPhase -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679982121"><span class="annot"><span class="annottext">JobPhase -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679983611"><span class="annot"><span class="annottext">JobPhase -&gt; ByteStringBuilder
 (JobPhase -&gt; ByteStringBuilder) -&gt; ToLog JobPhase
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: JobPhase -&gt; ByteStringBuilder
 $cbuild :: JobPhase -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679982118"><span class="annot"><span class="annottext">HeaderName -&gt; JobPhase -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679983608"><span class="annot"><span class="annottext">HeaderName -&gt; JobPhase -&gt; [Header]
 (HeaderName -&gt; JobPhase -&gt; [Header]) -&gt; ToHeader JobPhase
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; JobPhase -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; JobPhase -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679982115"><span class="annot"><span class="annottext">JobPhase -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679983605"><span class="annot"><span class="annottext">JobPhase -&gt; QueryString
 (JobPhase -&gt; QueryString) -&gt; ToQuery JobPhase
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: JobPhase -&gt; QueryString
 $ctoQuery :: JobPhase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679982110"><span id="local-6989586621679982112"><span class="annot"><span class="annottext">Value -&gt; Parser [JobPhase]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679983600"><span id="local-6989586621679983602"><span class="annot"><span class="annottext">Value -&gt; Parser [JobPhase]
 Value -&gt; Parser JobPhase
 (Value -&gt; Parser JobPhase)
 -&gt; (Value -&gt; Parser [JobPhase]) -&gt; FromJSON JobPhase
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [JobPhase]
 parseJSON :: Value -&gt; Parser JobPhase
 $cparseJSON :: Value -&gt; Parser JobPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679982105"><span id="local-6989586621679982107"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobPhase]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679983595"><span id="local-6989586621679983597"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobPhase]
 FromJSONKeyFunction JobPhase
 FromJSONKeyFunction JobPhase
 -&gt; FromJSONKeyFunction [JobPhase] -&gt; FromJSONKey JobPhase
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [JobPhase]
 fromJSONKey :: FromJSONKeyFunction JobPhase
 $cfromJSONKey :: FromJSONKeyFunction JobPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679982096"><span id="local-6989586621679982098"><span id="local-6989586621679982100"><span id="local-6989586621679982102"><span class="annot"><span class="annottext">[JobPhase] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679983586"><span id="local-6989586621679983588"><span id="local-6989586621679983590"><span id="local-6989586621679983592"><span class="annot"><span class="annottext">[JobPhase] -&gt; Encoding
 [JobPhase] -&gt; Value
 JobPhase -&gt; Encoding
 JobPhase -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: JobPhase -&gt; Encoding
 toJSON :: JobPhase -&gt; Value
 $ctoJSON :: JobPhase -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679982091"><span id="local-6989586621679982093"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobPhase]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679983581"><span id="local-6989586621679983583"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobPhase]
 ToJSONKeyFunction JobPhase
 ToJSONKeyFunction JobPhase
 -&gt; ToJSONKeyFunction [JobPhase] -&gt; ToJSONKey JobPhase
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [JobPhase]
 toJSONKey :: ToJSONKeyFunction JobPhase
 $ctoJSONKey :: ToJSONKeyFunction JobPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679982088"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobPhase
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679983578"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobPhase
 ([Node] -&gt; Either String JobPhase) -&gt; FromXML JobPhase
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String JobPhase
 $cparseXML :: [Node] -&gt; Either String JobPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679982085"><span class="annot"><span class="annottext">JobPhase -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679983575"><span class="annot"><span class="annottext">JobPhase -&gt; XML
 (JobPhase -&gt; XML) -&gt; ToXML JobPhase
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: JobPhase -&gt; XML

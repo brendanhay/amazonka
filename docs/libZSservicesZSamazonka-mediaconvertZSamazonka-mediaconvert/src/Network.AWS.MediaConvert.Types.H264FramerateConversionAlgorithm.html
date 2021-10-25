@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679966759"><span id="local-6989586621679966760"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm.html#H264FramerateConversionAlgorithm"><span class="hs-identifier hs-var">H264FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm.html#H264FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">H264FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679968249"><span id="local-6989586621679968250"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm.html#H264FramerateConversionAlgorithm"><span class="hs-identifier hs-var">H264FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm.html#H264FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">H264FramerateConversionAlgorithm'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264FramerateConversionAlgorithm"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm.html#fromH264FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromH264FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679966751"><span id="local-6989586621679966753"><span id="local-6989586621679966755"><span class="annot"><span class="annottext">Int -&gt; H264FramerateConversionAlgorithm -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968241"><span id="local-6989586621679968243"><span id="local-6989586621679968245"><span class="annot"><span class="annottext">Int -&gt; H264FramerateConversionAlgorithm -&gt; ShowS
 [H264FramerateConversionAlgorithm] -&gt; ShowS
 H264FramerateConversionAlgorithm -&gt; String
 (Int -&gt; H264FramerateConversionAlgorithm -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: H264FramerateConversionAlgorithm -&gt; String
 showsPrec :: Int -&gt; H264FramerateConversionAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264FramerateConversionAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679966742"><span id="local-6989586621679966744"><span id="local-6989586621679966746"><span id="local-6989586621679966748"><span class="annot"><span class="annottext">ReadPrec [H264FramerateConversionAlgorithm]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679968232"><span id="local-6989586621679968234"><span id="local-6989586621679968236"><span id="local-6989586621679968238"><span class="annot"><span class="annottext">ReadPrec [H264FramerateConversionAlgorithm]
 ReadPrec H264FramerateConversionAlgorithm
 Int -&gt; ReadS H264FramerateConversionAlgorithm
 ReadS [H264FramerateConversionAlgorithm]
@@ -84,7 +84,7 @@ $creadList :: ReadS [H264FramerateConversionAlgorithm]
 readsPrec :: Int -&gt; ReadS H264FramerateConversionAlgorithm
 $creadsPrec :: Int -&gt; ReadS H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679966737"><span id="local-6989586621679966739"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679968227"><span id="local-6989586621679968229"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm
 -&gt; H264FramerateConversionAlgorithm -&gt; Bool
 (H264FramerateConversionAlgorithm
  -&gt; H264FramerateConversionAlgorithm -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: H264FramerateConversionAlgorithm
 $c== :: H264FramerateConversionAlgorithm
 -&gt; H264FramerateConversionAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679966721"><span id="local-6989586621679966723"><span id="local-6989586621679966725"><span id="local-6989586621679966727"><span id="local-6989586621679966729"><span id="local-6989586621679966731"><span id="local-6989586621679966733"><span class="annot"><span class="annottext">Eq H264FramerateConversionAlgorithm
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679968211"><span id="local-6989586621679968213"><span id="local-6989586621679968215"><span id="local-6989586621679968217"><span id="local-6989586621679968219"><span id="local-6989586621679968221"><span id="local-6989586621679968223"><span class="annot"><span class="annottext">Eq H264FramerateConversionAlgorithm
 Eq H264FramerateConversionAlgorithm
 -&gt; (H264FramerateConversionAlgorithm
     -&gt; H264FramerateConversionAlgorithm -&gt; Ordering)
@@ -195,7 +195,7 @@ H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679966713"><span id="local-6989586621679966715"><span class="annot"><span class="annottext">Int -&gt; H264FramerateConversionAlgorithm -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968203"><span id="local-6989586621679968205"><span class="annot"><span class="annottext">Int -&gt; H264FramerateConversionAlgorithm -&gt; Int
 H264FramerateConversionAlgorithm -&gt; Int
 (Int -&gt; H264FramerateConversionAlgorithm -&gt; Int)
 -&gt; (H264FramerateConversionAlgorithm -&gt; Int)
@@ -206,56 +206,56 @@ $chash :: H264FramerateConversionAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; H264FramerateConversionAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; H264FramerateConversionAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679966710"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679968200"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; ()
 (H264FramerateConversionAlgorithm -&gt; ())
 -&gt; NFData H264FramerateConversionAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264FramerateConversionAlgorithm -&gt; ()
 $crnf :: H264FramerateConversionAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679966707"><span class="annot"><span class="annottext">Text -&gt; Either String H264FramerateConversionAlgorithm
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679968197"><span class="annot"><span class="annottext">Text -&gt; Either String H264FramerateConversionAlgorithm
 (Text -&gt; Either String H264FramerateConversionAlgorithm)
 -&gt; FromText H264FramerateConversionAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264FramerateConversionAlgorithm
 $cfromText :: Text -&gt; Either String H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679966704"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679968194"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; Text
 (H264FramerateConversionAlgorithm -&gt; Text)
 -&gt; ToText H264FramerateConversionAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264FramerateConversionAlgorithm -&gt; Text
 $ctoText :: H264FramerateConversionAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679966701"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679968191"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; ByteString
 (H264FramerateConversionAlgorithm -&gt; ByteString)
 -&gt; ToByteString H264FramerateConversionAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264FramerateConversionAlgorithm -&gt; ByteString
 $ctoBS :: H264FramerateConversionAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679966698"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679968188"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; ByteStringBuilder
 (H264FramerateConversionAlgorithm -&gt; ByteStringBuilder)
 -&gt; ToLog H264FramerateConversionAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264FramerateConversionAlgorithm -&gt; ByteStringBuilder
 $cbuild :: H264FramerateConversionAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679966695"><span class="annot"><span class="annottext">HeaderName -&gt; H264FramerateConversionAlgorithm -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679968185"><span class="annot"><span class="annottext">HeaderName -&gt; H264FramerateConversionAlgorithm -&gt; [Header]
 (HeaderName -&gt; H264FramerateConversionAlgorithm -&gt; [Header])
 -&gt; ToHeader H264FramerateConversionAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264FramerateConversionAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264FramerateConversionAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679966692"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679968182"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; QueryString
 (H264FramerateConversionAlgorithm -&gt; QueryString)
 -&gt; ToQuery H264FramerateConversionAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264FramerateConversionAlgorithm -&gt; QueryString
 $ctoQuery :: H264FramerateConversionAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679966687"><span id="local-6989586621679966689"><span class="annot"><span class="annottext">Value -&gt; Parser [H264FramerateConversionAlgorithm]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679968177"><span id="local-6989586621679968179"><span class="annot"><span class="annottext">Value -&gt; Parser [H264FramerateConversionAlgorithm]
 Value -&gt; Parser H264FramerateConversionAlgorithm
 (Value -&gt; Parser H264FramerateConversionAlgorithm)
 -&gt; (Value -&gt; Parser [H264FramerateConversionAlgorithm])
@@ -267,7 +267,7 @@ $cparseJSONList :: Value -&gt; Parser [H264FramerateConversionAlgorithm]
 parseJSON :: Value -&gt; Parser H264FramerateConversionAlgorithm
 $cparseJSON :: Value -&gt; Parser H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679966682"><span id="local-6989586621679966684"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264FramerateConversionAlgorithm]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679968172"><span id="local-6989586621679968174"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264FramerateConversionAlgorithm]
 FromJSONKeyFunction H264FramerateConversionAlgorithm
 FromJSONKeyFunction H264FramerateConversionAlgorithm
 -&gt; FromJSONKeyFunction [H264FramerateConversionAlgorithm]
@@ -279,7 +279,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264FramerateConversionAlgorithm]
 fromJSONKey :: FromJSONKeyFunction H264FramerateConversionAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679966673"><span id="local-6989586621679966675"><span id="local-6989586621679966677"><span id="local-6989586621679966679"><span class="annot"><span class="annottext">[H264FramerateConversionAlgorithm] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679968163"><span id="local-6989586621679968165"><span id="local-6989586621679968167"><span id="local-6989586621679968169"><span class="annot"><span class="annottext">[H264FramerateConversionAlgorithm] -&gt; Encoding
 [H264FramerateConversionAlgorithm] -&gt; Value
 H264FramerateConversionAlgorithm -&gt; Encoding
 H264FramerateConversionAlgorithm -&gt; Value
@@ -303,7 +303,7 @@ $ctoEncoding :: H264FramerateConversionAlgorithm -&gt; Encoding
 toJSON :: H264FramerateConversionAlgorithm -&gt; Value
 $ctoJSON :: H264FramerateConversionAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679966668"><span id="local-6989586621679966670"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264FramerateConversionAlgorithm]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679968158"><span id="local-6989586621679968160"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264FramerateConversionAlgorithm]
 ToJSONKeyFunction H264FramerateConversionAlgorithm
 ToJSONKeyFunction H264FramerateConversionAlgorithm
 -&gt; ToJSONKeyFunction [H264FramerateConversionAlgorithm]
@@ -315,14 +315,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264FramerateConversionAlgorithm]
 toJSONKey :: ToJSONKeyFunction H264FramerateConversionAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679966665"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264FramerateConversionAlgorithm
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679968155"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264FramerateConversionAlgorithm
 ([Node] -&gt; Either String H264FramerateConversionAlgorithm)
 -&gt; FromXML H264FramerateConversionAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264FramerateConversionAlgorithm
 $cparseXML :: [Node] -&gt; Either String H264FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679966662"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679968152"><span class="annot"><span class="annottext">H264FramerateConversionAlgorithm -&gt; XML
 (H264FramerateConversionAlgorithm -&gt; XML)
 -&gt; ToXML H264FramerateConversionAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a

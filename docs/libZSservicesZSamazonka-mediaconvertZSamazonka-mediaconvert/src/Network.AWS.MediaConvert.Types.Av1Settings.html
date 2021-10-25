@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- value AV1.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAv1Settings' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679942920"><span id="local-6989586621679942921"></span></span><span class="hs-keyword">data</span><span> </span><span id="Av1Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-var">Av1Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-var">Av1Settings'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679944239"><span id="local-6989586621679944240"></span></span><span class="hs-keyword">data</span><span> </span><span id="Av1Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-var">Av1Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-var">Av1Settings'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the GOP length (keyframe interval) in frames. With AV1,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- MediaConvert doesn\'t support GOP length in seconds. This value must be</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x),</span><span>
@@ -135,7 +135,7 @@
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AspatialAdaptiveQuantization%3AAv1Settings%27"><span class="annot"><span class="annottext">Av1Settings -&gt; Maybe Av1SpatialAdaptiveQuantization
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AspatialAdaptiveQuantization%3AAv1Settings%27"><span class="hs-identifier hs-var hs-var">spatialAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1SpatialAdaptiveQuantization.html#Av1SpatialAdaptiveQuantization"><span class="hs-identifier hs-type">Av1SpatialAdaptiveQuantization</span></a></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942903"><span id="local-6989586621679942905"><span class="annot"><span class="annottext">Av1Settings -&gt; Av1Settings -&gt; Bool
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679944222"><span id="local-6989586621679944224"><span class="annot"><span class="annottext">Av1Settings -&gt; Av1Settings -&gt; Bool
 (Av1Settings -&gt; Av1Settings -&gt; Bool)
 -&gt; (Av1Settings -&gt; Av1Settings -&gt; Bool) -&gt; Eq Av1Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -143,7 +143,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Av1Settings -&gt; Av1Settings -&gt; Bool
 == :: Av1Settings -&gt; Av1Settings -&gt; Bool
 $c== :: Av1Settings -&gt; Av1Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942894"><span id="local-6989586621679942896"><span id="local-6989586621679942898"><span id="local-6989586621679942900"><span class="annot"><span class="annottext">ReadPrec [Av1Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944213"><span id="local-6989586621679944215"><span id="local-6989586621679944217"><span id="local-6989586621679944219"><span class="annot"><span class="annottext">ReadPrec [Av1Settings]
 ReadPrec Av1Settings
 Int -&gt; ReadS Av1Settings
 ReadS [Av1Settings]
@@ -163,7 +163,7 @@ readList :: ReadS [Av1Settings]
 $creadList :: ReadS [Av1Settings]
 readsPrec :: Int -&gt; ReadS Av1Settings
 $creadsPrec :: Int -&gt; ReadS Av1Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942887"><span id="local-6989586621679942889"><span id="local-6989586621679942891"><span class="annot"><span class="annottext">Int -&gt; Av1Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679944206"><span id="local-6989586621679944208"><span id="local-6989586621679944210"><span class="annot"><span class="annottext">Int -&gt; Av1Settings -&gt; ShowS
 [Av1Settings] -&gt; ShowS
 Av1Settings -&gt; String
 (Int -&gt; Av1Settings -&gt; ShowS)
@@ -363,16 +363,16 @@ forall a. Maybe a
 -&gt; (Av1Settings -&gt; Maybe Double -&gt; Av1Settings)
 -&gt; Lens Av1Settings Av1Settings (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942878"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944197"><span class="annot"><span class="annottext">Maybe Double
 gopSize :: Maybe Double
 $sel:gopSize:Av1Settings' :: Av1Settings -&gt; Maybe Double
-</span><a href="#local-6989586621679942878"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679942878"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942877"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942876"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679942876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSize:Av1Settings' :: Maybe Double
+</span><a href="#local-6989586621679944197"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679944197"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944196"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944195"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679944195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSize:Av1Settings' :: Maybe Double
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AgopSize%3AAv1Settings%27"><span class="hs-identifier hs-var">gopSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679942876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | Specify from the number of B-frames, in the range of 0-15. For AV1</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- encoding, we recommend using 7 or 15. Choose a larger number for a lower</span><span>
@@ -385,16 +385,16 @@ $sel:gopSize:Av1Settings' :: Av1Settings -&gt; Maybe Double
 -&gt; (Av1Settings -&gt; Maybe Natural -&gt; Av1Settings)
 -&gt; Lens Av1Settings Av1Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942874"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944193"><span class="annot"><span class="annottext">Maybe Natural
 numberBFramesBetweenReferenceFrames :: Maybe Natural
 $sel:numberBFramesBetweenReferenceFrames:Av1Settings' :: Av1Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679942874"><span class="hs-identifier hs-var hs-var">numberBFramesBetweenReferenceFrames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942874"><span class="hs-identifier hs-var">numberBFramesBetweenReferenceFrames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942873"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942872"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberBFramesBetweenReferenceFrames:Av1Settings' :: Maybe Natural
+</span><a href="#local-6989586621679944193"><span class="hs-identifier hs-var hs-var">numberBFramesBetweenReferenceFrames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944193"><span class="hs-identifier hs-var">numberBFramesBetweenReferenceFrames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944192"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944191"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberBFramesBetweenReferenceFrames:Av1Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AnumberBFramesBetweenReferenceFrames%3AAv1Settings%27"><span class="hs-identifier hs-var">numberBFramesBetweenReferenceFrames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | Specify the number of slices per picture. This value must be 1, 2, 4, 8,</span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- 16, or 32. For progressive pictures, this value must be less than or</span><span>
@@ -407,16 +407,16 @@ $sel:numberBFramesBetweenReferenceFrames:Av1Settings' :: Av1Settings -&gt; Maybe
 -&gt; (Av1Settings -&gt; Maybe Natural -&gt; Av1Settings)
 -&gt; Lens Av1Settings Av1Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942870"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944189"><span class="annot"><span class="annottext">Maybe Natural
 slices :: Maybe Natural
 $sel:slices:Av1Settings' :: Av1Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679942870"><span class="hs-identifier hs-var hs-var">slices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942870"><span class="hs-identifier hs-var">slices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942869"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942868"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slices:Av1Settings' :: Maybe Natural
+</span><a href="#local-6989586621679944189"><span class="hs-identifier hs-var hs-var">slices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944189"><span class="hs-identifier hs-var">slices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944188"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944187"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slices:Av1Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3Aslices%3AAv1Settings%27"><span class="hs-identifier hs-var">slices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | \'With AV1 outputs, for rate control mode, MediaConvert supports only</span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'</span><span>
@@ -431,16 +431,16 @@ $sel:slices:Av1Settings' :: Av1Settings -&gt; Maybe Natural
      (Maybe Av1RateControlMode)
      (Maybe Av1RateControlMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942866"><span class="annot"><span class="annottext">Maybe Av1RateControlMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944185"><span class="annot"><span class="annottext">Maybe Av1RateControlMode
 rateControlMode :: Maybe Av1RateControlMode
 $sel:rateControlMode:Av1Settings' :: Av1Settings -&gt; Maybe Av1RateControlMode
-</span><a href="#local-6989586621679942866"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1RateControlMode
-</span><a href="#local-6989586621679942866"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942865"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942864"><span class="annot"><span class="annottext">Maybe Av1RateControlMode
-</span><a href="#local-6989586621679942864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateControlMode:Av1Settings' :: Maybe Av1RateControlMode
+</span><a href="#local-6989586621679944185"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1RateControlMode
+</span><a href="#local-6989586621679944185"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944184"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944183"><span class="annot"><span class="annottext">Maybe Av1RateControlMode
+</span><a href="#local-6989586621679944183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateControlMode:Av1Settings' :: Maybe Av1RateControlMode
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3ArateControlMode%3AAv1Settings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Av1RateControlMode
-</span><a href="#local-6989586621679942864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | Settings for quality-defined variable bitrate encoding with the H.265</span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- codec. Use these settings only when you set QVBR for Rate control mode</span><span>
@@ -456,16 +456,16 @@ $sel:rateControlMode:Av1Settings' :: Av1Settings -&gt; Maybe Av1RateControlMode
      (Maybe Av1QvbrSettings)
      (Maybe Av1QvbrSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942862"><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944181"><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
 qvbrSettings :: Maybe Av1QvbrSettings
 $sel:qvbrSettings:Av1Settings' :: Av1Settings -&gt; Maybe Av1QvbrSettings
-</span><a href="#local-6989586621679942862"><span class="hs-identifier hs-var hs-var">qvbrSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
-</span><a href="#local-6989586621679942862"><span class="hs-identifier hs-var">qvbrSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942861"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942860"><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
-</span><a href="#local-6989586621679942860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qvbrSettings:Av1Settings' :: Maybe Av1QvbrSettings
+</span><a href="#local-6989586621679944181"><span class="hs-identifier hs-var hs-var">qvbrSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
+</span><a href="#local-6989586621679944181"><span class="hs-identifier hs-var">qvbrSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944180"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944179"><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
+</span><a href="#local-6989586621679944179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qvbrSettings:Av1Settings' :: Maybe Av1QvbrSettings
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AqvbrSettings%3AAv1Settings%27"><span class="hs-identifier hs-var">qvbrSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
-</span><a href="#local-6989586621679942860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
@@ -481,16 +481,16 @@ $sel:qvbrSettings:Av1Settings' :: Av1Settings -&gt; Maybe Av1QvbrSettings
 -&gt; (Av1Settings -&gt; Maybe Natural -&gt; Av1Settings)
 -&gt; Lens Av1Settings Av1Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942858"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944177"><span class="annot"><span class="annottext">Maybe Natural
 framerateDenominator :: Maybe Natural
 $sel:framerateDenominator:Av1Settings' :: Av1Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679942858"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942858"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942857"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942856"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Av1Settings' :: Maybe Natural
+</span><a href="#local-6989586621679944177"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944177"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944176"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944175"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Av1Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AframerateDenominator%3AAv1Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
@@ -516,16 +516,16 @@ $sel:framerateDenominator:Av1Settings' :: Av1Settings -&gt; Maybe Natural
      (Maybe Av1FramerateConversionAlgorithm)
      (Maybe Av1FramerateConversionAlgorithm)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942854"><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944173"><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
 framerateConversionAlgorithm :: Maybe Av1FramerateConversionAlgorithm
 $sel:framerateConversionAlgorithm:Av1Settings' :: Av1Settings -&gt; Maybe Av1FramerateConversionAlgorithm
-</span><a href="#local-6989586621679942854"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
-</span><a href="#local-6989586621679942854"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942853"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942852"><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
-</span><a href="#local-6989586621679942852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Av1Settings' :: Maybe Av1FramerateConversionAlgorithm
+</span><a href="#local-6989586621679944173"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
+</span><a href="#local-6989586621679944173"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944172"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944171"><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
+</span><a href="#local-6989586621679944171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Av1Settings' :: Maybe Av1FramerateConversionAlgorithm
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AframerateConversionAlgorithm%3AAv1Settings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
-</span><a href="#local-6989586621679942852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
@@ -551,16 +551,16 @@ $sel:framerateConversionAlgorithm:Av1Settings' :: Av1Settings -&gt; Maybe Av1Fra
      (Maybe Av1FramerateControl)
      (Maybe Av1FramerateControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942850"><span class="annot"><span class="annottext">Maybe Av1FramerateControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944169"><span class="annot"><span class="annottext">Maybe Av1FramerateControl
 framerateControl :: Maybe Av1FramerateControl
 $sel:framerateControl:Av1Settings' :: Av1Settings -&gt; Maybe Av1FramerateControl
-</span><a href="#local-6989586621679942850"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateControl
-</span><a href="#local-6989586621679942850"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942849"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942848"><span class="annot"><span class="annottext">Maybe Av1FramerateControl
-</span><a href="#local-6989586621679942848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:Av1Settings' :: Maybe Av1FramerateControl
+</span><a href="#local-6989586621679944169"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateControl
+</span><a href="#local-6989586621679944169"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944168"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944167"><span class="annot"><span class="annottext">Maybe Av1FramerateControl
+</span><a href="#local-6989586621679944167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:Av1Settings' :: Maybe Av1FramerateControl
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AframerateControl%3AAv1Settings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateControl
-</span><a href="#local-6989586621679942848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | Specify the strength of any adaptive quantization filters that you</span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- enable. The value that you choose here applies to Spatial adaptive</span><span>
@@ -577,16 +577,16 @@ $sel:framerateControl:Av1Settings' :: Av1Settings -&gt; Maybe Av1FramerateContro
      (Maybe Av1AdaptiveQuantization)
      (Maybe Av1AdaptiveQuantization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942846"><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944165"><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
 adaptiveQuantization :: Maybe Av1AdaptiveQuantization
 $sel:adaptiveQuantization:Av1Settings' :: Av1Settings -&gt; Maybe Av1AdaptiveQuantization
-</span><a href="#local-6989586621679942846"><span class="hs-identifier hs-var hs-var">adaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
-</span><a href="#local-6989586621679942846"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942845"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942844"><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
-</span><a href="#local-6989586621679942844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adaptiveQuantization:Av1Settings' :: Maybe Av1AdaptiveQuantization
+</span><a href="#local-6989586621679944165"><span class="hs-identifier hs-var hs-var">adaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
+</span><a href="#local-6989586621679944165"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944164"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944163"><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
+</span><a href="#local-6989586621679944163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adaptiveQuantization:Av1Settings' :: Maybe Av1AdaptiveQuantization
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AadaptiveQuantization%3AAv1Settings%27"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
-</span><a href="#local-6989586621679942844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-319"></span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
@@ -602,16 +602,16 @@ $sel:adaptiveQuantization:Av1Settings' :: Av1Settings -&gt; Maybe Av1AdaptiveQua
 -&gt; (Av1Settings -&gt; Maybe Natural -&gt; Av1Settings)
 -&gt; Lens Av1Settings Av1Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942842"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944161"><span class="annot"><span class="annottext">Maybe Natural
 framerateNumerator :: Maybe Natural
 $sel:framerateNumerator:Av1Settings' :: Av1Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679942842"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942842"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942841"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942840"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Av1Settings' :: Maybe Natural
+</span><a href="#local-6989586621679944161"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944161"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944160"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944159"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Av1Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AframerateNumerator%3AAv1Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | Maximum bitrate in bits\/second. For example, enter five megabits per</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- second as 5000000. Required when Rate control mode is QVBR.</span><span>
@@ -622,16 +622,16 @@ $sel:framerateNumerator:Av1Settings' :: Av1Settings -&gt; Maybe Natural
 -&gt; (Av1Settings -&gt; Maybe Natural -&gt; Av1Settings)
 -&gt; Lens Av1Settings Av1Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942838"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944157"><span class="annot"><span class="annottext">Maybe Natural
 maxBitrate :: Maybe Natural
 $sel:maxBitrate:Av1Settings' :: Av1Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679942838"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942838"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942837"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942836"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBitrate:Av1Settings' :: Maybe Natural
+</span><a href="#local-6989586621679944157"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944157"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944156"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944155"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679944155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBitrate:Av1Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AmaxBitrate%3AAv1Settings%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | Keep the default value, Enabled (ENABLED), to adjust quantization within</span><span>
 </span><span id="line-336"></span><span class="hs-comment">-- each frame based on spatial variation of content complexity. When you</span><span>
@@ -662,19 +662,19 @@ $sel:maxBitrate:Av1Settings' :: Av1Settings -&gt; Maybe Natural
      (Maybe Av1SpatialAdaptiveQuantization)
      (Maybe Av1SpatialAdaptiveQuantization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942834"><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944153"><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
 spatialAdaptiveQuantization :: Maybe Av1SpatialAdaptiveQuantization
 $sel:spatialAdaptiveQuantization:Av1Settings' :: Av1Settings -&gt; Maybe Av1SpatialAdaptiveQuantization
-</span><a href="#local-6989586621679942834"><span class="hs-identifier hs-var hs-var">spatialAdaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
-</span><a href="#local-6989586621679942834"><span class="hs-identifier hs-var">spatialAdaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942833"><span class="annot"><span class="annottext">s :: Av1Settings
-</span><a href="#local-6989586621679942833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942832"><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
-</span><a href="#local-6989586621679942832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
-</span><a href="#local-6989586621679942833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spatialAdaptiveQuantization:Av1Settings' :: Maybe Av1SpatialAdaptiveQuantization
+</span><a href="#local-6989586621679944153"><span class="hs-identifier hs-var hs-var">spatialAdaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
+</span><a href="#local-6989586621679944153"><span class="hs-identifier hs-var">spatialAdaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679944152"><span class="annot"><span class="annottext">s :: Av1Settings
+</span><a href="#local-6989586621679944152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679944151"><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
+</span><a href="#local-6989586621679944151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Av1Settings
+</span><a href="#local-6989586621679944152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spatialAdaptiveQuantization:Av1Settings' :: Maybe Av1SpatialAdaptiveQuantization
 </span><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#%24sel%3AspatialAdaptiveQuantization%3AAv1Settings%27"><span class="hs-identifier hs-var">spatialAdaptiveQuantization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
-</span><a href="#local-6989586621679942832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679944151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
-</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942829"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-355"></span><span>  </span><span id="local-6989586621679942827"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Av1Settings
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944148"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621679944146"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Av1Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-356"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Av1Settings) -&gt; Value -&gt; Parser Av1Settings
@@ -682,8 +682,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-357"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Av1Settings&quot;</span></span><span>
-</span><span id="line-358"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679942824"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679944143"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-359"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -727,7 +727,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -759,7 +759,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numberBFramesBetweenReferenceFrames&quot;</span></span><span class="hs-special">)</span><span>
@@ -789,7 +789,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slices&quot;</span></span><span class="hs-special">)</span><span>
@@ -817,7 +817,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1RateControlMode)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1RateControlMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -843,7 +843,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1QvbrSettings)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1QvbrSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;qvbrSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -867,7 +867,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
@@ -889,7 +889,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1FramerateConversionAlgorithm)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1FramerateConversionAlgorithm)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
@@ -909,7 +909,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1FramerateControl)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1FramerateControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -927,7 +927,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1AdaptiveQuantization)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1AdaptiveQuantization)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adaptiveQuantization&quot;</span></span><span class="hs-special">)</span><span>
@@ -942,7 +942,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Av1SpatialAdaptiveQuantization -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
@@ -953,7 +953,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Av1SpatialAdaptiveQuantization -&gt; Av1Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxBitrate&quot;</span></span><span class="hs-special">)</span><span>
@@ -962,19 +962,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Av1Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679942824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1SpatialAdaptiveQuantization)
+</span><a href="#local-6989586621679944143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Av1SpatialAdaptiveQuantization)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spatialAdaptiveQuantization&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>
-</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942818"><span id="local-6989586621679942820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944137"><span id="local-6989586621679944139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span></span><span>
 </span><span id="line-375"></span><span>
-</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span><span>
 </span><span id="line-377"></span><span>
-</span><span id="line-378"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942807"><span id="local-6989586621679942809"><span id="local-6989586621679942811"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-379"></span><span>  </span><span id="local-6989586621679942805"><span class="annot"><span class="annottext">toJSON :: Av1Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942792"><span id="local-6989586621679942793"><span id="local-6989586621679942794"><span id="local-6989586621679942795"><span id="local-6989586621679942796"><span id="local-6989586621679942797"><span id="local-6989586621679942798"><span id="local-6989586621679942799"><span id="local-6989586621679942800"><span id="local-6989586621679942801"><span id="local-6989586621679942802"><span id="local-6989586621679942803"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-378"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679944126"><span id="local-6989586621679944128"><span id="local-6989586621679944130"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings"><span class="hs-identifier hs-type">Av1Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-379"></span><span>  </span><span id="local-6989586621679944124"><span class="annot"><span class="annottext">toJSON :: Av1Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1Settings.html#Av1Settings%27"><span class="hs-identifier hs-type">Av1Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679944111"><span id="local-6989586621679944112"><span id="local-6989586621679944113"><span id="local-6989586621679944114"><span id="local-6989586621679944115"><span id="local-6989586621679944116"><span id="local-6989586621679944117"><span id="local-6989586621679944118"><span id="local-6989586621679944119"><span id="local-6989586621679944120"><span id="local-6989586621679944121"><span id="local-6989586621679944122"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 Maybe Av1AdaptiveQuantization
 Maybe Av1FramerateControl
@@ -1006,7 +1006,7 @@ $sel:rateControlMode:Av1Settings' :: Av1Settings -&gt; Maybe Av1RateControlMode
 $sel:slices:Av1Settings' :: Av1Settings -&gt; Maybe Natural
 $sel:numberBFramesBetweenReferenceFrames:Av1Settings' :: Av1Settings -&gt; Maybe Natural
 $sel:gopSize:Av1Settings' :: Av1Settings -&gt; Maybe Double
-</span><a href="#local-6989586621679942792"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679944111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-380"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-381"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1018,7 +1018,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679942803"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944122"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numberBFramesBetweenReferenceFrames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1026,14 +1026,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-384"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942802"><span class="hs-identifier hs-var">numberBFramesBetweenReferenceFrames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944121"><span class="hs-identifier hs-var">numberBFramesBetweenReferenceFrames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942801"><span class="hs-identifier hs-var">slices</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944120"><span class="hs-identifier hs-var">slices</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-386"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Av1RateControlMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1042,14 +1042,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Av1RateControlMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Av1RateControlMode
-</span><a href="#local-6989586621679942800"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944119"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-388"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;qvbrSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Av1QvbrSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Av1QvbrSettings -&gt; Pair) -&gt; Maybe Av1QvbrSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Av1QvbrSettings
-</span><a href="#local-6989586621679942799"><span class="hs-identifier hs-var">qvbrSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944118"><span class="hs-identifier hs-var">qvbrSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-389"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1057,7 +1057,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-390"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942798"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944117"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-391"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Av1FramerateConversionAlgorithm -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1066,7 +1066,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Av1FramerateConversionAlgorithm -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateConversionAlgorithm
-</span><a href="#local-6989586621679942797"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944116"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-393"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Av1FramerateControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1075,7 +1075,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Av1FramerateControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Av1FramerateControl
-</span><a href="#local-6989586621679942796"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944115"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-395"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adaptiveQuantization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Av1AdaptiveQuantization -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1084,7 +1084,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Av1AdaptiveQuantization -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Av1AdaptiveQuantization
-</span><a href="#local-6989586621679942795"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944114"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-397"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1092,14 +1092,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-398"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942794"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944113"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-399"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679942793"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679944112"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-400"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spatialAdaptiveQuantization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Av1SpatialAdaptiveQuantization -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1108,7 +1108,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Av1SpatialAdaptiveQuantization -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Av1SpatialAdaptiveQuantization
-</span><a href="#local-6989586621679942792"><span class="hs-identifier hs-var">spatialAdaptiveQuantization</span></a></span><span>
+</span><a href="#local-6989586621679944111"><span class="hs-identifier hs-var">spatialAdaptiveQuantization</span></a></span><span>
 </span><span id="line-402"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-403"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-404"></span></pre></body></html>

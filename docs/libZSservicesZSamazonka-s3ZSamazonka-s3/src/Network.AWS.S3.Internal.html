@@ -42,9 +42,9 @@
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Text</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Text</span></span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span id="local-6989586621679537221"><span id="local-6989586621679537222"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketName"><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-var">BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketName"><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-var">BucketName</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679537331"><span id="local-6989586621679537332"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketName"><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-var">BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketName"><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-var">BucketName</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-keyword">deriving</span><span>
-</span><span id="line-47"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537216"><span id="local-6989586621679537218"><span class="annot"><span class="annottext">BucketName -&gt; BucketName -&gt; Bool
+</span><span id="line-47"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537326"><span id="local-6989586621679537328"><span class="annot"><span class="annottext">BucketName -&gt; BucketName -&gt; Bool
 (BucketName -&gt; BucketName -&gt; Bool)
 -&gt; (BucketName -&gt; BucketName -&gt; Bool) -&gt; Eq BucketName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ $c/= :: BucketName -&gt; BucketName -&gt; Bool
 == :: BucketName -&gt; BucketName -&gt; Bool
 $c== :: BucketName -&gt; BucketName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span>
-</span><span id="line-48"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537200"><span id="local-6989586621679537202"><span id="local-6989586621679537204"><span id="local-6989586621679537206"><span id="local-6989586621679537208"><span id="local-6989586621679537210"><span id="local-6989586621679537212"><span class="annot"><span class="annottext">Eq BucketName
+</span><span id="line-48"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537310"><span id="local-6989586621679537312"><span id="local-6989586621679537314"><span id="local-6989586621679537316"><span id="local-6989586621679537318"><span id="local-6989586621679537320"><span id="local-6989586621679537322"><span class="annot"><span class="annottext">Eq BucketName
 Eq BucketName
 -&gt; (BucketName -&gt; BucketName -&gt; Ordering)
 -&gt; (BucketName -&gt; BucketName -&gt; Bool)
@@ -92,7 +92,7 @@ compare :: BucketName -&gt; BucketName -&gt; Ordering
 $ccompare :: BucketName -&gt; BucketName -&gt; Ordering
 $cp1Ord :: Eq BucketName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span>
-</span><span id="line-49"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537191"><span id="local-6989586621679537193"><span id="local-6989586621679537195"><span id="local-6989586621679537197"><span class="annot"><span class="annottext">ReadPrec [BucketName]
+</span><span id="line-49"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537301"><span id="local-6989586621679537303"><span id="local-6989586621679537305"><span id="local-6989586621679537307"><span class="annot"><span class="annottext">ReadPrec [BucketName]
 ReadPrec BucketName
 Int -&gt; ReadS BucketName
 ReadS [BucketName]
@@ -113,7 +113,7 @@ $creadList :: ReadS [BucketName]
 readsPrec :: Int -&gt; ReadS BucketName
 $creadsPrec :: Int -&gt; ReadS BucketName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span>
-</span><span id="line-50"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537184"><span id="local-6989586621679537186"><span id="local-6989586621679537188"><span class="annot"><span class="annottext">Int -&gt; BucketName -&gt; ShowS
+</span><span id="line-50"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537294"><span id="local-6989586621679537296"><span id="local-6989586621679537298"><span class="annot"><span class="annottext">Int -&gt; BucketName -&gt; ShowS
 [BucketName] -&gt; ShowS
 BucketName -&gt; String
 (Int -&gt; BucketName -&gt; ShowS)
@@ -138,55 +138,55 @@ forall a.
 $cto :: forall x. Rep BucketName x -&gt; BucketName
 $cfrom :: forall x. BucketName -&gt; Rep BucketName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span>
-</span><span id="line-52"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537178"><span class="annot"><span class="annottext">String -&gt; BucketName
+</span><span id="line-52"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537288"><span class="annot"><span class="annottext">String -&gt; BucketName
 (String -&gt; BucketName) -&gt; IsString BucketName
 forall a. (String -&gt; a) -&gt; IsString a
 fromString :: String -&gt; BucketName
 $cfromString :: String -&gt; BucketName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">IsString</span></span></span><span>
-</span><span id="line-53"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537175"><span class="annot"><span class="annottext">Text -&gt; Either String BucketName
+</span><span id="line-53"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537285"><span class="annot"><span class="annottext">Text -&gt; Either String BucketName
 (Text -&gt; Either String BucketName) -&gt; FromText BucketName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BucketName
 $cfromText :: Text -&gt; Either String BucketName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></span></span><span>
-</span><span id="line-54"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537172"><span class="annot"><span class="annottext">BucketName -&gt; Text
+</span><span id="line-54"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537282"><span class="annot"><span class="annottext">BucketName -&gt; Text
 (BucketName -&gt; Text) -&gt; ToText BucketName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BucketName -&gt; Text
 $ctoText :: BucketName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></span></span><span>
-</span><span id="line-55"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537169"><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+</span><span id="line-55"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537279"><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 (BucketName -&gt; ByteString) -&gt; ToByteString BucketName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BucketName -&gt; ByteString
 $ctoBS :: BucketName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></span></span><span>
-</span><span id="line-56"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537166"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketName
+</span><span id="line-56"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537276"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketName
 ([Node] -&gt; Either String BucketName) -&gt; FromXML BucketName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BucketName
 $cparseXML :: [Node] -&gt; Either String BucketName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></span></span><span>
-</span><span id="line-57"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537163"><span class="annot"><span class="annottext">BucketName -&gt; XML
+</span><span id="line-57"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537273"><span class="annot"><span class="annottext">BucketName -&gt; XML
 (BucketName -&gt; XML) -&gt; ToXML BucketName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BucketName -&gt; XML
 $ctoXML :: BucketName -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></span></span><span>
-</span><span id="line-58"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537160"><span class="annot"><span class="annottext">BucketName -&gt; QueryString
+</span><span id="line-58"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537270"><span class="annot"><span class="annottext">BucketName -&gt; QueryString
 (BucketName -&gt; QueryString) -&gt; ToQuery BucketName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BucketName -&gt; QueryString
 $ctoQuery :: BucketName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></span></span><span>
-</span><span id="line-59"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537157"><span class="annot"><span class="annottext">BucketName -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537267"><span class="annot"><span class="annottext">BucketName -&gt; ByteStringBuilder
 (BucketName -&gt; ByteStringBuilder) -&gt; ToLog BucketName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BucketName -&gt; ByteStringBuilder
 $cbuild :: BucketName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></span></span><span>
-</span><span id="line-60"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537152"><span id="local-6989586621679537154"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketName]
+</span><span id="line-60"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537262"><span id="local-6989586621679537264"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketName]
 Value -&gt; Parser BucketName
 (Value -&gt; Parser BucketName)
 -&gt; (Value -&gt; Parser [BucketName]) -&gt; FromJSON BucketName
@@ -199,14 +199,14 @@ $cparseJSON :: Value -&gt; Parser BucketName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">FromJSON</span></span></span></span><span>
 </span><span id="line-61"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537147"><span id="local-6989586621679537149"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span></span></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537144"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537257"><span id="local-6989586621679537259"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537254"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- FIXME: Add the difference between weak + strong ETags and their respective</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679537141"><span id="local-6989586621679537142"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ETag"><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-var">ETag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ETag"><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-var">ETag</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679537251"><span id="local-6989586621679537252"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ETag"><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-var">ETag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ETag"><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-var">ETag</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-keyword">deriving</span><span>
-</span><span id="line-70"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537136"><span id="local-6989586621679537138"><span class="annot"><span class="annottext">ETag -&gt; ETag -&gt; Bool
+</span><span id="line-70"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537246"><span id="local-6989586621679537248"><span class="annot"><span class="annottext">ETag -&gt; ETag -&gt; Bool
 (ETag -&gt; ETag -&gt; Bool) -&gt; (ETag -&gt; ETag -&gt; Bool) -&gt; Eq ETag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: ETag -&gt; ETag -&gt; Bool
@@ -214,7 +214,7 @@ $c/= :: ETag -&gt; ETag -&gt; Bool
 == :: ETag -&gt; ETag -&gt; Bool
 $c== :: ETag -&gt; ETag -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span>
-</span><span id="line-71"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537121"><span id="local-6989586621679537123"><span id="local-6989586621679537125"><span id="local-6989586621679537127"><span id="local-6989586621679537129"><span id="local-6989586621679537131"><span id="local-6989586621679537133"><span class="annot"><span class="annottext">Eq ETag
+</span><span id="line-71"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537231"><span id="local-6989586621679537233"><span id="local-6989586621679537235"><span id="local-6989586621679537237"><span id="local-6989586621679537239"><span id="local-6989586621679537241"><span id="local-6989586621679537243"><span class="annot"><span class="annottext">Eq ETag
 Eq ETag
 -&gt; (ETag -&gt; ETag -&gt; Ordering)
 -&gt; (ETag -&gt; ETag -&gt; Bool)
@@ -253,7 +253,7 @@ compare :: ETag -&gt; ETag -&gt; Ordering
 $ccompare :: ETag -&gt; ETag -&gt; Ordering
 $cp1Ord :: Eq ETag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span>
-</span><span id="line-72"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537113"><span id="local-6989586621679537115"><span id="local-6989586621679537117"><span id="local-6989586621679537119"><span class="annot"><span class="annottext">ReadPrec [ETag]
+</span><span id="line-72"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537223"><span id="local-6989586621679537225"><span id="local-6989586621679537227"><span id="local-6989586621679537229"><span class="annot"><span class="annottext">ReadPrec [ETag]
 ReadPrec ETag
 Int -&gt; ReadS ETag
 ReadS [ETag]
@@ -271,7 +271,7 @@ $creadList :: ReadS [ETag]
 readsPrec :: Int -&gt; ReadS ETag
 $creadsPrec :: Int -&gt; ReadS ETag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span>
-</span><span id="line-73"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537107"><span id="local-6989586621679537109"><span id="local-6989586621679537111"><span class="annot"><span class="annottext">Int -&gt; ETag -&gt; ShowS
+</span><span id="line-73"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537217"><span id="local-6989586621679537219"><span id="local-6989586621679537221"><span class="annot"><span class="annottext">Int -&gt; ETag -&gt; ShowS
 [ETag] -&gt; ShowS
 ETag -&gt; String
 (Int -&gt; ETag -&gt; ShowS)
@@ -294,62 +294,62 @@ forall a.
 $cto :: forall x. Rep ETag x -&gt; ETag
 $cfrom :: forall x. ETag -&gt; Rep ETag x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span>
-</span><span id="line-75"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537103"><span class="annot"><span class="annottext">String -&gt; ETag
+</span><span id="line-75"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537213"><span class="annot"><span class="annottext">String -&gt; ETag
 (String -&gt; ETag) -&gt; IsString ETag
 forall a. (String -&gt; a) -&gt; IsString a
 fromString :: String -&gt; ETag
 $cfromString :: String -&gt; ETag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">IsString</span></span></span><span>
-</span><span id="line-76"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537101"><span class="annot"><span class="annottext">Text -&gt; Either String ETag
+</span><span id="line-76"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537211"><span class="annot"><span class="annottext">Text -&gt; Either String ETag
 (Text -&gt; Either String ETag) -&gt; FromText ETag
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ETag
 $cfromText :: Text -&gt; Either String ETag
-</span><a href="#local-6989586621679537101"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span>
-</span><span id="line-77"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537099"><span class="annot"><span class="annottext">ETag -&gt; Text
+</span><a href="#local-6989586621679537211"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span>
+</span><span id="line-77"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537209"><span class="annot"><span class="annottext">ETag -&gt; Text
 (ETag -&gt; Text) -&gt; ToText ETag
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ETag -&gt; Text
 $ctoText :: ETag -&gt; Text
-</span><a href="#local-6989586621679537099"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
-</span><span id="line-78"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537097"><span class="annot"><span class="annottext">ETag -&gt; ByteString
+</span><a href="#local-6989586621679537209"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
+</span><span id="line-78"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537207"><span class="annot"><span class="annottext">ETag -&gt; ByteString
 (ETag -&gt; ByteString) -&gt; ToByteString ETag
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ETag -&gt; ByteString
 $ctoBS :: ETag -&gt; ByteString
-</span><a href="#local-6989586621679537097"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
-</span><span id="line-79"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537095"><span class="annot"><span class="annottext">[Node] -&gt; Either String ETag
+</span><a href="#local-6989586621679537207"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
+</span><span id="line-79"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537205"><span class="annot"><span class="annottext">[Node] -&gt; Either String ETag
 ([Node] -&gt; Either String ETag) -&gt; FromXML ETag
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ETag
 $cparseXML :: [Node] -&gt; Either String ETag
-</span><a href="#local-6989586621679537095"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span>
-</span><span id="line-80"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537093"><span class="annot"><span class="annottext">ETag -&gt; XML
+</span><a href="#local-6989586621679537205"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span>
+</span><span id="line-80"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537203"><span class="annot"><span class="annottext">ETag -&gt; XML
 (ETag -&gt; XML) -&gt; ToXML ETag
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ETag -&gt; XML
 $ctoXML :: ETag -&gt; XML
-</span><a href="#local-6989586621679537093"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span>
-</span><span id="line-81"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537091"><span class="annot"><span class="annottext">ETag -&gt; QueryString
+</span><a href="#local-6989586621679537203"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span>
+</span><span id="line-81"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537201"><span class="annot"><span class="annottext">ETag -&gt; QueryString
 (ETag -&gt; QueryString) -&gt; ToQuery ETag
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ETag -&gt; QueryString
 $ctoQuery :: ETag -&gt; QueryString
-</span><a href="#local-6989586621679537091"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span>
-</span><span id="line-82"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537089"><span class="annot"><span class="annottext">ETag -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679537201"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span>
+</span><span id="line-82"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537199"><span class="annot"><span class="annottext">ETag -&gt; ByteStringBuilder
 (ETag -&gt; ByteStringBuilder) -&gt; ToLog ETag
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ETag -&gt; ByteStringBuilder
 $cbuild :: ETag -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679537089"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
+</span><a href="#local-6989586621679537199"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
 </span><span id="line-83"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537085"><span id="local-6989586621679537087"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span></span></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537083"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537195"><span id="local-6989586621679537197"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537193"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span id="local-6989586621679537081"><span id="local-6989586621679537082"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectVersionId"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-var">ObjectVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectVersionId"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-var">ObjectVersionId</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679537191"><span id="local-6989586621679537192"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectVersionId"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-var">ObjectVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectVersionId"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-var">ObjectVersionId</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-keyword">deriving</span><span>
-</span><span id="line-90"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537076"><span id="local-6989586621679537078"><span class="annot"><span class="annottext">ObjectVersionId -&gt; ObjectVersionId -&gt; Bool
+</span><span id="line-90"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537186"><span id="local-6989586621679537188"><span class="annot"><span class="annottext">ObjectVersionId -&gt; ObjectVersionId -&gt; Bool
 (ObjectVersionId -&gt; ObjectVersionId -&gt; Bool)
 -&gt; (ObjectVersionId -&gt; ObjectVersionId -&gt; Bool)
 -&gt; Eq ObjectVersionId
@@ -359,7 +359,7 @@ $c/= :: ObjectVersionId -&gt; ObjectVersionId -&gt; Bool
 == :: ObjectVersionId -&gt; ObjectVersionId -&gt; Bool
 $c== :: ObjectVersionId -&gt; ObjectVersionId -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span>
-</span><span id="line-91"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537061"><span id="local-6989586621679537063"><span id="local-6989586621679537065"><span id="local-6989586621679537067"><span id="local-6989586621679537069"><span id="local-6989586621679537071"><span id="local-6989586621679537073"><span class="annot"><span class="annottext">Eq ObjectVersionId
+</span><span id="line-91"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537171"><span id="local-6989586621679537173"><span id="local-6989586621679537175"><span id="local-6989586621679537177"><span id="local-6989586621679537179"><span id="local-6989586621679537181"><span id="local-6989586621679537183"><span class="annot"><span class="annottext">Eq ObjectVersionId
 Eq ObjectVersionId
 -&gt; (ObjectVersionId -&gt; ObjectVersionId -&gt; Ordering)
 -&gt; (ObjectVersionId -&gt; ObjectVersionId -&gt; Bool)
@@ -398,7 +398,7 @@ compare :: ObjectVersionId -&gt; ObjectVersionId -&gt; Ordering
 $ccompare :: ObjectVersionId -&gt; ObjectVersionId -&gt; Ordering
 $cp1Ord :: Eq ObjectVersionId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span>
-</span><span id="line-92"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537053"><span id="local-6989586621679537055"><span id="local-6989586621679537057"><span id="local-6989586621679537059"><span class="annot"><span class="annottext">ReadPrec [ObjectVersionId]
+</span><span id="line-92"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537163"><span id="local-6989586621679537165"><span id="local-6989586621679537167"><span id="local-6989586621679537169"><span class="annot"><span class="annottext">ReadPrec [ObjectVersionId]
 ReadPrec ObjectVersionId
 Int -&gt; ReadS ObjectVersionId
 ReadS [ObjectVersionId]
@@ -419,7 +419,7 @@ $creadList :: ReadS [ObjectVersionId]
 readsPrec :: Int -&gt; ReadS ObjectVersionId
 $creadsPrec :: Int -&gt; ReadS ObjectVersionId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span>
-</span><span id="line-93"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537047"><span id="local-6989586621679537049"><span id="local-6989586621679537051"><span class="annot"><span class="annottext">Int -&gt; ObjectVersionId -&gt; ShowS
+</span><span id="line-93"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537157"><span id="local-6989586621679537159"><span id="local-6989586621679537161"><span class="annot"><span class="annottext">Int -&gt; ObjectVersionId -&gt; ShowS
 [ObjectVersionId] -&gt; ShowS
 ObjectVersionId -&gt; String
 (Int -&gt; ObjectVersionId -&gt; ShowS)
@@ -445,64 +445,64 @@ forall a.
 $cto :: forall x. Rep ObjectVersionId x -&gt; ObjectVersionId
 $cfrom :: forall x. ObjectVersionId -&gt; Rep ObjectVersionId x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span>
-</span><span id="line-95"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537043"><span class="annot"><span class="annottext">String -&gt; ObjectVersionId
+</span><span id="line-95"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537153"><span class="annot"><span class="annottext">String -&gt; ObjectVersionId
 (String -&gt; ObjectVersionId) -&gt; IsString ObjectVersionId
 forall a. (String -&gt; a) -&gt; IsString a
 fromString :: String -&gt; ObjectVersionId
 $cfromString :: String -&gt; ObjectVersionId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">IsString</span></span></span><span>
-</span><span id="line-96"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537041"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectVersionId
+</span><span id="line-96"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537151"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectVersionId
 (Text -&gt; Either String ObjectVersionId) -&gt; FromText ObjectVersionId
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectVersionId
 $cfromText :: Text -&gt; Either String ObjectVersionId
-</span><a href="#local-6989586621679537041"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span>
-</span><span id="line-97"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537039"><span class="annot"><span class="annottext">ObjectVersionId -&gt; Text
+</span><a href="#local-6989586621679537151"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537149"><span class="annot"><span class="annottext">ObjectVersionId -&gt; Text
 (ObjectVersionId -&gt; Text) -&gt; ToText ObjectVersionId
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectVersionId -&gt; Text
 $ctoText :: ObjectVersionId -&gt; Text
-</span><a href="#local-6989586621679537039"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
-</span><span id="line-98"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537037"><span class="annot"><span class="annottext">ObjectVersionId -&gt; ByteString
+</span><a href="#local-6989586621679537149"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
+</span><span id="line-98"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537147"><span class="annot"><span class="annottext">ObjectVersionId -&gt; ByteString
 (ObjectVersionId -&gt; ByteString) -&gt; ToByteString ObjectVersionId
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectVersionId -&gt; ByteString
 $ctoBS :: ObjectVersionId -&gt; ByteString
-</span><a href="#local-6989586621679537037"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
-</span><span id="line-99"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537035"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectVersionId
+</span><a href="#local-6989586621679537147"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537145"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectVersionId
 ([Node] -&gt; Either String ObjectVersionId)
 -&gt; FromXML ObjectVersionId
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectVersionId
 $cparseXML :: [Node] -&gt; Either String ObjectVersionId
-</span><a href="#local-6989586621679537035"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span>
-</span><span id="line-100"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537033"><span class="annot"><span class="annottext">ObjectVersionId -&gt; XML
+</span><a href="#local-6989586621679537145"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537143"><span class="annot"><span class="annottext">ObjectVersionId -&gt; XML
 (ObjectVersionId -&gt; XML) -&gt; ToXML ObjectVersionId
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectVersionId -&gt; XML
 $ctoXML :: ObjectVersionId -&gt; XML
-</span><a href="#local-6989586621679537033"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span>
-</span><span id="line-101"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537031"><span class="annot"><span class="annottext">ObjectVersionId -&gt; QueryString
+</span><a href="#local-6989586621679537143"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537141"><span class="annot"><span class="annottext">ObjectVersionId -&gt; QueryString
 (ObjectVersionId -&gt; QueryString) -&gt; ToQuery ObjectVersionId
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectVersionId -&gt; QueryString
 $ctoQuery :: ObjectVersionId -&gt; QueryString
-</span><a href="#local-6989586621679537031"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span>
-</span><span id="line-102"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537029"><span class="annot"><span class="annottext">ObjectVersionId -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679537141"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537139"><span class="annot"><span class="annottext">ObjectVersionId -&gt; ByteStringBuilder
 (ObjectVersionId -&gt; ByteStringBuilder) -&gt; ToLog ObjectVersionId
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectVersionId -&gt; ByteStringBuilder
 $cbuild :: ObjectVersionId -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679537029"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
+</span><a href="#local-6989586621679537139"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537025"><span id="local-6989586621679537027"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span></span></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537023"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537135"><span id="local-6989586621679537137"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537133"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span id="local-6989586621679537021"><span id="local-6989586621679537022"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationConstraint"><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationConstraint"><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span></span><span> </span><span class="hs-special">{</span><span> </span><span id="constraintRegion"><span class="annot"><span class="annottext">LocationConstraint -&gt; Region
+</span><span id="line-108"></span><span id="local-6989586621679537131"><span id="local-6989586621679537132"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationConstraint"><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationConstraint"><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span></span><span> </span><span class="hs-special">{</span><span> </span><span id="constraintRegion"><span class="annot"><span class="annottext">LocationConstraint -&gt; Region
 </span><a href="Network.AWS.S3.Internal.html#constraintRegion"><span class="hs-identifier hs-var hs-var">constraintRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Region</span></span><span> </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-keyword">deriving</span><span>
-</span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537015"><span id="local-6989586621679537017"><span class="annot"><span class="annottext">LocationConstraint -&gt; LocationConstraint -&gt; Bool
+</span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537125"><span id="local-6989586621679537127"><span class="annot"><span class="annottext">LocationConstraint -&gt; LocationConstraint -&gt; Bool
 (LocationConstraint -&gt; LocationConstraint -&gt; Bool)
 -&gt; (LocationConstraint -&gt; LocationConstraint -&gt; Bool)
 -&gt; Eq LocationConstraint
@@ -512,7 +512,7 @@ $c/= :: LocationConstraint -&gt; LocationConstraint -&gt; Bool
 == :: LocationConstraint -&gt; LocationConstraint -&gt; Bool
 $c== :: LocationConstraint -&gt; LocationConstraint -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span>
-</span><span id="line-111"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537000"><span id="local-6989586621679537002"><span id="local-6989586621679537004"><span id="local-6989586621679537006"><span id="local-6989586621679537008"><span id="local-6989586621679537010"><span id="local-6989586621679537012"><span class="annot"><span class="annottext">Eq LocationConstraint
+</span><span id="line-111"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537110"><span id="local-6989586621679537112"><span id="local-6989586621679537114"><span id="local-6989586621679537116"><span id="local-6989586621679537118"><span id="local-6989586621679537120"><span id="local-6989586621679537122"><span class="annot"><span class="annottext">Eq LocationConstraint
 Eq LocationConstraint
 -&gt; (LocationConstraint -&gt; LocationConstraint -&gt; Ordering)
 -&gt; (LocationConstraint -&gt; LocationConstraint -&gt; Bool)
@@ -551,7 +551,7 @@ compare :: LocationConstraint -&gt; LocationConstraint -&gt; Ordering
 $ccompare :: LocationConstraint -&gt; LocationConstraint -&gt; Ordering
 $cp1Ord :: Eq LocationConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span>
-</span><span id="line-112"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536992"><span id="local-6989586621679536994"><span id="local-6989586621679536996"><span id="local-6989586621679536998"><span class="annot"><span class="annottext">ReadPrec [LocationConstraint]
+</span><span id="line-112"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537102"><span id="local-6989586621679537104"><span id="local-6989586621679537106"><span id="local-6989586621679537108"><span class="annot"><span class="annottext">ReadPrec [LocationConstraint]
 ReadPrec LocationConstraint
 Int -&gt; ReadS LocationConstraint
 ReadS [LocationConstraint]
@@ -572,7 +572,7 @@ $creadList :: ReadS [LocationConstraint]
 readsPrec :: Int -&gt; ReadS LocationConstraint
 $creadsPrec :: Int -&gt; ReadS LocationConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span>
-</span><span id="line-113"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536986"><span id="local-6989586621679536988"><span id="local-6989586621679536990"><span class="annot"><span class="annottext">Int -&gt; LocationConstraint -&gt; ShowS
+</span><span id="line-113"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537096"><span id="local-6989586621679537098"><span id="local-6989586621679537100"><span class="annot"><span class="annottext">Int -&gt; LocationConstraint -&gt; ShowS
 [LocationConstraint] -&gt; ShowS
 LocationConstraint -&gt; String
 (Int -&gt; LocationConstraint -&gt; ShowS)
@@ -598,26 +598,26 @@ forall a.
 $cto :: forall x. Rep LocationConstraint x -&gt; LocationConstraint
 $cfrom :: forall x. LocationConstraint -&gt; Rep LocationConstraint x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span>
-</span><span id="line-115"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536982"><span class="annot"><span class="annottext">LocationConstraint -&gt; Text
+</span><span id="line-115"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537092"><span class="annot"><span class="annottext">LocationConstraint -&gt; Text
 (LocationConstraint -&gt; Text) -&gt; ToText LocationConstraint
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LocationConstraint -&gt; Text
 $ctoText :: LocationConstraint -&gt; Text
-</span><a href="#local-6989586621679536982"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
-</span><span id="line-116"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536980"><span class="annot"><span class="annottext">LocationConstraint -&gt; ByteString
+</span><a href="#local-6989586621679537092"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537090"><span class="annot"><span class="annottext">LocationConstraint -&gt; ByteString
 (LocationConstraint -&gt; ByteString)
 -&gt; ToByteString LocationConstraint
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LocationConstraint -&gt; ByteString
 $ctoBS :: LocationConstraint -&gt; ByteString
-</span><a href="#local-6989586621679536980"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
-</span><span id="line-117"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536978"><span class="annot"><span class="annottext">LocationConstraint -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679537090"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537088"><span class="annot"><span class="annottext">LocationConstraint -&gt; ByteStringBuilder
 (LocationConstraint -&gt; ByteStringBuilder)
 -&gt; ToLog LocationConstraint
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LocationConstraint -&gt; ByteStringBuilder
 $cbuild :: LocationConstraint -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679536978"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
+</span><a href="#local-6989586621679537088"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.S3.Internal.html#_LocationConstraint"><span class="hs-identifier hs-type">_LocationConstraint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Iso'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Region</span></span><span>
@@ -630,13 +630,13 @@ forall s a b t. (s -&gt; a) -&gt; (b -&gt; t) -&gt; Iso s t a b
 </span><a href="Network.AWS.S3.Internal.html#constraintRegion"><span class="hs-identifier hs-var hs-var">constraintRegion</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; LocationConstraint
 </span><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679536973"><span id="local-6989586621679536975"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span></span></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679536971"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537083"><span id="local-6989586621679537085"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679537081"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FromText</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>    </span><span id="local-6989586621679536969"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String LocationConstraint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></span></span><span> </span><span id="local-6989586621679536967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536967"><span class="hs-identifier hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span id="local-6989586621679537079"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String LocationConstraint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></span></span><span> </span><span id="local-6989586621679537077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679537077"><span class="hs-identifier hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Region -&gt; LocationConstraint
 </span><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span><span> </span><span class="annot"><span class="annottext">(Region -&gt; LocationConstraint)
 -&gt; Either String Region -&gt; Either String LocationConstraint
@@ -644,7 +644,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text
 </span><span class="hs-identifier hs-var">Text.toLower</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536967"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679537077"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;&quot;</span></span><span>   </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Region -&gt; Either String Region
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
@@ -655,45 +655,45 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">Region
 </span><span class="hs-identifier hs-var">Ireland</span></span><span>
-</span><span id="line-132"></span><span>            </span><span id="local-6989586621679536962"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536962"><span class="hs-identifier hs-var">other</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Region -&gt; Either String Region
+</span><span id="line-132"></span><span>            </span><span id="local-6989586621679537072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679537072"><span class="hs-identifier hs-var">other</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Region -&gt; Either String Region
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">(Region -&gt; Either String Region) -&gt; Region -&gt; Either String Region
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Region
 </span><span class="hs-identifier hs-var">Region'</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536962"><span class="hs-identifier hs-var">other</span></a></span><span>
+</span><a href="#local-6989586621679537072"><span class="hs-identifier hs-var">other</span></a></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>    </span><span id="local-6989586621679536959"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LocationConstraint
+</span><span id="line-135"></span><span>    </span><span id="local-6989586621679537069"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LocationConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationConstraint -&gt; Either String LocationConstraint
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Region -&gt; LocationConstraint
 </span><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-var">LocationConstraint</span></a></span><span> </span><span class="annot"><span class="annottext">Region
 </span><span class="hs-identifier hs-var">NorthVirginia</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>        </span><span id="local-6989586621679536957"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679536957"><span class="hs-identifier hs-var">ns</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">String -&gt; [Node] -&gt; Either String LocationConstraint
+</span><span id="line-137"></span><span>        </span><span id="local-6989586621679537067"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679537067"><span class="hs-identifier hs-var">ns</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">String -&gt; [Node] -&gt; Either String LocationConstraint
 forall a. FromText a =&gt; String -&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">parseXMLText</span></span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LocationConstraint&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679536957"><span class="hs-identifier hs-var">ns</span></a></span><span>
+</span><a href="#local-6989586621679537067"><span class="hs-identifier hs-var">ns</span></a></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>    </span><span id="local-6989586621679536954"><span class="annot"><span class="annottext">toXML :: LocationConstraint -&gt; XML
+</span><span id="line-140"></span><span>    </span><span id="local-6989586621679537064"><span class="annot"><span class="annottext">toXML :: LocationConstraint -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span class="annot"><span class="annottext">Region
 </span><span class="hs-identifier hs-var">NorthVirginia</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">XML
 </span><span class="hs-identifier hs-var">XNull</span></span><span>
-</span><span id="line-142"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span id="local-6989586621679536951"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679536951"><span class="hs-identifier hs-var">r</span></a></span></span><span>             </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Region -&gt; XML
+</span><span id="line-142"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Internal.html#LocationConstraint"><span class="hs-identifier hs-type">LocationConstraint</span></a></span><span> </span><span id="local-6989586621679537061"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679537061"><span class="hs-identifier hs-var">r</span></a></span></span><span>             </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Region -&gt; XML
 forall a. ToText a =&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">toXMLText</span></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679536951"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><a href="#local-6989586621679537061"><span class="hs-identifier hs-var">r</span></a></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span id="local-6989586621679536948"><span id="local-6989586621679536949"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectKey"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-var">ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectKey"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-var">ObjectKey</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679537058"><span id="local-6989586621679537059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectKey"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-var">ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectKey"><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-var">ObjectKey</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-keyword">deriving</span><span>
-</span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679536943"><span id="local-6989586621679536945"><span class="annot"><span class="annottext">ObjectKey -&gt; ObjectKey -&gt; Bool
+</span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537053"><span id="local-6989586621679537055"><span class="annot"><span class="annottext">ObjectKey -&gt; ObjectKey -&gt; Bool
 (ObjectKey -&gt; ObjectKey -&gt; Bool)
 -&gt; (ObjectKey -&gt; ObjectKey -&gt; Bool) -&gt; Eq ObjectKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -702,7 +702,7 @@ $c/= :: ObjectKey -&gt; ObjectKey -&gt; Bool
 == :: ObjectKey -&gt; ObjectKey -&gt; Bool
 $c== :: ObjectKey -&gt; ObjectKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span>
-</span><span id="line-147"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536928"><span id="local-6989586621679536930"><span id="local-6989586621679536932"><span id="local-6989586621679536934"><span id="local-6989586621679536936"><span id="local-6989586621679536938"><span id="local-6989586621679536940"><span class="annot"><span class="annottext">Eq ObjectKey
+</span><span id="line-147"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537038"><span id="local-6989586621679537040"><span id="local-6989586621679537042"><span id="local-6989586621679537044"><span id="local-6989586621679537046"><span id="local-6989586621679537048"><span id="local-6989586621679537050"><span class="annot"><span class="annottext">Eq ObjectKey
 Eq ObjectKey
 -&gt; (ObjectKey -&gt; ObjectKey -&gt; Ordering)
 -&gt; (ObjectKey -&gt; ObjectKey -&gt; Bool)
@@ -741,7 +741,7 @@ compare :: ObjectKey -&gt; ObjectKey -&gt; Ordering
 $ccompare :: ObjectKey -&gt; ObjectKey -&gt; Ordering
 $cp1Ord :: Eq ObjectKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span>
-</span><span id="line-148"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536920"><span id="local-6989586621679536922"><span id="local-6989586621679536924"><span id="local-6989586621679536926"><span class="annot"><span class="annottext">ReadPrec [ObjectKey]
+</span><span id="line-148"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537030"><span id="local-6989586621679537032"><span id="local-6989586621679537034"><span id="local-6989586621679537036"><span class="annot"><span class="annottext">ReadPrec [ObjectKey]
 ReadPrec ObjectKey
 Int -&gt; ReadS ObjectKey
 ReadS [ObjectKey]
@@ -762,7 +762,7 @@ $creadList :: ReadS [ObjectKey]
 readsPrec :: Int -&gt; ReadS ObjectKey
 $creadsPrec :: Int -&gt; ReadS ObjectKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span>
-</span><span id="line-149"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536914"><span id="local-6989586621679536916"><span id="local-6989586621679536918"><span class="annot"><span class="annottext">Int -&gt; ObjectKey -&gt; ShowS
+</span><span id="line-149"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537024"><span id="local-6989586621679537026"><span id="local-6989586621679537028"><span class="annot"><span class="annottext">Int -&gt; ObjectKey -&gt; ShowS
 [ObjectKey] -&gt; ShowS
 ObjectKey -&gt; String
 (Int -&gt; ObjectKey -&gt; ShowS)
@@ -787,64 +787,64 @@ forall a.
 $cto :: forall x. Rep ObjectKey x -&gt; ObjectKey
 $cfrom :: forall x. ObjectKey -&gt; Rep ObjectKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span>
-</span><span id="line-151"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536910"><span class="annot"><span class="annottext">String -&gt; ObjectKey
+</span><span id="line-151"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537020"><span class="annot"><span class="annottext">String -&gt; ObjectKey
 (String -&gt; ObjectKey) -&gt; IsString ObjectKey
 forall a. (String -&gt; a) -&gt; IsString a
 fromString :: String -&gt; ObjectKey
 $cfromString :: String -&gt; ObjectKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">IsString</span></span></span><span>
-</span><span id="line-152"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536908"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectKey
+</span><span id="line-152"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537018"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectKey
 (Text -&gt; Either String ObjectKey) -&gt; FromText ObjectKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectKey
 $cfromText :: Text -&gt; Either String ObjectKey
-</span><a href="#local-6989586621679536908"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span>
-</span><span id="line-153"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536906"><span class="annot"><span class="annottext">ObjectKey -&gt; Text
+</span><a href="#local-6989586621679537018"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></a></span></span><span>
+</span><span id="line-153"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537016"><span class="annot"><span class="annottext">ObjectKey -&gt; Text
 (ObjectKey -&gt; Text) -&gt; ToText ObjectKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectKey -&gt; Text
 $ctoText :: ObjectKey -&gt; Text
-</span><a href="#local-6989586621679536906"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
-</span><span id="line-154"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536904"><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
+</span><a href="#local-6989586621679537016"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></a></span></span><span>
+</span><span id="line-154"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537014"><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 (ObjectKey -&gt; ByteString) -&gt; ToByteString ObjectKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectKey -&gt; ByteString
 $ctoBS :: ObjectKey -&gt; ByteString
-</span><a href="#local-6989586621679536904"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
-</span><span id="line-155"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536902"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectKey
+</span><a href="#local-6989586621679537014"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></a></span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537012"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectKey
 ([Node] -&gt; Either String ObjectKey) -&gt; FromXML ObjectKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectKey
 $cparseXML :: [Node] -&gt; Either String ObjectKey
-</span><a href="#local-6989586621679536902"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span>
-</span><span id="line-156"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536900"><span class="annot"><span class="annottext">ObjectKey -&gt; XML
+</span><a href="#local-6989586621679537012"><span class="hs-identifier hs-var hs-var hs-var hs-var">FromXML</span></a></span></span><span>
+</span><span id="line-156"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537010"><span class="annot"><span class="annottext">ObjectKey -&gt; XML
 (ObjectKey -&gt; XML) -&gt; ToXML ObjectKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectKey -&gt; XML
 $ctoXML :: ObjectKey -&gt; XML
-</span><a href="#local-6989586621679536900"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span>
-</span><span id="line-157"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536898"><span class="annot"><span class="annottext">ObjectKey -&gt; QueryString
+</span><a href="#local-6989586621679537010"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></a></span></span><span>
+</span><span id="line-157"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537008"><span class="annot"><span class="annottext">ObjectKey -&gt; QueryString
 (ObjectKey -&gt; QueryString) -&gt; ToQuery ObjectKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectKey -&gt; QueryString
 $ctoQuery :: ObjectKey -&gt; QueryString
-</span><a href="#local-6989586621679536898"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span>
-</span><span id="line-158"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536896"><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
+</span><a href="#local-6989586621679537008"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></a></span></span><span>
+</span><span id="line-158"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537006"><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 (ObjectKey -&gt; ByteString) -&gt; ToPath ObjectKey
 forall a. (a -&gt; ByteString) -&gt; ToPath a
 toPath :: ObjectKey -&gt; ByteString
 $ctoPath :: ObjectKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToPath</span></span></span><span>
-</span><span id="line-159"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536893"><span class="annot"><span class="annottext">ObjectKey -&gt; ByteStringBuilder
+</span><span id="line-159"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679537003"><span class="annot"><span class="annottext">ObjectKey -&gt; ByteStringBuilder
 (ObjectKey -&gt; ByteStringBuilder) -&gt; ToLog ObjectKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectKey -&gt; ByteStringBuilder
 $cbuild :: ObjectKey -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679536893"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
+</span><a href="#local-6989586621679537003"><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></a></span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679536889"><span id="local-6989586621679536891"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span></span></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679536887"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679536999"><span id="local-6989586621679537001"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679536997"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">type</span><span> </span><span id="Delimiter"><span class="annot"><a href="Network.AWS.S3.Internal.html#Delimiter"><span class="hs-identifier hs-var">Delimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span>
 </span><span id="line-166"></span><span>
@@ -853,9 +853,9 @@ $cbuild :: ObjectKey -&gt; ByteStringBuilder
 </span><a href="Network.AWS.S3.Internal.html#_ObjectKey"><span class="hs-identifier hs-var hs-var">_ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectKey -&gt; Text)
 -&gt; (Text -&gt; ObjectKey) -&gt; Iso ObjectKey ObjectKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (b -&gt; t) -&gt; Iso s t a b
-</span><span class="hs-identifier hs-var">iso</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span id="local-6989586621679536886"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536886"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536886"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectKey
+</span><span class="hs-identifier hs-var">iso</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span id="local-6989586621679536996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536996"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536996"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectKey
 </span><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-var">ObjectKey</span></a></span><span>
 </span><span id="line-169"></span><span class="hs-pragma">{-# INLINE</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#_ObjectKey"><span class="hs-pragma hs-type">_ObjectKey</span></a></span><span> </span><span class="hs-pragma">#-}</span><span>
 </span><span id="line-170"></span><span>
@@ -881,11 +881,11 @@ forall s a b t. (s -&gt; a) -&gt; (b -&gt; t) -&gt; Iso s t a b
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.S3.Internal.html#keyPrefix"><span class="hs-identifier hs-type">keyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#Delimiter"><span class="hs-identifier hs-type">Delimiter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Traversal'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-192"></span><span id="keyPrefix"><span class="annot"><span class="annottext">keyPrefix :: Delimiter -&gt; Traversal' ObjectKey Text
-</span><a href="Network.AWS.S3.Internal.html#keyPrefix"><span class="hs-identifier hs-var hs-var">keyPrefix</span></a></span></span><span> </span><span id="local-6989586621679536885"><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536885"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Delimiter -&gt; Prism' ObjectKey (Text, Text)
+</span><a href="Network.AWS.S3.Internal.html#keyPrefix"><span class="hs-identifier hs-var hs-var">keyPrefix</span></a></span></span><span> </span><span id="local-6989586621679536995"><span class="annot"><span class="annottext">Delimiter
+</span><a href="#local-6989586621679536995"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Delimiter -&gt; Prism' ObjectKey (Text, Text)
 </span><a href="Network.AWS.S3.Internal.html#_ObjectKeySnoc"><span class="hs-identifier hs-var">_ObjectKeySnoc</span></a></span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536885"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">(((Text, Text) -&gt; f (Text, Text)) -&gt; ObjectKey -&gt; f ObjectKey)
+</span><a href="#local-6989586621679536995"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">(((Text, Text) -&gt; f (Text, Text)) -&gt; ObjectKey -&gt; f ObjectKey)
 -&gt; ((Text -&gt; f Text) -&gt; (Text, Text) -&gt; f (Text, Text))
 -&gt; (Text -&gt; f Text)
 -&gt; ObjectKey
@@ -915,11 +915,11 @@ forall s t a b. Field1 s t a b =&gt; Lens s t a b
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.S3.Internal.html#keyName"><span class="hs-identifier hs-type">keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#Delimiter"><span class="hs-identifier hs-type">Delimiter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Traversal'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-213"></span><span id="keyName"><span class="annot"><span class="annottext">keyName :: Delimiter -&gt; Traversal' ObjectKey Text
-</span><a href="Network.AWS.S3.Internal.html#keyName"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span id="local-6989586621679536882"><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536882"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Delimiter -&gt; Prism' ObjectKey (Text, Text)
+</span><a href="Network.AWS.S3.Internal.html#keyName"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span id="local-6989586621679536992"><span class="annot"><span class="annottext">Delimiter
+</span><a href="#local-6989586621679536992"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Delimiter -&gt; Prism' ObjectKey (Text, Text)
 </span><a href="Network.AWS.S3.Internal.html#_ObjectKeySnoc"><span class="hs-identifier hs-var">_ObjectKeySnoc</span></a></span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">False</span></span><span> </span><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536882"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">(((Text, Text) -&gt; f (Text, Text)) -&gt; ObjectKey -&gt; f ObjectKey)
+</span><a href="#local-6989586621679536992"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">(((Text, Text) -&gt; f (Text, Text)) -&gt; ObjectKey -&gt; f ObjectKey)
 -&gt; ((Text -&gt; f Text) -&gt; (Text, Text) -&gt; f (Text, Text))
 -&gt; (Text -&gt; f Text)
 -&gt; ObjectKey
@@ -933,43 +933,43 @@ forall s t a b. Field2 s t a b =&gt; Lens s t a b
 </span><span id="line-216"></span><span class="hs-comment">-- | Traverse the path components of an object key using the specified delimiter.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.S3.Internal.html#keyComponents"><span class="hs-identifier hs-type">keyComponents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#Delimiter"><span class="hs-identifier hs-type">Delimiter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IndexedTraversal'</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-218"></span><span id="keyComponents"><span class="annot"><span class="annottext">keyComponents :: Delimiter -&gt; IndexedTraversal' Int ObjectKey Text
-</span><a href="Network.AWS.S3.Internal.html#keyComponents"><span class="hs-identifier hs-var hs-var">keyComponents</span></a></span></span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679536881"><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536881"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679536880"><span class="annot"><span class="annottext">p Text (f Text)
-</span><a href="#local-6989586621679536880"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span id="local-6989586621679536879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536879"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text] -&gt; ObjectKey
-</span><a href="#local-6989586621679536878"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; ObjectKey) -&gt; f [Text] -&gt; f ObjectKey
+</span><a href="Network.AWS.S3.Internal.html#keyComponents"><span class="hs-identifier hs-var hs-var">keyComponents</span></a></span></span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679536991"><span class="annot"><span class="annottext">Delimiter
+</span><a href="#local-6989586621679536991"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679536990"><span class="annot"><span class="annottext">p Text (f Text)
+</span><a href="#local-6989586621679536990"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span id="local-6989586621679536989"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536989"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text] -&gt; ObjectKey
+</span><a href="#local-6989586621679536988"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; ObjectKey) -&gt; f [Text] -&gt; f ObjectKey
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">p Text (f Text) -&gt; [Text] -&gt; f [Text]
 forall (f :: * -&gt; *) a b.
 Traversable f =&gt;
 IndexedTraversal Int (f a) (f b) a b
 </span><span class="hs-identifier hs-var">traversed</span></span><span> </span><span class="annot"><span class="annottext">p Text (f Text)
-</span><a href="#local-6989586621679536880"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679536877"><span class="hs-identifier hs-var">split</span></a></span><span>
+</span><a href="#local-6989586621679536990"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679536987"><span class="hs-identifier hs-var">split</span></a></span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>    </span><span id="local-6989586621679536877"><span class="annot"><span class="annottext">split :: [Text]
-</span><a href="#local-6989586621679536877"><span class="hs-identifier hs-var hs-var">split</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delimiter -&gt; Bool) -&gt; Text -&gt; [Text]
+</span><span id="line-220"></span><span>    </span><span id="local-6989586621679536987"><span class="annot"><span class="annottext">split :: [Text]
+</span><a href="#local-6989586621679536987"><span class="hs-identifier hs-var hs-var">split</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Delimiter -&gt; Bool) -&gt; Text -&gt; [Text]
 </span><span class="hs-identifier hs-var">Text.split</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Delimiter -&gt; Delimiter -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536881"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536879"><span class="hs-identifier hs-var">k</span></a></span><span>
-</span><span id="line-221"></span><span>    </span><span id="local-6989586621679536878"><span class="annot"><span class="annottext">cat :: [Text] -&gt; ObjectKey
-</span><a href="#local-6989586621679536878"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span>   </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectKey
+</span><a href="#local-6989586621679536991"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536989"><span class="hs-identifier hs-var">k</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span id="local-6989586621679536988"><span class="annot"><span class="annottext">cat :: [Text] -&gt; ObjectKey
+</span><a href="#local-6989586621679536988"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span>   </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectKey
 </span><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-var">ObjectKey</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ObjectKey) -&gt; ([Text] -&gt; Text) -&gt; [Text] -&gt; ObjectKey
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Text
 </span><span class="hs-identifier hs-var">Text.intercalate</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Delimiter -&gt; Text
 </span><span class="hs-identifier hs-var">Text.singleton</span></span><span> </span><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536881"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679536991"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span class="hs-pragma">{-# INLINE</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#keyComponents"><span class="hs-pragma hs-type">keyComponents</span></a></span><span> </span><span class="hs-pragma">#-}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | Modelled on the '_Snoc' type class from &quot;Control.Lens.Cons&quot;.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.S3.Internal.html#_ObjectKeySnoc"><span class="hs-identifier hs-type">_ObjectKeySnoc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#Delimiter"><span class="hs-identifier hs-type">Delimiter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prism'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span id="_ObjectKeySnoc"><span class="annot"><span class="annottext">_ObjectKeySnoc :: Bool -&gt; Delimiter -&gt; Prism' ObjectKey (Text, Text)
-</span><a href="Network.AWS.S3.Internal.html#_ObjectKeySnoc"><span class="hs-identifier hs-var hs-var">_ObjectKeySnoc</span></a></span></span><span> </span><span id="local-6989586621679536873"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679536873"><span class="hs-identifier hs-var">dir</span></a></span></span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679536872"><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536872"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((Text, Text) -&gt; ObjectKey)
+</span><a href="Network.AWS.S3.Internal.html#_ObjectKeySnoc"><span class="hs-identifier hs-var hs-var">_ObjectKeySnoc</span></a></span></span><span> </span><span id="local-6989586621679536983"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679536983"><span class="hs-identifier hs-var">dir</span></a></span></span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679536982"><span class="annot"><span class="annottext">Delimiter
+</span><a href="#local-6989586621679536982"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((Text, Text) -&gt; ObjectKey)
 -&gt; (ObjectKey -&gt; Either ObjectKey (Text, Text))
 -&gt; Prism' ObjectKey (Text, Text)
 forall b t s a. (b -&gt; t) -&gt; (s -&gt; Either t a) -&gt; Prism s t a b
@@ -980,80 +980,80 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text) -&gt; (Text, Text) -&gt; Text
 forall a b c. (a -&gt; b -&gt; c) -&gt; (a, b) -&gt; c
 </span><span class="hs-identifier hs-var">uncurry</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
-</span><a href="#local-6989586621679536870"><span class="hs-identifier hs-var">cat</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; Either ObjectKey (Text, Text)
-</span><a href="#local-6989586621679536869"><span class="hs-identifier hs-var">split</span></a></span><span>
+</span><a href="#local-6989586621679536980"><span class="hs-identifier hs-var">cat</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; Either ObjectKey (Text, Text)
+</span><a href="#local-6989586621679536979"><span class="hs-identifier hs-var">split</span></a></span><span>
 </span><span id="line-227"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>    </span><span id="local-6989586621679536869"><span class="annot"><span class="annottext">split :: ObjectKey -&gt; Either ObjectKey (Text, Text)
-</span><a href="#local-6989586621679536869"><span class="hs-identifier hs-var hs-var">split</span></a></span></span><span> </span><span id="local-6989586621679536868"><span class="annot"><span class="annottext">x :: ObjectKey
-</span><a href="#local-6989586621679536868"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span id="local-6989586621679536867"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536867"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-229"></span><span>        </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679536866"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536866"><span class="hs-identifier hs-var">h</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536865"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536865"><span class="hs-identifier hs-var">t</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; (Text, Text)
+</span><span id="line-228"></span><span>    </span><span id="local-6989586621679536979"><span class="annot"><span class="annottext">split :: ObjectKey -&gt; Either ObjectKey (Text, Text)
+</span><a href="#local-6989586621679536979"><span class="hs-identifier hs-var hs-var">split</span></a></span></span><span> </span><span id="local-6989586621679536978"><span class="annot"><span class="annottext">x :: ObjectKey
+</span><a href="#local-6989586621679536978"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span id="local-6989586621679536977"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536977"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679536976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536976"><span class="hs-identifier hs-var">h</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679536975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536975"><span class="hs-identifier hs-var">t</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; (Text, Text)
 </span><span class="hs-identifier hs-var">Text.breakOnEnd</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536863"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536867"><span class="hs-identifier hs-var">k</span></a></span><span>
+</span><a href="#local-6989586621679536973"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536977"><span class="hs-identifier hs-var">k</span></a></span><span>
 </span><span id="line-230"></span><span>         </span><span class="hs-keyword">in</span><span> </span><span class="hs-keyword">if</span><span> </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int
 </span><span class="hs-identifier hs-var">Text.length</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536866"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679536976"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&lt;=</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679536873"><span class="hs-identifier hs-var">dir</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; Either ObjectKey (Text, Text)
+</span><a href="#local-6989586621679536983"><span class="hs-identifier hs-var">dir</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; Either ObjectKey (Text, Text)
 forall a b. a -&gt; Either a b
 </span><span class="hs-identifier hs-var">Left</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679536868"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679536978"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-231"></span><span>               </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span>               </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">(Text, Text) -&gt; Either ObjectKey (Text, Text)
 forall a b. b -&gt; Either a b
 </span><span class="hs-identifier hs-var">Right</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text
 </span><span class="hs-identifier hs-var">Text.dropEnd</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536866"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536865"><span class="hs-identifier hs-var">t</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679536976"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536975"><span class="hs-identifier hs-var">t</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span>    </span><span id="local-6989586621679536870"><span class="annot"><span class="annottext">cat :: Text -&gt; Text -&gt; Text
-</span><a href="#local-6989586621679536870"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span> </span><span id="local-6989586621679536859"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679536858"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span></span><span>
+</span><span id="line-233"></span><span>    </span><span id="local-6989586621679536980"><span class="annot"><span class="annottext">cat :: Text -&gt; Text -&gt; Text
+</span><a href="#local-6989586621679536980"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span> </span><span id="local-6989586621679536969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679536968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span></span><span>
 </span><span id="line-234"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool
 </span><span class="hs-identifier hs-var">Text.null</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span><span>
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span><span>
 </span><span id="line-235"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool
 </span><span class="hs-identifier hs-var">Text.null</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span><span>
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span><span>             </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span><span>
 </span><span id="line-236"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536863"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Bool
+</span><a href="#local-6989586621679536973"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Bool
 </span><span class="hs-operator hs-var">`Text.isSuffixOf`</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span><span>
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span><span>
 </span><span id="line-237"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536863"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Bool
+</span><a href="#local-6989586621679536973"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Bool
 </span><span class="hs-operator hs-var">`Text.isPrefixOf`</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span><span>
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span><span>
 </span><span id="line-238"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span>               </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536859"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
+</span><a href="#local-6989586621679536969"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536863"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
+</span><a href="#local-6989586621679536973"><span class="hs-identifier hs-var">suf</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679536858"><span class="hs-identifier hs-var">t</span></a></span><span>
+</span><a href="#local-6989586621679536968"><span class="hs-identifier hs-var">t</span></a></span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span>    </span><span id="local-6989586621679536863"><span class="annot"><span class="annottext">suf :: Text
-</span><a href="#local-6989586621679536863"><span class="hs-identifier hs-var hs-var">suf</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Delimiter -&gt; Text
+</span><span id="line-240"></span><span>    </span><span id="local-6989586621679536973"><span class="annot"><span class="annottext">suf :: Text
+</span><a href="#local-6989586621679536973"><span class="hs-identifier hs-var hs-var">suf</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Delimiter -&gt; Text
 </span><span class="hs-identifier hs-var">Text.singleton</span></span><span> </span><span class="annot"><span class="annottext">Delimiter
-</span><a href="#local-6989586621679536872"><span class="hs-identifier hs-var">c</span></a></span><span>
+</span><a href="#local-6989586621679536982"><span class="hs-identifier hs-var">c</span></a></span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | Get the S3 website endpoint for a specific region.</span><span>
 </span><span id="line-243"></span><span class="hs-comment">--</span><span>
@@ -1063,14 +1063,14 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span id="line-247"></span><span class="hs-comment">-- /See:/ &lt;http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints Amazon Simple Storage Service Website Endpoints&gt;.</span><span>
 </span><span id="line-248"></span><span class="annot"><a href="Network.AWS.S3.Internal.html#getWebsiteEndpoint"><span class="hs-identifier hs-type">getWebsiteEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Region</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-249"></span><span id="getWebsiteEndpoint"><span class="annot"><span class="annottext">getWebsiteEndpoint :: Region -&gt; Text
-</span><a href="Network.AWS.S3.Internal.html#getWebsiteEndpoint"><span class="hs-identifier hs-var hs-var">getWebsiteEndpoint</span></a></span></span><span> </span><span id="local-6989586621679536854"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679536854"><span class="hs-identifier hs-var">reg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="Network.AWS.S3.Internal.html#getWebsiteEndpoint"><span class="hs-identifier hs-var hs-var">getWebsiteEndpoint</span></a></span></span><span> </span><span id="local-6989586621679536964"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679536964"><span class="hs-identifier hs-var">reg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3-website-&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Text
 forall a. ToText a =&gt; a -&gt; Text
 </span><span class="hs-identifier hs-var">toText</span></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679536854"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
+</span><a href="#local-6989586621679536964"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;.amazonaws.com&quot;</span></span><span>

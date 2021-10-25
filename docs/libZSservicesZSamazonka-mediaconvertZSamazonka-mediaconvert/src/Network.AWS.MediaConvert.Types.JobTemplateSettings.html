@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newJobTemplateSettings' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621680022980"><span id="local-6989586621680022981"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobTemplateSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-var">JobTemplateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobTemplateSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-var">JobTemplateSettings'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621680024470"><span id="local-6989586621680024471"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobTemplateSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-var">JobTemplateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobTemplateSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-var">JobTemplateSettings'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore these settings unless you are using Nielsen non-linear</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- watermarking. Specify the values that MediaConvert uses to generate and</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- place Nielsen watermarks in your output audio. In addition to specifying</span><span>
@@ -121,7 +121,7 @@
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AkantarWatermark%3AJobTemplateSettings%27"><span class="annot"><span class="annottext">JobTemplateSettings -&gt; Maybe KantarWatermarkSettings
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AkantarWatermark%3AJobTemplateSettings%27"><span class="hs-identifier hs-var hs-var">kantarWatermark</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.KantarWatermarkSettings.html#KantarWatermarkSettings"><span class="hs-identifier hs-type">KantarWatermarkSettings</span></a></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680022963"><span id="local-6989586621680022965"><span class="annot"><span class="annottext">JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680024453"><span id="local-6989586621680024455"><span class="annot"><span class="annottext">JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool
 (JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool)
 -&gt; (JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool)
 -&gt; Eq JobTemplateSettings
@@ -130,7 +130,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool
 == :: JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool
 $c== :: JobTemplateSettings -&gt; JobTemplateSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680022954"><span id="local-6989586621680022956"><span id="local-6989586621680022958"><span id="local-6989586621680022960"><span class="annot"><span class="annottext">ReadPrec [JobTemplateSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680024444"><span id="local-6989586621680024446"><span id="local-6989586621680024448"><span id="local-6989586621680024450"><span class="annot"><span class="annottext">ReadPrec [JobTemplateSettings]
 ReadPrec JobTemplateSettings
 Int -&gt; ReadS JobTemplateSettings
 ReadS [JobTemplateSettings]
@@ -150,7 +150,7 @@ readList :: ReadS [JobTemplateSettings]
 $creadList :: ReadS [JobTemplateSettings]
 readsPrec :: Int -&gt; ReadS JobTemplateSettings
 $creadsPrec :: Int -&gt; ReadS JobTemplateSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680022947"><span id="local-6989586621680022949"><span id="local-6989586621680022951"><span class="annot"><span class="annottext">Int -&gt; JobTemplateSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680024437"><span id="local-6989586621680024439"><span id="local-6989586621680024441"><span class="annot"><span class="annottext">Int -&gt; JobTemplateSettings -&gt; ShowS
 [JobTemplateSettings] -&gt; ShowS
 JobTemplateSettings -&gt; String
 (Int -&gt; JobTemplateSettings -&gt; ShowS)
@@ -342,16 +342,16 @@ forall a. Maybe a
      (Maybe NielsenNonLinearWatermarkSettings)
      (Maybe NielsenNonLinearWatermarkSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022938"><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024428"><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
 nielsenNonLinearWatermark :: Maybe NielsenNonLinearWatermarkSettings
 $sel:nielsenNonLinearWatermark:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe NielsenNonLinearWatermarkSettings
-</span><a href="#local-6989586621680022938"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
-</span><a href="#local-6989586621680022938"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022937"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022936"><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
-</span><a href="#local-6989586621680022936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenNonLinearWatermark:JobTemplateSettings' :: Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680024428"><span class="hs-identifier hs-var hs-var">nielsenNonLinearWatermark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680024428"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024427"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024426"><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
+</span><a href="#local-6989586621680024426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenNonLinearWatermark:JobTemplateSettings' :: Maybe NielsenNonLinearWatermarkSettings
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AnielsenNonLinearWatermark%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
-</span><a href="#local-6989586621680022936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad</span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- insertion, you can ignore these settings.</span><span>
@@ -367,16 +367,16 @@ $sel:nielsenNonLinearWatermark:JobTemplateSettings' :: JobTemplateSettings -&gt;
      (Maybe EsamSettings)
      (Maybe EsamSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022934"><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024424"><span class="annot"><span class="annottext">Maybe EsamSettings
 esam :: Maybe EsamSettings
 $sel:esam:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe EsamSettings
-</span><a href="#local-6989586621680022934"><span class="hs-identifier hs-var hs-var">esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
-</span><a href="#local-6989586621680022934"><span class="hs-identifier hs-var">esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022933"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022932"><span class="annot"><span class="annottext">Maybe EsamSettings
-</span><a href="#local-6989586621680022932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:esam:JobTemplateSettings' :: Maybe EsamSettings
+</span><a href="#local-6989586621680024424"><span class="hs-identifier hs-var hs-var">esam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><a href="#local-6989586621680024424"><span class="hs-identifier hs-var">esam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024423"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024422"><span class="annot"><span class="annottext">Maybe EsamSettings
+</span><a href="#local-6989586621680024422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:esam:JobTemplateSettings' :: Maybe EsamSettings
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3Aesam%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">esam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
-</span><a href="#local-6989586621680022932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Use Inputs (inputs) to define the source file used in the transcode job.</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- There can only be one input in a job template. Using the API, you can</span><span>
@@ -393,16 +393,16 @@ $sel:esam:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe EsamSettings
      (Maybe [InputTemplate])
      (Maybe [InputTemplate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022930"><span class="annot"><span class="annottext">Maybe [InputTemplate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024420"><span class="annot"><span class="annottext">Maybe [InputTemplate]
 inputs :: Maybe [InputTemplate]
 $sel:inputs:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe [InputTemplate]
-</span><a href="#local-6989586621680022930"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputTemplate]
-</span><a href="#local-6989586621680022930"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022929"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022928"><span class="annot"><span class="annottext">Maybe [InputTemplate]
-</span><a href="#local-6989586621680022928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:JobTemplateSettings' :: Maybe [InputTemplate]
+</span><a href="#local-6989586621680024420"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputTemplate]
+</span><a href="#local-6989586621680024420"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024419"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024418"><span class="annot"><span class="annottext">Maybe [InputTemplate]
+</span><a href="#local-6989586621680024418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:JobTemplateSettings' :: Maybe [InputTemplate]
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3Ainputs%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputTemplate]
-</span><a href="#local-6989586621680022928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputTemplate] -&gt; f (Maybe [InputTemplate]))
+</span><a href="#local-6989586621680024418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputTemplate] -&gt; f (Maybe [InputTemplate]))
  -&gt; JobTemplateSettings -&gt; f JobTemplateSettings)
 -&gt; ((Maybe [InputTemplate] -&gt; f (Maybe [InputTemplate]))
     -&gt; Maybe [InputTemplate] -&gt; f (Maybe [InputTemplate]))
@@ -441,16 +441,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe TimedMetadataInsertion)
      (Maybe TimedMetadataInsertion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022923"><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024413"><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
 timedMetadataInsertion :: Maybe TimedMetadataInsertion
 $sel:timedMetadataInsertion:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe TimedMetadataInsertion
-</span><a href="#local-6989586621680022923"><span class="hs-identifier hs-var hs-var">timedMetadataInsertion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
-</span><a href="#local-6989586621680022923"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022922"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022921"><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
-</span><a href="#local-6989586621680022921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataInsertion:JobTemplateSettings' :: Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680024413"><span class="hs-identifier hs-var hs-var">timedMetadataInsertion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680024413"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024412"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024411"><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
+</span><a href="#local-6989586621680024411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataInsertion:JobTemplateSettings' :: Maybe TimedMetadataInsertion
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AtimedMetadataInsertion%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
-</span><a href="#local-6989586621680022921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | Settings for your Nielsen configuration. If you don\'t do Nielsen</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- measurement and analytics, ignore these settings. When you enable</span><span>
@@ -472,16 +472,16 @@ $sel:timedMetadataInsertion:JobTemplateSettings' :: JobTemplateSettings -&gt; Ma
      (Maybe NielsenConfiguration)
      (Maybe NielsenConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022919"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024409"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
 nielsenConfiguration :: Maybe NielsenConfiguration
 $sel:nielsenConfiguration:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe NielsenConfiguration
-</span><a href="#local-6989586621680022919"><span class="hs-identifier hs-var hs-var">nielsenConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
-</span><a href="#local-6989586621680022919"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022918"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022917"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
-</span><a href="#local-6989586621680022917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenConfiguration:JobTemplateSettings' :: Maybe NielsenConfiguration
+</span><a href="#local-6989586621680024409"><span class="hs-identifier hs-var hs-var">nielsenConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621680024409"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024408"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024407"><span class="annot"><span class="annottext">Maybe NielsenConfiguration
+</span><a href="#local-6989586621680024407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenConfiguration:JobTemplateSettings' :: Maybe NielsenConfiguration
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AnielsenConfiguration%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
-</span><a href="#local-6989586621680022917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | Settings for ad avail blanking. Video can be blanked or overlaid with an</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- image, and audio muted during SCTE-35 triggered ad avails.</span><span>
@@ -497,16 +497,16 @@ $sel:nielsenConfiguration:JobTemplateSettings' :: JobTemplateSettings -&gt; Mayb
      (Maybe AvailBlanking)
      (Maybe AvailBlanking)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022915"><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024405"><span class="annot"><span class="annottext">Maybe AvailBlanking
 availBlanking :: Maybe AvailBlanking
 $sel:availBlanking:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe AvailBlanking
-</span><a href="#local-6989586621680022915"><span class="hs-identifier hs-var hs-var">availBlanking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
-</span><a href="#local-6989586621680022915"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022914"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022913"><span class="annot"><span class="annottext">Maybe AvailBlanking
-</span><a href="#local-6989586621680022913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availBlanking:JobTemplateSettings' :: Maybe AvailBlanking
+</span><a href="#local-6989586621680024405"><span class="hs-identifier hs-var hs-var">availBlanking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621680024405"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024404"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024403"><span class="annot"><span class="annottext">Maybe AvailBlanking
+</span><a href="#local-6989586621680024403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availBlanking:JobTemplateSettings' :: Maybe AvailBlanking
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AavailBlanking%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">availBlanking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
-</span><a href="#local-6989586621680022913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | If your source content has EIA-608 Line 21 Data Services, enable this</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- feature to specify what MediaConvert does with the Extended Data</span><span>
@@ -525,16 +525,16 @@ $sel:availBlanking:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe Avail
      (Maybe ExtendedDataServices)
      (Maybe ExtendedDataServices)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022911"><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024401"><span class="annot"><span class="annottext">Maybe ExtendedDataServices
 extendedDataServices :: Maybe ExtendedDataServices
 $sel:extendedDataServices:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe ExtendedDataServices
-</span><a href="#local-6989586621680022911"><span class="hs-identifier hs-var hs-var">extendedDataServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
-</span><a href="#local-6989586621680022911"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022910"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022909"><span class="annot"><span class="annottext">Maybe ExtendedDataServices
-</span><a href="#local-6989586621680022909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedDataServices:JobTemplateSettings' :: Maybe ExtendedDataServices
+</span><a href="#local-6989586621680024401"><span class="hs-identifier hs-var hs-var">extendedDataServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><a href="#local-6989586621680024401"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024400"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024399"><span class="annot"><span class="annottext">Maybe ExtendedDataServices
+</span><a href="#local-6989586621680024399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedDataServices:JobTemplateSettings' :: Maybe ExtendedDataServices
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AextendedDataServices%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
-</span><a href="#local-6989586621680022909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | Overlay motion graphics on top of your video. The motion graphics that</span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- you specify here appear on all outputs in all output groups. For more</span><span>
@@ -552,16 +552,16 @@ $sel:extendedDataServices:JobTemplateSettings' :: JobTemplateSettings -&gt; Mayb
      (Maybe MotionImageInserter)
      (Maybe MotionImageInserter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022907"><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024397"><span class="annot"><span class="annottext">Maybe MotionImageInserter
 motionImageInserter :: Maybe MotionImageInserter
 $sel:motionImageInserter:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe MotionImageInserter
-</span><a href="#local-6989586621680022907"><span class="hs-identifier hs-var hs-var">motionImageInserter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
-</span><a href="#local-6989586621680022907"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022906"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022905"><span class="annot"><span class="annottext">Maybe MotionImageInserter
-</span><a href="#local-6989586621680022905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:motionImageInserter:JobTemplateSettings' :: Maybe MotionImageInserter
+</span><a href="#local-6989586621680024397"><span class="hs-identifier hs-var hs-var">motionImageInserter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><a href="#local-6989586621680024397"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024396"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024395"><span class="annot"><span class="annottext">Maybe MotionImageInserter
+</span><a href="#local-6989586621680024395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:motionImageInserter:JobTemplateSettings' :: Maybe MotionImageInserter
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AmotionImageInserter%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
-</span><a href="#local-6989586621680022905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | These settings control how the service handles timecodes throughout the</span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- job. These settings don\'t affect input clipping.</span><span>
@@ -577,16 +577,16 @@ $sel:motionImageInserter:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe
      (Maybe TimecodeConfig)
      (Maybe TimecodeConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022903"><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024393"><span class="annot"><span class="annottext">Maybe TimecodeConfig
 timecodeConfig :: Maybe TimecodeConfig
 $sel:timecodeConfig:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe TimecodeConfig
-</span><a href="#local-6989586621680022903"><span class="hs-identifier hs-var hs-var">timecodeConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
-</span><a href="#local-6989586621680022903"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022902"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022901"><span class="annot"><span class="annottext">Maybe TimecodeConfig
-</span><a href="#local-6989586621680022901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeConfig:JobTemplateSettings' :: Maybe TimecodeConfig
+</span><a href="#local-6989586621680024393"><span class="hs-identifier hs-var hs-var">timecodeConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><a href="#local-6989586621680024393"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024392"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024391"><span class="annot"><span class="annottext">Maybe TimecodeConfig
+</span><a href="#local-6989586621680024391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeConfig:JobTemplateSettings' :: Maybe TimecodeConfig
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AtimecodeConfig%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
-</span><a href="#local-6989586621680022901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | (OutputGroups) contains one group of settings for each set of outputs</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- that share a common package type. All unpackaged files (MPEG-4, MPEG-2</span><span>
@@ -611,16 +611,16 @@ $sel:timecodeConfig:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe Time
      (Maybe [OutputGroup])
      (Maybe [OutputGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022899"><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024389"><span class="annot"><span class="annottext">Maybe [OutputGroup]
 outputGroups :: Maybe [OutputGroup]
 $sel:outputGroups:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe [OutputGroup]
-</span><a href="#local-6989586621680022899"><span class="hs-identifier hs-var hs-var">outputGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
-</span><a href="#local-6989586621680022899"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022898"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022897"><span class="annot"><span class="annottext">Maybe [OutputGroup]
-</span><a href="#local-6989586621680022897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputGroups:JobTemplateSettings' :: Maybe [OutputGroup]
+</span><a href="#local-6989586621680024389"><span class="hs-identifier hs-var hs-var">outputGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><a href="#local-6989586621680024389"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024388"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024387"><span class="annot"><span class="annottext">Maybe [OutputGroup]
+</span><a href="#local-6989586621680024387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputGroups:JobTemplateSettings' :: Maybe [OutputGroup]
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AoutputGroups%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">outputGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
-</span><a href="#local-6989586621680022897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
+</span><a href="#local-6989586621680024387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
  -&gt; JobTemplateSettings -&gt; f JobTemplateSettings)
 -&gt; ((Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
     -&gt; Maybe [OutputGroup] -&gt; f (Maybe [OutputGroup]))
@@ -651,16 +651,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      JobTemplateSettings JobTemplateSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022895"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024385"><span class="annot"><span class="annottext">Maybe Int
 adAvailOffset :: Maybe Int
 $sel:adAvailOffset:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe Int
-</span><a href="#local-6989586621680022895"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680022895"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022894"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022893"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680022893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:JobTemplateSettings' :: Maybe Int
+</span><a href="#local-6989586621680024385"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680024385"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024384"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024383"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680024383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:JobTemplateSettings' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AadAvailOffset%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680022893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- | Use these settings only when you use Kantar watermarking. Specify the</span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- values that MediaConvert uses to generate and place Kantar watermarks in</span><span>
@@ -681,19 +681,19 @@ $sel:adAvailOffset:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe Int
      (Maybe KantarWatermarkSettings)
      (Maybe KantarWatermarkSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022891"><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024381"><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
 kantarWatermark :: Maybe KantarWatermarkSettings
 $sel:kantarWatermark:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe KantarWatermarkSettings
-</span><a href="#local-6989586621680022891"><span class="hs-identifier hs-var hs-var">kantarWatermark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
-</span><a href="#local-6989586621680022891"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022890"><span class="annot"><span class="annottext">s :: JobTemplateSettings
-</span><a href="#local-6989586621680022890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022889"><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
-</span><a href="#local-6989586621680022889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
-</span><a href="#local-6989586621680022890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarWatermark:JobTemplateSettings' :: Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680024381"><span class="hs-identifier hs-var hs-var">kantarWatermark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680024381"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680024380"><span class="annot"><span class="annottext">s :: JobTemplateSettings
+</span><a href="#local-6989586621680024380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680024379"><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
+</span><a href="#local-6989586621680024379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTemplateSettings
+</span><a href="#local-6989586621680024380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kantarWatermark:JobTemplateSettings' :: Maybe KantarWatermarkSettings
 </span><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#%24sel%3AkantarWatermark%3AJobTemplateSettings%27"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
-</span><a href="#local-6989586621680022889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680024379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-303"></span><span>  </span><span id="local-6989586621680022884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobTemplateSettings
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680024376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621680024374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobTemplateSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-304"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobTemplateSettings)
@@ -703,8 +703,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobTemplateSettings&quot;</span></span><span>
-</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680022881"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680024371"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-307"></span><span>          </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
 -&gt; Maybe EsamSettings
 -&gt; Maybe [InputTemplate]
@@ -748,7 +748,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenNonLinearWatermarkSettings)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenNonLinearWatermarkSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nielsenNonLinearWatermark&quot;</span></span><span class="hs-special">)</span><span>
@@ -780,7 +780,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EsamSettings)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EsamSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;esam&quot;</span></span><span class="hs-special">)</span><span>
@@ -810,7 +810,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputTemplate]))
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputTemplate]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InputTemplate]))
@@ -843,7 +843,7 @@ forall a. Monoid a =&gt; a
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimedMetadataInsertion)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimedMetadataInsertion)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataInsertion&quot;</span></span><span class="hs-special">)</span><span>
@@ -869,7 +869,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenConfiguration)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NielsenConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nielsenConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -893,7 +893,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvailBlanking)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvailBlanking)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;availBlanking&quot;</span></span><span class="hs-special">)</span><span>
@@ -915,7 +915,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExtendedDataServices)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExtendedDataServices)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;extendedDataServices&quot;</span></span><span class="hs-special">)</span><span>
@@ -935,7 +935,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInserter)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInserter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;motionImageInserter&quot;</span></span><span class="hs-special">)</span><span>
@@ -953,7 +953,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimecodeConfig)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimecodeConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -967,7 +967,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Int -&gt; Maybe KantarWatermarkSettings -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputGroup]))
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputGroup]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;outputGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [OutputGroup]))
@@ -982,7 +982,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe KantarWatermarkSettings -&gt; JobTemplateSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -991,19 +991,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser JobTemplateSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680022881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KantarWatermarkSettings)
+</span><a href="#local-6989586621680024371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KantarWatermarkSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kantarWatermark&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022874"><span id="local-6989586621680022876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680024364"><span id="local-6989586621680024366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span></span><span>
 </span><span id="line-323"></span><span>
-</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680024361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span><span>
 </span><span id="line-325"></span><span>
-</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022863"><span id="local-6989586621680022865"><span id="local-6989586621680022867"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621680022861"><span class="annot"><span class="annottext">toJSON :: JobTemplateSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022848"><span id="local-6989586621680022849"><span id="local-6989586621680022850"><span id="local-6989586621680022851"><span id="local-6989586621680022852"><span id="local-6989586621680022853"><span id="local-6989586621680022854"><span id="local-6989586621680022855"><span id="local-6989586621680022856"><span id="local-6989586621680022857"><span id="local-6989586621680022858"><span id="local-6989586621680022859"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680024353"><span id="local-6989586621680024355"><span id="local-6989586621680024357"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621680024351"><span class="annot"><span class="annottext">toJSON :: JobTemplateSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings%27"><span class="hs-identifier hs-type">JobTemplateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680024338"><span id="local-6989586621680024339"><span id="local-6989586621680024340"><span id="local-6989586621680024341"><span id="local-6989586621680024342"><span id="local-6989586621680024343"><span id="local-6989586621680024344"><span id="local-6989586621680024345"><span id="local-6989586621680024346"><span id="local-6989586621680024347"><span id="local-6989586621680024348"><span id="local-6989586621680024349"><span class="annot"><span class="annottext">Maybe Int
 Maybe [InputTemplate]
 Maybe [OutputGroup]
 Maybe AvailBlanking
@@ -1039,7 +1039,7 @@ $sel:timedMetadataInsertion:JobTemplateSettings' :: JobTemplateSettings -&gt; Ma
 $sel:inputs:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe [InputTemplate]
 $sel:esam:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe EsamSettings
 $sel:nielsenNonLinearWatermark:JobTemplateSettings' :: JobTemplateSettings -&gt; Maybe NielsenNonLinearWatermarkSettings
-</span><a href="#local-6989586621680022848"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680024338"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-328"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-329"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1053,21 +1053,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NielsenNonLinearWatermarkSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenNonLinearWatermarkSettings
-</span><a href="#local-6989586621680022859"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024349"><span class="hs-identifier hs-var">nielsenNonLinearWatermark</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;esam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EsamSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EsamSettings -&gt; Pair) -&gt; Maybe EsamSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EsamSettings
-</span><a href="#local-6989586621680022858"><span class="hs-identifier hs-var">esam</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024348"><span class="hs-identifier hs-var">esam</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-333"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InputTemplate] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([InputTemplate] -&gt; Pair) -&gt; Maybe [InputTemplate] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputTemplate]
-</span><a href="#local-6989586621680022857"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024347"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-334"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataInsertion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimedMetadataInsertion -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1076,7 +1076,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TimedMetadataInsertion -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimedMetadataInsertion
-</span><a href="#local-6989586621680022856"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024346"><span class="hs-identifier hs-var">timedMetadataInsertion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nielsenConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NielsenConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1085,14 +1085,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NielsenConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NielsenConfiguration
-</span><a href="#local-6989586621680022855"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024345"><span class="hs-identifier hs-var">nielsenConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;availBlanking&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvailBlanking -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AvailBlanking -&gt; Pair) -&gt; Maybe AvailBlanking -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvailBlanking
-</span><a href="#local-6989586621680022854"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024344"><span class="hs-identifier hs-var">availBlanking</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;extendedDataServices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExtendedDataServices -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1101,7 +1101,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ExtendedDataServices -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExtendedDataServices
-</span><a href="#local-6989586621680022853"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024343"><span class="hs-identifier hs-var">extendedDataServices</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;motionImageInserter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionImageInserter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1110,7 +1110,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MotionImageInserter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInserter
-</span><a href="#local-6989586621680022852"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024342"><span class="hs-identifier hs-var">motionImageInserter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-343"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimecodeConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1118,21 +1118,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-344"></span><span>              </span><span class="annot"><span class="annottext">(TimecodeConfig -&gt; Pair) -&gt; Maybe TimecodeConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeConfig
-</span><a href="#local-6989586621680022851"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024341"><span class="hs-identifier hs-var">timecodeConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;outputGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [OutputGroup] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([OutputGroup] -&gt; Pair) -&gt; Maybe [OutputGroup] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputGroup]
-</span><a href="#local-6989586621680022850"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024340"><span class="hs-identifier hs-var">outputGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680022849"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680024339"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-347"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kantarWatermark&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KantarWatermarkSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1141,7 +1141,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe KantarWatermarkSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KantarWatermarkSettings
-</span><a href="#local-6989586621680022848"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span>
+</span><a href="#local-6989586621680024338"><span class="hs-identifier hs-var">kantarWatermark</span></a></span><span>
 </span><span id="line-349"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-350"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-351"></span></pre></body></html>

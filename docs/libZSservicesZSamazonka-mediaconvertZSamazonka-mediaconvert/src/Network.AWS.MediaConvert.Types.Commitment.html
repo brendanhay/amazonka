@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- | The length of the term of your reserved queue pricing plan commitment.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679952069"><span id="local-6989586621679952070"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Commitment"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Commitment.html#Commitment"><span class="hs-identifier hs-var">Commitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Commitment%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Commitment.html#Commitment%27"><span class="hs-identifier hs-var">Commitment'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679953388"><span id="local-6989586621679953389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Commitment"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Commitment.html#Commitment"><span class="hs-identifier hs-var">Commitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Commitment%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Commitment.html#Commitment%27"><span class="hs-identifier hs-var">Commitment'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCommitment"><span class="annot"><span class="annottext">Commitment -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Commitment.html#fromCommitment"><span class="hs-identifier hs-var hs-var">fromCommitment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952061"><span id="local-6989586621679952063"><span id="local-6989586621679952065"><span class="annot"><span class="annottext">Int -&gt; Commitment -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953380"><span id="local-6989586621679953382"><span id="local-6989586621679953384"><span class="annot"><span class="annottext">Int -&gt; Commitment -&gt; ShowS
 [Commitment] -&gt; ShowS
 Commitment -&gt; String
 (Int -&gt; Commitment -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Commitment -&gt; String
 showsPrec :: Int -&gt; Commitment -&gt; ShowS
 $cshowsPrec :: Int -&gt; Commitment -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679952052"><span id="local-6989586621679952054"><span id="local-6989586621679952056"><span id="local-6989586621679952058"><span class="annot"><span class="annottext">ReadPrec [Commitment]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679953371"><span id="local-6989586621679953373"><span id="local-6989586621679953375"><span id="local-6989586621679953377"><span class="annot"><span class="annottext">ReadPrec [Commitment]
 ReadPrec Commitment
 Int -&gt; ReadS Commitment
 ReadS [Commitment]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Commitment]
 readsPrec :: Int -&gt; ReadS Commitment
 $creadsPrec :: Int -&gt; ReadS Commitment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679952047"><span id="local-6989586621679952049"><span class="annot"><span class="annottext">Commitment -&gt; Commitment -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679953366"><span id="local-6989586621679953368"><span class="annot"><span class="annottext">Commitment -&gt; Commitment -&gt; Bool
 (Commitment -&gt; Commitment -&gt; Bool)
 -&gt; (Commitment -&gt; Commitment -&gt; Bool) -&gt; Eq Commitment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Commitment -&gt; Commitment -&gt; Bool
 == :: Commitment -&gt; Commitment -&gt; Bool
 $c== :: Commitment -&gt; Commitment -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679952031"><span id="local-6989586621679952033"><span id="local-6989586621679952035"><span id="local-6989586621679952037"><span id="local-6989586621679952039"><span id="local-6989586621679952041"><span id="local-6989586621679952043"><span class="annot"><span class="annottext">Eq Commitment
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679953350"><span id="local-6989586621679953352"><span id="local-6989586621679953354"><span id="local-6989586621679953356"><span id="local-6989586621679953358"><span id="local-6989586621679953360"><span id="local-6989586621679953362"><span class="annot"><span class="annottext">Eq Commitment
 Eq Commitment
 -&gt; (Commitment -&gt; Commitment -&gt; Ordering)
 -&gt; (Commitment -&gt; Commitment -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. Commitment -&gt; Rep Commitment x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952023"><span id="local-6989586621679952025"><span class="annot"><span class="annottext">Int -&gt; Commitment -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953342"><span id="local-6989586621679953344"><span class="annot"><span class="annottext">Int -&gt; Commitment -&gt; Int
 Commitment -&gt; Int
 (Int -&gt; Commitment -&gt; Int)
 -&gt; (Commitment -&gt; Int) -&gt; Hashable Commitment
@@ -141,49 +141,49 @@ $chash :: Commitment -&gt; Int
 hashWithSalt :: Int -&gt; Commitment -&gt; Int
 $chashWithSalt :: Int -&gt; Commitment -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679952020"><span class="annot"><span class="annottext">Commitment -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679953339"><span class="annot"><span class="annottext">Commitment -&gt; ()
 (Commitment -&gt; ()) -&gt; NFData Commitment
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Commitment -&gt; ()
 $crnf :: Commitment -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679952017"><span class="annot"><span class="annottext">Text -&gt; Either String Commitment
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679953336"><span class="annot"><span class="annottext">Text -&gt; Either String Commitment
 (Text -&gt; Either String Commitment) -&gt; FromText Commitment
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Commitment
 $cfromText :: Text -&gt; Either String Commitment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679952014"><span class="annot"><span class="annottext">Commitment -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679953333"><span class="annot"><span class="annottext">Commitment -&gt; Text
 (Commitment -&gt; Text) -&gt; ToText Commitment
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Commitment -&gt; Text
 $ctoText :: Commitment -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679952011"><span class="annot"><span class="annottext">Commitment -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679953330"><span class="annot"><span class="annottext">Commitment -&gt; ByteString
 (Commitment -&gt; ByteString) -&gt; ToByteString Commitment
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Commitment -&gt; ByteString
 $ctoBS :: Commitment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679952008"><span class="annot"><span class="annottext">Commitment -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679953327"><span class="annot"><span class="annottext">Commitment -&gt; ByteStringBuilder
 (Commitment -&gt; ByteStringBuilder) -&gt; ToLog Commitment
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Commitment -&gt; ByteStringBuilder
 $cbuild :: Commitment -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679952005"><span class="annot"><span class="annottext">HeaderName -&gt; Commitment -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679953324"><span class="annot"><span class="annottext">HeaderName -&gt; Commitment -&gt; [Header]
 (HeaderName -&gt; Commitment -&gt; [Header]) -&gt; ToHeader Commitment
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Commitment -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Commitment -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679952002"><span class="annot"><span class="annottext">Commitment -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679953321"><span class="annot"><span class="annottext">Commitment -&gt; QueryString
 (Commitment -&gt; QueryString) -&gt; ToQuery Commitment
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Commitment -&gt; QueryString
 $ctoQuery :: Commitment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679951997"><span id="local-6989586621679951999"><span class="annot"><span class="annottext">Value -&gt; Parser [Commitment]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679953316"><span id="local-6989586621679953318"><span class="annot"><span class="annottext">Value -&gt; Parser [Commitment]
 Value -&gt; Parser Commitment
 (Value -&gt; Parser Commitment)
 -&gt; (Value -&gt; Parser [Commitment]) -&gt; FromJSON Commitment
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [Commitment]
 parseJSON :: Value -&gt; Parser Commitment
 $cparseJSON :: Value -&gt; Parser Commitment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679951992"><span id="local-6989586621679951994"><span class="annot"><span class="annottext">FromJSONKeyFunction [Commitment]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679953311"><span id="local-6989586621679953313"><span class="annot"><span class="annottext">FromJSONKeyFunction [Commitment]
 FromJSONKeyFunction Commitment
 FromJSONKeyFunction Commitment
 -&gt; FromJSONKeyFunction [Commitment] -&gt; FromJSONKey Commitment
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Commitment]
 fromJSONKey :: FromJSONKeyFunction Commitment
 $cfromJSONKey :: FromJSONKeyFunction Commitment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679951983"><span id="local-6989586621679951985"><span id="local-6989586621679951987"><span id="local-6989586621679951989"><span class="annot"><span class="annottext">[Commitment] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679953302"><span id="local-6989586621679953304"><span id="local-6989586621679953306"><span id="local-6989586621679953308"><span class="annot"><span class="annottext">[Commitment] -&gt; Encoding
 [Commitment] -&gt; Value
 Commitment -&gt; Encoding
 Commitment -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: Commitment -&gt; Encoding
 toJSON :: Commitment -&gt; Value
 $ctoJSON :: Commitment -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679951978"><span id="local-6989586621679951980"><span class="annot"><span class="annottext">ToJSONKeyFunction [Commitment]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679953297"><span id="local-6989586621679953299"><span class="annot"><span class="annottext">ToJSONKeyFunction [Commitment]
 ToJSONKeyFunction Commitment
 ToJSONKeyFunction Commitment
 -&gt; ToJSONKeyFunction [Commitment] -&gt; ToJSONKey Commitment
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Commitment]
 toJSONKey :: ToJSONKeyFunction Commitment
 $ctoJSONKey :: ToJSONKeyFunction Commitment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679951975"><span class="annot"><span class="annottext">[Node] -&gt; Either String Commitment
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953294"><span class="annot"><span class="annottext">[Node] -&gt; Either String Commitment
 ([Node] -&gt; Either String Commitment) -&gt; FromXML Commitment
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Commitment
 $cparseXML :: [Node] -&gt; Either String Commitment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679951972"><span class="annot"><span class="annottext">Commitment -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953291"><span class="annot"><span class="annottext">Commitment -&gt; XML
 (Commitment -&gt; XML) -&gt; ToXML Commitment
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Commitment -&gt; XML

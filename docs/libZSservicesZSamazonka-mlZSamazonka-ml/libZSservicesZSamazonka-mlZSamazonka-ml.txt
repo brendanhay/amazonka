@@ -11085,14 +11085,14 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateEvalua
 --   manipulated; for example, will it be combined with another variable or
 --   will it be split apart into word combinations? The recipe provides
 --   answers to these questions.
-module Network.AWS.MachineLearning.CreateDataSourceFromS
+module Network.AWS.MachineLearning.CreateDataSourceFromS3
 
--- | <i>See:</i> <a>newCreateDataSourceFromS</a> smart constructor.
-data CreateDataSourceFromS
-CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> CreateDataSourceFromS
+-- | <i>See:</i> <a>newCreateDataSourceFromS3</a> smart constructor.
+data CreateDataSourceFromS3
+CreateDataSourceFromS3' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> CreateDataSourceFromS3
 
 -- | A user-supplied name or description of the <tt>DataSource</tt>.
-[$sel:dataSourceName:CreateDataSourceFromS'] :: CreateDataSourceFromS -> Maybe Text
+[$sel:dataSourceName:CreateDataSourceFromS3'] :: CreateDataSourceFromS3 -> Maybe Text
 
 -- | The compute statistics for a <tt>DataSource</tt>. The statistics are
 --   generated from the observation data referenced by a
@@ -11100,11 +11100,11 @@ CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> Crea
 --   <tt>MLModel</tt> training. This parameter must be set to <tt>true</tt>
 --   if the @<tt>DataSource</tt><tt> needs to be used for </tt>MLModel@
 --   training.
-[$sel:computeStatistics:CreateDataSourceFromS'] :: CreateDataSourceFromS -> Maybe Bool
+[$sel:computeStatistics:CreateDataSourceFromS3'] :: CreateDataSourceFromS3 -> Maybe Bool
 
 -- | A user-supplied identifier that uniquely identifies the
 --   <tt>DataSource</tt>.
-[$sel:dataSourceId:CreateDataSourceFromS'] :: CreateDataSourceFromS -> Text
+[$sel:dataSourceId:CreateDataSourceFromS3'] :: CreateDataSourceFromS3 -> Text
 
 -- | The data specification of a <tt>DataSource</tt>:
 --   
@@ -11120,9 +11120,9 @@ CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> Crea
 --   <tt>
 --   "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</tt></li>
 --   </ul>
-[$sel:dataSpec:CreateDataSourceFromS'] :: CreateDataSourceFromS -> S3DataSpec
+[$sel:dataSpec:CreateDataSourceFromS3'] :: CreateDataSourceFromS3 -> S3DataSpec
 
--- | Create a value of <a>CreateDataSourceFromS</a> with all optional
+-- | Create a value of <a>CreateDataSourceFromS3</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -11131,24 +11131,24 @@ CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> Crea
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:dataSourceName:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_dataSourceName</a> - A user-supplied name or
+--   <a>$sel:dataSourceName:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_dataSourceName</a> - A user-supplied name or
 --   description of the <tt>DataSource</tt>.
 --   
---   <a>$sel:computeStatistics:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_computeStatistics</a> - The compute
+--   <a>$sel:computeStatistics:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_computeStatistics</a> - The compute
 --   statistics for a <tt>DataSource</tt>. The statistics are generated
 --   from the observation data referenced by a <tt>DataSource</tt>. Amazon
 --   ML uses the statistics internally during <tt>MLModel</tt> training.
 --   This parameter must be set to <tt>true</tt> if the
 --   @<tt>DataSource</tt><tt> needs to be used for </tt>MLModel@ training.
 --   
---   <a>$sel:dataSourceId:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_dataSourceId</a> - A user-supplied identifier
---   that uniquely identifies the <tt>DataSource</tt>.
+--   <a>$sel:dataSourceId:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_dataSourceId</a> - A user-supplied
+--   identifier that uniquely identifies the <tt>DataSource</tt>.
 --   
---   <a>$sel:dataSpec:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_dataSpec</a> - The data specification of a
+--   <a>$sel:dataSpec:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_dataSpec</a> - The data specification of a
 --   <tt>DataSource</tt>:
 --   
 --   <ul>
@@ -11163,10 +11163,10 @@ CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> Crea
 --   <tt>
 --   "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</tt></li>
 --   </ul>
-newCreateDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
+newCreateDataSourceFromS3 :: Text -> S3DataSpec -> CreateDataSourceFromS3
 
 -- | A user-supplied name or description of the <tt>DataSource</tt>.
-createDataSourceFromS_dataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
+createDataSourceFromS3_dataSourceName :: Lens' CreateDataSourceFromS3 (Maybe Text)
 
 -- | The compute statistics for a <tt>DataSource</tt>. The statistics are
 --   generated from the observation data referenced by a
@@ -11174,11 +11174,11 @@ createDataSourceFromS_dataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
 --   <tt>MLModel</tt> training. This parameter must be set to <tt>true</tt>
 --   if the @<tt>DataSource</tt><tt> needs to be used for </tt>MLModel@
 --   training.
-createDataSourceFromS_computeStatistics :: Lens' CreateDataSourceFromS (Maybe Bool)
+createDataSourceFromS3_computeStatistics :: Lens' CreateDataSourceFromS3 (Maybe Bool)
 
 -- | A user-supplied identifier that uniquely identifies the
 --   <tt>DataSource</tt>.
-createDataSourceFromS_dataSourceId :: Lens' CreateDataSourceFromS Text
+createDataSourceFromS3_dataSourceId :: Lens' CreateDataSourceFromS3 Text
 
 -- | The data specification of a <tt>DataSource</tt>:
 --   
@@ -11194,7 +11194,7 @@ createDataSourceFromS_dataSourceId :: Lens' CreateDataSourceFromS Text
 --   <tt>
 --   "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</tt></li>
 --   </ul>
-createDataSourceFromS_dataSpec :: Lens' CreateDataSourceFromS S3DataSpec
+createDataSourceFromS3_dataSpec :: Lens' CreateDataSourceFromS3 S3DataSpec
 
 -- | Represents the output of a <tt>CreateDataSourceFromS3</tt> operation,
 --   and is an acknowledgement that Amazon ML received the request.
@@ -11203,19 +11203,20 @@ createDataSourceFromS_dataSpec :: Lens' CreateDataSourceFromS S3DataSpec
 --   poll for updates by using the <tt>GetBatchPrediction</tt> operation
 --   and checking the <tt>Status</tt> parameter.
 --   
---   <i>See:</i> <a>newCreateDataSourceFromSResponse</a> smart constructor.
-data CreateDataSourceFromSResponse
-CreateDataSourceFromSResponse' :: Maybe Text -> Int -> CreateDataSourceFromSResponse
+--   <i>See:</i> <a>newCreateDataSourceFromS3Response</a> smart
+--   constructor.
+data CreateDataSourceFromS3Response
+CreateDataSourceFromS3Response' :: Maybe Text -> Int -> CreateDataSourceFromS3Response
 
 -- | A user-supplied ID that uniquely identifies the <tt>DataSource</tt>.
 --   This value should be identical to the value of the
 --   <tt>DataSourceID</tt> in the request.
-[$sel:dataSourceId:CreateDataSourceFromSResponse'] :: CreateDataSourceFromSResponse -> Maybe Text
+[$sel:dataSourceId:CreateDataSourceFromS3Response'] :: CreateDataSourceFromS3Response -> Maybe Text
 
 -- | The response's http status code.
-[$sel:httpStatus:CreateDataSourceFromSResponse'] :: CreateDataSourceFromSResponse -> Int
+[$sel:httpStatus:CreateDataSourceFromS3Response'] :: CreateDataSourceFromS3Response -> Int
 
--- | Create a value of <a>CreateDataSourceFromSResponse</a> with all
+-- | Create a value of <a>CreateDataSourceFromS3Response</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -11224,39 +11225,39 @@ CreateDataSourceFromSResponse' :: Maybe Text -> Int -> CreateDataSourceFromSResp
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:dataSourceId:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromSResponse_dataSourceId</a> - A user-supplied ID
---   that uniquely identifies the <tt>DataSource</tt>. This value should be
---   identical to the value of the <tt>DataSourceID</tt> in the request.
+--   <a>$sel:dataSourceId:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3Response_dataSourceId</a> - A user-supplied
+--   ID that uniquely identifies the <tt>DataSource</tt>. This value should
+--   be identical to the value of the <tt>DataSourceID</tt> in the request.
 --   
---   <a>$sel:httpStatus:CreateDataSourceFromSResponse'</a>,
---   <a>createDataSourceFromSResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:CreateDataSourceFromS3Response'</a>,
+--   <a>createDataSourceFromS3Response_httpStatus</a> - The response's http
 --   status code.
-newCreateDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
+newCreateDataSourceFromS3Response :: Int -> CreateDataSourceFromS3Response
 
 -- | A user-supplied ID that uniquely identifies the <tt>DataSource</tt>.
 --   This value should be identical to the value of the
 --   <tt>DataSourceID</tt> in the request.
-createDataSourceFromSResponse_dataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
+createDataSourceFromS3Response_dataSourceId :: Lens' CreateDataSourceFromS3Response (Maybe Text)
 
 -- | The response's http status code.
-createDataSourceFromSResponse_httpStatus :: Lens' CreateDataSourceFromSResponse Int
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromSResponse
-instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromSResponse
-instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromSResponse
-instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromSResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromSResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSourceFromS.CreateDataSourceFromS
+createDataSourceFromS3Response_httpStatus :: Lens' CreateDataSourceFromS3Response Int
+instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance GHC.Generics.Generic Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance GHC.Show.Show Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance GHC.Read.Read Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance GHC.Classes.Eq Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance Network.AWS.Types.AWSRequest Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3Response
+instance Data.Hashable.Class.Hashable Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Control.DeepSeq.NFData Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Network.AWS.Data.Path.ToPath Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
+instance Network.AWS.Data.Query.ToQuery Network.AWS.MachineLearning.CreateDataSourceFromS3.CreateDataSourceFromS3
 
 
 -- | Creates a <tt>DataSource</tt> from a database hosted on an Amazon
@@ -12665,7 +12666,7 @@ createDataSourceFromRedshiftResponse_dataSourceId :: Lens' CreateDataSourceFromR
 createDataSourceFromRedshiftResponse_httpStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
 
 -- | A user-supplied name or description of the <tt>DataSource</tt>.
-createDataSourceFromS_dataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
+createDataSourceFromS3_dataSourceName :: Lens' CreateDataSourceFromS3 (Maybe Text)
 
 -- | The compute statistics for a <tt>DataSource</tt>. The statistics are
 --   generated from the observation data referenced by a
@@ -12673,11 +12674,11 @@ createDataSourceFromS_dataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
 --   <tt>MLModel</tt> training. This parameter must be set to <tt>true</tt>
 --   if the @<tt>DataSource</tt><tt> needs to be used for </tt>MLModel@
 --   training.
-createDataSourceFromS_computeStatistics :: Lens' CreateDataSourceFromS (Maybe Bool)
+createDataSourceFromS3_computeStatistics :: Lens' CreateDataSourceFromS3 (Maybe Bool)
 
 -- | A user-supplied identifier that uniquely identifies the
 --   <tt>DataSource</tt>.
-createDataSourceFromS_dataSourceId :: Lens' CreateDataSourceFromS Text
+createDataSourceFromS3_dataSourceId :: Lens' CreateDataSourceFromS3 Text
 
 -- | The data specification of a <tt>DataSource</tt>:
 --   
@@ -12693,15 +12694,15 @@ createDataSourceFromS_dataSourceId :: Lens' CreateDataSourceFromS Text
 --   <tt>
 --   "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</tt></li>
 --   </ul>
-createDataSourceFromS_dataSpec :: Lens' CreateDataSourceFromS S3DataSpec
+createDataSourceFromS3_dataSpec :: Lens' CreateDataSourceFromS3 S3DataSpec
 
 -- | A user-supplied ID that uniquely identifies the <tt>DataSource</tt>.
 --   This value should be identical to the value of the
 --   <tt>DataSourceID</tt> in the request.
-createDataSourceFromSResponse_dataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
+createDataSourceFromS3Response_dataSourceId :: Lens' CreateDataSourceFromS3Response (Maybe Text)
 
 -- | The response's http status code.
-createDataSourceFromSResponse_httpStatus :: Lens' CreateDataSourceFromSResponse Int
+createDataSourceFromS3Response_httpStatus :: Lens' CreateDataSourceFromS3Response Int
 
 -- | The data recipe for creating the <tt>MLModel</tt>. You must specify
 --   either the recipe or its URI. If you don't specify a recipe or its
@@ -15139,11 +15140,11 @@ CreateDataSourceFromRedshiftResponse' :: Maybe Text -> Int -> CreateDataSourceFr
 --   response's http status code.
 newCreateDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse
 
--- | <i>See:</i> <a>newCreateDataSourceFromS</a> smart constructor.
-data CreateDataSourceFromS
-CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> CreateDataSourceFromS
+-- | <i>See:</i> <a>newCreateDataSourceFromS3</a> smart constructor.
+data CreateDataSourceFromS3
+CreateDataSourceFromS3' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> CreateDataSourceFromS3
 
--- | Create a value of <a>CreateDataSourceFromS</a> with all optional
+-- | Create a value of <a>CreateDataSourceFromS3</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -15152,24 +15153,24 @@ CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> Crea
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:dataSourceName:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_dataSourceName</a> - A user-supplied name or
+--   <a>$sel:dataSourceName:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_dataSourceName</a> - A user-supplied name or
 --   description of the <tt>DataSource</tt>.
 --   
---   <a>$sel:computeStatistics:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_computeStatistics</a> - The compute
+--   <a>$sel:computeStatistics:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_computeStatistics</a> - The compute
 --   statistics for a <tt>DataSource</tt>. The statistics are generated
 --   from the observation data referenced by a <tt>DataSource</tt>. Amazon
 --   ML uses the statistics internally during <tt>MLModel</tt> training.
 --   This parameter must be set to <tt>true</tt> if the
 --   @<tt>DataSource</tt><tt> needs to be used for </tt>MLModel@ training.
 --   
---   <a>$sel:dataSourceId:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_dataSourceId</a> - A user-supplied identifier
---   that uniquely identifies the <tt>DataSource</tt>.
+--   <a>$sel:dataSourceId:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_dataSourceId</a> - A user-supplied
+--   identifier that uniquely identifies the <tt>DataSource</tt>.
 --   
---   <a>$sel:dataSpec:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromS_dataSpec</a> - The data specification of a
+--   <a>$sel:dataSpec:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3_dataSpec</a> - The data specification of a
 --   <tt>DataSource</tt>:
 --   
 --   <ul>
@@ -15184,7 +15185,7 @@ CreateDataSourceFromS' :: Maybe Text -> Maybe Bool -> Text -> S3DataSpec -> Crea
 --   <tt>
 --   "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</tt></li>
 --   </ul>
-newCreateDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
+newCreateDataSourceFromS3 :: Text -> S3DataSpec -> CreateDataSourceFromS3
 
 -- | Represents the output of a <tt>CreateDataSourceFromS3</tt> operation,
 --   and is an acknowledgement that Amazon ML received the request.
@@ -15193,11 +15194,12 @@ newCreateDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
 --   poll for updates by using the <tt>GetBatchPrediction</tt> operation
 --   and checking the <tt>Status</tt> parameter.
 --   
---   <i>See:</i> <a>newCreateDataSourceFromSResponse</a> smart constructor.
-data CreateDataSourceFromSResponse
-CreateDataSourceFromSResponse' :: Maybe Text -> Int -> CreateDataSourceFromSResponse
+--   <i>See:</i> <a>newCreateDataSourceFromS3Response</a> smart
+--   constructor.
+data CreateDataSourceFromS3Response
+CreateDataSourceFromS3Response' :: Maybe Text -> Int -> CreateDataSourceFromS3Response
 
--- | Create a value of <a>CreateDataSourceFromSResponse</a> with all
+-- | Create a value of <a>CreateDataSourceFromS3Response</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -15206,15 +15208,15 @@ CreateDataSourceFromSResponse' :: Maybe Text -> Int -> CreateDataSourceFromSResp
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:dataSourceId:CreateDataSourceFromS'</a>,
---   <a>createDataSourceFromSResponse_dataSourceId</a> - A user-supplied ID
---   that uniquely identifies the <tt>DataSource</tt>. This value should be
---   identical to the value of the <tt>DataSourceID</tt> in the request.
+--   <a>$sel:dataSourceId:CreateDataSourceFromS3'</a>,
+--   <a>createDataSourceFromS3Response_dataSourceId</a> - A user-supplied
+--   ID that uniquely identifies the <tt>DataSource</tt>. This value should
+--   be identical to the value of the <tt>DataSourceID</tt> in the request.
 --   
---   <a>$sel:httpStatus:CreateDataSourceFromSResponse'</a>,
---   <a>createDataSourceFromSResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:CreateDataSourceFromS3Response'</a>,
+--   <a>createDataSourceFromS3Response_httpStatus</a> - The response's http
 --   status code.
-newCreateDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
+newCreateDataSourceFromS3Response :: Int -> CreateDataSourceFromS3Response
 
 -- | <i>See:</i> <a>newCreateMLModel</a> smart constructor.
 data CreateMLModel

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- CAVLC.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679966102"><span id="local-6989586621679966103"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264EntropyEncoding"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264EntropyEncoding.html#H264EntropyEncoding"><span class="hs-identifier hs-var">H264EntropyEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264EntropyEncoding%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264EntropyEncoding.html#H264EntropyEncoding%27"><span class="hs-identifier hs-var">H264EntropyEncoding'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679967592"><span id="local-6989586621679967593"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264EntropyEncoding"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264EntropyEncoding.html#H264EntropyEncoding"><span class="hs-identifier hs-var">H264EntropyEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264EntropyEncoding%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264EntropyEncoding.html#H264EntropyEncoding%27"><span class="hs-identifier hs-var">H264EntropyEncoding'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264EntropyEncoding"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264EntropyEncoding.html#fromH264EntropyEncoding"><span class="hs-identifier hs-var hs-var">fromH264EntropyEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679966094"><span id="local-6989586621679966096"><span id="local-6989586621679966098"><span class="annot"><span class="annottext">Int -&gt; H264EntropyEncoding -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967584"><span id="local-6989586621679967586"><span id="local-6989586621679967588"><span class="annot"><span class="annottext">Int -&gt; H264EntropyEncoding -&gt; ShowS
 [H264EntropyEncoding] -&gt; ShowS
 H264EntropyEncoding -&gt; String
 (Int -&gt; H264EntropyEncoding -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: H264EntropyEncoding -&gt; String
 showsPrec :: Int -&gt; H264EntropyEncoding -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264EntropyEncoding -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679966085"><span id="local-6989586621679966087"><span id="local-6989586621679966089"><span id="local-6989586621679966091"><span class="annot"><span class="annottext">ReadPrec [H264EntropyEncoding]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679967575"><span id="local-6989586621679967577"><span id="local-6989586621679967579"><span id="local-6989586621679967581"><span class="annot"><span class="annottext">ReadPrec [H264EntropyEncoding]
 ReadPrec H264EntropyEncoding
 Int -&gt; ReadS H264EntropyEncoding
 ReadS [H264EntropyEncoding]
@@ -74,7 +74,7 @@ $creadList :: ReadS [H264EntropyEncoding]
 readsPrec :: Int -&gt; ReadS H264EntropyEncoding
 $creadsPrec :: Int -&gt; ReadS H264EntropyEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679966080"><span id="local-6989586621679966082"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679967570"><span id="local-6989586621679967572"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool
 (H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool)
 -&gt; (H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool)
 -&gt; Eq H264EntropyEncoding
@@ -84,7 +84,7 @@ $c/= :: H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool
 == :: H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool
 $c== :: H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679966064"><span id="local-6989586621679966066"><span id="local-6989586621679966068"><span id="local-6989586621679966070"><span id="local-6989586621679966072"><span id="local-6989586621679966074"><span id="local-6989586621679966076"><span class="annot"><span class="annottext">Eq H264EntropyEncoding
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679967554"><span id="local-6989586621679967556"><span id="local-6989586621679967558"><span id="local-6989586621679967560"><span id="local-6989586621679967562"><span id="local-6989586621679967564"><span id="local-6989586621679967566"><span class="annot"><span class="annottext">Eq H264EntropyEncoding
 Eq H264EntropyEncoding
 -&gt; (H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Ordering)
 -&gt; (H264EntropyEncoding -&gt; H264EntropyEncoding -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. H264EntropyEncoding -&gt; Rep H264EntropyEncoding x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679966056"><span id="local-6989586621679966058"><span class="annot"><span class="annottext">Int -&gt; H264EntropyEncoding -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967546"><span id="local-6989586621679967548"><span class="annot"><span class="annottext">Int -&gt; H264EntropyEncoding -&gt; Int
 H264EntropyEncoding -&gt; Int
 (Int -&gt; H264EntropyEncoding -&gt; Int)
 -&gt; (H264EntropyEncoding -&gt; Int) -&gt; Hashable H264EntropyEncoding
@@ -147,53 +147,53 @@ $chash :: H264EntropyEncoding -&gt; Int
 hashWithSalt :: Int -&gt; H264EntropyEncoding -&gt; Int
 $chashWithSalt :: Int -&gt; H264EntropyEncoding -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679966053"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679967543"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; ()
 (H264EntropyEncoding -&gt; ()) -&gt; NFData H264EntropyEncoding
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264EntropyEncoding -&gt; ()
 $crnf :: H264EntropyEncoding -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679966050"><span class="annot"><span class="annottext">Text -&gt; Either String H264EntropyEncoding
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679967540"><span class="annot"><span class="annottext">Text -&gt; Either String H264EntropyEncoding
 (Text -&gt; Either String H264EntropyEncoding)
 -&gt; FromText H264EntropyEncoding
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264EntropyEncoding
 $cfromText :: Text -&gt; Either String H264EntropyEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679966047"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679967537"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; Text
 (H264EntropyEncoding -&gt; Text) -&gt; ToText H264EntropyEncoding
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264EntropyEncoding -&gt; Text
 $ctoText :: H264EntropyEncoding -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679966044"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679967534"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; ByteString
 (H264EntropyEncoding -&gt; ByteString)
 -&gt; ToByteString H264EntropyEncoding
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264EntropyEncoding -&gt; ByteString
 $ctoBS :: H264EntropyEncoding -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679966041"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679967531"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; ByteStringBuilder
 (H264EntropyEncoding -&gt; ByteStringBuilder)
 -&gt; ToLog H264EntropyEncoding
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264EntropyEncoding -&gt; ByteStringBuilder
 $cbuild :: H264EntropyEncoding -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679966038"><span class="annot"><span class="annottext">HeaderName -&gt; H264EntropyEncoding -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679967528"><span class="annot"><span class="annottext">HeaderName -&gt; H264EntropyEncoding -&gt; [Header]
 (HeaderName -&gt; H264EntropyEncoding -&gt; [Header])
 -&gt; ToHeader H264EntropyEncoding
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264EntropyEncoding -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264EntropyEncoding -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679966035"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679967525"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; QueryString
 (H264EntropyEncoding -&gt; QueryString) -&gt; ToQuery H264EntropyEncoding
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264EntropyEncoding -&gt; QueryString
 $ctoQuery :: H264EntropyEncoding -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679966030"><span id="local-6989586621679966032"><span class="annot"><span class="annottext">Value -&gt; Parser [H264EntropyEncoding]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679967520"><span id="local-6989586621679967522"><span class="annot"><span class="annottext">Value -&gt; Parser [H264EntropyEncoding]
 Value -&gt; Parser H264EntropyEncoding
 (Value -&gt; Parser H264EntropyEncoding)
 -&gt; (Value -&gt; Parser [H264EntropyEncoding])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [H264EntropyEncoding]
 parseJSON :: Value -&gt; Parser H264EntropyEncoding
 $cparseJSON :: Value -&gt; Parser H264EntropyEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679966025"><span id="local-6989586621679966027"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264EntropyEncoding]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679967515"><span id="local-6989586621679967517"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264EntropyEncoding]
 FromJSONKeyFunction H264EntropyEncoding
 FromJSONKeyFunction H264EntropyEncoding
 -&gt; FromJSONKeyFunction [H264EntropyEncoding]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264EntropyEncoding]
 fromJSONKey :: FromJSONKeyFunction H264EntropyEncoding
 $cfromJSONKey :: FromJSONKeyFunction H264EntropyEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679966016"><span id="local-6989586621679966018"><span id="local-6989586621679966020"><span id="local-6989586621679966022"><span class="annot"><span class="annottext">[H264EntropyEncoding] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679967506"><span id="local-6989586621679967508"><span id="local-6989586621679967510"><span id="local-6989586621679967512"><span class="annot"><span class="annottext">[H264EntropyEncoding] -&gt; Encoding
 [H264EntropyEncoding] -&gt; Value
 H264EntropyEncoding -&gt; Encoding
 H264EntropyEncoding -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: H264EntropyEncoding -&gt; Encoding
 toJSON :: H264EntropyEncoding -&gt; Value
 $ctoJSON :: H264EntropyEncoding -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679966011"><span id="local-6989586621679966013"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264EntropyEncoding]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679967501"><span id="local-6989586621679967503"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264EntropyEncoding]
 ToJSONKeyFunction H264EntropyEncoding
 ToJSONKeyFunction H264EntropyEncoding
 -&gt; ToJSONKeyFunction [H264EntropyEncoding]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264EntropyEncoding]
 toJSONKey :: ToJSONKeyFunction H264EntropyEncoding
 $ctoJSONKey :: ToJSONKeyFunction H264EntropyEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679966008"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264EntropyEncoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679967498"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264EntropyEncoding
 ([Node] -&gt; Either String H264EntropyEncoding)
 -&gt; FromXML H264EntropyEncoding
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264EntropyEncoding
 $cparseXML :: [Node] -&gt; Either String H264EntropyEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679966005"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679967495"><span class="annot"><span class="annottext">H264EntropyEncoding -&gt; XML
 (H264EntropyEncoding -&gt; XML) -&gt; ToXML H264EntropyEncoding
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264EntropyEncoding -&gt; XML

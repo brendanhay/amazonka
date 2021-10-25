@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- events.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newQueueConfiguration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679551789"><span id="local-6989586621679551790"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-var">QueueConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-var">QueueConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679551899"><span id="local-6989586621679551900"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-var">QueueConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-var">QueueConfiguration'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aid%3AQueueConfiguration%27"><span class="annot"><span class="annottext">QueueConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3Aid%3AQueueConfiguration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Afilter%27%3AQueueConfiguration%27"><span class="annot"><span class="annottext">QueueConfiguration -&gt; Maybe NotificationConfigurationFilter
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aevents%3AQueueConfiguration%27"><span class="annot"><span class="annottext">QueueConfiguration -&gt; [Event]
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3Aevents%3AQueueConfiguration%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551780"><span id="local-6989586621679551782"><span class="annot"><span class="annottext">QueueConfiguration -&gt; QueueConfiguration -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551890"><span id="local-6989586621679551892"><span class="annot"><span class="annottext">QueueConfiguration -&gt; QueueConfiguration -&gt; Bool
 (QueueConfiguration -&gt; QueueConfiguration -&gt; Bool)
 -&gt; (QueueConfiguration -&gt; QueueConfiguration -&gt; Bool)
 -&gt; Eq QueueConfiguration
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueueConfiguration -&gt; QueueConfiguration -&gt; Bool
 == :: QueueConfiguration -&gt; QueueConfiguration -&gt; Bool
 $c== :: QueueConfiguration -&gt; QueueConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551771"><span id="local-6989586621679551773"><span id="local-6989586621679551775"><span id="local-6989586621679551777"><span class="annot"><span class="annottext">ReadPrec [QueueConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551881"><span id="local-6989586621679551883"><span id="local-6989586621679551885"><span id="local-6989586621679551887"><span class="annot"><span class="annottext">ReadPrec [QueueConfiguration]
 ReadPrec QueueConfiguration
 Int -&gt; ReadS QueueConfiguration
 ReadS [QueueConfiguration]
@@ -73,7 +73,7 @@ readList :: ReadS [QueueConfiguration]
 $creadList :: ReadS [QueueConfiguration]
 readsPrec :: Int -&gt; ReadS QueueConfiguration
 $creadsPrec :: Int -&gt; ReadS QueueConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551764"><span id="local-6989586621679551766"><span id="local-6989586621679551768"><span class="annot"><span class="annottext">Int -&gt; QueueConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551874"><span id="local-6989586621679551876"><span id="local-6989586621679551878"><span class="annot"><span class="annottext">Int -&gt; QueueConfiguration -&gt; ShowS
 [QueueConfiguration] -&gt; ShowS
 QueueConfiguration -&gt; String
 (Int -&gt; QueueConfiguration -&gt; ShowS)
@@ -120,8 +120,8 @@ $cfrom :: forall x. QueueConfiguration -&gt; Rep QueueConfiguration x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span>
 </span><span id="line-65"></span><span id="newQueueConfiguration"><span class="annot"><span class="annottext">newQueueConfiguration :: Text -&gt; QueueConfiguration
-</span><a href="Network.AWS.S3.Types.QueueConfiguration.html#newQueueConfiguration"><span class="hs-identifier hs-var hs-var">newQueueConfiguration</span></a></span></span><span> </span><span id="local-6989586621679551758"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551758"><span class="hs-identifier hs-var">pQueueArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.QueueConfiguration.html#newQueueConfiguration"><span class="hs-identifier hs-var hs-var">newQueueConfiguration</span></a></span></span><span> </span><span id="local-6989586621679551868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551868"><span class="hs-identifier hs-var">pQueueArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">QueueConfiguration' :: Maybe Text
 -&gt; Maybe NotificationConfigurationFilter
 -&gt; Text
@@ -138,7 +138,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:queueArn:QueueConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3AqueueArn%3AQueueConfiguration%27"><span class="hs-identifier hs-var">queueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551758"><span class="hs-identifier hs-var">pQueueArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551868"><span class="hs-identifier hs-var">pQueueArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:QueueConfiguration' :: [Event]
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3Aevents%3AQueueConfiguration%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Event]
 forall a. Monoid a =&gt; a
@@ -154,16 +154,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      QueueConfiguration QueueConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551754"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551864"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:QueueConfiguration' :: QueueConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679551754"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679551754"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551753"><span class="annot"><span class="annottext">s :: QueueConfiguration
-</span><a href="#local-6989586621679551753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551752"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679551752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
-</span><a href="#local-6989586621679551753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:QueueConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679551864"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679551864"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551863"><span class="annot"><span class="annottext">s :: QueueConfiguration
+</span><a href="#local-6989586621679551863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551862"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679551862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
+</span><a href="#local-6989586621679551863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:QueueConfiguration' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3Aid%3AQueueConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679551752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#queueConfiguration_filter"><span class="hs-identifier hs-type">queueConfiguration_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NotificationConfigurationFilter.html#NotificationConfigurationFilter"><span class="hs-identifier hs-type">NotificationConfigurationFilter</span></a></span><span class="hs-special">)</span><span>
@@ -179,16 +179,16 @@ $sel:id:QueueConfiguration' :: QueueConfiguration -&gt; Maybe Text
      (Maybe NotificationConfigurationFilter)
      (Maybe NotificationConfigurationFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551750"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551860"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
 filter' :: Maybe NotificationConfigurationFilter
 $sel:filter':QueueConfiguration' :: QueueConfiguration -&gt; Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551750"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551750"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551749"><span class="annot"><span class="annottext">s :: QueueConfiguration
-</span><a href="#local-6989586621679551749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551748"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
-</span><a href="#local-6989586621679551749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':QueueConfiguration' :: Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679551860"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679551860"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551859"><span class="annot"><span class="annottext">s :: QueueConfiguration
+</span><a href="#local-6989586621679551859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551858"><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
+</span><a href="#local-6989586621679551858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
+</span><a href="#local-6989586621679551859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':QueueConfiguration' :: Maybe NotificationConfigurationFilter
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3Afilter%27%3AQueueConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- S3 publishes a message when it detects events of the specified type.</span><span>
@@ -198,16 +198,16 @@ $sel:filter':QueueConfiguration' :: QueueConfiguration -&gt; Maybe NotificationC
 -&gt; (QueueConfiguration -&gt; Text -&gt; QueueConfiguration)
 -&gt; Lens QueueConfiguration QueueConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551746"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551856"><span class="annot"><span class="annottext">Text
 queueArn :: Text
 $sel:queueArn:QueueConfiguration' :: QueueConfiguration -&gt; Text
-</span><a href="#local-6989586621679551746"><span class="hs-identifier hs-var hs-var">queueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551746"><span class="hs-identifier hs-var">queueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551745"><span class="annot"><span class="annottext">s :: QueueConfiguration
-</span><a href="#local-6989586621679551745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551744"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
-</span><a href="#local-6989586621679551745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueArn:QueueConfiguration' :: Text
+</span><a href="#local-6989586621679551856"><span class="hs-identifier hs-var hs-var">queueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551856"><span class="hs-identifier hs-var">queueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551855"><span class="annot"><span class="annottext">s :: QueueConfiguration
+</span><a href="#local-6989586621679551855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679551854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
+</span><a href="#local-6989586621679551855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueArn:QueueConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3AqueueArn%3AQueueConfiguration%27"><span class="hs-identifier hs-var">queueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | A collection of bucket events for which to send notifications</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#queueConfiguration_events"><span class="hs-identifier hs-type">queueConfiguration_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">]</span><span>
@@ -217,16 +217,16 @@ $sel:queueArn:QueueConfiguration' :: QueueConfiguration -&gt; Text
 -&gt; (QueueConfiguration -&gt; [Event] -&gt; QueueConfiguration)
 -&gt; Lens QueueConfiguration QueueConfiguration [Event] [Event]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551742"><span class="annot"><span class="annottext">[Event]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551852"><span class="annot"><span class="annottext">[Event]
 events :: [Event]
 $sel:events:QueueConfiguration' :: QueueConfiguration -&gt; [Event]
-</span><a href="#local-6989586621679551742"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551742"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551741"><span class="annot"><span class="annottext">s :: QueueConfiguration
-</span><a href="#local-6989586621679551741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551740"><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
-</span><a href="#local-6989586621679551741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:QueueConfiguration' :: [Event]
+</span><a href="#local-6989586621679551852"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Event]
+</span><a href="#local-6989586621679551852"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551851"><span class="annot"><span class="annottext">s :: QueueConfiguration
+</span><a href="#local-6989586621679551851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551850"><span class="annot"><span class="annottext">[Event]
+</span><a href="#local-6989586621679551850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueConfiguration
+</span><a href="#local-6989586621679551851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:QueueConfiguration' :: [Event]
 </span><a href="Network.AWS.S3.Types.QueueConfiguration.html#%24sel%3Aevents%3AQueueConfiguration%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Event] -&gt; f [Event])
+</span><a href="#local-6989586621679551850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Event] -&gt; f [Event])
  -&gt; QueueConfiguration -&gt; f QueueConfiguration)
 -&gt; (([Event] -&gt; f [Event]) -&gt; [Event] -&gt; f [Event])
 -&gt; ([Event] -&gt; f [Event])
@@ -238,9 +238,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679551735"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueueConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551733"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679551845"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueueConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551843"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551843"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe NotificationConfigurationFilter
 -&gt; Text
@@ -259,7 +259,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
       -&gt; Text -&gt; [Event] -&gt; QueueConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679551843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,7 +271,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; [Event] -&gt; QueueConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe NotificationConfigurationFilter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -281,7 +281,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String ([Event] -&gt; QueueConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679551843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Queue&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,15 +292,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Event&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551733"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551843"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551725"><span id="local-6989586621679551727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551835"><span id="local-6989586621679551837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration"><span class="hs-identifier hs-type">QueueConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679551718"><span class="annot"><span class="annottext">toXML :: QueueConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551713"><span id="local-6989586621679551714"><span id="local-6989586621679551715"><span id="local-6989586621679551716"><span class="annot"><span class="annottext">[Event]
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679551828"><span class="annot"><span class="annottext">toXML :: QueueConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.QueueConfiguration.html#QueueConfiguration%27"><span class="hs-identifier hs-type">QueueConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551823"><span id="local-6989586621679551824"><span id="local-6989586621679551825"><span id="local-6989586621679551826"><span class="annot"><span class="annottext">[Event]
 Maybe Text
 Maybe NotificationConfigurationFilter
 Text
@@ -312,7 +312,7 @@ $sel:events:QueueConfiguration' :: QueueConfiguration -&gt; [Event]
 $sel:queueArn:QueueConfiguration' :: QueueConfiguration -&gt; Text
 $sel:filter':QueueConfiguration' :: QueueConfiguration -&gt; Maybe NotificationConfigurationFilter
 $sel:id:QueueConfiguration' :: QueueConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679551713"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679551823"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -320,21 +320,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679551716"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551826"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe NotificationConfigurationFilter -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfigurationFilter
-</span><a href="#local-6989586621679551715"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551825"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Queue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679551714"><span class="hs-identifier hs-var">queueArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679551824"><span class="hs-identifier hs-var">queueArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Name -&gt; [Event] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Event&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Event]
-</span><a href="#local-6989586621679551713"><span class="hs-identifier hs-var">events</span></a></span><span>
+</span><a href="#local-6989586621679551823"><span class="hs-identifier hs-var">events</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span></pre></body></html>

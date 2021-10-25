@@ -25,9 +25,9 @@
 </span><span id="line-25"></span><span class="hs-comment">-- be connected to either a Direct Connect gateway or a Virtual Private</span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- Gateway (VGW). Connecting the private virtual interface to a Direct</span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- Connect gateway enables the possibility for connecting to multiple VPCs,</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- including VPCs in different Regions. Connecting the private virtual</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- interface to a VGW only provides access to a single VPC within the same</span><span>
-</span><span id="line-30"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- including VPCs in different Amazon Web Services Regions. Connecting the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- private virtual interface to a VGW only provides access to a single VPC</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- within the same Region.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- an update to the underlying physical connection if it wasn\'t updated to</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | /See:/ 'newCreatePrivateVirtualInterface' smart constructor.</span><span>
-</span><span id="line-89"></span><span id="local-6989586621679291586"><span id="local-6989586621679291587"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePrivateVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-var">CreatePrivateVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePrivateVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var">CreatePrivateVirtualInterface'</span></a></span></span><span>
+</span><span id="line-89"></span><span id="local-6989586621679300483"><span id="local-6989586621679300484"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePrivateVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-var">CreatePrivateVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePrivateVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var">CreatePrivateVirtualInterface'</span></a></span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the connection.</span><span>
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AconnectionId%3ACreatePrivateVirtualInterface%27"><span class="annot"><span class="annottext">CreatePrivateVirtualInterface -&gt; Text
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#%24sel%3AconnectionId%3ACreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -94,7 +94,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AnewPrivateVirtualInterface%27%3ACreatePrivateVirtualInterface%27"><span class="annot"><span class="annottext">CreatePrivateVirtualInterface -&gt; NewPrivateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#%24sel%3AnewPrivateVirtualInterface%27%3ACreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var hs-var">newPrivateVirtualInterface'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface.html#NewPrivateVirtualInterface"><span class="hs-identifier hs-type">NewPrivateVirtualInterface</span></a></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291579"><span id="local-6989586621679291581"><span class="annot"><span class="annottext">CreatePrivateVirtualInterface
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300476"><span id="local-6989586621679300478"><span class="annot"><span class="annottext">CreatePrivateVirtualInterface
 -&gt; CreatePrivateVirtualInterface -&gt; Bool
 (CreatePrivateVirtualInterface
  -&gt; CreatePrivateVirtualInterface -&gt; Bool)
@@ -110,7 +110,7 @@ $c/= :: CreatePrivateVirtualInterface
 -&gt; CreatePrivateVirtualInterface -&gt; Bool
 $c== :: CreatePrivateVirtualInterface
 -&gt; CreatePrivateVirtualInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291570"><span id="local-6989586621679291572"><span id="local-6989586621679291574"><span id="local-6989586621679291576"><span class="annot"><span class="annottext">ReadPrec [CreatePrivateVirtualInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300467"><span id="local-6989586621679300469"><span id="local-6989586621679300471"><span id="local-6989586621679300473"><span class="annot"><span class="annottext">ReadPrec [CreatePrivateVirtualInterface]
 ReadPrec CreatePrivateVirtualInterface
 Int -&gt; ReadS CreatePrivateVirtualInterface
 ReadS [CreatePrivateVirtualInterface]
@@ -130,7 +130,7 @@ readList :: ReadS [CreatePrivateVirtualInterface]
 $creadList :: ReadS [CreatePrivateVirtualInterface]
 readsPrec :: Int -&gt; ReadS CreatePrivateVirtualInterface
 $creadsPrec :: Int -&gt; ReadS CreatePrivateVirtualInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291563"><span id="local-6989586621679291565"><span id="local-6989586621679291567"><span class="annot"><span class="annottext">Int -&gt; CreatePrivateVirtualInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300460"><span id="local-6989586621679300462"><span id="local-6989586621679300464"><span class="annot"><span class="annottext">Int -&gt; CreatePrivateVirtualInterface -&gt; ShowS
 [CreatePrivateVirtualInterface] -&gt; ShowS
 CreatePrivateVirtualInterface -&gt; String
 (Int -&gt; CreatePrivateVirtualInterface -&gt; ShowS)
@@ -187,20 +187,20 @@ CreatePrivateVirtualInterface
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span>
 </span><span id="line-114"></span><span id="newCreatePrivateVirtualInterface"><span class="annot"><span class="annottext">newCreatePrivateVirtualInterface :: Text -&gt; NewPrivateVirtualInterface -&gt; CreatePrivateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#newCreatePrivateVirtualInterface"><span class="hs-identifier hs-var hs-var">newCreatePrivateVirtualInterface</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679291558"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291558"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679291557"><span class="annot"><span class="annottext">NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291557"><span class="hs-identifier hs-var">pNewPrivateVirtualInterface_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679300455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300455"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679300454"><span class="annot"><span class="annottext">NewPrivateVirtualInterface
+</span><a href="#local-6989586621679300454"><span class="hs-identifier hs-var">pNewPrivateVirtualInterface_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">CreatePrivateVirtualInterface' :: Text -&gt; NewPrivateVirtualInterface -&gt; CreatePrivateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionId:CreatePrivateVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#%24sel%3AconnectionId%3ACreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291558"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300455"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: NewPrivateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#%24sel%3AnewPrivateVirtualInterface%27%3ACreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var">newPrivateVirtualInterface'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291557"><span class="hs-identifier hs-var">pNewPrivateVirtualInterface_</span></a></span><span>
+</span><a href="#local-6989586621679300454"><span class="hs-identifier hs-var">pNewPrivateVirtualInterface_</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The ID of the connection.</span><span>
@@ -216,16 +216,16 @@ CreatePrivateVirtualInterface
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291554"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300451"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:CreatePrivateVirtualInterface' :: CreatePrivateVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679291554"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291554"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291553"><span class="annot"><span class="annottext">s :: CreatePrivateVirtualInterface
-</span><a href="#local-6989586621679291553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291552"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePrivateVirtualInterface
-</span><a href="#local-6989586621679291553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:CreatePrivateVirtualInterface' :: Text
+</span><a href="#local-6989586621679300451"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300451"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300450"><span class="annot"><span class="annottext">s :: CreatePrivateVirtualInterface
+</span><a href="#local-6989586621679300450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePrivateVirtualInterface
+</span><a href="#local-6989586621679300450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:CreatePrivateVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#%24sel%3AconnectionId%3ACreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Information about the private virtual interface.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#createPrivateVirtualInterface_newPrivateVirtualInterface"><span class="hs-identifier hs-type">createPrivateVirtualInterface_newPrivateVirtualInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface.html#NewPrivateVirtualInterface"><span class="hs-identifier hs-type">NewPrivateVirtualInterface</span></a></span><span>
@@ -240,16 +240,16 @@ $sel:connectionId:CreatePrivateVirtualInterface' :: CreatePrivateVirtualInterfac
      NewPrivateVirtualInterface
      NewPrivateVirtualInterface
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291551"><span class="annot"><span class="annottext">NewPrivateVirtualInterface
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300448"><span class="annot"><span class="annottext">NewPrivateVirtualInterface
 newPrivateVirtualInterface' :: NewPrivateVirtualInterface
 $sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: CreatePrivateVirtualInterface -&gt; NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291551"><span class="hs-identifier hs-var hs-var">newPrivateVirtualInterface'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291551"><span class="hs-identifier hs-var">newPrivateVirtualInterface'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291550"><span class="annot"><span class="annottext">s :: CreatePrivateVirtualInterface
-</span><a href="#local-6989586621679291550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291549"><span class="annot"><span class="annottext">NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePrivateVirtualInterface
-</span><a href="#local-6989586621679291550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: NewPrivateVirtualInterface
+</span><a href="#local-6989586621679300448"><span class="hs-identifier hs-var hs-var">newPrivateVirtualInterface'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPrivateVirtualInterface
+</span><a href="#local-6989586621679300448"><span class="hs-identifier hs-var">newPrivateVirtualInterface'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300447"><span class="annot"><span class="annottext">s :: CreatePrivateVirtualInterface
+</span><a href="#local-6989586621679300447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300446"><span class="annot"><span class="annottext">NewPrivateVirtualInterface
+</span><a href="#local-6989586621679300446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePrivateVirtualInterface
+</span><a href="#local-6989586621679300447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: NewPrivateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#%24sel%3AnewPrivateVirtualInterface%27%3ACreatePrivateVirtualInterface%27"><span class="hs-identifier hs-var">newPrivateVirtualInterface'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -258,7 +258,7 @@ $sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: CreatePrivate
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterface.html#VirtualInterface"><span class="hs-identifier hs-type">VirtualInterface</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679291545"><span class="annot"><span class="annottext">request :: CreatePrivateVirtualInterface
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679300442"><span class="annot"><span class="annottext">request :: CreatePrivateVirtualInterface
 -&gt; Request CreatePrivateVirtualInterface
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreatePrivateVirtualInterface
@@ -266,7 +266,7 @@ $sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: CreatePrivate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679291541"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679300438"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePrivateVirtualInterface
 -&gt; ClientResponse ClientBody
@@ -292,22 +292,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291538"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291538"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291537"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679291537"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291536"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualInterface
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300435"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300435"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300434"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300434"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300433"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualInterface
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291536"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300433"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679291531"><span id="local-6989586621679291533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679300428"><span id="local-6989586621679300430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679291524"><span class="annot"><span class="annottext">toHeaders :: CreatePrivateVirtualInterface -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679300421"><span class="annot"><span class="annottext">toHeaders :: CreatePrivateVirtualInterface -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePrivateVirtualInterface -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -334,15 +334,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291514"><span id="local-6989586621679291516"><span id="local-6989586621679291518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679291512"><span class="annot"><span class="annottext">toJSON :: CreatePrivateVirtualInterface -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291509"><span id="local-6989586621679291510"><span class="annot"><span class="annottext">Text
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300411"><span id="local-6989586621679300413"><span id="local-6989586621679300415"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679300409"><span class="annot"><span class="annottext">toJSON :: CreatePrivateVirtualInterface -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface%27"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300406"><span id="local-6989586621679300407"><span class="annot"><span class="annottext">Text
 NewPrivateVirtualInterface
 newPrivateVirtualInterface' :: NewPrivateVirtualInterface
 connectionId :: Text
 $sel:newPrivateVirtualInterface':CreatePrivateVirtualInterface' :: CreatePrivateVirtualInterface -&gt; NewPrivateVirtualInterface
 $sel:connectionId:CreatePrivateVirtualInterface' :: CreatePrivateVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679291509"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679300406"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -354,7 +354,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291510"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300407"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -363,20 +363,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-172"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NewPrivateVirtualInterface -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NewPrivateVirtualInterface
-</span><a href="#local-6989586621679291509"><span class="hs-identifier hs-var">newPrivateVirtualInterface'</span></a></span><span>
+</span><a href="#local-6989586621679300406"><span class="hs-identifier hs-var">newPrivateVirtualInterface'</span></a></span><span>
 </span><span id="line-173"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679291503"><span class="annot"><span class="annottext">toPath :: CreatePrivateVirtualInterface -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679300400"><span class="annot"><span class="annottext">toPath :: CreatePrivateVirtualInterface -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePrivateVirtualInterface -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreatePrivateVirtualInterface.html#CreatePrivateVirtualInterface"><span class="hs-identifier hs-type">CreatePrivateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679291499"><span class="annot"><span class="annottext">toQuery :: CreatePrivateVirtualInterface -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679300396"><span class="annot"><span class="annottext">toQuery :: CreatePrivateVirtualInterface -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePrivateVirtualInterface -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

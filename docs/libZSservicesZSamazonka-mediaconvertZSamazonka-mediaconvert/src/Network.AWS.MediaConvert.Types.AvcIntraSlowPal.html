@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Required settings: You must also set Framerate to 25. In your JSON job</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679944030"><span id="local-6989586621679944031"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraSlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSlowPal.html#AvcIntraSlowPal"><span class="hs-identifier hs-var">AvcIntraSlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraSlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSlowPal.html#AvcIntraSlowPal%27"><span class="hs-identifier hs-var">AvcIntraSlowPal'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679945349"><span id="local-6989586621679945350"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraSlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSlowPal.html#AvcIntraSlowPal"><span class="hs-identifier hs-var">AvcIntraSlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraSlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSlowPal.html#AvcIntraSlowPal%27"><span class="hs-identifier hs-var">AvcIntraSlowPal'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraSlowPal"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSlowPal.html#fromAvcIntraSlowPal"><span class="hs-identifier hs-var hs-var">fromAvcIntraSlowPal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944022"><span id="local-6989586621679944024"><span id="local-6989586621679944026"><span class="annot"><span class="annottext">Int -&gt; AvcIntraSlowPal -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945341"><span id="local-6989586621679945343"><span id="local-6989586621679945345"><span class="annot"><span class="annottext">Int -&gt; AvcIntraSlowPal -&gt; ShowS
 [AvcIntraSlowPal] -&gt; ShowS
 AvcIntraSlowPal -&gt; String
 (Int -&gt; AvcIntraSlowPal -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: AvcIntraSlowPal -&gt; String
 showsPrec :: Int -&gt; AvcIntraSlowPal -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvcIntraSlowPal -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679944013"><span id="local-6989586621679944015"><span id="local-6989586621679944017"><span id="local-6989586621679944019"><span class="annot"><span class="annottext">ReadPrec [AvcIntraSlowPal]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679945332"><span id="local-6989586621679945334"><span id="local-6989586621679945336"><span id="local-6989586621679945338"><span class="annot"><span class="annottext">ReadPrec [AvcIntraSlowPal]
 ReadPrec AvcIntraSlowPal
 Int -&gt; ReadS AvcIntraSlowPal
 ReadS [AvcIntraSlowPal]
@@ -80,7 +80,7 @@ $creadList :: ReadS [AvcIntraSlowPal]
 readsPrec :: Int -&gt; ReadS AvcIntraSlowPal
 $creadsPrec :: Int -&gt; ReadS AvcIntraSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679944008"><span id="local-6989586621679944010"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679945327"><span id="local-6989586621679945329"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool
 (AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool)
 -&gt; (AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool)
 -&gt; Eq AvcIntraSlowPal
@@ -90,7 +90,7 @@ $c/= :: AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool
 == :: AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool
 $c== :: AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679943992"><span id="local-6989586621679943994"><span id="local-6989586621679943996"><span id="local-6989586621679943998"><span id="local-6989586621679944000"><span id="local-6989586621679944002"><span id="local-6989586621679944004"><span class="annot"><span class="annottext">Eq AvcIntraSlowPal
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679945311"><span id="local-6989586621679945313"><span id="local-6989586621679945315"><span id="local-6989586621679945317"><span id="local-6989586621679945319"><span id="local-6989586621679945321"><span id="local-6989586621679945323"><span class="annot"><span class="annottext">Eq AvcIntraSlowPal
 Eq AvcIntraSlowPal
 -&gt; (AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Ordering)
 -&gt; (AvcIntraSlowPal -&gt; AvcIntraSlowPal -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. AvcIntraSlowPal -&gt; Rep AvcIntraSlowPal x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943984"><span id="local-6989586621679943986"><span class="annot"><span class="annottext">Int -&gt; AvcIntraSlowPal -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945303"><span id="local-6989586621679945305"><span class="annot"><span class="annottext">Int -&gt; AvcIntraSlowPal -&gt; Int
 AvcIntraSlowPal -&gt; Int
 (Int -&gt; AvcIntraSlowPal -&gt; Int)
 -&gt; (AvcIntraSlowPal -&gt; Int) -&gt; Hashable AvcIntraSlowPal
@@ -151,50 +151,50 @@ $chash :: AvcIntraSlowPal -&gt; Int
 hashWithSalt :: Int -&gt; AvcIntraSlowPal -&gt; Int
 $chashWithSalt :: Int -&gt; AvcIntraSlowPal -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943981"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679945300"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; ()
 (AvcIntraSlowPal -&gt; ()) -&gt; NFData AvcIntraSlowPal
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvcIntraSlowPal -&gt; ()
 $crnf :: AvcIntraSlowPal -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943978"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraSlowPal
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679945297"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraSlowPal
 (Text -&gt; Either String AvcIntraSlowPal) -&gt; FromText AvcIntraSlowPal
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvcIntraSlowPal
 $cfromText :: Text -&gt; Either String AvcIntraSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943975"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679945294"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; Text
 (AvcIntraSlowPal -&gt; Text) -&gt; ToText AvcIntraSlowPal
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvcIntraSlowPal -&gt; Text
 $ctoText :: AvcIntraSlowPal -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943972"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945291"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; ByteString
 (AvcIntraSlowPal -&gt; ByteString) -&gt; ToByteString AvcIntraSlowPal
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvcIntraSlowPal -&gt; ByteString
 $ctoBS :: AvcIntraSlowPal -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943969"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945288"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; ByteStringBuilder
 (AvcIntraSlowPal -&gt; ByteStringBuilder) -&gt; ToLog AvcIntraSlowPal
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvcIntraSlowPal -&gt; ByteStringBuilder
 $cbuild :: AvcIntraSlowPal -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943966"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraSlowPal -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945285"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraSlowPal -&gt; [Header]
 (HeaderName -&gt; AvcIntraSlowPal -&gt; [Header])
 -&gt; ToHeader AvcIntraSlowPal
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvcIntraSlowPal -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvcIntraSlowPal -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943963"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945282"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; QueryString
 (AvcIntraSlowPal -&gt; QueryString) -&gt; ToQuery AvcIntraSlowPal
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvcIntraSlowPal -&gt; QueryString
 $ctoQuery :: AvcIntraSlowPal -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943958"><span id="local-6989586621679943960"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraSlowPal]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679945277"><span id="local-6989586621679945279"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraSlowPal]
 Value -&gt; Parser AvcIntraSlowPal
 (Value -&gt; Parser AvcIntraSlowPal)
 -&gt; (Value -&gt; Parser [AvcIntraSlowPal]) -&gt; FromJSON AvcIntraSlowPal
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [AvcIntraSlowPal]
 parseJSON :: Value -&gt; Parser AvcIntraSlowPal
 $cparseJSON :: Value -&gt; Parser AvcIntraSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943953"><span id="local-6989586621679943955"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraSlowPal]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679945272"><span id="local-6989586621679945274"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraSlowPal]
 FromJSONKeyFunction AvcIntraSlowPal
 FromJSONKeyFunction AvcIntraSlowPal
 -&gt; FromJSONKeyFunction [AvcIntraSlowPal]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraSlowPal]
 fromJSONKey :: FromJSONKeyFunction AvcIntraSlowPal
 $cfromJSONKey :: FromJSONKeyFunction AvcIntraSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943944"><span id="local-6989586621679943946"><span id="local-6989586621679943948"><span id="local-6989586621679943950"><span class="annot"><span class="annottext">[AvcIntraSlowPal] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679945263"><span id="local-6989586621679945265"><span id="local-6989586621679945267"><span id="local-6989586621679945269"><span class="annot"><span class="annottext">[AvcIntraSlowPal] -&gt; Encoding
 [AvcIntraSlowPal] -&gt; Value
 AvcIntraSlowPal -&gt; Encoding
 AvcIntraSlowPal -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: AvcIntraSlowPal -&gt; Encoding
 toJSON :: AvcIntraSlowPal -&gt; Value
 $ctoJSON :: AvcIntraSlowPal -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943939"><span id="local-6989586621679943941"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraSlowPal]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945258"><span id="local-6989586621679945260"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraSlowPal]
 ToJSONKeyFunction AvcIntraSlowPal
 ToJSONKeyFunction AvcIntraSlowPal
 -&gt; ToJSONKeyFunction [AvcIntraSlowPal] -&gt; ToJSONKey AvcIntraSlowPal
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraSlowPal]
 toJSONKey :: ToJSONKeyFunction AvcIntraSlowPal
 $ctoJSONKey :: ToJSONKeyFunction AvcIntraSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943936"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraSlowPal
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679945255"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraSlowPal
 ([Node] -&gt; Either String AvcIntraSlowPal)
 -&gt; FromXML AvcIntraSlowPal
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvcIntraSlowPal
 $cparseXML :: [Node] -&gt; Either String AvcIntraSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679943933"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679945252"><span class="annot"><span class="annottext">AvcIntraSlowPal -&gt; XML
 (AvcIntraSlowPal -&gt; XML) -&gt; ToXML AvcIntraSlowPal
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AvcIntraSlowPal -&gt; XML

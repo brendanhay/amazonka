@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon S3 API Reference/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newServerSideEncryptionByDefault' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679553243"><span id="local-6989586621679553244"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerSideEncryptionByDefault"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-var">ServerSideEncryptionByDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerSideEncryptionByDefault%27"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var">ServerSideEncryptionByDefault'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679553353"><span id="local-6989586621679553354"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerSideEncryptionByDefault"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-var">ServerSideEncryptionByDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerSideEncryptionByDefault%27"><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var">ServerSideEncryptionByDefault'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Web Services Key Management Service (KMS) customer Amazon Web</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Services KMS key ID to use for the default encryption. This parameter is</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AsSEAlgorithm%3AServerSideEncryptionByDefault%27"><span class="annot"><span class="annottext">ServerSideEncryptionByDefault -&gt; ServerSideEncryption
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#%24sel%3AsSEAlgorithm%3AServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var hs-var">sSEAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryption.html#ServerSideEncryption"><span class="hs-identifier hs-type">ServerSideEncryption</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553236"><span id="local-6989586621679553238"><span class="annot"><span class="annottext">ServerSideEncryptionByDefault
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553346"><span id="local-6989586621679553348"><span class="annot"><span class="annottext">ServerSideEncryptionByDefault
 -&gt; ServerSideEncryptionByDefault -&gt; Bool
 (ServerSideEncryptionByDefault
  -&gt; ServerSideEncryptionByDefault -&gt; Bool)
@@ -76,7 +76,7 @@ $c/= :: ServerSideEncryptionByDefault
 -&gt; ServerSideEncryptionByDefault -&gt; Bool
 $c== :: ServerSideEncryptionByDefault
 -&gt; ServerSideEncryptionByDefault -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553229"><span id="local-6989586621679553231"><span id="local-6989586621679553233"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryptionByDefault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553339"><span id="local-6989586621679553341"><span id="local-6989586621679553343"><span class="annot"><span class="annottext">Int -&gt; ServerSideEncryptionByDefault -&gt; ShowS
 [ServerSideEncryptionByDefault] -&gt; ShowS
 ServerSideEncryptionByDefault -&gt; String
 (Int -&gt; ServerSideEncryptionByDefault -&gt; ShowS)
@@ -149,8 +149,8 @@ ServerSideEncryptionByDefault
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryption.html#ServerSideEncryption"><span class="hs-identifier hs-type">ServerSideEncryption</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span>
 </span><span id="line-97"></span><span id="newServerSideEncryptionByDefault"><span class="annot"><span class="annottext">newServerSideEncryptionByDefault :: ServerSideEncryption -&gt; ServerSideEncryptionByDefault
-</span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#newServerSideEncryptionByDefault"><span class="hs-identifier hs-var hs-var">newServerSideEncryptionByDefault</span></a></span></span><span> </span><span id="local-6989586621679553223"><span class="annot"><span class="annottext">ServerSideEncryption
-</span><a href="#local-6989586621679553223"><span class="hs-identifier hs-var">pSSEAlgorithm_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#newServerSideEncryptionByDefault"><span class="hs-identifier hs-var hs-var">newServerSideEncryptionByDefault</span></a></span></span><span> </span><span id="local-6989586621679553333"><span class="annot"><span class="annottext">ServerSideEncryption
+</span><a href="#local-6989586621679553333"><span class="hs-identifier hs-var">pSSEAlgorithm_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ServerSideEncryptionByDefault' :: Maybe (Sensitive Text)
 -&gt; ServerSideEncryption -&gt; ServerSideEncryptionByDefault
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span>
@@ -161,7 +161,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:sSEAlgorithm:ServerSideEncryptionByDefault' :: ServerSideEncryption
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#%24sel%3AsSEAlgorithm%3AServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var">sSEAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryption
-</span><a href="#local-6989586621679553223"><span class="hs-identifier hs-var">pSSEAlgorithm_</span></a></span><span>
+</span><a href="#local-6989586621679553333"><span class="hs-identifier hs-var">pSSEAlgorithm_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Amazon Web Services Key Management Service (KMS) customer Amazon Web</span><span>
@@ -196,16 +196,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553219"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553329"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 kmsMasterKeyID :: Maybe (Sensitive Text)
 $sel:kmsMasterKeyID:ServerSideEncryptionByDefault' :: ServerSideEncryptionByDefault -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679553219"><span class="hs-identifier hs-var hs-var">kmsMasterKeyID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679553219"><span class="hs-identifier hs-var">kmsMasterKeyID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553218"><span class="annot"><span class="annottext">s :: ServerSideEncryptionByDefault
-</span><a href="#local-6989586621679553218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553217"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679553217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionByDefault
-</span><a href="#local-6989586621679553218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyID:ServerSideEncryptionByDefault' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679553329"><span class="hs-identifier hs-var hs-var">kmsMasterKeyID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679553329"><span class="hs-identifier hs-var">kmsMasterKeyID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553328"><span class="annot"><span class="annottext">s :: ServerSideEncryptionByDefault
+</span><a href="#local-6989586621679553328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553327"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679553327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionByDefault
+</span><a href="#local-6989586621679553328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyID:ServerSideEncryptionByDefault' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#%24sel%3AkmsMasterKeyID%3AServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var">kmsMasterKeyID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679553217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679553327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ServerSideEncryptionByDefault
  -&gt; f ServerSideEncryptionByDefault)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
@@ -240,21 +240,21 @@ forall a. Iso' (Sensitive a) a
      ServerSideEncryption
      ServerSideEncryption
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553212"><span class="annot"><span class="annottext">ServerSideEncryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553322"><span class="annot"><span class="annottext">ServerSideEncryption
 sSEAlgorithm :: ServerSideEncryption
 $sel:sSEAlgorithm:ServerSideEncryptionByDefault' :: ServerSideEncryptionByDefault -&gt; ServerSideEncryption
-</span><a href="#local-6989586621679553212"><span class="hs-identifier hs-var hs-var">sSEAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryption
-</span><a href="#local-6989586621679553212"><span class="hs-identifier hs-var">sSEAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553211"><span class="annot"><span class="annottext">s :: ServerSideEncryptionByDefault
-</span><a href="#local-6989586621679553211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553210"><span class="annot"><span class="annottext">ServerSideEncryption
-</span><a href="#local-6989586621679553210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionByDefault
-</span><a href="#local-6989586621679553211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSEAlgorithm:ServerSideEncryptionByDefault' :: ServerSideEncryption
+</span><a href="#local-6989586621679553322"><span class="hs-identifier hs-var hs-var">sSEAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryption
+</span><a href="#local-6989586621679553322"><span class="hs-identifier hs-var">sSEAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553321"><span class="annot"><span class="annottext">s :: ServerSideEncryptionByDefault
+</span><a href="#local-6989586621679553321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553320"><span class="annot"><span class="annottext">ServerSideEncryption
+</span><a href="#local-6989586621679553320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryptionByDefault
+</span><a href="#local-6989586621679553321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSEAlgorithm:ServerSideEncryptionByDefault' :: ServerSideEncryption
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#%24sel%3AsSEAlgorithm%3AServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var">sSEAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServerSideEncryption
-</span><a href="#local-6989586621679553210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679553207"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServerSideEncryptionByDefault
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553205"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679553317"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServerSideEncryptionByDefault
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553315"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 -&gt; ServerSideEncryption -&gt; ServerSideEncryptionByDefault
 </span><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-var">ServerSideEncryptionByDefault'</span></a></span><span>
@@ -265,7 +265,7 @@ $sel:sSEAlgorithm:ServerSideEncryptionByDefault' :: ServerSideEncryptionByDefaul
      String (ServerSideEncryption -&gt; ServerSideEncryptionByDefault)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679553315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSMasterKeyID&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,26 +275,26 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String ServerSideEncryptionByDefault
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ServerSideEncryption
+</span><a href="#local-6989586621679553315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ServerSideEncryption
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSEAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679553198"><span id="local-6989586621679553200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679553308"><span id="local-6989586621679553310"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679553191"><span class="annot"><span class="annottext">toXML :: ServerSideEncryptionByDefault -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553188"><span id="local-6989586621679553189"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679553301"><span class="annot"><span class="annottext">toXML :: ServerSideEncryptionByDefault -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ServerSideEncryptionByDefault.html#ServerSideEncryptionByDefault%27"><span class="hs-identifier hs-type">ServerSideEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553298"><span id="local-6989586621679553299"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 ServerSideEncryption
 sSEAlgorithm :: ServerSideEncryption
 kmsMasterKeyID :: Maybe (Sensitive Text)
 $sel:sSEAlgorithm:ServerSideEncryptionByDefault' :: ServerSideEncryptionByDefault -&gt; ServerSideEncryption
 $sel:kmsMasterKeyID:ServerSideEncryptionByDefault' :: ServerSideEncryptionByDefault -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679553188"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679553298"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -302,11 +302,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;KMSMasterKeyID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe (Sensitive Text) -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679553189"><span class="hs-identifier hs-var">kmsMasterKeyID</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679553299"><span class="hs-identifier hs-var">kmsMasterKeyID</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SSEAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ServerSideEncryption -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ServerSideEncryption
-</span><a href="#local-6989586621679553188"><span class="hs-identifier hs-var">sSEAlgorithm</span></a></span><span>
+</span><a href="#local-6989586621679553298"><span class="hs-identifier hs-var">sSEAlgorithm</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span></pre></body></html>

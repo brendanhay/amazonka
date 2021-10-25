@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621679543341"><span id="local-6989586621679543342"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryOptionalField"><span class="annot"><a href="Network.AWS.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-var">InventoryOptionalField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryOptionalField%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-var">InventoryOptionalField'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679543451"><span id="local-6989586621679543452"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryOptionalField"><span class="annot"><a href="Network.AWS.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-var">InventoryOptionalField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryOptionalField%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryOptionalField.html#InventoryOptionalField%27"><span class="hs-identifier hs-var">InventoryOptionalField'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryOptionalField"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; Text
 </span><a href="Network.AWS.S3.Types.InventoryOptionalField.html#fromInventoryOptionalField"><span class="hs-identifier hs-var hs-var">fromInventoryOptionalField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543333"><span id="local-6989586621679543335"><span id="local-6989586621679543337"><span class="annot"><span class="annottext">Int -&gt; InventoryOptionalField -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543443"><span id="local-6989586621679543445"><span id="local-6989586621679543447"><span class="annot"><span class="annottext">Int -&gt; InventoryOptionalField -&gt; ShowS
 [InventoryOptionalField] -&gt; ShowS
 InventoryOptionalField -&gt; String
 (Int -&gt; InventoryOptionalField -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: InventoryOptionalField -&gt; String
 showsPrec :: Int -&gt; InventoryOptionalField -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventoryOptionalField -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679543324"><span id="local-6989586621679543326"><span id="local-6989586621679543328"><span id="local-6989586621679543330"><span class="annot"><span class="annottext">ReadPrec [InventoryOptionalField]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679543434"><span id="local-6989586621679543436"><span id="local-6989586621679543438"><span id="local-6989586621679543440"><span class="annot"><span class="annottext">ReadPrec [InventoryOptionalField]
 ReadPrec InventoryOptionalField
 Int -&gt; ReadS InventoryOptionalField
 ReadS [InventoryOptionalField]
@@ -83,7 +83,7 @@ $creadList :: ReadS [InventoryOptionalField]
 readsPrec :: Int -&gt; ReadS InventoryOptionalField
 $creadsPrec :: Int -&gt; ReadS InventoryOptionalField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679543319"><span id="local-6989586621679543321"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679543429"><span id="local-6989586621679543431"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
 (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
 -&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
 -&gt; Eq InventoryOptionalField
@@ -93,7 +93,7 @@ $c/= :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
 == :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
 $c== :: InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679543303"><span id="local-6989586621679543305"><span id="local-6989586621679543307"><span id="local-6989586621679543309"><span id="local-6989586621679543311"><span id="local-6989586621679543313"><span id="local-6989586621679543315"><span class="annot"><span class="annottext">Eq InventoryOptionalField
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679543413"><span id="local-6989586621679543415"><span id="local-6989586621679543417"><span id="local-6989586621679543419"><span id="local-6989586621679543421"><span id="local-6989586621679543423"><span id="local-6989586621679543425"><span class="annot"><span class="annottext">Eq InventoryOptionalField
 Eq InventoryOptionalField
 -&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Ordering)
 -&gt; (InventoryOptionalField -&gt; InventoryOptionalField -&gt; Bool)
@@ -152,7 +152,7 @@ $cfrom :: forall x. InventoryOptionalField -&gt; Rep InventoryOptionalField x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543295"><span id="local-6989586621679543297"><span class="annot"><span class="annottext">Int -&gt; InventoryOptionalField -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543405"><span id="local-6989586621679543407"><span class="annot"><span class="annottext">Int -&gt; InventoryOptionalField -&gt; Int
 InventoryOptionalField -&gt; Int
 (Int -&gt; InventoryOptionalField -&gt; Int)
 -&gt; (InventoryOptionalField -&gt; Int)
@@ -163,54 +163,54 @@ $chash :: InventoryOptionalField -&gt; Int
 hashWithSalt :: Int -&gt; InventoryOptionalField -&gt; Int
 $chashWithSalt :: Int -&gt; InventoryOptionalField -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679543292"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679543402"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ()
 (InventoryOptionalField -&gt; ()) -&gt; NFData InventoryOptionalField
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventoryOptionalField -&gt; ()
 $crnf :: InventoryOptionalField -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679543289"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryOptionalField
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679543399"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryOptionalField
 (Text -&gt; Either String InventoryOptionalField)
 -&gt; FromText InventoryOptionalField
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventoryOptionalField
 $cfromText :: Text -&gt; Either String InventoryOptionalField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679543286"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679543396"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; Text
 (InventoryOptionalField -&gt; Text) -&gt; ToText InventoryOptionalField
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventoryOptionalField -&gt; Text
 $ctoText :: InventoryOptionalField -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679543283"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679543393"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ByteString
 (InventoryOptionalField -&gt; ByteString)
 -&gt; ToByteString InventoryOptionalField
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventoryOptionalField -&gt; ByteString
 $ctoBS :: InventoryOptionalField -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679543280"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679543390"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; ByteStringBuilder
 (InventoryOptionalField -&gt; ByteStringBuilder)
 -&gt; ToLog InventoryOptionalField
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventoryOptionalField -&gt; ByteStringBuilder
 $cbuild :: InventoryOptionalField -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679543277"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryOptionalField -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679543387"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryOptionalField -&gt; [Header]
 (HeaderName -&gt; InventoryOptionalField -&gt; [Header])
 -&gt; ToHeader InventoryOptionalField
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventoryOptionalField -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventoryOptionalField -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679543274"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679543384"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; QueryString
 (InventoryOptionalField -&gt; QueryString)
 -&gt; ToQuery InventoryOptionalField
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventoryOptionalField -&gt; QueryString
 $ctoQuery :: InventoryOptionalField -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679543269"><span id="local-6989586621679543271"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryOptionalField]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679543379"><span id="local-6989586621679543381"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryOptionalField]
 Value -&gt; Parser InventoryOptionalField
 (Value -&gt; Parser InventoryOptionalField)
 -&gt; (Value -&gt; Parser [InventoryOptionalField])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [InventoryOptionalField]
 parseJSON :: Value -&gt; Parser InventoryOptionalField
 $cparseJSON :: Value -&gt; Parser InventoryOptionalField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679543264"><span id="local-6989586621679543266"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryOptionalField]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679543374"><span id="local-6989586621679543376"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryOptionalField]
 FromJSONKeyFunction InventoryOptionalField
 FromJSONKeyFunction InventoryOptionalField
 -&gt; FromJSONKeyFunction [InventoryOptionalField]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventoryOptionalField]
 fromJSONKey :: FromJSONKeyFunction InventoryOptionalField
 $cfromJSONKey :: FromJSONKeyFunction InventoryOptionalField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679543255"><span id="local-6989586621679543257"><span id="local-6989586621679543259"><span id="local-6989586621679543261"><span class="annot"><span class="annottext">[InventoryOptionalField] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679543365"><span id="local-6989586621679543367"><span id="local-6989586621679543369"><span id="local-6989586621679543371"><span class="annot"><span class="annottext">[InventoryOptionalField] -&gt; Encoding
 [InventoryOptionalField] -&gt; Value
 InventoryOptionalField -&gt; Encoding
 InventoryOptionalField -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: InventoryOptionalField -&gt; Encoding
 toJSON :: InventoryOptionalField -&gt; Value
 $ctoJSON :: InventoryOptionalField -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679543250"><span id="local-6989586621679543252"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryOptionalField]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679543360"><span id="local-6989586621679543362"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryOptionalField]
 ToJSONKeyFunction InventoryOptionalField
 ToJSONKeyFunction InventoryOptionalField
 -&gt; ToJSONKeyFunction [InventoryOptionalField]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventoryOptionalField]
 toJSONKey :: ToJSONKeyFunction InventoryOptionalField
 $ctoJSONKey :: ToJSONKeyFunction InventoryOptionalField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679543247"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryOptionalField
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679543357"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryOptionalField
 ([Node] -&gt; Either String InventoryOptionalField)
 -&gt; FromXML InventoryOptionalField
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventoryOptionalField
 $cparseXML :: [Node] -&gt; Either String InventoryOptionalField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679543244"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679543354"><span class="annot"><span class="annottext">InventoryOptionalField -&gt; XML
 (InventoryOptionalField -&gt; XML) -&gt; ToXML InventoryOptionalField
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InventoryOptionalField -&gt; XML

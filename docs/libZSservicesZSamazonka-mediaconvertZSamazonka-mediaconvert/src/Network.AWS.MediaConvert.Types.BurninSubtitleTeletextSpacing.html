@@ -30,19 +30,18 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- | Only applies to jobs with input captions in Teletext or STL formats.</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- Specify whether the spacing between letters in your captions is set by</span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- the captions grid or varies depending on letter width. Choose fixed grid</span><span>
-</span><span id="line-36"></span><span class="hs-comment">-- to conform to the spacing specified in the captions file more</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- accurately. Choose proportional to make the text easier to read if the</span><span>
-</span><span id="line-38"></span><span class="hs-comment">-- captions are closed caption.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679946346"><span id="local-6989586621679946347"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleTeletextSpacing"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-var">BurninSubtitleTeletextSpacing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleTeletextSpacing%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-identifier hs-var">BurninSubtitleTeletextSpacing'</span></a></span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurninSubtitleTeletextSpacing"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; Text
+</span><span id="line-33"></span><span class="hs-comment">-- | Specify whether the text spacing (TeletextSpacing) in your captions is</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- set by the captions grid, or varies depending on letter width. Choose</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- fixed grid (FIXED_GRID) to conform to the spacing specified in the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- captions file more accurately. Choose proportional (PROPORTIONAL) to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- make the text easier to read for closed captions.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679947665"><span id="local-6989586621679947666"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleTeletextSpacing"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-var">BurninSubtitleTeletextSpacing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleTeletextSpacing%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-identifier hs-var">BurninSubtitleTeletextSpacing'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurninSubtitleTeletextSpacing"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#fromBurninSubtitleTeletextSpacing"><span class="hs-identifier hs-var hs-var">fromBurninSubtitleTeletextSpacing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946338"><span id="local-6989586621679946340"><span id="local-6989586621679946342"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleTeletextSpacing -&gt; ShowS
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947657"><span id="local-6989586621679947659"><span id="local-6989586621679947661"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleTeletextSpacing -&gt; ShowS
 [BurninSubtitleTeletextSpacing] -&gt; ShowS
 BurninSubtitleTeletextSpacing -&gt; String
 (Int -&gt; BurninSubtitleTeletextSpacing -&gt; ShowS)
@@ -58,7 +57,7 @@ $cshow :: BurninSubtitleTeletextSpacing -&gt; String
 showsPrec :: Int -&gt; BurninSubtitleTeletextSpacing -&gt; ShowS
 $cshowsPrec :: Int -&gt; BurninSubtitleTeletextSpacing -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679946329"><span id="local-6989586621679946331"><span id="local-6989586621679946333"><span id="local-6989586621679946335"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleTeletextSpacing]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679947648"><span id="local-6989586621679947650"><span id="local-6989586621679947652"><span id="local-6989586621679947654"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleTeletextSpacing]
 ReadPrec BurninSubtitleTeletextSpacing
 Int -&gt; ReadS BurninSubtitleTeletextSpacing
 ReadS [BurninSubtitleTeletextSpacing]
@@ -79,7 +78,7 @@ $creadList :: ReadS [BurninSubtitleTeletextSpacing]
 readsPrec :: Int -&gt; ReadS BurninSubtitleTeletextSpacing
 $creadsPrec :: Int -&gt; ReadS BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679946324"><span id="local-6989586621679946326"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679947643"><span id="local-6989586621679947645"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing
 -&gt; BurninSubtitleTeletextSpacing -&gt; Bool
 (BurninSubtitleTeletextSpacing
  -&gt; BurninSubtitleTeletextSpacing -&gt; Bool)
@@ -96,7 +95,7 @@ $c/= :: BurninSubtitleTeletextSpacing
 $c== :: BurninSubtitleTeletextSpacing
 -&gt; BurninSubtitleTeletextSpacing -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679946308"><span id="local-6989586621679946310"><span id="local-6989586621679946312"><span id="local-6989586621679946314"><span id="local-6989586621679946316"><span id="local-6989586621679946318"><span id="local-6989586621679946320"><span class="annot"><span class="annottext">Eq BurninSubtitleTeletextSpacing
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679947627"><span id="local-6989586621679947629"><span id="local-6989586621679947631"><span id="local-6989586621679947633"><span id="local-6989586621679947635"><span id="local-6989586621679947637"><span id="local-6989586621679947639"><span class="annot"><span class="annottext">Eq BurninSubtitleTeletextSpacing
 Eq BurninSubtitleTeletextSpacing
 -&gt; (BurninSubtitleTeletextSpacing
     -&gt; BurninSubtitleTeletextSpacing -&gt; Ordering)
@@ -159,7 +158,7 @@ $ccompare :: BurninSubtitleTeletextSpacing
 -&gt; BurninSubtitleTeletextSpacing -&gt; Ordering
 $cp1Ord :: Eq BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
  BurninSubtitleTeletextSpacing
  -&gt; Rep BurninSubtitleTeletextSpacing x)
 -&gt; (forall x.
@@ -181,9 +180,9 @@ $cfrom :: forall x.
 BurninSubtitleTeletextSpacing
 -&gt; Rep BurninSubtitleTeletextSpacing x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946300"><span id="local-6989586621679946302"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleTeletextSpacing -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947619"><span id="local-6989586621679947621"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleTeletextSpacing -&gt; Int
 BurninSubtitleTeletextSpacing -&gt; Int
 (Int -&gt; BurninSubtitleTeletextSpacing -&gt; Int)
 -&gt; (BurninSubtitleTeletextSpacing -&gt; Int)
@@ -194,56 +193,56 @@ $chash :: BurninSubtitleTeletextSpacing -&gt; Int
 hashWithSalt :: Int -&gt; BurninSubtitleTeletextSpacing -&gt; Int
 $chashWithSalt :: Int -&gt; BurninSubtitleTeletextSpacing -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679946297"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679947616"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; ()
 (BurninSubtitleTeletextSpacing -&gt; ())
 -&gt; NFData BurninSubtitleTeletextSpacing
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BurninSubtitleTeletextSpacing -&gt; ()
 $crnf :: BurninSubtitleTeletextSpacing -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679946294"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleTeletextSpacing
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679947613"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleTeletextSpacing
 (Text -&gt; Either String BurninSubtitleTeletextSpacing)
 -&gt; FromText BurninSubtitleTeletextSpacing
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BurninSubtitleTeletextSpacing
 $cfromText :: Text -&gt; Either String BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679946291"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679947610"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; Text
 (BurninSubtitleTeletextSpacing -&gt; Text)
 -&gt; ToText BurninSubtitleTeletextSpacing
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BurninSubtitleTeletextSpacing -&gt; Text
 $ctoText :: BurninSubtitleTeletextSpacing -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679946288"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947607"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; ByteString
 (BurninSubtitleTeletextSpacing -&gt; ByteString)
 -&gt; ToByteString BurninSubtitleTeletextSpacing
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BurninSubtitleTeletextSpacing -&gt; ByteString
 $ctoBS :: BurninSubtitleTeletextSpacing -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679946285"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679947604"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; ByteStringBuilder
 (BurninSubtitleTeletextSpacing -&gt; ByteStringBuilder)
 -&gt; ToLog BurninSubtitleTeletextSpacing
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BurninSubtitleTeletextSpacing -&gt; ByteStringBuilder
 $cbuild :: BurninSubtitleTeletextSpacing -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679946282"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleTeletextSpacing -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679947601"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleTeletextSpacing -&gt; [Header]
 (HeaderName -&gt; BurninSubtitleTeletextSpacing -&gt; [Header])
 -&gt; ToHeader BurninSubtitleTeletextSpacing
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BurninSubtitleTeletextSpacing -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BurninSubtitleTeletextSpacing -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679946279"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679947598"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; QueryString
 (BurninSubtitleTeletextSpacing -&gt; QueryString)
 -&gt; ToQuery BurninSubtitleTeletextSpacing
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BurninSubtitleTeletextSpacing -&gt; QueryString
 $ctoQuery :: BurninSubtitleTeletextSpacing -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679946274"><span id="local-6989586621679946276"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleTeletextSpacing]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947593"><span id="local-6989586621679947595"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleTeletextSpacing]
 Value -&gt; Parser BurninSubtitleTeletextSpacing
 (Value -&gt; Parser BurninSubtitleTeletextSpacing)
 -&gt; (Value -&gt; Parser [BurninSubtitleTeletextSpacing])
@@ -255,7 +254,7 @@ $cparseJSONList :: Value -&gt; Parser [BurninSubtitleTeletextSpacing]
 parseJSON :: Value -&gt; Parser BurninSubtitleTeletextSpacing
 $cparseJSON :: Value -&gt; Parser BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679946269"><span id="local-6989586621679946271"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleTeletextSpacing]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947588"><span id="local-6989586621679947590"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleTeletextSpacing]
 FromJSONKeyFunction BurninSubtitleTeletextSpacing
 FromJSONKeyFunction BurninSubtitleTeletextSpacing
 -&gt; FromJSONKeyFunction [BurninSubtitleTeletextSpacing]
@@ -267,7 +266,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BurninSubtitleTeletextSpacing]
 fromJSONKey :: FromJSONKeyFunction BurninSubtitleTeletextSpacing
 $cfromJSONKey :: FromJSONKeyFunction BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679946260"><span id="local-6989586621679946262"><span id="local-6989586621679946264"><span id="local-6989586621679946266"><span class="annot"><span class="annottext">[BurninSubtitleTeletextSpacing] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947579"><span id="local-6989586621679947581"><span id="local-6989586621679947583"><span id="local-6989586621679947585"><span class="annot"><span class="annottext">[BurninSubtitleTeletextSpacing] -&gt; Encoding
 [BurninSubtitleTeletextSpacing] -&gt; Value
 BurninSubtitleTeletextSpacing -&gt; Encoding
 BurninSubtitleTeletextSpacing -&gt; Value
@@ -291,7 +290,7 @@ $ctoEncoding :: BurninSubtitleTeletextSpacing -&gt; Encoding
 toJSON :: BurninSubtitleTeletextSpacing -&gt; Value
 $ctoJSON :: BurninSubtitleTeletextSpacing -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679946255"><span id="local-6989586621679946257"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleTeletextSpacing]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947574"><span id="local-6989586621679947576"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleTeletextSpacing]
 ToJSONKeyFunction BurninSubtitleTeletextSpacing
 ToJSONKeyFunction BurninSubtitleTeletextSpacing
 -&gt; ToJSONKeyFunction [BurninSubtitleTeletextSpacing]
@@ -303,44 +302,44 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BurninSubtitleTeletextSpacing]
 toJSONKey :: ToJSONKeyFunction BurninSubtitleTeletextSpacing
 $ctoJSONKey :: ToJSONKeyFunction BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679946252"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleTeletextSpacing
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679947571"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleTeletextSpacing
 ([Node] -&gt; Either String BurninSubtitleTeletextSpacing)
 -&gt; FromXML BurninSubtitleTeletextSpacing
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BurninSubtitleTeletextSpacing
 $cparseXML :: [Node] -&gt; Either String BurninSubtitleTeletextSpacing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679946249"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679947568"><span class="annot"><span class="annottext">BurninSubtitleTeletextSpacing -&gt; XML
 (BurninSubtitleTeletextSpacing -&gt; XML)
 -&gt; ToXML BurninSubtitleTeletextSpacing
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BurninSubtitleTeletextSpacing -&gt; XML
 $ctoXML :: BurninSubtitleTeletextSpacing -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_AUTO"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing</span></a></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleTeletextSpacing_AUTO"><span id="%24mBurninSubtitleTeletextSpacing_AUTO"><span id="BurninSubtitleTeletextSpacing_AUTO"><span class="annot"><span class="annottext">$bBurninSubtitleTeletextSpacing_AUTO :: BurninSubtitleTeletextSpacing
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_AUTO"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleTeletextSpacing_AUTO"><span id="%24mBurninSubtitleTeletextSpacing_AUTO"><span id="BurninSubtitleTeletextSpacing_AUTO"><span class="annot"><span class="annottext">$bBurninSubtitleTeletextSpacing_AUTO :: BurninSubtitleTeletextSpacing
 $mBurninSubtitleTeletextSpacing_AUTO :: forall r.
 BurninSubtitleTeletextSpacing -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#%24bBurninSubtitleTeletextSpacing_AUTO"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleTeletextSpacing_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_FIXED_GRID"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing_FIXED_GRID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing</span></a></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleTeletextSpacing_FIXED_GRID"><span id="%24mBurninSubtitleTeletextSpacing_FIXED_GRID"><span id="BurninSubtitleTeletextSpacing_FIXED_GRID"><span class="annot"><span class="annottext">$bBurninSubtitleTeletextSpacing_FIXED_GRID :: BurninSubtitleTeletextSpacing
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_FIXED_GRID"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing_FIXED_GRID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleTeletextSpacing_FIXED_GRID"><span id="%24mBurninSubtitleTeletextSpacing_FIXED_GRID"><span id="BurninSubtitleTeletextSpacing_FIXED_GRID"><span class="annot"><span class="annottext">$bBurninSubtitleTeletextSpacing_FIXED_GRID :: BurninSubtitleTeletextSpacing
 $mBurninSubtitleTeletextSpacing_FIXED_GRID :: forall r.
 BurninSubtitleTeletextSpacing -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#%24bBurninSubtitleTeletextSpacing_FIXED_GRID"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleTeletextSpacing_FIXED_GRID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FIXED_GRID&quot;</span></span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing_PROPORTIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing</span></a></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleTeletextSpacing_PROPORTIONAL"><span id="%24mBurninSubtitleTeletextSpacing_PROPORTIONAL"><span id="BurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="annot"><span class="annottext">$bBurninSubtitleTeletextSpacing_PROPORTIONAL :: BurninSubtitleTeletextSpacing
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing_PROPORTIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurninSubtitleTeletextSpacing_PROPORTIONAL"><span id="%24mBurninSubtitleTeletextSpacing_PROPORTIONAL"><span id="BurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="annot"><span class="annottext">$bBurninSubtitleTeletextSpacing_PROPORTIONAL :: BurninSubtitleTeletextSpacing
 $mBurninSubtitleTeletextSpacing_PROPORTIONAL :: forall r.
 BurninSubtitleTeletextSpacing -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#%24bBurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="hs-identifier hs-var hs-var hs-var">BurninSubtitleTeletextSpacing_PROPORTIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-identifier hs-type">BurninSubtitleTeletextSpacing'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROPORTIONAL&quot;</span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_AUTO"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing_AUTO</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_FIXED_GRID"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing_FIXED_GRID</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing_PROPORTIONAL</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing'</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
-</span><span id="line-82"></span></pre></body></html>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_AUTO"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_FIXED_GRID"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing_FIXED_GRID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing_PROPORTIONAL"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing_PROPORTIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing.html#BurninSubtitleTeletextSpacing%27"><span class="hs-pragma hs-type">BurninSubtitleTeletextSpacing'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

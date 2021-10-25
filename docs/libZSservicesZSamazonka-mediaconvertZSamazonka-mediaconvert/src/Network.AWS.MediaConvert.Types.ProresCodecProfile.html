@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- | Use Profile (ProResCodecProfile) to specify the type of Apple ProRes</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- codec to use for this output.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679999511"><span id="local-6989586621679999512"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresCodecProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresCodecProfile.html#ProresCodecProfile"><span class="hs-identifier hs-var">ProresCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresCodecProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresCodecProfile.html#ProresCodecProfile%27"><span class="hs-identifier hs-var">ProresCodecProfile'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621680001001"><span id="local-6989586621680001002"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresCodecProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresCodecProfile.html#ProresCodecProfile"><span class="hs-identifier hs-var">ProresCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresCodecProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresCodecProfile.html#ProresCodecProfile%27"><span class="hs-identifier hs-var">ProresCodecProfile'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProresCodecProfile"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ProresCodecProfile.html#fromProresCodecProfile"><span class="hs-identifier hs-var hs-var">fromProresCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999503"><span id="local-6989586621679999505"><span id="local-6989586621679999507"><span class="annot"><span class="annottext">Int -&gt; ProresCodecProfile -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680000993"><span id="local-6989586621680000995"><span id="local-6989586621680000997"><span class="annot"><span class="annottext">Int -&gt; ProresCodecProfile -&gt; ShowS
 [ProresCodecProfile] -&gt; ShowS
 ProresCodecProfile -&gt; String
 (Int -&gt; ProresCodecProfile -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ProresCodecProfile -&gt; String
 showsPrec :: Int -&gt; ProresCodecProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProresCodecProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679999494"><span id="local-6989586621679999496"><span id="local-6989586621679999498"><span id="local-6989586621679999500"><span class="annot"><span class="annottext">ReadPrec [ProresCodecProfile]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680000984"><span id="local-6989586621680000986"><span id="local-6989586621680000988"><span id="local-6989586621680000990"><span class="annot"><span class="annottext">ReadPrec [ProresCodecProfile]
 ReadPrec ProresCodecProfile
 Int -&gt; ReadS ProresCodecProfile
 ReadS [ProresCodecProfile]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ProresCodecProfile]
 readsPrec :: Int -&gt; ReadS ProresCodecProfile
 $creadsPrec :: Int -&gt; ReadS ProresCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679999489"><span id="local-6989586621679999491"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680000979"><span id="local-6989586621680000981"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool
 (ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool)
 -&gt; (ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool)
 -&gt; Eq ProresCodecProfile
@@ -88,7 +88,7 @@ $c/= :: ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool
 == :: ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool
 $c== :: ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679999473"><span id="local-6989586621679999475"><span id="local-6989586621679999477"><span id="local-6989586621679999479"><span id="local-6989586621679999481"><span id="local-6989586621679999483"><span id="local-6989586621679999485"><span class="annot"><span class="annottext">Eq ProresCodecProfile
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680000963"><span id="local-6989586621680000965"><span id="local-6989586621680000967"><span id="local-6989586621680000969"><span id="local-6989586621680000971"><span id="local-6989586621680000973"><span id="local-6989586621680000975"><span class="annot"><span class="annottext">Eq ProresCodecProfile
 Eq ProresCodecProfile
 -&gt; (ProresCodecProfile -&gt; ProresCodecProfile -&gt; Ordering)
 -&gt; (ProresCodecProfile -&gt; ProresCodecProfile -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ProresCodecProfile -&gt; Rep ProresCodecProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999465"><span id="local-6989586621679999467"><span class="annot"><span class="annottext">Int -&gt; ProresCodecProfile -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680000955"><span id="local-6989586621680000957"><span class="annot"><span class="annottext">Int -&gt; ProresCodecProfile -&gt; Int
 ProresCodecProfile -&gt; Int
 (Int -&gt; ProresCodecProfile -&gt; Int)
 -&gt; (ProresCodecProfile -&gt; Int) -&gt; Hashable ProresCodecProfile
@@ -149,53 +149,53 @@ $chash :: ProresCodecProfile -&gt; Int
 hashWithSalt :: Int -&gt; ProresCodecProfile -&gt; Int
 $chashWithSalt :: Int -&gt; ProresCodecProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679999462"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680000952"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ()
 (ProresCodecProfile -&gt; ()) -&gt; NFData ProresCodecProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProresCodecProfile -&gt; ()
 $crnf :: ProresCodecProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679999459"><span class="annot"><span class="annottext">Text -&gt; Either String ProresCodecProfile
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680000949"><span class="annot"><span class="annottext">Text -&gt; Either String ProresCodecProfile
 (Text -&gt; Either String ProresCodecProfile)
 -&gt; FromText ProresCodecProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProresCodecProfile
 $cfromText :: Text -&gt; Either String ProresCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679999456"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680000946"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; Text
 (ProresCodecProfile -&gt; Text) -&gt; ToText ProresCodecProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProresCodecProfile -&gt; Text
 $ctoText :: ProresCodecProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999453"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680000943"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ByteString
 (ProresCodecProfile -&gt; ByteString)
 -&gt; ToByteString ProresCodecProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProresCodecProfile -&gt; ByteString
 $ctoBS :: ProresCodecProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999450"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680000940"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; ByteStringBuilder
 (ProresCodecProfile -&gt; ByteStringBuilder)
 -&gt; ToLog ProresCodecProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProresCodecProfile -&gt; ByteStringBuilder
 $cbuild :: ProresCodecProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679999447"><span class="annot"><span class="annottext">HeaderName -&gt; ProresCodecProfile -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680000937"><span class="annot"><span class="annottext">HeaderName -&gt; ProresCodecProfile -&gt; [Header]
 (HeaderName -&gt; ProresCodecProfile -&gt; [Header])
 -&gt; ToHeader ProresCodecProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProresCodecProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProresCodecProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679999444"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680000934"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; QueryString
 (ProresCodecProfile -&gt; QueryString) -&gt; ToQuery ProresCodecProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProresCodecProfile -&gt; QueryString
 $ctoQuery :: ProresCodecProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679999439"><span id="local-6989586621679999441"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresCodecProfile]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680000929"><span id="local-6989586621680000931"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresCodecProfile]
 Value -&gt; Parser ProresCodecProfile
 (Value -&gt; Parser ProresCodecProfile)
 -&gt; (Value -&gt; Parser [ProresCodecProfile])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [ProresCodecProfile]
 parseJSON :: Value -&gt; Parser ProresCodecProfile
 $cparseJSON :: Value -&gt; Parser ProresCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679999434"><span id="local-6989586621679999436"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresCodecProfile]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680000924"><span id="local-6989586621680000926"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresCodecProfile]
 FromJSONKeyFunction ProresCodecProfile
 FromJSONKeyFunction ProresCodecProfile
 -&gt; FromJSONKeyFunction [ProresCodecProfile]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProresCodecProfile]
 fromJSONKey :: FromJSONKeyFunction ProresCodecProfile
 $cfromJSONKey :: FromJSONKeyFunction ProresCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999425"><span id="local-6989586621679999427"><span id="local-6989586621679999429"><span id="local-6989586621679999431"><span class="annot"><span class="annottext">[ProresCodecProfile] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680000915"><span id="local-6989586621680000917"><span id="local-6989586621680000919"><span id="local-6989586621680000921"><span class="annot"><span class="annottext">[ProresCodecProfile] -&gt; Encoding
 [ProresCodecProfile] -&gt; Value
 ProresCodecProfile -&gt; Encoding
 ProresCodecProfile -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: ProresCodecProfile -&gt; Encoding
 toJSON :: ProresCodecProfile -&gt; Value
 $ctoJSON :: ProresCodecProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999420"><span id="local-6989586621679999422"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresCodecProfile]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680000910"><span id="local-6989586621680000912"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresCodecProfile]
 ToJSONKeyFunction ProresCodecProfile
 ToJSONKeyFunction ProresCodecProfile
 -&gt; ToJSONKeyFunction [ProresCodecProfile]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProresCodecProfile]
 toJSONKey :: ToJSONKeyFunction ProresCodecProfile
 $ctoJSONKey :: ToJSONKeyFunction ProresCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999417"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresCodecProfile
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680000907"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresCodecProfile
 ([Node] -&gt; Either String ProresCodecProfile)
 -&gt; FromXML ProresCodecProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProresCodecProfile
 $cparseXML :: [Node] -&gt; Either String ProresCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679999414"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680000904"><span class="annot"><span class="annottext">ProresCodecProfile -&gt; XML
 (ProresCodecProfile -&gt; XML) -&gt; ToXML ProresCodecProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProresCodecProfile -&gt; XML

@@ -75,7 +75,7 @@
 </span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newAssociateHostedConnection' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679294863"><span id="local-6989586621679294864"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateHostedConnection"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-var">AssociateHostedConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateHostedConnection%27"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-var">AssociateHostedConnection'</span></a></span></span><span>
+</span><span id="line-78"></span><span id="local-6989586621679303966"><span id="local-6989586621679303967"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateHostedConnection"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-var">AssociateHostedConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateHostedConnection%27"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-var">AssociateHostedConnection'</span></a></span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the hosted connection.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AconnectionId%3AAssociateHostedConnection%27"><span class="annot"><span class="annottext">AssociateHostedConnection -&gt; Text
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#%24sel%3AconnectionId%3AAssociateHostedConnection%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AparentConnectionId%3AAssociateHostedConnection%27"><span class="annot"><span class="annottext">AssociateHostedConnection -&gt; Text
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#%24sel%3AparentConnectionId%3AAssociateHostedConnection%27"><span class="hs-identifier hs-var hs-var">parentConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294856"><span id="local-6989586621679294858"><span class="annot"><span class="annottext">AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303959"><span id="local-6989586621679303961"><span class="annot"><span class="annottext">AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool
 (AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool)
 -&gt; (AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool)
 -&gt; Eq AssociateHostedConnection
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool
 == :: AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool
 $c== :: AssociateHostedConnection -&gt; AssociateHostedConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294847"><span id="local-6989586621679294849"><span id="local-6989586621679294851"><span id="local-6989586621679294853"><span class="annot"><span class="annottext">ReadPrec [AssociateHostedConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303950"><span id="local-6989586621679303952"><span id="local-6989586621679303954"><span id="local-6989586621679303956"><span class="annot"><span class="annottext">ReadPrec [AssociateHostedConnection]
 ReadPrec AssociateHostedConnection
 Int -&gt; ReadS AssociateHostedConnection
 ReadS [AssociateHostedConnection]
@@ -112,7 +112,7 @@ readList :: ReadS [AssociateHostedConnection]
 $creadList :: ReadS [AssociateHostedConnection]
 readsPrec :: Int -&gt; ReadS AssociateHostedConnection
 $creadsPrec :: Int -&gt; ReadS AssociateHostedConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294840"><span id="local-6989586621679294842"><span id="local-6989586621679294844"><span class="annot"><span class="annottext">Int -&gt; AssociateHostedConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303943"><span id="local-6989586621679303945"><span id="local-6989586621679303947"><span class="annot"><span class="annottext">Int -&gt; AssociateHostedConnection -&gt; ShowS
 [AssociateHostedConnection] -&gt; ShowS
 AssociateHostedConnection -&gt; String
 (Int -&gt; AssociateHostedConnection -&gt; ShowS)
@@ -163,19 +163,19 @@ AssociateHostedConnection -&gt; Rep AssociateHostedConnection x
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span>
 </span><span id="line-103"></span><span id="newAssociateHostedConnection"><span class="annot"><span class="annottext">newAssociateHostedConnection :: Text -&gt; Text -&gt; AssociateHostedConnection
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#newAssociateHostedConnection"><span class="hs-identifier hs-var hs-var">newAssociateHostedConnection</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679294835"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294835"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679294834"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294834"><span class="hs-identifier hs-var">pParentConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679303938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303938"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679303937"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303937"><span class="hs-identifier hs-var">pParentConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">AssociateHostedConnection' :: Text -&gt; Text -&gt; AssociateHostedConnection
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionId:AssociateHostedConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#%24sel%3AconnectionId%3AAssociateHostedConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294835"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303938"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:parentConnectionId:AssociateHostedConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#%24sel%3AparentConnectionId%3AAssociateHostedConnection%27"><span class="hs-identifier hs-var">parentConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294834"><span class="hs-identifier hs-var">pParentConnectionId_</span></a></span><span>
+</span><a href="#local-6989586621679303937"><span class="hs-identifier hs-var">pParentConnectionId_</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The ID of the hosted connection.</span><span>
@@ -187,16 +187,16 @@ AssociateHostedConnection -&gt; Rep AssociateHostedConnection x
 -&gt; Lens
      AssociateHostedConnection AssociateHostedConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294831"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303934"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:AssociateHostedConnection' :: AssociateHostedConnection -&gt; Text
-</span><a href="#local-6989586621679294831"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294831"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294830"><span class="annot"><span class="annottext">s :: AssociateHostedConnection
-</span><a href="#local-6989586621679294830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294829"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateHostedConnection
-</span><a href="#local-6989586621679294830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:AssociateHostedConnection' :: Text
+</span><a href="#local-6989586621679303934"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303934"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303933"><span class="annot"><span class="annottext">s :: AssociateHostedConnection
+</span><a href="#local-6989586621679303933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateHostedConnection
+</span><a href="#local-6989586621679303933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:AssociateHostedConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#%24sel%3AconnectionId%3AAssociateHostedConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The ID of the interconnect or the LAG.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#associateHostedConnection_parentConnectionId"><span class="hs-identifier hs-type">associateHostedConnection_parentConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,28 +207,28 @@ $sel:connectionId:AssociateHostedConnection' :: AssociateHostedConnection -&gt; 
 -&gt; Lens
      AssociateHostedConnection AssociateHostedConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294828"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303931"><span class="annot"><span class="annottext">Text
 parentConnectionId :: Text
 $sel:parentConnectionId:AssociateHostedConnection' :: AssociateHostedConnection -&gt; Text
-</span><a href="#local-6989586621679294828"><span class="hs-identifier hs-var hs-var">parentConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294828"><span class="hs-identifier hs-var">parentConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294827"><span class="annot"><span class="annottext">s :: AssociateHostedConnection
-</span><a href="#local-6989586621679294827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294826"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateHostedConnection
-</span><a href="#local-6989586621679294827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentConnectionId:AssociateHostedConnection' :: Text
+</span><a href="#local-6989586621679303931"><span class="hs-identifier hs-var hs-var">parentConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303931"><span class="hs-identifier hs-var">parentConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303930"><span class="annot"><span class="annottext">s :: AssociateHostedConnection
+</span><a href="#local-6989586621679303930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateHostedConnection
+</span><a href="#local-6989586621679303930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentConnectionId:AssociateHostedConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#%24sel%3AparentConnectionId%3AAssociateHostedConnection%27"><span class="hs-identifier hs-var">parentConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679294822"><span class="annot"><span class="annottext">request :: AssociateHostedConnection -&gt; Request AssociateHostedConnection
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679303925"><span class="annot"><span class="annottext">request :: AssociateHostedConnection -&gt; Request AssociateHostedConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateHostedConnection -&gt; Request AssociateHostedConnection
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679294818"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679303921"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateHostedConnection
 -&gt; ClientResponse ClientBody
@@ -254,20 +254,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294815"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294815"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294814"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679294814"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294813"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Connection
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303918"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303918"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303917"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303917"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303916"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303916"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Connection
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303916"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294808"><span id="local-6989586621679294810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303911"><span id="local-6989586621679303913"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679294801"><span class="annot"><span class="annottext">toHeaders :: AssociateHostedConnection -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679303904"><span class="annot"><span class="annottext">toHeaders :: AssociateHostedConnection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateHostedConnection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -294,14 +294,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294791"><span id="local-6989586621679294793"><span id="local-6989586621679294795"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679294789"><span class="annot"><span class="annottext">toJSON :: AssociateHostedConnection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294786"><span id="local-6989586621679294787"><span class="annot"><span class="annottext">Text
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303894"><span id="local-6989586621679303896"><span id="local-6989586621679303898"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679303892"><span class="annot"><span class="annottext">toJSON :: AssociateHostedConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection%27"><span class="hs-identifier hs-type">AssociateHostedConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303889"><span id="local-6989586621679303890"><span class="annot"><span class="annottext">Text
 parentConnectionId :: Text
 connectionId :: Text
 $sel:parentConnectionId:AssociateHostedConnection' :: AssociateHostedConnection -&gt; Text
 $sel:connectionId:AssociateHostedConnection' :: AssociateHostedConnection -&gt; Text
-</span><a href="#local-6989586621679294786"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303889"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,7 +313,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294787"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303890"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -321,19 +321,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;parentConnectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294786"><span class="hs-identifier hs-var">parentConnectionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303889"><span class="hs-identifier hs-var">parentConnectionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679294780"><span class="annot"><span class="annottext">toPath :: AssociateHostedConnection -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679303883"><span class="annot"><span class="annottext">toPath :: AssociateHostedConnection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateHostedConnection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateHostedConnection.html#AssociateHostedConnection"><span class="hs-identifier hs-type">AssociateHostedConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679294776"><span class="annot"><span class="annottext">toQuery :: AssociateHostedConnection -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679303879"><span class="annot"><span class="annottext">toQuery :: AssociateHostedConnection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateHostedConnection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

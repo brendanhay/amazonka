@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- | Specify the bitstream mode for the AC-3 stream that the encoder emits.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- For more information about the AC3 bitstream mode, see ATSC A\/52-2012</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- (Annex E).</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679936723"><span id="local-6989586621679936724"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3BitstreamMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-var">Ac3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3BitstreamMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-var">Ac3BitstreamMode'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679938042"><span id="local-6989586621679938043"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3BitstreamMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3BitstreamMode.html#Ac3BitstreamMode"><span class="hs-identifier hs-var">Ac3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3BitstreamMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3BitstreamMode.html#Ac3BitstreamMode%27"><span class="hs-identifier hs-var">Ac3BitstreamMode'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAc3BitstreamMode"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Ac3BitstreamMode.html#fromAc3BitstreamMode"><span class="hs-identifier hs-var hs-var">fromAc3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936715"><span id="local-6989586621679936717"><span id="local-6989586621679936719"><span class="annot"><span class="annottext">Int -&gt; Ac3BitstreamMode -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938034"><span id="local-6989586621679938036"><span id="local-6989586621679938038"><span class="annot"><span class="annottext">Int -&gt; Ac3BitstreamMode -&gt; ShowS
 [Ac3BitstreamMode] -&gt; ShowS
 Ac3BitstreamMode -&gt; String
 (Int -&gt; Ac3BitstreamMode -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: Ac3BitstreamMode -&gt; String
 showsPrec :: Int -&gt; Ac3BitstreamMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Ac3BitstreamMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679936706"><span id="local-6989586621679936708"><span id="local-6989586621679936710"><span id="local-6989586621679936712"><span class="annot"><span class="annottext">ReadPrec [Ac3BitstreamMode]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679938025"><span id="local-6989586621679938027"><span id="local-6989586621679938029"><span id="local-6989586621679938031"><span class="annot"><span class="annottext">ReadPrec [Ac3BitstreamMode]
 ReadPrec Ac3BitstreamMode
 Int -&gt; ReadS Ac3BitstreamMode
 ReadS [Ac3BitstreamMode]
@@ -81,7 +81,7 @@ $creadList :: ReadS [Ac3BitstreamMode]
 readsPrec :: Int -&gt; ReadS Ac3BitstreamMode
 $creadsPrec :: Int -&gt; ReadS Ac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679936701"><span id="local-6989586621679936703"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679938020"><span id="local-6989586621679938022"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
 (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
 -&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
 -&gt; Eq Ac3BitstreamMode
@@ -91,7 +91,7 @@ $c/= :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
 == :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
 $c== :: Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679936685"><span id="local-6989586621679936687"><span id="local-6989586621679936689"><span id="local-6989586621679936691"><span id="local-6989586621679936693"><span id="local-6989586621679936695"><span id="local-6989586621679936697"><span class="annot"><span class="annottext">Eq Ac3BitstreamMode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679938004"><span id="local-6989586621679938006"><span id="local-6989586621679938008"><span id="local-6989586621679938010"><span id="local-6989586621679938012"><span id="local-6989586621679938014"><span id="local-6989586621679938016"><span class="annot"><span class="annottext">Eq Ac3BitstreamMode
 Eq Ac3BitstreamMode
 -&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Ordering)
 -&gt; (Ac3BitstreamMode -&gt; Ac3BitstreamMode -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. Ac3BitstreamMode -&gt; Rep Ac3BitstreamMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936677"><span id="local-6989586621679936679"><span class="annot"><span class="annottext">Int -&gt; Ac3BitstreamMode -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937996"><span id="local-6989586621679937998"><span class="annot"><span class="annottext">Int -&gt; Ac3BitstreamMode -&gt; Int
 Ac3BitstreamMode -&gt; Int
 (Int -&gt; Ac3BitstreamMode -&gt; Int)
 -&gt; (Ac3BitstreamMode -&gt; Int) -&gt; Hashable Ac3BitstreamMode
@@ -152,51 +152,51 @@ $chash :: Ac3BitstreamMode -&gt; Int
 hashWithSalt :: Int -&gt; Ac3BitstreamMode -&gt; Int
 $chashWithSalt :: Int -&gt; Ac3BitstreamMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936674"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679937993"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ()
 (Ac3BitstreamMode -&gt; ()) -&gt; NFData Ac3BitstreamMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Ac3BitstreamMode -&gt; ()
 $crnf :: Ac3BitstreamMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936671"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3BitstreamMode
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679937990"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3BitstreamMode
 (Text -&gt; Either String Ac3BitstreamMode)
 -&gt; FromText Ac3BitstreamMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Ac3BitstreamMode
 $cfromText :: Text -&gt; Either String Ac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936668"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679937987"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; Text
 (Ac3BitstreamMode -&gt; Text) -&gt; ToText Ac3BitstreamMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Ac3BitstreamMode -&gt; Text
 $ctoText :: Ac3BitstreamMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936665"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679937984"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ByteString
 (Ac3BitstreamMode -&gt; ByteString) -&gt; ToByteString Ac3BitstreamMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Ac3BitstreamMode -&gt; ByteString
 $ctoBS :: Ac3BitstreamMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936662"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679937981"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; ByteStringBuilder
 (Ac3BitstreamMode -&gt; ByteStringBuilder) -&gt; ToLog Ac3BitstreamMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Ac3BitstreamMode -&gt; ByteStringBuilder
 $cbuild :: Ac3BitstreamMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936659"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679937978"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
 (HeaderName -&gt; Ac3BitstreamMode -&gt; [Header])
 -&gt; ToHeader Ac3BitstreamMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Ac3BitstreamMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679936656"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679937975"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; QueryString
 (Ac3BitstreamMode -&gt; QueryString) -&gt; ToQuery Ac3BitstreamMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Ac3BitstreamMode -&gt; QueryString
 $ctoQuery :: Ac3BitstreamMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679936651"><span id="local-6989586621679936653"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3BitstreamMode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679937970"><span id="local-6989586621679937972"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3BitstreamMode]
 Value -&gt; Parser Ac3BitstreamMode
 (Value -&gt; Parser Ac3BitstreamMode)
 -&gt; (Value -&gt; Parser [Ac3BitstreamMode])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [Ac3BitstreamMode]
 parseJSON :: Value -&gt; Parser Ac3BitstreamMode
 $cparseJSON :: Value -&gt; Parser Ac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679936646"><span id="local-6989586621679936648"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3BitstreamMode]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679937965"><span id="local-6989586621679937967"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3BitstreamMode]
 FromJSONKeyFunction Ac3BitstreamMode
 FromJSONKeyFunction Ac3BitstreamMode
 -&gt; FromJSONKeyFunction [Ac3BitstreamMode]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Ac3BitstreamMode]
 fromJSONKey :: FromJSONKeyFunction Ac3BitstreamMode
 $cfromJSONKey :: FromJSONKeyFunction Ac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679936637"><span id="local-6989586621679936639"><span id="local-6989586621679936641"><span id="local-6989586621679936643"><span class="annot"><span class="annottext">[Ac3BitstreamMode] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679937956"><span id="local-6989586621679937958"><span id="local-6989586621679937960"><span id="local-6989586621679937962"><span class="annot"><span class="annottext">[Ac3BitstreamMode] -&gt; Encoding
 [Ac3BitstreamMode] -&gt; Value
 Ac3BitstreamMode -&gt; Encoding
 Ac3BitstreamMode -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: Ac3BitstreamMode -&gt; Encoding
 toJSON :: Ac3BitstreamMode -&gt; Value
 $ctoJSON :: Ac3BitstreamMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679936632"><span id="local-6989586621679936634"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3BitstreamMode]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679937951"><span id="local-6989586621679937953"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3BitstreamMode]
 ToJSONKeyFunction Ac3BitstreamMode
 ToJSONKeyFunction Ac3BitstreamMode
 -&gt; ToJSONKeyFunction [Ac3BitstreamMode]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Ac3BitstreamMode]
 toJSONKey :: ToJSONKeyFunction Ac3BitstreamMode
 $ctoJSONKey :: ToJSONKeyFunction Ac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679936629"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3BitstreamMode
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679937948"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3BitstreamMode
 ([Node] -&gt; Either String Ac3BitstreamMode)
 -&gt; FromXML Ac3BitstreamMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Ac3BitstreamMode
 $cparseXML :: [Node] -&gt; Either String Ac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679936626"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679937945"><span class="annot"><span class="annottext">Ac3BitstreamMode -&gt; XML
 (Ac3BitstreamMode -&gt; XML) -&gt; ToXML Ac3BitstreamMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Ac3BitstreamMode -&gt; XML

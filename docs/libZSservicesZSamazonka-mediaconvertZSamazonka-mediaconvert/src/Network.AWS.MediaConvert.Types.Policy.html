@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- at http:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPolicy' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679998858"><span id="local-6989586621679998859"></span></span><span class="hs-keyword">data</span><span> </span><span id="Policy"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-var">Policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Policy%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-var">Policy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680000348"><span id="local-6989586621680000349"></span></span><span class="hs-keyword">data</span><span> </span><span id="Policy"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-var">Policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Policy%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-var">Policy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allow or disallow jobs that specify Amazon S3 inputs.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3As3Inputs%3APolicy%27"><span class="annot"><span class="annottext">Policy -&gt; Maybe InputPolicy
 </span><a href="Network.AWS.MediaConvert.Types.Policy.html#%24sel%3As3Inputs%3APolicy%27"><span class="hs-identifier hs-var hs-var">s3Inputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPolicy.html#InputPolicy"><span class="hs-identifier hs-type">InputPolicy</span></a></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AhttpsInputs%3APolicy%27"><span class="annot"><span class="annottext">Policy -&gt; Maybe InputPolicy
 </span><a href="Network.AWS.MediaConvert.Types.Policy.html#%24sel%3AhttpsInputs%3APolicy%27"><span class="hs-identifier hs-var hs-var">httpsInputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPolicy.html#InputPolicy"><span class="hs-identifier hs-type">InputPolicy</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679998850"><span id="local-6989586621679998852"><span class="annot"><span class="annottext">Policy -&gt; Policy -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680000340"><span id="local-6989586621680000342"><span class="annot"><span class="annottext">Policy -&gt; Policy -&gt; Bool
 (Policy -&gt; Policy -&gt; Bool)
 -&gt; (Policy -&gt; Policy -&gt; Bool) -&gt; Eq Policy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Policy -&gt; Policy -&gt; Bool
 == :: Policy -&gt; Policy -&gt; Bool
 $c== :: Policy -&gt; Policy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679998841"><span id="local-6989586621679998843"><span id="local-6989586621679998845"><span id="local-6989586621679998847"><span class="annot"><span class="annottext">ReadPrec [Policy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000331"><span id="local-6989586621680000333"><span id="local-6989586621680000335"><span id="local-6989586621680000337"><span class="annot"><span class="annottext">ReadPrec [Policy]
 ReadPrec Policy
 Int -&gt; ReadS Policy
 ReadS [Policy]
@@ -68,7 +68,7 @@ readList :: ReadS [Policy]
 $creadList :: ReadS [Policy]
 readsPrec :: Int -&gt; ReadS Policy
 $creadsPrec :: Int -&gt; ReadS Policy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679998834"><span id="local-6989586621679998836"><span id="local-6989586621679998838"><span class="annot"><span class="annottext">Int -&gt; Policy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000324"><span id="local-6989586621680000326"><span id="local-6989586621680000328"><span class="annot"><span class="annottext">Int -&gt; Policy -&gt; ShowS
 [Policy] -&gt; ShowS
 Policy -&gt; String
 (Int -&gt; Policy -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (Policy -&gt; Maybe InputPolicy -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe InputPolicy) (Maybe InputPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998825"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000315"><span class="annot"><span class="annottext">Maybe InputPolicy
 s3Inputs :: Maybe InputPolicy
 $sel:s3Inputs:Policy' :: Policy -&gt; Maybe InputPolicy
-</span><a href="#local-6989586621679998825"><span class="hs-identifier hs-var hs-var">s3Inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998825"><span class="hs-identifier hs-var">s3Inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679998824"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679998824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679998823"><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679998824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Inputs:Policy' :: Maybe InputPolicy
+</span><a href="#local-6989586621680000315"><span class="hs-identifier hs-var hs-var">s3Inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><a href="#local-6989586621680000315"><span class="hs-identifier hs-var">s3Inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000314"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621680000314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000313"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><a href="#local-6989586621680000313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621680000314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Inputs:Policy' :: Maybe InputPolicy
 </span><a href="Network.AWS.MediaConvert.Types.Policy.html#%24sel%3As3Inputs%3APolicy%27"><span class="hs-identifier hs-var">s3Inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680000313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Allow or disallow jobs that specify HTTP inputs.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#policy_httpInputs"><span class="hs-identifier hs-type">policy_httpInputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPolicy.html#InputPolicy"><span class="hs-identifier hs-type">InputPolicy</span></a></span><span class="hs-special">)</span><span>
@@ -150,16 +150,16 @@ $sel:s3Inputs:Policy' :: Policy -&gt; Maybe InputPolicy
 -&gt; (Policy -&gt; Maybe InputPolicy -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe InputPolicy) (Maybe InputPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998821"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000311"><span class="annot"><span class="annottext">Maybe InputPolicy
 httpInputs :: Maybe InputPolicy
 $sel:httpInputs:Policy' :: Policy -&gt; Maybe InputPolicy
-</span><a href="#local-6989586621679998821"><span class="hs-identifier hs-var hs-var">httpInputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998821"><span class="hs-identifier hs-var">httpInputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679998820"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679998820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679998819"><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679998820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpInputs:Policy' :: Maybe InputPolicy
+</span><a href="#local-6989586621680000311"><span class="hs-identifier hs-var hs-var">httpInputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><a href="#local-6989586621680000311"><span class="hs-identifier hs-var">httpInputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000310"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621680000310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000309"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><a href="#local-6989586621680000309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621680000310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpInputs:Policy' :: Maybe InputPolicy
 </span><a href="Network.AWS.MediaConvert.Types.Policy.html#%24sel%3AhttpInputs%3APolicy%27"><span class="hs-identifier hs-var">httpInputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680000309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Allow or disallow jobs that specify HTTPS inputs.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#policy_httpsInputs"><span class="hs-identifier hs-type">policy_httpsInputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPolicy.html#InputPolicy"><span class="hs-identifier hs-type">InputPolicy</span></a></span><span class="hs-special">)</span><span>
@@ -168,27 +168,27 @@ $sel:httpInputs:Policy' :: Policy -&gt; Maybe InputPolicy
 -&gt; (Policy -&gt; Maybe InputPolicy -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe InputPolicy) (Maybe InputPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998817"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000307"><span class="annot"><span class="annottext">Maybe InputPolicy
 httpsInputs :: Maybe InputPolicy
 $sel:httpsInputs:Policy' :: Policy -&gt; Maybe InputPolicy
-</span><a href="#local-6989586621679998817"><span class="hs-identifier hs-var hs-var">httpsInputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998817"><span class="hs-identifier hs-var">httpsInputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679998816"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679998816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679998815"><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679998816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpsInputs:Policy' :: Maybe InputPolicy
+</span><a href="#local-6989586621680000307"><span class="hs-identifier hs-var hs-var">httpsInputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><a href="#local-6989586621680000307"><span class="hs-identifier hs-var">httpsInputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000306"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621680000306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000305"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><a href="#local-6989586621680000305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621680000306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpsInputs:Policy' :: Maybe InputPolicy
 </span><a href="Network.AWS.MediaConvert.Types.Policy.html#%24sel%3AhttpsInputs%3APolicy%27"><span class="hs-identifier hs-var">httpsInputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680000305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998812"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679998810"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Policy
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000302"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680000300"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Policy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Policy) -&gt; Value -&gt; Parser Policy
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679998807"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998807"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680000297"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680000297"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputPolicy
 -&gt; Maybe InputPolicy -&gt; Maybe InputPolicy -&gt; Policy
 </span><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-var">Policy'</span></a></span><span>
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe InputPolicy -&gt; Maybe InputPolicy -&gt; Policy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPolicy)
+</span><a href="#local-6989586621680000297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Inputs&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,7 +207,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputPolicy -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPolicy)
+</span><a href="#local-6989586621680000297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;httpInputs&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,26 +215,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputPolicy) -&gt; Parser Policy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPolicy)
+</span><a href="#local-6989586621680000297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;httpsInputs&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998801"><span id="local-6989586621679998803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000291"><span id="local-6989586621680000293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998790"><span id="local-6989586621679998792"><span id="local-6989586621679998794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679998788"><span class="annot"><span class="annottext">toJSON :: Policy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998784"><span id="local-6989586621679998785"><span id="local-6989586621679998786"><span class="annot"><span class="annottext">Maybe InputPolicy
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000280"><span id="local-6989586621680000282"><span id="local-6989586621680000284"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680000278"><span class="annot"><span class="annottext">toJSON :: Policy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000274"><span id="local-6989586621680000275"><span id="local-6989586621680000276"><span class="annot"><span class="annottext">Maybe InputPolicy
 httpsInputs :: Maybe InputPolicy
 httpInputs :: Maybe InputPolicy
 s3Inputs :: Maybe InputPolicy
 $sel:httpsInputs:Policy' :: Policy -&gt; Maybe InputPolicy
 $sel:httpInputs:Policy' :: Policy -&gt; Maybe InputPolicy
 $sel:s3Inputs:Policy' :: Policy -&gt; Maybe InputPolicy
-</span><a href="#local-6989586621679998784"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680000274"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,21 +246,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputPolicy -&gt; Pair) -&gt; Maybe InputPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998786"><span class="hs-identifier hs-var">s3Inputs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680000276"><span class="hs-identifier hs-var">s3Inputs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;httpInputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputPolicy -&gt; Pair) -&gt; Maybe InputPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998785"><span class="hs-identifier hs-var">httpInputs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680000275"><span class="hs-identifier hs-var">httpInputs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;httpsInputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputPolicy -&gt; Pair) -&gt; Maybe InputPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputPolicy
-</span><a href="#local-6989586621679998784"><span class="hs-identifier hs-var">httpsInputs</span></a></span><span>
+</span><a href="#local-6989586621680000274"><span class="hs-identifier hs-var">httpsInputs</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

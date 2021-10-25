@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679977219"><span id="local-6989586621679977220"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsIntervalCadence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIntervalCadence.html#HlsIntervalCadence"><span class="hs-identifier hs-var">HlsIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIntervalCadence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIntervalCadence.html#HlsIntervalCadence%27"><span class="hs-identifier hs-var">HlsIntervalCadence'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679978709"><span id="local-6989586621679978710"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsIntervalCadence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIntervalCadence.html#HlsIntervalCadence"><span class="hs-identifier hs-var">HlsIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIntervalCadence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIntervalCadence.html#HlsIntervalCadence%27"><span class="hs-identifier hs-var">HlsIntervalCadence'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsIntervalCadence"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsIntervalCadence.html#fromHlsIntervalCadence"><span class="hs-identifier hs-var hs-var">fromHlsIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977211"><span id="local-6989586621679977213"><span id="local-6989586621679977215"><span class="annot"><span class="annottext">Int -&gt; HlsIntervalCadence -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679978701"><span id="local-6989586621679978703"><span id="local-6989586621679978705"><span class="annot"><span class="annottext">Int -&gt; HlsIntervalCadence -&gt; ShowS
 [HlsIntervalCadence] -&gt; ShowS
 HlsIntervalCadence -&gt; String
 (Int -&gt; HlsIntervalCadence -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: HlsIntervalCadence -&gt; String
 showsPrec :: Int -&gt; HlsIntervalCadence -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsIntervalCadence -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679977202"><span id="local-6989586621679977204"><span id="local-6989586621679977206"><span id="local-6989586621679977208"><span class="annot"><span class="annottext">ReadPrec [HlsIntervalCadence]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679978692"><span id="local-6989586621679978694"><span id="local-6989586621679978696"><span id="local-6989586621679978698"><span class="annot"><span class="annottext">ReadPrec [HlsIntervalCadence]
 ReadPrec HlsIntervalCadence
 Int -&gt; ReadS HlsIntervalCadence
 ReadS [HlsIntervalCadence]
@@ -77,7 +77,7 @@ $creadList :: ReadS [HlsIntervalCadence]
 readsPrec :: Int -&gt; ReadS HlsIntervalCadence
 $creadsPrec :: Int -&gt; ReadS HlsIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679977197"><span id="local-6989586621679977199"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679978687"><span id="local-6989586621679978689"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool
 (HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool)
 -&gt; (HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool)
 -&gt; Eq HlsIntervalCadence
@@ -87,7 +87,7 @@ $c/= :: HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool
 == :: HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool
 $c== :: HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679977181"><span id="local-6989586621679977183"><span id="local-6989586621679977185"><span id="local-6989586621679977187"><span id="local-6989586621679977189"><span id="local-6989586621679977191"><span id="local-6989586621679977193"><span class="annot"><span class="annottext">Eq HlsIntervalCadence
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679978671"><span id="local-6989586621679978673"><span id="local-6989586621679978675"><span id="local-6989586621679978677"><span id="local-6989586621679978679"><span id="local-6989586621679978681"><span id="local-6989586621679978683"><span class="annot"><span class="annottext">Eq HlsIntervalCadence
 Eq HlsIntervalCadence
 -&gt; (HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Ordering)
 -&gt; (HlsIntervalCadence -&gt; HlsIntervalCadence -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. HlsIntervalCadence -&gt; Rep HlsIntervalCadence x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977173"><span id="local-6989586621679977175"><span class="annot"><span class="annottext">Int -&gt; HlsIntervalCadence -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679978663"><span id="local-6989586621679978665"><span class="annot"><span class="annottext">Int -&gt; HlsIntervalCadence -&gt; Int
 HlsIntervalCadence -&gt; Int
 (Int -&gt; HlsIntervalCadence -&gt; Int)
 -&gt; (HlsIntervalCadence -&gt; Int) -&gt; Hashable HlsIntervalCadence
@@ -148,53 +148,53 @@ $chash :: HlsIntervalCadence -&gt; Int
 hashWithSalt :: Int -&gt; HlsIntervalCadence -&gt; Int
 $chashWithSalt :: Int -&gt; HlsIntervalCadence -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679977170"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679978660"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; ()
 (HlsIntervalCadence -&gt; ()) -&gt; NFData HlsIntervalCadence
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsIntervalCadence -&gt; ()
 $crnf :: HlsIntervalCadence -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679977167"><span class="annot"><span class="annottext">Text -&gt; Either String HlsIntervalCadence
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679978657"><span class="annot"><span class="annottext">Text -&gt; Either String HlsIntervalCadence
 (Text -&gt; Either String HlsIntervalCadence)
 -&gt; FromText HlsIntervalCadence
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsIntervalCadence
 $cfromText :: Text -&gt; Either String HlsIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679977164"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679978654"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; Text
 (HlsIntervalCadence -&gt; Text) -&gt; ToText HlsIntervalCadence
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsIntervalCadence -&gt; Text
 $ctoText :: HlsIntervalCadence -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679977161"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679978651"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; ByteString
 (HlsIntervalCadence -&gt; ByteString)
 -&gt; ToByteString HlsIntervalCadence
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsIntervalCadence -&gt; ByteString
 $ctoBS :: HlsIntervalCadence -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679977158"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679978648"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; ByteStringBuilder
 (HlsIntervalCadence -&gt; ByteStringBuilder)
 -&gt; ToLog HlsIntervalCadence
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsIntervalCadence -&gt; ByteStringBuilder
 $cbuild :: HlsIntervalCadence -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679977155"><span class="annot"><span class="annottext">HeaderName -&gt; HlsIntervalCadence -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679978645"><span class="annot"><span class="annottext">HeaderName -&gt; HlsIntervalCadence -&gt; [Header]
 (HeaderName -&gt; HlsIntervalCadence -&gt; [Header])
 -&gt; ToHeader HlsIntervalCadence
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsIntervalCadence -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsIntervalCadence -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679977152"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679978642"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; QueryString
 (HlsIntervalCadence -&gt; QueryString) -&gt; ToQuery HlsIntervalCadence
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsIntervalCadence -&gt; QueryString
 $ctoQuery :: HlsIntervalCadence -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679977147"><span id="local-6989586621679977149"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsIntervalCadence]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679978637"><span id="local-6989586621679978639"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsIntervalCadence]
 Value -&gt; Parser HlsIntervalCadence
 (Value -&gt; Parser HlsIntervalCadence)
 -&gt; (Value -&gt; Parser [HlsIntervalCadence])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsIntervalCadence]
 parseJSON :: Value -&gt; Parser HlsIntervalCadence
 $cparseJSON :: Value -&gt; Parser HlsIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679977142"><span id="local-6989586621679977144"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsIntervalCadence]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679978632"><span id="local-6989586621679978634"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsIntervalCadence]
 FromJSONKeyFunction HlsIntervalCadence
 FromJSONKeyFunction HlsIntervalCadence
 -&gt; FromJSONKeyFunction [HlsIntervalCadence]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsIntervalCadence]
 fromJSONKey :: FromJSONKeyFunction HlsIntervalCadence
 $cfromJSONKey :: FromJSONKeyFunction HlsIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679977133"><span id="local-6989586621679977135"><span id="local-6989586621679977137"><span id="local-6989586621679977139"><span class="annot"><span class="annottext">[HlsIntervalCadence] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679978623"><span id="local-6989586621679978625"><span id="local-6989586621679978627"><span id="local-6989586621679978629"><span class="annot"><span class="annottext">[HlsIntervalCadence] -&gt; Encoding
 [HlsIntervalCadence] -&gt; Value
 HlsIntervalCadence -&gt; Encoding
 HlsIntervalCadence -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: HlsIntervalCadence -&gt; Encoding
 toJSON :: HlsIntervalCadence -&gt; Value
 $ctoJSON :: HlsIntervalCadence -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679977128"><span id="local-6989586621679977130"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsIntervalCadence]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679978618"><span id="local-6989586621679978620"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsIntervalCadence]
 ToJSONKeyFunction HlsIntervalCadence
 ToJSONKeyFunction HlsIntervalCadence
 -&gt; ToJSONKeyFunction [HlsIntervalCadence]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsIntervalCadence]
 toJSONKey :: ToJSONKeyFunction HlsIntervalCadence
 $ctoJSONKey :: ToJSONKeyFunction HlsIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679977125"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsIntervalCadence
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679978615"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsIntervalCadence
 ([Node] -&gt; Either String HlsIntervalCadence)
 -&gt; FromXML HlsIntervalCadence
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsIntervalCadence
 $cparseXML :: [Node] -&gt; Either String HlsIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679977122"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679978612"><span class="annot"><span class="annottext">HlsIntervalCadence -&gt; XML
 (HlsIntervalCadence -&gt; XML) -&gt; ToXML HlsIntervalCadence
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsIntervalCadence -&gt; XML

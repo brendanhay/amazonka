@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- provides.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRemixSettings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680001595"><span id="local-6989586621680001596"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemixSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-var">RemixSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemixSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-var">RemixSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680003085"><span id="local-6989586621680003086"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemixSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-var">RemixSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemixSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-var">RemixSettings'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Channel mapping (ChannelMapping) contains the group of fields that hold</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the remixing value for each channel, in dB. Specify remix values to</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- indicate how much of the content from your input audio channel you want</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AchannelsOut%3ARemixSettings%27"><span class="annot"><span class="annottext">RemixSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#%24sel%3AchannelsOut%3ARemixSettings%27"><span class="hs-identifier hs-var hs-var">channelsOut</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680001587"><span id="local-6989586621680001589"><span class="annot"><span class="annottext">RemixSettings -&gt; RemixSettings -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003077"><span id="local-6989586621680003079"><span class="annot"><span class="annottext">RemixSettings -&gt; RemixSettings -&gt; Bool
 (RemixSettings -&gt; RemixSettings -&gt; Bool)
 -&gt; (RemixSettings -&gt; RemixSettings -&gt; Bool) -&gt; Eq RemixSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemixSettings -&gt; RemixSettings -&gt; Bool
 == :: RemixSettings -&gt; RemixSettings -&gt; Bool
 $c== :: RemixSettings -&gt; RemixSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680001578"><span id="local-6989586621680001580"><span id="local-6989586621680001582"><span id="local-6989586621680001584"><span class="annot"><span class="annottext">ReadPrec [RemixSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003068"><span id="local-6989586621680003070"><span id="local-6989586621680003072"><span id="local-6989586621680003074"><span class="annot"><span class="annottext">ReadPrec [RemixSettings]
 ReadPrec RemixSettings
 Int -&gt; ReadS RemixSettings
 ReadS [RemixSettings]
@@ -89,7 +89,7 @@ readList :: ReadS [RemixSettings]
 $creadList :: ReadS [RemixSettings]
 readsPrec :: Int -&gt; ReadS RemixSettings
 $creadsPrec :: Int -&gt; ReadS RemixSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680001571"><span id="local-6989586621680001573"><span id="local-6989586621680001575"><span class="annot"><span class="annottext">Int -&gt; RemixSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003061"><span id="local-6989586621680003063"><span id="local-6989586621680003065"><span class="annot"><span class="annottext">Int -&gt; RemixSettings -&gt; ShowS
 [RemixSettings] -&gt; ShowS
 RemixSettings -&gt; String
 (Int -&gt; RemixSettings -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe ChannelMapping)
      (Maybe ChannelMapping)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001562"><span class="annot"><span class="annottext">Maybe ChannelMapping
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003052"><span class="annot"><span class="annottext">Maybe ChannelMapping
 channelMapping :: Maybe ChannelMapping
 $sel:channelMapping:RemixSettings' :: RemixSettings -&gt; Maybe ChannelMapping
-</span><a href="#local-6989586621680001562"><span class="hs-identifier hs-var hs-var">channelMapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMapping
-</span><a href="#local-6989586621680001562"><span class="hs-identifier hs-var">channelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001561"><span class="annot"><span class="annottext">s :: RemixSettings
-</span><a href="#local-6989586621680001561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001560"><span class="annot"><span class="annottext">Maybe ChannelMapping
-</span><a href="#local-6989586621680001560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemixSettings
-</span><a href="#local-6989586621680001561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelMapping:RemixSettings' :: Maybe ChannelMapping
+</span><a href="#local-6989586621680003052"><span class="hs-identifier hs-var hs-var">channelMapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMapping
+</span><a href="#local-6989586621680003052"><span class="hs-identifier hs-var">channelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003051"><span class="annot"><span class="annottext">s :: RemixSettings
+</span><a href="#local-6989586621680003051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003050"><span class="annot"><span class="annottext">Maybe ChannelMapping
+</span><a href="#local-6989586621680003050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemixSettings
+</span><a href="#local-6989586621680003051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelMapping:RemixSettings' :: Maybe ChannelMapping
 </span><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#%24sel%3AchannelMapping%3ARemixSettings%27"><span class="hs-identifier hs-var">channelMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMapping
-</span><a href="#local-6989586621680001560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680003050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Specify the number of audio channels from your input that you want to</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- use in your output. With remixing, you might combine or split the data</span><span>
@@ -216,16 +216,16 @@ $sel:channelMapping:RemixSettings' :: RemixSettings -&gt; Maybe ChannelMapping
 -&gt; (RemixSettings -&gt; Maybe Natural -&gt; RemixSettings)
 -&gt; Lens RemixSettings RemixSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001558"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003048"><span class="annot"><span class="annottext">Maybe Natural
 channelsIn :: Maybe Natural
 $sel:channelsIn:RemixSettings' :: RemixSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680001558"><span class="hs-identifier hs-var hs-var">channelsIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001558"><span class="hs-identifier hs-var">channelsIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001557"><span class="annot"><span class="annottext">s :: RemixSettings
-</span><a href="#local-6989586621680001557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001556"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemixSettings
-</span><a href="#local-6989586621680001557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelsIn:RemixSettings' :: Maybe Natural
+</span><a href="#local-6989586621680003048"><span class="hs-identifier hs-var hs-var">channelsIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003048"><span class="hs-identifier hs-var">channelsIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003047"><span class="annot"><span class="annottext">s :: RemixSettings
+</span><a href="#local-6989586621680003047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003046"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemixSettings
+</span><a href="#local-6989586621680003047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelsIn:RemixSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#%24sel%3AchannelsIn%3ARemixSettings%27"><span class="hs-identifier hs-var">channelsIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680003046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Specify the number of channels in this output after remixing. Valid</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.) If you are</span><span>
@@ -239,19 +239,19 @@ $sel:channelsIn:RemixSettings' :: RemixSettings -&gt; Maybe Natural
 -&gt; (RemixSettings -&gt; Maybe Natural -&gt; RemixSettings)
 -&gt; Lens RemixSettings RemixSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001554"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003044"><span class="annot"><span class="annottext">Maybe Natural
 channelsOut :: Maybe Natural
 $sel:channelsOut:RemixSettings' :: RemixSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680001554"><span class="hs-identifier hs-var hs-var">channelsOut</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001554"><span class="hs-identifier hs-var">channelsOut</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001553"><span class="annot"><span class="annottext">s :: RemixSettings
-</span><a href="#local-6989586621680001553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001552"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemixSettings
-</span><a href="#local-6989586621680001553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelsOut:RemixSettings' :: Maybe Natural
+</span><a href="#local-6989586621680003044"><span class="hs-identifier hs-var hs-var">channelsOut</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003044"><span class="hs-identifier hs-var">channelsOut</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003043"><span class="annot"><span class="annottext">s :: RemixSettings
+</span><a href="#local-6989586621680003043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003042"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemixSettings
+</span><a href="#local-6989586621680003043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelsOut:RemixSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#%24sel%3AchannelsOut%3ARemixSettings%27"><span class="hs-identifier hs-var">channelsOut</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680003042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001549"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621680001547"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemixSettings
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003039"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621680003037"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemixSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RemixSettings)
@@ -261,8 +261,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RemixSettings&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680001544"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003034"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChannelMapping
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; RemixSettings
 </span><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-var">RemixSettings'</span></a></span><span>
@@ -272,7 +272,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; RemixSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelMapping)
+</span><a href="#local-6989586621680003034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelMapping)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelMapping&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,7 +281,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; RemixSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680003034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelsIn&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,19 +289,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser RemixSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680003034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelsOut&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001538"><span id="local-6989586621680001540"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003028"><span id="local-6989586621680003030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001527"><span id="local-6989586621680001529"><span id="local-6989586621680001531"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621680001525"><span class="annot"><span class="annottext">toJSON :: RemixSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001521"><span id="local-6989586621680001522"><span id="local-6989586621680001523"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003017"><span id="local-6989586621680003019"><span id="local-6989586621680003021"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings"><span class="hs-identifier hs-type">RemixSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621680003015"><span class="annot"><span class="annottext">toJSON :: RemixSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.RemixSettings.html#RemixSettings%27"><span class="hs-identifier hs-type">RemixSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003011"><span id="local-6989586621680003012"><span id="local-6989586621680003013"><span class="annot"><span class="annottext">Maybe Natural
 Maybe ChannelMapping
 channelsOut :: Maybe Natural
 channelsIn :: Maybe Natural
@@ -309,7 +309,7 @@ channelMapping :: Maybe ChannelMapping
 $sel:channelsOut:RemixSettings' :: RemixSettings -&gt; Maybe Natural
 $sel:channelsIn:RemixSettings' :: RemixSettings -&gt; Maybe Natural
 $sel:channelMapping:RemixSettings' :: RemixSettings -&gt; Maybe ChannelMapping
-</span><a href="#local-6989586621680001521"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680003011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,21 +322,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(ChannelMapping -&gt; Pair) -&gt; Maybe ChannelMapping -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMapping
-</span><a href="#local-6989586621680001523"><span class="hs-identifier hs-var">channelMapping</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680003013"><span class="hs-identifier hs-var">channelMapping</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelsIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001522"><span class="hs-identifier hs-var">channelsIn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680003012"><span class="hs-identifier hs-var">channelsIn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelsOut&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680001521"><span class="hs-identifier hs-var">channelsOut</span></a></span><span>
+</span><a href="#local-6989586621680003011"><span class="hs-identifier hs-var">channelsOut</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span></pre></body></html>

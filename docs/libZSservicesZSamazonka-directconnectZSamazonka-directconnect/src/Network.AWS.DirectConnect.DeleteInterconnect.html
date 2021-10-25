@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteInterconnect' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679289881"><span id="local-6989586621679289882"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInterconnect"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-var">DeleteInterconnect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInterconnect%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-var">DeleteInterconnect'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679298778"><span id="local-6989586621679298779"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInterconnect"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-var">DeleteInterconnect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInterconnect%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-var">DeleteInterconnect'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the interconnect.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AinterconnectId%3ADeleteInterconnect%27"><span class="annot"><span class="annottext">DeleteInterconnect -&gt; Text
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AinterconnectId%3ADeleteInterconnect%27"><span class="hs-identifier hs-var hs-var">interconnectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289875"><span id="local-6989586621679289877"><span class="annot"><span class="annottext">DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298772"><span id="local-6989586621679298774"><span class="annot"><span class="annottext">DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool
 (DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool)
 -&gt; (DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool)
 -&gt; Eq DeleteInterconnect
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool
 == :: DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool
 $c== :: DeleteInterconnect -&gt; DeleteInterconnect -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289866"><span id="local-6989586621679289868"><span id="local-6989586621679289870"><span id="local-6989586621679289872"><span class="annot"><span class="annottext">ReadPrec [DeleteInterconnect]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298763"><span id="local-6989586621679298765"><span id="local-6989586621679298767"><span id="local-6989586621679298769"><span class="annot"><span class="annottext">ReadPrec [DeleteInterconnect]
 ReadPrec DeleteInterconnect
 Int -&gt; ReadS DeleteInterconnect
 ReadS [DeleteInterconnect]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteInterconnect]
 $creadList :: ReadS [DeleteInterconnect]
 readsPrec :: Int -&gt; ReadS DeleteInterconnect
 $creadsPrec :: Int -&gt; ReadS DeleteInterconnect
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289859"><span id="local-6989586621679289861"><span id="local-6989586621679289863"><span class="annot"><span class="annottext">Int -&gt; DeleteInterconnect -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298756"><span id="local-6989586621679298758"><span id="local-6989586621679298760"><span class="annot"><span class="annottext">Int -&gt; DeleteInterconnect -&gt; ShowS
 [DeleteInterconnect] -&gt; ShowS
 DeleteInterconnect -&gt; String
 (Int -&gt; DeleteInterconnect -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. DeleteInterconnect -&gt; Rep DeleteInterconnect x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteInterconnect"><span class="annot"><span class="annottext">newDeleteInterconnect :: Text -&gt; DeleteInterconnect
-</span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#newDeleteInterconnect"><span class="hs-identifier hs-var hs-var">newDeleteInterconnect</span></a></span></span><span> </span><span id="local-6989586621679289854"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289854"><span class="hs-identifier hs-var">pInterconnectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#newDeleteInterconnect"><span class="hs-identifier hs-var hs-var">newDeleteInterconnect</span></a></span></span><span> </span><span id="local-6989586621679298751"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298751"><span class="hs-identifier hs-var">pInterconnectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteInterconnect' :: Text -&gt; DeleteInterconnect
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:interconnectId:DeleteInterconnect' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AinterconnectId%3ADeleteInterconnect%27"><span class="hs-identifier hs-var">interconnectId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289854"><span class="hs-identifier hs-var">pInterconnectId_</span></a></span><span>
+</span><a href="#local-6989586621679298751"><span class="hs-identifier hs-var">pInterconnectId_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The ID of the interconnect.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DeleteInterconnect -&gt; Rep DeleteInterconnect x
 -&gt; (DeleteInterconnect -&gt; Text -&gt; DeleteInterconnect)
 -&gt; Lens DeleteInterconnect DeleteInterconnect Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289851"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298748"><span class="annot"><span class="annottext">Text
 interconnectId :: Text
 $sel:interconnectId:DeleteInterconnect' :: DeleteInterconnect -&gt; Text
-</span><a href="#local-6989586621679289851"><span class="hs-identifier hs-var hs-var">interconnectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289851"><span class="hs-identifier hs-var">interconnectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289850"><span class="annot"><span class="annottext">s :: DeleteInterconnect
-</span><a href="#local-6989586621679289850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289849"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInterconnect
-</span><a href="#local-6989586621679289850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interconnectId:DeleteInterconnect' :: Text
+</span><a href="#local-6989586621679298748"><span class="hs-identifier hs-var hs-var">interconnectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298748"><span class="hs-identifier hs-var">interconnectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298747"><span class="annot"><span class="annottext">s :: DeleteInterconnect
+</span><a href="#local-6989586621679298747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298746"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInterconnect
+</span><a href="#local-6989586621679298747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interconnectId:DeleteInterconnect' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AinterconnectId%3ADeleteInterconnect%27"><span class="hs-identifier hs-var">interconnectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679289845"><span class="annot"><span class="annottext">request :: DeleteInterconnect -&gt; Request DeleteInterconnect
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679298742"><span class="annot"><span class="annottext">request :: DeleteInterconnect -&gt; Request DeleteInterconnect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInterconnect -&gt; Request DeleteInterconnect
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679289841"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679298738"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInterconnect
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289838"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289838"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289837"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679289837"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289836"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298735"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298735"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679298734"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679298734"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679298733"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe InterconnectState -&gt; Int -&gt; DeleteInterconnectResponse
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-var">DeleteInterconnectResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InterconnectState -&gt; Int -&gt; DeleteInterconnectResponse)
@@ -197,7 +197,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteInterconnectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InterconnectState)
+</span><a href="#local-6989586621679298733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InterconnectState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interconnectState&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,15 +209,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289838"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298735"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289828"><span id="local-6989586621679289830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298725"><span id="local-6989586621679298727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679289821"><span class="annot"><span class="annottext">toHeaders :: DeleteInterconnect -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679298718"><span class="annot"><span class="annottext">toHeaders :: DeleteInterconnect -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteInterconnect -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,12 +244,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289811"><span id="local-6989586621679289813"><span id="local-6989586621679289815"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679289809"><span class="annot"><span class="annottext">toJSON :: DeleteInterconnect -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289807"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298708"><span id="local-6989586621679298710"><span id="local-6989586621679298712"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679298706"><span class="annot"><span class="annottext">toJSON :: DeleteInterconnect -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect%27"><span class="hs-identifier hs-type">DeleteInterconnect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298704"><span class="annot"><span class="annottext">Text
 interconnectId :: Text
 $sel:interconnectId:DeleteInterconnect' :: DeleteInterconnect -&gt; Text
-</span><a href="#local-6989586621679289807"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298704"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,19 +262,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;interconnectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289807"><span class="hs-identifier hs-var">interconnectId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298704"><span class="hs-identifier hs-var">interconnectId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679289801"><span class="annot"><span class="annottext">toPath :: DeleteInterconnect -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679298698"><span class="annot"><span class="annottext">toPath :: DeleteInterconnect -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteInterconnect -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnect"><span class="hs-identifier hs-type">DeleteInterconnect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679289797"><span class="annot"><span class="annottext">toQuery :: DeleteInterconnect -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679298694"><span class="annot"><span class="annottext">toQuery :: DeleteInterconnect -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteInterconnect -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteInterconnectResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679289794"><span id="local-6989586621679289795"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInterconnectResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-var">DeleteInterconnectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInterconnectResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-var">DeleteInterconnectResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679298691"><span id="local-6989586621679298692"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInterconnectResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-var">DeleteInterconnectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInterconnectResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-var">DeleteInterconnectResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the interconnect. The following are the possible values:</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- -   @requested@: The initial state of an interconnect. The interconnect</span><span>
@@ -307,7 +307,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteInterconnectResponse%27"><span class="annot"><span class="annottext">DeleteInterconnectResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AhttpStatus%3ADeleteInterconnectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289788"><span id="local-6989586621679289790"><span class="annot"><span class="annottext">DeleteInterconnectResponse -&gt; DeleteInterconnectResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298685"><span id="local-6989586621679298687"><span class="annot"><span class="annottext">DeleteInterconnectResponse -&gt; DeleteInterconnectResponse -&gt; Bool
 (DeleteInterconnectResponse -&gt; DeleteInterconnectResponse -&gt; Bool)
 -&gt; (DeleteInterconnectResponse
     -&gt; DeleteInterconnectResponse -&gt; Bool)
@@ -317,7 +317,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInterconnectResponse -&gt; DeleteInterconnectResponse -&gt; Bool
 == :: DeleteInterconnectResponse -&gt; DeleteInterconnectResponse -&gt; Bool
 $c== :: DeleteInterconnectResponse -&gt; DeleteInterconnectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289780"><span id="local-6989586621679289782"><span id="local-6989586621679289784"><span id="local-6989586621679289786"><span class="annot"><span class="annottext">ReadPrec [DeleteInterconnectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298677"><span id="local-6989586621679298679"><span id="local-6989586621679298681"><span id="local-6989586621679298683"><span class="annot"><span class="annottext">ReadPrec [DeleteInterconnectResponse]
 ReadPrec DeleteInterconnectResponse
 Int -&gt; ReadS DeleteInterconnectResponse
 ReadS [DeleteInterconnectResponse]
@@ -337,7 +337,7 @@ readList :: ReadS [DeleteInterconnectResponse]
 $creadList :: ReadS [DeleteInterconnectResponse]
 readsPrec :: Int -&gt; ReadS DeleteInterconnectResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInterconnectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289774"><span id="local-6989586621679289776"><span id="local-6989586621679289778"><span class="annot"><span class="annottext">Int -&gt; DeleteInterconnectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298671"><span id="local-6989586621679298673"><span id="local-6989586621679298675"><span class="annot"><span class="annottext">Int -&gt; DeleteInterconnectResponse -&gt; ShowS
 [DeleteInterconnectResponse] -&gt; ShowS
 DeleteInterconnectResponse -&gt; String
 (Int -&gt; DeleteInterconnectResponse -&gt; ShowS)
@@ -402,8 +402,8 @@ DeleteInterconnectResponse -&gt; Rep DeleteInterconnectResponse x
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span>
 </span><span id="line-186"></span><span id="newDeleteInterconnectResponse"><span class="annot"><span class="annottext">newDeleteInterconnectResponse :: Int -&gt; DeleteInterconnectResponse
-</span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#newDeleteInterconnectResponse"><span class="hs-identifier hs-var hs-var">newDeleteInterconnectResponse</span></a></span></span><span> </span><span id="local-6989586621679289771"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289771"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#newDeleteInterconnectResponse"><span class="hs-identifier hs-var hs-var">newDeleteInterconnectResponse</span></a></span></span><span> </span><span id="local-6989586621679298668"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">DeleteInterconnectResponse' :: Maybe InterconnectState -&gt; Int -&gt; DeleteInterconnectResponse
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:interconnectState:DeleteInterconnectResponse' :: Maybe InterconnectState
@@ -413,7 +413,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInterconnectResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AhttpStatus%3ADeleteInterconnectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289771"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679298668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The state of the interconnect. The following are the possible values:</span><span>
@@ -446,16 +446,16 @@ forall a. Maybe a
      (Maybe InterconnectState)
      (Maybe InterconnectState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289770"><span class="annot"><span class="annottext">Maybe InterconnectState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298667"><span class="annot"><span class="annottext">Maybe InterconnectState
 interconnectState :: Maybe InterconnectState
 $sel:interconnectState:DeleteInterconnectResponse' :: DeleteInterconnectResponse -&gt; Maybe InterconnectState
-</span><a href="#local-6989586621679289770"><span class="hs-identifier hs-var hs-var">interconnectState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InterconnectState
-</span><a href="#local-6989586621679289770"><span class="hs-identifier hs-var">interconnectState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289769"><span class="annot"><span class="annottext">s :: DeleteInterconnectResponse
-</span><a href="#local-6989586621679289769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289768"><span class="annot"><span class="annottext">Maybe InterconnectState
-</span><a href="#local-6989586621679289768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInterconnectResponse
-</span><a href="#local-6989586621679289769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interconnectState:DeleteInterconnectResponse' :: Maybe InterconnectState
+</span><a href="#local-6989586621679298667"><span class="hs-identifier hs-var hs-var">interconnectState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InterconnectState
+</span><a href="#local-6989586621679298667"><span class="hs-identifier hs-var">interconnectState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298666"><span class="annot"><span class="annottext">s :: DeleteInterconnectResponse
+</span><a href="#local-6989586621679298666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298665"><span class="annot"><span class="annottext">Maybe InterconnectState
+</span><a href="#local-6989586621679298665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInterconnectResponse
+</span><a href="#local-6989586621679298666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interconnectState:DeleteInterconnectResponse' :: Maybe InterconnectState
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AinterconnectState%3ADeleteInterconnectResponse%27"><span class="hs-identifier hs-var">interconnectState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InterconnectState
-</span><a href="#local-6989586621679289768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#deleteInterconnectResponse_httpStatus"><span class="hs-identifier hs-type">deleteInterconnectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -467,16 +467,16 @@ $sel:interconnectState:DeleteInterconnectResponse' :: DeleteInterconnectResponse
 -&gt; Lens
      DeleteInterconnectResponse DeleteInterconnectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289767"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298664"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteInterconnectResponse' :: DeleteInterconnectResponse -&gt; Int
-</span><a href="#local-6989586621679289767"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289767"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289766"><span class="annot"><span class="annottext">s :: DeleteInterconnectResponse
-</span><a href="#local-6989586621679289766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInterconnectResponse
-</span><a href="#local-6989586621679289766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInterconnectResponse' :: Int
+</span><a href="#local-6989586621679298664"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298664"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298663"><span class="annot"><span class="annottext">s :: DeleteInterconnectResponse
+</span><a href="#local-6989586621679298663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse%27"><span class="hs-identifier hs-type">DeleteInterconnectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298662"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679298662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInterconnectResponse
+</span><a href="#local-6989586621679298663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInterconnectResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#%24sel%3AhttpStatus%3ADeleteInterconnectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298660"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteInterconnect.html#DeleteInterconnectResponse"><span class="hs-identifier hs-type">DeleteInterconnectResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

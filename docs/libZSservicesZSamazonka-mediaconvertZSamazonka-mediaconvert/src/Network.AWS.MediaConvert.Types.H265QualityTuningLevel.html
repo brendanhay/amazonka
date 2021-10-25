@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- you want to trade off encoding speed for output video quality. The</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- default behavior is faster, lower quality, single-pass encoding.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679971963"><span id="local-6989586621679971964"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265QualityTuningLevel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265QualityTuningLevel.html#H265QualityTuningLevel"><span class="hs-identifier hs-var">H265QualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265QualityTuningLevel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265QualityTuningLevel.html#H265QualityTuningLevel%27"><span class="hs-identifier hs-var">H265QualityTuningLevel'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679973453"><span id="local-6989586621679973454"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265QualityTuningLevel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265QualityTuningLevel.html#H265QualityTuningLevel"><span class="hs-identifier hs-var">H265QualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265QualityTuningLevel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265QualityTuningLevel.html#H265QualityTuningLevel%27"><span class="hs-identifier hs-var">H265QualityTuningLevel'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265QualityTuningLevel"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265QualityTuningLevel.html#fromH265QualityTuningLevel"><span class="hs-identifier hs-var hs-var">fromH265QualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971955"><span id="local-6989586621679971957"><span id="local-6989586621679971959"><span class="annot"><span class="annottext">Int -&gt; H265QualityTuningLevel -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973445"><span id="local-6989586621679973447"><span id="local-6989586621679973449"><span class="annot"><span class="annottext">Int -&gt; H265QualityTuningLevel -&gt; ShowS
 [H265QualityTuningLevel] -&gt; ShowS
 H265QualityTuningLevel -&gt; String
 (Int -&gt; H265QualityTuningLevel -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: H265QualityTuningLevel -&gt; String
 showsPrec :: Int -&gt; H265QualityTuningLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265QualityTuningLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679971946"><span id="local-6989586621679971948"><span id="local-6989586621679971950"><span id="local-6989586621679971952"><span class="annot"><span class="annottext">ReadPrec [H265QualityTuningLevel]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679973436"><span id="local-6989586621679973438"><span id="local-6989586621679973440"><span id="local-6989586621679973442"><span class="annot"><span class="annottext">ReadPrec [H265QualityTuningLevel]
 ReadPrec H265QualityTuningLevel
 Int -&gt; ReadS H265QualityTuningLevel
 ReadS [H265QualityTuningLevel]
@@ -76,7 +76,7 @@ $creadList :: ReadS [H265QualityTuningLevel]
 readsPrec :: Int -&gt; ReadS H265QualityTuningLevel
 $creadsPrec :: Int -&gt; ReadS H265QualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679971941"><span id="local-6989586621679971943"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679973431"><span id="local-6989586621679973433"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool
 (H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool)
 -&gt; (H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool)
 -&gt; Eq H265QualityTuningLevel
@@ -86,7 +86,7 @@ $c/= :: H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool
 == :: H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool
 $c== :: H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679971925"><span id="local-6989586621679971927"><span id="local-6989586621679971929"><span id="local-6989586621679971931"><span id="local-6989586621679971933"><span id="local-6989586621679971935"><span id="local-6989586621679971937"><span class="annot"><span class="annottext">Eq H265QualityTuningLevel
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679973415"><span id="local-6989586621679973417"><span id="local-6989586621679973419"><span id="local-6989586621679973421"><span id="local-6989586621679973423"><span id="local-6989586621679973425"><span id="local-6989586621679973427"><span class="annot"><span class="annottext">Eq H265QualityTuningLevel
 Eq H265QualityTuningLevel
 -&gt; (H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Ordering)
 -&gt; (H265QualityTuningLevel -&gt; H265QualityTuningLevel -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. H265QualityTuningLevel -&gt; Rep H265QualityTuningLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971917"><span id="local-6989586621679971919"><span class="annot"><span class="annottext">Int -&gt; H265QualityTuningLevel -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973407"><span id="local-6989586621679973409"><span class="annot"><span class="annottext">Int -&gt; H265QualityTuningLevel -&gt; Int
 H265QualityTuningLevel -&gt; Int
 (Int -&gt; H265QualityTuningLevel -&gt; Int)
 -&gt; (H265QualityTuningLevel -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: H265QualityTuningLevel -&gt; Int
 hashWithSalt :: Int -&gt; H265QualityTuningLevel -&gt; Int
 $chashWithSalt :: Int -&gt; H265QualityTuningLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679971914"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679973404"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; ()
 (H265QualityTuningLevel -&gt; ()) -&gt; NFData H265QualityTuningLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265QualityTuningLevel -&gt; ()
 $crnf :: H265QualityTuningLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679971911"><span class="annot"><span class="annottext">Text -&gt; Either String H265QualityTuningLevel
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679973401"><span class="annot"><span class="annottext">Text -&gt; Either String H265QualityTuningLevel
 (Text -&gt; Either String H265QualityTuningLevel)
 -&gt; FromText H265QualityTuningLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265QualityTuningLevel
 $cfromText :: Text -&gt; Either String H265QualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679971908"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679973398"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; Text
 (H265QualityTuningLevel -&gt; Text) -&gt; ToText H265QualityTuningLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265QualityTuningLevel -&gt; Text
 $ctoText :: H265QualityTuningLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679971905"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679973395"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; ByteString
 (H265QualityTuningLevel -&gt; ByteString)
 -&gt; ToByteString H265QualityTuningLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265QualityTuningLevel -&gt; ByteString
 $ctoBS :: H265QualityTuningLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679971902"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679973392"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; ByteStringBuilder
 (H265QualityTuningLevel -&gt; ByteStringBuilder)
 -&gt; ToLog H265QualityTuningLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265QualityTuningLevel -&gt; ByteStringBuilder
 $cbuild :: H265QualityTuningLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679971899"><span class="annot"><span class="annottext">HeaderName -&gt; H265QualityTuningLevel -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679973389"><span class="annot"><span class="annottext">HeaderName -&gt; H265QualityTuningLevel -&gt; [Header]
 (HeaderName -&gt; H265QualityTuningLevel -&gt; [Header])
 -&gt; ToHeader H265QualityTuningLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265QualityTuningLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265QualityTuningLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679971896"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679973386"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; QueryString
 (H265QualityTuningLevel -&gt; QueryString)
 -&gt; ToQuery H265QualityTuningLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265QualityTuningLevel -&gt; QueryString
 $ctoQuery :: H265QualityTuningLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679971891"><span id="local-6989586621679971893"><span class="annot"><span class="annottext">Value -&gt; Parser [H265QualityTuningLevel]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679973381"><span id="local-6989586621679973383"><span class="annot"><span class="annottext">Value -&gt; Parser [H265QualityTuningLevel]
 Value -&gt; Parser H265QualityTuningLevel
 (Value -&gt; Parser H265QualityTuningLevel)
 -&gt; (Value -&gt; Parser [H265QualityTuningLevel])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [H265QualityTuningLevel]
 parseJSON :: Value -&gt; Parser H265QualityTuningLevel
 $cparseJSON :: Value -&gt; Parser H265QualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679971886"><span id="local-6989586621679971888"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265QualityTuningLevel]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679973376"><span id="local-6989586621679973378"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265QualityTuningLevel]
 FromJSONKeyFunction H265QualityTuningLevel
 FromJSONKeyFunction H265QualityTuningLevel
 -&gt; FromJSONKeyFunction [H265QualityTuningLevel]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265QualityTuningLevel]
 fromJSONKey :: FromJSONKeyFunction H265QualityTuningLevel
 $cfromJSONKey :: FromJSONKeyFunction H265QualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679971877"><span id="local-6989586621679971879"><span id="local-6989586621679971881"><span id="local-6989586621679971883"><span class="annot"><span class="annottext">[H265QualityTuningLevel] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679973367"><span id="local-6989586621679973369"><span id="local-6989586621679973371"><span id="local-6989586621679973373"><span class="annot"><span class="annottext">[H265QualityTuningLevel] -&gt; Encoding
 [H265QualityTuningLevel] -&gt; Value
 H265QualityTuningLevel -&gt; Encoding
 H265QualityTuningLevel -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: H265QualityTuningLevel -&gt; Encoding
 toJSON :: H265QualityTuningLevel -&gt; Value
 $ctoJSON :: H265QualityTuningLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679971872"><span id="local-6989586621679971874"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265QualityTuningLevel]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679973362"><span id="local-6989586621679973364"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265QualityTuningLevel]
 ToJSONKeyFunction H265QualityTuningLevel
 ToJSONKeyFunction H265QualityTuningLevel
 -&gt; ToJSONKeyFunction [H265QualityTuningLevel]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265QualityTuningLevel]
 toJSONKey :: ToJSONKeyFunction H265QualityTuningLevel
 $ctoJSONKey :: ToJSONKeyFunction H265QualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679971869"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265QualityTuningLevel
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679973359"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265QualityTuningLevel
 ([Node] -&gt; Either String H265QualityTuningLevel)
 -&gt; FromXML H265QualityTuningLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265QualityTuningLevel
 $cparseXML :: [Node] -&gt; Either String H265QualityTuningLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679971866"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679973356"><span class="annot"><span class="annottext">H265QualityTuningLevel -&gt; XML
 (H265QualityTuningLevel -&gt; XML) -&gt; ToXML H265QualityTuningLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265QualityTuningLevel -&gt; XML

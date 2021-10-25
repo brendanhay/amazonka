@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | A page type as defined in the standard ETSI EN 300 468, Table 94</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680007436"><span id="local-6989586621680007437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TeletextPageType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextPageType.html#TeletextPageType"><span class="hs-identifier hs-var">TeletextPageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TeletextPageType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextPageType.html#TeletextPageType%27"><span class="hs-identifier hs-var">TeletextPageType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680008926"><span id="local-6989586621680008927"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TeletextPageType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextPageType.html#TeletextPageType"><span class="hs-identifier hs-var">TeletextPageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TeletextPageType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextPageType.html#TeletextPageType%27"><span class="hs-identifier hs-var">TeletextPageType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTeletextPageType"><span class="annot"><span class="annottext">TeletextPageType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.TeletextPageType.html#fromTeletextPageType"><span class="hs-identifier hs-var hs-var">fromTeletextPageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007428"><span id="local-6989586621680007430"><span id="local-6989586621680007432"><span class="annot"><span class="annottext">Int -&gt; TeletextPageType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680008918"><span id="local-6989586621680008920"><span id="local-6989586621680008922"><span class="annot"><span class="annottext">Int -&gt; TeletextPageType -&gt; ShowS
 [TeletextPageType] -&gt; ShowS
 TeletextPageType -&gt; String
 (Int -&gt; TeletextPageType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: TeletextPageType -&gt; String
 showsPrec :: Int -&gt; TeletextPageType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TeletextPageType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680007419"><span id="local-6989586621680007421"><span id="local-6989586621680007423"><span id="local-6989586621680007425"><span class="annot"><span class="annottext">ReadPrec [TeletextPageType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680008909"><span id="local-6989586621680008911"><span id="local-6989586621680008913"><span id="local-6989586621680008915"><span class="annot"><span class="annottext">ReadPrec [TeletextPageType]
 ReadPrec TeletextPageType
 Int -&gt; ReadS TeletextPageType
 ReadS [TeletextPageType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [TeletextPageType]
 readsPrec :: Int -&gt; ReadS TeletextPageType
 $creadsPrec :: Int -&gt; ReadS TeletextPageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680007414"><span id="local-6989586621680007416"><span class="annot"><span class="annottext">TeletextPageType -&gt; TeletextPageType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680008904"><span id="local-6989586621680008906"><span class="annot"><span class="annottext">TeletextPageType -&gt; TeletextPageType -&gt; Bool
 (TeletextPageType -&gt; TeletextPageType -&gt; Bool)
 -&gt; (TeletextPageType -&gt; TeletextPageType -&gt; Bool)
 -&gt; Eq TeletextPageType
@@ -86,7 +86,7 @@ $c/= :: TeletextPageType -&gt; TeletextPageType -&gt; Bool
 == :: TeletextPageType -&gt; TeletextPageType -&gt; Bool
 $c== :: TeletextPageType -&gt; TeletextPageType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680007398"><span id="local-6989586621680007400"><span id="local-6989586621680007402"><span id="local-6989586621680007404"><span id="local-6989586621680007406"><span id="local-6989586621680007408"><span id="local-6989586621680007410"><span class="annot"><span class="annottext">Eq TeletextPageType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680008888"><span id="local-6989586621680008890"><span id="local-6989586621680008892"><span id="local-6989586621680008894"><span id="local-6989586621680008896"><span id="local-6989586621680008898"><span id="local-6989586621680008900"><span class="annot"><span class="annottext">Eq TeletextPageType
 Eq TeletextPageType
 -&gt; (TeletextPageType -&gt; TeletextPageType -&gt; Ordering)
 -&gt; (TeletextPageType -&gt; TeletextPageType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. TeletextPageType -&gt; Rep TeletextPageType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007390"><span id="local-6989586621680007392"><span class="annot"><span class="annottext">Int -&gt; TeletextPageType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680008880"><span id="local-6989586621680008882"><span class="annot"><span class="annottext">Int -&gt; TeletextPageType -&gt; Int
 TeletextPageType -&gt; Int
 (Int -&gt; TeletextPageType -&gt; Int)
 -&gt; (TeletextPageType -&gt; Int) -&gt; Hashable TeletextPageType
@@ -147,51 +147,51 @@ $chash :: TeletextPageType -&gt; Int
 hashWithSalt :: Int -&gt; TeletextPageType -&gt; Int
 $chashWithSalt :: Int -&gt; TeletextPageType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680007387"><span class="annot"><span class="annottext">TeletextPageType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680008877"><span class="annot"><span class="annottext">TeletextPageType -&gt; ()
 (TeletextPageType -&gt; ()) -&gt; NFData TeletextPageType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TeletextPageType -&gt; ()
 $crnf :: TeletextPageType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680007384"><span class="annot"><span class="annottext">Text -&gt; Either String TeletextPageType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680008874"><span class="annot"><span class="annottext">Text -&gt; Either String TeletextPageType
 (Text -&gt; Either String TeletextPageType)
 -&gt; FromText TeletextPageType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TeletextPageType
 $cfromText :: Text -&gt; Either String TeletextPageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680007381"><span class="annot"><span class="annottext">TeletextPageType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680008871"><span class="annot"><span class="annottext">TeletextPageType -&gt; Text
 (TeletextPageType -&gt; Text) -&gt; ToText TeletextPageType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TeletextPageType -&gt; Text
 $ctoText :: TeletextPageType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680007378"><span class="annot"><span class="annottext">TeletextPageType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680008868"><span class="annot"><span class="annottext">TeletextPageType -&gt; ByteString
 (TeletextPageType -&gt; ByteString) -&gt; ToByteString TeletextPageType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TeletextPageType -&gt; ByteString
 $ctoBS :: TeletextPageType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680007375"><span class="annot"><span class="annottext">TeletextPageType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680008865"><span class="annot"><span class="annottext">TeletextPageType -&gt; ByteStringBuilder
 (TeletextPageType -&gt; ByteStringBuilder) -&gt; ToLog TeletextPageType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TeletextPageType -&gt; ByteStringBuilder
 $cbuild :: TeletextPageType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680007372"><span class="annot"><span class="annottext">HeaderName -&gt; TeletextPageType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680008862"><span class="annot"><span class="annottext">HeaderName -&gt; TeletextPageType -&gt; [Header]
 (HeaderName -&gt; TeletextPageType -&gt; [Header])
 -&gt; ToHeader TeletextPageType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TeletextPageType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TeletextPageType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680007369"><span class="annot"><span class="annottext">TeletextPageType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680008859"><span class="annot"><span class="annottext">TeletextPageType -&gt; QueryString
 (TeletextPageType -&gt; QueryString) -&gt; ToQuery TeletextPageType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TeletextPageType -&gt; QueryString
 $ctoQuery :: TeletextPageType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680007364"><span id="local-6989586621680007366"><span class="annot"><span class="annottext">Value -&gt; Parser [TeletextPageType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680008854"><span id="local-6989586621680008856"><span class="annot"><span class="annottext">Value -&gt; Parser [TeletextPageType]
 Value -&gt; Parser TeletextPageType
 (Value -&gt; Parser TeletextPageType)
 -&gt; (Value -&gt; Parser [TeletextPageType])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [TeletextPageType]
 parseJSON :: Value -&gt; Parser TeletextPageType
 $cparseJSON :: Value -&gt; Parser TeletextPageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680007359"><span id="local-6989586621680007361"><span class="annot"><span class="annottext">FromJSONKeyFunction [TeletextPageType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680008849"><span id="local-6989586621680008851"><span class="annot"><span class="annottext">FromJSONKeyFunction [TeletextPageType]
 FromJSONKeyFunction TeletextPageType
 FromJSONKeyFunction TeletextPageType
 -&gt; FromJSONKeyFunction [TeletextPageType]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TeletextPageType]
 fromJSONKey :: FromJSONKeyFunction TeletextPageType
 $cfromJSONKey :: FromJSONKeyFunction TeletextPageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680007350"><span id="local-6989586621680007352"><span id="local-6989586621680007354"><span id="local-6989586621680007356"><span class="annot"><span class="annottext">[TeletextPageType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680008840"><span id="local-6989586621680008842"><span id="local-6989586621680008844"><span id="local-6989586621680008846"><span class="annot"><span class="annottext">[TeletextPageType] -&gt; Encoding
 [TeletextPageType] -&gt; Value
 TeletextPageType -&gt; Encoding
 TeletextPageType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: TeletextPageType -&gt; Encoding
 toJSON :: TeletextPageType -&gt; Value
 $ctoJSON :: TeletextPageType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680007345"><span id="local-6989586621680007347"><span class="annot"><span class="annottext">ToJSONKeyFunction [TeletextPageType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680008835"><span id="local-6989586621680008837"><span class="annot"><span class="annottext">ToJSONKeyFunction [TeletextPageType]
 ToJSONKeyFunction TeletextPageType
 ToJSONKeyFunction TeletextPageType
 -&gt; ToJSONKeyFunction [TeletextPageType]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TeletextPageType]
 toJSONKey :: ToJSONKeyFunction TeletextPageType
 $ctoJSONKey :: ToJSONKeyFunction TeletextPageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680007342"><span class="annot"><span class="annottext">[Node] -&gt; Either String TeletextPageType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680008832"><span class="annot"><span class="annottext">[Node] -&gt; Either String TeletextPageType
 ([Node] -&gt; Either String TeletextPageType)
 -&gt; FromXML TeletextPageType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TeletextPageType
 $cparseXML :: [Node] -&gt; Either String TeletextPageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680007339"><span class="annot"><span class="annottext">TeletextPageType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680008829"><span class="annot"><span class="annottext">TeletextPageType -&gt; XML
 (TeletextPageType -&gt; XML) -&gt; ToXML TeletextPageType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TeletextPageType -&gt; XML

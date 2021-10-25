@@ -30,22 +30,21 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- | If no explicit x_position or y_position is provided, setting alignment</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- to centered will place the captions at the bottom center of the output.</span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- Similarly, setting a left alignment will align captions to the bottom</span><span>
-</span><span id="line-36"></span><span class="hs-comment">-- left of the output. If x and y positions are given in conjunction with</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- the alignment parameter, the font will be justified (either left or</span><span>
-</span><span id="line-38"></span><span class="hs-comment">-- centered) relative to those coordinates. This option is not valid for</span><span>
-</span><span id="line-39"></span><span class="hs-comment">-- source captions that are STL, 608\/embedded or teletext. These source</span><span>
-</span><span id="line-40"></span><span class="hs-comment">-- settings are already pre-defined by the caption stream. All burn-in and</span><span>
-</span><span id="line-41"></span><span class="hs-comment">-- DVB-Sub font settings must match.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679956617"><span id="local-6989586621679956618"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleAlignment"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-var">DvbSubtitleAlignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleAlignment%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-var">DvbSubtitleAlignment'</span></a></span></span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbSubtitleAlignment"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
+</span><span id="line-33"></span><span class="hs-comment">-- | Specify the alignment of your captions. If no explicit x_position is</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- provided, setting alignment to centered will placethe captions at the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- bottom center of the output. Similarly, setting a left alignment</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- willalign captions to the bottom left of the output. If x and y</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- positions are given in conjunction with the alignment parameter, the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- font will be justified (either left or centered) relative to those</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- coordinates. Within your job settings, all of your DVB-Sub settings must</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- be identical.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679957936"><span id="local-6989586621679957937"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleAlignment"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-var">DvbSubtitleAlignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleAlignment%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-var">DvbSubtitleAlignment'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbSubtitleAlignment"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#fromDvbSubtitleAlignment"><span class="hs-identifier hs-var hs-var">fromDvbSubtitleAlignment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956609"><span id="local-6989586621679956611"><span id="local-6989586621679956613"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; ShowS
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957928"><span id="local-6989586621679957930"><span id="local-6989586621679957932"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; ShowS
 [DvbSubtitleAlignment] -&gt; ShowS
 DvbSubtitleAlignment -&gt; String
 (Int -&gt; DvbSubtitleAlignment -&gt; ShowS)
@@ -61,7 +60,7 @@ $cshow :: DvbSubtitleAlignment -&gt; String
 showsPrec :: Int -&gt; DvbSubtitleAlignment -&gt; ShowS
 $cshowsPrec :: Int -&gt; DvbSubtitleAlignment -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679956600"><span id="local-6989586621679956602"><span id="local-6989586621679956604"><span id="local-6989586621679956606"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleAlignment]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679957919"><span id="local-6989586621679957921"><span id="local-6989586621679957923"><span id="local-6989586621679957925"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleAlignment]
 ReadPrec DvbSubtitleAlignment
 Int -&gt; ReadS DvbSubtitleAlignment
 ReadS [DvbSubtitleAlignment]
@@ -82,7 +81,7 @@ $creadList :: ReadS [DvbSubtitleAlignment]
 readsPrec :: Int -&gt; ReadS DvbSubtitleAlignment
 $creadsPrec :: Int -&gt; ReadS DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679956595"><span id="local-6989586621679956597"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679957914"><span id="local-6989586621679957916"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool)
 -&gt; (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool)
 -&gt; Eq DvbSubtitleAlignment
@@ -92,7 +91,7 @@ $c/= :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 == :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 $c== :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679956579"><span id="local-6989586621679956581"><span id="local-6989586621679956583"><span id="local-6989586621679956585"><span id="local-6989586621679956587"><span id="local-6989586621679956589"><span id="local-6989586621679956591"><span class="annot"><span class="annottext">Eq DvbSubtitleAlignment
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679957898"><span id="local-6989586621679957900"><span id="local-6989586621679957902"><span id="local-6989586621679957904"><span id="local-6989586621679957906"><span id="local-6989586621679957908"><span id="local-6989586621679957910"><span class="annot"><span class="annottext">Eq DvbSubtitleAlignment
 Eq DvbSubtitleAlignment
 -&gt; (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Ordering)
 -&gt; (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool)
@@ -138,7 +137,7 @@ compare :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Ordering
 $ccompare :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Ordering
 $cp1Ord :: Eq DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DvbSubtitleAlignment -&gt; Rep DvbSubtitleAlignment x)
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DvbSubtitleAlignment -&gt; Rep DvbSubtitleAlignment x)
 -&gt; (forall x. Rep DvbSubtitleAlignment x -&gt; DvbSubtitleAlignment)
 -&gt; Generic DvbSubtitleAlignment
 forall x. Rep DvbSubtitleAlignment x -&gt; DvbSubtitleAlignment
@@ -148,9 +147,9 @@ forall a.
 $cto :: forall x. Rep DvbSubtitleAlignment x -&gt; DvbSubtitleAlignment
 $cfrom :: forall x. DvbSubtitleAlignment -&gt; Rep DvbSubtitleAlignment x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956571"><span id="local-6989586621679956573"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957890"><span id="local-6989586621679957892"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; Int
 DvbSubtitleAlignment -&gt; Int
 (Int -&gt; DvbSubtitleAlignment -&gt; Int)
 -&gt; (DvbSubtitleAlignment -&gt; Int) -&gt; Hashable DvbSubtitleAlignment
@@ -160,54 +159,54 @@ $chash :: DvbSubtitleAlignment -&gt; Int
 hashWithSalt :: Int -&gt; DvbSubtitleAlignment -&gt; Int
 $chashWithSalt :: Int -&gt; DvbSubtitleAlignment -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679956568"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679957887"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ()
 (DvbSubtitleAlignment -&gt; ()) -&gt; NFData DvbSubtitleAlignment
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DvbSubtitleAlignment -&gt; ()
 $crnf :: DvbSubtitleAlignment -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679956565"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleAlignment
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679957884"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleAlignment
 (Text -&gt; Either String DvbSubtitleAlignment)
 -&gt; FromText DvbSubtitleAlignment
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DvbSubtitleAlignment
 $cfromText :: Text -&gt; Either String DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679956562"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679957881"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
 (DvbSubtitleAlignment -&gt; Text) -&gt; ToText DvbSubtitleAlignment
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DvbSubtitleAlignment -&gt; Text
 $ctoText :: DvbSubtitleAlignment -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679956559"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679957878"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteString
 (DvbSubtitleAlignment -&gt; ByteString)
 -&gt; ToByteString DvbSubtitleAlignment
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DvbSubtitleAlignment -&gt; ByteString
 $ctoBS :: DvbSubtitleAlignment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679956556"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679957875"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteStringBuilder
 (DvbSubtitleAlignment -&gt; ByteStringBuilder)
 -&gt; ToLog DvbSubtitleAlignment
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DvbSubtitleAlignment -&gt; ByteStringBuilder
 $cbuild :: DvbSubtitleAlignment -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679956553"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679957872"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
 (HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header])
 -&gt; ToHeader DvbSubtitleAlignment
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679956550"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679957869"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; QueryString
 (DvbSubtitleAlignment -&gt; QueryString)
 -&gt; ToQuery DvbSubtitleAlignment
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DvbSubtitleAlignment -&gt; QueryString
 $ctoQuery :: DvbSubtitleAlignment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679956545"><span id="local-6989586621679956547"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleAlignment]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679957864"><span id="local-6989586621679957866"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleAlignment]
 Value -&gt; Parser DvbSubtitleAlignment
 (Value -&gt; Parser DvbSubtitleAlignment)
 -&gt; (Value -&gt; Parser [DvbSubtitleAlignment])
@@ -219,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [DvbSubtitleAlignment]
 parseJSON :: Value -&gt; Parser DvbSubtitleAlignment
 $cparseJSON :: Value -&gt; Parser DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679956540"><span id="local-6989586621679956542"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleAlignment]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679957859"><span id="local-6989586621679957861"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleAlignment]
 FromJSONKeyFunction DvbSubtitleAlignment
 FromJSONKeyFunction DvbSubtitleAlignment
 -&gt; FromJSONKeyFunction [DvbSubtitleAlignment]
@@ -231,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DvbSubtitleAlignment]
 fromJSONKey :: FromJSONKeyFunction DvbSubtitleAlignment
 $cfromJSONKey :: FromJSONKeyFunction DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679956531"><span id="local-6989586621679956533"><span id="local-6989586621679956535"><span id="local-6989586621679956537"><span class="annot"><span class="annottext">[DvbSubtitleAlignment] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679957850"><span id="local-6989586621679957852"><span id="local-6989586621679957854"><span id="local-6989586621679957856"><span class="annot"><span class="annottext">[DvbSubtitleAlignment] -&gt; Encoding
 [DvbSubtitleAlignment] -&gt; Value
 DvbSubtitleAlignment -&gt; Encoding
 DvbSubtitleAlignment -&gt; Value
@@ -255,7 +254,7 @@ $ctoEncoding :: DvbSubtitleAlignment -&gt; Encoding
 toJSON :: DvbSubtitleAlignment -&gt; Value
 $ctoJSON :: DvbSubtitleAlignment -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679956526"><span id="local-6989586621679956528"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleAlignment]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679957845"><span id="local-6989586621679957847"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleAlignment]
 ToJSONKeyFunction DvbSubtitleAlignment
 ToJSONKeyFunction DvbSubtitleAlignment
 -&gt; ToJSONKeyFunction [DvbSubtitleAlignment]
@@ -267,40 +266,40 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DvbSubtitleAlignment]
 toJSONKey :: ToJSONKeyFunction DvbSubtitleAlignment
 $ctoJSONKey :: ToJSONKeyFunction DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679956523"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleAlignment
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679957842"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleAlignment
 ([Node] -&gt; Either String DvbSubtitleAlignment)
 -&gt; FromXML DvbSubtitleAlignment
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DvbSubtitleAlignment
 $cparseXML :: [Node] -&gt; Either String DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679956520"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679957839"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; XML
 (DvbSubtitleAlignment -&gt; XML) -&gt; ToXML DvbSubtitleAlignment
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DvbSubtitleAlignment -&gt; XML
 $ctoXML :: DvbSubtitleAlignment -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_AUTO"><span class="hs-identifier hs-type">DvbSubtitleAlignment_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-type">DvbSubtitleAlignment</span></a></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleAlignment_AUTO"><span id="%24mDvbSubtitleAlignment_AUTO"><span id="DvbSubtitleAlignment_AUTO"><span class="annot"><span class="annottext">$bDvbSubtitleAlignment_AUTO :: DvbSubtitleAlignment
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_AUTO"><span class="hs-identifier hs-type">DvbSubtitleAlignment_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-type">DvbSubtitleAlignment</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleAlignment_AUTO"><span id="%24mDvbSubtitleAlignment_AUTO"><span id="DvbSubtitleAlignment_AUTO"><span class="annot"><span class="annottext">$bDvbSubtitleAlignment_AUTO :: DvbSubtitleAlignment
 $mDvbSubtitleAlignment_AUTO :: forall r. DvbSubtitleAlignment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#%24bDvbSubtitleAlignment_AUTO"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleAlignment_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-type">DvbSubtitleAlignment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_CENTERED"><span class="hs-identifier hs-type">DvbSubtitleAlignment_CENTERED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-type">DvbSubtitleAlignment</span></a></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleAlignment_CENTERED"><span id="%24mDvbSubtitleAlignment_CENTERED"><span id="DvbSubtitleAlignment_CENTERED"><span class="annot"><span class="annottext">$bDvbSubtitleAlignment_CENTERED :: DvbSubtitleAlignment
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_CENTERED"><span class="hs-identifier hs-type">DvbSubtitleAlignment_CENTERED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-type">DvbSubtitleAlignment</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleAlignment_CENTERED"><span id="%24mDvbSubtitleAlignment_CENTERED"><span id="DvbSubtitleAlignment_CENTERED"><span class="annot"><span class="annottext">$bDvbSubtitleAlignment_CENTERED :: DvbSubtitleAlignment
 $mDvbSubtitleAlignment_CENTERED :: forall r. DvbSubtitleAlignment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#%24bDvbSubtitleAlignment_CENTERED"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleAlignment_CENTERED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-type">DvbSubtitleAlignment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CENTERED&quot;</span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_LEFT"><span class="hs-identifier hs-type">DvbSubtitleAlignment_LEFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-type">DvbSubtitleAlignment</span></a></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleAlignment_LEFT"><span id="%24mDvbSubtitleAlignment_LEFT"><span id="DvbSubtitleAlignment_LEFT"><span class="annot"><span class="annottext">$bDvbSubtitleAlignment_LEFT :: DvbSubtitleAlignment
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_LEFT"><span class="hs-identifier hs-type">DvbSubtitleAlignment_LEFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-type">DvbSubtitleAlignment</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleAlignment_LEFT"><span id="%24mDvbSubtitleAlignment_LEFT"><span id="DvbSubtitleAlignment_LEFT"><span class="annot"><span class="annottext">$bDvbSubtitleAlignment_LEFT :: DvbSubtitleAlignment
 $mDvbSubtitleAlignment_LEFT :: forall r. DvbSubtitleAlignment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#%24bDvbSubtitleAlignment_LEFT"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleAlignment_LEFT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-type">DvbSubtitleAlignment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEFT&quot;</span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_AUTO"><span class="hs-pragma hs-type">DvbSubtitleAlignment_AUTO</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_CENTERED"><span class="hs-pragma hs-type">DvbSubtitleAlignment_CENTERED</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_LEFT"><span class="hs-pragma hs-type">DvbSubtitleAlignment_LEFT</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-pragma hs-type">DvbSubtitleAlignment'</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
-</span><span id="line-85"></span></pre></body></html>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_AUTO"><span class="hs-pragma hs-type">DvbSubtitleAlignment_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_CENTERED"><span class="hs-pragma hs-type">DvbSubtitleAlignment_CENTERED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment_LEFT"><span class="hs-pragma hs-type">DvbSubtitleAlignment_LEFT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-pragma hs-type">DvbSubtitleAlignment'</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-84"></span></pre></body></html>

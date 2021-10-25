@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-comment">-- 235 and 10-bit outputs contain only values from 64 through 940. With</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- this conversion, MediaConvert also changes the output metadata to note</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- the limited range.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621680003747"><span id="local-6989586621680003748"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SampleRangeConversion"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SampleRangeConversion.html#SampleRangeConversion"><span class="hs-identifier hs-var">SampleRangeConversion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleRangeConversion%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SampleRangeConversion.html#SampleRangeConversion%27"><span class="hs-identifier hs-var">SampleRangeConversion'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621680005237"><span id="local-6989586621680005238"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SampleRangeConversion"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SampleRangeConversion.html#SampleRangeConversion"><span class="hs-identifier hs-var">SampleRangeConversion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleRangeConversion%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SampleRangeConversion.html#SampleRangeConversion%27"><span class="hs-identifier hs-var">SampleRangeConversion'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSampleRangeConversion"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.SampleRangeConversion.html#fromSampleRangeConversion"><span class="hs-identifier hs-var hs-var">fromSampleRangeConversion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680003739"><span id="local-6989586621680003741"><span id="local-6989586621680003743"><span class="annot"><span class="annottext">Int -&gt; SampleRangeConversion -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005229"><span id="local-6989586621680005231"><span id="local-6989586621680005233"><span class="annot"><span class="annottext">Int -&gt; SampleRangeConversion -&gt; ShowS
 [SampleRangeConversion] -&gt; ShowS
 SampleRangeConversion -&gt; String
 (Int -&gt; SampleRangeConversion -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: SampleRangeConversion -&gt; String
 showsPrec :: Int -&gt; SampleRangeConversion -&gt; ShowS
 $cshowsPrec :: Int -&gt; SampleRangeConversion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680003730"><span id="local-6989586621680003732"><span id="local-6989586621680003734"><span id="local-6989586621680003736"><span class="annot"><span class="annottext">ReadPrec [SampleRangeConversion]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680005220"><span id="local-6989586621680005222"><span id="local-6989586621680005224"><span id="local-6989586621680005226"><span class="annot"><span class="annottext">ReadPrec [SampleRangeConversion]
 ReadPrec SampleRangeConversion
 Int -&gt; ReadS SampleRangeConversion
 ReadS [SampleRangeConversion]
@@ -83,7 +83,7 @@ $creadList :: ReadS [SampleRangeConversion]
 readsPrec :: Int -&gt; ReadS SampleRangeConversion
 $creadsPrec :: Int -&gt; ReadS SampleRangeConversion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680003725"><span id="local-6989586621680003727"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680005215"><span id="local-6989586621680005217"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool
 (SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool)
 -&gt; (SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool)
 -&gt; Eq SampleRangeConversion
@@ -93,7 +93,7 @@ $c/= :: SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool
 == :: SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool
 $c== :: SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680003709"><span id="local-6989586621680003711"><span id="local-6989586621680003713"><span id="local-6989586621680003715"><span id="local-6989586621680003717"><span id="local-6989586621680003719"><span id="local-6989586621680003721"><span class="annot"><span class="annottext">Eq SampleRangeConversion
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680005199"><span id="local-6989586621680005201"><span id="local-6989586621680005203"><span id="local-6989586621680005205"><span id="local-6989586621680005207"><span id="local-6989586621680005209"><span id="local-6989586621680005211"><span class="annot"><span class="annottext">Eq SampleRangeConversion
 Eq SampleRangeConversion
 -&gt; (SampleRangeConversion -&gt; SampleRangeConversion -&gt; Ordering)
 -&gt; (SampleRangeConversion -&gt; SampleRangeConversion -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. SampleRangeConversion -&gt; Rep SampleRangeConversion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680003701"><span id="local-6989586621680003703"><span class="annot"><span class="annottext">Int -&gt; SampleRangeConversion -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005191"><span id="local-6989586621680005193"><span class="annot"><span class="annottext">Int -&gt; SampleRangeConversion -&gt; Int
 SampleRangeConversion -&gt; Int
 (Int -&gt; SampleRangeConversion -&gt; Int)
 -&gt; (SampleRangeConversion -&gt; Int) -&gt; Hashable SampleRangeConversion
@@ -161,54 +161,54 @@ $chash :: SampleRangeConversion -&gt; Int
 hashWithSalt :: Int -&gt; SampleRangeConversion -&gt; Int
 $chashWithSalt :: Int -&gt; SampleRangeConversion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680003698"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005188"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; ()
 (SampleRangeConversion -&gt; ()) -&gt; NFData SampleRangeConversion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SampleRangeConversion -&gt; ()
 $crnf :: SampleRangeConversion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680003695"><span class="annot"><span class="annottext">Text -&gt; Either String SampleRangeConversion
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005185"><span class="annot"><span class="annottext">Text -&gt; Either String SampleRangeConversion
 (Text -&gt; Either String SampleRangeConversion)
 -&gt; FromText SampleRangeConversion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SampleRangeConversion
 $cfromText :: Text -&gt; Either String SampleRangeConversion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680003692"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005182"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; Text
 (SampleRangeConversion -&gt; Text) -&gt; ToText SampleRangeConversion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SampleRangeConversion -&gt; Text
 $ctoText :: SampleRangeConversion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680003689"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005179"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; ByteString
 (SampleRangeConversion -&gt; ByteString)
 -&gt; ToByteString SampleRangeConversion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SampleRangeConversion -&gt; ByteString
 $ctoBS :: SampleRangeConversion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680003686"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005176"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; ByteStringBuilder
 (SampleRangeConversion -&gt; ByteStringBuilder)
 -&gt; ToLog SampleRangeConversion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SampleRangeConversion -&gt; ByteStringBuilder
 $cbuild :: SampleRangeConversion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680003683"><span class="annot"><span class="annottext">HeaderName -&gt; SampleRangeConversion -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005173"><span class="annot"><span class="annottext">HeaderName -&gt; SampleRangeConversion -&gt; [Header]
 (HeaderName -&gt; SampleRangeConversion -&gt; [Header])
 -&gt; ToHeader SampleRangeConversion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SampleRangeConversion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SampleRangeConversion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680003680"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005170"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; QueryString
 (SampleRangeConversion -&gt; QueryString)
 -&gt; ToQuery SampleRangeConversion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SampleRangeConversion -&gt; QueryString
 $ctoQuery :: SampleRangeConversion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680003675"><span id="local-6989586621680003677"><span class="annot"><span class="annottext">Value -&gt; Parser [SampleRangeConversion]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680005165"><span id="local-6989586621680005167"><span class="annot"><span class="annottext">Value -&gt; Parser [SampleRangeConversion]
 Value -&gt; Parser SampleRangeConversion
 (Value -&gt; Parser SampleRangeConversion)
 -&gt; (Value -&gt; Parser [SampleRangeConversion])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [SampleRangeConversion]
 parseJSON :: Value -&gt; Parser SampleRangeConversion
 $cparseJSON :: Value -&gt; Parser SampleRangeConversion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680003670"><span id="local-6989586621680003672"><span class="annot"><span class="annottext">FromJSONKeyFunction [SampleRangeConversion]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680005160"><span id="local-6989586621680005162"><span class="annot"><span class="annottext">FromJSONKeyFunction [SampleRangeConversion]
 FromJSONKeyFunction SampleRangeConversion
 FromJSONKeyFunction SampleRangeConversion
 -&gt; FromJSONKeyFunction [SampleRangeConversion]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SampleRangeConversion]
 fromJSONKey :: FromJSONKeyFunction SampleRangeConversion
 $cfromJSONKey :: FromJSONKeyFunction SampleRangeConversion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680003661"><span id="local-6989586621680003663"><span id="local-6989586621680003665"><span id="local-6989586621680003667"><span class="annot"><span class="annottext">[SampleRangeConversion] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680005151"><span id="local-6989586621680005153"><span id="local-6989586621680005155"><span id="local-6989586621680005157"><span class="annot"><span class="annottext">[SampleRangeConversion] -&gt; Encoding
 [SampleRangeConversion] -&gt; Value
 SampleRangeConversion -&gt; Encoding
 SampleRangeConversion -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: SampleRangeConversion -&gt; Encoding
 toJSON :: SampleRangeConversion -&gt; Value
 $ctoJSON :: SampleRangeConversion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680003656"><span id="local-6989586621680003658"><span class="annot"><span class="annottext">ToJSONKeyFunction [SampleRangeConversion]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680005146"><span id="local-6989586621680005148"><span class="annot"><span class="annottext">ToJSONKeyFunction [SampleRangeConversion]
 ToJSONKeyFunction SampleRangeConversion
 ToJSONKeyFunction SampleRangeConversion
 -&gt; ToJSONKeyFunction [SampleRangeConversion]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SampleRangeConversion]
 toJSONKey :: ToJSONKeyFunction SampleRangeConversion
 $ctoJSONKey :: ToJSONKeyFunction SampleRangeConversion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680003653"><span class="annot"><span class="annottext">[Node] -&gt; Either String SampleRangeConversion
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680005143"><span class="annot"><span class="annottext">[Node] -&gt; Either String SampleRangeConversion
 ([Node] -&gt; Either String SampleRangeConversion)
 -&gt; FromXML SampleRangeConversion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SampleRangeConversion
 $cparseXML :: [Node] -&gt; Either String SampleRangeConversion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680003650"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680005140"><span class="annot"><span class="annottext">SampleRangeConversion -&gt; XML
 (SampleRangeConversion -&gt; XML) -&gt; ToXML SampleRangeConversion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SampleRangeConversion -&gt; XML

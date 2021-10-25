@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679278164"><span id="local-6989586621679278165"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BGPStatus"><span class="annot"><a href="Network.AWS.DirectConnect.Types.BGPStatus.html#BGPStatus"><span class="hs-identifier hs-var">BGPStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BGPStatus%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.BGPStatus.html#BGPStatus%27"><span class="hs-identifier hs-var">BGPStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679286195"><span id="local-6989586621679286196"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BGPStatus"><span class="annot"><a href="Network.AWS.DirectConnect.Types.BGPStatus.html#BGPStatus"><span class="hs-identifier hs-var">BGPStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BGPStatus%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.BGPStatus.html#BGPStatus%27"><span class="hs-identifier hs-var">BGPStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBGPStatus"><span class="annot"><span class="annottext">BGPStatus -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.BGPStatus.html#fromBGPStatus"><span class="hs-identifier hs-var hs-var">fromBGPStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278156"><span id="local-6989586621679278158"><span id="local-6989586621679278160"><span class="annot"><span class="annottext">Int -&gt; BGPStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286187"><span id="local-6989586621679286189"><span id="local-6989586621679286191"><span class="annot"><span class="annottext">Int -&gt; BGPStatus -&gt; ShowS
 [BGPStatus] -&gt; ShowS
 BGPStatus -&gt; String
 (Int -&gt; BGPStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BGPStatus -&gt; String
 showsPrec :: Int -&gt; BGPStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BGPStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679278147"><span id="local-6989586621679278149"><span id="local-6989586621679278151"><span id="local-6989586621679278153"><span class="annot"><span class="annottext">ReadPrec [BGPStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679286178"><span id="local-6989586621679286180"><span id="local-6989586621679286182"><span id="local-6989586621679286184"><span class="annot"><span class="annottext">ReadPrec [BGPStatus]
 ReadPrec BGPStatus
 Int -&gt; ReadS BGPStatus
 ReadS [BGPStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BGPStatus]
 readsPrec :: Int -&gt; ReadS BGPStatus
 $creadsPrec :: Int -&gt; ReadS BGPStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679278142"><span id="local-6989586621679278144"><span class="annot"><span class="annottext">BGPStatus -&gt; BGPStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679286173"><span id="local-6989586621679286175"><span class="annot"><span class="annottext">BGPStatus -&gt; BGPStatus -&gt; Bool
 (BGPStatus -&gt; BGPStatus -&gt; Bool)
 -&gt; (BGPStatus -&gt; BGPStatus -&gt; Bool) -&gt; Eq BGPStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: BGPStatus -&gt; BGPStatus -&gt; Bool
 == :: BGPStatus -&gt; BGPStatus -&gt; Bool
 $c== :: BGPStatus -&gt; BGPStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679278126"><span id="local-6989586621679278128"><span id="local-6989586621679278130"><span id="local-6989586621679278132"><span id="local-6989586621679278134"><span id="local-6989586621679278136"><span id="local-6989586621679278138"><span class="annot"><span class="annottext">Eq BGPStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679286157"><span id="local-6989586621679286159"><span id="local-6989586621679286161"><span id="local-6989586621679286163"><span id="local-6989586621679286165"><span id="local-6989586621679286167"><span id="local-6989586621679286169"><span class="annot"><span class="annottext">Eq BGPStatus
 Eq BGPStatus
 -&gt; (BGPStatus -&gt; BGPStatus -&gt; Ordering)
 -&gt; (BGPStatus -&gt; BGPStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. BGPStatus -&gt; Rep BGPStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278118"><span id="local-6989586621679278120"><span class="annot"><span class="annottext">Int -&gt; BGPStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286149"><span id="local-6989586621679286151"><span class="annot"><span class="annottext">Int -&gt; BGPStatus -&gt; Int
 BGPStatus -&gt; Int
 (Int -&gt; BGPStatus -&gt; Int)
 -&gt; (BGPStatus -&gt; Int) -&gt; Hashable BGPStatus
@@ -142,49 +142,49 @@ $chash :: BGPStatus -&gt; Int
 hashWithSalt :: Int -&gt; BGPStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BGPStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679278115"><span class="annot"><span class="annottext">BGPStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679286146"><span class="annot"><span class="annottext">BGPStatus -&gt; ()
 (BGPStatus -&gt; ()) -&gt; NFData BGPStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BGPStatus -&gt; ()
 $crnf :: BGPStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679278112"><span class="annot"><span class="annottext">Text -&gt; Either String BGPStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679286143"><span class="annot"><span class="annottext">Text -&gt; Either String BGPStatus
 (Text -&gt; Either String BGPStatus) -&gt; FromText BGPStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BGPStatus
 $cfromText :: Text -&gt; Either String BGPStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679278109"><span class="annot"><span class="annottext">BGPStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679286140"><span class="annot"><span class="annottext">BGPStatus -&gt; Text
 (BGPStatus -&gt; Text) -&gt; ToText BGPStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BGPStatus -&gt; Text
 $ctoText :: BGPStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679278106"><span class="annot"><span class="annottext">BGPStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679286137"><span class="annot"><span class="annottext">BGPStatus -&gt; ByteString
 (BGPStatus -&gt; ByteString) -&gt; ToByteString BGPStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BGPStatus -&gt; ByteString
 $ctoBS :: BGPStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679278103"><span class="annot"><span class="annottext">BGPStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679286134"><span class="annot"><span class="annottext">BGPStatus -&gt; ByteStringBuilder
 (BGPStatus -&gt; ByteStringBuilder) -&gt; ToLog BGPStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BGPStatus -&gt; ByteStringBuilder
 $cbuild :: BGPStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679278100"><span class="annot"><span class="annottext">HeaderName -&gt; BGPStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679286131"><span class="annot"><span class="annottext">HeaderName -&gt; BGPStatus -&gt; [Header]
 (HeaderName -&gt; BGPStatus -&gt; [Header]) -&gt; ToHeader BGPStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BGPStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BGPStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679278097"><span class="annot"><span class="annottext">BGPStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679286128"><span class="annot"><span class="annottext">BGPStatus -&gt; QueryString
 (BGPStatus -&gt; QueryString) -&gt; ToQuery BGPStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BGPStatus -&gt; QueryString
 $ctoQuery :: BGPStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679278092"><span id="local-6989586621679278094"><span class="annot"><span class="annottext">Value -&gt; Parser [BGPStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679286123"><span id="local-6989586621679286125"><span class="annot"><span class="annottext">Value -&gt; Parser [BGPStatus]
 Value -&gt; Parser BGPStatus
 (Value -&gt; Parser BGPStatus)
 -&gt; (Value -&gt; Parser [BGPStatus]) -&gt; FromJSON BGPStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [BGPStatus]
 parseJSON :: Value -&gt; Parser BGPStatus
 $cparseJSON :: Value -&gt; Parser BGPStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679278087"><span id="local-6989586621679278089"><span class="annot"><span class="annottext">FromJSONKeyFunction [BGPStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679286118"><span id="local-6989586621679286120"><span class="annot"><span class="annottext">FromJSONKeyFunction [BGPStatus]
 FromJSONKeyFunction BGPStatus
 FromJSONKeyFunction BGPStatus
 -&gt; FromJSONKeyFunction [BGPStatus] -&gt; FromJSONKey BGPStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BGPStatus]
 fromJSONKey :: FromJSONKeyFunction BGPStatus
 $cfromJSONKey :: FromJSONKeyFunction BGPStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679278078"><span id="local-6989586621679278080"><span id="local-6989586621679278082"><span id="local-6989586621679278084"><span class="annot"><span class="annottext">[BGPStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679286109"><span id="local-6989586621679286111"><span id="local-6989586621679286113"><span id="local-6989586621679286115"><span class="annot"><span class="annottext">[BGPStatus] -&gt; Encoding
 [BGPStatus] -&gt; Value
 BGPStatus -&gt; Encoding
 BGPStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: BGPStatus -&gt; Encoding
 toJSON :: BGPStatus -&gt; Value
 $ctoJSON :: BGPStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679278073"><span id="local-6989586621679278075"><span class="annot"><span class="annottext">ToJSONKeyFunction [BGPStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679286104"><span id="local-6989586621679286106"><span class="annot"><span class="annottext">ToJSONKeyFunction [BGPStatus]
 ToJSONKeyFunction BGPStatus
 ToJSONKeyFunction BGPStatus
 -&gt; ToJSONKeyFunction [BGPStatus] -&gt; ToJSONKey BGPStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BGPStatus]
 toJSONKey :: ToJSONKeyFunction BGPStatus
 $ctoJSONKey :: ToJSONKeyFunction BGPStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679278070"><span class="annot"><span class="annottext">[Node] -&gt; Either String BGPStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679286101"><span class="annot"><span class="annottext">[Node] -&gt; Either String BGPStatus
 ([Node] -&gt; Either String BGPStatus) -&gt; FromXML BGPStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BGPStatus
 $cparseXML :: [Node] -&gt; Either String BGPStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679278067"><span class="annot"><span class="annottext">BGPStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679286098"><span class="annot"><span class="annottext">BGPStatus -&gt; XML
 (BGPStatus -&gt; XML) -&gt; ToXML BGPStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BGPStatus -&gt; XML

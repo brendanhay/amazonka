@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Places a PPS header on each encoded picture, even if repeated.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679968043"><span id="local-6989586621679968044"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264RepeatPps"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264RepeatPps.html#H264RepeatPps"><span class="hs-identifier hs-var">H264RepeatPps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264RepeatPps%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264RepeatPps.html#H264RepeatPps%27"><span class="hs-identifier hs-var">H264RepeatPps'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679969533"><span id="local-6989586621679969534"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264RepeatPps"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264RepeatPps.html#H264RepeatPps"><span class="hs-identifier hs-var">H264RepeatPps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264RepeatPps%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264RepeatPps.html#H264RepeatPps%27"><span class="hs-identifier hs-var">H264RepeatPps'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264RepeatPps"><span class="annot"><span class="annottext">H264RepeatPps -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264RepeatPps.html#fromH264RepeatPps"><span class="hs-identifier hs-var hs-var">fromH264RepeatPps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968035"><span id="local-6989586621679968037"><span id="local-6989586621679968039"><span class="annot"><span class="annottext">Int -&gt; H264RepeatPps -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679969525"><span id="local-6989586621679969527"><span id="local-6989586621679969529"><span class="annot"><span class="annottext">Int -&gt; H264RepeatPps -&gt; ShowS
 [H264RepeatPps] -&gt; ShowS
 H264RepeatPps -&gt; String
 (Int -&gt; H264RepeatPps -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: H264RepeatPps -&gt; String
 showsPrec :: Int -&gt; H264RepeatPps -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264RepeatPps -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679968026"><span id="local-6989586621679968028"><span id="local-6989586621679968030"><span id="local-6989586621679968032"><span class="annot"><span class="annottext">ReadPrec [H264RepeatPps]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679969516"><span id="local-6989586621679969518"><span id="local-6989586621679969520"><span id="local-6989586621679969522"><span class="annot"><span class="annottext">ReadPrec [H264RepeatPps]
 ReadPrec H264RepeatPps
 Int -&gt; ReadS H264RepeatPps
 ReadS [H264RepeatPps]
@@ -73,7 +73,7 @@ $creadList :: ReadS [H264RepeatPps]
 readsPrec :: Int -&gt; ReadS H264RepeatPps
 $creadsPrec :: Int -&gt; ReadS H264RepeatPps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679968021"><span id="local-6989586621679968023"><span class="annot"><span class="annottext">H264RepeatPps -&gt; H264RepeatPps -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679969511"><span id="local-6989586621679969513"><span class="annot"><span class="annottext">H264RepeatPps -&gt; H264RepeatPps -&gt; Bool
 (H264RepeatPps -&gt; H264RepeatPps -&gt; Bool)
 -&gt; (H264RepeatPps -&gt; H264RepeatPps -&gt; Bool) -&gt; Eq H264RepeatPps
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: H264RepeatPps -&gt; H264RepeatPps -&gt; Bool
 == :: H264RepeatPps -&gt; H264RepeatPps -&gt; Bool
 $c== :: H264RepeatPps -&gt; H264RepeatPps -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679968005"><span id="local-6989586621679968007"><span id="local-6989586621679968009"><span id="local-6989586621679968011"><span id="local-6989586621679968013"><span id="local-6989586621679968015"><span id="local-6989586621679968017"><span class="annot"><span class="annottext">Eq H264RepeatPps
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679969495"><span id="local-6989586621679969497"><span id="local-6989586621679969499"><span id="local-6989586621679969501"><span id="local-6989586621679969503"><span id="local-6989586621679969505"><span id="local-6989586621679969507"><span class="annot"><span class="annottext">Eq H264RepeatPps
 Eq H264RepeatPps
 -&gt; (H264RepeatPps -&gt; H264RepeatPps -&gt; Ordering)
 -&gt; (H264RepeatPps -&gt; H264RepeatPps -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. H264RepeatPps -&gt; Rep H264RepeatPps x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967997"><span id="local-6989586621679967999"><span class="annot"><span class="annottext">Int -&gt; H264RepeatPps -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679969487"><span id="local-6989586621679969489"><span class="annot"><span class="annottext">Int -&gt; H264RepeatPps -&gt; Int
 H264RepeatPps -&gt; Int
 (Int -&gt; H264RepeatPps -&gt; Int)
 -&gt; (H264RepeatPps -&gt; Int) -&gt; Hashable H264RepeatPps
@@ -143,49 +143,49 @@ $chash :: H264RepeatPps -&gt; Int
 hashWithSalt :: Int -&gt; H264RepeatPps -&gt; Int
 $chashWithSalt :: Int -&gt; H264RepeatPps -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679967994"><span class="annot"><span class="annottext">H264RepeatPps -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679969484"><span class="annot"><span class="annottext">H264RepeatPps -&gt; ()
 (H264RepeatPps -&gt; ()) -&gt; NFData H264RepeatPps
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264RepeatPps -&gt; ()
 $crnf :: H264RepeatPps -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679967991"><span class="annot"><span class="annottext">Text -&gt; Either String H264RepeatPps
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679969481"><span class="annot"><span class="annottext">Text -&gt; Either String H264RepeatPps
 (Text -&gt; Either String H264RepeatPps) -&gt; FromText H264RepeatPps
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264RepeatPps
 $cfromText :: Text -&gt; Either String H264RepeatPps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679967988"><span class="annot"><span class="annottext">H264RepeatPps -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679969478"><span class="annot"><span class="annottext">H264RepeatPps -&gt; Text
 (H264RepeatPps -&gt; Text) -&gt; ToText H264RepeatPps
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264RepeatPps -&gt; Text
 $ctoText :: H264RepeatPps -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679967985"><span class="annot"><span class="annottext">H264RepeatPps -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679969475"><span class="annot"><span class="annottext">H264RepeatPps -&gt; ByteString
 (H264RepeatPps -&gt; ByteString) -&gt; ToByteString H264RepeatPps
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264RepeatPps -&gt; ByteString
 $ctoBS :: H264RepeatPps -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679967982"><span class="annot"><span class="annottext">H264RepeatPps -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679969472"><span class="annot"><span class="annottext">H264RepeatPps -&gt; ByteStringBuilder
 (H264RepeatPps -&gt; ByteStringBuilder) -&gt; ToLog H264RepeatPps
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264RepeatPps -&gt; ByteStringBuilder
 $cbuild :: H264RepeatPps -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679967979"><span class="annot"><span class="annottext">HeaderName -&gt; H264RepeatPps -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679969469"><span class="annot"><span class="annottext">HeaderName -&gt; H264RepeatPps -&gt; [Header]
 (HeaderName -&gt; H264RepeatPps -&gt; [Header]) -&gt; ToHeader H264RepeatPps
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264RepeatPps -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264RepeatPps -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679967976"><span class="annot"><span class="annottext">H264RepeatPps -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679969466"><span class="annot"><span class="annottext">H264RepeatPps -&gt; QueryString
 (H264RepeatPps -&gt; QueryString) -&gt; ToQuery H264RepeatPps
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264RepeatPps -&gt; QueryString
 $ctoQuery :: H264RepeatPps -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679967971"><span id="local-6989586621679967973"><span class="annot"><span class="annottext">Value -&gt; Parser [H264RepeatPps]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679969461"><span id="local-6989586621679969463"><span class="annot"><span class="annottext">Value -&gt; Parser [H264RepeatPps]
 Value -&gt; Parser H264RepeatPps
 (Value -&gt; Parser H264RepeatPps)
 -&gt; (Value -&gt; Parser [H264RepeatPps]) -&gt; FromJSON H264RepeatPps
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [H264RepeatPps]
 parseJSON :: Value -&gt; Parser H264RepeatPps
 $cparseJSON :: Value -&gt; Parser H264RepeatPps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679967966"><span id="local-6989586621679967968"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264RepeatPps]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679969456"><span id="local-6989586621679969458"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264RepeatPps]
 FromJSONKeyFunction H264RepeatPps
 FromJSONKeyFunction H264RepeatPps
 -&gt; FromJSONKeyFunction [H264RepeatPps] -&gt; FromJSONKey H264RepeatPps
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264RepeatPps]
 fromJSONKey :: FromJSONKeyFunction H264RepeatPps
 $cfromJSONKey :: FromJSONKeyFunction H264RepeatPps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679967957"><span id="local-6989586621679967959"><span id="local-6989586621679967961"><span id="local-6989586621679967963"><span class="annot"><span class="annottext">[H264RepeatPps] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679969447"><span id="local-6989586621679969449"><span id="local-6989586621679969451"><span id="local-6989586621679969453"><span class="annot"><span class="annottext">[H264RepeatPps] -&gt; Encoding
 [H264RepeatPps] -&gt; Value
 H264RepeatPps -&gt; Encoding
 H264RepeatPps -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: H264RepeatPps -&gt; Encoding
 toJSON :: H264RepeatPps -&gt; Value
 $ctoJSON :: H264RepeatPps -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679967952"><span id="local-6989586621679967954"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264RepeatPps]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679969442"><span id="local-6989586621679969444"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264RepeatPps]
 ToJSONKeyFunction H264RepeatPps
 ToJSONKeyFunction H264RepeatPps
 -&gt; ToJSONKeyFunction [H264RepeatPps] -&gt; ToJSONKey H264RepeatPps
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264RepeatPps]
 toJSONKey :: ToJSONKeyFunction H264RepeatPps
 $ctoJSONKey :: ToJSONKeyFunction H264RepeatPps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679967949"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264RepeatPps
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679969439"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264RepeatPps
 ([Node] -&gt; Either String H264RepeatPps) -&gt; FromXML H264RepeatPps
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264RepeatPps
 $cparseXML :: [Node] -&gt; Either String H264RepeatPps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679967946"><span class="annot"><span class="annottext">H264RepeatPps -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679969436"><span class="annot"><span class="annottext">H264RepeatPps -&gt; XML
 (H264RepeatPps -&gt; XML) -&gt; ToXML H264RepeatPps
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264RepeatPps -&gt; XML

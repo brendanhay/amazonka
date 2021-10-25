@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679991638"><span id="local-6989586621679991639"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Mpeg2FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Mpeg2FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679993128"><span id="local-6989586621679993129"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Mpeg2FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Mpeg2FramerateConversionAlgorithm'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2FramerateConversionAlgorithm"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#fromMpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromMpeg2FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991630"><span id="local-6989586621679991632"><span id="local-6989586621679991634"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679993120"><span id="local-6989586621679993122"><span id="local-6989586621679993124"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
 [Mpeg2FramerateConversionAlgorithm] -&gt; ShowS
 Mpeg2FramerateConversionAlgorithm -&gt; String
 (Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: Mpeg2FramerateConversionAlgorithm -&gt; String
 showsPrec :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679991621"><span id="local-6989586621679991623"><span id="local-6989586621679991625"><span id="local-6989586621679991627"><span class="annot"><span class="annottext">ReadPrec [Mpeg2FramerateConversionAlgorithm]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679993111"><span id="local-6989586621679993113"><span id="local-6989586621679993115"><span id="local-6989586621679993117"><span class="annot"><span class="annottext">ReadPrec [Mpeg2FramerateConversionAlgorithm]
 ReadPrec Mpeg2FramerateConversionAlgorithm
 Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm
 ReadS [Mpeg2FramerateConversionAlgorithm]
@@ -84,7 +84,7 @@ $creadList :: ReadS [Mpeg2FramerateConversionAlgorithm]
 readsPrec :: Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm
 $creadsPrec :: Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991616"><span id="local-6989586621679991618"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679993106"><span id="local-6989586621679993108"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm
 -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
 (Mpeg2FramerateConversionAlgorithm
  -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: Mpeg2FramerateConversionAlgorithm
 $c== :: Mpeg2FramerateConversionAlgorithm
 -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991600"><span id="local-6989586621679991602"><span id="local-6989586621679991604"><span id="local-6989586621679991606"><span id="local-6989586621679991608"><span id="local-6989586621679991610"><span id="local-6989586621679991612"><span class="annot"><span class="annottext">Eq Mpeg2FramerateConversionAlgorithm
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679993090"><span id="local-6989586621679993092"><span id="local-6989586621679993094"><span id="local-6989586621679993096"><span id="local-6989586621679993098"><span id="local-6989586621679993100"><span id="local-6989586621679993102"><span class="annot"><span class="annottext">Eq Mpeg2FramerateConversionAlgorithm
 Eq Mpeg2FramerateConversionAlgorithm
 -&gt; (Mpeg2FramerateConversionAlgorithm
     -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Ordering)
@@ -195,7 +195,7 @@ Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991592"><span id="local-6989586621679991594"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679993082"><span id="local-6989586621679993084"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
 Mpeg2FramerateConversionAlgorithm -&gt; Int
 (Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int)
 -&gt; (Mpeg2FramerateConversionAlgorithm -&gt; Int)
@@ -206,56 +206,56 @@ $chash :: Mpeg2FramerateConversionAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679991589"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679993079"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ()
 (Mpeg2FramerateConversionAlgorithm -&gt; ())
 -&gt; NFData Mpeg2FramerateConversionAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2FramerateConversionAlgorithm -&gt; ()
 $crnf :: Mpeg2FramerateConversionAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991586"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679993076"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
 (Text -&gt; Either String Mpeg2FramerateConversionAlgorithm)
 -&gt; FromText Mpeg2FramerateConversionAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
 $cfromText :: Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991583"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679993073"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; Text
 (Mpeg2FramerateConversionAlgorithm -&gt; Text)
 -&gt; ToText Mpeg2FramerateConversionAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2FramerateConversionAlgorithm -&gt; Text
 $ctoText :: Mpeg2FramerateConversionAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991580"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679993070"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ByteString
 (Mpeg2FramerateConversionAlgorithm -&gt; ByteString)
 -&gt; ToByteString Mpeg2FramerateConversionAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2FramerateConversionAlgorithm -&gt; ByteString
 $ctoBS :: Mpeg2FramerateConversionAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991577"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679993067"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
 (Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder)
 -&gt; ToLog Mpeg2FramerateConversionAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
 $cbuild :: Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991574"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679993064"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
 (HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header])
 -&gt; ToHeader Mpeg2FramerateConversionAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991571"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679993061"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; QueryString
 (Mpeg2FramerateConversionAlgorithm -&gt; QueryString)
 -&gt; ToQuery Mpeg2FramerateConversionAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2FramerateConversionAlgorithm -&gt; QueryString
 $ctoQuery :: Mpeg2FramerateConversionAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679991566"><span id="local-6989586621679991568"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679993056"><span id="local-6989586621679993058"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm]
 Value -&gt; Parser Mpeg2FramerateConversionAlgorithm
 (Value -&gt; Parser Mpeg2FramerateConversionAlgorithm)
 -&gt; (Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm])
@@ -267,7 +267,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm]
 parseJSON :: Value -&gt; Parser Mpeg2FramerateConversionAlgorithm
 $cparseJSON :: Value -&gt; Parser Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679991561"><span id="local-6989586621679991563"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679993051"><span id="local-6989586621679993053"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
 FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 -&gt; FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
@@ -279,7 +279,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
 fromJSONKey :: FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679991552"><span id="local-6989586621679991554"><span id="local-6989586621679991556"><span id="local-6989586621679991558"><span class="annot"><span class="annottext">[Mpeg2FramerateConversionAlgorithm] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679993042"><span id="local-6989586621679993044"><span id="local-6989586621679993046"><span id="local-6989586621679993048"><span class="annot"><span class="annottext">[Mpeg2FramerateConversionAlgorithm] -&gt; Encoding
 [Mpeg2FramerateConversionAlgorithm] -&gt; Value
 Mpeg2FramerateConversionAlgorithm -&gt; Encoding
 Mpeg2FramerateConversionAlgorithm -&gt; Value
@@ -303,7 +303,7 @@ $ctoEncoding :: Mpeg2FramerateConversionAlgorithm -&gt; Encoding
 toJSON :: Mpeg2FramerateConversionAlgorithm -&gt; Value
 $ctoJSON :: Mpeg2FramerateConversionAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679991547"><span id="local-6989586621679991549"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679993037"><span id="local-6989586621679993039"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
 ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 -&gt; ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
@@ -315,14 +315,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
 toJSONKey :: ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679991544"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679993034"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
 ([Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm)
 -&gt; FromXML Mpeg2FramerateConversionAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
 $cparseXML :: [Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679991541"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679993031"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; XML
 (Mpeg2FramerateConversionAlgorithm -&gt; XML)
 -&gt; ToXML Mpeg2FramerateConversionAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- the job. The service uses this default for outputs where it can\'t find</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- the specified input audio. If you don\'t set a default, those outputs</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- have no audio.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679940107"><span id="local-6989586621679940108"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioDefaultSelection"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDefaultSelection.html#AudioDefaultSelection"><span class="hs-identifier hs-var">AudioDefaultSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioDefaultSelection%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDefaultSelection.html#AudioDefaultSelection%27"><span class="hs-identifier hs-var">AudioDefaultSelection'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679941426"><span id="local-6989586621679941427"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioDefaultSelection"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDefaultSelection.html#AudioDefaultSelection"><span class="hs-identifier hs-var">AudioDefaultSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioDefaultSelection%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDefaultSelection.html#AudioDefaultSelection%27"><span class="hs-identifier hs-var">AudioDefaultSelection'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioDefaultSelection"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AudioDefaultSelection.html#fromAudioDefaultSelection"><span class="hs-identifier hs-var hs-var">fromAudioDefaultSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940099"><span id="local-6989586621679940101"><span id="local-6989586621679940103"><span class="annot"><span class="annottext">Int -&gt; AudioDefaultSelection -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941418"><span id="local-6989586621679941420"><span id="local-6989586621679941422"><span class="annot"><span class="annottext">Int -&gt; AudioDefaultSelection -&gt; ShowS
 [AudioDefaultSelection] -&gt; ShowS
 AudioDefaultSelection -&gt; String
 (Int -&gt; AudioDefaultSelection -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AudioDefaultSelection -&gt; String
 showsPrec :: Int -&gt; AudioDefaultSelection -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioDefaultSelection -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679940090"><span id="local-6989586621679940092"><span id="local-6989586621679940094"><span id="local-6989586621679940096"><span class="annot"><span class="annottext">ReadPrec [AudioDefaultSelection]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679941409"><span id="local-6989586621679941411"><span id="local-6989586621679941413"><span id="local-6989586621679941415"><span class="annot"><span class="annottext">ReadPrec [AudioDefaultSelection]
 ReadPrec AudioDefaultSelection
 Int -&gt; ReadS AudioDefaultSelection
 ReadS [AudioDefaultSelection]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AudioDefaultSelection]
 readsPrec :: Int -&gt; ReadS AudioDefaultSelection
 $creadsPrec :: Int -&gt; ReadS AudioDefaultSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679940085"><span id="local-6989586621679940087"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679941404"><span id="local-6989586621679941406"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool
 (AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool)
 -&gt; (AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool)
 -&gt; Eq AudioDefaultSelection
@@ -86,7 +86,7 @@ $c/= :: AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool
 == :: AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool
 $c== :: AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679940069"><span id="local-6989586621679940071"><span id="local-6989586621679940073"><span id="local-6989586621679940075"><span id="local-6989586621679940077"><span id="local-6989586621679940079"><span id="local-6989586621679940081"><span class="annot"><span class="annottext">Eq AudioDefaultSelection
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679941388"><span id="local-6989586621679941390"><span id="local-6989586621679941392"><span id="local-6989586621679941394"><span id="local-6989586621679941396"><span id="local-6989586621679941398"><span id="local-6989586621679941400"><span class="annot"><span class="annottext">Eq AudioDefaultSelection
 Eq AudioDefaultSelection
 -&gt; (AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Ordering)
 -&gt; (AudioDefaultSelection -&gt; AudioDefaultSelection -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. AudioDefaultSelection -&gt; Rep AudioDefaultSelection x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940061"><span id="local-6989586621679940063"><span class="annot"><span class="annottext">Int -&gt; AudioDefaultSelection -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941380"><span id="local-6989586621679941382"><span class="annot"><span class="annottext">Int -&gt; AudioDefaultSelection -&gt; Int
 AudioDefaultSelection -&gt; Int
 (Int -&gt; AudioDefaultSelection -&gt; Int)
 -&gt; (AudioDefaultSelection -&gt; Int) -&gt; Hashable AudioDefaultSelection
@@ -154,54 +154,54 @@ $chash :: AudioDefaultSelection -&gt; Int
 hashWithSalt :: Int -&gt; AudioDefaultSelection -&gt; Int
 $chashWithSalt :: Int -&gt; AudioDefaultSelection -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679940058"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679941377"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; ()
 (AudioDefaultSelection -&gt; ()) -&gt; NFData AudioDefaultSelection
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioDefaultSelection -&gt; ()
 $crnf :: AudioDefaultSelection -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679940055"><span class="annot"><span class="annottext">Text -&gt; Either String AudioDefaultSelection
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679941374"><span class="annot"><span class="annottext">Text -&gt; Either String AudioDefaultSelection
 (Text -&gt; Either String AudioDefaultSelection)
 -&gt; FromText AudioDefaultSelection
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioDefaultSelection
 $cfromText :: Text -&gt; Either String AudioDefaultSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679940052"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679941371"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; Text
 (AudioDefaultSelection -&gt; Text) -&gt; ToText AudioDefaultSelection
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioDefaultSelection -&gt; Text
 $ctoText :: AudioDefaultSelection -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940049"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679941368"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; ByteString
 (AudioDefaultSelection -&gt; ByteString)
 -&gt; ToByteString AudioDefaultSelection
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioDefaultSelection -&gt; ByteString
 $ctoBS :: AudioDefaultSelection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679940046"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679941365"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; ByteStringBuilder
 (AudioDefaultSelection -&gt; ByteStringBuilder)
 -&gt; ToLog AudioDefaultSelection
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioDefaultSelection -&gt; ByteStringBuilder
 $cbuild :: AudioDefaultSelection -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679940043"><span class="annot"><span class="annottext">HeaderName -&gt; AudioDefaultSelection -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679941362"><span class="annot"><span class="annottext">HeaderName -&gt; AudioDefaultSelection -&gt; [Header]
 (HeaderName -&gt; AudioDefaultSelection -&gt; [Header])
 -&gt; ToHeader AudioDefaultSelection
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioDefaultSelection -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioDefaultSelection -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679940040"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679941359"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; QueryString
 (AudioDefaultSelection -&gt; QueryString)
 -&gt; ToQuery AudioDefaultSelection
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioDefaultSelection -&gt; QueryString
 $ctoQuery :: AudioDefaultSelection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679940035"><span id="local-6989586621679940037"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioDefaultSelection]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679941354"><span id="local-6989586621679941356"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioDefaultSelection]
 Value -&gt; Parser AudioDefaultSelection
 (Value -&gt; Parser AudioDefaultSelection)
 -&gt; (Value -&gt; Parser [AudioDefaultSelection])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioDefaultSelection]
 parseJSON :: Value -&gt; Parser AudioDefaultSelection
 $cparseJSON :: Value -&gt; Parser AudioDefaultSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940030"><span id="local-6989586621679940032"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioDefaultSelection]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679941349"><span id="local-6989586621679941351"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioDefaultSelection]
 FromJSONKeyFunction AudioDefaultSelection
 FromJSONKeyFunction AudioDefaultSelection
 -&gt; FromJSONKeyFunction [AudioDefaultSelection]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioDefaultSelection]
 fromJSONKey :: FromJSONKeyFunction AudioDefaultSelection
 $cfromJSONKey :: FromJSONKeyFunction AudioDefaultSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940021"><span id="local-6989586621679940023"><span id="local-6989586621679940025"><span id="local-6989586621679940027"><span class="annot"><span class="annottext">[AudioDefaultSelection] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679941340"><span id="local-6989586621679941342"><span id="local-6989586621679941344"><span id="local-6989586621679941346"><span class="annot"><span class="annottext">[AudioDefaultSelection] -&gt; Encoding
 [AudioDefaultSelection] -&gt; Value
 AudioDefaultSelection -&gt; Encoding
 AudioDefaultSelection -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: AudioDefaultSelection -&gt; Encoding
 toJSON :: AudioDefaultSelection -&gt; Value
 $ctoJSON :: AudioDefaultSelection -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940016"><span id="local-6989586621679940018"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioDefaultSelection]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679941335"><span id="local-6989586621679941337"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioDefaultSelection]
 ToJSONKeyFunction AudioDefaultSelection
 ToJSONKeyFunction AudioDefaultSelection
 -&gt; ToJSONKeyFunction [AudioDefaultSelection]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioDefaultSelection]
 toJSONKey :: ToJSONKeyFunction AudioDefaultSelection
 $ctoJSONKey :: ToJSONKeyFunction AudioDefaultSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679940013"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioDefaultSelection
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679941332"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioDefaultSelection
 ([Node] -&gt; Either String AudioDefaultSelection)
 -&gt; FromXML AudioDefaultSelection
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioDefaultSelection
 $cparseXML :: [Node] -&gt; Either String AudioDefaultSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679940010"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679941329"><span class="annot"><span class="annottext">AudioDefaultSelection -&gt; XML
 (AudioDefaultSelection -&gt; XML) -&gt; ToXML AudioDefaultSelection
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AudioDefaultSelection -&gt; XML

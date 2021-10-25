@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- players. The service defaults to marking your output as HEV1. For these</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- outputs, the service writes parameter set NAL units directly into the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- samples.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679974059"><span id="local-6989586621679974060"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265WriteMp4PackagingType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType.html#H265WriteMp4PackagingType"><span class="hs-identifier hs-var">H265WriteMp4PackagingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265WriteMp4PackagingType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType.html#H265WriteMp4PackagingType%27"><span class="hs-identifier hs-var">H265WriteMp4PackagingType'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679975549"><span id="local-6989586621679975550"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265WriteMp4PackagingType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType.html#H265WriteMp4PackagingType"><span class="hs-identifier hs-var">H265WriteMp4PackagingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265WriteMp4PackagingType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType.html#H265WriteMp4PackagingType%27"><span class="hs-identifier hs-var">H265WriteMp4PackagingType'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265WriteMp4PackagingType"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType.html#fromH265WriteMp4PackagingType"><span class="hs-identifier hs-var hs-var">fromH265WriteMp4PackagingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974051"><span id="local-6989586621679974053"><span id="local-6989586621679974055"><span class="annot"><span class="annottext">Int -&gt; H265WriteMp4PackagingType -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975541"><span id="local-6989586621679975543"><span id="local-6989586621679975545"><span class="annot"><span class="annottext">Int -&gt; H265WriteMp4PackagingType -&gt; ShowS
 [H265WriteMp4PackagingType] -&gt; ShowS
 H265WriteMp4PackagingType -&gt; String
 (Int -&gt; H265WriteMp4PackagingType -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: H265WriteMp4PackagingType -&gt; String
 showsPrec :: Int -&gt; H265WriteMp4PackagingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265WriteMp4PackagingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679974042"><span id="local-6989586621679974044"><span id="local-6989586621679974046"><span id="local-6989586621679974048"><span class="annot"><span class="annottext">ReadPrec [H265WriteMp4PackagingType]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679975532"><span id="local-6989586621679975534"><span id="local-6989586621679975536"><span id="local-6989586621679975538"><span class="annot"><span class="annottext">ReadPrec [H265WriteMp4PackagingType]
 ReadPrec H265WriteMp4PackagingType
 Int -&gt; ReadS H265WriteMp4PackagingType
 ReadS [H265WriteMp4PackagingType]
@@ -84,7 +84,7 @@ $creadList :: ReadS [H265WriteMp4PackagingType]
 readsPrec :: Int -&gt; ReadS H265WriteMp4PackagingType
 $creadsPrec :: Int -&gt; ReadS H265WriteMp4PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679974037"><span id="local-6989586621679974039"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679975527"><span id="local-6989586621679975529"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool
 (H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool)
 -&gt; (H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool)
 -&gt; Eq H265WriteMp4PackagingType
@@ -94,7 +94,7 @@ $c/= :: H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool
 == :: H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool
 $c== :: H265WriteMp4PackagingType -&gt; H265WriteMp4PackagingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679974021"><span id="local-6989586621679974023"><span id="local-6989586621679974025"><span id="local-6989586621679974027"><span id="local-6989586621679974029"><span id="local-6989586621679974031"><span id="local-6989586621679974033"><span class="annot"><span class="annottext">Eq H265WriteMp4PackagingType
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679975511"><span id="local-6989586621679975513"><span id="local-6989586621679975515"><span id="local-6989586621679975517"><span id="local-6989586621679975519"><span id="local-6989586621679975521"><span id="local-6989586621679975523"><span class="annot"><span class="annottext">Eq H265WriteMp4PackagingType
 Eq H265WriteMp4PackagingType
 -&gt; (H265WriteMp4PackagingType
     -&gt; H265WriteMp4PackagingType -&gt; Ordering)
@@ -159,7 +159,7 @@ H265WriteMp4PackagingType -&gt; Rep H265WriteMp4PackagingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974013"><span id="local-6989586621679974015"><span class="annot"><span class="annottext">Int -&gt; H265WriteMp4PackagingType -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975503"><span id="local-6989586621679975505"><span class="annot"><span class="annottext">Int -&gt; H265WriteMp4PackagingType -&gt; Int
 H265WriteMp4PackagingType -&gt; Int
 (Int -&gt; H265WriteMp4PackagingType -&gt; Int)
 -&gt; (H265WriteMp4PackagingType -&gt; Int)
@@ -170,56 +170,56 @@ $chash :: H265WriteMp4PackagingType -&gt; Int
 hashWithSalt :: Int -&gt; H265WriteMp4PackagingType -&gt; Int
 $chashWithSalt :: Int -&gt; H265WriteMp4PackagingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679974010"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679975500"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; ()
 (H265WriteMp4PackagingType -&gt; ())
 -&gt; NFData H265WriteMp4PackagingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265WriteMp4PackagingType -&gt; ()
 $crnf :: H265WriteMp4PackagingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679974007"><span class="annot"><span class="annottext">Text -&gt; Either String H265WriteMp4PackagingType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679975497"><span class="annot"><span class="annottext">Text -&gt; Either String H265WriteMp4PackagingType
 (Text -&gt; Either String H265WriteMp4PackagingType)
 -&gt; FromText H265WriteMp4PackagingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265WriteMp4PackagingType
 $cfromText :: Text -&gt; Either String H265WriteMp4PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679974004"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679975494"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; Text
 (H265WriteMp4PackagingType -&gt; Text)
 -&gt; ToText H265WriteMp4PackagingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265WriteMp4PackagingType -&gt; Text
 $ctoText :: H265WriteMp4PackagingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679974001"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679975491"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; ByteString
 (H265WriteMp4PackagingType -&gt; ByteString)
 -&gt; ToByteString H265WriteMp4PackagingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265WriteMp4PackagingType -&gt; ByteString
 $ctoBS :: H265WriteMp4PackagingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679973998"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679975488"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; ByteStringBuilder
 (H265WriteMp4PackagingType -&gt; ByteStringBuilder)
 -&gt; ToLog H265WriteMp4PackagingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265WriteMp4PackagingType -&gt; ByteStringBuilder
 $cbuild :: H265WriteMp4PackagingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679973995"><span class="annot"><span class="annottext">HeaderName -&gt; H265WriteMp4PackagingType -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679975485"><span class="annot"><span class="annottext">HeaderName -&gt; H265WriteMp4PackagingType -&gt; [Header]
 (HeaderName -&gt; H265WriteMp4PackagingType -&gt; [Header])
 -&gt; ToHeader H265WriteMp4PackagingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265WriteMp4PackagingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265WriteMp4PackagingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679973992"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679975482"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; QueryString
 (H265WriteMp4PackagingType -&gt; QueryString)
 -&gt; ToQuery H265WriteMp4PackagingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265WriteMp4PackagingType -&gt; QueryString
 $ctoQuery :: H265WriteMp4PackagingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679973987"><span id="local-6989586621679973989"><span class="annot"><span class="annottext">Value -&gt; Parser [H265WriteMp4PackagingType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679975477"><span id="local-6989586621679975479"><span class="annot"><span class="annottext">Value -&gt; Parser [H265WriteMp4PackagingType]
 Value -&gt; Parser H265WriteMp4PackagingType
 (Value -&gt; Parser H265WriteMp4PackagingType)
 -&gt; (Value -&gt; Parser [H265WriteMp4PackagingType])
@@ -231,7 +231,7 @@ $cparseJSONList :: Value -&gt; Parser [H265WriteMp4PackagingType]
 parseJSON :: Value -&gt; Parser H265WriteMp4PackagingType
 $cparseJSON :: Value -&gt; Parser H265WriteMp4PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679973982"><span id="local-6989586621679973984"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265WriteMp4PackagingType]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679975472"><span id="local-6989586621679975474"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265WriteMp4PackagingType]
 FromJSONKeyFunction H265WriteMp4PackagingType
 FromJSONKeyFunction H265WriteMp4PackagingType
 -&gt; FromJSONKeyFunction [H265WriteMp4PackagingType]
@@ -243,7 +243,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265WriteMp4PackagingType]
 fromJSONKey :: FromJSONKeyFunction H265WriteMp4PackagingType
 $cfromJSONKey :: FromJSONKeyFunction H265WriteMp4PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679973973"><span id="local-6989586621679973975"><span id="local-6989586621679973977"><span id="local-6989586621679973979"><span class="annot"><span class="annottext">[H265WriteMp4PackagingType] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679975463"><span id="local-6989586621679975465"><span id="local-6989586621679975467"><span id="local-6989586621679975469"><span class="annot"><span class="annottext">[H265WriteMp4PackagingType] -&gt; Encoding
 [H265WriteMp4PackagingType] -&gt; Value
 H265WriteMp4PackagingType -&gt; Encoding
 H265WriteMp4PackagingType -&gt; Value
@@ -267,7 +267,7 @@ $ctoEncoding :: H265WriteMp4PackagingType -&gt; Encoding
 toJSON :: H265WriteMp4PackagingType -&gt; Value
 $ctoJSON :: H265WriteMp4PackagingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679973968"><span id="local-6989586621679973970"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265WriteMp4PackagingType]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679975458"><span id="local-6989586621679975460"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265WriteMp4PackagingType]
 ToJSONKeyFunction H265WriteMp4PackagingType
 ToJSONKeyFunction H265WriteMp4PackagingType
 -&gt; ToJSONKeyFunction [H265WriteMp4PackagingType]
@@ -279,14 +279,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265WriteMp4PackagingType]
 toJSONKey :: ToJSONKeyFunction H265WriteMp4PackagingType
 $ctoJSONKey :: ToJSONKeyFunction H265WriteMp4PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679973965"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265WriteMp4PackagingType
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679975455"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265WriteMp4PackagingType
 ([Node] -&gt; Either String H265WriteMp4PackagingType)
 -&gt; FromXML H265WriteMp4PackagingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265WriteMp4PackagingType
 $cparseXML :: [Node] -&gt; Either String H265WriteMp4PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679973962"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679975452"><span class="annot"><span class="annottext">H265WriteMp4PackagingType -&gt; XML
 (H265WriteMp4PackagingType -&gt; XML)
 -&gt; ToXML H265WriteMp4PackagingType
 forall a. (a -&gt; XML) -&gt; ToXML a

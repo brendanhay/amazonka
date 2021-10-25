@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- this setting at the default value DISCARD to delete the alpha channel</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- map the alpha channel to the luma channel of your outputs.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679938823"><span id="local-6989586621679938824"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlphaBehavior"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-var">AlphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlphaBehavior%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior%27"><span class="hs-identifier hs-var">AlphaBehavior'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679940142"><span id="local-6989586621679940143"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlphaBehavior"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-var">AlphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlphaBehavior%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior%27"><span class="hs-identifier hs-var">AlphaBehavior'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlphaBehavior"><span class="annot"><span class="annottext">AlphaBehavior -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#fromAlphaBehavior"><span class="hs-identifier hs-var hs-var">fromAlphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938815"><span id="local-6989586621679938817"><span id="local-6989586621679938819"><span class="annot"><span class="annottext">Int -&gt; AlphaBehavior -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940134"><span id="local-6989586621679940136"><span id="local-6989586621679940138"><span class="annot"><span class="annottext">Int -&gt; AlphaBehavior -&gt; ShowS
 [AlphaBehavior] -&gt; ShowS
 AlphaBehavior -&gt; String
 (Int -&gt; AlphaBehavior -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: AlphaBehavior -&gt; String
 showsPrec :: Int -&gt; AlphaBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; AlphaBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679938806"><span id="local-6989586621679938808"><span id="local-6989586621679938810"><span id="local-6989586621679938812"><span class="annot"><span class="annottext">ReadPrec [AlphaBehavior]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679940125"><span id="local-6989586621679940127"><span id="local-6989586621679940129"><span id="local-6989586621679940131"><span class="annot"><span class="annottext">ReadPrec [AlphaBehavior]
 ReadPrec AlphaBehavior
 Int -&gt; ReadS AlphaBehavior
 ReadS [AlphaBehavior]
@@ -78,7 +78,7 @@ $creadList :: ReadS [AlphaBehavior]
 readsPrec :: Int -&gt; ReadS AlphaBehavior
 $creadsPrec :: Int -&gt; ReadS AlphaBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679938801"><span id="local-6989586621679938803"><span class="annot"><span class="annottext">AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679940120"><span id="local-6989586621679940122"><span class="annot"><span class="annottext">AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
 (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
 -&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool) -&gt; Eq AlphaBehavior
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
 == :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
 $c== :: AlphaBehavior -&gt; AlphaBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679938785"><span id="local-6989586621679938787"><span id="local-6989586621679938789"><span id="local-6989586621679938791"><span id="local-6989586621679938793"><span id="local-6989586621679938795"><span id="local-6989586621679938797"><span class="annot"><span class="annottext">Eq AlphaBehavior
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679940104"><span id="local-6989586621679940106"><span id="local-6989586621679940108"><span id="local-6989586621679940110"><span id="local-6989586621679940112"><span id="local-6989586621679940114"><span id="local-6989586621679940116"><span class="annot"><span class="annottext">Eq AlphaBehavior
 Eq AlphaBehavior
 -&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Ordering)
 -&gt; (AlphaBehavior -&gt; AlphaBehavior -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. AlphaBehavior -&gt; Rep AlphaBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938777"><span id="local-6989586621679938779"><span class="annot"><span class="annottext">Int -&gt; AlphaBehavior -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940096"><span id="local-6989586621679940098"><span class="annot"><span class="annottext">Int -&gt; AlphaBehavior -&gt; Int
 AlphaBehavior -&gt; Int
 (Int -&gt; AlphaBehavior -&gt; Int)
 -&gt; (AlphaBehavior -&gt; Int) -&gt; Hashable AlphaBehavior
@@ -148,49 +148,49 @@ $chash :: AlphaBehavior -&gt; Int
 hashWithSalt :: Int -&gt; AlphaBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; AlphaBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679938774"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679940093"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ()
 (AlphaBehavior -&gt; ()) -&gt; NFData AlphaBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AlphaBehavior -&gt; ()
 $crnf :: AlphaBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679938771"><span class="annot"><span class="annottext">Text -&gt; Either String AlphaBehavior
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940090"><span class="annot"><span class="annottext">Text -&gt; Either String AlphaBehavior
 (Text -&gt; Either String AlphaBehavior) -&gt; FromText AlphaBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AlphaBehavior
 $cfromText :: Text -&gt; Either String AlphaBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679938768"><span class="annot"><span class="annottext">AlphaBehavior -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679940087"><span class="annot"><span class="annottext">AlphaBehavior -&gt; Text
 (AlphaBehavior -&gt; Text) -&gt; ToText AlphaBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AlphaBehavior -&gt; Text
 $ctoText :: AlphaBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679938765"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679940084"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ByteString
 (AlphaBehavior -&gt; ByteString) -&gt; ToByteString AlphaBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AlphaBehavior -&gt; ByteString
 $ctoBS :: AlphaBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679938762"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679940081"><span class="annot"><span class="annottext">AlphaBehavior -&gt; ByteStringBuilder
 (AlphaBehavior -&gt; ByteStringBuilder) -&gt; ToLog AlphaBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AlphaBehavior -&gt; ByteStringBuilder
 $cbuild :: AlphaBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679938759"><span class="annot"><span class="annottext">HeaderName -&gt; AlphaBehavior -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679940078"><span class="annot"><span class="annottext">HeaderName -&gt; AlphaBehavior -&gt; [Header]
 (HeaderName -&gt; AlphaBehavior -&gt; [Header]) -&gt; ToHeader AlphaBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AlphaBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AlphaBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679938756"><span class="annot"><span class="annottext">AlphaBehavior -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940075"><span class="annot"><span class="annottext">AlphaBehavior -&gt; QueryString
 (AlphaBehavior -&gt; QueryString) -&gt; ToQuery AlphaBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AlphaBehavior -&gt; QueryString
 $ctoQuery :: AlphaBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938751"><span id="local-6989586621679938753"><span class="annot"><span class="annottext">Value -&gt; Parser [AlphaBehavior]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940070"><span id="local-6989586621679940072"><span class="annot"><span class="annottext">Value -&gt; Parser [AlphaBehavior]
 Value -&gt; Parser AlphaBehavior
 (Value -&gt; Parser AlphaBehavior)
 -&gt; (Value -&gt; Parser [AlphaBehavior]) -&gt; FromJSON AlphaBehavior
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [AlphaBehavior]
 parseJSON :: Value -&gt; Parser AlphaBehavior
 $cparseJSON :: Value -&gt; Parser AlphaBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938746"><span id="local-6989586621679938748"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlphaBehavior]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940065"><span id="local-6989586621679940067"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlphaBehavior]
 FromJSONKeyFunction AlphaBehavior
 FromJSONKeyFunction AlphaBehavior
 -&gt; FromJSONKeyFunction [AlphaBehavior] -&gt; FromJSONKey AlphaBehavior
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AlphaBehavior]
 fromJSONKey :: FromJSONKeyFunction AlphaBehavior
 $cfromJSONKey :: FromJSONKeyFunction AlphaBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938737"><span id="local-6989586621679938739"><span id="local-6989586621679938741"><span id="local-6989586621679938743"><span class="annot"><span class="annottext">[AlphaBehavior] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679940056"><span id="local-6989586621679940058"><span id="local-6989586621679940060"><span id="local-6989586621679940062"><span class="annot"><span class="annottext">[AlphaBehavior] -&gt; Encoding
 [AlphaBehavior] -&gt; Value
 AlphaBehavior -&gt; Encoding
 AlphaBehavior -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: AlphaBehavior -&gt; Encoding
 toJSON :: AlphaBehavior -&gt; Value
 $ctoJSON :: AlphaBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679938732"><span id="local-6989586621679938734"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlphaBehavior]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679940051"><span id="local-6989586621679940053"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlphaBehavior]
 ToJSONKeyFunction AlphaBehavior
 ToJSONKeyFunction AlphaBehavior
 -&gt; ToJSONKeyFunction [AlphaBehavior] -&gt; ToJSONKey AlphaBehavior
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AlphaBehavior]
 toJSONKey :: ToJSONKeyFunction AlphaBehavior
 $ctoJSONKey :: ToJSONKeyFunction AlphaBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679938729"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlphaBehavior
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679940048"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlphaBehavior
 ([Node] -&gt; Either String AlphaBehavior) -&gt; FromXML AlphaBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AlphaBehavior
 $cparseXML :: [Node] -&gt; Either String AlphaBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679938726"><span class="annot"><span class="annottext">AlphaBehavior -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679940045"><span class="annot"><span class="annottext">AlphaBehavior -&gt; XML
 (AlphaBehavior -&gt; XML) -&gt; ToXML AlphaBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AlphaBehavior -&gt; XML

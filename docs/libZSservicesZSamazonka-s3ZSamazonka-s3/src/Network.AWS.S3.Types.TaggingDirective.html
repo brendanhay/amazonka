@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679557051"><span id="local-6989586621679557052"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaggingDirective"><span class="annot"><a href="Network.AWS.S3.Types.TaggingDirective.html#TaggingDirective"><span class="hs-identifier hs-var">TaggingDirective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaggingDirective%27"><span class="annot"><a href="Network.AWS.S3.Types.TaggingDirective.html#TaggingDirective%27"><span class="hs-identifier hs-var">TaggingDirective'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679557161"><span id="local-6989586621679557162"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaggingDirective"><span class="annot"><a href="Network.AWS.S3.Types.TaggingDirective.html#TaggingDirective"><span class="hs-identifier hs-var">TaggingDirective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaggingDirective%27"><span class="annot"><a href="Network.AWS.S3.Types.TaggingDirective.html#TaggingDirective%27"><span class="hs-identifier hs-var">TaggingDirective'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaggingDirective"><span class="annot"><span class="annottext">TaggingDirective -&gt; Text
 </span><a href="Network.AWS.S3.Types.TaggingDirective.html#fromTaggingDirective"><span class="hs-identifier hs-var hs-var">fromTaggingDirective</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557043"><span id="local-6989586621679557045"><span id="local-6989586621679557047"><span class="annot"><span class="annottext">Int -&gt; TaggingDirective -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557153"><span id="local-6989586621679557155"><span id="local-6989586621679557157"><span class="annot"><span class="annottext">Int -&gt; TaggingDirective -&gt; ShowS
 [TaggingDirective] -&gt; ShowS
 TaggingDirective -&gt; String
 (Int -&gt; TaggingDirective -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TaggingDirective -&gt; String
 showsPrec :: Int -&gt; TaggingDirective -&gt; ShowS
 $cshowsPrec :: Int -&gt; TaggingDirective -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679557034"><span id="local-6989586621679557036"><span id="local-6989586621679557038"><span id="local-6989586621679557040"><span class="annot"><span class="annottext">ReadPrec [TaggingDirective]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679557144"><span id="local-6989586621679557146"><span id="local-6989586621679557148"><span id="local-6989586621679557150"><span class="annot"><span class="annottext">ReadPrec [TaggingDirective]
 ReadPrec TaggingDirective
 Int -&gt; ReadS TaggingDirective
 ReadS [TaggingDirective]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TaggingDirective]
 readsPrec :: Int -&gt; ReadS TaggingDirective
 $creadsPrec :: Int -&gt; ReadS TaggingDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679557029"><span id="local-6989586621679557031"><span class="annot"><span class="annottext">TaggingDirective -&gt; TaggingDirective -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679557139"><span id="local-6989586621679557141"><span class="annot"><span class="annottext">TaggingDirective -&gt; TaggingDirective -&gt; Bool
 (TaggingDirective -&gt; TaggingDirective -&gt; Bool)
 -&gt; (TaggingDirective -&gt; TaggingDirective -&gt; Bool)
 -&gt; Eq TaggingDirective
@@ -83,7 +83,7 @@ $c/= :: TaggingDirective -&gt; TaggingDirective -&gt; Bool
 == :: TaggingDirective -&gt; TaggingDirective -&gt; Bool
 $c== :: TaggingDirective -&gt; TaggingDirective -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679557013"><span id="local-6989586621679557015"><span id="local-6989586621679557017"><span id="local-6989586621679557019"><span id="local-6989586621679557021"><span id="local-6989586621679557023"><span id="local-6989586621679557025"><span class="annot"><span class="annottext">Eq TaggingDirective
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679557123"><span id="local-6989586621679557125"><span id="local-6989586621679557127"><span id="local-6989586621679557129"><span id="local-6989586621679557131"><span id="local-6989586621679557133"><span id="local-6989586621679557135"><span class="annot"><span class="annottext">Eq TaggingDirective
 Eq TaggingDirective
 -&gt; (TaggingDirective -&gt; TaggingDirective -&gt; Ordering)
 -&gt; (TaggingDirective -&gt; TaggingDirective -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. TaggingDirective -&gt; Rep TaggingDirective x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557005"><span id="local-6989586621679557007"><span class="annot"><span class="annottext">Int -&gt; TaggingDirective -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557115"><span id="local-6989586621679557117"><span class="annot"><span class="annottext">Int -&gt; TaggingDirective -&gt; Int
 TaggingDirective -&gt; Int
 (Int -&gt; TaggingDirective -&gt; Int)
 -&gt; (TaggingDirective -&gt; Int) -&gt; Hashable TaggingDirective
@@ -144,51 +144,51 @@ $chash :: TaggingDirective -&gt; Int
 hashWithSalt :: Int -&gt; TaggingDirective -&gt; Int
 $chashWithSalt :: Int -&gt; TaggingDirective -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679557002"><span class="annot"><span class="annottext">TaggingDirective -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679557112"><span class="annot"><span class="annottext">TaggingDirective -&gt; ()
 (TaggingDirective -&gt; ()) -&gt; NFData TaggingDirective
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TaggingDirective -&gt; ()
 $crnf :: TaggingDirective -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679556999"><span class="annot"><span class="annottext">Text -&gt; Either String TaggingDirective
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679557109"><span class="annot"><span class="annottext">Text -&gt; Either String TaggingDirective
 (Text -&gt; Either String TaggingDirective)
 -&gt; FromText TaggingDirective
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TaggingDirective
 $cfromText :: Text -&gt; Either String TaggingDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679556996"><span class="annot"><span class="annottext">TaggingDirective -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679557106"><span class="annot"><span class="annottext">TaggingDirective -&gt; Text
 (TaggingDirective -&gt; Text) -&gt; ToText TaggingDirective
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TaggingDirective -&gt; Text
 $ctoText :: TaggingDirective -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679556993"><span class="annot"><span class="annottext">TaggingDirective -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679557103"><span class="annot"><span class="annottext">TaggingDirective -&gt; ByteString
 (TaggingDirective -&gt; ByteString) -&gt; ToByteString TaggingDirective
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TaggingDirective -&gt; ByteString
 $ctoBS :: TaggingDirective -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679556990"><span class="annot"><span class="annottext">TaggingDirective -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679557100"><span class="annot"><span class="annottext">TaggingDirective -&gt; ByteStringBuilder
 (TaggingDirective -&gt; ByteStringBuilder) -&gt; ToLog TaggingDirective
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TaggingDirective -&gt; ByteStringBuilder
 $cbuild :: TaggingDirective -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679556987"><span class="annot"><span class="annottext">HeaderName -&gt; TaggingDirective -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679557097"><span class="annot"><span class="annottext">HeaderName -&gt; TaggingDirective -&gt; [Header]
 (HeaderName -&gt; TaggingDirective -&gt; [Header])
 -&gt; ToHeader TaggingDirective
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TaggingDirective -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TaggingDirective -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679556984"><span class="annot"><span class="annottext">TaggingDirective -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679557094"><span class="annot"><span class="annottext">TaggingDirective -&gt; QueryString
 (TaggingDirective -&gt; QueryString) -&gt; ToQuery TaggingDirective
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TaggingDirective -&gt; QueryString
 $ctoQuery :: TaggingDirective -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679556979"><span id="local-6989586621679556981"><span class="annot"><span class="annottext">Value -&gt; Parser [TaggingDirective]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679557089"><span id="local-6989586621679557091"><span class="annot"><span class="annottext">Value -&gt; Parser [TaggingDirective]
 Value -&gt; Parser TaggingDirective
 (Value -&gt; Parser TaggingDirective)
 -&gt; (Value -&gt; Parser [TaggingDirective])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [TaggingDirective]
 parseJSON :: Value -&gt; Parser TaggingDirective
 $cparseJSON :: Value -&gt; Parser TaggingDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679556974"><span id="local-6989586621679556976"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaggingDirective]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679557084"><span id="local-6989586621679557086"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaggingDirective]
 FromJSONKeyFunction TaggingDirective
 FromJSONKeyFunction TaggingDirective
 -&gt; FromJSONKeyFunction [TaggingDirective]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TaggingDirective]
 fromJSONKey :: FromJSONKeyFunction TaggingDirective
 $cfromJSONKey :: FromJSONKeyFunction TaggingDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679556965"><span id="local-6989586621679556967"><span id="local-6989586621679556969"><span id="local-6989586621679556971"><span class="annot"><span class="annottext">[TaggingDirective] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679557075"><span id="local-6989586621679557077"><span id="local-6989586621679557079"><span id="local-6989586621679557081"><span class="annot"><span class="annottext">[TaggingDirective] -&gt; Encoding
 [TaggingDirective] -&gt; Value
 TaggingDirective -&gt; Encoding
 TaggingDirective -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: TaggingDirective -&gt; Encoding
 toJSON :: TaggingDirective -&gt; Value
 $ctoJSON :: TaggingDirective -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679556960"><span id="local-6989586621679556962"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaggingDirective]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679557070"><span id="local-6989586621679557072"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaggingDirective]
 ToJSONKeyFunction TaggingDirective
 ToJSONKeyFunction TaggingDirective
 -&gt; ToJSONKeyFunction [TaggingDirective]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TaggingDirective]
 toJSONKey :: ToJSONKeyFunction TaggingDirective
 $ctoJSONKey :: ToJSONKeyFunction TaggingDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679556957"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaggingDirective
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679557067"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaggingDirective
 ([Node] -&gt; Either String TaggingDirective)
 -&gt; FromXML TaggingDirective
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TaggingDirective
 $cparseXML :: [Node] -&gt; Either String TaggingDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679556954"><span class="annot"><span class="annottext">TaggingDirective -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679557064"><span class="annot"><span class="annottext">TaggingDirective -&gt; XML
 (TaggingDirective -&gt; XML) -&gt; ToXML TaggingDirective
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TaggingDirective -&gt; XML

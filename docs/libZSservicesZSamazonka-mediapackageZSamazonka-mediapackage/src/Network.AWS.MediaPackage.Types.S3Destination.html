@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- harvested content</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newS3Destination' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679237505"><span id="local-6989586621679237506"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Destination"><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-var">S3Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Destination%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-var">S3Destination'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679237821"><span id="local-6989586621679237822"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Destination"><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-var">S3Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Destination%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-var">S3Destination'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key in the specified S3 bucket where the harvested top-level</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- manifest will be placed.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmanifestKey%3AS3Destination%27"><span class="annot"><span class="annottext">S3Destination -&gt; Text
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AroleArn%3AS3Destination%27"><span class="annot"><span class="annottext">S3Destination -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AroleArn%3AS3Destination%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237497"><span id="local-6989586621679237499"><span class="annot"><span class="annottext">S3Destination -&gt; S3Destination -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237813"><span id="local-6989586621679237815"><span class="annot"><span class="annottext">S3Destination -&gt; S3Destination -&gt; Bool
 (S3Destination -&gt; S3Destination -&gt; Bool)
 -&gt; (S3Destination -&gt; S3Destination -&gt; Bool) -&gt; Eq S3Destination
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Destination -&gt; S3Destination -&gt; Bool
 == :: S3Destination -&gt; S3Destination -&gt; Bool
 $c== :: S3Destination -&gt; S3Destination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237488"><span id="local-6989586621679237490"><span id="local-6989586621679237492"><span id="local-6989586621679237494"><span class="annot"><span class="annottext">ReadPrec [S3Destination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237804"><span id="local-6989586621679237806"><span id="local-6989586621679237808"><span id="local-6989586621679237810"><span class="annot"><span class="annottext">ReadPrec [S3Destination]
 ReadPrec S3Destination
 Int -&gt; ReadS S3Destination
 ReadS [S3Destination]
@@ -67,7 +67,7 @@ readList :: ReadS [S3Destination]
 $creadList :: ReadS [S3Destination]
 readsPrec :: Int -&gt; ReadS S3Destination
 $creadsPrec :: Int -&gt; ReadS S3Destination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237481"><span id="local-6989586621679237483"><span id="local-6989586621679237485"><span class="annot"><span class="annottext">Int -&gt; S3Destination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237797"><span id="local-6989586621679237799"><span id="local-6989586621679237801"><span class="annot"><span class="annottext">Int -&gt; S3Destination -&gt; ShowS
 [S3Destination] -&gt; ShowS
 S3Destination -&gt; String
 (Int -&gt; S3Destination -&gt; ShowS)
@@ -116,21 +116,21 @@ $cfrom :: forall x. S3Destination -&gt; Rep S3Destination x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span>
 </span><span id="line-63"></span><span id="newS3Destination"><span class="annot"><span class="annottext">newS3Destination :: Text -&gt; Text -&gt; Text -&gt; S3Destination
-</span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#newS3Destination"><span class="hs-identifier hs-var hs-var">newS3Destination</span></a></span></span><span> </span><span id="local-6989586621679237475"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237475"><span class="hs-identifier hs-var">pManifestKey_</span></a></span></span><span> </span><span id="local-6989586621679237474"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237474"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679237473"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237473"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#newS3Destination"><span class="hs-identifier hs-var hs-var">newS3Destination</span></a></span></span><span> </span><span id="local-6989586621679237791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237791"><span class="hs-identifier hs-var">pManifestKey_</span></a></span></span><span> </span><span id="local-6989586621679237790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237790"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679237789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237789"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">S3Destination' :: Text -&gt; Text -&gt; Text -&gt; S3Destination
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manifestKey:S3Destination' :: Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AmanifestKey%3AS3Destination%27"><span class="hs-identifier hs-var">manifestKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237475"><span class="hs-identifier hs-var">pManifestKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237791"><span class="hs-identifier hs-var">pManifestKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:S3Destination' :: Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AbucketName%3AS3Destination%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237474"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237790"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:S3Destination' :: Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AroleArn%3AS3Destination%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237473"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679237789"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The key in the specified S3 bucket where the harvested top-level</span><span>
@@ -141,16 +141,16 @@ $cfrom :: forall x. S3Destination -&gt; Rep S3Destination x
 -&gt; (S3Destination -&gt; Text -&gt; S3Destination)
 -&gt; Lens S3Destination S3Destination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237469"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237785"><span class="annot"><span class="annottext">Text
 manifestKey :: Text
 $sel:manifestKey:S3Destination' :: S3Destination -&gt; Text
-</span><a href="#local-6989586621679237469"><span class="hs-identifier hs-var hs-var">manifestKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237469"><span class="hs-identifier hs-var">manifestKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237468"><span class="annot"><span class="annottext">s :: S3Destination
-</span><a href="#local-6989586621679237468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237467"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Destination
-</span><a href="#local-6989586621679237468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestKey:S3Destination' :: Text
+</span><a href="#local-6989586621679237785"><span class="hs-identifier hs-var hs-var">manifestKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237785"><span class="hs-identifier hs-var">manifestKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237784"><span class="annot"><span class="annottext">s :: S3Destination
+</span><a href="#local-6989586621679237784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Destination
+</span><a href="#local-6989586621679237784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestKey:S3Destination' :: Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AmanifestKey%3AS3Destination%27"><span class="hs-identifier hs-var">manifestKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The name of an S3 bucket within which harvested content will be exported</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#s3Destination_bucketName"><span class="hs-identifier hs-type">s3Destination_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -159,16 +159,16 @@ $sel:manifestKey:S3Destination' :: S3Destination -&gt; Text
 -&gt; (S3Destination -&gt; Text -&gt; S3Destination)
 -&gt; Lens S3Destination S3Destination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237465"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237781"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:S3Destination' :: S3Destination -&gt; Text
-</span><a href="#local-6989586621679237465"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237465"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237464"><span class="annot"><span class="annottext">s :: S3Destination
-</span><a href="#local-6989586621679237464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237463"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Destination
-</span><a href="#local-6989586621679237464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Destination' :: Text
+</span><a href="#local-6989586621679237781"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237781"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237780"><span class="annot"><span class="annottext">s :: S3Destination
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Destination
+</span><a href="#local-6989586621679237780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Destination' :: Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AbucketName%3AS3Destination%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The IAM role used to write to the specified S3 bucket</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#s3Destination_roleArn"><span class="hs-identifier hs-type">s3Destination_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,19 +177,19 @@ $sel:bucketName:S3Destination' :: S3Destination -&gt; Text
 -&gt; (S3Destination -&gt; Text -&gt; S3Destination)
 -&gt; Lens S3Destination S3Destination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237461"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237777"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:S3Destination' :: S3Destination -&gt; Text
-</span><a href="#local-6989586621679237461"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237461"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237460"><span class="annot"><span class="annottext">s :: S3Destination
-</span><a href="#local-6989586621679237460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237459"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Destination
-</span><a href="#local-6989586621679237460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3Destination' :: Text
+</span><a href="#local-6989586621679237777"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237777"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237776"><span class="annot"><span class="annottext">s :: S3Destination
+</span><a href="#local-6989586621679237776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237775"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Destination
+</span><a href="#local-6989586621679237776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3Destination' :: Text
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#%24sel%3AroleArn%3AS3Destination%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679237454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Destination
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237772"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679237770"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3Destination)
@@ -199,15 +199,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Destination&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237451"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237767"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237767"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; S3Destination
 </span><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-var">S3Destination'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; S3Destination)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; S3Destination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679237767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;manifestKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,7 +215,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; S3Destination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679237767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,26 +223,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser S3Destination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679237767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237445"><span id="local-6989586621679237447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237761"><span id="local-6989586621679237763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237434"><span id="local-6989586621679237436"><span id="local-6989586621679237438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679237432"><span class="annot"><span class="annottext">toJSON :: S3Destination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237428"><span id="local-6989586621679237429"><span id="local-6989586621679237430"><span class="annot"><span class="annottext">Text
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237750"><span id="local-6989586621679237752"><span id="local-6989586621679237754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679237748"><span class="annot"><span class="annottext">toJSON :: S3Destination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.S3Destination.html#S3Destination%27"><span class="hs-identifier hs-type">S3Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237744"><span id="local-6989586621679237745"><span id="local-6989586621679237746"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 bucketName :: Text
 manifestKey :: Text
 $sel:roleArn:S3Destination' :: S3Destination -&gt; Text
 $sel:bucketName:S3Destination' :: S3Destination -&gt; Text
 $sel:manifestKey:S3Destination' :: S3Destination -&gt; Text
-</span><a href="#local-6989586621679237428"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679237744"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,21 +254,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;manifestKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237430"><span class="hs-identifier hs-var">manifestKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237746"><span class="hs-identifier hs-var">manifestKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237429"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237745"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237428"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237744"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

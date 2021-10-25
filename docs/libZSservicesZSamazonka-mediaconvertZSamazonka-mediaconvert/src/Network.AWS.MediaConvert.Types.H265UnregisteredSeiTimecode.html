@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Inserts timecode for each frame as 4 bytes of an unregistered SEI</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679973896"><span id="local-6989586621679973897"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265UnregisteredSeiTimecode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode.html#H265UnregisteredSeiTimecode"><span class="hs-identifier hs-var">H265UnregisteredSeiTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265UnregisteredSeiTimecode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode.html#H265UnregisteredSeiTimecode%27"><span class="hs-identifier hs-var">H265UnregisteredSeiTimecode'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679975386"><span id="local-6989586621679975387"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265UnregisteredSeiTimecode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode.html#H265UnregisteredSeiTimecode"><span class="hs-identifier hs-var">H265UnregisteredSeiTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265UnregisteredSeiTimecode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode.html#H265UnregisteredSeiTimecode%27"><span class="hs-identifier hs-var">H265UnregisteredSeiTimecode'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265UnregisteredSeiTimecode"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode.html#fromH265UnregisteredSeiTimecode"><span class="hs-identifier hs-var hs-var">fromH265UnregisteredSeiTimecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973888"><span id="local-6989586621679973890"><span id="local-6989586621679973892"><span class="annot"><span class="annottext">Int -&gt; H265UnregisteredSeiTimecode -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975378"><span id="local-6989586621679975380"><span id="local-6989586621679975382"><span class="annot"><span class="annottext">Int -&gt; H265UnregisteredSeiTimecode -&gt; ShowS
 [H265UnregisteredSeiTimecode] -&gt; ShowS
 H265UnregisteredSeiTimecode -&gt; String
 (Int -&gt; H265UnregisteredSeiTimecode -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: H265UnregisteredSeiTimecode -&gt; String
 showsPrec :: Int -&gt; H265UnregisteredSeiTimecode -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265UnregisteredSeiTimecode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679973879"><span id="local-6989586621679973881"><span id="local-6989586621679973883"><span id="local-6989586621679973885"><span class="annot"><span class="annottext">ReadPrec [H265UnregisteredSeiTimecode]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679975369"><span id="local-6989586621679975371"><span id="local-6989586621679975373"><span id="local-6989586621679975375"><span class="annot"><span class="annottext">ReadPrec [H265UnregisteredSeiTimecode]
 ReadPrec H265UnregisteredSeiTimecode
 Int -&gt; ReadS H265UnregisteredSeiTimecode
 ReadS [H265UnregisteredSeiTimecode]
@@ -74,7 +74,7 @@ $creadList :: ReadS [H265UnregisteredSeiTimecode]
 readsPrec :: Int -&gt; ReadS H265UnregisteredSeiTimecode
 $creadsPrec :: Int -&gt; ReadS H265UnregisteredSeiTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679973874"><span id="local-6989586621679973876"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; H265UnregisteredSeiTimecode -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679975364"><span id="local-6989586621679975366"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; H265UnregisteredSeiTimecode -&gt; Bool
 (H265UnregisteredSeiTimecode
  -&gt; H265UnregisteredSeiTimecode -&gt; Bool)
 -&gt; (H265UnregisteredSeiTimecode
@@ -86,7 +86,7 @@ $c/= :: H265UnregisteredSeiTimecode -&gt; H265UnregisteredSeiTimecode -&gt; Bool
 == :: H265UnregisteredSeiTimecode -&gt; H265UnregisteredSeiTimecode -&gt; Bool
 $c== :: H265UnregisteredSeiTimecode -&gt; H265UnregisteredSeiTimecode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679973858"><span id="local-6989586621679973860"><span id="local-6989586621679973862"><span id="local-6989586621679973864"><span id="local-6989586621679973866"><span id="local-6989586621679973868"><span id="local-6989586621679973870"><span class="annot"><span class="annottext">Eq H265UnregisteredSeiTimecode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679975348"><span id="local-6989586621679975350"><span id="local-6989586621679975352"><span id="local-6989586621679975354"><span id="local-6989586621679975356"><span id="local-6989586621679975358"><span id="local-6989586621679975360"><span class="annot"><span class="annottext">Eq H265UnregisteredSeiTimecode
 Eq H265UnregisteredSeiTimecode
 -&gt; (H265UnregisteredSeiTimecode
     -&gt; H265UnregisteredSeiTimecode -&gt; Ordering)
@@ -158,7 +158,7 @@ H265UnregisteredSeiTimecode -&gt; Rep H265UnregisteredSeiTimecode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973850"><span id="local-6989586621679973852"><span class="annot"><span class="annottext">Int -&gt; H265UnregisteredSeiTimecode -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975340"><span id="local-6989586621679975342"><span class="annot"><span class="annottext">Int -&gt; H265UnregisteredSeiTimecode -&gt; Int
 H265UnregisteredSeiTimecode -&gt; Int
 (Int -&gt; H265UnregisteredSeiTimecode -&gt; Int)
 -&gt; (H265UnregisteredSeiTimecode -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: H265UnregisteredSeiTimecode -&gt; Int
 hashWithSalt :: Int -&gt; H265UnregisteredSeiTimecode -&gt; Int
 $chashWithSalt :: Int -&gt; H265UnregisteredSeiTimecode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679973847"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679975337"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; ()
 (H265UnregisteredSeiTimecode -&gt; ())
 -&gt; NFData H265UnregisteredSeiTimecode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265UnregisteredSeiTimecode -&gt; ()
 $crnf :: H265UnregisteredSeiTimecode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679973844"><span class="annot"><span class="annottext">Text -&gt; Either String H265UnregisteredSeiTimecode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679975334"><span class="annot"><span class="annottext">Text -&gt; Either String H265UnregisteredSeiTimecode
 (Text -&gt; Either String H265UnregisteredSeiTimecode)
 -&gt; FromText H265UnregisteredSeiTimecode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265UnregisteredSeiTimecode
 $cfromText :: Text -&gt; Either String H265UnregisteredSeiTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679973841"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679975331"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; Text
 (H265UnregisteredSeiTimecode -&gt; Text)
 -&gt; ToText H265UnregisteredSeiTimecode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265UnregisteredSeiTimecode -&gt; Text
 $ctoText :: H265UnregisteredSeiTimecode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679973838"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679975328"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; ByteString
 (H265UnregisteredSeiTimecode -&gt; ByteString)
 -&gt; ToByteString H265UnregisteredSeiTimecode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265UnregisteredSeiTimecode -&gt; ByteString
 $ctoBS :: H265UnregisteredSeiTimecode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679973835"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679975325"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; ByteStringBuilder
 (H265UnregisteredSeiTimecode -&gt; ByteStringBuilder)
 -&gt; ToLog H265UnregisteredSeiTimecode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265UnregisteredSeiTimecode -&gt; ByteStringBuilder
 $cbuild :: H265UnregisteredSeiTimecode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679973832"><span class="annot"><span class="annottext">HeaderName -&gt; H265UnregisteredSeiTimecode -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679975322"><span class="annot"><span class="annottext">HeaderName -&gt; H265UnregisteredSeiTimecode -&gt; [Header]
 (HeaderName -&gt; H265UnregisteredSeiTimecode -&gt; [Header])
 -&gt; ToHeader H265UnregisteredSeiTimecode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265UnregisteredSeiTimecode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265UnregisteredSeiTimecode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679973829"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679975319"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; QueryString
 (H265UnregisteredSeiTimecode -&gt; QueryString)
 -&gt; ToQuery H265UnregisteredSeiTimecode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265UnregisteredSeiTimecode -&gt; QueryString
 $ctoQuery :: H265UnregisteredSeiTimecode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679973824"><span id="local-6989586621679973826"><span class="annot"><span class="annottext">Value -&gt; Parser [H265UnregisteredSeiTimecode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679975314"><span id="local-6989586621679975316"><span class="annot"><span class="annottext">Value -&gt; Parser [H265UnregisteredSeiTimecode]
 Value -&gt; Parser H265UnregisteredSeiTimecode
 (Value -&gt; Parser H265UnregisteredSeiTimecode)
 -&gt; (Value -&gt; Parser [H265UnregisteredSeiTimecode])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [H265UnregisteredSeiTimecode]
 parseJSON :: Value -&gt; Parser H265UnregisteredSeiTimecode
 $cparseJSON :: Value -&gt; Parser H265UnregisteredSeiTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679973819"><span id="local-6989586621679973821"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265UnregisteredSeiTimecode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679975309"><span id="local-6989586621679975311"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265UnregisteredSeiTimecode]
 FromJSONKeyFunction H265UnregisteredSeiTimecode
 FromJSONKeyFunction H265UnregisteredSeiTimecode
 -&gt; FromJSONKeyFunction [H265UnregisteredSeiTimecode]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265UnregisteredSeiTimecode]
 fromJSONKey :: FromJSONKeyFunction H265UnregisteredSeiTimecode
 $cfromJSONKey :: FromJSONKeyFunction H265UnregisteredSeiTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679973810"><span id="local-6989586621679973812"><span id="local-6989586621679973814"><span id="local-6989586621679973816"><span class="annot"><span class="annottext">[H265UnregisteredSeiTimecode] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679975300"><span id="local-6989586621679975302"><span id="local-6989586621679975304"><span id="local-6989586621679975306"><span class="annot"><span class="annottext">[H265UnregisteredSeiTimecode] -&gt; Encoding
 [H265UnregisteredSeiTimecode] -&gt; Value
 H265UnregisteredSeiTimecode -&gt; Encoding
 H265UnregisteredSeiTimecode -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: H265UnregisteredSeiTimecode -&gt; Encoding
 toJSON :: H265UnregisteredSeiTimecode -&gt; Value
 $ctoJSON :: H265UnregisteredSeiTimecode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679973805"><span id="local-6989586621679973807"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265UnregisteredSeiTimecode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679975295"><span id="local-6989586621679975297"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265UnregisteredSeiTimecode]
 ToJSONKeyFunction H265UnregisteredSeiTimecode
 ToJSONKeyFunction H265UnregisteredSeiTimecode
 -&gt; ToJSONKeyFunction [H265UnregisteredSeiTimecode]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265UnregisteredSeiTimecode]
 toJSONKey :: ToJSONKeyFunction H265UnregisteredSeiTimecode
 $ctoJSONKey :: ToJSONKeyFunction H265UnregisteredSeiTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679973802"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265UnregisteredSeiTimecode
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679975292"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265UnregisteredSeiTimecode
 ([Node] -&gt; Either String H265UnregisteredSeiTimecode)
 -&gt; FromXML H265UnregisteredSeiTimecode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265UnregisteredSeiTimecode
 $cparseXML :: [Node] -&gt; Either String H265UnregisteredSeiTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679973799"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679975289"><span class="annot"><span class="annottext">H265UnregisteredSeiTimecode -&gt; XML
 (H265UnregisteredSeiTimecode -&gt; XML)
 -&gt; ToXML H265UnregisteredSeiTimecode
 forall a. (a -&gt; XML) -&gt; ToXML a

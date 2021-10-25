@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- visually complex content.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAccelerationSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679938213"><span id="local-6989586621679938214"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccelerationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-var">AccelerationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-var">AccelerationSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679939532"><span id="local-6989586621679939533"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccelerationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-var">AccelerationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-var">AccelerationSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the conditions when the service will run your job with</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- accelerated transcoding.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Amode%3AAccelerationSettings%27"><span class="annot"><span class="annottext">AccelerationSettings -&gt; AccelerationMode
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#%24sel%3Amode%3AAccelerationSettings%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-type">AccelerationMode</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679938207"><span id="local-6989586621679938209"><span class="annot"><span class="annottext">AccelerationSettings -&gt; AccelerationSettings -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679939526"><span id="local-6989586621679939528"><span class="annot"><span class="annottext">AccelerationSettings -&gt; AccelerationSettings -&gt; Bool
 (AccelerationSettings -&gt; AccelerationSettings -&gt; Bool)
 -&gt; (AccelerationSettings -&gt; AccelerationSettings -&gt; Bool)
 -&gt; Eq AccelerationSettings
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccelerationSettings -&gt; AccelerationSettings -&gt; Bool
 == :: AccelerationSettings -&gt; AccelerationSettings -&gt; Bool
 $c== :: AccelerationSettings -&gt; AccelerationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679938198"><span id="local-6989586621679938200"><span id="local-6989586621679938202"><span id="local-6989586621679938204"><span class="annot"><span class="annottext">ReadPrec [AccelerationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679939517"><span id="local-6989586621679939519"><span id="local-6989586621679939521"><span id="local-6989586621679939523"><span class="annot"><span class="annottext">ReadPrec [AccelerationSettings]
 ReadPrec AccelerationSettings
 Int -&gt; ReadS AccelerationSettings
 ReadS [AccelerationSettings]
@@ -63,7 +63,7 @@ readList :: ReadS [AccelerationSettings]
 $creadList :: ReadS [AccelerationSettings]
 readsPrec :: Int -&gt; ReadS AccelerationSettings
 $creadsPrec :: Int -&gt; ReadS AccelerationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679938191"><span id="local-6989586621679938193"><span id="local-6989586621679938195"><span class="annot"><span class="annottext">Int -&gt; AccelerationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679939510"><span id="local-6989586621679939512"><span id="local-6989586621679939514"><span class="annot"><span class="annottext">Int -&gt; AccelerationSettings -&gt; ShowS
 [AccelerationSettings] -&gt; ShowS
 AccelerationSettings -&gt; String
 (Int -&gt; AccelerationSettings -&gt; ShowS)
@@ -104,12 +104,12 @@ $cfrom :: forall x. AccelerationSettings -&gt; Rep AccelerationSettings x
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationMode.html#AccelerationMode"><span class="hs-identifier hs-type">AccelerationMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span><span>
 </span><span id="line-52"></span><span id="newAccelerationSettings"><span class="annot"><span class="annottext">newAccelerationSettings :: AccelerationMode -&gt; AccelerationSettings
-</span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#newAccelerationSettings"><span class="hs-identifier hs-var hs-var">newAccelerationSettings</span></a></span></span><span> </span><span id="local-6989586621679938185"><span class="annot"><span class="annottext">AccelerationMode
-</span><a href="#local-6989586621679938185"><span class="hs-identifier hs-var">pMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#newAccelerationSettings"><span class="hs-identifier hs-var hs-var">newAccelerationSettings</span></a></span></span><span> </span><span id="local-6989586621679939504"><span class="annot"><span class="annottext">AccelerationMode
+</span><a href="#local-6989586621679939504"><span class="hs-identifier hs-var">pMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AccelerationSettings' :: AccelerationMode -&gt; AccelerationSettings
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:AccelerationSettings' :: AccelerationMode
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#%24sel%3Amode%3AAccelerationSettings%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccelerationMode
-</span><a href="#local-6989586621679938185"><span class="hs-identifier hs-var">pMode_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679939504"><span class="hs-identifier hs-var">pMode_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Specify the conditions when the service will run your job with</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- accelerated transcoding.</span><span>
@@ -125,19 +125,19 @@ $cfrom :: forall x. AccelerationSettings -&gt; Rep AccelerationSettings x
      AccelerationMode
      AccelerationMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679938181"><span class="annot"><span class="annottext">AccelerationMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939500"><span class="annot"><span class="annottext">AccelerationMode
 mode :: AccelerationMode
 $sel:mode:AccelerationSettings' :: AccelerationSettings -&gt; AccelerationMode
-</span><a href="#local-6989586621679938181"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccelerationMode
-</span><a href="#local-6989586621679938181"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679938180"><span class="annot"><span class="annottext">s :: AccelerationSettings
-</span><a href="#local-6989586621679938180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679938179"><span class="annot"><span class="annottext">AccelerationMode
-</span><a href="#local-6989586621679938179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccelerationSettings
-</span><a href="#local-6989586621679938180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:AccelerationSettings' :: AccelerationMode
+</span><a href="#local-6989586621679939500"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccelerationMode
+</span><a href="#local-6989586621679939500"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939499"><span class="annot"><span class="annottext">s :: AccelerationSettings
+</span><a href="#local-6989586621679939499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939498"><span class="annot"><span class="annottext">AccelerationMode
+</span><a href="#local-6989586621679939498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccelerationSettings
+</span><a href="#local-6989586621679939499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:AccelerationSettings' :: AccelerationMode
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#%24sel%3Amode%3AAccelerationSettings%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccelerationMode
-</span><a href="#local-6989586621679938179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938176"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679938174"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccelerationSettings
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939495"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679939493"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccelerationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccelerationSettings)
@@ -147,29 +147,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccelerationSettings&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679938171"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679938171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679939490"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679939490"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">AccelerationMode -&gt; AccelerationSettings
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-var">AccelerationSettings'</span></a></span><span> </span><span class="annot"><span class="annottext">(AccelerationMode -&gt; AccelerationSettings)
 -&gt; Parser AccelerationMode -&gt; Parser AccelerationSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679938171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AccelerationMode
+</span><a href="#local-6989586621679939490"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AccelerationMode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938165"><span id="local-6989586621679938167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939484"><span id="local-6989586621679939486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938154"><span id="local-6989586621679938156"><span id="local-6989586621679938158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679938152"><span class="annot"><span class="annottext">toJSON :: AccelerationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679938150"><span class="annot"><span class="annottext">AccelerationMode
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939473"><span id="local-6989586621679939475"><span id="local-6989586621679939477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679939471"><span class="annot"><span class="annottext">toJSON :: AccelerationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings%27"><span class="hs-identifier hs-type">AccelerationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939469"><span class="annot"><span class="annottext">AccelerationMode
 mode :: AccelerationMode
 $sel:mode:AccelerationSettings' :: AccelerationSettings -&gt; AccelerationMode
-</span><a href="#local-6989586621679938150"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679939469"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -181,6 +181,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccelerationMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AccelerationMode
-</span><a href="#local-6989586621679938150"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679939469"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

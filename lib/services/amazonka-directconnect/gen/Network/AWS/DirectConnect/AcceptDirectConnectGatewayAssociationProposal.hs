@@ -63,8 +63,8 @@ data AcceptDirectConnectGatewayAssociationProposal = AcceptDirectConnectGatewayA
     directConnectGatewayId :: Prelude.Text,
     -- | The ID of the request proposal.
     proposalId :: Prelude.Text,
-    -- | The ID of the account that owns the virtual private gateway or transit
-    -- gateway.
+    -- | The ID of the Amazon Web Services account that owns the virtual private
+    -- gateway or transit gateway.
     associatedGatewayOwnerAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +88,8 @@ data AcceptDirectConnectGatewayAssociationProposal = AcceptDirectConnectGatewayA
 --
 -- 'proposalId', 'acceptDirectConnectGatewayAssociationProposal_proposalId' - The ID of the request proposal.
 --
--- 'associatedGatewayOwnerAccount', 'acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount' - The ID of the account that owns the virtual private gateway or transit
--- gateway.
+-- 'associatedGatewayOwnerAccount', 'acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount' - The ID of the Amazon Web Services account that owns the virtual private
+-- gateway or transit gateway.
 newAcceptDirectConnectGatewayAssociationProposal ::
   -- | 'directConnectGatewayId'
   Prelude.Text ->
@@ -129,8 +129,8 @@ acceptDirectConnectGatewayAssociationProposal_directConnectGatewayId = Lens.lens
 acceptDirectConnectGatewayAssociationProposal_proposalId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Prelude.Text
 acceptDirectConnectGatewayAssociationProposal_proposalId = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {proposalId} -> proposalId) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {proposalId = a} :: AcceptDirectConnectGatewayAssociationProposal)
 
--- | The ID of the account that owns the virtual private gateway or transit
--- gateway.
+-- | The ID of the Amazon Web Services account that owns the virtual private
+-- gateway or transit gateway.
 acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Prelude.Text
 acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {associatedGatewayOwnerAccount} -> associatedGatewayOwnerAccount) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {associatedGatewayOwnerAccount = a} :: AcceptDirectConnectGatewayAssociationProposal)
 

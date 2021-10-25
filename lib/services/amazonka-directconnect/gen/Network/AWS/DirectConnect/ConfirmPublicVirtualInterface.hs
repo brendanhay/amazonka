@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Accepts ownership of a public virtual interface created by another
--- account.
+-- Amazon Web Services account.
 --
 -- After the virtual interface owner makes this call, the specified virtual
 -- interface is created and made available to handle traffic.

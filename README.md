@@ -24,6 +24,7 @@
 [Direnv Wiki]: https://github.com/direnv/direnv/wiki
 [hermetic]: https://sre.google/sre-book/release-engineering/#hermetic-builds-nqslhnid
 [lorri]: https://github.com/nix-community/lorri
+[botocore]: https://github.com/boto/botocore
 
 An Amazon Web Services SDK for Haskell with support for most public services. Parts of the code contained in this repository are auto-generated and automatically kept up to date with Amazon's latest service APIs.
 
@@ -172,6 +173,12 @@ Or, you can selectively run the generator on one or more services:
 
 ```bash
 ./scripts/generate ec2 s3 iam
+```
+
+To update the [botocore](botocore) service definitions used by the generator, you can run:
+
+```bash
+./scripts/update-botocore
 ```
 
 [scripts/generate-configs](scripts/generate-configs) will run the config generator to produce placeholder [config/serivces](config/services) configurations for the version of botocore pinned in the [WORKSPACE](WORKSPACE).

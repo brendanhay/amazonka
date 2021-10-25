@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.RestoreDBInstanceFromS
+-- Module      : Network.AWS.RDS.RestoreDBInstanceFromS3
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,64 +27,64 @@
 -- running MySQL. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html Importing Data into an Amazon RDS MySQL DB Instance>
 -- in the /Amazon RDS User Guide./
-module Network.AWS.RDS.RestoreDBInstanceFromS
+module Network.AWS.RDS.RestoreDBInstanceFromS3
   ( -- * Creating a Request
-    RestoreDBInstanceFromS (..),
-    newRestoreDBInstanceFromS,
+    RestoreDBInstanceFromS3 (..),
+    newRestoreDBInstanceFromS3,
 
     -- * Request Lenses
-    restoreDBInstanceFromS_engineVersion,
-    restoreDBInstanceFromS_dbSecurityGroups,
-    restoreDBInstanceFromS_deletionProtection,
-    restoreDBInstanceFromS_storageEncrypted,
-    restoreDBInstanceFromS_masterUserPassword,
-    restoreDBInstanceFromS_publiclyAccessible,
-    restoreDBInstanceFromS_autoMinorVersionUpgrade,
-    restoreDBInstanceFromS_masterUsername,
-    restoreDBInstanceFromS_dbSubnetGroupName,
-    restoreDBInstanceFromS_monitoringRoleArn,
-    restoreDBInstanceFromS_iops,
-    restoreDBInstanceFromS_monitoringInterval,
-    restoreDBInstanceFromS_processorFeatures,
-    restoreDBInstanceFromS_licenseModel,
-    restoreDBInstanceFromS_preferredMaintenanceWindow,
-    restoreDBInstanceFromS_performanceInsightsRetentionPeriod,
-    restoreDBInstanceFromS_maxAllocatedStorage,
-    restoreDBInstanceFromS_enablePerformanceInsights,
-    restoreDBInstanceFromS_kmsKeyId,
-    restoreDBInstanceFromS_dbParameterGroupName,
-    restoreDBInstanceFromS_preferredBackupWindow,
-    restoreDBInstanceFromS_availabilityZone,
-    restoreDBInstanceFromS_backupRetentionPeriod,
-    restoreDBInstanceFromS_performanceInsightsKMSKeyId,
-    restoreDBInstanceFromS_vpcSecurityGroupIds,
-    restoreDBInstanceFromS_multiAZ,
-    restoreDBInstanceFromS_s3Prefix,
-    restoreDBInstanceFromS_allocatedStorage,
-    restoreDBInstanceFromS_optionGroupName,
-    restoreDBInstanceFromS_copyTagsToSnapshot,
-    restoreDBInstanceFromS_tags,
-    restoreDBInstanceFromS_port,
-    restoreDBInstanceFromS_enableIAMDatabaseAuthentication,
-    restoreDBInstanceFromS_useDefaultProcessorFeatures,
-    restoreDBInstanceFromS_storageType,
-    restoreDBInstanceFromS_enableCloudwatchLogsExports,
-    restoreDBInstanceFromS_dbName,
-    restoreDBInstanceFromS_dbInstanceIdentifier,
-    restoreDBInstanceFromS_dbInstanceClass,
-    restoreDBInstanceFromS_engine,
-    restoreDBInstanceFromS_sourceEngine,
-    restoreDBInstanceFromS_sourceEngineVersion,
-    restoreDBInstanceFromS_s3BucketName,
-    restoreDBInstanceFromS_s3IngestionRoleArn,
+    restoreDBInstanceFromS3_engineVersion,
+    restoreDBInstanceFromS3_dbSecurityGroups,
+    restoreDBInstanceFromS3_deletionProtection,
+    restoreDBInstanceFromS3_storageEncrypted,
+    restoreDBInstanceFromS3_masterUserPassword,
+    restoreDBInstanceFromS3_publiclyAccessible,
+    restoreDBInstanceFromS3_autoMinorVersionUpgrade,
+    restoreDBInstanceFromS3_masterUsername,
+    restoreDBInstanceFromS3_dbSubnetGroupName,
+    restoreDBInstanceFromS3_monitoringRoleArn,
+    restoreDBInstanceFromS3_iops,
+    restoreDBInstanceFromS3_monitoringInterval,
+    restoreDBInstanceFromS3_processorFeatures,
+    restoreDBInstanceFromS3_licenseModel,
+    restoreDBInstanceFromS3_preferredMaintenanceWindow,
+    restoreDBInstanceFromS3_performanceInsightsRetentionPeriod,
+    restoreDBInstanceFromS3_maxAllocatedStorage,
+    restoreDBInstanceFromS3_enablePerformanceInsights,
+    restoreDBInstanceFromS3_kmsKeyId,
+    restoreDBInstanceFromS3_dbParameterGroupName,
+    restoreDBInstanceFromS3_preferredBackupWindow,
+    restoreDBInstanceFromS3_availabilityZone,
+    restoreDBInstanceFromS3_backupRetentionPeriod,
+    restoreDBInstanceFromS3_performanceInsightsKMSKeyId,
+    restoreDBInstanceFromS3_vpcSecurityGroupIds,
+    restoreDBInstanceFromS3_multiAZ,
+    restoreDBInstanceFromS3_s3Prefix,
+    restoreDBInstanceFromS3_allocatedStorage,
+    restoreDBInstanceFromS3_optionGroupName,
+    restoreDBInstanceFromS3_copyTagsToSnapshot,
+    restoreDBInstanceFromS3_tags,
+    restoreDBInstanceFromS3_port,
+    restoreDBInstanceFromS3_enableIAMDatabaseAuthentication,
+    restoreDBInstanceFromS3_useDefaultProcessorFeatures,
+    restoreDBInstanceFromS3_storageType,
+    restoreDBInstanceFromS3_enableCloudwatchLogsExports,
+    restoreDBInstanceFromS3_dbName,
+    restoreDBInstanceFromS3_dbInstanceIdentifier,
+    restoreDBInstanceFromS3_dbInstanceClass,
+    restoreDBInstanceFromS3_engine,
+    restoreDBInstanceFromS3_sourceEngine,
+    restoreDBInstanceFromS3_sourceEngineVersion,
+    restoreDBInstanceFromS3_s3BucketName,
+    restoreDBInstanceFromS3_s3IngestionRoleArn,
 
     -- * Destructuring the Response
-    RestoreDBInstanceFromSResponse (..),
-    newRestoreDBInstanceFromSResponse,
+    RestoreDBInstanceFromS3Response (..),
+    newRestoreDBInstanceFromS3Response,
 
     -- * Response Lenses
-    restoreDBInstanceFromSResponse_dbInstance,
-    restoreDBInstanceFromSResponse_httpStatus,
+    restoreDBInstanceFromS3Response_dbInstance,
+    restoreDBInstanceFromS3Response_httpStatus,
   )
 where
 
@@ -95,8 +95,8 @@ import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newRestoreDBInstanceFromS' smart constructor.
-data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
+-- | /See:/ 'newRestoreDBInstanceFromS3' smart constructor.
+data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
   { -- | The version number of the database engine to use. Choose the latest
     -- minor version of your database engine. For information about engine
     -- versions, see @CreateDBInstance@, or call @DescribeDBEngineVersions@.
@@ -390,35 +390,35 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'RestoreDBInstanceFromS' with all optional fields omitted.
+-- Create a value of 'RestoreDBInstanceFromS3' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'restoreDBInstanceFromS_engineVersion' - The version number of the database engine to use. Choose the latest
+-- 'engineVersion', 'restoreDBInstanceFromS3_engineVersion' - The version number of the database engine to use. Choose the latest
 -- minor version of your database engine. For information about engine
 -- versions, see @CreateDBInstance@, or call @DescribeDBEngineVersions@.
 --
--- 'dbSecurityGroups', 'restoreDBInstanceFromS_dbSecurityGroups' - A list of DB security groups to associate with this DB instance.
+-- 'dbSecurityGroups', 'restoreDBInstanceFromS3_dbSecurityGroups' - A list of DB security groups to associate with this DB instance.
 --
 -- Default: The default DB security group for the database engine.
 --
--- 'deletionProtection', 'restoreDBInstanceFromS_deletionProtection' - A value that indicates whether the DB instance has deletion protection
+-- 'deletionProtection', 'restoreDBInstanceFromS3_deletionProtection' - A value that indicates whether the DB instance has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
 --
--- 'storageEncrypted', 'restoreDBInstanceFromS_storageEncrypted' - A value that indicates whether the new DB instance is encrypted or not.
+-- 'storageEncrypted', 'restoreDBInstanceFromS3_storageEncrypted' - A value that indicates whether the new DB instance is encrypted or not.
 --
--- 'masterUserPassword', 'restoreDBInstanceFromS_masterUserPassword' - The password for the master user. The password can include any printable
+-- 'masterUserPassword', 'restoreDBInstanceFromS3_masterUserPassword' - The password for the master user. The password can include any printable
 -- ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
 --
--- 'publiclyAccessible', 'restoreDBInstanceFromS_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
+-- 'publiclyAccessible', 'restoreDBInstanceFromS3_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
 --
 -- When the DB instance is publicly accessible, its DNS endpoint resolves
 -- to the private IP address from within the DB instance\'s VPC, and to the
@@ -432,11 +432,11 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- For more information, see CreateDBInstance.
 --
--- 'autoMinorVersionUpgrade', 'restoreDBInstanceFromS_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
+-- 'autoMinorVersionUpgrade', 'restoreDBInstanceFromS3_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
 -- automatically to the DB instance during the maintenance window. By
 -- default, minor engine upgrades are not applied automatically.
 --
--- 'masterUsername', 'restoreDBInstanceFromS_masterUsername' - The name for the master user.
+-- 'masterUsername', 'restoreDBInstanceFromS3_masterUsername' - The name for the master user.
 --
 -- Constraints:
 --
@@ -446,9 +446,9 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- -   Can\'t be a reserved word for the chosen database engine.
 --
--- 'dbSubnetGroupName', 'restoreDBInstanceFromS_dbSubnetGroupName' - A DB subnet group to associate with this DB instance.
+-- 'dbSubnetGroupName', 'restoreDBInstanceFromS3_dbSubnetGroupName' - A DB subnet group to associate with this DB instance.
 --
--- 'monitoringRoleArn', 'restoreDBInstanceFromS_monitoringRoleArn' - The ARN for the IAM role that permits RDS to send enhanced monitoring
+-- 'monitoringRoleArn', 'restoreDBInstanceFromS3_monitoringRoleArn' - The ARN for the IAM role that permits RDS to send enhanced monitoring
 -- metrics to Amazon CloudWatch Logs. For example,
 -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
 -- monitoring role, see
@@ -458,13 +458,13 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- If @MonitoringInterval@ is set to a value other than 0, then you must
 -- supply a @MonitoringRoleArn@ value.
 --
--- 'iops', 'restoreDBInstanceFromS_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
+-- 'iops', 'restoreDBInstanceFromS3_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
 -- allocate initially for the DB instance. For information about valid Iops
 -- values, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
 -- in the /Amazon RDS User Guide./
 --
--- 'monitoringInterval', 'restoreDBInstanceFromS_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
+-- 'monitoringInterval', 'restoreDBInstanceFromS3_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB instance. To disable collecting
 -- Enhanced Monitoring metrics, specify 0.
 --
@@ -475,12 +475,12 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- Default: @0@
 --
--- 'processorFeatures', 'restoreDBInstanceFromS_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
+-- 'processorFeatures', 'restoreDBInstanceFromS3_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
 --
--- 'licenseModel', 'restoreDBInstanceFromS_licenseModel' - The license model for this DB instance. Use @general-public-license@.
+-- 'licenseModel', 'restoreDBInstanceFromS3_licenseModel' - The license model for this DB instance. Use @general-public-license@.
 --
--- 'preferredMaintenanceWindow', 'restoreDBInstanceFromS_preferredMaintenanceWindow' - The time range each week during which system maintenance can occur, in
+-- 'preferredMaintenanceWindow', 'restoreDBInstanceFromS3_preferredMaintenanceWindow' - The time range each week during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC). For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance Amazon RDS Maintenance Window>
 -- in the /Amazon RDS User Guide./
@@ -497,10 +497,10 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- -   Must be at least 30 minutes.
 --
--- 'performanceInsightsRetentionPeriod', 'restoreDBInstanceFromS_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
+-- 'performanceInsightsRetentionPeriod', 'restoreDBInstanceFromS3_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
 -- values are 7 or 731 (2 years).
 --
--- 'maxAllocatedStorage', 'restoreDBInstanceFromS_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+-- 'maxAllocatedStorage', 'restoreDBInstanceFromS3_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
 -- scale the storage of the DB instance.
 --
 -- For more information about this setting, including limitations that
@@ -508,14 +508,14 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
 -- in the /Amazon RDS User Guide/.
 --
--- 'enablePerformanceInsights', 'restoreDBInstanceFromS_enablePerformanceInsights' - A value that indicates whether to enable Performance Insights for the DB
+-- 'enablePerformanceInsights', 'restoreDBInstanceFromS3_enablePerformanceInsights' - A value that indicates whether to enable Performance Insights for the DB
 -- instance.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
 -- in the /Amazon Relational Database Service User Guide/.
 --
--- 'kmsKeyId', 'restoreDBInstanceFromS_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB instance.
+-- 'kmsKeyId', 'restoreDBInstanceFromS3_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB instance.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
 -- ARN, or alias name for the Amazon Web Services KMS customer master key
@@ -528,12 +528,12 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- account. Your Amazon Web Services account has a different default CMK
 -- for each Amazon Web Services Region.
 --
--- 'dbParameterGroupName', 'restoreDBInstanceFromS_dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
+-- 'dbParameterGroupName', 'restoreDBInstanceFromS3_dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
 --
 -- If you do not specify a value for @DBParameterGroupName@, then the
 -- default @DBParameterGroup@ for the specified DB engine is used.
 --
--- 'preferredBackupWindow', 'restoreDBInstanceFromS_preferredBackupWindow' - The time range each day during which automated backups are created if
+-- 'preferredBackupWindow', 'restoreDBInstanceFromS3_preferredBackupWindow' - The time range each day during which automated backups are created if
 -- automated backups are enabled. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Backup window>
 -- in the /Amazon RDS User Guide./
@@ -548,7 +548,7 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- -   Must be at least 30 minutes.
 --
--- 'availabilityZone', 'restoreDBInstanceFromS_availabilityZone' - The Availability Zone that the DB instance is created in. For
+-- 'availabilityZone', 'restoreDBInstanceFromS3_availabilityZone' - The Availability Zone that the DB instance is created in. For
 -- information about Amazon Web Services Regions and Availability Zones,
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones>
@@ -563,11 +563,11 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- DB instance is a Multi-AZ deployment. The specified Availability Zone
 -- must be in the same Amazon Web Services Region as the current endpoint.
 --
--- 'backupRetentionPeriod', 'restoreDBInstanceFromS_backupRetentionPeriod' - The number of days for which automated backups are retained. Setting
+-- 'backupRetentionPeriod', 'restoreDBInstanceFromS3_backupRetentionPeriod' - The number of days for which automated backups are retained. Setting
 -- this parameter to a positive number enables backups. For more
 -- information, see @CreateDBInstance@.
 --
--- 'performanceInsightsKMSKeyId', 'restoreDBInstanceFromS_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
+-- 'performanceInsightsKMSKeyId', 'restoreDBInstanceFromS3_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
 -- Insights data.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
@@ -579,34 +579,34 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- Web Services account. Your Amazon Web Services account has a different
 -- default CMK for each Amazon Web Services Region.
 --
--- 'vpcSecurityGroupIds', 'restoreDBInstanceFromS_vpcSecurityGroupIds' - A list of VPC security groups to associate with this DB instance.
+-- 'vpcSecurityGroupIds', 'restoreDBInstanceFromS3_vpcSecurityGroupIds' - A list of VPC security groups to associate with this DB instance.
 --
--- 'multiAZ', 'restoreDBInstanceFromS_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
+-- 'multiAZ', 'restoreDBInstanceFromS3_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
 -- If the DB instance is a Multi-AZ deployment, you can\'t set the
 -- @AvailabilityZone@ parameter.
 --
--- 's3Prefix', 'restoreDBInstanceFromS_s3Prefix' - The prefix of your Amazon S3 bucket.
+-- 's3Prefix', 'restoreDBInstanceFromS3_s3Prefix' - The prefix of your Amazon S3 bucket.
 --
--- 'allocatedStorage', 'restoreDBInstanceFromS_allocatedStorage' - The amount of storage (in gigabytes) to allocate initially for the DB
+-- 'allocatedStorage', 'restoreDBInstanceFromS3_allocatedStorage' - The amount of storage (in gigabytes) to allocate initially for the DB
 -- instance. Follow the allocation rules specified in @CreateDBInstance@.
 --
 -- Be sure to allocate enough memory for your new DB instance so that the
 -- restore operation can succeed. You can also allocate additional memory
 -- for future growth.
 --
--- 'optionGroupName', 'restoreDBInstanceFromS_optionGroupName' - The name of the option group to associate with this DB instance. If this
+-- 'optionGroupName', 'restoreDBInstanceFromS3_optionGroupName' - The name of the option group to associate with this DB instance. If this
 -- argument is omitted, the default option group for the specified engine
 -- is used.
 --
--- 'copyTagsToSnapshot', 'restoreDBInstanceFromS_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the DB instance to
+-- 'copyTagsToSnapshot', 'restoreDBInstanceFromS3_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the DB instance to
 -- snapshots of the DB instance. By default, tags are not copied.
 --
--- 'tags', 'restoreDBInstanceFromS_tags' - A list of tags to associate with this DB instance. For more information,
+-- 'tags', 'restoreDBInstanceFromS3_tags' - A list of tags to associate with this DB instance. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html Tagging Amazon RDS Resources>
 -- in the /Amazon RDS User Guide./
 --
--- 'port', 'restoreDBInstanceFromS_port' - The port number on which the database accepts connections.
+-- 'port', 'restoreDBInstanceFromS3_port' - The port number on which the database accepts connections.
 --
 -- Type: Integer
 --
@@ -614,7 +614,7 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- Default: @3306@
 --
--- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromS_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromS3_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
 -- default, mapping is disabled.
 --
@@ -622,10 +622,10 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
 --
--- 'useDefaultProcessorFeatures', 'restoreDBInstanceFromS_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
+-- 'useDefaultProcessorFeatures', 'restoreDBInstanceFromS3_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
 --
--- 'storageType', 'restoreDBInstanceFromS_storageType' - Specifies the storage type to be associated with the DB instance.
+-- 'storageType', 'restoreDBInstanceFromS3_storageType' - Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: @standard@ | @gp2@ | @io1@
 --
@@ -634,16 +634,16 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- Default: @io1@ if the @Iops@ parameter is specified; otherwise @gp2@
 --
--- 'enableCloudwatchLogsExports', 'restoreDBInstanceFromS_enableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to
+-- 'enableCloudwatchLogsExports', 'restoreDBInstanceFromS3_enableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to
 -- CloudWatch Logs. The values in the list depend on the DB engine being
 -- used. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon RDS User Guide/.
 --
--- 'dbName', 'restoreDBInstanceFromS_dbName' - The name of the database to create when the DB instance is created.
+-- 'dbName', 'restoreDBInstanceFromS3_dbName' - The name of the database to create when the DB instance is created.
 -- Follow the naming rules specified in @CreateDBInstance@.
 --
--- 'dbInstanceIdentifier', 'restoreDBInstanceFromS_dbInstanceIdentifier' - The DB instance identifier. This parameter is stored as a lowercase
+-- 'dbInstanceIdentifier', 'restoreDBInstanceFromS3_dbInstanceIdentifier' - The DB instance identifier. This parameter is stored as a lowercase
 -- string.
 --
 -- Constraints:
@@ -656,7 +656,7 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 --
 -- Example: @mydbinstance@
 --
--- 'dbInstanceClass', 'restoreDBInstanceFromS_dbInstanceClass' - The compute and memory capacity of the DB instance, for example,
+-- 'dbInstanceClass', 'restoreDBInstanceFromS3_dbInstanceClass' - The compute and memory capacity of the DB instance, for example,
 -- @db.m4.large@. Not all DB instance classes are available in all Amazon
 -- Web Services Regions, or for all database engines. For the full list of
 -- DB instance classes, and availability for your engine, see
@@ -666,26 +666,26 @@ data RestoreDBInstanceFromS = RestoreDBInstanceFromS'
 -- Importing from Amazon S3 isn\'t supported on the db.t2.micro DB instance
 -- class.
 --
--- 'engine', 'restoreDBInstanceFromS_engine' - The name of the database engine to be used for this instance.
+-- 'engine', 'restoreDBInstanceFromS3_engine' - The name of the database engine to be used for this instance.
 --
 -- Valid Values: @mysql@
 --
--- 'sourceEngine', 'restoreDBInstanceFromS_sourceEngine' - The name of the engine of your source database.
+-- 'sourceEngine', 'restoreDBInstanceFromS3_sourceEngine' - The name of the engine of your source database.
 --
 -- Valid Values: @mysql@
 --
--- 'sourceEngineVersion', 'restoreDBInstanceFromS_sourceEngineVersion' - The version of the database that the backup files were created from.
+-- 'sourceEngineVersion', 'restoreDBInstanceFromS3_sourceEngineVersion' - The version of the database that the backup files were created from.
 --
 -- MySQL versions 5.6 and 5.7 are supported.
 --
 -- Example: @5.6.40@
 --
--- 's3BucketName', 'restoreDBInstanceFromS_s3BucketName' - The name of your Amazon S3 bucket that contains your database backup
+-- 's3BucketName', 'restoreDBInstanceFromS3_s3BucketName' - The name of your Amazon S3 bucket that contains your database backup
 -- file.
 --
--- 's3IngestionRoleArn', 'restoreDBInstanceFromS_s3IngestionRoleArn' - An Amazon Web Services Identity and Access Management (IAM) role to
+-- 's3IngestionRoleArn', 'restoreDBInstanceFromS3_s3IngestionRoleArn' - An Amazon Web Services Identity and Access Management (IAM) role to
 -- allow Amazon RDS to access your Amazon S3 bucket.
-newRestoreDBInstanceFromS ::
+newRestoreDBInstanceFromS3 ::
   -- | 'dbInstanceIdentifier'
   Prelude.Text ->
   -- | 'dbInstanceClass'
@@ -700,8 +700,8 @@ newRestoreDBInstanceFromS ::
   Prelude.Text ->
   -- | 's3IngestionRoleArn'
   Prelude.Text ->
-  RestoreDBInstanceFromS
-newRestoreDBInstanceFromS
+  RestoreDBInstanceFromS3
+newRestoreDBInstanceFromS3
   pDBInstanceIdentifier_
   pDBInstanceClass_
   pEngine_
@@ -709,7 +709,7 @@ newRestoreDBInstanceFromS
   pSourceEngineVersion_
   pS3BucketName_
   pS3IngestionRoleArn_ =
-    RestoreDBInstanceFromS'
+    RestoreDBInstanceFromS3'
       { engineVersion =
           Prelude.Nothing,
         dbSecurityGroups = Prelude.Nothing,
@@ -761,33 +761,33 @@ newRestoreDBInstanceFromS
 -- | The version number of the database engine to use. Choose the latest
 -- minor version of your database engine. For information about engine
 -- versions, see @CreateDBInstance@, or call @DescribeDBEngineVersions@.
-restoreDBInstanceFromS_engineVersion :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_engineVersion = Lens.lens (\RestoreDBInstanceFromS' {engineVersion} -> engineVersion) (\s@RestoreDBInstanceFromS' {} a -> s {engineVersion = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_engineVersion :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_engineVersion = Lens.lens (\RestoreDBInstanceFromS3' {engineVersion} -> engineVersion) (\s@RestoreDBInstanceFromS3' {} a -> s {engineVersion = a} :: RestoreDBInstanceFromS3)
 
 -- | A list of DB security groups to associate with this DB instance.
 --
 -- Default: The default DB security group for the database engine.
-restoreDBInstanceFromS_dbSecurityGroups :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe [Prelude.Text])
-restoreDBInstanceFromS_dbSecurityGroups = Lens.lens (\RestoreDBInstanceFromS' {dbSecurityGroups} -> dbSecurityGroups) (\s@RestoreDBInstanceFromS' {} a -> s {dbSecurityGroups = a} :: RestoreDBInstanceFromS) Prelude.. Lens.mapping Lens.coerced
+restoreDBInstanceFromS3_dbSecurityGroups :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe [Prelude.Text])
+restoreDBInstanceFromS3_dbSecurityGroups = Lens.lens (\RestoreDBInstanceFromS3' {dbSecurityGroups} -> dbSecurityGroups) (\s@RestoreDBInstanceFromS3' {} a -> s {dbSecurityGroups = a} :: RestoreDBInstanceFromS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates whether the DB instance has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-restoreDBInstanceFromS_deletionProtection :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_deletionProtection = Lens.lens (\RestoreDBInstanceFromS' {deletionProtection} -> deletionProtection) (\s@RestoreDBInstanceFromS' {} a -> s {deletionProtection = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_deletionProtection :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_deletionProtection = Lens.lens (\RestoreDBInstanceFromS3' {deletionProtection} -> deletionProtection) (\s@RestoreDBInstanceFromS3' {} a -> s {deletionProtection = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether the new DB instance is encrypted or not.
-restoreDBInstanceFromS_storageEncrypted :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_storageEncrypted = Lens.lens (\RestoreDBInstanceFromS' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBInstanceFromS' {} a -> s {storageEncrypted = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_storageEncrypted :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_storageEncrypted = Lens.lens (\RestoreDBInstanceFromS3' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBInstanceFromS3' {} a -> s {storageEncrypted = a} :: RestoreDBInstanceFromS3)
 
 -- | The password for the master user. The password can include any printable
 -- ASCII character except \"\/\", \"\"\", or \"\@\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
-restoreDBInstanceFromS_masterUserPassword :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_masterUserPassword = Lens.lens (\RestoreDBInstanceFromS' {masterUserPassword} -> masterUserPassword) (\s@RestoreDBInstanceFromS' {} a -> s {masterUserPassword = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_masterUserPassword :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_masterUserPassword = Lens.lens (\RestoreDBInstanceFromS3' {masterUserPassword} -> masterUserPassword) (\s@RestoreDBInstanceFromS3' {} a -> s {masterUserPassword = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether the DB instance is publicly accessible.
 --
@@ -802,14 +802,14 @@ restoreDBInstanceFromS_masterUserPassword = Lens.lens (\RestoreDBInstanceFromS' 
 -- instance with a DNS name that resolves to a private IP address.
 --
 -- For more information, see CreateDBInstance.
-restoreDBInstanceFromS_publiclyAccessible :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_publiclyAccessible = Lens.lens (\RestoreDBInstanceFromS' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreDBInstanceFromS' {} a -> s {publiclyAccessible = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_publiclyAccessible :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_publiclyAccessible = Lens.lens (\RestoreDBInstanceFromS3' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreDBInstanceFromS3' {} a -> s {publiclyAccessible = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether minor engine upgrades are applied
 -- automatically to the DB instance during the maintenance window. By
 -- default, minor engine upgrades are not applied automatically.
-restoreDBInstanceFromS_autoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_autoMinorVersionUpgrade = Lens.lens (\RestoreDBInstanceFromS' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@RestoreDBInstanceFromS' {} a -> s {autoMinorVersionUpgrade = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_autoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_autoMinorVersionUpgrade = Lens.lens (\RestoreDBInstanceFromS3' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@RestoreDBInstanceFromS3' {} a -> s {autoMinorVersionUpgrade = a} :: RestoreDBInstanceFromS3)
 
 -- | The name for the master user.
 --
@@ -820,12 +820,12 @@ restoreDBInstanceFromS_autoMinorVersionUpgrade = Lens.lens (\RestoreDBInstanceFr
 -- -   First character must be a letter.
 --
 -- -   Can\'t be a reserved word for the chosen database engine.
-restoreDBInstanceFromS_masterUsername :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_masterUsername = Lens.lens (\RestoreDBInstanceFromS' {masterUsername} -> masterUsername) (\s@RestoreDBInstanceFromS' {} a -> s {masterUsername = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_masterUsername :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_masterUsername = Lens.lens (\RestoreDBInstanceFromS3' {masterUsername} -> masterUsername) (\s@RestoreDBInstanceFromS3' {} a -> s {masterUsername = a} :: RestoreDBInstanceFromS3)
 
 -- | A DB subnet group to associate with this DB instance.
-restoreDBInstanceFromS_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceFromS' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBInstanceFromS' {} a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceFromS3' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBInstanceFromS3' {} a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceFromS3)
 
 -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
 -- metrics to Amazon CloudWatch Logs. For example,
@@ -836,16 +836,16 @@ restoreDBInstanceFromS_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceFromS' {
 --
 -- If @MonitoringInterval@ is set to a value other than 0, then you must
 -- supply a @MonitoringRoleArn@ value.
-restoreDBInstanceFromS_monitoringRoleArn :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_monitoringRoleArn = Lens.lens (\RestoreDBInstanceFromS' {monitoringRoleArn} -> monitoringRoleArn) (\s@RestoreDBInstanceFromS' {} a -> s {monitoringRoleArn = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_monitoringRoleArn :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_monitoringRoleArn = Lens.lens (\RestoreDBInstanceFromS3' {monitoringRoleArn} -> monitoringRoleArn) (\s@RestoreDBInstanceFromS3' {} a -> s {monitoringRoleArn = a} :: RestoreDBInstanceFromS3)
 
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- allocate initially for the DB instance. For information about valid Iops
 -- values, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS Amazon RDS Provisioned IOPS Storage to Improve Performance>
 -- in the /Amazon RDS User Guide./
-restoreDBInstanceFromS_iops :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_iops = Lens.lens (\RestoreDBInstanceFromS' {iops} -> iops) (\s@RestoreDBInstanceFromS' {} a -> s {iops = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_iops :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_iops = Lens.lens (\RestoreDBInstanceFromS3' {iops} -> iops) (\s@RestoreDBInstanceFromS3' {} a -> s {iops = a} :: RestoreDBInstanceFromS3)
 
 -- | The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB instance. To disable collecting
@@ -857,17 +857,17 @@ restoreDBInstanceFromS_iops = Lens.lens (\RestoreDBInstanceFromS' {iops} -> iops
 -- Valid Values: 0, 1, 5, 10, 15, 30, 60
 --
 -- Default: @0@
-restoreDBInstanceFromS_monitoringInterval :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_monitoringInterval = Lens.lens (\RestoreDBInstanceFromS' {monitoringInterval} -> monitoringInterval) (\s@RestoreDBInstanceFromS' {} a -> s {monitoringInterval = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_monitoringInterval :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_monitoringInterval = Lens.lens (\RestoreDBInstanceFromS3' {monitoringInterval} -> monitoringInterval) (\s@RestoreDBInstanceFromS3' {} a -> s {monitoringInterval = a} :: RestoreDBInstanceFromS3)
 
 -- | The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
-restoreDBInstanceFromS_processorFeatures :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe [ProcessorFeature])
-restoreDBInstanceFromS_processorFeatures = Lens.lens (\RestoreDBInstanceFromS' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceFromS' {} a -> s {processorFeatures = a} :: RestoreDBInstanceFromS) Prelude.. Lens.mapping Lens.coerced
+restoreDBInstanceFromS3_processorFeatures :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe [ProcessorFeature])
+restoreDBInstanceFromS3_processorFeatures = Lens.lens (\RestoreDBInstanceFromS3' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceFromS3' {} a -> s {processorFeatures = a} :: RestoreDBInstanceFromS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | The license model for this DB instance. Use @general-public-license@.
-restoreDBInstanceFromS_licenseModel :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_licenseModel = Lens.lens (\RestoreDBInstanceFromS' {licenseModel} -> licenseModel) (\s@RestoreDBInstanceFromS' {} a -> s {licenseModel = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_licenseModel :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_licenseModel = Lens.lens (\RestoreDBInstanceFromS3' {licenseModel} -> licenseModel) (\s@RestoreDBInstanceFromS3' {} a -> s {licenseModel = a} :: RestoreDBInstanceFromS3)
 
 -- | The time range each week during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC). For more information, see
@@ -885,13 +885,13 @@ restoreDBInstanceFromS_licenseModel = Lens.lens (\RestoreDBInstanceFromS' {licen
 -- -   Must not conflict with the preferred backup window.
 --
 -- -   Must be at least 30 minutes.
-restoreDBInstanceFromS_preferredMaintenanceWindow :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_preferredMaintenanceWindow = Lens.lens (\RestoreDBInstanceFromS' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBInstanceFromS' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_preferredMaintenanceWindow :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_preferredMaintenanceWindow = Lens.lens (\RestoreDBInstanceFromS3' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBInstanceFromS3' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBInstanceFromS3)
 
 -- | The amount of time, in days, to retain Performance Insights data. Valid
 -- values are 7 or 731 (2 years).
-restoreDBInstanceFromS_performanceInsightsRetentionPeriod :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_performanceInsightsRetentionPeriod = Lens.lens (\RestoreDBInstanceFromS' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@RestoreDBInstanceFromS' {} a -> s {performanceInsightsRetentionPeriod = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_performanceInsightsRetentionPeriod :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_performanceInsightsRetentionPeriod = Lens.lens (\RestoreDBInstanceFromS3' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@RestoreDBInstanceFromS3' {} a -> s {performanceInsightsRetentionPeriod = a} :: RestoreDBInstanceFromS3)
 
 -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
 -- scale the storage of the DB instance.
@@ -900,8 +900,8 @@ restoreDBInstanceFromS_performanceInsightsRetentionPeriod = Lens.lens (\RestoreD
 -- apply to it, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
 -- in the /Amazon RDS User Guide/.
-restoreDBInstanceFromS_maxAllocatedStorage :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_maxAllocatedStorage = Lens.lens (\RestoreDBInstanceFromS' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@RestoreDBInstanceFromS' {} a -> s {maxAllocatedStorage = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_maxAllocatedStorage :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_maxAllocatedStorage = Lens.lens (\RestoreDBInstanceFromS3' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@RestoreDBInstanceFromS3' {} a -> s {maxAllocatedStorage = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether to enable Performance Insights for the DB
 -- instance.
@@ -909,8 +909,8 @@ restoreDBInstanceFromS_maxAllocatedStorage = Lens.lens (\RestoreDBInstanceFromS'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
 -- in the /Amazon Relational Database Service User Guide/.
-restoreDBInstanceFromS_enablePerformanceInsights :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_enablePerformanceInsights = Lens.lens (\RestoreDBInstanceFromS' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@RestoreDBInstanceFromS' {} a -> s {enablePerformanceInsights = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_enablePerformanceInsights :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_enablePerformanceInsights = Lens.lens (\RestoreDBInstanceFromS3' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@RestoreDBInstanceFromS3' {} a -> s {enablePerformanceInsights = a} :: RestoreDBInstanceFromS3)
 
 -- | The Amazon Web Services KMS key identifier for an encrypted DB instance.
 --
@@ -924,15 +924,15 @@ restoreDBInstanceFromS_enablePerformanceInsights = Lens.lens (\RestoreDBInstance
 -- default CMK. There is a default CMK for your Amazon Web Services
 -- account. Your Amazon Web Services account has a different default CMK
 -- for each Amazon Web Services Region.
-restoreDBInstanceFromS_kmsKeyId :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_kmsKeyId = Lens.lens (\RestoreDBInstanceFromS' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBInstanceFromS' {} a -> s {kmsKeyId = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_kmsKeyId :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_kmsKeyId = Lens.lens (\RestoreDBInstanceFromS3' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBInstanceFromS3' {} a -> s {kmsKeyId = a} :: RestoreDBInstanceFromS3)
 
 -- | The name of the DB parameter group to associate with this DB instance.
 --
 -- If you do not specify a value for @DBParameterGroupName@, then the
 -- default @DBParameterGroup@ for the specified DB engine is used.
-restoreDBInstanceFromS_dbParameterGroupName :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_dbParameterGroupName = Lens.lens (\RestoreDBInstanceFromS' {dbParameterGroupName} -> dbParameterGroupName) (\s@RestoreDBInstanceFromS' {} a -> s {dbParameterGroupName = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_dbParameterGroupName :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_dbParameterGroupName = Lens.lens (\RestoreDBInstanceFromS3' {dbParameterGroupName} -> dbParameterGroupName) (\s@RestoreDBInstanceFromS3' {} a -> s {dbParameterGroupName = a} :: RestoreDBInstanceFromS3)
 
 -- | The time range each day during which automated backups are created if
 -- automated backups are enabled. For more information, see
@@ -948,8 +948,8 @@ restoreDBInstanceFromS_dbParameterGroupName = Lens.lens (\RestoreDBInstanceFromS
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
-restoreDBInstanceFromS_preferredBackupWindow :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_preferredBackupWindow = Lens.lens (\RestoreDBInstanceFromS' {preferredBackupWindow} -> preferredBackupWindow) (\s@RestoreDBInstanceFromS' {} a -> s {preferredBackupWindow = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_preferredBackupWindow :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_preferredBackupWindow = Lens.lens (\RestoreDBInstanceFromS3' {preferredBackupWindow} -> preferredBackupWindow) (\s@RestoreDBInstanceFromS3' {} a -> s {preferredBackupWindow = a} :: RestoreDBInstanceFromS3)
 
 -- | The Availability Zone that the DB instance is created in. For
 -- information about Amazon Web Services Regions and Availability Zones,
@@ -965,14 +965,14 @@ restoreDBInstanceFromS_preferredBackupWindow = Lens.lens (\RestoreDBInstanceFrom
 -- Constraint: The @AvailabilityZone@ parameter can\'t be specified if the
 -- DB instance is a Multi-AZ deployment. The specified Availability Zone
 -- must be in the same Amazon Web Services Region as the current endpoint.
-restoreDBInstanceFromS_availabilityZone :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_availabilityZone = Lens.lens (\RestoreDBInstanceFromS' {availabilityZone} -> availabilityZone) (\s@RestoreDBInstanceFromS' {} a -> s {availabilityZone = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_availabilityZone :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_availabilityZone = Lens.lens (\RestoreDBInstanceFromS3' {availabilityZone} -> availabilityZone) (\s@RestoreDBInstanceFromS3' {} a -> s {availabilityZone = a} :: RestoreDBInstanceFromS3)
 
 -- | The number of days for which automated backups are retained. Setting
 -- this parameter to a positive number enables backups. For more
 -- information, see @CreateDBInstance@.
-restoreDBInstanceFromS_backupRetentionPeriod :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_backupRetentionPeriod = Lens.lens (\RestoreDBInstanceFromS' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@RestoreDBInstanceFromS' {} a -> s {backupRetentionPeriod = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_backupRetentionPeriod :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_backupRetentionPeriod = Lens.lens (\RestoreDBInstanceFromS3' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@RestoreDBInstanceFromS3' {} a -> s {backupRetentionPeriod = a} :: RestoreDBInstanceFromS3)
 
 -- | The Amazon Web Services KMS key identifier for encryption of Performance
 -- Insights data.
@@ -985,22 +985,22 @@ restoreDBInstanceFromS_backupRetentionPeriod = Lens.lens (\RestoreDBInstanceFrom
 -- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
 -- Web Services account. Your Amazon Web Services account has a different
 -- default CMK for each Amazon Web Services Region.
-restoreDBInstanceFromS_performanceInsightsKMSKeyId :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_performanceInsightsKMSKeyId = Lens.lens (\RestoreDBInstanceFromS' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@RestoreDBInstanceFromS' {} a -> s {performanceInsightsKMSKeyId = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_performanceInsightsKMSKeyId :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_performanceInsightsKMSKeyId = Lens.lens (\RestoreDBInstanceFromS3' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@RestoreDBInstanceFromS3' {} a -> s {performanceInsightsKMSKeyId = a} :: RestoreDBInstanceFromS3)
 
 -- | A list of VPC security groups to associate with this DB instance.
-restoreDBInstanceFromS_vpcSecurityGroupIds :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe [Prelude.Text])
-restoreDBInstanceFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBInstanceFromS' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBInstanceFromS' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBInstanceFromS) Prelude.. Lens.mapping Lens.coerced
+restoreDBInstanceFromS3_vpcSecurityGroupIds :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe [Prelude.Text])
+restoreDBInstanceFromS3_vpcSecurityGroupIds = Lens.lens (\RestoreDBInstanceFromS3' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBInstanceFromS3' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBInstanceFromS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
 -- If the DB instance is a Multi-AZ deployment, you can\'t set the
 -- @AvailabilityZone@ parameter.
-restoreDBInstanceFromS_multiAZ :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_multiAZ = Lens.lens (\RestoreDBInstanceFromS' {multiAZ} -> multiAZ) (\s@RestoreDBInstanceFromS' {} a -> s {multiAZ = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_multiAZ :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_multiAZ = Lens.lens (\RestoreDBInstanceFromS3' {multiAZ} -> multiAZ) (\s@RestoreDBInstanceFromS3' {} a -> s {multiAZ = a} :: RestoreDBInstanceFromS3)
 
 -- | The prefix of your Amazon S3 bucket.
-restoreDBInstanceFromS_s3Prefix :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_s3Prefix = Lens.lens (\RestoreDBInstanceFromS' {s3Prefix} -> s3Prefix) (\s@RestoreDBInstanceFromS' {} a -> s {s3Prefix = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_s3Prefix :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_s3Prefix = Lens.lens (\RestoreDBInstanceFromS3' {s3Prefix} -> s3Prefix) (\s@RestoreDBInstanceFromS3' {} a -> s {s3Prefix = a} :: RestoreDBInstanceFromS3)
 
 -- | The amount of storage (in gigabytes) to allocate initially for the DB
 -- instance. Follow the allocation rules specified in @CreateDBInstance@.
@@ -1008,26 +1008,26 @@ restoreDBInstanceFromS_s3Prefix = Lens.lens (\RestoreDBInstanceFromS' {s3Prefix}
 -- Be sure to allocate enough memory for your new DB instance so that the
 -- restore operation can succeed. You can also allocate additional memory
 -- for future growth.
-restoreDBInstanceFromS_allocatedStorage :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_allocatedStorage = Lens.lens (\RestoreDBInstanceFromS' {allocatedStorage} -> allocatedStorage) (\s@RestoreDBInstanceFromS' {} a -> s {allocatedStorage = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_allocatedStorage :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_allocatedStorage = Lens.lens (\RestoreDBInstanceFromS3' {allocatedStorage} -> allocatedStorage) (\s@RestoreDBInstanceFromS3' {} a -> s {allocatedStorage = a} :: RestoreDBInstanceFromS3)
 
 -- | The name of the option group to associate with this DB instance. If this
 -- argument is omitted, the default option group for the specified engine
 -- is used.
-restoreDBInstanceFromS_optionGroupName :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_optionGroupName = Lens.lens (\RestoreDBInstanceFromS' {optionGroupName} -> optionGroupName) (\s@RestoreDBInstanceFromS' {} a -> s {optionGroupName = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_optionGroupName :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_optionGroupName = Lens.lens (\RestoreDBInstanceFromS3' {optionGroupName} -> optionGroupName) (\s@RestoreDBInstanceFromS3' {} a -> s {optionGroupName = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether to copy all tags from the DB instance to
 -- snapshots of the DB instance. By default, tags are not copied.
-restoreDBInstanceFromS_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceFromS' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceFromS' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceFromS3' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceFromS3' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceFromS3)
 
 -- | A list of tags to associate with this DB instance. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html Tagging Amazon RDS Resources>
 -- in the /Amazon RDS User Guide./
-restoreDBInstanceFromS_tags :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe [Tag])
-restoreDBInstanceFromS_tags = Lens.lens (\RestoreDBInstanceFromS' {tags} -> tags) (\s@RestoreDBInstanceFromS' {} a -> s {tags = a} :: RestoreDBInstanceFromS) Prelude.. Lens.mapping Lens.coerced
+restoreDBInstanceFromS3_tags :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe [Tag])
+restoreDBInstanceFromS3_tags = Lens.lens (\RestoreDBInstanceFromS3' {tags} -> tags) (\s@RestoreDBInstanceFromS3' {} a -> s {tags = a} :: RestoreDBInstanceFromS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | The port number on which the database accepts connections.
 --
@@ -1036,8 +1036,8 @@ restoreDBInstanceFromS_tags = Lens.lens (\RestoreDBInstanceFromS' {tags} -> tags
 -- Valid Values: @1150@-@65535@
 --
 -- Default: @3306@
-restoreDBInstanceFromS_port :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Int)
-restoreDBInstanceFromS_port = Lens.lens (\RestoreDBInstanceFromS' {port} -> port) (\s@RestoreDBInstanceFromS' {} a -> s {port = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_port :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromS3_port = Lens.lens (\RestoreDBInstanceFromS3' {port} -> port) (\s@RestoreDBInstanceFromS3' {} a -> s {port = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -1046,13 +1046,13 @@ restoreDBInstanceFromS_port = Lens.lens (\RestoreDBInstanceFromS' {port} -> port
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
-restoreDBInstanceFromS_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBInstanceFromS' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBInstanceFromS' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBInstanceFromS3' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBInstanceFromS3' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBInstanceFromS3)
 
 -- | A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
-restoreDBInstanceFromS_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromS_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstanceFromS' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@RestoreDBInstanceFromS' {} a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromS3_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstanceFromS3' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@RestoreDBInstanceFromS3' {} a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceFromS3)
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
@@ -1062,21 +1062,21 @@ restoreDBInstanceFromS_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstan
 -- parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified; otherwise @gp2@
-restoreDBInstanceFromS_storageType :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_storageType = Lens.lens (\RestoreDBInstanceFromS' {storageType} -> storageType) (\s@RestoreDBInstanceFromS' {} a -> s {storageType = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_storageType :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_storageType = Lens.lens (\RestoreDBInstanceFromS3' {storageType} -> storageType) (\s@RestoreDBInstanceFromS3' {} a -> s {storageType = a} :: RestoreDBInstanceFromS3)
 
 -- | The list of logs that the restored DB instance is to export to
 -- CloudWatch Logs. The values in the list depend on the DB engine being
 -- used. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon RDS User Guide/.
-restoreDBInstanceFromS_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe [Prelude.Text])
-restoreDBInstanceFromS_enableCloudwatchLogsExports = Lens.lens (\RestoreDBInstanceFromS' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBInstanceFromS' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBInstanceFromS) Prelude.. Lens.mapping Lens.coerced
+restoreDBInstanceFromS3_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe [Prelude.Text])
+restoreDBInstanceFromS3_enableCloudwatchLogsExports = Lens.lens (\RestoreDBInstanceFromS3' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBInstanceFromS3' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBInstanceFromS3) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the database to create when the DB instance is created.
 -- Follow the naming rules specified in @CreateDBInstance@.
-restoreDBInstanceFromS_dbName :: Lens.Lens' RestoreDBInstanceFromS (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromS_dbName = Lens.lens (\RestoreDBInstanceFromS' {dbName} -> dbName) (\s@RestoreDBInstanceFromS' {} a -> s {dbName = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_dbName :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromS3_dbName = Lens.lens (\RestoreDBInstanceFromS3' {dbName} -> dbName) (\s@RestoreDBInstanceFromS3' {} a -> s {dbName = a} :: RestoreDBInstanceFromS3)
 
 -- | The DB instance identifier. This parameter is stored as a lowercase
 -- string.
@@ -1090,8 +1090,8 @@ restoreDBInstanceFromS_dbName = Lens.lens (\RestoreDBInstanceFromS' {dbName} -> 
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @mydbinstance@
-restoreDBInstanceFromS_dbInstanceIdentifier :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_dbInstanceIdentifier = Lens.lens (\RestoreDBInstanceFromS' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@RestoreDBInstanceFromS' {} a -> s {dbInstanceIdentifier = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_dbInstanceIdentifier :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_dbInstanceIdentifier = Lens.lens (\RestoreDBInstanceFromS3' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@RestoreDBInstanceFromS3' {} a -> s {dbInstanceIdentifier = a} :: RestoreDBInstanceFromS3)
 
 -- | The compute and memory capacity of the DB instance, for example,
 -- @db.m4.large@. Not all DB instance classes are available in all Amazon
@@ -1102,68 +1102,68 @@ restoreDBInstanceFromS_dbInstanceIdentifier = Lens.lens (\RestoreDBInstanceFromS
 --
 -- Importing from Amazon S3 isn\'t supported on the db.t2.micro DB instance
 -- class.
-restoreDBInstanceFromS_dbInstanceClass :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_dbInstanceClass = Lens.lens (\RestoreDBInstanceFromS' {dbInstanceClass} -> dbInstanceClass) (\s@RestoreDBInstanceFromS' {} a -> s {dbInstanceClass = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_dbInstanceClass :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_dbInstanceClass = Lens.lens (\RestoreDBInstanceFromS3' {dbInstanceClass} -> dbInstanceClass) (\s@RestoreDBInstanceFromS3' {} a -> s {dbInstanceClass = a} :: RestoreDBInstanceFromS3)
 
 -- | The name of the database engine to be used for this instance.
 --
 -- Valid Values: @mysql@
-restoreDBInstanceFromS_engine :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_engine = Lens.lens (\RestoreDBInstanceFromS' {engine} -> engine) (\s@RestoreDBInstanceFromS' {} a -> s {engine = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_engine :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_engine = Lens.lens (\RestoreDBInstanceFromS3' {engine} -> engine) (\s@RestoreDBInstanceFromS3' {} a -> s {engine = a} :: RestoreDBInstanceFromS3)
 
 -- | The name of the engine of your source database.
 --
 -- Valid Values: @mysql@
-restoreDBInstanceFromS_sourceEngine :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_sourceEngine = Lens.lens (\RestoreDBInstanceFromS' {sourceEngine} -> sourceEngine) (\s@RestoreDBInstanceFromS' {} a -> s {sourceEngine = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_sourceEngine :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_sourceEngine = Lens.lens (\RestoreDBInstanceFromS3' {sourceEngine} -> sourceEngine) (\s@RestoreDBInstanceFromS3' {} a -> s {sourceEngine = a} :: RestoreDBInstanceFromS3)
 
 -- | The version of the database that the backup files were created from.
 --
 -- MySQL versions 5.6 and 5.7 are supported.
 --
 -- Example: @5.6.40@
-restoreDBInstanceFromS_sourceEngineVersion :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_sourceEngineVersion = Lens.lens (\RestoreDBInstanceFromS' {sourceEngineVersion} -> sourceEngineVersion) (\s@RestoreDBInstanceFromS' {} a -> s {sourceEngineVersion = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_sourceEngineVersion :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_sourceEngineVersion = Lens.lens (\RestoreDBInstanceFromS3' {sourceEngineVersion} -> sourceEngineVersion) (\s@RestoreDBInstanceFromS3' {} a -> s {sourceEngineVersion = a} :: RestoreDBInstanceFromS3)
 
 -- | The name of your Amazon S3 bucket that contains your database backup
 -- file.
-restoreDBInstanceFromS_s3BucketName :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_s3BucketName = Lens.lens (\RestoreDBInstanceFromS' {s3BucketName} -> s3BucketName) (\s@RestoreDBInstanceFromS' {} a -> s {s3BucketName = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_s3BucketName :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_s3BucketName = Lens.lens (\RestoreDBInstanceFromS3' {s3BucketName} -> s3BucketName) (\s@RestoreDBInstanceFromS3' {} a -> s {s3BucketName = a} :: RestoreDBInstanceFromS3)
 
 -- | An Amazon Web Services Identity and Access Management (IAM) role to
 -- allow Amazon RDS to access your Amazon S3 bucket.
-restoreDBInstanceFromS_s3IngestionRoleArn :: Lens.Lens' RestoreDBInstanceFromS Prelude.Text
-restoreDBInstanceFromS_s3IngestionRoleArn = Lens.lens (\RestoreDBInstanceFromS' {s3IngestionRoleArn} -> s3IngestionRoleArn) (\s@RestoreDBInstanceFromS' {} a -> s {s3IngestionRoleArn = a} :: RestoreDBInstanceFromS)
+restoreDBInstanceFromS3_s3IngestionRoleArn :: Lens.Lens' RestoreDBInstanceFromS3 Prelude.Text
+restoreDBInstanceFromS3_s3IngestionRoleArn = Lens.lens (\RestoreDBInstanceFromS3' {s3IngestionRoleArn} -> s3IngestionRoleArn) (\s@RestoreDBInstanceFromS3' {} a -> s {s3IngestionRoleArn = a} :: RestoreDBInstanceFromS3)
 
-instance Core.AWSRequest RestoreDBInstanceFromS where
+instance Core.AWSRequest RestoreDBInstanceFromS3 where
   type
-    AWSResponse RestoreDBInstanceFromS =
-      RestoreDBInstanceFromSResponse
+    AWSResponse RestoreDBInstanceFromS3 =
+      RestoreDBInstanceFromS3Response
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceFromS3Result"
       ( \s h x ->
-          RestoreDBInstanceFromSResponse'
+          RestoreDBInstanceFromS3Response'
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreDBInstanceFromS
+instance Prelude.Hashable RestoreDBInstanceFromS3
 
-instance Prelude.NFData RestoreDBInstanceFromS
+instance Prelude.NFData RestoreDBInstanceFromS3
 
-instance Core.ToHeaders RestoreDBInstanceFromS where
+instance Core.ToHeaders RestoreDBInstanceFromS3 where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreDBInstanceFromS where
+instance Core.ToPath RestoreDBInstanceFromS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreDBInstanceFromS where
-  toQuery RestoreDBInstanceFromS' {..} =
+instance Core.ToQuery RestoreDBInstanceFromS3 where
+  toQuery RestoreDBInstanceFromS3' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreDBInstanceFromS" :: Prelude.ByteString),
+          Core.=: ("RestoreDBInstanceFromS3" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
         "EngineVersion" Core.=: engineVersion,
@@ -1239,8 +1239,8 @@ instance Core.ToQuery RestoreDBInstanceFromS where
         "S3IngestionRoleArn" Core.=: s3IngestionRoleArn
       ]
 
--- | /See:/ 'newRestoreDBInstanceFromSResponse' smart constructor.
-data RestoreDBInstanceFromSResponse = RestoreDBInstanceFromSResponse'
+-- | /See:/ 'newRestoreDBInstanceFromS3Response' smart constructor.
+data RestoreDBInstanceFromS3Response = RestoreDBInstanceFromS3Response'
   { dbInstance :: Prelude.Maybe DBInstance,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -1248,35 +1248,35 @@ data RestoreDBInstanceFromSResponse = RestoreDBInstanceFromSResponse'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'RestoreDBInstanceFromSResponse' with all optional fields omitted.
+-- Create a value of 'RestoreDBInstanceFromS3Response' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbInstance', 'restoreDBInstanceFromSResponse_dbInstance' - Undocumented member.
+-- 'dbInstance', 'restoreDBInstanceFromS3Response_dbInstance' - Undocumented member.
 --
--- 'httpStatus', 'restoreDBInstanceFromSResponse_httpStatus' - The response's http status code.
-newRestoreDBInstanceFromSResponse ::
+-- 'httpStatus', 'restoreDBInstanceFromS3Response_httpStatus' - The response's http status code.
+newRestoreDBInstanceFromS3Response ::
   -- | 'httpStatus'
   Prelude.Int ->
-  RestoreDBInstanceFromSResponse
-newRestoreDBInstanceFromSResponse pHttpStatus_ =
-  RestoreDBInstanceFromSResponse'
+  RestoreDBInstanceFromS3Response
+newRestoreDBInstanceFromS3Response pHttpStatus_ =
+  RestoreDBInstanceFromS3Response'
     { dbInstance =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-restoreDBInstanceFromSResponse_dbInstance :: Lens.Lens' RestoreDBInstanceFromSResponse (Prelude.Maybe DBInstance)
-restoreDBInstanceFromSResponse_dbInstance = Lens.lens (\RestoreDBInstanceFromSResponse' {dbInstance} -> dbInstance) (\s@RestoreDBInstanceFromSResponse' {} a -> s {dbInstance = a} :: RestoreDBInstanceFromSResponse)
+restoreDBInstanceFromS3Response_dbInstance :: Lens.Lens' RestoreDBInstanceFromS3Response (Prelude.Maybe DBInstance)
+restoreDBInstanceFromS3Response_dbInstance = Lens.lens (\RestoreDBInstanceFromS3Response' {dbInstance} -> dbInstance) (\s@RestoreDBInstanceFromS3Response' {} a -> s {dbInstance = a} :: RestoreDBInstanceFromS3Response)
 
 -- | The response's http status code.
-restoreDBInstanceFromSResponse_httpStatus :: Lens.Lens' RestoreDBInstanceFromSResponse Prelude.Int
-restoreDBInstanceFromSResponse_httpStatus = Lens.lens (\RestoreDBInstanceFromSResponse' {httpStatus} -> httpStatus) (\s@RestoreDBInstanceFromSResponse' {} a -> s {httpStatus = a} :: RestoreDBInstanceFromSResponse)
+restoreDBInstanceFromS3Response_httpStatus :: Lens.Lens' RestoreDBInstanceFromS3Response Prelude.Int
+restoreDBInstanceFromS3Response_httpStatus = Lens.lens (\RestoreDBInstanceFromS3Response' {httpStatus} -> httpStatus) (\s@RestoreDBInstanceFromS3Response' {} a -> s {httpStatus = a} :: RestoreDBInstanceFromS3Response)
 
 instance
   Prelude.NFData
-    RestoreDBInstanceFromSResponse
+    RestoreDBInstanceFromS3Response

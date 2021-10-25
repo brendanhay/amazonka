@@ -66,7 +66,7 @@ haskell_library(
         "gen/Network/AWS/S3/ListMultipartUploads.hs",
         "gen/Network/AWS/S3/ListObjectVersions.hs",
         "gen/Network/AWS/S3/ListObjects.hs",
-        "gen/Network/AWS/S3/ListObjectsV.hs",
+        "gen/Network/AWS/S3/ListObjectsV2.hs",
         "gen/Network/AWS/S3/ListParts.hs",
         "gen/Network/AWS/S3/PutBucketAccelerateConfiguration.hs",
         "gen/Network/AWS/S3/PutBucketAcl.hs",

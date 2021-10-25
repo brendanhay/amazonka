@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS
+-- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS3
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -52,24 +52,24 @@
 -- variable be manipulated; for example, will it be combined with another
 -- variable or will it be split apart into word combinations? The recipe
 -- provides answers to these questions.
-module Network.AWS.MachineLearning.CreateDataSourceFromS
+module Network.AWS.MachineLearning.CreateDataSourceFromS3
   ( -- * Creating a Request
-    CreateDataSourceFromS (..),
-    newCreateDataSourceFromS,
+    CreateDataSourceFromS3 (..),
+    newCreateDataSourceFromS3,
 
     -- * Request Lenses
-    createDataSourceFromS_dataSourceName,
-    createDataSourceFromS_computeStatistics,
-    createDataSourceFromS_dataSourceId,
-    createDataSourceFromS_dataSpec,
+    createDataSourceFromS3_dataSourceName,
+    createDataSourceFromS3_computeStatistics,
+    createDataSourceFromS3_dataSourceId,
+    createDataSourceFromS3_dataSpec,
 
     -- * Destructuring the Response
-    CreateDataSourceFromSResponse (..),
-    newCreateDataSourceFromSResponse,
+    CreateDataSourceFromS3Response (..),
+    newCreateDataSourceFromS3Response,
 
     -- * Response Lenses
-    createDataSourceFromSResponse_dataSourceId,
-    createDataSourceFromSResponse_httpStatus,
+    createDataSourceFromS3Response_dataSourceId,
+    createDataSourceFromS3Response_httpStatus,
   )
 where
 
@@ -80,8 +80,8 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newCreateDataSourceFromS' smart constructor.
-data CreateDataSourceFromS = CreateDataSourceFromS'
+-- | /See:/ 'newCreateDataSourceFromS3' smart constructor.
+data CreateDataSourceFromS3 = CreateDataSourceFromS3'
   { -- | A user-supplied name or description of the @DataSource@.
     dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The compute statistics for a @DataSource@. The statistics are generated
@@ -111,24 +111,24 @@ data CreateDataSourceFromS = CreateDataSourceFromS'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'CreateDataSourceFromS' with all optional fields omitted.
+-- Create a value of 'CreateDataSourceFromS3' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSourceName', 'createDataSourceFromS_dataSourceName' - A user-supplied name or description of the @DataSource@.
+-- 'dataSourceName', 'createDataSourceFromS3_dataSourceName' - A user-supplied name or description of the @DataSource@.
 --
--- 'computeStatistics', 'createDataSourceFromS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
+-- 'computeStatistics', 'createDataSourceFromS3_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
 -- training.
 --
--- 'dataSourceId', 'createDataSourceFromS_dataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@.
+-- 'dataSourceId', 'createDataSourceFromS3_dataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@.
 --
--- 'dataSpec', 'createDataSourceFromS_dataSpec' - The data specification of a @DataSource@:
+-- 'dataSpec', 'createDataSourceFromS3_dataSpec' - The data specification of a @DataSource@:
 --
 -- -   DataLocationS3 - The Amazon S3 location of the observation data.
 --
@@ -142,14 +142,14 @@ data CreateDataSourceFromS = CreateDataSourceFromS'
 --
 --     Sample -
 --     @ \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
-newCreateDataSourceFromS ::
+newCreateDataSourceFromS3 ::
   -- | 'dataSourceId'
   Prelude.Text ->
   -- | 'dataSpec'
   S3DataSpec ->
-  CreateDataSourceFromS
-newCreateDataSourceFromS pDataSourceId_ pDataSpec_ =
-  CreateDataSourceFromS'
+  CreateDataSourceFromS3
+newCreateDataSourceFromS3 pDataSourceId_ pDataSpec_ =
+  CreateDataSourceFromS3'
     { dataSourceName =
         Prelude.Nothing,
       computeStatistics = Prelude.Nothing,
@@ -158,20 +158,20 @@ newCreateDataSourceFromS pDataSourceId_ pDataSpec_ =
     }
 
 -- | A user-supplied name or description of the @DataSource@.
-createDataSourceFromS_dataSourceName :: Lens.Lens' CreateDataSourceFromS (Prelude.Maybe Prelude.Text)
-createDataSourceFromS_dataSourceName = Lens.lens (\CreateDataSourceFromS' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromS' {} a -> s {dataSourceName = a} :: CreateDataSourceFromS)
+createDataSourceFromS3_dataSourceName :: Lens.Lens' CreateDataSourceFromS3 (Prelude.Maybe Prelude.Text)
+createDataSourceFromS3_dataSourceName = Lens.lens (\CreateDataSourceFromS3' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromS3' {} a -> s {dataSourceName = a} :: CreateDataSourceFromS3)
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
 -- training.
-createDataSourceFromS_computeStatistics :: Lens.Lens' CreateDataSourceFromS (Prelude.Maybe Prelude.Bool)
-createDataSourceFromS_computeStatistics = Lens.lens (\CreateDataSourceFromS' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromS' {} a -> s {computeStatistics = a} :: CreateDataSourceFromS)
+createDataSourceFromS3_computeStatistics :: Lens.Lens' CreateDataSourceFromS3 (Prelude.Maybe Prelude.Bool)
+createDataSourceFromS3_computeStatistics = Lens.lens (\CreateDataSourceFromS3' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromS3' {} a -> s {computeStatistics = a} :: CreateDataSourceFromS3)
 
 -- | A user-supplied identifier that uniquely identifies the @DataSource@.
-createDataSourceFromS_dataSourceId :: Lens.Lens' CreateDataSourceFromS Prelude.Text
-createDataSourceFromS_dataSourceId = Lens.lens (\CreateDataSourceFromS' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromS' {} a -> s {dataSourceId = a} :: CreateDataSourceFromS)
+createDataSourceFromS3_dataSourceId :: Lens.Lens' CreateDataSourceFromS3 Prelude.Text
+createDataSourceFromS3_dataSourceId = Lens.lens (\CreateDataSourceFromS3' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromS3' {} a -> s {dataSourceId = a} :: CreateDataSourceFromS3)
 
 -- | The data specification of a @DataSource@:
 --
@@ -187,32 +187,32 @@ createDataSourceFromS_dataSourceId = Lens.lens (\CreateDataSourceFromS' {dataSou
 --
 --     Sample -
 --     @ \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
-createDataSourceFromS_dataSpec :: Lens.Lens' CreateDataSourceFromS S3DataSpec
-createDataSourceFromS_dataSpec = Lens.lens (\CreateDataSourceFromS' {dataSpec} -> dataSpec) (\s@CreateDataSourceFromS' {} a -> s {dataSpec = a} :: CreateDataSourceFromS)
+createDataSourceFromS3_dataSpec :: Lens.Lens' CreateDataSourceFromS3 S3DataSpec
+createDataSourceFromS3_dataSpec = Lens.lens (\CreateDataSourceFromS3' {dataSpec} -> dataSpec) (\s@CreateDataSourceFromS3' {} a -> s {dataSpec = a} :: CreateDataSourceFromS3)
 
-instance Core.AWSRequest CreateDataSourceFromS where
+instance Core.AWSRequest CreateDataSourceFromS3 where
   type
-    AWSResponse CreateDataSourceFromS =
-      CreateDataSourceFromSResponse
+    AWSResponse CreateDataSourceFromS3 =
+      CreateDataSourceFromS3Response
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          CreateDataSourceFromSResponse'
+          CreateDataSourceFromS3Response'
             Prelude.<$> (x Core..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataSourceFromS
+instance Prelude.Hashable CreateDataSourceFromS3
 
-instance Prelude.NFData CreateDataSourceFromS
+instance Prelude.NFData CreateDataSourceFromS3
 
-instance Core.ToHeaders CreateDataSourceFromS where
+instance Core.ToHeaders CreateDataSourceFromS3 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonML_20141212.CreateDataSourceFromS" ::
+              Core.=# ( "AmazonML_20141212.CreateDataSourceFromS3" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
@@ -222,8 +222,8 @@ instance Core.ToHeaders CreateDataSourceFromS where
           ]
       )
 
-instance Core.ToJSON CreateDataSourceFromS where
-  toJSON CreateDataSourceFromS' {..} =
+instance Core.ToJSON CreateDataSourceFromS3 where
+  toJSON CreateDataSourceFromS3' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("DataSourceName" Core..=)
@@ -235,10 +235,10 @@ instance Core.ToJSON CreateDataSourceFromS where
           ]
       )
 
-instance Core.ToPath CreateDataSourceFromS where
+instance Core.ToPath CreateDataSourceFromS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataSourceFromS where
+instance Core.ToQuery CreateDataSourceFromS3 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromS3@ operation, and is an
@@ -248,8 +248,8 @@ instance Core.ToQuery CreateDataSourceFromS where
 -- updates by using the @GetBatchPrediction@ operation and checking the
 -- @Status@ parameter.
 --
--- /See:/ 'newCreateDataSourceFromSResponse' smart constructor.
-data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
+-- /See:/ 'newCreateDataSourceFromS3Response' smart constructor.
+data CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'
   { -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
     -- should be identical to the value of the @DataSourceID@ in the request.
     dataSourceId :: Prelude.Maybe Prelude.Text,
@@ -259,23 +259,23 @@ data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'CreateDataSourceFromSResponse' with all optional fields omitted.
+-- Create a value of 'CreateDataSourceFromS3Response' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSourceId', 'createDataSourceFromSResponse_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@. This value
+-- 'dataSourceId', 'createDataSourceFromS3Response_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
 --
--- 'httpStatus', 'createDataSourceFromSResponse_httpStatus' - The response's http status code.
-newCreateDataSourceFromSResponse ::
+-- 'httpStatus', 'createDataSourceFromS3Response_httpStatus' - The response's http status code.
+newCreateDataSourceFromS3Response ::
   -- | 'httpStatus'
   Prelude.Int ->
-  CreateDataSourceFromSResponse
-newCreateDataSourceFromSResponse pHttpStatus_ =
-  CreateDataSourceFromSResponse'
+  CreateDataSourceFromS3Response
+newCreateDataSourceFromS3Response pHttpStatus_ =
+  CreateDataSourceFromS3Response'
     { dataSourceId =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -283,11 +283,13 @@ newCreateDataSourceFromSResponse pHttpStatus_ =
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-createDataSourceFromSResponse_dataSourceId :: Lens.Lens' CreateDataSourceFromSResponse (Prelude.Maybe Prelude.Text)
-createDataSourceFromSResponse_dataSourceId = Lens.lens (\CreateDataSourceFromSResponse' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromSResponse' {} a -> s {dataSourceId = a} :: CreateDataSourceFromSResponse)
+createDataSourceFromS3Response_dataSourceId :: Lens.Lens' CreateDataSourceFromS3Response (Prelude.Maybe Prelude.Text)
+createDataSourceFromS3Response_dataSourceId = Lens.lens (\CreateDataSourceFromS3Response' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromS3Response' {} a -> s {dataSourceId = a} :: CreateDataSourceFromS3Response)
 
 -- | The response's http status code.
-createDataSourceFromSResponse_httpStatus :: Lens.Lens' CreateDataSourceFromSResponse Prelude.Int
-createDataSourceFromSResponse_httpStatus = Lens.lens (\CreateDataSourceFromSResponse' {httpStatus} -> httpStatus) (\s@CreateDataSourceFromSResponse' {} a -> s {httpStatus = a} :: CreateDataSourceFromSResponse)
+createDataSourceFromS3Response_httpStatus :: Lens.Lens' CreateDataSourceFromS3Response Prelude.Int
+createDataSourceFromS3Response_httpStatus = Lens.lens (\CreateDataSourceFromS3Response' {httpStatus} -> httpStatus) (\s@CreateDataSourceFromS3Response' {} a -> s {httpStatus = a} :: CreateDataSourceFromS3Response)
 
-instance Prelude.NFData CreateDataSourceFromSResponse
+instance
+  Prelude.NFData
+    CreateDataSourceFromS3Response

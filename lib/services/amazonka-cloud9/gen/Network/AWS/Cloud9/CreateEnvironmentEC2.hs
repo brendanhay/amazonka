@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.CreateEnvironmentEC
+-- Module      : Network.AWS.Cloud9.CreateEnvironmentEC2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,31 +23,31 @@
 -- Creates an Cloud9 development environment, launches an Amazon Elastic
 -- Compute Cloud (Amazon EC2) instance, and then connects from the instance
 -- to the environment.
-module Network.AWS.Cloud9.CreateEnvironmentEC
+module Network.AWS.Cloud9.CreateEnvironmentEC2
   ( -- * Creating a Request
-    CreateEnvironmentEC (..),
-    newCreateEnvironmentEC,
+    CreateEnvironmentEC2 (..),
+    newCreateEnvironmentEC2,
 
     -- * Request Lenses
-    createEnvironmentEC_automaticStopTimeMinutes,
-    createEnvironmentEC_subnetId,
-    createEnvironmentEC_ownerArn,
-    createEnvironmentEC_imageId,
-    createEnvironmentEC_clientRequestToken,
-    createEnvironmentEC_connectionType,
-    createEnvironmentEC_description,
-    createEnvironmentEC_dryRun,
-    createEnvironmentEC_tags,
-    createEnvironmentEC_name,
-    createEnvironmentEC_instanceType,
+    createEnvironmentEC2_automaticStopTimeMinutes,
+    createEnvironmentEC2_subnetId,
+    createEnvironmentEC2_ownerArn,
+    createEnvironmentEC2_imageId,
+    createEnvironmentEC2_clientRequestToken,
+    createEnvironmentEC2_connectionType,
+    createEnvironmentEC2_description,
+    createEnvironmentEC2_dryRun,
+    createEnvironmentEC2_tags,
+    createEnvironmentEC2_name,
+    createEnvironmentEC2_instanceType,
 
     -- * Destructuring the Response
-    CreateEnvironmentECResponse (..),
-    newCreateEnvironmentECResponse,
+    CreateEnvironmentEC2Response (..),
+    newCreateEnvironmentEC2Response,
 
     -- * Response Lenses
-    createEnvironmentECResponse_environmentId,
-    createEnvironmentECResponse_httpStatus,
+    createEnvironmentEC2Response_environmentId,
+    createEnvironmentEC2Response_httpStatus,
   )
 where
 
@@ -58,8 +58,8 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newCreateEnvironmentEC' smart constructor.
-data CreateEnvironmentEC = CreateEnvironmentEC'
+-- | /See:/ 'newCreateEnvironmentEC2' smart constructor.
+data CreateEnvironmentEC2 = CreateEnvironmentEC2'
   { -- | The number of minutes until the running instance is shut down after the
     -- environment has last been used.
     automaticStopTimeMinutes :: Prelude.Maybe Prelude.Int,
@@ -135,24 +135,24 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'CreateEnvironmentEC' with all optional fields omitted.
+-- Create a value of 'CreateEnvironmentEC2' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'automaticStopTimeMinutes', 'createEnvironmentEC_automaticStopTimeMinutes' - The number of minutes until the running instance is shut down after the
+-- 'automaticStopTimeMinutes', 'createEnvironmentEC2_automaticStopTimeMinutes' - The number of minutes until the running instance is shut down after the
 -- environment has last been used.
 --
--- 'subnetId', 'createEnvironmentEC_subnetId' - The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+-- 'subnetId', 'createEnvironmentEC2_subnetId' - The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
 -- with the Amazon EC2 instance.
 --
--- 'ownerArn', 'createEnvironmentEC_ownerArn' - The Amazon Resource Name (ARN) of the environment owner. This ARN can be
+-- 'ownerArn', 'createEnvironmentEC2_ownerArn' - The Amazon Resource Name (ARN) of the environment owner. This ARN can be
 -- the ARN of any IAM principal. If this value is not specified, the ARN
 -- defaults to this environment\'s creator.
 --
--- 'imageId', 'createEnvironmentEC_imageId' - The identifier for the Amazon Machine Image (AMI) that\'s used to create
+-- 'imageId', 'createEnvironmentEC2_imageId' - The identifier for the Amazon Machine Image (AMI) that\'s used to create
 -- the EC2 instance. To choose an AMI for the instance, you must specify a
 -- valid AMI alias or a valid Amazon EC2 Systems Manager (SSM) path.
 --
@@ -180,14 +180,14 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
 -- -   Ubuntu 18.04:
 --     @resolve:ssm:\/aws\/service\/cloud9\/amis\/ubuntu-18.04-x86_64@
 --
--- 'clientRequestToken', 'createEnvironmentEC_clientRequestToken' - A unique, case-sensitive string that helps Cloud9 to ensure this
+-- 'clientRequestToken', 'createEnvironmentEC2_clientRequestToken' - A unique, case-sensitive string that helps Cloud9 to ensure this
 -- operation completes no more than one time.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens>
 -- in the /Amazon EC2 API Reference/.
 --
--- 'connectionType', 'createEnvironmentEC_connectionType' - The connection type used for connecting to an Amazon EC2 environment.
+-- 'connectionType', 'createEnvironmentEC2_connectionType' - The connection type used for connecting to an Amazon EC2 environment.
 -- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
 -- through Amazon EC2 Systems Manager).
 --
@@ -195,31 +195,31 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
 -- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
 -- in the /Cloud9 User Guide/.
 --
--- 'description', 'createEnvironmentEC_description' - The description of the environment to create.
+-- 'description', 'createEnvironmentEC2_description' - The description of the environment to create.
 --
--- 'dryRun', 'createEnvironmentEC_dryRun' - Checks whether you have the required permissions for the action, without
+-- 'dryRun', 'createEnvironmentEC2_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'tags', 'createEnvironmentEC_tags' - An array of key-value pairs that will be associated with the new Cloud9
+-- 'tags', 'createEnvironmentEC2_tags' - An array of key-value pairs that will be associated with the new Cloud9
 -- development environment.
 --
--- 'name', 'createEnvironmentEC_name' - The name of the environment to create.
+-- 'name', 'createEnvironmentEC2_name' - The name of the environment to create.
 --
 -- This name is visible to other IAM users in the same Amazon Web Services
 -- account.
 --
--- 'instanceType', 'createEnvironmentEC_instanceType' - The type of instance to connect to the environment (for example,
+-- 'instanceType', 'createEnvironmentEC2_instanceType' - The type of instance to connect to the environment (for example,
 -- @t2.micro@).
-newCreateEnvironmentEC ::
+newCreateEnvironmentEC2 ::
   -- | 'name'
   Prelude.Text ->
   -- | 'instanceType'
   Prelude.Text ->
-  CreateEnvironmentEC
-newCreateEnvironmentEC pName_ pInstanceType_ =
-  CreateEnvironmentEC'
+  CreateEnvironmentEC2
+newCreateEnvironmentEC2 pName_ pInstanceType_ =
+  CreateEnvironmentEC2'
     { automaticStopTimeMinutes =
         Prelude.Nothing,
       subnetId = Prelude.Nothing,
@@ -236,19 +236,19 @@ newCreateEnvironmentEC pName_ pInstanceType_ =
 
 -- | The number of minutes until the running instance is shut down after the
 -- environment has last been used.
-createEnvironmentEC_automaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Int)
-createEnvironmentEC_automaticStopTimeMinutes = Lens.lens (\CreateEnvironmentEC' {automaticStopTimeMinutes} -> automaticStopTimeMinutes) (\s@CreateEnvironmentEC' {} a -> s {automaticStopTimeMinutes = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_automaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Int)
+createEnvironmentEC2_automaticStopTimeMinutes = Lens.lens (\CreateEnvironmentEC2' {automaticStopTimeMinutes} -> automaticStopTimeMinutes) (\s@CreateEnvironmentEC2' {} a -> s {automaticStopTimeMinutes = a} :: CreateEnvironmentEC2)
 
 -- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
 -- with the Amazon EC2 instance.
-createEnvironmentEC_subnetId :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_subnetId = Lens.lens (\CreateEnvironmentEC' {subnetId} -> subnetId) (\s@CreateEnvironmentEC' {} a -> s {subnetId = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_subnetId :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Text)
+createEnvironmentEC2_subnetId = Lens.lens (\CreateEnvironmentEC2' {subnetId} -> subnetId) (\s@CreateEnvironmentEC2' {} a -> s {subnetId = a} :: CreateEnvironmentEC2)
 
 -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be
 -- the ARN of any IAM principal. If this value is not specified, the ARN
 -- defaults to this environment\'s creator.
-createEnvironmentEC_ownerArn :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_ownerArn = Lens.lens (\CreateEnvironmentEC' {ownerArn} -> ownerArn) (\s@CreateEnvironmentEC' {} a -> s {ownerArn = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_ownerArn :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Text)
+createEnvironmentEC2_ownerArn = Lens.lens (\CreateEnvironmentEC2' {ownerArn} -> ownerArn) (\s@CreateEnvironmentEC2' {} a -> s {ownerArn = a} :: CreateEnvironmentEC2)
 
 -- | The identifier for the Amazon Machine Image (AMI) that\'s used to create
 -- the EC2 instance. To choose an AMI for the instance, you must specify a
@@ -277,8 +277,8 @@ createEnvironmentEC_ownerArn = Lens.lens (\CreateEnvironmentEC' {ownerArn} -> ow
 --
 -- -   Ubuntu 18.04:
 --     @resolve:ssm:\/aws\/service\/cloud9\/amis\/ubuntu-18.04-x86_64@
-createEnvironmentEC_imageId :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_imageId = Lens.lens (\CreateEnvironmentEC' {imageId} -> imageId) (\s@CreateEnvironmentEC' {} a -> s {imageId = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_imageId :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Text)
+createEnvironmentEC2_imageId = Lens.lens (\CreateEnvironmentEC2' {imageId} -> imageId) (\s@CreateEnvironmentEC2' {} a -> s {imageId = a} :: CreateEnvironmentEC2)
 
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 -- operation completes no more than one time.
@@ -286,8 +286,8 @@ createEnvironmentEC_imageId = Lens.lens (\CreateEnvironmentEC' {imageId} -> imag
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens>
 -- in the /Amazon EC2 API Reference/.
-createEnvironmentEC_clientRequestToken :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_clientRequestToken = Lens.lens (\CreateEnvironmentEC' {clientRequestToken} -> clientRequestToken) (\s@CreateEnvironmentEC' {} a -> s {clientRequestToken = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_clientRequestToken :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Text)
+createEnvironmentEC2_clientRequestToken = Lens.lens (\CreateEnvironmentEC2' {clientRequestToken} -> clientRequestToken) (\s@CreateEnvironmentEC2' {} a -> s {clientRequestToken = a} :: CreateEnvironmentEC2)
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 -- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
@@ -296,60 +296,60 @@ createEnvironmentEC_clientRequestToken = Lens.lens (\CreateEnvironmentEC' {clien
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
 -- in the /Cloud9 User Guide/.
-createEnvironmentEC_connectionType :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe ConnectionType)
-createEnvironmentEC_connectionType = Lens.lens (\CreateEnvironmentEC' {connectionType} -> connectionType) (\s@CreateEnvironmentEC' {} a -> s {connectionType = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_connectionType :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe ConnectionType)
+createEnvironmentEC2_connectionType = Lens.lens (\CreateEnvironmentEC2' {connectionType} -> connectionType) (\s@CreateEnvironmentEC2' {} a -> s {connectionType = a} :: CreateEnvironmentEC2)
 
 -- | The description of the environment to create.
-createEnvironmentEC_description :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_description = Lens.lens (\CreateEnvironmentEC' {description} -> description) (\s@CreateEnvironmentEC' {} a -> s {description = a} :: CreateEnvironmentEC) Prelude.. Lens.mapping Core._Sensitive
+createEnvironmentEC2_description :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Text)
+createEnvironmentEC2_description = Lens.lens (\CreateEnvironmentEC2' {description} -> description) (\s@CreateEnvironmentEC2' {} a -> s {description = a} :: CreateEnvironmentEC2) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createEnvironmentEC_dryRun :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Bool)
-createEnvironmentEC_dryRun = Lens.lens (\CreateEnvironmentEC' {dryRun} -> dryRun) (\s@CreateEnvironmentEC' {} a -> s {dryRun = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_dryRun :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Bool)
+createEnvironmentEC2_dryRun = Lens.lens (\CreateEnvironmentEC2' {dryRun} -> dryRun) (\s@CreateEnvironmentEC2' {} a -> s {dryRun = a} :: CreateEnvironmentEC2)
 
 -- | An array of key-value pairs that will be associated with the new Cloud9
 -- development environment.
-createEnvironmentEC_tags :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe [Tag])
-createEnvironmentEC_tags = Lens.lens (\CreateEnvironmentEC' {tags} -> tags) (\s@CreateEnvironmentEC' {} a -> s {tags = a} :: CreateEnvironmentEC) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createEnvironmentEC2_tags :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe [Tag])
+createEnvironmentEC2_tags = Lens.lens (\CreateEnvironmentEC2' {tags} -> tags) (\s@CreateEnvironmentEC2' {} a -> s {tags = a} :: CreateEnvironmentEC2) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the environment to create.
 --
 -- This name is visible to other IAM users in the same Amazon Web Services
 -- account.
-createEnvironmentEC_name :: Lens.Lens' CreateEnvironmentEC Prelude.Text
-createEnvironmentEC_name = Lens.lens (\CreateEnvironmentEC' {name} -> name) (\s@CreateEnvironmentEC' {} a -> s {name = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_name :: Lens.Lens' CreateEnvironmentEC2 Prelude.Text
+createEnvironmentEC2_name = Lens.lens (\CreateEnvironmentEC2' {name} -> name) (\s@CreateEnvironmentEC2' {} a -> s {name = a} :: CreateEnvironmentEC2)
 
 -- | The type of instance to connect to the environment (for example,
 -- @t2.micro@).
-createEnvironmentEC_instanceType :: Lens.Lens' CreateEnvironmentEC Prelude.Text
-createEnvironmentEC_instanceType = Lens.lens (\CreateEnvironmentEC' {instanceType} -> instanceType) (\s@CreateEnvironmentEC' {} a -> s {instanceType = a} :: CreateEnvironmentEC)
+createEnvironmentEC2_instanceType :: Lens.Lens' CreateEnvironmentEC2 Prelude.Text
+createEnvironmentEC2_instanceType = Lens.lens (\CreateEnvironmentEC2' {instanceType} -> instanceType) (\s@CreateEnvironmentEC2' {} a -> s {instanceType = a} :: CreateEnvironmentEC2)
 
-instance Core.AWSRequest CreateEnvironmentEC where
+instance Core.AWSRequest CreateEnvironmentEC2 where
   type
-    AWSResponse CreateEnvironmentEC =
-      CreateEnvironmentECResponse
+    AWSResponse CreateEnvironmentEC2 =
+      CreateEnvironmentEC2Response
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          CreateEnvironmentECResponse'
+          CreateEnvironmentEC2Response'
             Prelude.<$> (x Core..?> "environmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEnvironmentEC
+instance Prelude.Hashable CreateEnvironmentEC2
 
-instance Prelude.NFData CreateEnvironmentEC
+instance Prelude.NFData CreateEnvironmentEC2
 
-instance Core.ToHeaders CreateEnvironmentEC where
+instance Core.ToHeaders CreateEnvironmentEC2 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC" ::
+              Core.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
@@ -359,8 +359,8 @@ instance Core.ToHeaders CreateEnvironmentEC where
           ]
       )
 
-instance Core.ToJSON CreateEnvironmentEC where
-  toJSON CreateEnvironmentEC' {..} =
+instance Core.ToJSON CreateEnvironmentEC2 where
+  toJSON CreateEnvironmentEC2' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("automaticStopTimeMinutes" Core..=)
@@ -380,14 +380,14 @@ instance Core.ToJSON CreateEnvironmentEC where
           ]
       )
 
-instance Core.ToPath CreateEnvironmentEC where
+instance Core.ToPath CreateEnvironmentEC2 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEnvironmentEC where
+instance Core.ToQuery CreateEnvironmentEC2 where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newCreateEnvironmentECResponse' smart constructor.
-data CreateEnvironmentECResponse = CreateEnvironmentECResponse'
+-- | /See:/ 'newCreateEnvironmentEC2Response' smart constructor.
+data CreateEnvironmentEC2Response = CreateEnvironmentEC2Response'
   { -- | The ID of the environment that was created.
     environmentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -396,33 +396,33 @@ data CreateEnvironmentECResponse = CreateEnvironmentECResponse'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'CreateEnvironmentECResponse' with all optional fields omitted.
+-- Create a value of 'CreateEnvironmentEC2Response' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentId', 'createEnvironmentECResponse_environmentId' - The ID of the environment that was created.
+-- 'environmentId', 'createEnvironmentEC2Response_environmentId' - The ID of the environment that was created.
 --
--- 'httpStatus', 'createEnvironmentECResponse_httpStatus' - The response's http status code.
-newCreateEnvironmentECResponse ::
+-- 'httpStatus', 'createEnvironmentEC2Response_httpStatus' - The response's http status code.
+newCreateEnvironmentEC2Response ::
   -- | 'httpStatus'
   Prelude.Int ->
-  CreateEnvironmentECResponse
-newCreateEnvironmentECResponse pHttpStatus_ =
-  CreateEnvironmentECResponse'
+  CreateEnvironmentEC2Response
+newCreateEnvironmentEC2Response pHttpStatus_ =
+  CreateEnvironmentEC2Response'
     { environmentId =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the environment that was created.
-createEnvironmentECResponse_environmentId :: Lens.Lens' CreateEnvironmentECResponse (Prelude.Maybe Prelude.Text)
-createEnvironmentECResponse_environmentId = Lens.lens (\CreateEnvironmentECResponse' {environmentId} -> environmentId) (\s@CreateEnvironmentECResponse' {} a -> s {environmentId = a} :: CreateEnvironmentECResponse)
+createEnvironmentEC2Response_environmentId :: Lens.Lens' CreateEnvironmentEC2Response (Prelude.Maybe Prelude.Text)
+createEnvironmentEC2Response_environmentId = Lens.lens (\CreateEnvironmentEC2Response' {environmentId} -> environmentId) (\s@CreateEnvironmentEC2Response' {} a -> s {environmentId = a} :: CreateEnvironmentEC2Response)
 
 -- | The response's http status code.
-createEnvironmentECResponse_httpStatus :: Lens.Lens' CreateEnvironmentECResponse Prelude.Int
-createEnvironmentECResponse_httpStatus = Lens.lens (\CreateEnvironmentECResponse' {httpStatus} -> httpStatus) (\s@CreateEnvironmentECResponse' {} a -> s {httpStatus = a} :: CreateEnvironmentECResponse)
+createEnvironmentEC2Response_httpStatus :: Lens.Lens' CreateEnvironmentEC2Response Prelude.Int
+createEnvironmentEC2Response_httpStatus = Lens.lens (\CreateEnvironmentEC2Response' {httpStatus} -> httpStatus) (\s@CreateEnvironmentEC2Response' {} a -> s {httpStatus = a} :: CreateEnvironmentEC2Response)
 
-instance Prelude.NFData CreateEnvironmentECResponse
+instance Prelude.NFData CreateEnvironmentEC2Response

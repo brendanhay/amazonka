@@ -11,7 +11,7 @@ haskell_library(
         "gen/Network/AWS/QLDB/DescribeJournalKinesisStream.hs",
         "gen/Network/AWS/QLDB/DescribeJournalS3Export.hs",
         "gen/Network/AWS/QLDB/DescribeLedger.hs",
-        "gen/Network/AWS/QLDB/ExportJournalToS.hs",
+        "gen/Network/AWS/QLDB/ExportJournalToS3.hs",
         "gen/Network/AWS/QLDB/GetBlock.hs",
         "gen/Network/AWS/QLDB/GetDigest.hs",
         "gen/Network/AWS/QLDB/GetRevision.hs",

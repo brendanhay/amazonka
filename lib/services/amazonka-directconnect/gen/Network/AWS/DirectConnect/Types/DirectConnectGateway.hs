@@ -52,7 +52,8 @@ data DirectConnectGateway = DirectConnectGateway'
     -- -   @deleted@: The Direct Connect gateway is deleted and cannot pass
     --     traffic.
     directConnectGatewayState :: Prelude.Maybe DirectConnectGatewayState,
-    -- | The ID of the account that owns the Direct Connect gateway.
+    -- | The ID of the Amazon Web Services account that owns the Direct Connect
+    -- gateway.
     ownerAccount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +89,8 @@ data DirectConnectGateway = DirectConnectGateway'
 -- -   @deleted@: The Direct Connect gateway is deleted and cannot pass
 --     traffic.
 --
--- 'ownerAccount', 'directConnectGateway_ownerAccount' - The ID of the account that owns the Direct Connect gateway.
+-- 'ownerAccount', 'directConnectGateway_ownerAccount' - The ID of the Amazon Web Services account that owns the Direct Connect
+-- gateway.
 newDirectConnectGateway ::
   DirectConnectGateway
 newDirectConnectGateway =
@@ -135,7 +137,8 @@ directConnectGateway_directConnectGatewayName = Lens.lens (\DirectConnectGateway
 directConnectGateway_directConnectGatewayState :: Lens.Lens' DirectConnectGateway (Prelude.Maybe DirectConnectGatewayState)
 directConnectGateway_directConnectGatewayState = Lens.lens (\DirectConnectGateway' {directConnectGatewayState} -> directConnectGatewayState) (\s@DirectConnectGateway' {} a -> s {directConnectGatewayState = a} :: DirectConnectGateway)
 
--- | The ID of the account that owns the Direct Connect gateway.
+-- | The ID of the Amazon Web Services account that owns the Direct Connect
+-- gateway.
 directConnectGateway_ownerAccount :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
 directConnectGateway_ownerAccount = Lens.lens (\DirectConnectGateway' {ownerAccount} -> ownerAccount) (\s@DirectConnectGateway' {} a -> s {ownerAccount = a} :: DirectConnectGateway)
 

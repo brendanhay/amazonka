@@ -204,6 +204,7 @@ module Network.AWS.MediaPackage.Types
     newHlsPackage,
     hlsPackage_adsOnDeliveryRestrictions,
     hlsPackage_useAudioRenditionGroup,
+    hlsPackage_includeDvbSubtitles,
     hlsPackage_playlistType,
     hlsPackage_segmentDurationSeconds,
     hlsPackage_programDateTimeIntervalSeconds,

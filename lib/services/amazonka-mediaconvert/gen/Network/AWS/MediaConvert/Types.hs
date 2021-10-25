@@ -456,6 +456,9 @@ module Network.AWS.MediaConvert.Types
     -- * FileSourceConvert608To708
     FileSourceConvert608To708 (..),
 
+    -- * FileSourceTimeDeltaUnits
+    FileSourceTimeDeltaUnits (..),
+
     -- * FontScript
     FontScript (..),
 
@@ -1721,6 +1724,7 @@ module Network.AWS.MediaConvert.Types
     fileSourceSettings_framerate,
     fileSourceSettings_convert608To708,
     fileSourceSettings_timeDelta,
+    fileSourceSettings_timeDeltaUnits,
     fileSourceSettings_sourceFile,
 
     -- * FrameCaptureSettings
@@ -3080,6 +3084,7 @@ import Network.AWS.MediaConvert.Types.F4vSettings
 import Network.AWS.MediaConvert.Types.FileGroupSettings
 import Network.AWS.MediaConvert.Types.FileSourceConvert608To708
 import Network.AWS.MediaConvert.Types.FileSourceSettings
+import Network.AWS.MediaConvert.Types.FileSourceTimeDeltaUnits
 import Network.AWS.MediaConvert.Types.FontScript
 import Network.AWS.MediaConvert.Types.FrameCaptureSettings
 import Network.AWS.MediaConvert.Types.H264AdaptiveQuantization

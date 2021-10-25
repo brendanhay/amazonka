@@ -38,15 +38,18 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account that owns the virtual private gateway.
+    -- | The ID of the Amazon Web Services account that owns the virtual private
+    -- gateway.
     virtualGatewayOwnerAccount :: Prelude.Maybe Prelude.Text,
     -- | The error message if the state of an object failed to advance.
     stateChangeError :: Prelude.Maybe Prelude.Text,
-    -- | The Region where the virtual private gateway is located.
+    -- | The Amazon Web Services Region where the virtual private gateway is
+    -- located.
     virtualGatewayRegion :: Prelude.Maybe Prelude.Text,
     -- | Information about the associated gateway.
     associatedGateway :: Prelude.Maybe AssociatedGateway,
-    -- | The ID of the account that owns the associated gateway.
+    -- | The ID of the Amazon Web Services account that owns the associated
+    -- gateway.
     directConnectGatewayOwnerAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
     allowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
@@ -85,15 +88,18 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
 --
 -- 'directConnectGatewayId', 'directConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'virtualGatewayOwnerAccount', 'directConnectGatewayAssociation_virtualGatewayOwnerAccount' - The ID of the account that owns the virtual private gateway.
+-- 'virtualGatewayOwnerAccount', 'directConnectGatewayAssociation_virtualGatewayOwnerAccount' - The ID of the Amazon Web Services account that owns the virtual private
+-- gateway.
 --
 -- 'stateChangeError', 'directConnectGatewayAssociation_stateChangeError' - The error message if the state of an object failed to advance.
 --
--- 'virtualGatewayRegion', 'directConnectGatewayAssociation_virtualGatewayRegion' - The Region where the virtual private gateway is located.
+-- 'virtualGatewayRegion', 'directConnectGatewayAssociation_virtualGatewayRegion' - The Amazon Web Services Region where the virtual private gateway is
+-- located.
 --
 -- 'associatedGateway', 'directConnectGatewayAssociation_associatedGateway' - Information about the associated gateway.
 --
--- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociation_directConnectGatewayOwnerAccount' - The ID of the account that owns the associated gateway.
+-- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociation_directConnectGatewayOwnerAccount' - The ID of the Amazon Web Services account that owns the associated
+-- gateway.
 --
 -- 'allowedPrefixesToDirectConnectGateway', 'directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 --
@@ -146,7 +152,8 @@ directConnectGatewayAssociation_associationId = Lens.lens (\DirectConnectGateway
 directConnectGatewayAssociation_directConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_directConnectGatewayId = Lens.lens (\DirectConnectGatewayAssociation' {directConnectGatewayId} -> directConnectGatewayId) (\s@DirectConnectGatewayAssociation' {} a -> s {directConnectGatewayId = a} :: DirectConnectGatewayAssociation)
 
--- | The ID of the account that owns the virtual private gateway.
+-- | The ID of the Amazon Web Services account that owns the virtual private
+-- gateway.
 directConnectGatewayAssociation_virtualGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_virtualGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociation' {virtualGatewayOwnerAccount} -> virtualGatewayOwnerAccount) (\s@DirectConnectGatewayAssociation' {} a -> s {virtualGatewayOwnerAccount = a} :: DirectConnectGatewayAssociation)
 
@@ -154,7 +161,8 @@ directConnectGatewayAssociation_virtualGatewayOwnerAccount = Lens.lens (\DirectC
 directConnectGatewayAssociation_stateChangeError :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_stateChangeError = Lens.lens (\DirectConnectGatewayAssociation' {stateChangeError} -> stateChangeError) (\s@DirectConnectGatewayAssociation' {} a -> s {stateChangeError = a} :: DirectConnectGatewayAssociation)
 
--- | The Region where the virtual private gateway is located.
+-- | The Amazon Web Services Region where the virtual private gateway is
+-- located.
 directConnectGatewayAssociation_virtualGatewayRegion :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_virtualGatewayRegion = Lens.lens (\DirectConnectGatewayAssociation' {virtualGatewayRegion} -> virtualGatewayRegion) (\s@DirectConnectGatewayAssociation' {} a -> s {virtualGatewayRegion = a} :: DirectConnectGatewayAssociation)
 
@@ -162,7 +170,8 @@ directConnectGatewayAssociation_virtualGatewayRegion = Lens.lens (\DirectConnect
 directConnectGatewayAssociation_associatedGateway :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe AssociatedGateway)
 directConnectGatewayAssociation_associatedGateway = Lens.lens (\DirectConnectGatewayAssociation' {associatedGateway} -> associatedGateway) (\s@DirectConnectGatewayAssociation' {} a -> s {associatedGateway = a} :: DirectConnectGatewayAssociation)
 
--- | The ID of the account that owns the associated gateway.
+-- | The ID of the Amazon Web Services account that owns the associated
+-- gateway.
 directConnectGatewayAssociation_directConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_directConnectGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociation' {directConnectGatewayOwnerAccount} -> directConnectGatewayOwnerAccount) (\s@DirectConnectGatewayAssociation' {} a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociation)
 

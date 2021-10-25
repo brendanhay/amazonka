@@ -123,11 +123,11 @@ module Network.AWS.Cloud9
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** CreateEnvironmentEC
-    CreateEnvironmentEC (CreateEnvironmentEC'),
-    newCreateEnvironmentEC,
-    CreateEnvironmentECResponse (CreateEnvironmentECResponse'),
-    newCreateEnvironmentECResponse,
+    -- ** CreateEnvironmentEC2
+    CreateEnvironmentEC2 (CreateEnvironmentEC2'),
+    newCreateEnvironmentEC2,
+    CreateEnvironmentEC2Response (CreateEnvironmentEC2Response'),
+    newCreateEnvironmentEC2Response,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -215,7 +215,7 @@ module Network.AWS.Cloud9
   )
 where
 
-import Network.AWS.Cloud9.CreateEnvironmentEC
+import Network.AWS.Cloud9.CreateEnvironmentEC2
 import Network.AWS.Cloud9.CreateEnvironmentMembership
 import Network.AWS.Cloud9.DeleteEnvironment
 import Network.AWS.Cloud9.DeleteEnvironmentMembership

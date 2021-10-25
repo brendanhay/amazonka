@@ -233,6 +233,7 @@ haskell_library(
         "gen/Network/AWS/MediaConvert/Types/FileGroupSettings.hs",
         "gen/Network/AWS/MediaConvert/Types/FileSourceConvert608To708.hs",
         "gen/Network/AWS/MediaConvert/Types/FileSourceSettings.hs",
+        "gen/Network/AWS/MediaConvert/Types/FileSourceTimeDeltaUnits.hs",
         "gen/Network/AWS/MediaConvert/Types/FontScript.hs",
         "gen/Network/AWS/MediaConvert/Types/FrameCaptureSettings.hs",
         "gen/Network/AWS/MediaConvert/Types/H264AdaptiveQuantization.hs",

@@ -31,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data HoursOfOperationConfig = HoursOfOperationConfig'
   { -- | The day that the hours of operation applies to.
     day :: HoursOfOperationDays,
-    -- | The start time that your contact center is open.
+    -- | The start time that your contact center opens.
     startTime :: HoursOfOperationTimeSlice,
-    -- | The end time that your contact center is closes.
+    -- | The end time that your contact center closes.
     endTime :: HoursOfOperationTimeSlice
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +48,9 @@ data HoursOfOperationConfig = HoursOfOperationConfig'
 --
 -- 'day', 'hoursOfOperationConfig_day' - The day that the hours of operation applies to.
 --
--- 'startTime', 'hoursOfOperationConfig_startTime' - The start time that your contact center is open.
+-- 'startTime', 'hoursOfOperationConfig_startTime' - The start time that your contact center opens.
 --
--- 'endTime', 'hoursOfOperationConfig_endTime' - The end time that your contact center is closes.
+-- 'endTime', 'hoursOfOperationConfig_endTime' - The end time that your contact center closes.
 newHoursOfOperationConfig ::
   -- | 'day'
   HoursOfOperationDays ->
@@ -70,11 +70,11 @@ newHoursOfOperationConfig pDay_ pStartTime_ pEndTime_ =
 hoursOfOperationConfig_day :: Lens.Lens' HoursOfOperationConfig HoursOfOperationDays
 hoursOfOperationConfig_day = Lens.lens (\HoursOfOperationConfig' {day} -> day) (\s@HoursOfOperationConfig' {} a -> s {day = a} :: HoursOfOperationConfig)
 
--- | The start time that your contact center is open.
+-- | The start time that your contact center opens.
 hoursOfOperationConfig_startTime :: Lens.Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 hoursOfOperationConfig_startTime = Lens.lens (\HoursOfOperationConfig' {startTime} -> startTime) (\s@HoursOfOperationConfig' {} a -> s {startTime = a} :: HoursOfOperationConfig)
 
--- | The end time that your contact center is closes.
+-- | The end time that your contact center closes.
 hoursOfOperationConfig_endTime :: Lens.Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 hoursOfOperationConfig_endTime = Lens.lens (\HoursOfOperationConfig' {endTime} -> endTime) (\s@HoursOfOperationConfig' {} a -> s {endTime = a} :: HoursOfOperationConfig)
 

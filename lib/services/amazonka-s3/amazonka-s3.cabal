@@ -107,7 +107,7 @@ library
     Network.AWS.S3.ListBuckets
     Network.AWS.S3.ListMultipartUploads
     Network.AWS.S3.ListObjects
-    Network.AWS.S3.ListObjectsV
+    Network.AWS.S3.ListObjectsV2
     Network.AWS.S3.ListObjectVersions
     Network.AWS.S3.ListParts
     Network.AWS.S3.PutBucketAccelerateConfiguration

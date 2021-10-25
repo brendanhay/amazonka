@@ -168,11 +168,11 @@ library
     Network.AWS.RDS.RemoveTagsFromResource
     Network.AWS.RDS.ResetDBClusterParameterGroup
     Network.AWS.RDS.ResetDBParameterGroup
-    Network.AWS.RDS.RestoreDBClusterFromS
+    Network.AWS.RDS.RestoreDBClusterFromS3
     Network.AWS.RDS.RestoreDBClusterFromSnapshot
     Network.AWS.RDS.RestoreDBClusterToPointInTime
     Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
-    Network.AWS.RDS.RestoreDBInstanceFromS
+    Network.AWS.RDS.RestoreDBInstanceFromS3
     Network.AWS.RDS.RestoreDBInstanceToPointInTime
     Network.AWS.RDS.RevokeDBSecurityGroupIngress
     Network.AWS.RDS.StartActivityStream

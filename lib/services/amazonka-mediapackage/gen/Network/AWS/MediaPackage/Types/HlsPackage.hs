@@ -37,6 +37,9 @@ data HlsPackage = HlsPackage'
     -- | When enabled, audio streams will be placed in rendition groups in the
     -- output.
     useAudioRenditionGroup :: Prelude.Maybe Prelude.Bool,
+    -- | When enabled, MediaPackage passes through digital video broadcasting
+    -- (DVB) subtitles into the output.
+    includeDvbSubtitles :: Prelude.Maybe Prelude.Bool,
     -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
     -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
     -- included in the media playlist.
@@ -87,6 +90,9 @@ data HlsPackage = HlsPackage'
 -- 'useAudioRenditionGroup', 'hlsPackage_useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the
 -- output.
 --
+-- 'includeDvbSubtitles', 'hlsPackage_includeDvbSubtitles' - When enabled, MediaPackage passes through digital video broadcasting
+-- (DVB) subtitles into the output.
+--
 -- 'playlistType', 'hlsPackage_playlistType' - The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
 -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
 -- included in the media playlist.
@@ -130,6 +136,7 @@ newHlsPackage =
     { adsOnDeliveryRestrictions =
         Prelude.Nothing,
       useAudioRenditionGroup = Prelude.Nothing,
+      includeDvbSubtitles = Prelude.Nothing,
       playlistType = Prelude.Nothing,
       segmentDurationSeconds = Prelude.Nothing,
       programDateTimeIntervalSeconds = Prelude.Nothing,
@@ -149,6 +156,11 @@ hlsPackage_adsOnDeliveryRestrictions = Lens.lens (\HlsPackage' {adsOnDeliveryRes
 -- output.
 hlsPackage_useAudioRenditionGroup :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
 hlsPackage_useAudioRenditionGroup = Lens.lens (\HlsPackage' {useAudioRenditionGroup} -> useAudioRenditionGroup) (\s@HlsPackage' {} a -> s {useAudioRenditionGroup = a} :: HlsPackage)
+
+-- | When enabled, MediaPackage passes through digital video broadcasting
+-- (DVB) subtitles into the output.
+hlsPackage_includeDvbSubtitles :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
+hlsPackage_includeDvbSubtitles = Lens.lens (\HlsPackage' {includeDvbSubtitles} -> includeDvbSubtitles) (\s@HlsPackage' {} a -> s {includeDvbSubtitles = a} :: HlsPackage)
 
 -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
 -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
@@ -213,6 +225,7 @@ instance Core.FromJSON HlsPackage where
           HlsPackage'
             Prelude.<$> (x Core..:? "adsOnDeliveryRestrictions")
             Prelude.<*> (x Core..:? "useAudioRenditionGroup")
+            Prelude.<*> (x Core..:? "includeDvbSubtitles")
             Prelude.<*> (x Core..:? "playlistType")
             Prelude.<*> (x Core..:? "segmentDurationSeconds")
             Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
@@ -236,6 +249,8 @@ instance Core.ToJSON HlsPackage where
               Prelude.<$> adsOnDeliveryRestrictions,
             ("useAudioRenditionGroup" Core..=)
               Prelude.<$> useAudioRenditionGroup,
+            ("includeDvbSubtitles" Core..=)
+              Prelude.<$> includeDvbSubtitles,
             ("playlistType" Core..=) Prelude.<$> playlistType,
             ("segmentDurationSeconds" Core..=)
               Prelude.<$> segmentDurationSeconds,

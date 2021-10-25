@@ -52,7 +52,8 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
     -- -   @requested@: The proposal has been requested. The Direct Connect
     --     gateway association cannot be used in this state.
     proposalState :: Prelude.Maybe DirectConnectGatewayAssociationProposalState,
-    -- | The ID of the account that owns the Direct Connect gateway.
+    -- | The ID of the Amazon Web Services account that owns the Direct Connect
+    -- gateway.
     directConnectGatewayOwnerAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
     requestedAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix]
@@ -88,7 +89,8 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
 -- -   @requested@: The proposal has been requested. The Direct Connect
 --     gateway association cannot be used in this state.
 --
--- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount' - The ID of the account that owns the Direct Connect gateway.
+-- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount' - The ID of the Amazon Web Services account that owns the Direct Connect
+-- gateway.
 --
 -- 'requestedAllowedPrefixesToDirectConnectGateway', 'directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 newDirectConnectGatewayAssociationProposal ::
@@ -140,7 +142,8 @@ directConnectGatewayAssociationProposal_associatedGateway = Lens.lens (\DirectCo
 directConnectGatewayAssociationProposal_proposalState :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe DirectConnectGatewayAssociationProposalState)
 directConnectGatewayAssociationProposal_proposalState = Lens.lens (\DirectConnectGatewayAssociationProposal' {proposalState} -> proposalState) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {proposalState = a} :: DirectConnectGatewayAssociationProposal)
 
--- | The ID of the account that owns the Direct Connect gateway.
+-- | The ID of the Amazon Web Services account that owns the Direct Connect
+-- gateway.
 directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociationProposal' {directConnectGatewayOwnerAccount} -> directConnectGatewayOwnerAccount) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociationProposal)
 

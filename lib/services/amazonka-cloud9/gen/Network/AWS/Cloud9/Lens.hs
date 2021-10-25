@@ -43,20 +43,20 @@ module Network.AWS.Cloud9.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
-    -- ** CreateEnvironmentEC
-    createEnvironmentEC_automaticStopTimeMinutes,
-    createEnvironmentEC_subnetId,
-    createEnvironmentEC_ownerArn,
-    createEnvironmentEC_imageId,
-    createEnvironmentEC_clientRequestToken,
-    createEnvironmentEC_connectionType,
-    createEnvironmentEC_description,
-    createEnvironmentEC_dryRun,
-    createEnvironmentEC_tags,
-    createEnvironmentEC_name,
-    createEnvironmentEC_instanceType,
-    createEnvironmentECResponse_environmentId,
-    createEnvironmentECResponse_httpStatus,
+    -- ** CreateEnvironmentEC2
+    createEnvironmentEC2_automaticStopTimeMinutes,
+    createEnvironmentEC2_subnetId,
+    createEnvironmentEC2_ownerArn,
+    createEnvironmentEC2_imageId,
+    createEnvironmentEC2_clientRequestToken,
+    createEnvironmentEC2_connectionType,
+    createEnvironmentEC2_description,
+    createEnvironmentEC2_dryRun,
+    createEnvironmentEC2_tags,
+    createEnvironmentEC2_name,
+    createEnvironmentEC2_instanceType,
+    createEnvironmentEC2Response_environmentId,
+    createEnvironmentEC2Response_httpStatus,
 
     -- ** TagResource
     tagResource_resourceARN,
@@ -133,7 +133,7 @@ module Network.AWS.Cloud9.Lens
   )
 where
 
-import Network.AWS.Cloud9.CreateEnvironmentEC
+import Network.AWS.Cloud9.CreateEnvironmentEC2
 import Network.AWS.Cloud9.CreateEnvironmentMembership
 import Network.AWS.Cloud9.DeleteEnvironment
 import Network.AWS.Cloud9.DeleteEnvironmentMembership

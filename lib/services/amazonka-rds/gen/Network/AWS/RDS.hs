@@ -525,11 +525,11 @@ module Network.AWS.RDS
     DescribeCustomAvailabilityZonesResponse (DescribeCustomAvailabilityZonesResponse'),
     newDescribeCustomAvailabilityZonesResponse,
 
-    -- ** RestoreDBClusterFromS
-    RestoreDBClusterFromS (RestoreDBClusterFromS'),
-    newRestoreDBClusterFromS,
-    RestoreDBClusterFromSResponse (RestoreDBClusterFromSResponse'),
-    newRestoreDBClusterFromSResponse,
+    -- ** RestoreDBClusterFromS3
+    RestoreDBClusterFromS3 (RestoreDBClusterFromS3'),
+    newRestoreDBClusterFromS3,
+    RestoreDBClusterFromS3Response (RestoreDBClusterFromS3Response'),
+    newRestoreDBClusterFromS3Response,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -1245,11 +1245,11 @@ module Network.AWS.RDS
     DescribeDBInstancesResponse (DescribeDBInstancesResponse'),
     newDescribeDBInstancesResponse,
 
-    -- ** RestoreDBInstanceFromS
-    RestoreDBInstanceFromS (RestoreDBInstanceFromS'),
-    newRestoreDBInstanceFromS,
-    RestoreDBInstanceFromSResponse (RestoreDBInstanceFromSResponse'),
-    newRestoreDBInstanceFromSResponse,
+    -- ** RestoreDBInstanceFromS3
+    RestoreDBInstanceFromS3 (RestoreDBInstanceFromS3'),
+    newRestoreDBInstanceFromS3,
+    RestoreDBInstanceFromS3Response (RestoreDBInstanceFromS3Response'),
+    newRestoreDBInstanceFromS3Response,
 
     -- ** DownloadDBLogFilePortion (Paginated)
     DownloadDBLogFilePortion (DownloadDBLogFilePortion'),
@@ -1818,11 +1818,11 @@ import Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 import Network.AWS.RDS.RemoveTagsFromResource
 import Network.AWS.RDS.ResetDBClusterParameterGroup
 import Network.AWS.RDS.ResetDBParameterGroup
-import Network.AWS.RDS.RestoreDBClusterFromS
+import Network.AWS.RDS.RestoreDBClusterFromS3
 import Network.AWS.RDS.RestoreDBClusterFromSnapshot
 import Network.AWS.RDS.RestoreDBClusterToPointInTime
 import Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
-import Network.AWS.RDS.RestoreDBInstanceFromS
+import Network.AWS.RDS.RestoreDBInstanceFromS3
 import Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import Network.AWS.RDS.RevokeDBSecurityGroupIngress
 import Network.AWS.RDS.StartActivityStream

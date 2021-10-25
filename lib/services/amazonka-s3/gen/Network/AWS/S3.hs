@@ -235,11 +235,11 @@ module Network.AWS.S3
     DeleteBucketMetricsConfigurationResponse (DeleteBucketMetricsConfigurationResponse'),
     newDeleteBucketMetricsConfigurationResponse,
 
-    -- ** ListObjectsV
-    ListObjectsV (ListObjectsV'),
-    newListObjectsV,
-    ListObjectsVResponse (ListObjectsVResponse'),
-    newListObjectsVResponse,
+    -- ** ListObjectsV2 (Paginated)
+    ListObjectsV2 (ListObjectsV2'),
+    newListObjectsV2,
+    ListObjectsV2Response (ListObjectsV2Response'),
+    newListObjectsV2Response,
 
     -- ** GetObject
     GetObject (GetObject'),
@@ -1358,7 +1358,7 @@ import Network.AWS.S3.ListBuckets
 import Network.AWS.S3.ListMultipartUploads
 import Network.AWS.S3.ListObjectVersions
 import Network.AWS.S3.ListObjects
-import Network.AWS.S3.ListObjectsV
+import Network.AWS.S3.ListObjectsV2
 import Network.AWS.S3.ListParts
 import Network.AWS.S3.PutBucketAccelerateConfiguration
 import Network.AWS.S3.PutBucketAcl

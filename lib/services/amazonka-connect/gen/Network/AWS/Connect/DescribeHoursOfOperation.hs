@@ -20,9 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
 -- Describes the hours of operation.
 module Network.AWS.Connect.DescribeHoursOfOperation
   ( -- * Creating a Request

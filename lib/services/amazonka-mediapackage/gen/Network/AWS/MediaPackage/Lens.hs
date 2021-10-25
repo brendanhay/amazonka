@@ -341,6 +341,7 @@ module Network.AWS.MediaPackage.Lens
     -- ** HlsPackage
     hlsPackage_adsOnDeliveryRestrictions,
     hlsPackage_useAudioRenditionGroup,
+    hlsPackage_includeDvbSubtitles,
     hlsPackage_playlistType,
     hlsPackage_segmentDurationSeconds,
     hlsPackage_programDateTimeIntervalSeconds,

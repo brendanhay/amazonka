@@ -85,11 +85,11 @@ module Network.AWS.QLDB
     CancelJournalKinesisStreamResponse (CancelJournalKinesisStreamResponse'),
     newCancelJournalKinesisStreamResponse,
 
-    -- ** ExportJournalToS
-    ExportJournalToS (ExportJournalToS'),
-    newExportJournalToS,
-    ExportJournalToSResponse (ExportJournalToSResponse'),
-    newExportJournalToSResponse,
+    -- ** ExportJournalToS3
+    ExportJournalToS3 (ExportJournalToS3'),
+    newExportJournalToS3,
+    ExportJournalToS3Response (ExportJournalToS3Response'),
+    newExportJournalToS3Response,
 
     -- ** StreamJournalToKinesis
     StreamJournalToKinesis (StreamJournalToKinesis'),
@@ -226,7 +226,7 @@ import Network.AWS.QLDB.DeleteLedger
 import Network.AWS.QLDB.DescribeJournalKinesisStream
 import Network.AWS.QLDB.DescribeJournalS3Export
 import Network.AWS.QLDB.DescribeLedger
-import Network.AWS.QLDB.ExportJournalToS
+import Network.AWS.QLDB.ExportJournalToS3
 import Network.AWS.QLDB.GetBlock
 import Network.AWS.QLDB.GetDigest
 import Network.AWS.QLDB.GetRevision

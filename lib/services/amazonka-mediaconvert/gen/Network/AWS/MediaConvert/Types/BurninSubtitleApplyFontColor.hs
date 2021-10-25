@@ -29,15 +29,15 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Ignore this setting unless your input captions are STL, any type of 608,
--- teletext, or TTML, and your output captions are burned in. Specify how
--- the service applies the color specified in the setting Font color
--- (BurninSubtitleFontColor). By default, this color is white. When you
--- choose WHITE_TEXT_ONLY, the service uses the specified font color only
--- for text that is white in the input. When you choose ALL_TEXT, the
--- service uses the specified font color for all output captions text. If
--- you leave both settings at their default value, your output font color
--- is the same as your input font color.
+-- | Ignore this setting unless Style passthrough (StylePassthrough) is set
+-- to Enabled and Font color (FontColor) set to Black, Yellow, Red, Green,
+-- Blue, or Hex. Use Apply font color (ApplyFontColor) for additional font
+-- color controls. When you choose White text only (WHITE_TEXT_ONLY), or
+-- leave blank, your font color setting only applies to white text in your
+-- input captions. For example, if your font color setting is Yellow, and
+-- your input captions have red and white text, your output captions will
+-- have red and yellow text. When you choose ALL_TEXT, your font color
+-- setting applies to all of your output captions text.
 newtype BurninSubtitleApplyFontColor = BurninSubtitleApplyFontColor'
   { fromBurninSubtitleApplyFontColor ::
       Core.Text

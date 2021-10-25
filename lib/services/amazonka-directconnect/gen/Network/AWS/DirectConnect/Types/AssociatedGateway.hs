@@ -30,8 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 data AssociatedGateway = AssociatedGateway'
   { -- | The ID of the associated gateway.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account that owns the associated virtual private gateway
-    -- or transit gateway.
+    -- | The ID of the Amazon Web Services account that owns the associated
+    -- virtual private gateway or transit gateway.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The Region where the associated gateway is located.
     region :: Prelude.Maybe Prelude.Text,
@@ -50,8 +50,8 @@ data AssociatedGateway = AssociatedGateway'
 --
 -- 'id', 'associatedGateway_id' - The ID of the associated gateway.
 --
--- 'ownerAccount', 'associatedGateway_ownerAccount' - The ID of the account that owns the associated virtual private gateway
--- or transit gateway.
+-- 'ownerAccount', 'associatedGateway_ownerAccount' - The ID of the Amazon Web Services account that owns the associated
+-- virtual private gateway or transit gateway.
 --
 -- 'region', 'associatedGateway_region' - The Region where the associated gateway is located.
 --
@@ -70,8 +70,8 @@ newAssociatedGateway =
 associatedGateway_id :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
 associatedGateway_id = Lens.lens (\AssociatedGateway' {id} -> id) (\s@AssociatedGateway' {} a -> s {id = a} :: AssociatedGateway)
 
--- | The ID of the account that owns the associated virtual private gateway
--- or transit gateway.
+-- | The ID of the Amazon Web Services account that owns the associated
+-- virtual private gateway or transit gateway.
 associatedGateway_ownerAccount :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
 associatedGateway_ownerAccount = Lens.lens (\AssociatedGateway' {ownerAccount} -> ownerAccount) (\s@AssociatedGateway' {} a -> s {ownerAccount = a} :: AssociatedGateway)
 

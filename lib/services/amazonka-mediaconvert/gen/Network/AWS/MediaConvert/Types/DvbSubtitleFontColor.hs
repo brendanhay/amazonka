@@ -35,10 +35,10 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies the color of the DVB-SUB captions. This option is not valid
--- for source captions that are STL, 608\/embedded or teletext. These
--- source settings are already pre-defined by the caption stream. All
--- burn-in and DVB-Sub font settings must match.
+-- | Specify the color of the captions text. Leave Font color (FontColor)
+-- blank and set Style passthrough (StylePassthrough) to enabled to use the
+-- font color data from your input captions, if present. Within your job
+-- settings, all of your DVB-Sub settings must be identical.
 newtype DvbSubtitleFontColor = DvbSubtitleFontColor'
   { fromDvbSubtitleFontColor ::
       Core.Text

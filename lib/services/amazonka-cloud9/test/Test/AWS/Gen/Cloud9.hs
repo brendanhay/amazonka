@@ -42,8 +42,8 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
---         , requestCreateEnvironmentEC $
---             newCreateEnvironmentEC
+--         , requestCreateEnvironmentEC2 $
+--             newCreateEnvironmentEC2
 --
 --         , requestTagResource $
 --             newTagResource
@@ -84,8 +84,8 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
---         , responseCreateEnvironmentEC $
---             newCreateEnvironmentECResponse
+--         , responseCreateEnvironmentEC2 $
+--             newCreateEnvironmentEC2Response
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -143,11 +143,11 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-requestCreateEnvironmentEC :: CreateEnvironmentEC -> TestTree
-requestCreateEnvironmentEC =
+requestCreateEnvironmentEC2 :: CreateEnvironmentEC2 -> TestTree
+requestCreateEnvironmentEC2 =
   req
-    "CreateEnvironmentEC"
-    "fixture/CreateEnvironmentEC.yaml"
+    "CreateEnvironmentEC2"
+    "fixture/CreateEnvironmentEC2.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -233,13 +233,13 @@ responseListTagsForResource =
     defaultService
     (Proxy :: Proxy ListTagsForResource)
 
-responseCreateEnvironmentEC :: CreateEnvironmentECResponse -> TestTree
-responseCreateEnvironmentEC =
+responseCreateEnvironmentEC2 :: CreateEnvironmentEC2Response -> TestTree
+responseCreateEnvironmentEC2 =
   res
-    "CreateEnvironmentECResponse"
-    "fixture/CreateEnvironmentECResponse.proto"
+    "CreateEnvironmentEC2Response"
+    "fixture/CreateEnvironmentEC2Response.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironmentEC)
+    (Proxy :: Proxy CreateEnvironmentEC2)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

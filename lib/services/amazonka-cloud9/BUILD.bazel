@@ -5,7 +5,7 @@ haskell_library(
     name = "amazonka-cloud9",
     srcs = [
         "gen/Network/AWS/Cloud9.hs",
-        "gen/Network/AWS/Cloud9/CreateEnvironmentEC.hs",
+        "gen/Network/AWS/Cloud9/CreateEnvironmentEC2.hs",
         "gen/Network/AWS/Cloud9/CreateEnvironmentMembership.hs",
         "gen/Network/AWS/Cloud9/DeleteEnvironment.hs",
         "gen/Network/AWS/Cloud9/DeleteEnvironmentMembership.hs",

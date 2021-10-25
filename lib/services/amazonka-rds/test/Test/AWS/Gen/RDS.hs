@@ -66,8 +66,8 @@ import Test.Tasty
 --         , requestDescribeCustomAvailabilityZones $
 --             newDescribeCustomAvailabilityZones
 --
---         , requestRestoreDBClusterFromS $
---             newRestoreDBClusterFromS
+--         , requestRestoreDBClusterFromS3 $
+--             newRestoreDBClusterFromS3
 --
 --         , requestDescribeEvents $
 --             newDescribeEvents
@@ -426,8 +426,8 @@ import Test.Tasty
 --         , requestDescribeDBInstances $
 --             newDescribeDBInstances
 --
---         , requestRestoreDBInstanceFromS $
---             newRestoreDBInstanceFromS
+--         , requestRestoreDBInstanceFromS3 $
+--             newRestoreDBInstanceFromS3
 --
 --         , requestDownloadDBLogFilePortion $
 --             newDownloadDBLogFilePortion
@@ -480,8 +480,8 @@ import Test.Tasty
 --         , responseDescribeCustomAvailabilityZones $
 --             newDescribeCustomAvailabilityZonesResponse
 --
---         , responseRestoreDBClusterFromS $
---             newRestoreDBClusterFromSResponse
+--         , responseRestoreDBClusterFromS3 $
+--             newRestoreDBClusterFromS3Response
 --
 --         , responseDescribeEvents $
 --             newDescribeEventsResponse
@@ -840,8 +840,8 @@ import Test.Tasty
 --         , responseDescribeDBInstances $
 --             newDescribeDBInstancesResponse
 --
---         , responseRestoreDBInstanceFromS $
---             newRestoreDBInstanceFromSResponse
+--         , responseRestoreDBInstanceFromS3 $
+--             newRestoreDBInstanceFromS3Response
 --
 --         , responseDownloadDBLogFilePortion $
 --             newDownloadDBLogFilePortionResponse
@@ -935,11 +935,11 @@ requestDescribeCustomAvailabilityZones =
     "DescribeCustomAvailabilityZones"
     "fixture/DescribeCustomAvailabilityZones.yaml"
 
-requestRestoreDBClusterFromS :: RestoreDBClusterFromS -> TestTree
-requestRestoreDBClusterFromS =
+requestRestoreDBClusterFromS3 :: RestoreDBClusterFromS3 -> TestTree
+requestRestoreDBClusterFromS3 =
   req
-    "RestoreDBClusterFromS"
-    "fixture/RestoreDBClusterFromS.yaml"
+    "RestoreDBClusterFromS3"
+    "fixture/RestoreDBClusterFromS3.yaml"
 
 requestDescribeEvents :: DescribeEvents -> TestTree
 requestDescribeEvents =
@@ -1655,11 +1655,11 @@ requestDescribeDBInstances =
     "DescribeDBInstances"
     "fixture/DescribeDBInstances.yaml"
 
-requestRestoreDBInstanceFromS :: RestoreDBInstanceFromS -> TestTree
-requestRestoreDBInstanceFromS =
+requestRestoreDBInstanceFromS3 :: RestoreDBInstanceFromS3 -> TestTree
+requestRestoreDBInstanceFromS3 =
   req
-    "RestoreDBInstanceFromS"
-    "fixture/RestoreDBInstanceFromS.yaml"
+    "RestoreDBInstanceFromS3"
+    "fixture/RestoreDBInstanceFromS3.yaml"
 
 requestDownloadDBLogFilePortion :: DownloadDBLogFilePortion -> TestTree
 requestDownloadDBLogFilePortion =
@@ -1785,13 +1785,13 @@ responseDescribeCustomAvailabilityZones =
     defaultService
     (Proxy :: Proxy DescribeCustomAvailabilityZones)
 
-responseRestoreDBClusterFromS :: RestoreDBClusterFromSResponse -> TestTree
-responseRestoreDBClusterFromS =
+responseRestoreDBClusterFromS3 :: RestoreDBClusterFromS3Response -> TestTree
+responseRestoreDBClusterFromS3 =
   res
-    "RestoreDBClusterFromSResponse"
-    "fixture/RestoreDBClusterFromSResponse.proto"
+    "RestoreDBClusterFromS3Response"
+    "fixture/RestoreDBClusterFromS3Response.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBClusterFromS)
+    (Proxy :: Proxy RestoreDBClusterFromS3)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -2745,13 +2745,13 @@ responseDescribeDBInstances =
     defaultService
     (Proxy :: Proxy DescribeDBInstances)
 
-responseRestoreDBInstanceFromS :: RestoreDBInstanceFromSResponse -> TestTree
-responseRestoreDBInstanceFromS =
+responseRestoreDBInstanceFromS3 :: RestoreDBInstanceFromS3Response -> TestTree
+responseRestoreDBInstanceFromS3 =
   res
-    "RestoreDBInstanceFromSResponse"
-    "fixture/RestoreDBInstanceFromSResponse.proto"
+    "RestoreDBInstanceFromS3Response"
+    "fixture/RestoreDBInstanceFromS3Response.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBInstanceFromS)
+    (Proxy :: Proxy RestoreDBInstanceFromS3)
 
 responseDownloadDBLogFilePortion :: DownloadDBLogFilePortionResponse -> TestTree
 responseDownloadDBLogFilePortion =

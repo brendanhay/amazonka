@@ -672,6 +672,7 @@ module Network.AWS.MediaConvert.Lens
     fileSourceSettings_framerate,
     fileSourceSettings_convert608To708,
     fileSourceSettings_timeDelta,
+    fileSourceSettings_timeDeltaUnits,
     fileSourceSettings_sourceFile,
 
     -- ** FrameCaptureSettings

@@ -42,13 +42,13 @@ module Network.AWS.MachineLearning.Lens
     createDataSourceFromRedshiftResponse_dataSourceId,
     createDataSourceFromRedshiftResponse_httpStatus,
 
-    -- ** CreateDataSourceFromS
-    createDataSourceFromS_dataSourceName,
-    createDataSourceFromS_computeStatistics,
-    createDataSourceFromS_dataSourceId,
-    createDataSourceFromS_dataSpec,
-    createDataSourceFromSResponse_dataSourceId,
-    createDataSourceFromSResponse_httpStatus,
+    -- ** CreateDataSourceFromS3
+    createDataSourceFromS3_dataSourceName,
+    createDataSourceFromS3_computeStatistics,
+    createDataSourceFromS3_dataSourceId,
+    createDataSourceFromS3_dataSpec,
+    createDataSourceFromS3Response_dataSourceId,
+    createDataSourceFromS3Response_httpStatus,
 
     -- ** CreateMLModel
     createMLModel_recipe,
@@ -470,7 +470,7 @@ import Network.AWS.MachineLearning.AddTags
 import Network.AWS.MachineLearning.CreateBatchPrediction
 import Network.AWS.MachineLearning.CreateDataSourceFromRDS
 import Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-import Network.AWS.MachineLearning.CreateDataSourceFromS
+import Network.AWS.MachineLearning.CreateDataSourceFromS3
 import Network.AWS.MachineLearning.CreateEvaluation
 import Network.AWS.MachineLearning.CreateMLModel
 import Network.AWS.MachineLearning.CreateRealtimeEndpoint

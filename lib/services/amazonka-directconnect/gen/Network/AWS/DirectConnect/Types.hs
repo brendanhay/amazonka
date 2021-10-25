@@ -64,6 +64,9 @@ module Network.AWS.DirectConnect.Types
     -- * LoaContentType
     LoaContentType (..),
 
+    -- * NniPartnerType
+    NniPartnerType (..),
+
     -- * VirtualInterfaceState
     VirtualInterfaceState (..),
 
@@ -119,6 +122,12 @@ module Network.AWS.DirectConnect.Types
     Connections (..),
     newConnections,
     connections_connections,
+
+    -- * CustomerAgreement
+    CustomerAgreement (..),
+    newCustomerAgreement,
+    customerAgreement_status,
+    customerAgreement_agreementName,
 
     -- * DirectConnectGateway
     DirectConnectGateway (..),
@@ -329,6 +338,16 @@ module Network.AWS.DirectConnect.Types
     newRouteFilterPrefix,
     routeFilterPrefix_cidr,
 
+    -- * RouterType
+    RouterType (..),
+    newRouterType,
+    routerType_vendor,
+    routerType_platform,
+    routerType_xsltTemplateName,
+    routerType_software,
+    routerType_xsltTemplateNameForMacSec,
+    routerType_routerTypeIdentifier,
+
     -- * Tag
     Tag (..),
     newTag,
@@ -393,6 +412,7 @@ import Network.AWS.DirectConnect.Types.BGPStatus
 import Network.AWS.DirectConnect.Types.Connection
 import Network.AWS.DirectConnect.Types.ConnectionState
 import Network.AWS.DirectConnect.Types.Connections
+import Network.AWS.DirectConnect.Types.CustomerAgreement
 import Network.AWS.DirectConnect.Types.DirectConnectGateway
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
@@ -418,8 +438,10 @@ import Network.AWS.DirectConnect.Types.NewPublicVirtualInterface
 import Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
 import Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
 import Network.AWS.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
+import Network.AWS.DirectConnect.Types.NniPartnerType
 import Network.AWS.DirectConnect.Types.ResourceTag
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
+import Network.AWS.DirectConnect.Types.RouterType
 import Network.AWS.DirectConnect.Types.Tag
 import Network.AWS.DirectConnect.Types.VirtualGateway
 import Network.AWS.DirectConnect.Types.VirtualInterface

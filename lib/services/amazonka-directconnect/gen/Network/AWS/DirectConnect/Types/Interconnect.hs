@@ -72,7 +72,7 @@ data Interconnect = Interconnect'
     --
     -- -   @unknown@: The state of the interconnect is not available.
     interconnectState :: Prelude.Maybe InterconnectState,
-    -- | The Region where the connection is located.
+    -- | The Amazon Web Services Region where the connection is located.
     region :: Prelude.Maybe Prelude.Text,
     -- | The name of the service provider associated with the interconnect.
     providerName :: Prelude.Maybe Prelude.Text,
@@ -133,7 +133,7 @@ data Interconnect = Interconnect'
 --
 -- -   @unknown@: The state of the interconnect is not available.
 --
--- 'region', 'interconnect_region' - The Region where the connection is located.
+-- 'region', 'interconnect_region' - The Amazon Web Services Region where the connection is located.
 --
 -- 'providerName', 'interconnect_providerName' - The name of the service provider associated with the interconnect.
 --
@@ -225,7 +225,7 @@ interconnect_jumboFrameCapable = Lens.lens (\Interconnect' {jumboFrameCapable} -
 interconnect_interconnectState :: Lens.Lens' Interconnect (Prelude.Maybe InterconnectState)
 interconnect_interconnectState = Lens.lens (\Interconnect' {interconnectState} -> interconnectState) (\s@Interconnect' {} a -> s {interconnectState = a} :: Interconnect)
 
--- | The Region where the connection is located.
+-- | The Amazon Web Services Region where the connection is located.
 interconnect_region :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_region = Lens.lens (\Interconnect' {region} -> region) (\s@Interconnect' {} a -> s {region = a} :: Interconnect)
 

@@ -252,30 +252,30 @@ module Network.AWS.S3.Lens
     deleteBucketMetricsConfiguration_bucket,
     deleteBucketMetricsConfiguration_id,
 
-    -- ** ListObjectsV
-    listObjectsV_startAfter,
-    listObjectsV_continuationToken,
-    listObjectsV_fetchOwner,
-    listObjectsV_prefix,
-    listObjectsV_encodingType,
-    listObjectsV_requestPayer,
-    listObjectsV_maxKeys,
-    listObjectsV_delimiter,
-    listObjectsV_expectedBucketOwner,
-    listObjectsV_bucket,
-    listObjectsVResponse_startAfter,
-    listObjectsVResponse_keyCount,
-    listObjectsVResponse_contents,
-    listObjectsVResponse_continuationToken,
-    listObjectsVResponse_prefix,
-    listObjectsVResponse_commonPrefixes,
-    listObjectsVResponse_encodingType,
-    listObjectsVResponse_name,
-    listObjectsVResponse_nextContinuationToken,
-    listObjectsVResponse_maxKeys,
-    listObjectsVResponse_isTruncated,
-    listObjectsVResponse_delimiter,
-    listObjectsVResponse_httpStatus,
+    -- ** ListObjectsV2
+    listObjectsV2_startAfter,
+    listObjectsV2_continuationToken,
+    listObjectsV2_fetchOwner,
+    listObjectsV2_prefix,
+    listObjectsV2_encodingType,
+    listObjectsV2_requestPayer,
+    listObjectsV2_maxKeys,
+    listObjectsV2_delimiter,
+    listObjectsV2_expectedBucketOwner,
+    listObjectsV2_bucket,
+    listObjectsV2Response_startAfter,
+    listObjectsV2Response_keyCount,
+    listObjectsV2Response_contents,
+    listObjectsV2Response_continuationToken,
+    listObjectsV2Response_prefix,
+    listObjectsV2Response_commonPrefixes,
+    listObjectsV2Response_encodingType,
+    listObjectsV2Response_name,
+    listObjectsV2Response_nextContinuationToken,
+    listObjectsV2Response_maxKeys,
+    listObjectsV2Response_isTruncated,
+    listObjectsV2Response_delimiter,
+    listObjectsV2Response_httpStatus,
 
     -- ** GetObject
     getObject_ifMatch,
@@ -1681,7 +1681,7 @@ import Network.AWS.S3.ListBuckets
 import Network.AWS.S3.ListMultipartUploads
 import Network.AWS.S3.ListObjectVersions
 import Network.AWS.S3.ListObjects
-import Network.AWS.S3.ListObjectsV
+import Network.AWS.S3.ListObjectsV2
 import Network.AWS.S3.ListParts
 import Network.AWS.S3.PutBucketAccelerateConfiguration
 import Network.AWS.S3.PutBucketAcl

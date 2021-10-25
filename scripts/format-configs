@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Usage: format-json
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+echo "Formatting JSON."
+
+shopt -s globstar
+
+for file in configs/**/*.json; do
+  printf '%s\n' "$file"
+  python3 -m json.tool "$file" | sponge "$file"
+done

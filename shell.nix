@@ -31,7 +31,6 @@ in pkgs.mkShell {
     bazel
     ghc
     pkgs.python3
-    pkgs.moreutils
     pkgs.cabal-install
     pkgs.haskellPackages.cabal-fmt
     pkgs.curl

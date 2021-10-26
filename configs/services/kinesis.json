@@ -4,7 +4,12 @@
         "SubscribeToShardEventStream": {
             "replacedBy": {
                 "name": "Core.Value",
-                "underive": ["show", "read", "eq", "ord"]
+                "underive": [
+                    "show",
+                    "read",
+                    "eq",
+                    "ord"
+                ]
             }
         }
     }

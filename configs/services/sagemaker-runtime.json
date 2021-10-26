@@ -4,7 +4,11 @@
         "BodyBlob": {
             "replacedBy": {
                 "name": "Prelude.Text",
-                "underive": ["show", "read", "eq"]
+                "underive": [
+                    "show",
+                    "read",
+                    "eq"
+                ]
             }
         }
     }

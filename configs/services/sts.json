@@ -10,19 +10,27 @@
         "accessKeySecretType": {
             "replacedBy": {
                 "name": "Core.SecretKey",
-                "underive": ["read", "show"]
+                "underive": [
+                    "read",
+                    "show"
+                ]
             }
         },
         "tokenType": {
             "replacedBy": {
                 "name": "Core.SessionToken",
-                "underive": ["read", "show"]
+                "underive": [
+                    "read",
+                    "show"
+                ]
             }
         },
         "Credentials": {
             "replacedBy": {
                 "name": "Core.AuthEnv",
-                "underive": ["read"]
+                "underive": [
+                    "read"
+                ]
             }
         }
     }

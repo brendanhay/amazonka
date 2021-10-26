@@ -4,7 +4,7 @@
     },
     "shapes": {
         "AttachmentStatus": {
-            "enum":[
+            "enum": [
                 "attaching",
                 "attached",
                 "detaching",
@@ -14,7 +14,7 @@
             ]
         },
         "VolumeAttachmentState": {
-            "enum":[
+            "enum": [
                 "attaching",
                 "attached",
                 "detaching",
@@ -26,7 +26,7 @@
             "type": "structure",
             "members": {}
         },
-        "DeleteTagList":{
+        "DeleteTagList": {
             "type": "list",
             "member": {
                 "shape": "DeleteTag",

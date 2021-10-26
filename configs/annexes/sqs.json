@@ -21,13 +21,13 @@
             },
             "flattened": true
         },
-        "DummyMessageAttributeMap":{
+        "DummyMessageAttributeMap": {
             "type": "map",
-            "key":{
+            "key": {
                 "shape": "MessageAttribute",
                 "locationName": "Name"
             },
-            "value":{
+            "value": {
                 "shape": "String",
                 "locationName": "Value"
             },

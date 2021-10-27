@@ -1,0 +1,203 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.MediaPackageVOD.ListPackagingGroups
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a collection of MediaPackage VOD PackagingGroup resources.
+--
+-- This operation returns paginated results.
+module Network.AWS.MediaPackageVOD.ListPackagingGroups
+  ( -- * Creating a Request
+    ListPackagingGroups (..),
+    newListPackagingGroups,
+
+    -- * Request Lenses
+    listPackagingGroups_nextToken,
+    listPackagingGroups_maxResults,
+
+    -- * Destructuring the Response
+    ListPackagingGroupsResponse (..),
+    newListPackagingGroupsResponse,
+
+    -- * Response Lenses
+    listPackagingGroupsResponse_packagingGroups,
+    listPackagingGroupsResponse_nextToken,
+    listPackagingGroupsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaPackageVOD.Types
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newListPackagingGroups' smart constructor.
+data ListPackagingGroups = ListPackagingGroups'
+  { -- | A token used to resume pagination from the end of a previous request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Upper bound on number of records to return.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListPackagingGroups' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listPackagingGroups_nextToken' - A token used to resume pagination from the end of a previous request.
+--
+-- 'maxResults', 'listPackagingGroups_maxResults' - Upper bound on number of records to return.
+newListPackagingGroups ::
+  ListPackagingGroups
+newListPackagingGroups =
+  ListPackagingGroups'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | A token used to resume pagination from the end of a previous request.
+listPackagingGroups_nextToken :: Lens.Lens' ListPackagingGroups (Prelude.Maybe Prelude.Text)
+listPackagingGroups_nextToken = Lens.lens (\ListPackagingGroups' {nextToken} -> nextToken) (\s@ListPackagingGroups' {} a -> s {nextToken = a} :: ListPackagingGroups)
+
+-- | Upper bound on number of records to return.
+listPackagingGroups_maxResults :: Lens.Lens' ListPackagingGroups (Prelude.Maybe Prelude.Natural)
+listPackagingGroups_maxResults = Lens.lens (\ListPackagingGroups' {maxResults} -> maxResults) (\s@ListPackagingGroups' {} a -> s {maxResults = a} :: ListPackagingGroups)
+
+instance Core.AWSPager ListPackagingGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listPackagingGroupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listPackagingGroupsResponse_packagingGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listPackagingGroups_nextToken
+          Lens..~ rs
+          Lens.^? listPackagingGroupsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest ListPackagingGroups where
+  type
+    AWSResponse ListPackagingGroups =
+      ListPackagingGroupsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListPackagingGroupsResponse'
+            Prelude.<$> ( x Core..?> "packagingGroups"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListPackagingGroups
+
+instance Prelude.NFData ListPackagingGroups
+
+instance Core.ToHeaders ListPackagingGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath ListPackagingGroups where
+  toPath = Prelude.const "/packaging_groups"
+
+instance Core.ToQuery ListPackagingGroups where
+  toQuery ListPackagingGroups' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
+      ]
+
+-- | /See:/ 'newListPackagingGroupsResponse' smart constructor.
+data ListPackagingGroupsResponse = ListPackagingGroupsResponse'
+  { -- | A list of MediaPackage VOD PackagingGroup resources.
+    packagingGroups :: Prelude.Maybe [PackagingGroup],
+    -- | A token that can be used to resume pagination from the end of the
+    -- collection.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListPackagingGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'packagingGroups', 'listPackagingGroupsResponse_packagingGroups' - A list of MediaPackage VOD PackagingGroup resources.
+--
+-- 'nextToken', 'listPackagingGroupsResponse_nextToken' - A token that can be used to resume pagination from the end of the
+-- collection.
+--
+-- 'httpStatus', 'listPackagingGroupsResponse_httpStatus' - The response's http status code.
+newListPackagingGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListPackagingGroupsResponse
+newListPackagingGroupsResponse pHttpStatus_ =
+  ListPackagingGroupsResponse'
+    { packagingGroups =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A list of MediaPackage VOD PackagingGroup resources.
+listPackagingGroupsResponse_packagingGroups :: Lens.Lens' ListPackagingGroupsResponse (Prelude.Maybe [PackagingGroup])
+listPackagingGroupsResponse_packagingGroups = Lens.lens (\ListPackagingGroupsResponse' {packagingGroups} -> packagingGroups) (\s@ListPackagingGroupsResponse' {} a -> s {packagingGroups = a} :: ListPackagingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that can be used to resume pagination from the end of the
+-- collection.
+listPackagingGroupsResponse_nextToken :: Lens.Lens' ListPackagingGroupsResponse (Prelude.Maybe Prelude.Text)
+listPackagingGroupsResponse_nextToken = Lens.lens (\ListPackagingGroupsResponse' {nextToken} -> nextToken) (\s@ListPackagingGroupsResponse' {} a -> s {nextToken = a} :: ListPackagingGroupsResponse)
+
+-- | The response's http status code.
+listPackagingGroupsResponse_httpStatus :: Lens.Lens' ListPackagingGroupsResponse Prelude.Int
+listPackagingGroupsResponse_httpStatus = Lens.lens (\ListPackagingGroupsResponse' {httpStatus} -> httpStatus) (\s@ListPackagingGroupsResponse' {} a -> s {httpStatus = a} :: ListPackagingGroupsResponse)
+
+instance Prelude.NFData ListPackagingGroupsResponse

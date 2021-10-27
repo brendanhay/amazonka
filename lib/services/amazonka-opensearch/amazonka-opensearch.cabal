@@ -1,0 +1,220 @@
+cabal-version:      2.2
+name:               amazonka-opensearch
+version:            2.0
+synopsis:           Amazon OpenSearch Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.OpenSearch.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.OpenSearch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-opensearch
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.OpenSearch
+    Network.AWS.OpenSearch.AcceptInboundConnection
+    Network.AWS.OpenSearch.AddTags
+    Network.AWS.OpenSearch.AssociatePackage
+    Network.AWS.OpenSearch.CancelServiceSoftwareUpdate
+    Network.AWS.OpenSearch.CreateDomain
+    Network.AWS.OpenSearch.CreateOutboundConnection
+    Network.AWS.OpenSearch.CreatePackage
+    Network.AWS.OpenSearch.DeleteDomain
+    Network.AWS.OpenSearch.DeleteInboundConnection
+    Network.AWS.OpenSearch.DeleteOutboundConnection
+    Network.AWS.OpenSearch.DeletePackage
+    Network.AWS.OpenSearch.DescribeDomain
+    Network.AWS.OpenSearch.DescribeDomainAutoTunes
+    Network.AWS.OpenSearch.DescribeDomainConfig
+    Network.AWS.OpenSearch.DescribeDomains
+    Network.AWS.OpenSearch.DescribeInboundConnections
+    Network.AWS.OpenSearch.DescribeInstanceTypeLimits
+    Network.AWS.OpenSearch.DescribeOutboundConnections
+    Network.AWS.OpenSearch.DescribePackages
+    Network.AWS.OpenSearch.DescribeReservedInstanceOfferings
+    Network.AWS.OpenSearch.DescribeReservedInstances
+    Network.AWS.OpenSearch.DissociatePackage
+    Network.AWS.OpenSearch.GetCompatibleVersions
+    Network.AWS.OpenSearch.GetPackageVersionHistory
+    Network.AWS.OpenSearch.GetUpgradeHistory
+    Network.AWS.OpenSearch.GetUpgradeStatus
+    Network.AWS.OpenSearch.Lens
+    Network.AWS.OpenSearch.ListDomainNames
+    Network.AWS.OpenSearch.ListDomainsForPackage
+    Network.AWS.OpenSearch.ListInstanceTypeDetails
+    Network.AWS.OpenSearch.ListPackagesForDomain
+    Network.AWS.OpenSearch.ListTags
+    Network.AWS.OpenSearch.ListVersions
+    Network.AWS.OpenSearch.PurchaseReservedInstanceOffering
+    Network.AWS.OpenSearch.RejectInboundConnection
+    Network.AWS.OpenSearch.RemoveTags
+    Network.AWS.OpenSearch.StartServiceSoftwareUpdate
+    Network.AWS.OpenSearch.Types
+    Network.AWS.OpenSearch.Types.AccessPoliciesStatus
+    Network.AWS.OpenSearch.Types.AdditionalLimit
+    Network.AWS.OpenSearch.Types.AdvancedOptionsStatus
+    Network.AWS.OpenSearch.Types.AdvancedSecurityOptions
+    Network.AWS.OpenSearch.Types.AdvancedSecurityOptionsInput
+    Network.AWS.OpenSearch.Types.AdvancedSecurityOptionsStatus
+    Network.AWS.OpenSearch.Types.AutoTune
+    Network.AWS.OpenSearch.Types.AutoTuneDesiredState
+    Network.AWS.OpenSearch.Types.AutoTuneDetails
+    Network.AWS.OpenSearch.Types.AutoTuneMaintenanceSchedule
+    Network.AWS.OpenSearch.Types.AutoTuneOptions
+    Network.AWS.OpenSearch.Types.AutoTuneOptionsInput
+    Network.AWS.OpenSearch.Types.AutoTuneOptionsOutput
+    Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus
+    Network.AWS.OpenSearch.Types.AutoTuneState
+    Network.AWS.OpenSearch.Types.AutoTuneStatus
+    Network.AWS.OpenSearch.Types.AutoTuneType
+    Network.AWS.OpenSearch.Types.AWSDomainInformation
+    Network.AWS.OpenSearch.Types.ClusterConfig
+    Network.AWS.OpenSearch.Types.ClusterConfigStatus
+    Network.AWS.OpenSearch.Types.CognitoOptions
+    Network.AWS.OpenSearch.Types.CognitoOptionsStatus
+    Network.AWS.OpenSearch.Types.ColdStorageOptions
+    Network.AWS.OpenSearch.Types.CompatibleVersionsMap
+    Network.AWS.OpenSearch.Types.DeploymentStatus
+    Network.AWS.OpenSearch.Types.DescribePackagesFilter
+    Network.AWS.OpenSearch.Types.DescribePackagesFilterName
+    Network.AWS.OpenSearch.Types.DomainConfig
+    Network.AWS.OpenSearch.Types.DomainEndpointOptions
+    Network.AWS.OpenSearch.Types.DomainEndpointOptionsStatus
+    Network.AWS.OpenSearch.Types.DomainInfo
+    Network.AWS.OpenSearch.Types.DomainInformationContainer
+    Network.AWS.OpenSearch.Types.DomainPackageDetails
+    Network.AWS.OpenSearch.Types.DomainPackageStatus
+    Network.AWS.OpenSearch.Types.DomainStatus
+    Network.AWS.OpenSearch.Types.Duration
+    Network.AWS.OpenSearch.Types.EBSOptions
+    Network.AWS.OpenSearch.Types.EBSOptionsStatus
+    Network.AWS.OpenSearch.Types.EncryptionAtRestOptions
+    Network.AWS.OpenSearch.Types.EncryptionAtRestOptionsStatus
+    Network.AWS.OpenSearch.Types.EngineType
+    Network.AWS.OpenSearch.Types.ErrorDetails
+    Network.AWS.OpenSearch.Types.Filter
+    Network.AWS.OpenSearch.Types.InboundConnection
+    Network.AWS.OpenSearch.Types.InboundConnectionStatus
+    Network.AWS.OpenSearch.Types.InboundConnectionStatusCode
+    Network.AWS.OpenSearch.Types.InstanceCountLimits
+    Network.AWS.OpenSearch.Types.InstanceLimits
+    Network.AWS.OpenSearch.Types.InstanceTypeDetails
+    Network.AWS.OpenSearch.Types.Limits
+    Network.AWS.OpenSearch.Types.LogPublishingOption
+    Network.AWS.OpenSearch.Types.LogPublishingOptionsStatus
+    Network.AWS.OpenSearch.Types.LogType
+    Network.AWS.OpenSearch.Types.MasterUserOptions
+    Network.AWS.OpenSearch.Types.NodeToNodeEncryptionOptions
+    Network.AWS.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
+    Network.AWS.OpenSearch.Types.OpenSearchPartitionInstanceType
+    Network.AWS.OpenSearch.Types.OpenSearchWarmPartitionInstanceType
+    Network.AWS.OpenSearch.Types.OptionState
+    Network.AWS.OpenSearch.Types.OptionStatus
+    Network.AWS.OpenSearch.Types.OutboundConnection
+    Network.AWS.OpenSearch.Types.OutboundConnectionStatus
+    Network.AWS.OpenSearch.Types.OutboundConnectionStatusCode
+    Network.AWS.OpenSearch.Types.PackageDetails
+    Network.AWS.OpenSearch.Types.PackageSource
+    Network.AWS.OpenSearch.Types.PackageStatus
+    Network.AWS.OpenSearch.Types.PackageType
+    Network.AWS.OpenSearch.Types.PackageVersionHistory
+    Network.AWS.OpenSearch.Types.RecurringCharge
+    Network.AWS.OpenSearch.Types.ReservedInstance
+    Network.AWS.OpenSearch.Types.ReservedInstanceOffering
+    Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption
+    Network.AWS.OpenSearch.Types.RollbackOnDisable
+    Network.AWS.OpenSearch.Types.SAMLIdp
+    Network.AWS.OpenSearch.Types.SAMLOptionsInput
+    Network.AWS.OpenSearch.Types.SAMLOptionsOutput
+    Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType
+    Network.AWS.OpenSearch.Types.ScheduledAutoTuneDetails
+    Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType
+    Network.AWS.OpenSearch.Types.ServiceSoftwareOptions
+    Network.AWS.OpenSearch.Types.SnapshotOptions
+    Network.AWS.OpenSearch.Types.SnapshotOptionsStatus
+    Network.AWS.OpenSearch.Types.StorageType
+    Network.AWS.OpenSearch.Types.StorageTypeLimit
+    Network.AWS.OpenSearch.Types.Tag
+    Network.AWS.OpenSearch.Types.TimeUnit
+    Network.AWS.OpenSearch.Types.TLSSecurityPolicy
+    Network.AWS.OpenSearch.Types.UpgradeHistory
+    Network.AWS.OpenSearch.Types.UpgradeStatus
+    Network.AWS.OpenSearch.Types.UpgradeStep
+    Network.AWS.OpenSearch.Types.UpgradeStepItem
+    Network.AWS.OpenSearch.Types.VersionStatus
+    Network.AWS.OpenSearch.Types.VolumeType
+    Network.AWS.OpenSearch.Types.VPCDerivedInfo
+    Network.AWS.OpenSearch.Types.VPCDerivedInfoStatus
+    Network.AWS.OpenSearch.Types.VPCOptions
+    Network.AWS.OpenSearch.Types.ZoneAwarenessConfig
+    Network.AWS.OpenSearch.UpdateDomainConfig
+    Network.AWS.OpenSearch.UpdatePackage
+    Network.AWS.OpenSearch.UpgradeDomain
+    Network.AWS.OpenSearch.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-opensearch-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.OpenSearch
+    Test.AWS.OpenSearch
+    Test.AWS.OpenSearch.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-opensearch
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,0 +1,157 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Displays details about a control panel.
+module Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
+  ( -- * Creating a Request
+    DescribeControlPanel (..),
+    newDescribeControlPanel,
+
+    -- * Request Lenses
+    describeControlPanel_controlPanelArn,
+
+    -- * Destructuring the Response
+    DescribeControlPanelResponse (..),
+    newDescribeControlPanelResponse,
+
+    -- * Response Lenses
+    describeControlPanelResponse_controlPanel,
+    describeControlPanelResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import Network.AWS.Route53RecoveryControlConfig.Types
+
+-- | /See:/ 'newDescribeControlPanel' smart constructor.
+data DescribeControlPanel = DescribeControlPanel'
+  { -- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
+    -- details for.
+    controlPanelArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeControlPanel' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'controlPanelArn', 'describeControlPanel_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that you\'re getting
+-- details for.
+newDescribeControlPanel ::
+  -- | 'controlPanelArn'
+  Prelude.Text ->
+  DescribeControlPanel
+newDescribeControlPanel pControlPanelArn_ =
+  DescribeControlPanel'
+    { controlPanelArn =
+        pControlPanelArn_
+    }
+
+-- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
+-- details for.
+describeControlPanel_controlPanelArn :: Lens.Lens' DescribeControlPanel Prelude.Text
+describeControlPanel_controlPanelArn = Lens.lens (\DescribeControlPanel' {controlPanelArn} -> controlPanelArn) (\s@DescribeControlPanel' {} a -> s {controlPanelArn = a} :: DescribeControlPanel)
+
+instance Core.AWSRequest DescribeControlPanel where
+  type
+    AWSResponse DescribeControlPanel =
+      DescribeControlPanelResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeControlPanelResponse'
+            Prelude.<$> (x Core..?> "ControlPanel")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeControlPanel
+
+instance Prelude.NFData DescribeControlPanel
+
+instance Core.ToHeaders DescribeControlPanel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DescribeControlPanel where
+  toPath DescribeControlPanel' {..} =
+    Prelude.mconcat
+      ["/controlpanel/", Core.toBS controlPanelArn]
+
+instance Core.ToQuery DescribeControlPanel where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeControlPanelResponse' smart constructor.
+data DescribeControlPanelResponse = DescribeControlPanelResponse'
+  { -- | Information about the control panel.
+    controlPanel :: Prelude.Maybe ControlPanel,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeControlPanelResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'controlPanel', 'describeControlPanelResponse_controlPanel' - Information about the control panel.
+--
+-- 'httpStatus', 'describeControlPanelResponse_httpStatus' - The response's http status code.
+newDescribeControlPanelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeControlPanelResponse
+newDescribeControlPanelResponse pHttpStatus_ =
+  DescribeControlPanelResponse'
+    { controlPanel =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Information about the control panel.
+describeControlPanelResponse_controlPanel :: Lens.Lens' DescribeControlPanelResponse (Prelude.Maybe ControlPanel)
+describeControlPanelResponse_controlPanel = Lens.lens (\DescribeControlPanelResponse' {controlPanel} -> controlPanel) (\s@DescribeControlPanelResponse' {} a -> s {controlPanel = a} :: DescribeControlPanelResponse)
+
+-- | The response's http status code.
+describeControlPanelResponse_httpStatus :: Lens.Lens' DescribeControlPanelResponse Prelude.Int
+describeControlPanelResponse_httpStatus = Lens.lens (\DescribeControlPanelResponse' {httpStatus} -> httpStatus) (\s@DescribeControlPanelResponse' {} a -> s {httpStatus = a} :: DescribeControlPanelResponse)
+
+instance Prelude.NFData DescribeControlPanelResponse

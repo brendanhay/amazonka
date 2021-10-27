@@ -1,0 +1,152 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Kendra.Types.BasicAuthenticationConfiguration
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Kendra.Types.BasicAuthenticationConfiguration where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Provides the configuration information to connect to websites that
+-- require basic user authentication.
+--
+-- /See:/ 'newBasicAuthenticationConfiguration' smart constructor.
+data BasicAuthenticationConfiguration = BasicAuthenticationConfiguration'
+  { -- | The name of the website host you want to connect to using authentication
+    -- credentials.
+    --
+    -- For example, the host name of https:\/\/a.example.com\/page1.html is
+    -- \"a.example.com\".
+    host :: Prelude.Text,
+    -- | The port number of the website host you want to connect to using
+    -- authentication credentials.
+    --
+    -- For example, the port for https:\/\/a.example.com\/page1.html is 443,
+    -- the standard port for HTTPS.
+    port :: Prelude.Natural,
+    -- | Your secret ARN, which you can create in
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html AWS Secrets Manager>
+    --
+    -- You use a secret if basic authentication credentials are required to
+    -- connect to a website. The secret stores your credentials of user name
+    -- and password.
+    credentials :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'BasicAuthenticationConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'host', 'basicAuthenticationConfiguration_host' - The name of the website host you want to connect to using authentication
+-- credentials.
+--
+-- For example, the host name of https:\/\/a.example.com\/page1.html is
+-- \"a.example.com\".
+--
+-- 'port', 'basicAuthenticationConfiguration_port' - The port number of the website host you want to connect to using
+-- authentication credentials.
+--
+-- For example, the port for https:\/\/a.example.com\/page1.html is 443,
+-- the standard port for HTTPS.
+--
+-- 'credentials', 'basicAuthenticationConfiguration_credentials' - Your secret ARN, which you can create in
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html AWS Secrets Manager>
+--
+-- You use a secret if basic authentication credentials are required to
+-- connect to a website. The secret stores your credentials of user name
+-- and password.
+newBasicAuthenticationConfiguration ::
+  -- | 'host'
+  Prelude.Text ->
+  -- | 'port'
+  Prelude.Natural ->
+  -- | 'credentials'
+  Prelude.Text ->
+  BasicAuthenticationConfiguration
+newBasicAuthenticationConfiguration
+  pHost_
+  pPort_
+  pCredentials_ =
+    BasicAuthenticationConfiguration'
+      { host = pHost_,
+        port = pPort_,
+        credentials = pCredentials_
+      }
+
+-- | The name of the website host you want to connect to using authentication
+-- credentials.
+--
+-- For example, the host name of https:\/\/a.example.com\/page1.html is
+-- \"a.example.com\".
+basicAuthenticationConfiguration_host :: Lens.Lens' BasicAuthenticationConfiguration Prelude.Text
+basicAuthenticationConfiguration_host = Lens.lens (\BasicAuthenticationConfiguration' {host} -> host) (\s@BasicAuthenticationConfiguration' {} a -> s {host = a} :: BasicAuthenticationConfiguration)
+
+-- | The port number of the website host you want to connect to using
+-- authentication credentials.
+--
+-- For example, the port for https:\/\/a.example.com\/page1.html is 443,
+-- the standard port for HTTPS.
+basicAuthenticationConfiguration_port :: Lens.Lens' BasicAuthenticationConfiguration Prelude.Natural
+basicAuthenticationConfiguration_port = Lens.lens (\BasicAuthenticationConfiguration' {port} -> port) (\s@BasicAuthenticationConfiguration' {} a -> s {port = a} :: BasicAuthenticationConfiguration)
+
+-- | Your secret ARN, which you can create in
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html AWS Secrets Manager>
+--
+-- You use a secret if basic authentication credentials are required to
+-- connect to a website. The secret stores your credentials of user name
+-- and password.
+basicAuthenticationConfiguration_credentials :: Lens.Lens' BasicAuthenticationConfiguration Prelude.Text
+basicAuthenticationConfiguration_credentials = Lens.lens (\BasicAuthenticationConfiguration' {credentials} -> credentials) (\s@BasicAuthenticationConfiguration' {} a -> s {credentials = a} :: BasicAuthenticationConfiguration)
+
+instance
+  Core.FromJSON
+    BasicAuthenticationConfiguration
+  where
+  parseJSON =
+    Core.withObject
+      "BasicAuthenticationConfiguration"
+      ( \x ->
+          BasicAuthenticationConfiguration'
+            Prelude.<$> (x Core..: "Host")
+            Prelude.<*> (x Core..: "Port")
+            Prelude.<*> (x Core..: "Credentials")
+      )
+
+instance
+  Prelude.Hashable
+    BasicAuthenticationConfiguration
+
+instance
+  Prelude.NFData
+    BasicAuthenticationConfiguration
+
+instance Core.ToJSON BasicAuthenticationConfiguration where
+  toJSON BasicAuthenticationConfiguration' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Host" Core..= host),
+            Prelude.Just ("Port" Core..= port),
+            Prelude.Just ("Credentials" Core..= credentials)
+          ]
+      )

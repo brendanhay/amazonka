@@ -1,0 +1,85 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Kendra.Types.DataSourceStatus
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Kendra.Types.DataSourceStatus
+  ( DataSourceStatus
+      ( ..,
+        DataSourceStatus_ACTIVE,
+        DataSourceStatus_CREATING,
+        DataSourceStatus_DELETING,
+        DataSourceStatus_FAILED,
+        DataSourceStatus_UPDATING
+      ),
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
+
+newtype DataSourceStatus = DataSourceStatus'
+  { fromDataSourceStatus ::
+      Core.Text
+  }
+  deriving stock
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
+    )
+  deriving newtype
+    ( Prelude.Hashable,
+      Prelude.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
+    )
+
+pattern DataSourceStatus_ACTIVE :: DataSourceStatus
+pattern DataSourceStatus_ACTIVE = DataSourceStatus' "ACTIVE"
+
+pattern DataSourceStatus_CREATING :: DataSourceStatus
+pattern DataSourceStatus_CREATING = DataSourceStatus' "CREATING"
+
+pattern DataSourceStatus_DELETING :: DataSourceStatus
+pattern DataSourceStatus_DELETING = DataSourceStatus' "DELETING"
+
+pattern DataSourceStatus_FAILED :: DataSourceStatus
+pattern DataSourceStatus_FAILED = DataSourceStatus' "FAILED"
+
+pattern DataSourceStatus_UPDATING :: DataSourceStatus
+pattern DataSourceStatus_UPDATING = DataSourceStatus' "UPDATING"
+
+{-# COMPLETE
+  DataSourceStatus_ACTIVE,
+  DataSourceStatus_CREATING,
+  DataSourceStatus_DELETING,
+  DataSourceStatus_FAILED,
+  DataSourceStatus_UPDATING,
+  DataSourceStatus'
+  #-}

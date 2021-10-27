@@ -1,0 +1,70 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-rds-data/amazonka-rds-data.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-rds-data",
+    srcs = [
+        "gen/Network/AWS/RDSData.hs",
+        "gen/Network/AWS/RDSData/BatchExecuteStatement.hs",
+        "gen/Network/AWS/RDSData/BeginTransaction.hs",
+        "gen/Network/AWS/RDSData/CommitTransaction.hs",
+        "gen/Network/AWS/RDSData/ExecuteStatement.hs",
+        "gen/Network/AWS/RDSData/Lens.hs",
+        "gen/Network/AWS/RDSData/RollbackTransaction.hs",
+        "gen/Network/AWS/RDSData/Types.hs",
+        "gen/Network/AWS/RDSData/Types/ArrayValue.hs",
+        "gen/Network/AWS/RDSData/Types/ColumnMetadata.hs",
+        "gen/Network/AWS/RDSData/Types/DecimalReturnType.hs",
+        "gen/Network/AWS/RDSData/Types/Field.hs",
+        "gen/Network/AWS/RDSData/Types/ResultSetOptions.hs",
+        "gen/Network/AWS/RDSData/Types/SqlParameter.hs",
+        "gen/Network/AWS/RDSData/Types/TypeHint.hs",
+        "gen/Network/AWS/RDSData/Types/UpdateResult.hs",
+        "gen/Network/AWS/RDSData/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_rds_data=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-rds-data/amazonka-rds-data.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-rds-data-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/RDSData.hs",
+        "test/Test/AWS/RDSData.hs",
+        "test/Test/AWS/RDSData/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_rds_data=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-rds-data",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

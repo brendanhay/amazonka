@@ -1,0 +1,80 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.NetworkFirewall.Types.Dimension
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.NetworkFirewall.Types.Dimension where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | The value to use in an Amazon CloudWatch custom metric dimension. This
+-- is used in the @PublishMetrics@ CustomAction. A CloudWatch custom metric
+-- dimension is a name\/value pair that\'s part of the identity of a
+-- metric.
+--
+-- AWS Network Firewall sets the dimension name to @CustomAction@ and you
+-- provide the dimension value.
+--
+-- For more information about CloudWatch custom metric dimensions, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions Publishing Custom Metrics>
+-- in the
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html Amazon CloudWatch User Guide>.
+--
+-- /See:/ 'newDimension' smart constructor.
+data Dimension = Dimension'
+  { -- | The value to use in the custom metric dimension.
+    value :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'Dimension' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'value', 'dimension_value' - The value to use in the custom metric dimension.
+newDimension ::
+  -- | 'value'
+  Prelude.Text ->
+  Dimension
+newDimension pValue_ = Dimension' {value = pValue_}
+
+-- | The value to use in the custom metric dimension.
+dimension_value :: Lens.Lens' Dimension Prelude.Text
+dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
+
+instance Core.FromJSON Dimension where
+  parseJSON =
+    Core.withObject
+      "Dimension"
+      (\x -> Dimension' Prelude.<$> (x Core..: "Value"))
+
+instance Prelude.Hashable Dimension
+
+instance Prelude.NFData Dimension
+
+instance Core.ToJSON Dimension where
+  toJSON Dimension' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Value" Core..= value)]
+      )

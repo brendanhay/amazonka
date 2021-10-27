@@ -1,0 +1,167 @@
+cabal-version:      2.2
+name:               amazonka-network-firewall
+version:            2.0
+synopsis:           Amazon Network Firewall SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-11-12@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.NetworkFirewall.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.NetworkFirewall" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-network-firewall
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.NetworkFirewall
+    Network.AWS.NetworkFirewall.AssociateFirewallPolicy
+    Network.AWS.NetworkFirewall.AssociateSubnets
+    Network.AWS.NetworkFirewall.CreateFirewall
+    Network.AWS.NetworkFirewall.CreateFirewallPolicy
+    Network.AWS.NetworkFirewall.CreateRuleGroup
+    Network.AWS.NetworkFirewall.DeleteFirewall
+    Network.AWS.NetworkFirewall.DeleteFirewallPolicy
+    Network.AWS.NetworkFirewall.DeleteResourcePolicy
+    Network.AWS.NetworkFirewall.DeleteRuleGroup
+    Network.AWS.NetworkFirewall.DescribeFirewall
+    Network.AWS.NetworkFirewall.DescribeFirewallPolicy
+    Network.AWS.NetworkFirewall.DescribeLoggingConfiguration
+    Network.AWS.NetworkFirewall.DescribeResourcePolicy
+    Network.AWS.NetworkFirewall.DescribeRuleGroup
+    Network.AWS.NetworkFirewall.DisassociateSubnets
+    Network.AWS.NetworkFirewall.Lens
+    Network.AWS.NetworkFirewall.ListFirewallPolicies
+    Network.AWS.NetworkFirewall.ListFirewalls
+    Network.AWS.NetworkFirewall.ListRuleGroups
+    Network.AWS.NetworkFirewall.ListTagsForResource
+    Network.AWS.NetworkFirewall.PutResourcePolicy
+    Network.AWS.NetworkFirewall.TagResource
+    Network.AWS.NetworkFirewall.Types
+    Network.AWS.NetworkFirewall.Types.ActionDefinition
+    Network.AWS.NetworkFirewall.Types.Address
+    Network.AWS.NetworkFirewall.Types.Attachment
+    Network.AWS.NetworkFirewall.Types.AttachmentStatus
+    Network.AWS.NetworkFirewall.Types.ConfigurationSyncState
+    Network.AWS.NetworkFirewall.Types.CustomAction
+    Network.AWS.NetworkFirewall.Types.Dimension
+    Network.AWS.NetworkFirewall.Types.Firewall
+    Network.AWS.NetworkFirewall.Types.FirewallMetadata
+    Network.AWS.NetworkFirewall.Types.FirewallPolicy
+    Network.AWS.NetworkFirewall.Types.FirewallPolicyMetadata
+    Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse
+    Network.AWS.NetworkFirewall.Types.FirewallStatus
+    Network.AWS.NetworkFirewall.Types.FirewallStatusValue
+    Network.AWS.NetworkFirewall.Types.GeneratedRulesType
+    Network.AWS.NetworkFirewall.Types.Header
+    Network.AWS.NetworkFirewall.Types.IPSet
+    Network.AWS.NetworkFirewall.Types.LogDestinationConfig
+    Network.AWS.NetworkFirewall.Types.LogDestinationType
+    Network.AWS.NetworkFirewall.Types.LoggingConfiguration
+    Network.AWS.NetworkFirewall.Types.LogType
+    Network.AWS.NetworkFirewall.Types.MatchAttributes
+    Network.AWS.NetworkFirewall.Types.PerObjectStatus
+    Network.AWS.NetworkFirewall.Types.PerObjectSyncStatus
+    Network.AWS.NetworkFirewall.Types.PortRange
+    Network.AWS.NetworkFirewall.Types.PortSet
+    Network.AWS.NetworkFirewall.Types.PublishMetricAction
+    Network.AWS.NetworkFirewall.Types.ResourceStatus
+    Network.AWS.NetworkFirewall.Types.RuleDefinition
+    Network.AWS.NetworkFirewall.Types.RuleGroup
+    Network.AWS.NetworkFirewall.Types.RuleGroupMetadata
+    Network.AWS.NetworkFirewall.Types.RuleGroupResponse
+    Network.AWS.NetworkFirewall.Types.RuleGroupType
+    Network.AWS.NetworkFirewall.Types.RuleOption
+    Network.AWS.NetworkFirewall.Types.RuleOrder
+    Network.AWS.NetworkFirewall.Types.RulesSource
+    Network.AWS.NetworkFirewall.Types.RulesSourceList
+    Network.AWS.NetworkFirewall.Types.RuleVariables
+    Network.AWS.NetworkFirewall.Types.StatefulAction
+    Network.AWS.NetworkFirewall.Types.StatefulEngineOptions
+    Network.AWS.NetworkFirewall.Types.StatefulRule
+    Network.AWS.NetworkFirewall.Types.StatefulRuleDirection
+    Network.AWS.NetworkFirewall.Types.StatefulRuleGroupReference
+    Network.AWS.NetworkFirewall.Types.StatefulRuleOptions
+    Network.AWS.NetworkFirewall.Types.StatefulRuleProtocol
+    Network.AWS.NetworkFirewall.Types.StatelessRule
+    Network.AWS.NetworkFirewall.Types.StatelessRuleGroupReference
+    Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions
+    Network.AWS.NetworkFirewall.Types.SubnetMapping
+    Network.AWS.NetworkFirewall.Types.SyncState
+    Network.AWS.NetworkFirewall.Types.Tag
+    Network.AWS.NetworkFirewall.Types.TargetType
+    Network.AWS.NetworkFirewall.Types.TCPFlag
+    Network.AWS.NetworkFirewall.Types.TCPFlagField
+    Network.AWS.NetworkFirewall.UntagResource
+    Network.AWS.NetworkFirewall.UpdateFirewallDeleteProtection
+    Network.AWS.NetworkFirewall.UpdateFirewallDescription
+    Network.AWS.NetworkFirewall.UpdateFirewallPolicy
+    Network.AWS.NetworkFirewall.UpdateFirewallPolicyChangeProtection
+    Network.AWS.NetworkFirewall.UpdateLoggingConfiguration
+    Network.AWS.NetworkFirewall.UpdateRuleGroup
+    Network.AWS.NetworkFirewall.UpdateSubnetChangeProtection
+    Network.AWS.NetworkFirewall.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-network-firewall-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.NetworkFirewall
+    Test.AWS.NetworkFirewall
+    Test.AWS.NetworkFirewall.Internal
+
+  build-depends:
+    , amazonka                   ^>=2.0
+    , amazonka-network-firewall
+    , amazonka-test              ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

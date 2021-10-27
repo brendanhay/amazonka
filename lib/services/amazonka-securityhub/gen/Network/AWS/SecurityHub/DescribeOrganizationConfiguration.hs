@@ -1,0 +1,180 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.SecurityHub.DescribeOrganizationConfiguration
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns information about the Organizations configuration for Security
+-- Hub. Can only be called from a Security Hub administrator account.
+module Network.AWS.SecurityHub.DescribeOrganizationConfiguration
+  ( -- * Creating a Request
+    DescribeOrganizationConfiguration (..),
+    newDescribeOrganizationConfiguration,
+
+    -- * Destructuring the Response
+    DescribeOrganizationConfigurationResponse (..),
+    newDescribeOrganizationConfigurationResponse,
+
+    -- * Response Lenses
+    describeOrganizationConfigurationResponse_memberAccountLimitReached,
+    describeOrganizationConfigurationResponse_autoEnable,
+    describeOrganizationConfigurationResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import Network.AWS.SecurityHub.Types
+
+-- | /See:/ 'newDescribeOrganizationConfiguration' smart constructor.
+data DescribeOrganizationConfiguration = DescribeOrganizationConfiguration'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeOrganizationConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeOrganizationConfiguration ::
+  DescribeOrganizationConfiguration
+newDescribeOrganizationConfiguration =
+  DescribeOrganizationConfiguration'
+
+instance
+  Core.AWSRequest
+    DescribeOrganizationConfiguration
+  where
+  type
+    AWSResponse DescribeOrganizationConfiguration =
+      DescribeOrganizationConfigurationResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeOrganizationConfigurationResponse'
+            Prelude.<$> (x Core..?> "MemberAccountLimitReached")
+              Prelude.<*> (x Core..?> "AutoEnable")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeOrganizationConfiguration
+
+instance
+  Prelude.NFData
+    DescribeOrganizationConfiguration
+
+instance
+  Core.ToHeaders
+    DescribeOrganizationConfiguration
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToPath
+    DescribeOrganizationConfiguration
+  where
+  toPath = Prelude.const "/organization/configuration"
+
+instance
+  Core.ToQuery
+    DescribeOrganizationConfiguration
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeOrganizationConfigurationResponse' smart constructor.
+data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurationResponse'
+  { -- | Whether the maximum number of allowed member accounts are already
+    -- associated with the Security Hub administrator account.
+    memberAccountLimitReached :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to automatically enable Security Hub for new accounts in the
+    -- organization.
+    --
+    -- If set to @true@, then Security Hub is enabled for new accounts. If set
+    -- to false, then new accounts are not added automatically.
+    autoEnable :: Prelude.Maybe Prelude.Bool,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeOrganizationConfigurationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'memberAccountLimitReached', 'describeOrganizationConfigurationResponse_memberAccountLimitReached' - Whether the maximum number of allowed member accounts are already
+-- associated with the Security Hub administrator account.
+--
+-- 'autoEnable', 'describeOrganizationConfigurationResponse_autoEnable' - Whether to automatically enable Security Hub for new accounts in the
+-- organization.
+--
+-- If set to @true@, then Security Hub is enabled for new accounts. If set
+-- to false, then new accounts are not added automatically.
+--
+-- 'httpStatus', 'describeOrganizationConfigurationResponse_httpStatus' - The response's http status code.
+newDescribeOrganizationConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeOrganizationConfigurationResponse
+newDescribeOrganizationConfigurationResponse
+  pHttpStatus_ =
+    DescribeOrganizationConfigurationResponse'
+      { memberAccountLimitReached =
+          Prelude.Nothing,
+        autoEnable = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | Whether the maximum number of allowed member accounts are already
+-- associated with the Security Hub administrator account.
+describeOrganizationConfigurationResponse_memberAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
+describeOrganizationConfigurationResponse_memberAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {memberAccountLimitReached} -> memberAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {memberAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
+
+-- | Whether to automatically enable Security Hub for new accounts in the
+-- organization.
+--
+-- If set to @true@, then Security Hub is enabled for new accounts. If set
+-- to false, then new accounts are not added automatically.
+describeOrganizationConfigurationResponse_autoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
+describeOrganizationConfigurationResponse_autoEnable = Lens.lens (\DescribeOrganizationConfigurationResponse' {autoEnable} -> autoEnable) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {autoEnable = a} :: DescribeOrganizationConfigurationResponse)
+
+-- | The response's http status code.
+describeOrganizationConfigurationResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigurationResponse Prelude.Int
+describeOrganizationConfigurationResponse_httpStatus = Lens.lens (\DescribeOrganizationConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationConfigurationResponse)
+
+instance
+  Prelude.NFData
+    DescribeOrganizationConfigurationResponse

@@ -1,0 +1,174 @@
+cabal-version:      2.2
+name:               amazonka-mediaconnect
+version:            2.0
+synopsis:           Amazon MediaConnect SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-11-14@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.MediaConnect.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.MediaConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-mediaconnect
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.MediaConnect
+    Network.AWS.MediaConnect.AddFlowMediaStreams
+    Network.AWS.MediaConnect.AddFlowOutputs
+    Network.AWS.MediaConnect.AddFlowSources
+    Network.AWS.MediaConnect.AddFlowVpcInterfaces
+    Network.AWS.MediaConnect.CreateFlow
+    Network.AWS.MediaConnect.DeleteFlow
+    Network.AWS.MediaConnect.DescribeFlow
+    Network.AWS.MediaConnect.DescribeOffering
+    Network.AWS.MediaConnect.DescribeReservation
+    Network.AWS.MediaConnect.GrantFlowEntitlements
+    Network.AWS.MediaConnect.Lens
+    Network.AWS.MediaConnect.ListEntitlements
+    Network.AWS.MediaConnect.ListFlows
+    Network.AWS.MediaConnect.ListOfferings
+    Network.AWS.MediaConnect.ListReservations
+    Network.AWS.MediaConnect.ListTagsForResource
+    Network.AWS.MediaConnect.PurchaseOffering
+    Network.AWS.MediaConnect.RemoveFlowMediaStream
+    Network.AWS.MediaConnect.RemoveFlowOutput
+    Network.AWS.MediaConnect.RemoveFlowSource
+    Network.AWS.MediaConnect.RemoveFlowVpcInterface
+    Network.AWS.MediaConnect.RevokeFlowEntitlement
+    Network.AWS.MediaConnect.StartFlow
+    Network.AWS.MediaConnect.StopFlow
+    Network.AWS.MediaConnect.TagResource
+    Network.AWS.MediaConnect.Types
+    Network.AWS.MediaConnect.Types.AddMediaStreamRequest
+    Network.AWS.MediaConnect.Types.AddOutputRequest
+    Network.AWS.MediaConnect.Types.Algorithm
+    Network.AWS.MediaConnect.Types.Colorimetry
+    Network.AWS.MediaConnect.Types.DestinationConfiguration
+    Network.AWS.MediaConnect.Types.DestinationConfigurationRequest
+    Network.AWS.MediaConnect.Types.DurationUnits
+    Network.AWS.MediaConnect.Types.EncoderProfile
+    Network.AWS.MediaConnect.Types.EncodingName
+    Network.AWS.MediaConnect.Types.EncodingParameters
+    Network.AWS.MediaConnect.Types.EncodingParametersRequest
+    Network.AWS.MediaConnect.Types.Encryption
+    Network.AWS.MediaConnect.Types.Entitlement
+    Network.AWS.MediaConnect.Types.EntitlementStatus
+    Network.AWS.MediaConnect.Types.FailoverConfig
+    Network.AWS.MediaConnect.Types.FailoverMode
+    Network.AWS.MediaConnect.Types.Flow
+    Network.AWS.MediaConnect.Types.Fmtp
+    Network.AWS.MediaConnect.Types.FmtpRequest
+    Network.AWS.MediaConnect.Types.GrantEntitlementRequest
+    Network.AWS.MediaConnect.Types.InputConfiguration
+    Network.AWS.MediaConnect.Types.InputConfigurationRequest
+    Network.AWS.MediaConnect.Types.Interface
+    Network.AWS.MediaConnect.Types.InterfaceRequest
+    Network.AWS.MediaConnect.Types.KeyType
+    Network.AWS.MediaConnect.Types.ListedEntitlement
+    Network.AWS.MediaConnect.Types.ListedFlow
+    Network.AWS.MediaConnect.Types.MediaStream
+    Network.AWS.MediaConnect.Types.MediaStreamAttributes
+    Network.AWS.MediaConnect.Types.MediaStreamAttributesRequest
+    Network.AWS.MediaConnect.Types.MediaStreamOutputConfiguration
+    Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest
+    Network.AWS.MediaConnect.Types.MediaStreamSourceConfiguration
+    Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest
+    Network.AWS.MediaConnect.Types.MediaStreamType
+    Network.AWS.MediaConnect.Types.Messages
+    Network.AWS.MediaConnect.Types.NetworkInterfaceType
+    Network.AWS.MediaConnect.Types.Offering
+    Network.AWS.MediaConnect.Types.Output
+    Network.AWS.MediaConnect.Types.PriceUnits
+    Network.AWS.MediaConnect.Types.Protocol
+    Network.AWS.MediaConnect.Types.Range
+    Network.AWS.MediaConnect.Types.Reservation
+    Network.AWS.MediaConnect.Types.ReservationState
+    Network.AWS.MediaConnect.Types.ResourceSpecification
+    Network.AWS.MediaConnect.Types.ResourceType
+    Network.AWS.MediaConnect.Types.ScanMode
+    Network.AWS.MediaConnect.Types.SetSourceRequest
+    Network.AWS.MediaConnect.Types.Source
+    Network.AWS.MediaConnect.Types.SourcePriority
+    Network.AWS.MediaConnect.Types.SourceType
+    Network.AWS.MediaConnect.Types.State
+    Network.AWS.MediaConnect.Types.Status
+    Network.AWS.MediaConnect.Types.Tcs
+    Network.AWS.MediaConnect.Types.Transport
+    Network.AWS.MediaConnect.Types.UpdateEncryption
+    Network.AWS.MediaConnect.Types.UpdateFailoverConfig
+    Network.AWS.MediaConnect.Types.VpcInterface
+    Network.AWS.MediaConnect.Types.VpcInterfaceAttachment
+    Network.AWS.MediaConnect.Types.VpcInterfaceRequest
+    Network.AWS.MediaConnect.UntagResource
+    Network.AWS.MediaConnect.UpdateFlow
+    Network.AWS.MediaConnect.UpdateFlowEntitlement
+    Network.AWS.MediaConnect.UpdateFlowMediaStream
+    Network.AWS.MediaConnect.UpdateFlowOutput
+    Network.AWS.MediaConnect.UpdateFlowSource
+    Network.AWS.MediaConnect.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-mediaconnect-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MediaConnect
+    Test.AWS.MediaConnect
+    Test.AWS.MediaConnect.Internal
+
+  build-depends:
+    , amazonka               ^>=2.0
+    , amazonka-mediaconnect
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

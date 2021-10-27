@@ -1,0 +1,279 @@
+cabal-version:      2.2
+name:               amazonka-appmesh
+version:            2.0
+synopsis:           Amazon App Mesh SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-01-25@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.AppMesh.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.AppMesh" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-appmesh
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.AppMesh
+    Network.AWS.AppMesh.CreateGatewayRoute
+    Network.AWS.AppMesh.CreateMesh
+    Network.AWS.AppMesh.CreateRoute
+    Network.AWS.AppMesh.CreateVirtualGateway
+    Network.AWS.AppMesh.CreateVirtualNode
+    Network.AWS.AppMesh.CreateVirtualRouter
+    Network.AWS.AppMesh.CreateVirtualService
+    Network.AWS.AppMesh.DeleteGatewayRoute
+    Network.AWS.AppMesh.DeleteMesh
+    Network.AWS.AppMesh.DeleteRoute
+    Network.AWS.AppMesh.DeleteVirtualGateway
+    Network.AWS.AppMesh.DeleteVirtualNode
+    Network.AWS.AppMesh.DeleteVirtualRouter
+    Network.AWS.AppMesh.DeleteVirtualService
+    Network.AWS.AppMesh.DescribeGatewayRoute
+    Network.AWS.AppMesh.DescribeMesh
+    Network.AWS.AppMesh.DescribeRoute
+    Network.AWS.AppMesh.DescribeVirtualGateway
+    Network.AWS.AppMesh.DescribeVirtualNode
+    Network.AWS.AppMesh.DescribeVirtualRouter
+    Network.AWS.AppMesh.DescribeVirtualService
+    Network.AWS.AppMesh.Lens
+    Network.AWS.AppMesh.ListGatewayRoutes
+    Network.AWS.AppMesh.ListMeshes
+    Network.AWS.AppMesh.ListRoutes
+    Network.AWS.AppMesh.ListTagsForResource
+    Network.AWS.AppMesh.ListVirtualGateways
+    Network.AWS.AppMesh.ListVirtualNodes
+    Network.AWS.AppMesh.ListVirtualRouters
+    Network.AWS.AppMesh.ListVirtualServices
+    Network.AWS.AppMesh.TagResource
+    Network.AWS.AppMesh.Types
+    Network.AWS.AppMesh.Types.AccessLog
+    Network.AWS.AppMesh.Types.AwsCloudMapInstanceAttribute
+    Network.AWS.AppMesh.Types.AwsCloudMapServiceDiscovery
+    Network.AWS.AppMesh.Types.Backend
+    Network.AWS.AppMesh.Types.BackendDefaults
+    Network.AWS.AppMesh.Types.ClientPolicy
+    Network.AWS.AppMesh.Types.ClientPolicyTls
+    Network.AWS.AppMesh.Types.ClientTlsCertificate
+    Network.AWS.AppMesh.Types.DefaultGatewayRouteRewrite
+    Network.AWS.AppMesh.Types.DnsResponseType
+    Network.AWS.AppMesh.Types.DnsServiceDiscovery
+    Network.AWS.AppMesh.Types.Duration
+    Network.AWS.AppMesh.Types.DurationUnit
+    Network.AWS.AppMesh.Types.EgressFilter
+    Network.AWS.AppMesh.Types.EgressFilterType
+    Network.AWS.AppMesh.Types.FileAccessLog
+    Network.AWS.AppMesh.Types.GatewayRouteData
+    Network.AWS.AppMesh.Types.GatewayRouteHostnameMatch
+    Network.AWS.AppMesh.Types.GatewayRouteHostnameRewrite
+    Network.AWS.AppMesh.Types.GatewayRouteRef
+    Network.AWS.AppMesh.Types.GatewayRouteSpec
+    Network.AWS.AppMesh.Types.GatewayRouteStatus
+    Network.AWS.AppMesh.Types.GatewayRouteStatusCode
+    Network.AWS.AppMesh.Types.GatewayRouteTarget
+    Network.AWS.AppMesh.Types.GatewayRouteVirtualService
+    Network.AWS.AppMesh.Types.GrpcGatewayRoute
+    Network.AWS.AppMesh.Types.GrpcGatewayRouteAction
+    Network.AWS.AppMesh.Types.GrpcGatewayRouteMatch
+    Network.AWS.AppMesh.Types.GrpcGatewayRouteMetadata
+    Network.AWS.AppMesh.Types.GrpcGatewayRouteRewrite
+    Network.AWS.AppMesh.Types.GrpcMetadataMatchMethod
+    Network.AWS.AppMesh.Types.GrpcRetryPolicy
+    Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent
+    Network.AWS.AppMesh.Types.GrpcRoute
+    Network.AWS.AppMesh.Types.GrpcRouteAction
+    Network.AWS.AppMesh.Types.GrpcRouteMatch
+    Network.AWS.AppMesh.Types.GrpcRouteMetadata
+    Network.AWS.AppMesh.Types.GrpcRouteMetadataMatchMethod
+    Network.AWS.AppMesh.Types.GrpcTimeout
+    Network.AWS.AppMesh.Types.HeaderMatchMethod
+    Network.AWS.AppMesh.Types.HealthCheckPolicy
+    Network.AWS.AppMesh.Types.HttpGatewayRoute
+    Network.AWS.AppMesh.Types.HttpGatewayRouteAction
+    Network.AWS.AppMesh.Types.HttpGatewayRouteHeader
+    Network.AWS.AppMesh.Types.HttpGatewayRouteMatch
+    Network.AWS.AppMesh.Types.HttpGatewayRoutePathRewrite
+    Network.AWS.AppMesh.Types.HttpGatewayRoutePrefixRewrite
+    Network.AWS.AppMesh.Types.HttpGatewayRouteRewrite
+    Network.AWS.AppMesh.Types.HttpMethod
+    Network.AWS.AppMesh.Types.HttpPathMatch
+    Network.AWS.AppMesh.Types.HttpQueryParameter
+    Network.AWS.AppMesh.Types.HttpRetryPolicy
+    Network.AWS.AppMesh.Types.HttpRoute
+    Network.AWS.AppMesh.Types.HttpRouteAction
+    Network.AWS.AppMesh.Types.HttpRouteHeader
+    Network.AWS.AppMesh.Types.HttpRouteMatch
+    Network.AWS.AppMesh.Types.HttpScheme
+    Network.AWS.AppMesh.Types.HttpTimeout
+    Network.AWS.AppMesh.Types.Listener
+    Network.AWS.AppMesh.Types.ListenerTimeout
+    Network.AWS.AppMesh.Types.ListenerTls
+    Network.AWS.AppMesh.Types.ListenerTlsAcmCertificate
+    Network.AWS.AppMesh.Types.ListenerTlsCertificate
+    Network.AWS.AppMesh.Types.ListenerTlsFileCertificate
+    Network.AWS.AppMesh.Types.ListenerTlsMode
+    Network.AWS.AppMesh.Types.ListenerTlsSdsCertificate
+    Network.AWS.AppMesh.Types.ListenerTlsValidationContext
+    Network.AWS.AppMesh.Types.ListenerTlsValidationContextTrust
+    Network.AWS.AppMesh.Types.Logging
+    Network.AWS.AppMesh.Types.MatchRange
+    Network.AWS.AppMesh.Types.MeshData
+    Network.AWS.AppMesh.Types.MeshRef
+    Network.AWS.AppMesh.Types.MeshSpec
+    Network.AWS.AppMesh.Types.MeshStatus
+    Network.AWS.AppMesh.Types.MeshStatusCode
+    Network.AWS.AppMesh.Types.OutlierDetection
+    Network.AWS.AppMesh.Types.PortMapping
+    Network.AWS.AppMesh.Types.PortProtocol
+    Network.AWS.AppMesh.Types.QueryParameterMatch
+    Network.AWS.AppMesh.Types.ResourceMetadata
+    Network.AWS.AppMesh.Types.RouteData
+    Network.AWS.AppMesh.Types.RouteRef
+    Network.AWS.AppMesh.Types.RouteSpec
+    Network.AWS.AppMesh.Types.RouteStatus
+    Network.AWS.AppMesh.Types.RouteStatusCode
+    Network.AWS.AppMesh.Types.ServiceDiscovery
+    Network.AWS.AppMesh.Types.SubjectAlternativeNameMatchers
+    Network.AWS.AppMesh.Types.SubjectAlternativeNames
+    Network.AWS.AppMesh.Types.TagRef
+    Network.AWS.AppMesh.Types.TcpRetryPolicyEvent
+    Network.AWS.AppMesh.Types.TcpRoute
+    Network.AWS.AppMesh.Types.TcpRouteAction
+    Network.AWS.AppMesh.Types.TcpTimeout
+    Network.AWS.AppMesh.Types.TlsValidationContext
+    Network.AWS.AppMesh.Types.TlsValidationContextAcmTrust
+    Network.AWS.AppMesh.Types.TlsValidationContextFileTrust
+    Network.AWS.AppMesh.Types.TlsValidationContextSdsTrust
+    Network.AWS.AppMesh.Types.TlsValidationContextTrust
+    Network.AWS.AppMesh.Types.VirtualGatewayAccessLog
+    Network.AWS.AppMesh.Types.VirtualGatewayBackendDefaults
+    Network.AWS.AppMesh.Types.VirtualGatewayClientPolicy
+    Network.AWS.AppMesh.Types.VirtualGatewayClientPolicyTls
+    Network.AWS.AppMesh.Types.VirtualGatewayClientTlsCertificate
+    Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool
+    Network.AWS.AppMesh.Types.VirtualGatewayData
+    Network.AWS.AppMesh.Types.VirtualGatewayFileAccessLog
+    Network.AWS.AppMesh.Types.VirtualGatewayGrpcConnectionPool
+    Network.AWS.AppMesh.Types.VirtualGatewayHealthCheckPolicy
+    Network.AWS.AppMesh.Types.VirtualGatewayHttp2ConnectionPool
+    Network.AWS.AppMesh.Types.VirtualGatewayHttpConnectionPool
+    Network.AWS.AppMesh.Types.VirtualGatewayListener
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTls
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsAcmCertificate
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsCertificate
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsMode
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsSdsCertificate
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsValidationContext
+    Network.AWS.AppMesh.Types.VirtualGatewayListenerTlsValidationContextTrust
+    Network.AWS.AppMesh.Types.VirtualGatewayLogging
+    Network.AWS.AppMesh.Types.VirtualGatewayPortMapping
+    Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol
+    Network.AWS.AppMesh.Types.VirtualGatewayRef
+    Network.AWS.AppMesh.Types.VirtualGatewaySpec
+    Network.AWS.AppMesh.Types.VirtualGatewayStatus
+    Network.AWS.AppMesh.Types.VirtualGatewayStatusCode
+    Network.AWS.AppMesh.Types.VirtualGatewayTlsValidationContext
+    Network.AWS.AppMesh.Types.VirtualGatewayTlsValidationContextAcmTrust
+    Network.AWS.AppMesh.Types.VirtualGatewayTlsValidationContextFileTrust
+    Network.AWS.AppMesh.Types.VirtualGatewayTlsValidationContextSdsTrust
+    Network.AWS.AppMesh.Types.VirtualGatewayTlsValidationContextTrust
+    Network.AWS.AppMesh.Types.VirtualNodeConnectionPool
+    Network.AWS.AppMesh.Types.VirtualNodeData
+    Network.AWS.AppMesh.Types.VirtualNodeGrpcConnectionPool
+    Network.AWS.AppMesh.Types.VirtualNodeHttp2ConnectionPool
+    Network.AWS.AppMesh.Types.VirtualNodeHttpConnectionPool
+    Network.AWS.AppMesh.Types.VirtualNodeRef
+    Network.AWS.AppMesh.Types.VirtualNodeServiceProvider
+    Network.AWS.AppMesh.Types.VirtualNodeSpec
+    Network.AWS.AppMesh.Types.VirtualNodeStatus
+    Network.AWS.AppMesh.Types.VirtualNodeStatusCode
+    Network.AWS.AppMesh.Types.VirtualNodeTcpConnectionPool
+    Network.AWS.AppMesh.Types.VirtualRouterData
+    Network.AWS.AppMesh.Types.VirtualRouterListener
+    Network.AWS.AppMesh.Types.VirtualRouterRef
+    Network.AWS.AppMesh.Types.VirtualRouterServiceProvider
+    Network.AWS.AppMesh.Types.VirtualRouterSpec
+    Network.AWS.AppMesh.Types.VirtualRouterStatus
+    Network.AWS.AppMesh.Types.VirtualRouterStatusCode
+    Network.AWS.AppMesh.Types.VirtualServiceBackend
+    Network.AWS.AppMesh.Types.VirtualServiceData
+    Network.AWS.AppMesh.Types.VirtualServiceProvider
+    Network.AWS.AppMesh.Types.VirtualServiceRef
+    Network.AWS.AppMesh.Types.VirtualServiceSpec
+    Network.AWS.AppMesh.Types.VirtualServiceStatus
+    Network.AWS.AppMesh.Types.VirtualServiceStatusCode
+    Network.AWS.AppMesh.Types.WeightedTarget
+    Network.AWS.AppMesh.UntagResource
+    Network.AWS.AppMesh.UpdateGatewayRoute
+    Network.AWS.AppMesh.UpdateMesh
+    Network.AWS.AppMesh.UpdateRoute
+    Network.AWS.AppMesh.UpdateVirtualGateway
+    Network.AWS.AppMesh.UpdateVirtualNode
+    Network.AWS.AppMesh.UpdateVirtualRouter
+    Network.AWS.AppMesh.UpdateVirtualService
+    Network.AWS.AppMesh.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-appmesh-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.AppMesh
+    Test.AWS.AppMesh.Internal
+    Test.AWS.Gen.AppMesh
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-appmesh
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

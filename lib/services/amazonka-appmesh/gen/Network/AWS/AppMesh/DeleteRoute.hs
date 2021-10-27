@@ -1,0 +1,209 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.AppMesh.DeleteRoute
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes an existing route.
+module Network.AWS.AppMesh.DeleteRoute
+  ( -- * Creating a Request
+    DeleteRoute (..),
+    newDeleteRoute,
+
+    -- * Request Lenses
+    deleteRoute_meshOwner,
+    deleteRoute_meshName,
+    deleteRoute_routeName,
+    deleteRoute_virtualRouterName,
+
+    -- * Destructuring the Response
+    DeleteRouteResponse (..),
+    newDeleteRouteResponse,
+
+    -- * Response Lenses
+    deleteRouteResponse_httpStatus,
+    deleteRouteResponse_route,
+  )
+where
+
+import Network.AWS.AppMesh.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- |
+--
+-- /See:/ 'newDeleteRoute' smart constructor.
+data DeleteRoute = DeleteRoute'
+  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
+    -- not your own, then it\'s the ID of the account that shared the mesh with
+    -- your account. For more information about mesh sharing, see
+    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+    meshOwner :: Prelude.Maybe Prelude.Text,
+    -- | The name of the service mesh to delete the route in.
+    meshName :: Prelude.Text,
+    -- | The name of the route to delete.
+    routeName :: Prelude.Text,
+    -- | The name of the virtual router to delete the route in.
+    virtualRouterName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteRoute' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'meshOwner', 'deleteRoute_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
+-- not your own, then it\'s the ID of the account that shared the mesh with
+-- your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+--
+-- 'meshName', 'deleteRoute_meshName' - The name of the service mesh to delete the route in.
+--
+-- 'routeName', 'deleteRoute_routeName' - The name of the route to delete.
+--
+-- 'virtualRouterName', 'deleteRoute_virtualRouterName' - The name of the virtual router to delete the route in.
+newDeleteRoute ::
+  -- | 'meshName'
+  Prelude.Text ->
+  -- | 'routeName'
+  Prelude.Text ->
+  -- | 'virtualRouterName'
+  Prelude.Text ->
+  DeleteRoute
+newDeleteRoute
+  pMeshName_
+  pRouteName_
+  pVirtualRouterName_ =
+    DeleteRoute'
+      { meshOwner = Prelude.Nothing,
+        meshName = pMeshName_,
+        routeName = pRouteName_,
+        virtualRouterName = pVirtualRouterName_
+      }
+
+-- | The AWS IAM account ID of the service mesh owner. If the account ID is
+-- not your own, then it\'s the ID of the account that shared the mesh with
+-- your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+deleteRoute_meshOwner :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Text)
+deleteRoute_meshOwner = Lens.lens (\DeleteRoute' {meshOwner} -> meshOwner) (\s@DeleteRoute' {} a -> s {meshOwner = a} :: DeleteRoute)
+
+-- | The name of the service mesh to delete the route in.
+deleteRoute_meshName :: Lens.Lens' DeleteRoute Prelude.Text
+deleteRoute_meshName = Lens.lens (\DeleteRoute' {meshName} -> meshName) (\s@DeleteRoute' {} a -> s {meshName = a} :: DeleteRoute)
+
+-- | The name of the route to delete.
+deleteRoute_routeName :: Lens.Lens' DeleteRoute Prelude.Text
+deleteRoute_routeName = Lens.lens (\DeleteRoute' {routeName} -> routeName) (\s@DeleteRoute' {} a -> s {routeName = a} :: DeleteRoute)
+
+-- | The name of the virtual router to delete the route in.
+deleteRoute_virtualRouterName :: Lens.Lens' DeleteRoute Prelude.Text
+deleteRoute_virtualRouterName = Lens.lens (\DeleteRoute' {virtualRouterName} -> virtualRouterName) (\s@DeleteRoute' {} a -> s {virtualRouterName = a} :: DeleteRoute)
+
+instance Core.AWSRequest DeleteRoute where
+  type AWSResponse DeleteRoute = DeleteRouteResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteRouteResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable DeleteRoute
+
+instance Prelude.NFData DeleteRoute
+
+instance Core.ToHeaders DeleteRoute where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DeleteRoute where
+  toPath DeleteRoute' {..} =
+    Prelude.mconcat
+      [ "/v20190125/meshes/",
+        Core.toBS meshName,
+        "/virtualRouter/",
+        Core.toBS virtualRouterName,
+        "/routes/",
+        Core.toBS routeName
+      ]
+
+instance Core.ToQuery DeleteRoute where
+  toQuery DeleteRoute' {..} =
+    Prelude.mconcat ["meshOwner" Core.=: meshOwner]
+
+-- |
+--
+-- /See:/ 'newDeleteRouteResponse' smart constructor.
+data DeleteRouteResponse = DeleteRouteResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The route that was deleted.
+    route :: RouteData
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteRouteResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteRouteResponse_httpStatus' - The response's http status code.
+--
+-- 'route', 'deleteRouteResponse_route' - The route that was deleted.
+newDeleteRouteResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'route'
+  RouteData ->
+  DeleteRouteResponse
+newDeleteRouteResponse pHttpStatus_ pRoute_ =
+  DeleteRouteResponse'
+    { httpStatus = pHttpStatus_,
+      route = pRoute_
+    }
+
+-- | The response's http status code.
+deleteRouteResponse_httpStatus :: Lens.Lens' DeleteRouteResponse Prelude.Int
+deleteRouteResponse_httpStatus = Lens.lens (\DeleteRouteResponse' {httpStatus} -> httpStatus) (\s@DeleteRouteResponse' {} a -> s {httpStatus = a} :: DeleteRouteResponse)
+
+-- | The route that was deleted.
+deleteRouteResponse_route :: Lens.Lens' DeleteRouteResponse RouteData
+deleteRouteResponse_route = Lens.lens (\DeleteRouteResponse' {route} -> route) (\s@DeleteRouteResponse' {} a -> s {route = a} :: DeleteRouteResponse)
+
+instance Prelude.NFData DeleteRouteResponse

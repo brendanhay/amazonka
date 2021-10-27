@@ -1,0 +1,185 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Amplify.DeleteJob
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes a job for a branch of an Amplify app.
+module Network.AWS.Amplify.DeleteJob
+  ( -- * Creating a Request
+    DeleteJob (..),
+    newDeleteJob,
+
+    -- * Request Lenses
+    deleteJob_appId,
+    deleteJob_branchName,
+    deleteJob_jobId,
+
+    -- * Destructuring the Response
+    DeleteJobResponse (..),
+    newDeleteJobResponse,
+
+    -- * Response Lenses
+    deleteJobResponse_httpStatus,
+    deleteJobResponse_jobSummary,
+  )
+where
+
+import Network.AWS.Amplify.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | The request structure for the delete job request.
+--
+-- /See:/ 'newDeleteJob' smart constructor.
+data DeleteJob = DeleteJob'
+  { -- | The unique ID for an Amplify app.
+    appId :: Prelude.Text,
+    -- | The name for the branch, for the job.
+    branchName :: Prelude.Text,
+    -- | The unique ID for the job.
+    jobId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteJob' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'appId', 'deleteJob_appId' - The unique ID for an Amplify app.
+--
+-- 'branchName', 'deleteJob_branchName' - The name for the branch, for the job.
+--
+-- 'jobId', 'deleteJob_jobId' - The unique ID for the job.
+newDeleteJob ::
+  -- | 'appId'
+  Prelude.Text ->
+  -- | 'branchName'
+  Prelude.Text ->
+  -- | 'jobId'
+  Prelude.Text ->
+  DeleteJob
+newDeleteJob pAppId_ pBranchName_ pJobId_ =
+  DeleteJob'
+    { appId = pAppId_,
+      branchName = pBranchName_,
+      jobId = pJobId_
+    }
+
+-- | The unique ID for an Amplify app.
+deleteJob_appId :: Lens.Lens' DeleteJob Prelude.Text
+deleteJob_appId = Lens.lens (\DeleteJob' {appId} -> appId) (\s@DeleteJob' {} a -> s {appId = a} :: DeleteJob)
+
+-- | The name for the branch, for the job.
+deleteJob_branchName :: Lens.Lens' DeleteJob Prelude.Text
+deleteJob_branchName = Lens.lens (\DeleteJob' {branchName} -> branchName) (\s@DeleteJob' {} a -> s {branchName = a} :: DeleteJob)
+
+-- | The unique ID for the job.
+deleteJob_jobId :: Lens.Lens' DeleteJob Prelude.Text
+deleteJob_jobId = Lens.lens (\DeleteJob' {jobId} -> jobId) (\s@DeleteJob' {} a -> s {jobId = a} :: DeleteJob)
+
+instance Core.AWSRequest DeleteJob where
+  type AWSResponse DeleteJob = DeleteJobResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteJobResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "jobSummary")
+      )
+
+instance Prelude.Hashable DeleteJob
+
+instance Prelude.NFData DeleteJob
+
+instance Core.ToHeaders DeleteJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DeleteJob where
+  toPath DeleteJob' {..} =
+    Prelude.mconcat
+      [ "/apps/",
+        Core.toBS appId,
+        "/branches/",
+        Core.toBS branchName,
+        "/jobs/",
+        Core.toBS jobId
+      ]
+
+instance Core.ToQuery DeleteJob where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | The result structure for the delete job request.
+--
+-- /See:/ 'newDeleteJobResponse' smart constructor.
+data DeleteJobResponse = DeleteJobResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    jobSummary :: JobSummary
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteJobResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteJobResponse_httpStatus' - The response's http status code.
+--
+-- 'jobSummary', 'deleteJobResponse_jobSummary' - Undocumented member.
+newDeleteJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'jobSummary'
+  JobSummary ->
+  DeleteJobResponse
+newDeleteJobResponse pHttpStatus_ pJobSummary_ =
+  DeleteJobResponse'
+    { httpStatus = pHttpStatus_,
+      jobSummary = pJobSummary_
+    }
+
+-- | The response's http status code.
+deleteJobResponse_httpStatus :: Lens.Lens' DeleteJobResponse Prelude.Int
+deleteJobResponse_httpStatus = Lens.lens (\DeleteJobResponse' {httpStatus} -> httpStatus) (\s@DeleteJobResponse' {} a -> s {httpStatus = a} :: DeleteJobResponse)
+
+-- | Undocumented member.
+deleteJobResponse_jobSummary :: Lens.Lens' DeleteJobResponse JobSummary
+deleteJobResponse_jobSummary = Lens.lens (\DeleteJobResponse' {jobSummary} -> jobSummary) (\s@DeleteJobResponse' {} a -> s {jobSummary = a} :: DeleteJobResponse)
+
+instance Prelude.NFData DeleteJobResponse

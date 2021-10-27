@@ -1,0 +1,99 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.QuickSight.Types.FolderSearchFilter
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.QuickSight.Types.FolderSearchFilter where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.QuickSight.Types.FilterOperator
+import Network.AWS.QuickSight.Types.FolderFilterAttribute
+
+-- | Searches a folder by a filter.
+--
+-- /See:/ 'newFolderSearchFilter' smart constructor.
+data FolderSearchFilter = FolderSearchFilter'
+  { -- | The comparison operator that you want to use as a filter. For example,
+    -- @\"Operator\": \"StringEquals\"@.
+    operator :: Prelude.Maybe FilterOperator,
+    -- | The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
+    -- you want to use as a filter. For example,
+    -- @\"Value\": \"arn:aws:quicksight:us-east-1:1:folder\/folderId\"@.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The name of the value that you want to use as a filter. For example,
+    -- @\"Name\": \"PARENT_FOLDER_ARN\"@.
+    name :: Prelude.Maybe FolderFilterAttribute
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'FolderSearchFilter' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'operator', 'folderSearchFilter_operator' - The comparison operator that you want to use as a filter. For example,
+-- @\"Operator\": \"StringEquals\"@.
+--
+-- 'value', 'folderSearchFilter_value' - The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
+-- you want to use as a filter. For example,
+-- @\"Value\": \"arn:aws:quicksight:us-east-1:1:folder\/folderId\"@.
+--
+-- 'name', 'folderSearchFilter_name' - The name of the value that you want to use as a filter. For example,
+-- @\"Name\": \"PARENT_FOLDER_ARN\"@.
+newFolderSearchFilter ::
+  FolderSearchFilter
+newFolderSearchFilter =
+  FolderSearchFilter'
+    { operator = Prelude.Nothing,
+      value = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
+
+-- | The comparison operator that you want to use as a filter. For example,
+-- @\"Operator\": \"StringEquals\"@.
+folderSearchFilter_operator :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FilterOperator)
+folderSearchFilter_operator = Lens.lens (\FolderSearchFilter' {operator} -> operator) (\s@FolderSearchFilter' {} a -> s {operator = a} :: FolderSearchFilter)
+
+-- | The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
+-- you want to use as a filter. For example,
+-- @\"Value\": \"arn:aws:quicksight:us-east-1:1:folder\/folderId\"@.
+folderSearchFilter_value :: Lens.Lens' FolderSearchFilter (Prelude.Maybe Prelude.Text)
+folderSearchFilter_value = Lens.lens (\FolderSearchFilter' {value} -> value) (\s@FolderSearchFilter' {} a -> s {value = a} :: FolderSearchFilter)
+
+-- | The name of the value that you want to use as a filter. For example,
+-- @\"Name\": \"PARENT_FOLDER_ARN\"@.
+folderSearchFilter_name :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FolderFilterAttribute)
+folderSearchFilter_name = Lens.lens (\FolderSearchFilter' {name} -> name) (\s@FolderSearchFilter' {} a -> s {name = a} :: FolderSearchFilter)
+
+instance Prelude.Hashable FolderSearchFilter
+
+instance Prelude.NFData FolderSearchFilter
+
+instance Core.ToJSON FolderSearchFilter where
+  toJSON FolderSearchFilter' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Operator" Core..=) Prelude.<$> operator,
+            ("Value" Core..=) Prelude.<$> value,
+            ("Name" Core..=) Prelude.<$> name
+          ]
+      )

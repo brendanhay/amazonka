@@ -1,0 +1,212 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.QuickSight.DeleteTheme
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes a theme.
+module Network.AWS.QuickSight.DeleteTheme
+  ( -- * Creating a Request
+    DeleteTheme (..),
+    newDeleteTheme,
+
+    -- * Request Lenses
+    deleteTheme_versionNumber,
+    deleteTheme_awsAccountId,
+    deleteTheme_themeId,
+
+    -- * Destructuring the Response
+    DeleteThemeResponse (..),
+    newDeleteThemeResponse,
+
+    -- * Response Lenses
+    deleteThemeResponse_requestId,
+    deleteThemeResponse_themeId,
+    deleteThemeResponse_arn,
+    deleteThemeResponse_status,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.QuickSight.Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDeleteTheme' smart constructor.
+data DeleteTheme = DeleteTheme'
+  { -- | The version of the theme that you want to delete.
+    --
+    -- __Note:__ If you don\'t provide a version number, you\'re using this
+    -- call to @DeleteTheme@ to delete all versions of the theme.
+    versionNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Amazon Web Services account that contains the theme that
+    -- you\'re deleting.
+    awsAccountId :: Prelude.Text,
+    -- | An ID for the theme that you want to delete.
+    themeId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteTheme' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'versionNumber', 'deleteTheme_versionNumber' - The version of the theme that you want to delete.
+--
+-- __Note:__ If you don\'t provide a version number, you\'re using this
+-- call to @DeleteTheme@ to delete all versions of the theme.
+--
+-- 'awsAccountId', 'deleteTheme_awsAccountId' - The ID of the Amazon Web Services account that contains the theme that
+-- you\'re deleting.
+--
+-- 'themeId', 'deleteTheme_themeId' - An ID for the theme that you want to delete.
+newDeleteTheme ::
+  -- | 'awsAccountId'
+  Prelude.Text ->
+  -- | 'themeId'
+  Prelude.Text ->
+  DeleteTheme
+newDeleteTheme pAwsAccountId_ pThemeId_ =
+  DeleteTheme'
+    { versionNumber = Prelude.Nothing,
+      awsAccountId = pAwsAccountId_,
+      themeId = pThemeId_
+    }
+
+-- | The version of the theme that you want to delete.
+--
+-- __Note:__ If you don\'t provide a version number, you\'re using this
+-- call to @DeleteTheme@ to delete all versions of the theme.
+deleteTheme_versionNumber :: Lens.Lens' DeleteTheme (Prelude.Maybe Prelude.Natural)
+deleteTheme_versionNumber = Lens.lens (\DeleteTheme' {versionNumber} -> versionNumber) (\s@DeleteTheme' {} a -> s {versionNumber = a} :: DeleteTheme)
+
+-- | The ID of the Amazon Web Services account that contains the theme that
+-- you\'re deleting.
+deleteTheme_awsAccountId :: Lens.Lens' DeleteTheme Prelude.Text
+deleteTheme_awsAccountId = Lens.lens (\DeleteTheme' {awsAccountId} -> awsAccountId) (\s@DeleteTheme' {} a -> s {awsAccountId = a} :: DeleteTheme)
+
+-- | An ID for the theme that you want to delete.
+deleteTheme_themeId :: Lens.Lens' DeleteTheme Prelude.Text
+deleteTheme_themeId = Lens.lens (\DeleteTheme' {themeId} -> themeId) (\s@DeleteTheme' {} a -> s {themeId = a} :: DeleteTheme)
+
+instance Core.AWSRequest DeleteTheme where
+  type AWSResponse DeleteTheme = DeleteThemeResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteThemeResponse'
+            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<*> (x Core..?> "ThemeId")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteTheme
+
+instance Prelude.NFData DeleteTheme
+
+instance Core.ToHeaders DeleteTheme where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DeleteTheme where
+  toPath DeleteTheme' {..} =
+    Prelude.mconcat
+      [ "/accounts/",
+        Core.toBS awsAccountId,
+        "/themes/",
+        Core.toBS themeId
+      ]
+
+instance Core.ToQuery DeleteTheme where
+  toQuery DeleteTheme' {..} =
+    Prelude.mconcat
+      ["version-number" Core.=: versionNumber]
+
+-- | /See:/ 'newDeleteThemeResponse' smart constructor.
+data DeleteThemeResponse = DeleteThemeResponse'
+  { -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | An ID for the theme.
+    themeId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP status of the request.
+    status :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteThemeResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'requestId', 'deleteThemeResponse_requestId' - The Amazon Web Services request ID for this operation.
+--
+-- 'themeId', 'deleteThemeResponse_themeId' - An ID for the theme.
+--
+-- 'arn', 'deleteThemeResponse_arn' - The Amazon Resource Name (ARN) of the resource.
+--
+-- 'status', 'deleteThemeResponse_status' - The HTTP status of the request.
+newDeleteThemeResponse ::
+  -- | 'status'
+  Prelude.Int ->
+  DeleteThemeResponse
+newDeleteThemeResponse pStatus_ =
+  DeleteThemeResponse'
+    { requestId = Prelude.Nothing,
+      themeId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = pStatus_
+    }
+
+-- | The Amazon Web Services request ID for this operation.
+deleteThemeResponse_requestId :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
+deleteThemeResponse_requestId = Lens.lens (\DeleteThemeResponse' {requestId} -> requestId) (\s@DeleteThemeResponse' {} a -> s {requestId = a} :: DeleteThemeResponse)
+
+-- | An ID for the theme.
+deleteThemeResponse_themeId :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
+deleteThemeResponse_themeId = Lens.lens (\DeleteThemeResponse' {themeId} -> themeId) (\s@DeleteThemeResponse' {} a -> s {themeId = a} :: DeleteThemeResponse)
+
+-- | The Amazon Resource Name (ARN) of the resource.
+deleteThemeResponse_arn :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
+deleteThemeResponse_arn = Lens.lens (\DeleteThemeResponse' {arn} -> arn) (\s@DeleteThemeResponse' {} a -> s {arn = a} :: DeleteThemeResponse)
+
+-- | The HTTP status of the request.
+deleteThemeResponse_status :: Lens.Lens' DeleteThemeResponse Prelude.Int
+deleteThemeResponse_status = Lens.lens (\DeleteThemeResponse' {status} -> status) (\s@DeleteThemeResponse' {} a -> s {status = a} :: DeleteThemeResponse)
+
+instance Prelude.NFData DeleteThemeResponse

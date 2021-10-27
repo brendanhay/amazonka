@@ -1,0 +1,213 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.QuickSight.DescribeDashboardPermissions
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Describes read and write permissions for a dashboard.
+module Network.AWS.QuickSight.DescribeDashboardPermissions
+  ( -- * Creating a Request
+    DescribeDashboardPermissions (..),
+    newDescribeDashboardPermissions,
+
+    -- * Request Lenses
+    describeDashboardPermissions_awsAccountId,
+    describeDashboardPermissions_dashboardId,
+
+    -- * Destructuring the Response
+    DescribeDashboardPermissionsResponse (..),
+    newDescribeDashboardPermissionsResponse,
+
+    -- * Response Lenses
+    describeDashboardPermissionsResponse_requestId,
+    describeDashboardPermissionsResponse_dashboardId,
+    describeDashboardPermissionsResponse_permissions,
+    describeDashboardPermissionsResponse_dashboardArn,
+    describeDashboardPermissionsResponse_status,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.QuickSight.Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDescribeDashboardPermissions' smart constructor.
+data DescribeDashboardPermissions = DescribeDashboardPermissions'
+  { -- | The ID of the Amazon Web Services account that contains the dashboard
+    -- that you\'re describing permissions for.
+    awsAccountId :: Prelude.Text,
+    -- | The ID for the dashboard, also added to the IAMpolicy.
+    dashboardId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeDashboardPermissions' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'awsAccountId', 'describeDashboardPermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard
+-- that you\'re describing permissions for.
+--
+-- 'dashboardId', 'describeDashboardPermissions_dashboardId' - The ID for the dashboard, also added to the IAMpolicy.
+newDescribeDashboardPermissions ::
+  -- | 'awsAccountId'
+  Prelude.Text ->
+  -- | 'dashboardId'
+  Prelude.Text ->
+  DescribeDashboardPermissions
+newDescribeDashboardPermissions
+  pAwsAccountId_
+  pDashboardId_ =
+    DescribeDashboardPermissions'
+      { awsAccountId =
+          pAwsAccountId_,
+        dashboardId = pDashboardId_
+      }
+
+-- | The ID of the Amazon Web Services account that contains the dashboard
+-- that you\'re describing permissions for.
+describeDashboardPermissions_awsAccountId :: Lens.Lens' DescribeDashboardPermissions Prelude.Text
+describeDashboardPermissions_awsAccountId = Lens.lens (\DescribeDashboardPermissions' {awsAccountId} -> awsAccountId) (\s@DescribeDashboardPermissions' {} a -> s {awsAccountId = a} :: DescribeDashboardPermissions)
+
+-- | The ID for the dashboard, also added to the IAMpolicy.
+describeDashboardPermissions_dashboardId :: Lens.Lens' DescribeDashboardPermissions Prelude.Text
+describeDashboardPermissions_dashboardId = Lens.lens (\DescribeDashboardPermissions' {dashboardId} -> dashboardId) (\s@DescribeDashboardPermissions' {} a -> s {dashboardId = a} :: DescribeDashboardPermissions)
+
+instance Core.AWSRequest DescribeDashboardPermissions where
+  type
+    AWSResponse DescribeDashboardPermissions =
+      DescribeDashboardPermissionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDashboardPermissionsResponse'
+            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<*> (x Core..?> "DashboardId")
+            Prelude.<*> (x Core..?> "Permissions")
+            Prelude.<*> (x Core..?> "DashboardArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeDashboardPermissions
+
+instance Prelude.NFData DescribeDashboardPermissions
+
+instance Core.ToHeaders DescribeDashboardPermissions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DescribeDashboardPermissions where
+  toPath DescribeDashboardPermissions' {..} =
+    Prelude.mconcat
+      [ "/accounts/",
+        Core.toBS awsAccountId,
+        "/dashboards/",
+        Core.toBS dashboardId,
+        "/permissions"
+      ]
+
+instance Core.ToQuery DescribeDashboardPermissions where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeDashboardPermissionsResponse' smart constructor.
+data DescribeDashboardPermissionsResponse = DescribeDashboardPermissionsResponse'
+  { -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the dashboard.
+    dashboardId :: Prelude.Maybe Prelude.Text,
+    -- | A structure that contains the permissions for the dashboard.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The Amazon Resource Name (ARN) of the dashboard.
+    dashboardArn :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP status of the request.
+    status :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeDashboardPermissionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'requestId', 'describeDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
+--
+-- 'dashboardId', 'describeDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
+--
+-- 'permissions', 'describeDashboardPermissionsResponse_permissions' - A structure that contains the permissions for the dashboard.
+--
+-- 'dashboardArn', 'describeDashboardPermissionsResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
+--
+-- 'status', 'describeDashboardPermissionsResponse_status' - The HTTP status of the request.
+newDescribeDashboardPermissionsResponse ::
+  -- | 'status'
+  Prelude.Int ->
+  DescribeDashboardPermissionsResponse
+newDescribeDashboardPermissionsResponse pStatus_ =
+  DescribeDashboardPermissionsResponse'
+    { requestId =
+        Prelude.Nothing,
+      dashboardId = Prelude.Nothing,
+      permissions = Prelude.Nothing,
+      dashboardArn = Prelude.Nothing,
+      status = pStatus_
+    }
+
+-- | The Amazon Web Services request ID for this operation.
+describeDashboardPermissionsResponse_requestId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_requestId = Lens.lens (\DescribeDashboardPermissionsResponse' {requestId} -> requestId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {requestId = a} :: DescribeDashboardPermissionsResponse)
+
+-- | The ID for the dashboard.
+describeDashboardPermissionsResponse_dashboardId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_dashboardId = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: DescribeDashboardPermissionsResponse)
+
+-- | A structure that contains the permissions for the dashboard.
+describeDashboardPermissionsResponse_permissions :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+describeDashboardPermissionsResponse_permissions = Lens.lens (\DescribeDashboardPermissionsResponse' {permissions} -> permissions) (\s@DescribeDashboardPermissionsResponse' {} a -> s {permissions = a} :: DescribeDashboardPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the dashboard.
+describeDashboardPermissionsResponse_dashboardArn :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_dashboardArn = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardArn} -> dashboardArn) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardArn = a} :: DescribeDashboardPermissionsResponse)
+
+-- | The HTTP status of the request.
+describeDashboardPermissionsResponse_status :: Lens.Lens' DescribeDashboardPermissionsResponse Prelude.Int
+describeDashboardPermissionsResponse_status = Lens.lens (\DescribeDashboardPermissionsResponse' {status} -> status) (\s@DescribeDashboardPermissionsResponse' {} a -> s {status = a} :: DescribeDashboardPermissionsResponse)
+
+instance
+  Prelude.NFData
+    DescribeDashboardPermissionsResponse

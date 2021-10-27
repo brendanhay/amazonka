@@ -1,0 +1,78 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-detective/amazonka-detective.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-detective",
+    srcs = [
+        "gen/Network/AWS/Detective.hs",
+        "gen/Network/AWS/Detective/AcceptInvitation.hs",
+        "gen/Network/AWS/Detective/CreateGraph.hs",
+        "gen/Network/AWS/Detective/CreateMembers.hs",
+        "gen/Network/AWS/Detective/DeleteGraph.hs",
+        "gen/Network/AWS/Detective/DeleteMembers.hs",
+        "gen/Network/AWS/Detective/DisassociateMembership.hs",
+        "gen/Network/AWS/Detective/GetMembers.hs",
+        "gen/Network/AWS/Detective/Lens.hs",
+        "gen/Network/AWS/Detective/ListGraphs.hs",
+        "gen/Network/AWS/Detective/ListInvitations.hs",
+        "gen/Network/AWS/Detective/ListMembers.hs",
+        "gen/Network/AWS/Detective/ListTagsForResource.hs",
+        "gen/Network/AWS/Detective/RejectInvitation.hs",
+        "gen/Network/AWS/Detective/StartMonitoringMember.hs",
+        "gen/Network/AWS/Detective/TagResource.hs",
+        "gen/Network/AWS/Detective/Types.hs",
+        "gen/Network/AWS/Detective/Types/Account.hs",
+        "gen/Network/AWS/Detective/Types/Graph.hs",
+        "gen/Network/AWS/Detective/Types/MemberDetail.hs",
+        "gen/Network/AWS/Detective/Types/MemberDisabledReason.hs",
+        "gen/Network/AWS/Detective/Types/MemberStatus.hs",
+        "gen/Network/AWS/Detective/Types/UnprocessedAccount.hs",
+        "gen/Network/AWS/Detective/UntagResource.hs",
+        "gen/Network/AWS/Detective/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_detective=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-detective/amazonka-detective.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-detective-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Detective.hs",
+        "test/Test/AWS/Detective/Internal.hs",
+        "test/Test/AWS/Gen/Detective.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_detective=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-detective",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

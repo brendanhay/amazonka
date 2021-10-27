@@ -1,0 +1,271 @@
+cabal-version:      2.2
+name:               amazonka-lexv2-models
+version:            2.0
+synopsis:           Amazon Lex Model Building V2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-08-07@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.LexV2Models.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.LexV2Models" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-lexv2-models
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.LexV2Models
+    Network.AWS.LexV2Models.BuildBotLocale
+    Network.AWS.LexV2Models.CreateBot
+    Network.AWS.LexV2Models.CreateBotAlias
+    Network.AWS.LexV2Models.CreateBotLocale
+    Network.AWS.LexV2Models.CreateBotVersion
+    Network.AWS.LexV2Models.CreateExport
+    Network.AWS.LexV2Models.CreateIntent
+    Network.AWS.LexV2Models.CreateResourcePolicy
+    Network.AWS.LexV2Models.CreateResourcePolicyStatement
+    Network.AWS.LexV2Models.CreateSlot
+    Network.AWS.LexV2Models.CreateSlotType
+    Network.AWS.LexV2Models.CreateUploadUrl
+    Network.AWS.LexV2Models.DeleteBot
+    Network.AWS.LexV2Models.DeleteBotAlias
+    Network.AWS.LexV2Models.DeleteBotLocale
+    Network.AWS.LexV2Models.DeleteBotVersion
+    Network.AWS.LexV2Models.DeleteExport
+    Network.AWS.LexV2Models.DeleteImport
+    Network.AWS.LexV2Models.DeleteIntent
+    Network.AWS.LexV2Models.DeleteResourcePolicy
+    Network.AWS.LexV2Models.DeleteResourcePolicyStatement
+    Network.AWS.LexV2Models.DeleteSlot
+    Network.AWS.LexV2Models.DeleteSlotType
+    Network.AWS.LexV2Models.DeleteUtterances
+    Network.AWS.LexV2Models.DescribeBot
+    Network.AWS.LexV2Models.DescribeBotAlias
+    Network.AWS.LexV2Models.DescribeBotLocale
+    Network.AWS.LexV2Models.DescribeBotVersion
+    Network.AWS.LexV2Models.DescribeExport
+    Network.AWS.LexV2Models.DescribeImport
+    Network.AWS.LexV2Models.DescribeIntent
+    Network.AWS.LexV2Models.DescribeResourcePolicy
+    Network.AWS.LexV2Models.DescribeSlot
+    Network.AWS.LexV2Models.DescribeSlotType
+    Network.AWS.LexV2Models.Lens
+    Network.AWS.LexV2Models.ListAggregatedUtterances
+    Network.AWS.LexV2Models.ListBotAliases
+    Network.AWS.LexV2Models.ListBotLocales
+    Network.AWS.LexV2Models.ListBots
+    Network.AWS.LexV2Models.ListBotVersions
+    Network.AWS.LexV2Models.ListBuiltInIntents
+    Network.AWS.LexV2Models.ListBuiltInSlotTypes
+    Network.AWS.LexV2Models.ListExports
+    Network.AWS.LexV2Models.ListImports
+    Network.AWS.LexV2Models.ListIntents
+    Network.AWS.LexV2Models.ListSlots
+    Network.AWS.LexV2Models.ListSlotTypes
+    Network.AWS.LexV2Models.ListTagsForResource
+    Network.AWS.LexV2Models.StartImport
+    Network.AWS.LexV2Models.TagResource
+    Network.AWS.LexV2Models.Types
+    Network.AWS.LexV2Models.Types.AggregatedUtterancesFilter
+    Network.AWS.LexV2Models.Types.AggregatedUtterancesFilterName
+    Network.AWS.LexV2Models.Types.AggregatedUtterancesFilterOperator
+    Network.AWS.LexV2Models.Types.AggregatedUtterancesSortAttribute
+    Network.AWS.LexV2Models.Types.AggregatedUtterancesSortBy
+    Network.AWS.LexV2Models.Types.AggregatedUtterancesSummary
+    Network.AWS.LexV2Models.Types.AudioLogDestination
+    Network.AWS.LexV2Models.Types.AudioLogSetting
+    Network.AWS.LexV2Models.Types.BotAliasHistoryEvent
+    Network.AWS.LexV2Models.Types.BotAliasLocaleSettings
+    Network.AWS.LexV2Models.Types.BotAliasStatus
+    Network.AWS.LexV2Models.Types.BotAliasSummary
+    Network.AWS.LexV2Models.Types.BotExportSpecification
+    Network.AWS.LexV2Models.Types.BotFilter
+    Network.AWS.LexV2Models.Types.BotFilterName
+    Network.AWS.LexV2Models.Types.BotFilterOperator
+    Network.AWS.LexV2Models.Types.BotImportSpecification
+    Network.AWS.LexV2Models.Types.BotLocaleExportSpecification
+    Network.AWS.LexV2Models.Types.BotLocaleFilter
+    Network.AWS.LexV2Models.Types.BotLocaleFilterName
+    Network.AWS.LexV2Models.Types.BotLocaleFilterOperator
+    Network.AWS.LexV2Models.Types.BotLocaleHistoryEvent
+    Network.AWS.LexV2Models.Types.BotLocaleImportSpecification
+    Network.AWS.LexV2Models.Types.BotLocaleSortAttribute
+    Network.AWS.LexV2Models.Types.BotLocaleSortBy
+    Network.AWS.LexV2Models.Types.BotLocaleStatus
+    Network.AWS.LexV2Models.Types.BotLocaleSummary
+    Network.AWS.LexV2Models.Types.BotSortAttribute
+    Network.AWS.LexV2Models.Types.BotSortBy
+    Network.AWS.LexV2Models.Types.BotStatus
+    Network.AWS.LexV2Models.Types.BotSummary
+    Network.AWS.LexV2Models.Types.BotVersionLocaleDetails
+    Network.AWS.LexV2Models.Types.BotVersionSortAttribute
+    Network.AWS.LexV2Models.Types.BotVersionSortBy
+    Network.AWS.LexV2Models.Types.BotVersionSummary
+    Network.AWS.LexV2Models.Types.BuiltInIntentSortAttribute
+    Network.AWS.LexV2Models.Types.BuiltInIntentSortBy
+    Network.AWS.LexV2Models.Types.BuiltInIntentSummary
+    Network.AWS.LexV2Models.Types.BuiltInSlotTypeSortAttribute
+    Network.AWS.LexV2Models.Types.BuiltInSlotTypeSortBy
+    Network.AWS.LexV2Models.Types.BuiltInSlotTypeSummary
+    Network.AWS.LexV2Models.Types.Button
+    Network.AWS.LexV2Models.Types.CloudWatchLogGroupLogDestination
+    Network.AWS.LexV2Models.Types.CodeHookSpecification
+    Network.AWS.LexV2Models.Types.ConversationLogSettings
+    Network.AWS.LexV2Models.Types.CustomPayload
+    Network.AWS.LexV2Models.Types.DataPrivacy
+    Network.AWS.LexV2Models.Types.DialogCodeHookSettings
+    Network.AWS.LexV2Models.Types.Effect
+    Network.AWS.LexV2Models.Types.ExportFilter
+    Network.AWS.LexV2Models.Types.ExportFilterName
+    Network.AWS.LexV2Models.Types.ExportFilterOperator
+    Network.AWS.LexV2Models.Types.ExportResourceSpecification
+    Network.AWS.LexV2Models.Types.ExportSortAttribute
+    Network.AWS.LexV2Models.Types.ExportSortBy
+    Network.AWS.LexV2Models.Types.ExportStatus
+    Network.AWS.LexV2Models.Types.ExportSummary
+    Network.AWS.LexV2Models.Types.FulfillmentCodeHookSettings
+    Network.AWS.LexV2Models.Types.FulfillmentStartResponseSpecification
+    Network.AWS.LexV2Models.Types.FulfillmentUpdateResponseSpecification
+    Network.AWS.LexV2Models.Types.FulfillmentUpdatesSpecification
+    Network.AWS.LexV2Models.Types.ImageResponseCard
+    Network.AWS.LexV2Models.Types.ImportExportFileFormat
+    Network.AWS.LexV2Models.Types.ImportFilter
+    Network.AWS.LexV2Models.Types.ImportFilterName
+    Network.AWS.LexV2Models.Types.ImportFilterOperator
+    Network.AWS.LexV2Models.Types.ImportResourceSpecification
+    Network.AWS.LexV2Models.Types.ImportSortAttribute
+    Network.AWS.LexV2Models.Types.ImportSortBy
+    Network.AWS.LexV2Models.Types.ImportStatus
+    Network.AWS.LexV2Models.Types.ImportSummary
+    Network.AWS.LexV2Models.Types.InputContext
+    Network.AWS.LexV2Models.Types.IntentClosingSetting
+    Network.AWS.LexV2Models.Types.IntentConfirmationSetting
+    Network.AWS.LexV2Models.Types.IntentFilter
+    Network.AWS.LexV2Models.Types.IntentFilterName
+    Network.AWS.LexV2Models.Types.IntentFilterOperator
+    Network.AWS.LexV2Models.Types.IntentSortAttribute
+    Network.AWS.LexV2Models.Types.IntentSortBy
+    Network.AWS.LexV2Models.Types.IntentSummary
+    Network.AWS.LexV2Models.Types.KendraConfiguration
+    Network.AWS.LexV2Models.Types.LambdaCodeHook
+    Network.AWS.LexV2Models.Types.MergeStrategy
+    Network.AWS.LexV2Models.Types.Message
+    Network.AWS.LexV2Models.Types.MessageGroup
+    Network.AWS.LexV2Models.Types.MultipleValuesSetting
+    Network.AWS.LexV2Models.Types.ObfuscationSetting
+    Network.AWS.LexV2Models.Types.ObfuscationSettingType
+    Network.AWS.LexV2Models.Types.OutputContext
+    Network.AWS.LexV2Models.Types.PlainTextMessage
+    Network.AWS.LexV2Models.Types.PostFulfillmentStatusSpecification
+    Network.AWS.LexV2Models.Types.Principal
+    Network.AWS.LexV2Models.Types.PromptSpecification
+    Network.AWS.LexV2Models.Types.RelativeAggregationDuration
+    Network.AWS.LexV2Models.Types.ResponseSpecification
+    Network.AWS.LexV2Models.Types.S3BucketLogDestination
+    Network.AWS.LexV2Models.Types.SampleUtterance
+    Network.AWS.LexV2Models.Types.SampleValue
+    Network.AWS.LexV2Models.Types.SentimentAnalysisSettings
+    Network.AWS.LexV2Models.Types.SlotConstraint
+    Network.AWS.LexV2Models.Types.SlotDefaultValue
+    Network.AWS.LexV2Models.Types.SlotDefaultValueSpecification
+    Network.AWS.LexV2Models.Types.SlotFilter
+    Network.AWS.LexV2Models.Types.SlotFilterName
+    Network.AWS.LexV2Models.Types.SlotFilterOperator
+    Network.AWS.LexV2Models.Types.SlotPriority
+    Network.AWS.LexV2Models.Types.SlotSortAttribute
+    Network.AWS.LexV2Models.Types.SlotSortBy
+    Network.AWS.LexV2Models.Types.SlotSummary
+    Network.AWS.LexV2Models.Types.SlotTypeFilter
+    Network.AWS.LexV2Models.Types.SlotTypeFilterName
+    Network.AWS.LexV2Models.Types.SlotTypeFilterOperator
+    Network.AWS.LexV2Models.Types.SlotTypeSortAttribute
+    Network.AWS.LexV2Models.Types.SlotTypeSortBy
+    Network.AWS.LexV2Models.Types.SlotTypeSummary
+    Network.AWS.LexV2Models.Types.SlotTypeValue
+    Network.AWS.LexV2Models.Types.SlotValueElicitationSetting
+    Network.AWS.LexV2Models.Types.SlotValueRegexFilter
+    Network.AWS.LexV2Models.Types.SlotValueResolutionStrategy
+    Network.AWS.LexV2Models.Types.SlotValueSelectionSetting
+    Network.AWS.LexV2Models.Types.SortOrder
+    Network.AWS.LexV2Models.Types.SSMLMessage
+    Network.AWS.LexV2Models.Types.StillWaitingResponseSpecification
+    Network.AWS.LexV2Models.Types.TextLogDestination
+    Network.AWS.LexV2Models.Types.TextLogSetting
+    Network.AWS.LexV2Models.Types.TimeDimension
+    Network.AWS.LexV2Models.Types.UtteranceAggregationDuration
+    Network.AWS.LexV2Models.Types.VoiceSettings
+    Network.AWS.LexV2Models.Types.WaitAndContinueSpecification
+    Network.AWS.LexV2Models.UntagResource
+    Network.AWS.LexV2Models.UpdateBot
+    Network.AWS.LexV2Models.UpdateBotAlias
+    Network.AWS.LexV2Models.UpdateBotLocale
+    Network.AWS.LexV2Models.UpdateExport
+    Network.AWS.LexV2Models.UpdateIntent
+    Network.AWS.LexV2Models.UpdateResourcePolicy
+    Network.AWS.LexV2Models.UpdateSlot
+    Network.AWS.LexV2Models.UpdateSlotType
+    Network.AWS.LexV2Models.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-lexv2-models-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.LexV2Models
+    Test.AWS.LexV2Models
+    Test.AWS.LexV2Models.Internal
+
+  build-depends:
+    , amazonka               ^>=2.0
+    , amazonka-lexv2-models
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

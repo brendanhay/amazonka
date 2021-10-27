@@ -1,0 +1,138 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.DevOpsGuru.DescribeServiceIntegration
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns the integration status of services that are integrated with
+-- DevOps Guru. The one service that can be integrated with DevOps Guru is
+-- AWS Systems Manager, which can be used to create an OpsItem for each
+-- generated insight.
+module Network.AWS.DevOpsGuru.DescribeServiceIntegration
+  ( -- * Creating a Request
+    DescribeServiceIntegration (..),
+    newDescribeServiceIntegration,
+
+    -- * Destructuring the Response
+    DescribeServiceIntegrationResponse (..),
+    newDescribeServiceIntegrationResponse,
+
+    -- * Response Lenses
+    describeServiceIntegrationResponse_serviceIntegration,
+    describeServiceIntegrationResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.DevOpsGuru.Types
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDescribeServiceIntegration' smart constructor.
+data DescribeServiceIntegration = DescribeServiceIntegration'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeServiceIntegration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeServiceIntegration ::
+  DescribeServiceIntegration
+newDescribeServiceIntegration =
+  DescribeServiceIntegration'
+
+instance Core.AWSRequest DescribeServiceIntegration where
+  type
+    AWSResponse DescribeServiceIntegration =
+      DescribeServiceIntegrationResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeServiceIntegrationResponse'
+            Prelude.<$> (x Core..?> "ServiceIntegration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeServiceIntegration
+
+instance Prelude.NFData DescribeServiceIntegration
+
+instance Core.ToHeaders DescribeServiceIntegration where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DescribeServiceIntegration where
+  toPath = Prelude.const "/service-integrations"
+
+instance Core.ToQuery DescribeServiceIntegration where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeServiceIntegrationResponse' smart constructor.
+data DescribeServiceIntegrationResponse = DescribeServiceIntegrationResponse'
+  { serviceIntegration :: Prelude.Maybe ServiceIntegrationConfig,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeServiceIntegrationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'serviceIntegration', 'describeServiceIntegrationResponse_serviceIntegration' - Undocumented member.
+--
+-- 'httpStatus', 'describeServiceIntegrationResponse_httpStatus' - The response's http status code.
+newDescribeServiceIntegrationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeServiceIntegrationResponse
+newDescribeServiceIntegrationResponse pHttpStatus_ =
+  DescribeServiceIntegrationResponse'
+    { serviceIntegration =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Undocumented member.
+describeServiceIntegrationResponse_serviceIntegration :: Lens.Lens' DescribeServiceIntegrationResponse (Prelude.Maybe ServiceIntegrationConfig)
+describeServiceIntegrationResponse_serviceIntegration = Lens.lens (\DescribeServiceIntegrationResponse' {serviceIntegration} -> serviceIntegration) (\s@DescribeServiceIntegrationResponse' {} a -> s {serviceIntegration = a} :: DescribeServiceIntegrationResponse)
+
+-- | The response's http status code.
+describeServiceIntegrationResponse_httpStatus :: Lens.Lens' DescribeServiceIntegrationResponse Prelude.Int
+describeServiceIntegrationResponse_httpStatus = Lens.lens (\DescribeServiceIntegrationResponse' {httpStatus} -> httpStatus) (\s@DescribeServiceIntegrationResponse' {} a -> s {httpStatus = a} :: DescribeServiceIntegrationResponse)
+
+instance
+  Prelude.NFData
+    DescribeServiceIntegrationResponse

@@ -10,18 +10,18 @@ echo "Formatting JSON."
 
 # Avoid the shell.nix dependency on moreutils, which will replace gnu parallel.
 sponge() (
-	case "$1" in
-	-a | --append )
-		append=1
-		file="$2"
-		;;
-	* )
-		append=""
-		file="$1"
-		;;
-	esac
+  case "$1" in
+  -a | --append)
+    append=1
+    file="$2"
+    ;;
+  *)
+    append=""
+    file="$1"
+    ;;
+  esac
 
-	awk -v append="$append" -v file="$file" '
+  awk -v append="$append" -v file="$file" '
 NR == 1	{ lines = $0 }
 NR != 1	{ lines = lines ORS $0 }
 END	{

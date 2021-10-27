@@ -1,0 +1,418 @@
+cabal-version:      2.2
+name:               amazonka-chime
+version:            2.0
+synopsis:           Amazon Chime SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-05-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Chime.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Chime" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-chime
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Chime
+    Network.AWS.Chime.AssociatePhoneNumbersWithVoiceConnector
+    Network.AWS.Chime.AssociatePhoneNumbersWithVoiceConnectorGroup
+    Network.AWS.Chime.AssociatePhoneNumberWithUser
+    Network.AWS.Chime.AssociateSigninDelegateGroupsWithAccount
+    Network.AWS.Chime.BatchCreateAttendee
+    Network.AWS.Chime.BatchCreateChannelMembership
+    Network.AWS.Chime.BatchCreateRoomMembership
+    Network.AWS.Chime.BatchDeletePhoneNumber
+    Network.AWS.Chime.BatchSuspendUser
+    Network.AWS.Chime.BatchUnsuspendUser
+    Network.AWS.Chime.BatchUpdatePhoneNumber
+    Network.AWS.Chime.BatchUpdateUser
+    Network.AWS.Chime.CreateAccount
+    Network.AWS.Chime.CreateAppInstance
+    Network.AWS.Chime.CreateAppInstanceAdmin
+    Network.AWS.Chime.CreateAppInstanceUser
+    Network.AWS.Chime.CreateAttendee
+    Network.AWS.Chime.CreateBot
+    Network.AWS.Chime.CreateChannel
+    Network.AWS.Chime.CreateChannelBan
+    Network.AWS.Chime.CreateChannelMembership
+    Network.AWS.Chime.CreateChannelModerator
+    Network.AWS.Chime.CreateMediaCapturePipeline
+    Network.AWS.Chime.CreateMeeting
+    Network.AWS.Chime.CreateMeetingDialOut
+    Network.AWS.Chime.CreateMeetingWithAttendees
+    Network.AWS.Chime.CreatePhoneNumberOrder
+    Network.AWS.Chime.CreateProxySession
+    Network.AWS.Chime.CreateRoom
+    Network.AWS.Chime.CreateRoomMembership
+    Network.AWS.Chime.CreateSipMediaApplication
+    Network.AWS.Chime.CreateSipMediaApplicationCall
+    Network.AWS.Chime.CreateSipRule
+    Network.AWS.Chime.CreateUser
+    Network.AWS.Chime.CreateVoiceConnector
+    Network.AWS.Chime.CreateVoiceConnectorGroup
+    Network.AWS.Chime.DeleteAccount
+    Network.AWS.Chime.DeleteAppInstance
+    Network.AWS.Chime.DeleteAppInstanceAdmin
+    Network.AWS.Chime.DeleteAppInstanceStreamingConfigurations
+    Network.AWS.Chime.DeleteAppInstanceUser
+    Network.AWS.Chime.DeleteAttendee
+    Network.AWS.Chime.DeleteChannel
+    Network.AWS.Chime.DeleteChannelBan
+    Network.AWS.Chime.DeleteChannelMembership
+    Network.AWS.Chime.DeleteChannelMessage
+    Network.AWS.Chime.DeleteChannelModerator
+    Network.AWS.Chime.DeleteEventsConfiguration
+    Network.AWS.Chime.DeleteMediaCapturePipeline
+    Network.AWS.Chime.DeleteMeeting
+    Network.AWS.Chime.DeletePhoneNumber
+    Network.AWS.Chime.DeleteProxySession
+    Network.AWS.Chime.DeleteRoom
+    Network.AWS.Chime.DeleteRoomMembership
+    Network.AWS.Chime.DeleteSipMediaApplication
+    Network.AWS.Chime.DeleteSipRule
+    Network.AWS.Chime.DeleteVoiceConnector
+    Network.AWS.Chime.DeleteVoiceConnectorEmergencyCallingConfiguration
+    Network.AWS.Chime.DeleteVoiceConnectorGroup
+    Network.AWS.Chime.DeleteVoiceConnectorOrigination
+    Network.AWS.Chime.DeleteVoiceConnectorProxy
+    Network.AWS.Chime.DeleteVoiceConnectorStreamingConfiguration
+    Network.AWS.Chime.DeleteVoiceConnectorTermination
+    Network.AWS.Chime.DeleteVoiceConnectorTerminationCredentials
+    Network.AWS.Chime.DescribeAppInstance
+    Network.AWS.Chime.DescribeAppInstanceAdmin
+    Network.AWS.Chime.DescribeAppInstanceUser
+    Network.AWS.Chime.DescribeChannel
+    Network.AWS.Chime.DescribeChannelBan
+    Network.AWS.Chime.DescribeChannelMembership
+    Network.AWS.Chime.DescribeChannelMembershipForAppInstanceUser
+    Network.AWS.Chime.DescribeChannelModeratedByAppInstanceUser
+    Network.AWS.Chime.DescribeChannelModerator
+    Network.AWS.Chime.DisassociatePhoneNumberFromUser
+    Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnector
+    Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup
+    Network.AWS.Chime.DisassociateSigninDelegateGroupsFromAccount
+    Network.AWS.Chime.GetAccount
+    Network.AWS.Chime.GetAccountSettings
+    Network.AWS.Chime.GetAppInstanceRetentionSettings
+    Network.AWS.Chime.GetAppInstanceStreamingConfigurations
+    Network.AWS.Chime.GetAttendee
+    Network.AWS.Chime.GetBot
+    Network.AWS.Chime.GetChannelMessage
+    Network.AWS.Chime.GetEventsConfiguration
+    Network.AWS.Chime.GetGlobalSettings
+    Network.AWS.Chime.GetMediaCapturePipeline
+    Network.AWS.Chime.GetMeeting
+    Network.AWS.Chime.GetMessagingSessionEndpoint
+    Network.AWS.Chime.GetPhoneNumber
+    Network.AWS.Chime.GetPhoneNumberOrder
+    Network.AWS.Chime.GetPhoneNumberSettings
+    Network.AWS.Chime.GetProxySession
+    Network.AWS.Chime.GetRetentionSettings
+    Network.AWS.Chime.GetRoom
+    Network.AWS.Chime.GetSipMediaApplication
+    Network.AWS.Chime.GetSipMediaApplicationLoggingConfiguration
+    Network.AWS.Chime.GetSipRule
+    Network.AWS.Chime.GetUser
+    Network.AWS.Chime.GetUserSettings
+    Network.AWS.Chime.GetVoiceConnector
+    Network.AWS.Chime.GetVoiceConnectorEmergencyCallingConfiguration
+    Network.AWS.Chime.GetVoiceConnectorGroup
+    Network.AWS.Chime.GetVoiceConnectorLoggingConfiguration
+    Network.AWS.Chime.GetVoiceConnectorOrigination
+    Network.AWS.Chime.GetVoiceConnectorProxy
+    Network.AWS.Chime.GetVoiceConnectorStreamingConfiguration
+    Network.AWS.Chime.GetVoiceConnectorTermination
+    Network.AWS.Chime.GetVoiceConnectorTerminationHealth
+    Network.AWS.Chime.InviteUsers
+    Network.AWS.Chime.Lens
+    Network.AWS.Chime.ListAccounts
+    Network.AWS.Chime.ListAppInstanceAdmins
+    Network.AWS.Chime.ListAppInstances
+    Network.AWS.Chime.ListAppInstanceUsers
+    Network.AWS.Chime.ListAttendees
+    Network.AWS.Chime.ListAttendeeTags
+    Network.AWS.Chime.ListBots
+    Network.AWS.Chime.ListChannelBans
+    Network.AWS.Chime.ListChannelMemberships
+    Network.AWS.Chime.ListChannelMembershipsForAppInstanceUser
+    Network.AWS.Chime.ListChannelMessages
+    Network.AWS.Chime.ListChannelModerators
+    Network.AWS.Chime.ListChannels
+    Network.AWS.Chime.ListChannelsModeratedByAppInstanceUser
+    Network.AWS.Chime.ListMediaCapturePipelines
+    Network.AWS.Chime.ListMeetings
+    Network.AWS.Chime.ListMeetingTags
+    Network.AWS.Chime.ListPhoneNumberOrders
+    Network.AWS.Chime.ListPhoneNumbers
+    Network.AWS.Chime.ListProxySessions
+    Network.AWS.Chime.ListRoomMemberships
+    Network.AWS.Chime.ListRooms
+    Network.AWS.Chime.ListSipMediaApplications
+    Network.AWS.Chime.ListSipRules
+    Network.AWS.Chime.ListSupportedPhoneNumberCountries
+    Network.AWS.Chime.ListTagsForResource
+    Network.AWS.Chime.ListUsers
+    Network.AWS.Chime.ListVoiceConnectorGroups
+    Network.AWS.Chime.ListVoiceConnectors
+    Network.AWS.Chime.ListVoiceConnectorTerminationCredentials
+    Network.AWS.Chime.LogoutUser
+    Network.AWS.Chime.PutAppInstanceRetentionSettings
+    Network.AWS.Chime.PutAppInstanceStreamingConfigurations
+    Network.AWS.Chime.PutEventsConfiguration
+    Network.AWS.Chime.PutRetentionSettings
+    Network.AWS.Chime.PutSipMediaApplicationLoggingConfiguration
+    Network.AWS.Chime.PutVoiceConnectorEmergencyCallingConfiguration
+    Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration
+    Network.AWS.Chime.PutVoiceConnectorOrigination
+    Network.AWS.Chime.PutVoiceConnectorProxy
+    Network.AWS.Chime.PutVoiceConnectorStreamingConfiguration
+    Network.AWS.Chime.PutVoiceConnectorTermination
+    Network.AWS.Chime.PutVoiceConnectorTerminationCredentials
+    Network.AWS.Chime.RedactChannelMessage
+    Network.AWS.Chime.RedactConversationMessage
+    Network.AWS.Chime.RedactRoomMessage
+    Network.AWS.Chime.RegenerateSecurityToken
+    Network.AWS.Chime.ResetPersonalPIN
+    Network.AWS.Chime.RestorePhoneNumber
+    Network.AWS.Chime.SearchAvailablePhoneNumbers
+    Network.AWS.Chime.SendChannelMessage
+    Network.AWS.Chime.StartMeetingTranscription
+    Network.AWS.Chime.StopMeetingTranscription
+    Network.AWS.Chime.TagAttendee
+    Network.AWS.Chime.TagMeeting
+    Network.AWS.Chime.TagResource
+    Network.AWS.Chime.Types
+    Network.AWS.Chime.Types.Account
+    Network.AWS.Chime.Types.AccountSettings
+    Network.AWS.Chime.Types.AccountStatus
+    Network.AWS.Chime.Types.AccountType
+    Network.AWS.Chime.Types.AlexaForBusinessMetadata
+    Network.AWS.Chime.Types.AppInstance
+    Network.AWS.Chime.Types.AppInstanceAdmin
+    Network.AWS.Chime.Types.AppInstanceAdminSummary
+    Network.AWS.Chime.Types.AppInstanceDataType
+    Network.AWS.Chime.Types.AppInstanceRetentionSettings
+    Network.AWS.Chime.Types.AppInstanceStreamingConfiguration
+    Network.AWS.Chime.Types.AppInstanceSummary
+    Network.AWS.Chime.Types.AppInstanceUser
+    Network.AWS.Chime.Types.AppInstanceUserMembershipSummary
+    Network.AWS.Chime.Types.AppInstanceUserSummary
+    Network.AWS.Chime.Types.ArtifactsConfiguration
+    Network.AWS.Chime.Types.ArtifactsState
+    Network.AWS.Chime.Types.Attendee
+    Network.AWS.Chime.Types.AudioArtifactsConfiguration
+    Network.AWS.Chime.Types.AudioMuxType
+    Network.AWS.Chime.Types.BatchChannelMemberships
+    Network.AWS.Chime.Types.BatchCreateChannelMembershipError
+    Network.AWS.Chime.Types.Bot
+    Network.AWS.Chime.Types.BotType
+    Network.AWS.Chime.Types.BusinessCallingSettings
+    Network.AWS.Chime.Types.CallingNameStatus
+    Network.AWS.Chime.Types.Capability
+    Network.AWS.Chime.Types.Channel
+    Network.AWS.Chime.Types.ChannelBan
+    Network.AWS.Chime.Types.ChannelBanSummary
+    Network.AWS.Chime.Types.ChannelMembership
+    Network.AWS.Chime.Types.ChannelMembershipForAppInstanceUserSummary
+    Network.AWS.Chime.Types.ChannelMembershipSummary
+    Network.AWS.Chime.Types.ChannelMembershipType
+    Network.AWS.Chime.Types.ChannelMessage
+    Network.AWS.Chime.Types.ChannelMessagePersistenceType
+    Network.AWS.Chime.Types.ChannelMessageSummary
+    Network.AWS.Chime.Types.ChannelMessageType
+    Network.AWS.Chime.Types.ChannelMode
+    Network.AWS.Chime.Types.ChannelModeratedByAppInstanceUserSummary
+    Network.AWS.Chime.Types.ChannelModerator
+    Network.AWS.Chime.Types.ChannelModeratorSummary
+    Network.AWS.Chime.Types.ChannelPrivacy
+    Network.AWS.Chime.Types.ChannelRetentionSettings
+    Network.AWS.Chime.Types.ChannelSummary
+    Network.AWS.Chime.Types.ChimeSdkMeetingConfiguration
+    Network.AWS.Chime.Types.ContentArtifactsConfiguration
+    Network.AWS.Chime.Types.ContentMuxType
+    Network.AWS.Chime.Types.ConversationRetentionSettings
+    Network.AWS.Chime.Types.CreateAttendeeError
+    Network.AWS.Chime.Types.CreateAttendeeRequestItem
+    Network.AWS.Chime.Types.Credential
+    Network.AWS.Chime.Types.DNISEmergencyCallingConfiguration
+    Network.AWS.Chime.Types.EmailStatus
+    Network.AWS.Chime.Types.EmergencyCallingConfiguration
+    Network.AWS.Chime.Types.EngineTranscribeMedicalSettings
+    Network.AWS.Chime.Types.EngineTranscribeSettings
+    Network.AWS.Chime.Types.ErrorCode
+    Network.AWS.Chime.Types.EventsConfiguration
+    Network.AWS.Chime.Types.GeoMatchLevel
+    Network.AWS.Chime.Types.GeoMatchParams
+    Network.AWS.Chime.Types.Identity
+    Network.AWS.Chime.Types.Invite
+    Network.AWS.Chime.Types.InviteStatus
+    Network.AWS.Chime.Types.License
+    Network.AWS.Chime.Types.LoggingConfiguration
+    Network.AWS.Chime.Types.MediaCapturePipeline
+    Network.AWS.Chime.Types.MediaPipelineSinkType
+    Network.AWS.Chime.Types.MediaPipelineSourceType
+    Network.AWS.Chime.Types.MediaPipelineStatus
+    Network.AWS.Chime.Types.MediaPlacement
+    Network.AWS.Chime.Types.Meeting
+    Network.AWS.Chime.Types.MeetingNotificationConfiguration
+    Network.AWS.Chime.Types.Member
+    Network.AWS.Chime.Types.MemberError
+    Network.AWS.Chime.Types.MembershipItem
+    Network.AWS.Chime.Types.MemberType
+    Network.AWS.Chime.Types.MessagingSessionEndpoint
+    Network.AWS.Chime.Types.NotificationTarget
+    Network.AWS.Chime.Types.NumberSelectionBehavior
+    Network.AWS.Chime.Types.OrderedPhoneNumber
+    Network.AWS.Chime.Types.OrderedPhoneNumberStatus
+    Network.AWS.Chime.Types.Origination
+    Network.AWS.Chime.Types.OriginationRoute
+    Network.AWS.Chime.Types.OriginationRouteProtocol
+    Network.AWS.Chime.Types.Participant
+    Network.AWS.Chime.Types.PhoneNumber
+    Network.AWS.Chime.Types.PhoneNumberAssociation
+    Network.AWS.Chime.Types.PhoneNumberAssociationName
+    Network.AWS.Chime.Types.PhoneNumberCapabilities
+    Network.AWS.Chime.Types.PhoneNumberCountry
+    Network.AWS.Chime.Types.PhoneNumberError
+    Network.AWS.Chime.Types.PhoneNumberOrder
+    Network.AWS.Chime.Types.PhoneNumberOrderStatus
+    Network.AWS.Chime.Types.PhoneNumberProductType
+    Network.AWS.Chime.Types.PhoneNumberStatus
+    Network.AWS.Chime.Types.PhoneNumberType
+    Network.AWS.Chime.Types.Proxy
+    Network.AWS.Chime.Types.ProxySession
+    Network.AWS.Chime.Types.ProxySessionStatus
+    Network.AWS.Chime.Types.RegistrationStatus
+    Network.AWS.Chime.Types.RetentionSettings
+    Network.AWS.Chime.Types.Room
+    Network.AWS.Chime.Types.RoomMembership
+    Network.AWS.Chime.Types.RoomMembershipRole
+    Network.AWS.Chime.Types.RoomRetentionSettings
+    Network.AWS.Chime.Types.SelectedVideoStreams
+    Network.AWS.Chime.Types.SigninDelegateGroup
+    Network.AWS.Chime.Types.SipMediaApplication
+    Network.AWS.Chime.Types.SipMediaApplicationCall
+    Network.AWS.Chime.Types.SipMediaApplicationEndpoint
+    Network.AWS.Chime.Types.SipMediaApplicationLoggingConfiguration
+    Network.AWS.Chime.Types.SipRule
+    Network.AWS.Chime.Types.SipRuleTargetApplication
+    Network.AWS.Chime.Types.SipRuleTriggerType
+    Network.AWS.Chime.Types.SortOrder
+    Network.AWS.Chime.Types.SourceConfiguration
+    Network.AWS.Chime.Types.StreamingConfiguration
+    Network.AWS.Chime.Types.StreamingNotificationTarget
+    Network.AWS.Chime.Types.Tag
+    Network.AWS.Chime.Types.TelephonySettings
+    Network.AWS.Chime.Types.Termination
+    Network.AWS.Chime.Types.TerminationHealth
+    Network.AWS.Chime.Types.TranscribeLanguageCode
+    Network.AWS.Chime.Types.TranscribeMedicalLanguageCode
+    Network.AWS.Chime.Types.TranscribeMedicalRegion
+    Network.AWS.Chime.Types.TranscribeMedicalSpecialty
+    Network.AWS.Chime.Types.TranscribeMedicalType
+    Network.AWS.Chime.Types.TranscribeRegion
+    Network.AWS.Chime.Types.TranscribeVocabularyFilterMethod
+    Network.AWS.Chime.Types.TranscriptionConfiguration
+    Network.AWS.Chime.Types.UpdatePhoneNumberRequestItem
+    Network.AWS.Chime.Types.UpdateUserRequestItem
+    Network.AWS.Chime.Types.User
+    Network.AWS.Chime.Types.UserError
+    Network.AWS.Chime.Types.UserSettings
+    Network.AWS.Chime.Types.UserType
+    Network.AWS.Chime.Types.VideoArtifactsConfiguration
+    Network.AWS.Chime.Types.VideoMuxType
+    Network.AWS.Chime.Types.VoiceConnector
+    Network.AWS.Chime.Types.VoiceConnectorAwsRegion
+    Network.AWS.Chime.Types.VoiceConnectorGroup
+    Network.AWS.Chime.Types.VoiceConnectorItem
+    Network.AWS.Chime.Types.VoiceConnectorSettings
+    Network.AWS.Chime.UntagAttendee
+    Network.AWS.Chime.UntagMeeting
+    Network.AWS.Chime.UntagResource
+    Network.AWS.Chime.UpdateAccount
+    Network.AWS.Chime.UpdateAccountSettings
+    Network.AWS.Chime.UpdateAppInstance
+    Network.AWS.Chime.UpdateAppInstanceUser
+    Network.AWS.Chime.UpdateBot
+    Network.AWS.Chime.UpdateChannel
+    Network.AWS.Chime.UpdateChannelMessage
+    Network.AWS.Chime.UpdateChannelReadMarker
+    Network.AWS.Chime.UpdateGlobalSettings
+    Network.AWS.Chime.UpdatePhoneNumber
+    Network.AWS.Chime.UpdatePhoneNumberSettings
+    Network.AWS.Chime.UpdateProxySession
+    Network.AWS.Chime.UpdateRoom
+    Network.AWS.Chime.UpdateRoomMembership
+    Network.AWS.Chime.UpdateSipMediaApplication
+    Network.AWS.Chime.UpdateSipMediaApplicationCall
+    Network.AWS.Chime.UpdateSipRule
+    Network.AWS.Chime.UpdateUser
+    Network.AWS.Chime.UpdateUserSettings
+    Network.AWS.Chime.UpdateVoiceConnector
+    Network.AWS.Chime.UpdateVoiceConnectorGroup
+    Network.AWS.Chime.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-chime-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Chime
+    Test.AWS.Chime.Internal
+    Test.AWS.Gen.Chime
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-chime
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

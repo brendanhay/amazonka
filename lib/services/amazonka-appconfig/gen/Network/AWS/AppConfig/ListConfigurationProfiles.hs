@@ -1,0 +1,206 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.AppConfig.ListConfigurationProfiles
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists the configuration profiles for an application.
+module Network.AWS.AppConfig.ListConfigurationProfiles
+  ( -- * Creating a Request
+    ListConfigurationProfiles (..),
+    newListConfigurationProfiles,
+
+    -- * Request Lenses
+    listConfigurationProfiles_nextToken,
+    listConfigurationProfiles_maxResults,
+    listConfigurationProfiles_applicationId,
+
+    -- * Destructuring the Response
+    ListConfigurationProfilesResponse (..),
+    newListConfigurationProfilesResponse,
+
+    -- * Response Lenses
+    listConfigurationProfilesResponse_items,
+    listConfigurationProfilesResponse_nextToken,
+    listConfigurationProfilesResponse_httpStatus,
+  )
+where
+
+import Network.AWS.AppConfig.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newListConfigurationProfiles' smart constructor.
+data ListConfigurationProfiles = ListConfigurationProfiles'
+  { -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The application ID.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListConfigurationProfiles' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listConfigurationProfiles_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
+--
+-- 'maxResults', 'listConfigurationProfiles_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
+-- 'applicationId', 'listConfigurationProfiles_applicationId' - The application ID.
+newListConfigurationProfiles ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  ListConfigurationProfiles
+newListConfigurationProfiles pApplicationId_ =
+  ListConfigurationProfiles'
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      applicationId = pApplicationId_
+    }
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+listConfigurationProfiles_nextToken :: Lens.Lens' ListConfigurationProfiles (Prelude.Maybe Prelude.Text)
+listConfigurationProfiles_nextToken = Lens.lens (\ListConfigurationProfiles' {nextToken} -> nextToken) (\s@ListConfigurationProfiles' {} a -> s {nextToken = a} :: ListConfigurationProfiles)
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+listConfigurationProfiles_maxResults :: Lens.Lens' ListConfigurationProfiles (Prelude.Maybe Prelude.Natural)
+listConfigurationProfiles_maxResults = Lens.lens (\ListConfigurationProfiles' {maxResults} -> maxResults) (\s@ListConfigurationProfiles' {} a -> s {maxResults = a} :: ListConfigurationProfiles)
+
+-- | The application ID.
+listConfigurationProfiles_applicationId :: Lens.Lens' ListConfigurationProfiles Prelude.Text
+listConfigurationProfiles_applicationId = Lens.lens (\ListConfigurationProfiles' {applicationId} -> applicationId) (\s@ListConfigurationProfiles' {} a -> s {applicationId = a} :: ListConfigurationProfiles)
+
+instance Core.AWSRequest ListConfigurationProfiles where
+  type
+    AWSResponse ListConfigurationProfiles =
+      ListConfigurationProfilesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListConfigurationProfilesResponse'
+            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListConfigurationProfiles
+
+instance Prelude.NFData ListConfigurationProfiles
+
+instance Core.ToHeaders ListConfigurationProfiles where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath ListConfigurationProfiles where
+  toPath ListConfigurationProfiles' {..} =
+    Prelude.mconcat
+      [ "/applications/",
+        Core.toBS applicationId,
+        "/configurationprofiles"
+      ]
+
+instance Core.ToQuery ListConfigurationProfiles where
+  toQuery ListConfigurationProfiles' {..} =
+    Prelude.mconcat
+      [ "next_token" Core.=: nextToken,
+        "max_results" Core.=: maxResults
+      ]
+
+-- | /See:/ 'newListConfigurationProfilesResponse' smart constructor.
+data ListConfigurationProfilesResponse = ListConfigurationProfilesResponse'
+  { -- | The elements from this collection.
+    items :: Prelude.Maybe [ConfigurationProfileSummary],
+    -- | The token for the next set of items to return. Use this token to get the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListConfigurationProfilesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'items', 'listConfigurationProfilesResponse_items' - The elements from this collection.
+--
+-- 'nextToken', 'listConfigurationProfilesResponse_nextToken' - The token for the next set of items to return. Use this token to get the
+-- next set of results.
+--
+-- 'httpStatus', 'listConfigurationProfilesResponse_httpStatus' - The response's http status code.
+newListConfigurationProfilesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListConfigurationProfilesResponse
+newListConfigurationProfilesResponse pHttpStatus_ =
+  ListConfigurationProfilesResponse'
+    { items =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The elements from this collection.
+listConfigurationProfilesResponse_items :: Lens.Lens' ListConfigurationProfilesResponse (Prelude.Maybe [ConfigurationProfileSummary])
+listConfigurationProfilesResponse_items = Lens.lens (\ListConfigurationProfilesResponse' {items} -> items) (\s@ListConfigurationProfilesResponse' {} a -> s {items = a} :: ListConfigurationProfilesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. Use this token to get the
+-- next set of results.
+listConfigurationProfilesResponse_nextToken :: Lens.Lens' ListConfigurationProfilesResponse (Prelude.Maybe Prelude.Text)
+listConfigurationProfilesResponse_nextToken = Lens.lens (\ListConfigurationProfilesResponse' {nextToken} -> nextToken) (\s@ListConfigurationProfilesResponse' {} a -> s {nextToken = a} :: ListConfigurationProfilesResponse)
+
+-- | The response's http status code.
+listConfigurationProfilesResponse_httpStatus :: Lens.Lens' ListConfigurationProfilesResponse Prelude.Int
+listConfigurationProfilesResponse_httpStatus = Lens.lens (\ListConfigurationProfilesResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationProfilesResponse' {} a -> s {httpStatus = a} :: ListConfigurationProfilesResponse)
+
+instance
+  Prelude.NFData
+    ListConfigurationProfilesResponse

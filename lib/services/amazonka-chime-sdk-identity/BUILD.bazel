@@ -1,0 +1,83 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-chime-sdk-identity/amazonka-chime-sdk-identity.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-chime-sdk-identity",
+    srcs = [
+        "gen/Network/AWS/ChimeSDKIdentity.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/CreateAppInstance.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/CreateAppInstanceAdmin.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/CreateAppInstanceUser.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/DeleteAppInstance.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/DeleteAppInstanceAdmin.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/DeleteAppInstanceUser.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/DescribeAppInstance.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/DescribeAppInstanceAdmin.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/DescribeAppInstanceUser.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/GetAppInstanceRetentionSettings.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Lens.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/ListAppInstanceAdmins.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/ListAppInstanceUsers.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/ListAppInstances.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/PutAppInstanceRetentionSettings.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstance.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstanceAdmin.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstanceAdminSummary.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstanceRetentionSettings.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstanceSummary.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstanceUser.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/AppInstanceUserSummary.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/ChannelRetentionSettings.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/Identity.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Types/Tag.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/UpdateAppInstance.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/UpdateAppInstanceUser.hs",
+        "gen/Network/AWS/ChimeSDKIdentity/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_chime_sdk_identity=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-chime-sdk-identity/amazonka-chime-sdk-identity.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-chime-sdk-identity-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/ChimeSDKIdentity.hs",
+        "test/Test/AWS/ChimeSDKIdentity/Internal.hs",
+        "test/Test/AWS/Gen/ChimeSDKIdentity.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_chime_sdk_identity=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-chime-sdk-identity",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

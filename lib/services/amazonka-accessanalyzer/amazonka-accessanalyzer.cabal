@@ -1,0 +1,178 @@
+cabal-version:      2.2
+name:               amazonka-accessanalyzer
+version:            2.0
+synopsis:           Amazon Access Analyzer SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-11-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.AccessAnalyzer.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.AccessAnalyzer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-accessanalyzer
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.AccessAnalyzer
+    Network.AWS.AccessAnalyzer.ApplyArchiveRule
+    Network.AWS.AccessAnalyzer.CancelPolicyGeneration
+    Network.AWS.AccessAnalyzer.CreateAccessPreview
+    Network.AWS.AccessAnalyzer.CreateAnalyzer
+    Network.AWS.AccessAnalyzer.CreateArchiveRule
+    Network.AWS.AccessAnalyzer.DeleteAnalyzer
+    Network.AWS.AccessAnalyzer.DeleteArchiveRule
+    Network.AWS.AccessAnalyzer.GetAccessPreview
+    Network.AWS.AccessAnalyzer.GetAnalyzedResource
+    Network.AWS.AccessAnalyzer.GetAnalyzer
+    Network.AWS.AccessAnalyzer.GetArchiveRule
+    Network.AWS.AccessAnalyzer.GetFinding
+    Network.AWS.AccessAnalyzer.GetGeneratedPolicy
+    Network.AWS.AccessAnalyzer.Lens
+    Network.AWS.AccessAnalyzer.ListAccessPreviewFindings
+    Network.AWS.AccessAnalyzer.ListAccessPreviews
+    Network.AWS.AccessAnalyzer.ListAnalyzedResources
+    Network.AWS.AccessAnalyzer.ListAnalyzers
+    Network.AWS.AccessAnalyzer.ListArchiveRules
+    Network.AWS.AccessAnalyzer.ListFindings
+    Network.AWS.AccessAnalyzer.ListPolicyGenerations
+    Network.AWS.AccessAnalyzer.ListTagsForResource
+    Network.AWS.AccessAnalyzer.StartPolicyGeneration
+    Network.AWS.AccessAnalyzer.StartResourceScan
+    Network.AWS.AccessAnalyzer.TagResource
+    Network.AWS.AccessAnalyzer.Types
+    Network.AWS.AccessAnalyzer.Types.AccessPreview
+    Network.AWS.AccessAnalyzer.Types.AccessPreviewFinding
+    Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus
+    Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason
+    Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode
+    Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary
+    Network.AWS.AccessAnalyzer.Types.AclGrantee
+    Network.AWS.AccessAnalyzer.Types.AclPermission
+    Network.AWS.AccessAnalyzer.Types.AnalyzedResource
+    Network.AWS.AccessAnalyzer.Types.AnalyzedResourceSummary
+    Network.AWS.AccessAnalyzer.Types.AnalyzerStatus
+    Network.AWS.AccessAnalyzer.Types.AnalyzerSummary
+    Network.AWS.AccessAnalyzer.Types.ArchiveRuleSummary
+    Network.AWS.AccessAnalyzer.Types.CloudTrailDetails
+    Network.AWS.AccessAnalyzer.Types.CloudTrailProperties
+    Network.AWS.AccessAnalyzer.Types.Configuration
+    Network.AWS.AccessAnalyzer.Types.Criterion
+    Network.AWS.AccessAnalyzer.Types.Finding
+    Network.AWS.AccessAnalyzer.Types.FindingChangeType
+    Network.AWS.AccessAnalyzer.Types.FindingSource
+    Network.AWS.AccessAnalyzer.Types.FindingSourceDetail
+    Network.AWS.AccessAnalyzer.Types.FindingSourceType
+    Network.AWS.AccessAnalyzer.Types.FindingStatus
+    Network.AWS.AccessAnalyzer.Types.FindingStatusUpdate
+    Network.AWS.AccessAnalyzer.Types.FindingSummary
+    Network.AWS.AccessAnalyzer.Types.GeneratedPolicy
+    Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties
+    Network.AWS.AccessAnalyzer.Types.GeneratedPolicyResult
+    Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration
+    Network.AWS.AccessAnalyzer.Types.InlineArchiveRule
+    Network.AWS.AccessAnalyzer.Types.InternetConfiguration
+    Network.AWS.AccessAnalyzer.Types.JobDetails
+    Network.AWS.AccessAnalyzer.Types.JobError
+    Network.AWS.AccessAnalyzer.Types.JobErrorCode
+    Network.AWS.AccessAnalyzer.Types.JobStatus
+    Network.AWS.AccessAnalyzer.Types.KmsGrantConfiguration
+    Network.AWS.AccessAnalyzer.Types.KmsGrantConstraints
+    Network.AWS.AccessAnalyzer.Types.KmsGrantOperation
+    Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration
+    Network.AWS.AccessAnalyzer.Types.Locale
+    Network.AWS.AccessAnalyzer.Types.Location
+    Network.AWS.AccessAnalyzer.Types.NetworkOriginConfiguration
+    Network.AWS.AccessAnalyzer.Types.OrderBy
+    Network.AWS.AccessAnalyzer.Types.PathElement
+    Network.AWS.AccessAnalyzer.Types.PolicyGeneration
+    Network.AWS.AccessAnalyzer.Types.PolicyGenerationDetails
+    Network.AWS.AccessAnalyzer.Types.PolicyType
+    Network.AWS.AccessAnalyzer.Types.Position
+    Network.AWS.AccessAnalyzer.Types.ReasonCode
+    Network.AWS.AccessAnalyzer.Types.ResourceType
+    Network.AWS.AccessAnalyzer.Types.S3AccessPointConfiguration
+    Network.AWS.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
+    Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration
+    Network.AWS.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
+    Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
+    Network.AWS.AccessAnalyzer.Types.SortCriteria
+    Network.AWS.AccessAnalyzer.Types.Span
+    Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration
+    Network.AWS.AccessAnalyzer.Types.StatusReason
+    Network.AWS.AccessAnalyzer.Types.Substring
+    Network.AWS.AccessAnalyzer.Types.Trail
+    Network.AWS.AccessAnalyzer.Types.TrailProperties
+    Network.AWS.AccessAnalyzer.Types.Type
+    Network.AWS.AccessAnalyzer.Types.ValidatePolicyFinding
+    Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType
+    Network.AWS.AccessAnalyzer.Types.VpcConfiguration
+    Network.AWS.AccessAnalyzer.UntagResource
+    Network.AWS.AccessAnalyzer.UpdateArchiveRule
+    Network.AWS.AccessAnalyzer.UpdateFindings
+    Network.AWS.AccessAnalyzer.ValidatePolicy
+    Network.AWS.AccessAnalyzer.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-accessanalyzer-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.AccessAnalyzer
+    Test.AWS.AccessAnalyzer.Internal
+    Test.AWS.Gen.AccessAnalyzer
+
+  build-depends:
+    , amazonka                 ^>=2.0
+    , amazonka-accessanalyzer
+    , amazonka-test            ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

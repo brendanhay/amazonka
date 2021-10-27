@@ -1,0 +1,181 @@
+cabal-version:      2.2
+name:               amazonka-iotevents
+version:            2.0
+synopsis:           Amazon IoT Events SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-07-27@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTEvents.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.IoTEvents" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-iotevents
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.IoTEvents
+    Network.AWS.IoTEvents.CreateAlarmModel
+    Network.AWS.IoTEvents.CreateDetectorModel
+    Network.AWS.IoTEvents.CreateInput
+    Network.AWS.IoTEvents.DeleteAlarmModel
+    Network.AWS.IoTEvents.DeleteDetectorModel
+    Network.AWS.IoTEvents.DeleteInput
+    Network.AWS.IoTEvents.DescribeAlarmModel
+    Network.AWS.IoTEvents.DescribeDetectorModel
+    Network.AWS.IoTEvents.DescribeDetectorModelAnalysis
+    Network.AWS.IoTEvents.DescribeInput
+    Network.AWS.IoTEvents.DescribeLoggingOptions
+    Network.AWS.IoTEvents.GetDetectorModelAnalysisResults
+    Network.AWS.IoTEvents.Lens
+    Network.AWS.IoTEvents.ListAlarmModels
+    Network.AWS.IoTEvents.ListAlarmModelVersions
+    Network.AWS.IoTEvents.ListDetectorModels
+    Network.AWS.IoTEvents.ListDetectorModelVersions
+    Network.AWS.IoTEvents.ListInputRoutings
+    Network.AWS.IoTEvents.ListInputs
+    Network.AWS.IoTEvents.ListTagsForResource
+    Network.AWS.IoTEvents.PutLoggingOptions
+    Network.AWS.IoTEvents.StartDetectorModelAnalysis
+    Network.AWS.IoTEvents.TagResource
+    Network.AWS.IoTEvents.Types
+    Network.AWS.IoTEvents.Types.AcknowledgeFlow
+    Network.AWS.IoTEvents.Types.Action
+    Network.AWS.IoTEvents.Types.AlarmAction
+    Network.AWS.IoTEvents.Types.AlarmCapabilities
+    Network.AWS.IoTEvents.Types.AlarmEventActions
+    Network.AWS.IoTEvents.Types.AlarmModelSummary
+    Network.AWS.IoTEvents.Types.AlarmModelVersionStatus
+    Network.AWS.IoTEvents.Types.AlarmModelVersionSummary
+    Network.AWS.IoTEvents.Types.AlarmNotification
+    Network.AWS.IoTEvents.Types.AlarmRule
+    Network.AWS.IoTEvents.Types.AnalysisResult
+    Network.AWS.IoTEvents.Types.AnalysisResultLevel
+    Network.AWS.IoTEvents.Types.AnalysisResultLocation
+    Network.AWS.IoTEvents.Types.AnalysisStatus
+    Network.AWS.IoTEvents.Types.AssetPropertyTimestamp
+    Network.AWS.IoTEvents.Types.AssetPropertyValue
+    Network.AWS.IoTEvents.Types.AssetPropertyVariant
+    Network.AWS.IoTEvents.Types.Attribute
+    Network.AWS.IoTEvents.Types.ClearTimerAction
+    Network.AWS.IoTEvents.Types.ComparisonOperator
+    Network.AWS.IoTEvents.Types.DetectorDebugOption
+    Network.AWS.IoTEvents.Types.DetectorModel
+    Network.AWS.IoTEvents.Types.DetectorModelConfiguration
+    Network.AWS.IoTEvents.Types.DetectorModelDefinition
+    Network.AWS.IoTEvents.Types.DetectorModelSummary
+    Network.AWS.IoTEvents.Types.DetectorModelVersionStatus
+    Network.AWS.IoTEvents.Types.DetectorModelVersionSummary
+    Network.AWS.IoTEvents.Types.DynamoDBAction
+    Network.AWS.IoTEvents.Types.DynamoDBv2Action
+    Network.AWS.IoTEvents.Types.EmailConfiguration
+    Network.AWS.IoTEvents.Types.EmailContent
+    Network.AWS.IoTEvents.Types.EmailRecipients
+    Network.AWS.IoTEvents.Types.EvaluationMethod
+    Network.AWS.IoTEvents.Types.Event
+    Network.AWS.IoTEvents.Types.FirehoseAction
+    Network.AWS.IoTEvents.Types.InitializationConfiguration
+    Network.AWS.IoTEvents.Types.Input
+    Network.AWS.IoTEvents.Types.InputConfiguration
+    Network.AWS.IoTEvents.Types.InputDefinition
+    Network.AWS.IoTEvents.Types.InputIdentifier
+    Network.AWS.IoTEvents.Types.InputStatus
+    Network.AWS.IoTEvents.Types.InputSummary
+    Network.AWS.IoTEvents.Types.IotEventsAction
+    Network.AWS.IoTEvents.Types.IotEventsInputIdentifier
+    Network.AWS.IoTEvents.Types.IotSiteWiseAction
+    Network.AWS.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
+    Network.AWS.IoTEvents.Types.IotSiteWiseInputIdentifier
+    Network.AWS.IoTEvents.Types.IotTopicPublishAction
+    Network.AWS.IoTEvents.Types.LambdaAction
+    Network.AWS.IoTEvents.Types.LoggingLevel
+    Network.AWS.IoTEvents.Types.LoggingOptions
+    Network.AWS.IoTEvents.Types.NotificationAction
+    Network.AWS.IoTEvents.Types.NotificationTargetActions
+    Network.AWS.IoTEvents.Types.OnEnterLifecycle
+    Network.AWS.IoTEvents.Types.OnExitLifecycle
+    Network.AWS.IoTEvents.Types.OnInputLifecycle
+    Network.AWS.IoTEvents.Types.Payload
+    Network.AWS.IoTEvents.Types.PayloadType
+    Network.AWS.IoTEvents.Types.RecipientDetail
+    Network.AWS.IoTEvents.Types.ResetTimerAction
+    Network.AWS.IoTEvents.Types.RoutedResource
+    Network.AWS.IoTEvents.Types.SetTimerAction
+    Network.AWS.IoTEvents.Types.SetVariableAction
+    Network.AWS.IoTEvents.Types.SimpleRule
+    Network.AWS.IoTEvents.Types.SMSConfiguration
+    Network.AWS.IoTEvents.Types.SNSTopicPublishAction
+    Network.AWS.IoTEvents.Types.SqsAction
+    Network.AWS.IoTEvents.Types.SSOIdentity
+    Network.AWS.IoTEvents.Types.State
+    Network.AWS.IoTEvents.Types.Tag
+    Network.AWS.IoTEvents.Types.TransitionEvent
+    Network.AWS.IoTEvents.UntagResource
+    Network.AWS.IoTEvents.UpdateAlarmModel
+    Network.AWS.IoTEvents.UpdateDetectorModel
+    Network.AWS.IoTEvents.UpdateInput
+    Network.AWS.IoTEvents.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-iotevents-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.IoTEvents
+    Test.AWS.IoTEvents
+    Test.AWS.IoTEvents.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-iotevents
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

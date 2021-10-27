@@ -1,0 +1,187 @@
+cabal-version:      2.2
+name:               amazonka-license-manager
+version:            2.0
+synopsis:           Amazon License Manager SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-08-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.LicenseManager.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.LicenseManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-license-manager
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.LicenseManager
+    Network.AWS.LicenseManager.AcceptGrant
+    Network.AWS.LicenseManager.CheckInLicense
+    Network.AWS.LicenseManager.CheckoutBorrowLicense
+    Network.AWS.LicenseManager.CheckoutLicense
+    Network.AWS.LicenseManager.CreateGrant
+    Network.AWS.LicenseManager.CreateGrantVersion
+    Network.AWS.LicenseManager.CreateLicense
+    Network.AWS.LicenseManager.CreateLicenseConfiguration
+    Network.AWS.LicenseManager.CreateLicenseConversionTaskForResource
+    Network.AWS.LicenseManager.CreateLicenseManagerReportGenerator
+    Network.AWS.LicenseManager.CreateLicenseVersion
+    Network.AWS.LicenseManager.CreateToken
+    Network.AWS.LicenseManager.DeleteGrant
+    Network.AWS.LicenseManager.DeleteLicense
+    Network.AWS.LicenseManager.DeleteLicenseConfiguration
+    Network.AWS.LicenseManager.DeleteLicenseManagerReportGenerator
+    Network.AWS.LicenseManager.DeleteToken
+    Network.AWS.LicenseManager.ExtendLicenseConsumption
+    Network.AWS.LicenseManager.GetAccessToken
+    Network.AWS.LicenseManager.GetGrant
+    Network.AWS.LicenseManager.GetLicense
+    Network.AWS.LicenseManager.GetLicenseConfiguration
+    Network.AWS.LicenseManager.GetLicenseConversionTask
+    Network.AWS.LicenseManager.GetLicenseManagerReportGenerator
+    Network.AWS.LicenseManager.GetLicenseUsage
+    Network.AWS.LicenseManager.GetServiceSettings
+    Network.AWS.LicenseManager.Lens
+    Network.AWS.LicenseManager.ListAssociationsForLicenseConfiguration
+    Network.AWS.LicenseManager.ListDistributedGrants
+    Network.AWS.LicenseManager.ListFailuresForLicenseConfigurationOperations
+    Network.AWS.LicenseManager.ListLicenseConfigurations
+    Network.AWS.LicenseManager.ListLicenseConversionTasks
+    Network.AWS.LicenseManager.ListLicenseManagerReportGenerators
+    Network.AWS.LicenseManager.ListLicenses
+    Network.AWS.LicenseManager.ListLicenseSpecificationsForResource
+    Network.AWS.LicenseManager.ListLicenseVersions
+    Network.AWS.LicenseManager.ListReceivedGrants
+    Network.AWS.LicenseManager.ListReceivedLicenses
+    Network.AWS.LicenseManager.ListResourceInventory
+    Network.AWS.LicenseManager.ListTagsForResource
+    Network.AWS.LicenseManager.ListTokens
+    Network.AWS.LicenseManager.ListUsageForLicenseConfiguration
+    Network.AWS.LicenseManager.RejectGrant
+    Network.AWS.LicenseManager.TagResource
+    Network.AWS.LicenseManager.Types
+    Network.AWS.LicenseManager.Types.AllowedOperation
+    Network.AWS.LicenseManager.Types.AutomatedDiscoveryInformation
+    Network.AWS.LicenseManager.Types.BorrowConfiguration
+    Network.AWS.LicenseManager.Types.CheckoutType
+    Network.AWS.LicenseManager.Types.ConsumedLicenseSummary
+    Network.AWS.LicenseManager.Types.ConsumptionConfiguration
+    Network.AWS.LicenseManager.Types.DatetimeRange
+    Network.AWS.LicenseManager.Types.DigitalSignatureMethod
+    Network.AWS.LicenseManager.Types.Entitlement
+    Network.AWS.LicenseManager.Types.EntitlementData
+    Network.AWS.LicenseManager.Types.EntitlementDataUnit
+    Network.AWS.LicenseManager.Types.EntitlementUnit
+    Network.AWS.LicenseManager.Types.EntitlementUsage
+    Network.AWS.LicenseManager.Types.Filter
+    Network.AWS.LicenseManager.Types.Grant
+    Network.AWS.LicenseManager.Types.GrantedLicense
+    Network.AWS.LicenseManager.Types.GrantStatus
+    Network.AWS.LicenseManager.Types.InventoryFilter
+    Network.AWS.LicenseManager.Types.InventoryFilterCondition
+    Network.AWS.LicenseManager.Types.Issuer
+    Network.AWS.LicenseManager.Types.IssuerDetails
+    Network.AWS.LicenseManager.Types.License
+    Network.AWS.LicenseManager.Types.LicenseConfiguration
+    Network.AWS.LicenseManager.Types.LicenseConfigurationAssociation
+    Network.AWS.LicenseManager.Types.LicenseConfigurationStatus
+    Network.AWS.LicenseManager.Types.LicenseConfigurationUsage
+    Network.AWS.LicenseManager.Types.LicenseConversionContext
+    Network.AWS.LicenseManager.Types.LicenseConversionTask
+    Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus
+    Network.AWS.LicenseManager.Types.LicenseCountingType
+    Network.AWS.LicenseManager.Types.LicenseDeletionStatus
+    Network.AWS.LicenseManager.Types.LicenseOperationFailure
+    Network.AWS.LicenseManager.Types.LicenseSpecification
+    Network.AWS.LicenseManager.Types.LicenseStatus
+    Network.AWS.LicenseManager.Types.LicenseUsage
+    Network.AWS.LicenseManager.Types.ManagedResourceSummary
+    Network.AWS.LicenseManager.Types.Metadata
+    Network.AWS.LicenseManager.Types.OrganizationConfiguration
+    Network.AWS.LicenseManager.Types.ProductInformation
+    Network.AWS.LicenseManager.Types.ProductInformationFilter
+    Network.AWS.LicenseManager.Types.ProvisionalConfiguration
+    Network.AWS.LicenseManager.Types.ReceivedMetadata
+    Network.AWS.LicenseManager.Types.ReceivedStatus
+    Network.AWS.LicenseManager.Types.RenewType
+    Network.AWS.LicenseManager.Types.ReportContext
+    Network.AWS.LicenseManager.Types.ReportFrequency
+    Network.AWS.LicenseManager.Types.ReportFrequencyType
+    Network.AWS.LicenseManager.Types.ReportGenerator
+    Network.AWS.LicenseManager.Types.ReportType
+    Network.AWS.LicenseManager.Types.ResourceInventory
+    Network.AWS.LicenseManager.Types.ResourceType
+    Network.AWS.LicenseManager.Types.S3Location
+    Network.AWS.LicenseManager.Types.Tag
+    Network.AWS.LicenseManager.Types.TokenData
+    Network.AWS.LicenseManager.Types.TokenType
+    Network.AWS.LicenseManager.UntagResource
+    Network.AWS.LicenseManager.UpdateLicenseConfiguration
+    Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator
+    Network.AWS.LicenseManager.UpdateLicenseSpecificationsForResource
+    Network.AWS.LicenseManager.UpdateServiceSettings
+    Network.AWS.LicenseManager.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-license-manager-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.LicenseManager
+    Test.AWS.LicenseManager
+    Test.AWS.LicenseManager.Internal
+
+  build-depends:
+    , amazonka                  ^>=2.0
+    , amazonka-license-manager
+    , amazonka-test             ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

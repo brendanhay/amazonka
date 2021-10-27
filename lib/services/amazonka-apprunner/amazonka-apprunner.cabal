@@ -1,0 +1,140 @@
+cabal-version:      2.2
+name:               amazonka-apprunner
+version:            2.0
+synopsis:           Amazon App Runner SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-05-15@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.AppRunner.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.AppRunner" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-apprunner
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.AppRunner
+    Network.AWS.AppRunner.AssociateCustomDomain
+    Network.AWS.AppRunner.CreateAutoScalingConfiguration
+    Network.AWS.AppRunner.CreateConnection
+    Network.AWS.AppRunner.CreateService
+    Network.AWS.AppRunner.DeleteAutoScalingConfiguration
+    Network.AWS.AppRunner.DeleteConnection
+    Network.AWS.AppRunner.DeleteService
+    Network.AWS.AppRunner.DescribeAutoScalingConfiguration
+    Network.AWS.AppRunner.DescribeCustomDomains
+    Network.AWS.AppRunner.DescribeService
+    Network.AWS.AppRunner.DisassociateCustomDomain
+    Network.AWS.AppRunner.Lens
+    Network.AWS.AppRunner.ListAutoScalingConfigurations
+    Network.AWS.AppRunner.ListConnections
+    Network.AWS.AppRunner.ListOperations
+    Network.AWS.AppRunner.ListServices
+    Network.AWS.AppRunner.ListTagsForResource
+    Network.AWS.AppRunner.PauseService
+    Network.AWS.AppRunner.ResumeService
+    Network.AWS.AppRunner.StartDeployment
+    Network.AWS.AppRunner.TagResource
+    Network.AWS.AppRunner.Types
+    Network.AWS.AppRunner.Types.AuthenticationConfiguration
+    Network.AWS.AppRunner.Types.AutoScalingConfiguration
+    Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus
+    Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary
+    Network.AWS.AppRunner.Types.CertificateValidationRecord
+    Network.AWS.AppRunner.Types.CertificateValidationRecordStatus
+    Network.AWS.AppRunner.Types.CodeConfiguration
+    Network.AWS.AppRunner.Types.CodeConfigurationValues
+    Network.AWS.AppRunner.Types.CodeRepository
+    Network.AWS.AppRunner.Types.ConfigurationSource
+    Network.AWS.AppRunner.Types.Connection
+    Network.AWS.AppRunner.Types.ConnectionStatus
+    Network.AWS.AppRunner.Types.ConnectionSummary
+    Network.AWS.AppRunner.Types.CustomDomain
+    Network.AWS.AppRunner.Types.CustomDomainAssociationStatus
+    Network.AWS.AppRunner.Types.EncryptionConfiguration
+    Network.AWS.AppRunner.Types.HealthCheckConfiguration
+    Network.AWS.AppRunner.Types.HealthCheckProtocol
+    Network.AWS.AppRunner.Types.ImageConfiguration
+    Network.AWS.AppRunner.Types.ImageRepository
+    Network.AWS.AppRunner.Types.ImageRepositoryType
+    Network.AWS.AppRunner.Types.InstanceConfiguration
+    Network.AWS.AppRunner.Types.OperationStatus
+    Network.AWS.AppRunner.Types.OperationSummary
+    Network.AWS.AppRunner.Types.OperationType
+    Network.AWS.AppRunner.Types.ProviderType
+    Network.AWS.AppRunner.Types.Runtime
+    Network.AWS.AppRunner.Types.Service
+    Network.AWS.AppRunner.Types.ServiceStatus
+    Network.AWS.AppRunner.Types.ServiceSummary
+    Network.AWS.AppRunner.Types.SourceCodeVersion
+    Network.AWS.AppRunner.Types.SourceCodeVersionType
+    Network.AWS.AppRunner.Types.SourceConfiguration
+    Network.AWS.AppRunner.Types.Tag
+    Network.AWS.AppRunner.UntagResource
+    Network.AWS.AppRunner.UpdateService
+    Network.AWS.AppRunner.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-apprunner-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.AppRunner
+    Test.AWS.AppRunner.Internal
+    Test.AWS.Gen.AppRunner
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-apprunner
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

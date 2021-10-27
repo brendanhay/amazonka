@@ -1,0 +1,65 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-sagemaker-featurestore-runtime/amazonka-sagemaker-featurestore-runtime.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-sagemaker-featurestore-runtime",
+    srcs = [
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/BatchGetRecord.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/DeleteRecord.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/GetRecord.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Lens.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/PutRecord.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Types.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Types/BatchGetRecordError.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Types/BatchGetRecordIdentifier.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Types/BatchGetRecordResultDetail.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Types/FeatureValue.hs",
+        "gen/Network/AWS/SageMakerFeatureStoreRuntime/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sagemaker_featurestore_runtime=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-sagemaker-featurestore-runtime/amazonka-sagemaker-featurestore-runtime.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sagemaker-featurestore-runtime-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SageMakerFeatureStoreRuntime.hs",
+        "test/Test/AWS/SageMakerFeatureStoreRuntime.hs",
+        "test/Test/AWS/SageMakerFeatureStoreRuntime/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sagemaker_featurestore_runtime=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sagemaker-featurestore-runtime",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

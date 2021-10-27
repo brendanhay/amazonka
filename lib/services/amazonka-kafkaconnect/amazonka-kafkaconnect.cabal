@@ -1,0 +1,152 @@
+cabal-version:      2.2
+name:               amazonka-kafkaconnect
+version:            2.0
+synopsis:           Amazon Managed Streaming for Kafka Connect SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-09-14@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.KafkaConnect.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.KafkaConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-kafkaconnect
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.KafkaConnect
+    Network.AWS.KafkaConnect.CreateConnector
+    Network.AWS.KafkaConnect.CreateCustomPlugin
+    Network.AWS.KafkaConnect.CreateWorkerConfiguration
+    Network.AWS.KafkaConnect.DeleteConnector
+    Network.AWS.KafkaConnect.DescribeConnector
+    Network.AWS.KafkaConnect.DescribeCustomPlugin
+    Network.AWS.KafkaConnect.DescribeWorkerConfiguration
+    Network.AWS.KafkaConnect.Lens
+    Network.AWS.KafkaConnect.ListConnectors
+    Network.AWS.KafkaConnect.ListCustomPlugins
+    Network.AWS.KafkaConnect.ListWorkerConfigurations
+    Network.AWS.KafkaConnect.Types
+    Network.AWS.KafkaConnect.Types.ApacheKafkaCluster
+    Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription
+    Network.AWS.KafkaConnect.Types.AutoScaling
+    Network.AWS.KafkaConnect.Types.AutoScalingDescription
+    Network.AWS.KafkaConnect.Types.AutoScalingUpdate
+    Network.AWS.KafkaConnect.Types.Capacity
+    Network.AWS.KafkaConnect.Types.CapacityDescription
+    Network.AWS.KafkaConnect.Types.CapacityUpdate
+    Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery
+    Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
+    Network.AWS.KafkaConnect.Types.ConnectorState
+    Network.AWS.KafkaConnect.Types.ConnectorSummary
+    Network.AWS.KafkaConnect.Types.CustomPlugin
+    Network.AWS.KafkaConnect.Types.CustomPluginContentType
+    Network.AWS.KafkaConnect.Types.CustomPluginDescription
+    Network.AWS.KafkaConnect.Types.CustomPluginFileDescription
+    Network.AWS.KafkaConnect.Types.CustomPluginLocation
+    Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription
+    Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary
+    Network.AWS.KafkaConnect.Types.CustomPluginState
+    Network.AWS.KafkaConnect.Types.CustomPluginSummary
+    Network.AWS.KafkaConnect.Types.FirehoseLogDelivery
+    Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription
+    Network.AWS.KafkaConnect.Types.KafkaCluster
+    Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication
+    Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
+    Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType
+    Network.AWS.KafkaConnect.Types.KafkaClusterDescription
+    Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit
+    Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
+    Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
+    Network.AWS.KafkaConnect.Types.LogDelivery
+    Network.AWS.KafkaConnect.Types.LogDeliveryDescription
+    Network.AWS.KafkaConnect.Types.Plugin
+    Network.AWS.KafkaConnect.Types.PluginDescription
+    Network.AWS.KafkaConnect.Types.ProvisionedCapacity
+    Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription
+    Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate
+    Network.AWS.KafkaConnect.Types.S3Location
+    Network.AWS.KafkaConnect.Types.S3LocationDescription
+    Network.AWS.KafkaConnect.Types.S3LogDelivery
+    Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription
+    Network.AWS.KafkaConnect.Types.ScaleInPolicy
+    Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription
+    Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate
+    Network.AWS.KafkaConnect.Types.ScaleOutPolicy
+    Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription
+    Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate
+    Network.AWS.KafkaConnect.Types.Vpc
+    Network.AWS.KafkaConnect.Types.VpcDescription
+    Network.AWS.KafkaConnect.Types.WorkerConfiguration
+    Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription
+    Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription
+    Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary
+    Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary
+    Network.AWS.KafkaConnect.Types.WorkerLogDelivery
+    Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription
+    Network.AWS.KafkaConnect.UpdateConnector
+    Network.AWS.KafkaConnect.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-kafkaconnect-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.KafkaConnect
+    Test.AWS.KafkaConnect
+    Test.AWS.KafkaConnect.Internal
+
+  build-depends:
+    , amazonka               ^>=2.0
+    , amazonka-kafkaconnect
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

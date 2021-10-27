@@ -1,0 +1,75 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-iot1click-devices/amazonka-iot1click-devices.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-iot1click-devices",
+    srcs = [
+        "gen/Network/AWS/IoT1ClickDevices.hs",
+        "gen/Network/AWS/IoT1ClickDevices/ClaimDevicesByClaimCode.hs",
+        "gen/Network/AWS/IoT1ClickDevices/DescribeDevice.hs",
+        "gen/Network/AWS/IoT1ClickDevices/FinalizeDeviceClaim.hs",
+        "gen/Network/AWS/IoT1ClickDevices/GetDeviceMethods.hs",
+        "gen/Network/AWS/IoT1ClickDevices/InitiateDeviceClaim.hs",
+        "gen/Network/AWS/IoT1ClickDevices/InvokeDeviceMethod.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Lens.hs",
+        "gen/Network/AWS/IoT1ClickDevices/ListDeviceEvents.hs",
+        "gen/Network/AWS/IoT1ClickDevices/ListDevices.hs",
+        "gen/Network/AWS/IoT1ClickDevices/ListTagsForResource.hs",
+        "gen/Network/AWS/IoT1ClickDevices/TagResource.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Types.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Types/Attributes.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Types/Device.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Types/DeviceDescription.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Types/DeviceEvent.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Types/DeviceMethod.hs",
+        "gen/Network/AWS/IoT1ClickDevices/UnclaimDevice.hs",
+        "gen/Network/AWS/IoT1ClickDevices/UntagResource.hs",
+        "gen/Network/AWS/IoT1ClickDevices/UpdateDeviceState.hs",
+        "gen/Network/AWS/IoT1ClickDevices/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iot1click_devices=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-iot1click-devices/amazonka-iot1click-devices.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-iot1click-devices-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/IoT1ClickDevices.hs",
+        "test/Test/AWS/IoT1ClickDevices.hs",
+        "test/Test/AWS/IoT1ClickDevices/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iot1click_devices=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-iot1click-devices",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

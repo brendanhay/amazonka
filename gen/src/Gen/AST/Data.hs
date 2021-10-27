@@ -16,7 +16,6 @@ module Gen.AST.Data
   )
 where
 
-import Debug.Trace
 import Control.Comonad.Cofree
 import Control.Error
 import Control.Lens hiding (List, enum, mapping, (:<), (??))
@@ -34,6 +33,7 @@ import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
+import Debug.Trace
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
@@ -244,7 +244,8 @@ prodData m s st = (,fields) <$> mk
     mkLens f =
       if _fieldId f == mkId "AttributeFilter" then trace (show f) g else g
       where
-        g = Fun' (fieldLens f) (fieldHelp f)
+        g =
+          Fun' (fieldLens f) (fieldHelp f)
             <$> pp None (lensS m (s ^. annType) f)
             <*> pp None (lensD n f)
             <*> pure (LText.fromStrict (fieldAccessor f))

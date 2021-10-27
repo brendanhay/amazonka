@@ -10,6 +10,7 @@ module Network.AWS.Data.Sensitive where
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.JSON
+import Network.AWS.Data.Body
 import Network.AWS.Data.Log
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
@@ -33,6 +34,7 @@ newtype Sensitive a = Sensitive {fromSensitive :: a}
       ToJSON,
       FromJSON,
       ToHeader,
+      ToBody,
       Hashable,
       NFData
     )

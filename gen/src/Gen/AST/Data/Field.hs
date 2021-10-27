@@ -188,17 +188,15 @@ fieldBody x =
 
 -- | Is this primitive field set as the payload in the parent shape?
 fieldLitPayload :: Field -> Bool
-fieldLitPayload x =
-  _fieldPayload x && (fieldLit x || bytes)
-  where
-    bytes =
-      case typeOf x of
-        TType "ByteString" _ -> True
-        _ -> False
+fieldLitPayload x = _fieldPayload x && (fieldLit x || fieldBytes x)
+
+-- This is hilariously brittle.
+fieldBytes :: Field -> Bool
+fieldBytes = typeMember (Right Bytes) . typeOf
 
 fieldMaybe :: Field -> Bool
-fieldMaybe f =
-  case typeOf f of
+fieldMaybe x =
+  case typeOf x of
     TMaybe {} -> True
     _ -> False
 

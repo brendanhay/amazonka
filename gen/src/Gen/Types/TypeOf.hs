@@ -17,6 +17,7 @@ module Gen.Types.TypeOf
     isHashable,
     isNFData,
     typeDefault,
+    typeMember,
   )
 where
 
@@ -24,6 +25,7 @@ import Control.Comonad.Cofree
 import Control.Lens hiding (List, enum, mapping, (:<), (??))
 import Data.Foldable (foldr')
 import Data.List (delete, intersect, nub, sort)
+import Data.Text (Text)
 import Gen.Types.Ann
 import Gen.Types.Id
 import Gen.Types.Service
@@ -132,6 +134,19 @@ typeDefault = \case
   TList {} -> True
   TMap {} -> True
   _ -> False
+
+-- FIXME: This would be much more sane with a proper fixpoint datatype.
+typeMember :: Either Text Lit -> TType -> Bool
+typeMember x = \case
+  TType t _ -> x == Left t
+  TLit l -> x == Right l
+  TStream -> False
+  TNatural -> False
+  TMaybe e -> typeMember x e
+  TSensitive e -> typeMember x e
+  TList e -> typeMember x e
+  TList1 e -> typeMember x e
+  TMap k v -> typeMember x k || typeMember x v
 
 natural :: HasInfo a => a -> TType -> TType
 natural x

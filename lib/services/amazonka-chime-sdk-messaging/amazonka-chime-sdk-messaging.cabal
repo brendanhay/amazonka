@@ -1,0 +1,163 @@
+cabal-version:      2.2
+name:               amazonka-chime-sdk-messaging
+version:            2.0
+synopsis:           Amazon Chime SDK Messaging SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-05-15@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ChimeSDKMessaging.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ChimeSDKMessaging" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-chime-sdk-messaging
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.ChimeSDKMessaging
+    Network.AWS.ChimeSDKMessaging.AssociateChannelFlow
+    Network.AWS.ChimeSDKMessaging.BatchCreateChannelMembership
+    Network.AWS.ChimeSDKMessaging.ChannelFlowCallback
+    Network.AWS.ChimeSDKMessaging.CreateChannel
+    Network.AWS.ChimeSDKMessaging.CreateChannelBan
+    Network.AWS.ChimeSDKMessaging.CreateChannelFlow
+    Network.AWS.ChimeSDKMessaging.CreateChannelMembership
+    Network.AWS.ChimeSDKMessaging.CreateChannelModerator
+    Network.AWS.ChimeSDKMessaging.DeleteChannel
+    Network.AWS.ChimeSDKMessaging.DeleteChannelBan
+    Network.AWS.ChimeSDKMessaging.DeleteChannelFlow
+    Network.AWS.ChimeSDKMessaging.DeleteChannelMembership
+    Network.AWS.ChimeSDKMessaging.DeleteChannelMessage
+    Network.AWS.ChimeSDKMessaging.DeleteChannelModerator
+    Network.AWS.ChimeSDKMessaging.DescribeChannel
+    Network.AWS.ChimeSDKMessaging.DescribeChannelBan
+    Network.AWS.ChimeSDKMessaging.DescribeChannelFlow
+    Network.AWS.ChimeSDKMessaging.DescribeChannelMembership
+    Network.AWS.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
+    Network.AWS.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
+    Network.AWS.ChimeSDKMessaging.DescribeChannelModerator
+    Network.AWS.ChimeSDKMessaging.DisassociateChannelFlow
+    Network.AWS.ChimeSDKMessaging.GetChannelMessage
+    Network.AWS.ChimeSDKMessaging.GetChannelMessageStatus
+    Network.AWS.ChimeSDKMessaging.GetMessagingSessionEndpoint
+    Network.AWS.ChimeSDKMessaging.Lens
+    Network.AWS.ChimeSDKMessaging.ListChannelBans
+    Network.AWS.ChimeSDKMessaging.ListChannelFlows
+    Network.AWS.ChimeSDKMessaging.ListChannelMemberships
+    Network.AWS.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
+    Network.AWS.ChimeSDKMessaging.ListChannelMessages
+    Network.AWS.ChimeSDKMessaging.ListChannelModerators
+    Network.AWS.ChimeSDKMessaging.ListChannels
+    Network.AWS.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
+    Network.AWS.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
+    Network.AWS.ChimeSDKMessaging.ListTagsForResource
+    Network.AWS.ChimeSDKMessaging.RedactChannelMessage
+    Network.AWS.ChimeSDKMessaging.SendChannelMessage
+    Network.AWS.ChimeSDKMessaging.TagResource
+    Network.AWS.ChimeSDKMessaging.Types
+    Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
+    Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships
+    Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
+    Network.AWS.ChimeSDKMessaging.Types.Channel
+    Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelBan
+    Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelFlow
+    Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMembership
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipType
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessage
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessagePersistenceType
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatus
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageType
+    Network.AWS.ChimeSDKMessaging.Types.ChannelMode
+    Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelModerator
+    Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary
+    Network.AWS.ChimeSDKMessaging.Types.ChannelPrivacy
+    Network.AWS.ChimeSDKMessaging.Types.ChannelSummary
+    Network.AWS.ChimeSDKMessaging.Types.ErrorCode
+    Network.AWS.ChimeSDKMessaging.Types.FallbackAction
+    Network.AWS.ChimeSDKMessaging.Types.Identity
+    Network.AWS.ChimeSDKMessaging.Types.InvocationType
+    Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration
+    Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint
+    Network.AWS.ChimeSDKMessaging.Types.Processor
+    Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration
+    Network.AWS.ChimeSDKMessaging.Types.SortOrder
+    Network.AWS.ChimeSDKMessaging.Types.Tag
+    Network.AWS.ChimeSDKMessaging.UntagResource
+    Network.AWS.ChimeSDKMessaging.UpdateChannel
+    Network.AWS.ChimeSDKMessaging.UpdateChannelFlow
+    Network.AWS.ChimeSDKMessaging.UpdateChannelMessage
+    Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker
+    Network.AWS.ChimeSDKMessaging.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-chime-sdk-messaging-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.ChimeSDKMessaging
+    Test.AWS.ChimeSDKMessaging.Internal
+    Test.AWS.Gen.ChimeSDKMessaging
+
+  build-depends:
+    , amazonka                      ^>=2.0
+    , amazonka-chime-sdk-messaging
+    , amazonka-test                 ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

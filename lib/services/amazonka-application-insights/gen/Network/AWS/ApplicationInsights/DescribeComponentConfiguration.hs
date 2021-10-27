@@ -1,0 +1,225 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.ApplicationInsights.DescribeComponentConfiguration
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Describes the monitoring configuration of the component.
+module Network.AWS.ApplicationInsights.DescribeComponentConfiguration
+  ( -- * Creating a Request
+    DescribeComponentConfiguration (..),
+    newDescribeComponentConfiguration,
+
+    -- * Request Lenses
+    describeComponentConfiguration_resourceGroupName,
+    describeComponentConfiguration_componentName,
+
+    -- * Destructuring the Response
+    DescribeComponentConfigurationResponse (..),
+    newDescribeComponentConfigurationResponse,
+
+    -- * Response Lenses
+    describeComponentConfigurationResponse_componentConfiguration,
+    describeComponentConfigurationResponse_monitor,
+    describeComponentConfigurationResponse_tier,
+    describeComponentConfigurationResponse_httpStatus,
+  )
+where
+
+import Network.AWS.ApplicationInsights.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDescribeComponentConfiguration' smart constructor.
+data DescribeComponentConfiguration = DescribeComponentConfiguration'
+  { -- | The name of the resource group.
+    resourceGroupName :: Prelude.Text,
+    -- | The name of the component.
+    componentName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeComponentConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'resourceGroupName', 'describeComponentConfiguration_resourceGroupName' - The name of the resource group.
+--
+-- 'componentName', 'describeComponentConfiguration_componentName' - The name of the component.
+newDescribeComponentConfiguration ::
+  -- | 'resourceGroupName'
+  Prelude.Text ->
+  -- | 'componentName'
+  Prelude.Text ->
+  DescribeComponentConfiguration
+newDescribeComponentConfiguration
+  pResourceGroupName_
+  pComponentName_ =
+    DescribeComponentConfiguration'
+      { resourceGroupName =
+          pResourceGroupName_,
+        componentName = pComponentName_
+      }
+
+-- | The name of the resource group.
+describeComponentConfiguration_resourceGroupName :: Lens.Lens' DescribeComponentConfiguration Prelude.Text
+describeComponentConfiguration_resourceGroupName = Lens.lens (\DescribeComponentConfiguration' {resourceGroupName} -> resourceGroupName) (\s@DescribeComponentConfiguration' {} a -> s {resourceGroupName = a} :: DescribeComponentConfiguration)
+
+-- | The name of the component.
+describeComponentConfiguration_componentName :: Lens.Lens' DescribeComponentConfiguration Prelude.Text
+describeComponentConfiguration_componentName = Lens.lens (\DescribeComponentConfiguration' {componentName} -> componentName) (\s@DescribeComponentConfiguration' {} a -> s {componentName = a} :: DescribeComponentConfiguration)
+
+instance
+  Core.AWSRequest
+    DescribeComponentConfiguration
+  where
+  type
+    AWSResponse DescribeComponentConfiguration =
+      DescribeComponentConfigurationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeComponentConfigurationResponse'
+            Prelude.<$> (x Core..?> "ComponentConfiguration")
+            Prelude.<*> (x Core..?> "Monitor")
+            Prelude.<*> (x Core..?> "Tier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeComponentConfiguration
+
+instance
+  Prelude.NFData
+    DescribeComponentConfiguration
+
+instance
+  Core.ToHeaders
+    DescribeComponentConfiguration
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "EC2WindowsBarleyService.DescribeComponentConfiguration" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeComponentConfiguration where
+  toJSON DescribeComponentConfiguration' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ResourceGroupName" Core..= resourceGroupName),
+            Prelude.Just
+              ("ComponentName" Core..= componentName)
+          ]
+      )
+
+instance Core.ToPath DescribeComponentConfiguration where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeComponentConfiguration where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeComponentConfigurationResponse' smart constructor.
+data DescribeComponentConfigurationResponse = DescribeComponentConfigurationResponse'
+  { -- | The configuration settings of the component. The value is the escaped
+    -- JSON of the configuration.
+    componentConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the application component is monitored.
+    monitor :: Prelude.Maybe Prelude.Bool,
+    -- | The tier of the application component. Supported tiers include
+    -- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
+    -- @DEFAULT@
+    tier :: Prelude.Maybe Tier,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeComponentConfigurationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'componentConfiguration', 'describeComponentConfigurationResponse_componentConfiguration' - The configuration settings of the component. The value is the escaped
+-- JSON of the configuration.
+--
+-- 'monitor', 'describeComponentConfigurationResponse_monitor' - Indicates whether the application component is monitored.
+--
+-- 'tier', 'describeComponentConfigurationResponse_tier' - The tier of the application component. Supported tiers include
+-- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
+-- @DEFAULT@
+--
+-- 'httpStatus', 'describeComponentConfigurationResponse_httpStatus' - The response's http status code.
+newDescribeComponentConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeComponentConfigurationResponse
+newDescribeComponentConfigurationResponse
+  pHttpStatus_ =
+    DescribeComponentConfigurationResponse'
+      { componentConfiguration =
+          Prelude.Nothing,
+        monitor = Prelude.Nothing,
+        tier = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | The configuration settings of the component. The value is the escaped
+-- JSON of the configuration.
+describeComponentConfigurationResponse_componentConfiguration :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeComponentConfigurationResponse_componentConfiguration = Lens.lens (\DescribeComponentConfigurationResponse' {componentConfiguration} -> componentConfiguration) (\s@DescribeComponentConfigurationResponse' {} a -> s {componentConfiguration = a} :: DescribeComponentConfigurationResponse)
+
+-- | Indicates whether the application component is monitored.
+describeComponentConfigurationResponse_monitor :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Prelude.Bool)
+describeComponentConfigurationResponse_monitor = Lens.lens (\DescribeComponentConfigurationResponse' {monitor} -> monitor) (\s@DescribeComponentConfigurationResponse' {} a -> s {monitor = a} :: DescribeComponentConfigurationResponse)
+
+-- | The tier of the application component. Supported tiers include
+-- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
+-- @DEFAULT@
+describeComponentConfigurationResponse_tier :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Tier)
+describeComponentConfigurationResponse_tier = Lens.lens (\DescribeComponentConfigurationResponse' {tier} -> tier) (\s@DescribeComponentConfigurationResponse' {} a -> s {tier = a} :: DescribeComponentConfigurationResponse)
+
+-- | The response's http status code.
+describeComponentConfigurationResponse_httpStatus :: Lens.Lens' DescribeComponentConfigurationResponse Prelude.Int
+describeComponentConfigurationResponse_httpStatus = Lens.lens (\DescribeComponentConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeComponentConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeComponentConfigurationResponse)
+
+instance
+  Prelude.NFData
+    DescribeComponentConfigurationResponse

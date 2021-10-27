@@ -1,0 +1,200 @@
+cabal-version:      2.2
+name:               amazonka-iotwireless
+version:            2.0
+synopsis:           Amazon IoT Wireless SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-11-22@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTWireless.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.IoTWireless" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-iotwireless
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.IoTWireless
+    Network.AWS.IoTWireless.AssociateAwsAccountWithPartnerAccount
+    Network.AWS.IoTWireless.AssociateWirelessDeviceWithThing
+    Network.AWS.IoTWireless.AssociateWirelessGatewayWithCertificate
+    Network.AWS.IoTWireless.AssociateWirelessGatewayWithThing
+    Network.AWS.IoTWireless.CreateDestination
+    Network.AWS.IoTWireless.CreateDeviceProfile
+    Network.AWS.IoTWireless.CreateServiceProfile
+    Network.AWS.IoTWireless.CreateWirelessDevice
+    Network.AWS.IoTWireless.CreateWirelessGateway
+    Network.AWS.IoTWireless.CreateWirelessGatewayTask
+    Network.AWS.IoTWireless.CreateWirelessGatewayTaskDefinition
+    Network.AWS.IoTWireless.DeleteDestination
+    Network.AWS.IoTWireless.DeleteDeviceProfile
+    Network.AWS.IoTWireless.DeleteServiceProfile
+    Network.AWS.IoTWireless.DeleteWirelessDevice
+    Network.AWS.IoTWireless.DeleteWirelessGateway
+    Network.AWS.IoTWireless.DeleteWirelessGatewayTask
+    Network.AWS.IoTWireless.DeleteWirelessGatewayTaskDefinition
+    Network.AWS.IoTWireless.DisassociateAwsAccountFromPartnerAccount
+    Network.AWS.IoTWireless.DisassociateWirelessDeviceFromThing
+    Network.AWS.IoTWireless.DisassociateWirelessGatewayFromCertificate
+    Network.AWS.IoTWireless.DisassociateWirelessGatewayFromThing
+    Network.AWS.IoTWireless.GetDestination
+    Network.AWS.IoTWireless.GetDeviceProfile
+    Network.AWS.IoTWireless.GetLogLevelsByResourceTypes
+    Network.AWS.IoTWireless.GetPartnerAccount
+    Network.AWS.IoTWireless.GetResourceLogLevel
+    Network.AWS.IoTWireless.GetServiceEndpoint
+    Network.AWS.IoTWireless.GetServiceProfile
+    Network.AWS.IoTWireless.GetWirelessDevice
+    Network.AWS.IoTWireless.GetWirelessDeviceStatistics
+    Network.AWS.IoTWireless.GetWirelessGateway
+    Network.AWS.IoTWireless.GetWirelessGatewayCertificate
+    Network.AWS.IoTWireless.GetWirelessGatewayFirmwareInformation
+    Network.AWS.IoTWireless.GetWirelessGatewayStatistics
+    Network.AWS.IoTWireless.GetWirelessGatewayTask
+    Network.AWS.IoTWireless.GetWirelessGatewayTaskDefinition
+    Network.AWS.IoTWireless.Lens
+    Network.AWS.IoTWireless.ListDestinations
+    Network.AWS.IoTWireless.ListDeviceProfiles
+    Network.AWS.IoTWireless.ListPartnerAccounts
+    Network.AWS.IoTWireless.ListServiceProfiles
+    Network.AWS.IoTWireless.ListTagsForResource
+    Network.AWS.IoTWireless.ListWirelessDevices
+    Network.AWS.IoTWireless.ListWirelessGateways
+    Network.AWS.IoTWireless.ListWirelessGatewayTaskDefinitions
+    Network.AWS.IoTWireless.PutResourceLogLevel
+    Network.AWS.IoTWireless.ResetAllResourceLogLevels
+    Network.AWS.IoTWireless.ResetResourceLogLevel
+    Network.AWS.IoTWireless.SendDataToWirelessDevice
+    Network.AWS.IoTWireless.TagResource
+    Network.AWS.IoTWireless.TestWirelessDevice
+    Network.AWS.IoTWireless.Types
+    Network.AWS.IoTWireless.Types.AbpV1_0_x
+    Network.AWS.IoTWireless.Types.AbpV1_1
+    Network.AWS.IoTWireless.Types.BatteryLevel
+    Network.AWS.IoTWireless.Types.CertificateList
+    Network.AWS.IoTWireless.Types.ConnectionStatus
+    Network.AWS.IoTWireless.Types.Destinations
+    Network.AWS.IoTWireless.Types.DeviceProfile
+    Network.AWS.IoTWireless.Types.DeviceState
+    Network.AWS.IoTWireless.Types.Event
+    Network.AWS.IoTWireless.Types.ExpressionType
+    Network.AWS.IoTWireless.Types.LogLevel
+    Network.AWS.IoTWireless.Types.LoRaWANDevice
+    Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata
+    Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile
+    Network.AWS.IoTWireless.Types.LoRaWANGateway
+    Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion
+    Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata
+    Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion
+    Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo
+    Network.AWS.IoTWireless.Types.LoRaWANListDevice
+    Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice
+    Network.AWS.IoTWireless.Types.LoRaWANServiceProfile
+    Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice
+    Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
+    Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
+    Network.AWS.IoTWireless.Types.MessageType
+    Network.AWS.IoTWireless.Types.OtaaV1_0_x
+    Network.AWS.IoTWireless.Types.OtaaV1_1
+    Network.AWS.IoTWireless.Types.PartnerType
+    Network.AWS.IoTWireless.Types.ServiceProfile
+    Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x
+    Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1
+    Network.AWS.IoTWireless.Types.SidewalkAccountInfo
+    Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint
+    Network.AWS.IoTWireless.Types.SidewalkDevice
+    Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata
+    Network.AWS.IoTWireless.Types.SidewalkListDevice
+    Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice
+    Network.AWS.IoTWireless.Types.SidewalkUpdateAccount
+    Network.AWS.IoTWireless.Types.SigningAlg
+    Network.AWS.IoTWireless.Types.Tag
+    Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate
+    Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry
+    Network.AWS.IoTWireless.Types.WirelessDeviceEvent
+    Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption
+    Network.AWS.IoTWireless.Types.WirelessDeviceIdType
+    Network.AWS.IoTWireless.Types.WirelessDeviceLogOption
+    Network.AWS.IoTWireless.Types.WirelessDeviceStatistics
+    Network.AWS.IoTWireless.Types.WirelessDeviceType
+    Network.AWS.IoTWireless.Types.WirelessGatewayEvent
+    Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption
+    Network.AWS.IoTWireless.Types.WirelessGatewayIdType
+    Network.AWS.IoTWireless.Types.WirelessGatewayLogOption
+    Network.AWS.IoTWireless.Types.WirelessGatewayServiceType
+    Network.AWS.IoTWireless.Types.WirelessGatewayStatistics
+    Network.AWS.IoTWireless.Types.WirelessGatewayTaskDefinitionType
+    Network.AWS.IoTWireless.Types.WirelessGatewayTaskStatus
+    Network.AWS.IoTWireless.Types.WirelessGatewayType
+    Network.AWS.IoTWireless.Types.WirelessMetadata
+    Network.AWS.IoTWireless.UntagResource
+    Network.AWS.IoTWireless.UpdateDestination
+    Network.AWS.IoTWireless.UpdateLogLevelsByResourceTypes
+    Network.AWS.IoTWireless.UpdatePartnerAccount
+    Network.AWS.IoTWireless.UpdateWirelessDevice
+    Network.AWS.IoTWireless.UpdateWirelessGateway
+    Network.AWS.IoTWireless.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-iotwireless-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.IoTWireless
+    Test.AWS.IoTWireless
+    Test.AWS.IoTWireless.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-iotwireless
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

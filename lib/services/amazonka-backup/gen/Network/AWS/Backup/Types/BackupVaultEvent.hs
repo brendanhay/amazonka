@@ -1,0 +1,135 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Backup.Types.BackupVaultEvent
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Backup.Types.BackupVaultEvent
+  ( BackupVaultEvent
+      ( ..,
+        BackupVaultEvent_BACKUP_JOB_COMPLETED,
+        BackupVaultEvent_BACKUP_JOB_EXPIRED,
+        BackupVaultEvent_BACKUP_JOB_FAILED,
+        BackupVaultEvent_BACKUP_JOB_STARTED,
+        BackupVaultEvent_BACKUP_JOB_SUCCESSFUL,
+        BackupVaultEvent_BACKUP_PLAN_CREATED,
+        BackupVaultEvent_BACKUP_PLAN_MODIFIED,
+        BackupVaultEvent_COPY_JOB_FAILED,
+        BackupVaultEvent_COPY_JOB_STARTED,
+        BackupVaultEvent_COPY_JOB_SUCCESSFUL,
+        BackupVaultEvent_RECOVERY_POINT_MODIFIED,
+        BackupVaultEvent_RESTORE_JOB_COMPLETED,
+        BackupVaultEvent_RESTORE_JOB_FAILED,
+        BackupVaultEvent_RESTORE_JOB_STARTED,
+        BackupVaultEvent_RESTORE_JOB_SUCCESSFUL
+      ),
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
+
+newtype BackupVaultEvent = BackupVaultEvent'
+  { fromBackupVaultEvent ::
+      Core.Text
+  }
+  deriving stock
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
+    )
+  deriving newtype
+    ( Prelude.Hashable,
+      Prelude.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
+    )
+
+pattern BackupVaultEvent_BACKUP_JOB_COMPLETED :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_JOB_COMPLETED = BackupVaultEvent' "BACKUP_JOB_COMPLETED"
+
+pattern BackupVaultEvent_BACKUP_JOB_EXPIRED :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_JOB_EXPIRED = BackupVaultEvent' "BACKUP_JOB_EXPIRED"
+
+pattern BackupVaultEvent_BACKUP_JOB_FAILED :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_JOB_FAILED = BackupVaultEvent' "BACKUP_JOB_FAILED"
+
+pattern BackupVaultEvent_BACKUP_JOB_STARTED :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_JOB_STARTED = BackupVaultEvent' "BACKUP_JOB_STARTED"
+
+pattern BackupVaultEvent_BACKUP_JOB_SUCCESSFUL :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_JOB_SUCCESSFUL = BackupVaultEvent' "BACKUP_JOB_SUCCESSFUL"
+
+pattern BackupVaultEvent_BACKUP_PLAN_CREATED :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_PLAN_CREATED = BackupVaultEvent' "BACKUP_PLAN_CREATED"
+
+pattern BackupVaultEvent_BACKUP_PLAN_MODIFIED :: BackupVaultEvent
+pattern BackupVaultEvent_BACKUP_PLAN_MODIFIED = BackupVaultEvent' "BACKUP_PLAN_MODIFIED"
+
+pattern BackupVaultEvent_COPY_JOB_FAILED :: BackupVaultEvent
+pattern BackupVaultEvent_COPY_JOB_FAILED = BackupVaultEvent' "COPY_JOB_FAILED"
+
+pattern BackupVaultEvent_COPY_JOB_STARTED :: BackupVaultEvent
+pattern BackupVaultEvent_COPY_JOB_STARTED = BackupVaultEvent' "COPY_JOB_STARTED"
+
+pattern BackupVaultEvent_COPY_JOB_SUCCESSFUL :: BackupVaultEvent
+pattern BackupVaultEvent_COPY_JOB_SUCCESSFUL = BackupVaultEvent' "COPY_JOB_SUCCESSFUL"
+
+pattern BackupVaultEvent_RECOVERY_POINT_MODIFIED :: BackupVaultEvent
+pattern BackupVaultEvent_RECOVERY_POINT_MODIFIED = BackupVaultEvent' "RECOVERY_POINT_MODIFIED"
+
+pattern BackupVaultEvent_RESTORE_JOB_COMPLETED :: BackupVaultEvent
+pattern BackupVaultEvent_RESTORE_JOB_COMPLETED = BackupVaultEvent' "RESTORE_JOB_COMPLETED"
+
+pattern BackupVaultEvent_RESTORE_JOB_FAILED :: BackupVaultEvent
+pattern BackupVaultEvent_RESTORE_JOB_FAILED = BackupVaultEvent' "RESTORE_JOB_FAILED"
+
+pattern BackupVaultEvent_RESTORE_JOB_STARTED :: BackupVaultEvent
+pattern BackupVaultEvent_RESTORE_JOB_STARTED = BackupVaultEvent' "RESTORE_JOB_STARTED"
+
+pattern BackupVaultEvent_RESTORE_JOB_SUCCESSFUL :: BackupVaultEvent
+pattern BackupVaultEvent_RESTORE_JOB_SUCCESSFUL = BackupVaultEvent' "RESTORE_JOB_SUCCESSFUL"
+
+{-# COMPLETE
+  BackupVaultEvent_BACKUP_JOB_COMPLETED,
+  BackupVaultEvent_BACKUP_JOB_EXPIRED,
+  BackupVaultEvent_BACKUP_JOB_FAILED,
+  BackupVaultEvent_BACKUP_JOB_STARTED,
+  BackupVaultEvent_BACKUP_JOB_SUCCESSFUL,
+  BackupVaultEvent_BACKUP_PLAN_CREATED,
+  BackupVaultEvent_BACKUP_PLAN_MODIFIED,
+  BackupVaultEvent_COPY_JOB_FAILED,
+  BackupVaultEvent_COPY_JOB_STARTED,
+  BackupVaultEvent_COPY_JOB_SUCCESSFUL,
+  BackupVaultEvent_RECOVERY_POINT_MODIFIED,
+  BackupVaultEvent_RESTORE_JOB_COMPLETED,
+  BackupVaultEvent_RESTORE_JOB_FAILED,
+  BackupVaultEvent_RESTORE_JOB_STARTED,
+  BackupVaultEvent_RESTORE_JOB_SUCCESSFUL,
+  BackupVaultEvent'
+  #-}

@@ -1,0 +1,154 @@
+cabal-version:      2.2
+name:               amazonka-groundstation
+version:            2.0
+synopsis:           Amazon Ground Station SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-05-23@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.GroundStation.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.GroundStation" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-groundstation
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.GroundStation
+    Network.AWS.GroundStation.CancelContact
+    Network.AWS.GroundStation.CreateConfig
+    Network.AWS.GroundStation.CreateDataflowEndpointGroup
+    Network.AWS.GroundStation.CreateMissionProfile
+    Network.AWS.GroundStation.DeleteConfig
+    Network.AWS.GroundStation.DeleteDataflowEndpointGroup
+    Network.AWS.GroundStation.DeleteMissionProfile
+    Network.AWS.GroundStation.DescribeContact
+    Network.AWS.GroundStation.GetConfig
+    Network.AWS.GroundStation.GetDataflowEndpointGroup
+    Network.AWS.GroundStation.GetMinuteUsage
+    Network.AWS.GroundStation.GetMissionProfile
+    Network.AWS.GroundStation.GetSatellite
+    Network.AWS.GroundStation.Lens
+    Network.AWS.GroundStation.ListConfigs
+    Network.AWS.GroundStation.ListContacts
+    Network.AWS.GroundStation.ListDataflowEndpointGroups
+    Network.AWS.GroundStation.ListGroundStations
+    Network.AWS.GroundStation.ListMissionProfiles
+    Network.AWS.GroundStation.ListSatellites
+    Network.AWS.GroundStation.ListTagsForResource
+    Network.AWS.GroundStation.ReserveContact
+    Network.AWS.GroundStation.TagResource
+    Network.AWS.GroundStation.Types
+    Network.AWS.GroundStation.Types.AngleUnits
+    Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails
+    Network.AWS.GroundStation.Types.AntennaDownlinkConfig
+    Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
+    Network.AWS.GroundStation.Types.AntennaUplinkConfig
+    Network.AWS.GroundStation.Types.BandwidthUnits
+    Network.AWS.GroundStation.Types.ConfigCapabilityType
+    Network.AWS.GroundStation.Types.ConfigDetails
+    Network.AWS.GroundStation.Types.ConfigIdResponse
+    Network.AWS.GroundStation.Types.ConfigListItem
+    Network.AWS.GroundStation.Types.ConfigTypeData
+    Network.AWS.GroundStation.Types.ContactData
+    Network.AWS.GroundStation.Types.ContactIdResponse
+    Network.AWS.GroundStation.Types.ContactStatus
+    Network.AWS.GroundStation.Types.Criticality
+    Network.AWS.GroundStation.Types.DataflowDetail
+    Network.AWS.GroundStation.Types.DataflowEndpoint
+    Network.AWS.GroundStation.Types.DataflowEndpointConfig
+    Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse
+    Network.AWS.GroundStation.Types.DataflowEndpointListItem
+    Network.AWS.GroundStation.Types.DecodeConfig
+    Network.AWS.GroundStation.Types.DemodulationConfig
+    Network.AWS.GroundStation.Types.Destination
+    Network.AWS.GroundStation.Types.Eirp
+    Network.AWS.GroundStation.Types.EirpUnits
+    Network.AWS.GroundStation.Types.Elevation
+    Network.AWS.GroundStation.Types.EndpointDetails
+    Network.AWS.GroundStation.Types.EndpointStatus
+    Network.AWS.GroundStation.Types.Frequency
+    Network.AWS.GroundStation.Types.FrequencyBandwidth
+    Network.AWS.GroundStation.Types.FrequencyUnits
+    Network.AWS.GroundStation.Types.GroundStationData
+    Network.AWS.GroundStation.Types.MissionProfileIdResponse
+    Network.AWS.GroundStation.Types.MissionProfileListItem
+    Network.AWS.GroundStation.Types.Polarization
+    Network.AWS.GroundStation.Types.S3RecordingConfig
+    Network.AWS.GroundStation.Types.S3RecordingDetails
+    Network.AWS.GroundStation.Types.SatelliteListItem
+    Network.AWS.GroundStation.Types.SecurityDetails
+    Network.AWS.GroundStation.Types.SocketAddress
+    Network.AWS.GroundStation.Types.Source
+    Network.AWS.GroundStation.Types.SpectrumConfig
+    Network.AWS.GroundStation.Types.TrackingConfig
+    Network.AWS.GroundStation.Types.UplinkEchoConfig
+    Network.AWS.GroundStation.Types.UplinkSpectrumConfig
+    Network.AWS.GroundStation.UntagResource
+    Network.AWS.GroundStation.UpdateConfig
+    Network.AWS.GroundStation.UpdateMissionProfile
+    Network.AWS.GroundStation.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-groundstation-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.GroundStation
+    Test.AWS.GroundStation
+    Test.AWS.GroundStation.Internal
+
+  build-depends:
+    , amazonka                ^>=2.0
+    , amazonka-groundstation
+    , amazonka-test           ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,0 +1,75 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-redshift-data/amazonka-redshift-data.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-redshift-data",
+    srcs = [
+        "gen/Network/AWS/RedshiftData.hs",
+        "gen/Network/AWS/RedshiftData/BatchExecuteStatement.hs",
+        "gen/Network/AWS/RedshiftData/CancelStatement.hs",
+        "gen/Network/AWS/RedshiftData/DescribeStatement.hs",
+        "gen/Network/AWS/RedshiftData/DescribeTable.hs",
+        "gen/Network/AWS/RedshiftData/ExecuteStatement.hs",
+        "gen/Network/AWS/RedshiftData/GetStatementResult.hs",
+        "gen/Network/AWS/RedshiftData/Lens.hs",
+        "gen/Network/AWS/RedshiftData/ListDatabases.hs",
+        "gen/Network/AWS/RedshiftData/ListSchemas.hs",
+        "gen/Network/AWS/RedshiftData/ListStatements.hs",
+        "gen/Network/AWS/RedshiftData/ListTables.hs",
+        "gen/Network/AWS/RedshiftData/Types.hs",
+        "gen/Network/AWS/RedshiftData/Types/ColumnMetadata.hs",
+        "gen/Network/AWS/RedshiftData/Types/Field.hs",
+        "gen/Network/AWS/RedshiftData/Types/SqlParameter.hs",
+        "gen/Network/AWS/RedshiftData/Types/StatementData.hs",
+        "gen/Network/AWS/RedshiftData/Types/StatementStatusString.hs",
+        "gen/Network/AWS/RedshiftData/Types/StatusString.hs",
+        "gen/Network/AWS/RedshiftData/Types/SubStatementData.hs",
+        "gen/Network/AWS/RedshiftData/Types/TableMember.hs",
+        "gen/Network/AWS/RedshiftData/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_redshift_data=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-redshift-data/amazonka-redshift-data.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-redshift-data-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/RedshiftData.hs",
+        "test/Test/AWS/RedshiftData.hs",
+        "test/Test/AWS/RedshiftData/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_redshift_data=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-redshift-data",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

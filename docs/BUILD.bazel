@@ -178,7 +178,7 @@ haskell_doc(
         "//lib/services/amazonka-lookoutmetrics",
         "//lib/services/amazonka-lookoutvision",
         "//lib/services/amazonka-macie",
-        "//lib/services/amazonka-macie2",
+        "//lib/services/amazonka-maciev2",
         "//lib/services/amazonka-managedblockchain",
         "//lib/services/amazonka-marketplace-analytics",
         "//lib/services/amazonka-marketplace-catalog",

@@ -1,0 +1,72 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-iotsecuretunneling/amazonka-iotsecuretunneling.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-iotsecuretunneling",
+    srcs = [
+        "gen/Network/AWS/IoTSecureTunneling.hs",
+        "gen/Network/AWS/IoTSecureTunneling/CloseTunnel.hs",
+        "gen/Network/AWS/IoTSecureTunneling/DescribeTunnel.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Lens.hs",
+        "gen/Network/AWS/IoTSecureTunneling/ListTagsForResource.hs",
+        "gen/Network/AWS/IoTSecureTunneling/ListTunnels.hs",
+        "gen/Network/AWS/IoTSecureTunneling/OpenTunnel.hs",
+        "gen/Network/AWS/IoTSecureTunneling/TagResource.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/ConnectionState.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/ConnectionStatus.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/DestinationConfig.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/Tag.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/TimeoutConfig.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/Tunnel.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/TunnelStatus.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Types/TunnelSummary.hs",
+        "gen/Network/AWS/IoTSecureTunneling/UntagResource.hs",
+        "gen/Network/AWS/IoTSecureTunneling/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iotsecuretunneling=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-iotsecuretunneling/amazonka-iotsecuretunneling.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-iotsecuretunneling-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/IoTSecureTunneling.hs",
+        "test/Test/AWS/IoTSecureTunneling.hs",
+        "test/Test/AWS/IoTSecureTunneling/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iotsecuretunneling=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-iotsecuretunneling",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

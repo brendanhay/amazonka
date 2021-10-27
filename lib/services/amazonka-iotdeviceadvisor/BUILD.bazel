@@ -1,0 +1,80 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-iotdeviceadvisor/amazonka-iotdeviceadvisor.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-iotdeviceadvisor",
+    srcs = [
+        "gen/Network/AWS/IoTDeviceAdvisor.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/CreateSuiteDefinition.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/DeleteSuiteDefinition.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/GetSuiteDefinition.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/GetSuiteRun.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/GetSuiteRunReport.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Lens.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/ListSuiteDefinitions.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/ListSuiteRuns.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/ListTagsForResource.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/StartSuiteRun.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/StopSuiteRun.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/TagResource.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/DeviceUnderTest.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/GroupResult.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/Status.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/SuiteDefinitionConfiguration.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/SuiteDefinitionInformation.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/SuiteRunConfiguration.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/SuiteRunInformation.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/SuiteRunStatus.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/TestCaseRun.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Types/TestResult.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/UntagResource.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/UpdateSuiteDefinition.hs",
+        "gen/Network/AWS/IoTDeviceAdvisor/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iotdeviceadvisor=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-iotdeviceadvisor/amazonka-iotdeviceadvisor.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-iotdeviceadvisor-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/IoTDeviceAdvisor.hs",
+        "test/Test/AWS/IoTDeviceAdvisor.hs",
+        "test/Test/AWS/IoTDeviceAdvisor/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iotdeviceadvisor=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-iotdeviceadvisor",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

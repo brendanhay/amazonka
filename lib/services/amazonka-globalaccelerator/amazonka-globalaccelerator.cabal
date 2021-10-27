@@ -1,0 +1,165 @@
+cabal-version:      2.2
+name:               amazonka-globalaccelerator
+version:            2.0
+synopsis:           Amazon Global Accelerator SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-08-08@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.GlobalAccelerator.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.GlobalAccelerator" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-globalaccelerator
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.GlobalAccelerator
+    Network.AWS.GlobalAccelerator.AddCustomRoutingEndpoints
+    Network.AWS.GlobalAccelerator.AdvertiseByoipCidr
+    Network.AWS.GlobalAccelerator.AllowCustomRoutingTraffic
+    Network.AWS.GlobalAccelerator.CreateAccelerator
+    Network.AWS.GlobalAccelerator.CreateCustomRoutingAccelerator
+    Network.AWS.GlobalAccelerator.CreateCustomRoutingEndpointGroup
+    Network.AWS.GlobalAccelerator.CreateCustomRoutingListener
+    Network.AWS.GlobalAccelerator.CreateEndpointGroup
+    Network.AWS.GlobalAccelerator.CreateListener
+    Network.AWS.GlobalAccelerator.DeleteAccelerator
+    Network.AWS.GlobalAccelerator.DeleteCustomRoutingAccelerator
+    Network.AWS.GlobalAccelerator.DeleteCustomRoutingEndpointGroup
+    Network.AWS.GlobalAccelerator.DeleteCustomRoutingListener
+    Network.AWS.GlobalAccelerator.DeleteEndpointGroup
+    Network.AWS.GlobalAccelerator.DeleteListener
+    Network.AWS.GlobalAccelerator.DenyCustomRoutingTraffic
+    Network.AWS.GlobalAccelerator.DeprovisionByoipCidr
+    Network.AWS.GlobalAccelerator.DescribeAccelerator
+    Network.AWS.GlobalAccelerator.DescribeAcceleratorAttributes
+    Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator
+    Network.AWS.GlobalAccelerator.DescribeCustomRoutingAcceleratorAttributes
+    Network.AWS.GlobalAccelerator.DescribeCustomRoutingEndpointGroup
+    Network.AWS.GlobalAccelerator.DescribeCustomRoutingListener
+    Network.AWS.GlobalAccelerator.DescribeEndpointGroup
+    Network.AWS.GlobalAccelerator.DescribeListener
+    Network.AWS.GlobalAccelerator.Lens
+    Network.AWS.GlobalAccelerator.ListAccelerators
+    Network.AWS.GlobalAccelerator.ListByoipCidrs
+    Network.AWS.GlobalAccelerator.ListCustomRoutingAccelerators
+    Network.AWS.GlobalAccelerator.ListCustomRoutingEndpointGroups
+    Network.AWS.GlobalAccelerator.ListCustomRoutingListeners
+    Network.AWS.GlobalAccelerator.ListCustomRoutingPortMappings
+    Network.AWS.GlobalAccelerator.ListCustomRoutingPortMappingsByDestination
+    Network.AWS.GlobalAccelerator.ListEndpointGroups
+    Network.AWS.GlobalAccelerator.ListListeners
+    Network.AWS.GlobalAccelerator.ListTagsForResource
+    Network.AWS.GlobalAccelerator.ProvisionByoipCidr
+    Network.AWS.GlobalAccelerator.RemoveCustomRoutingEndpoints
+    Network.AWS.GlobalAccelerator.TagResource
+    Network.AWS.GlobalAccelerator.Types
+    Network.AWS.GlobalAccelerator.Types.Accelerator
+    Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes
+    Network.AWS.GlobalAccelerator.Types.AcceleratorStatus
+    Network.AWS.GlobalAccelerator.Types.ByoipCidr
+    Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent
+    Network.AWS.GlobalAccelerator.Types.ByoipCidrState
+    Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext
+    Network.AWS.GlobalAccelerator.Types.ClientAffinity
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingListener
+    Network.AWS.GlobalAccelerator.Types.CustomRoutingProtocol
+    Network.AWS.GlobalAccelerator.Types.DestinationPortMapping
+    Network.AWS.GlobalAccelerator.Types.EndpointConfiguration
+    Network.AWS.GlobalAccelerator.Types.EndpointDescription
+    Network.AWS.GlobalAccelerator.Types.EndpointGroup
+    Network.AWS.GlobalAccelerator.Types.HealthCheckProtocol
+    Network.AWS.GlobalAccelerator.Types.HealthState
+    Network.AWS.GlobalAccelerator.Types.IpAddressType
+    Network.AWS.GlobalAccelerator.Types.IpSet
+    Network.AWS.GlobalAccelerator.Types.Listener
+    Network.AWS.GlobalAccelerator.Types.PortMapping
+    Network.AWS.GlobalAccelerator.Types.PortOverride
+    Network.AWS.GlobalAccelerator.Types.PortRange
+    Network.AWS.GlobalAccelerator.Types.Protocol
+    Network.AWS.GlobalAccelerator.Types.SocketAddress
+    Network.AWS.GlobalAccelerator.Types.Tag
+    Network.AWS.GlobalAccelerator.UntagResource
+    Network.AWS.GlobalAccelerator.UpdateAccelerator
+    Network.AWS.GlobalAccelerator.UpdateAcceleratorAttributes
+    Network.AWS.GlobalAccelerator.UpdateCustomRoutingAccelerator
+    Network.AWS.GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes
+    Network.AWS.GlobalAccelerator.UpdateCustomRoutingListener
+    Network.AWS.GlobalAccelerator.UpdateEndpointGroup
+    Network.AWS.GlobalAccelerator.UpdateListener
+    Network.AWS.GlobalAccelerator.Waiters
+    Network.AWS.GlobalAccelerator.WithdrawByoipCidr
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-globalaccelerator-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.GlobalAccelerator
+    Test.AWS.GlobalAccelerator
+    Test.AWS.GlobalAccelerator.Internal
+
+  build-depends:
+    , amazonka                    ^>=2.0
+    , amazonka-globalaccelerator
+    , amazonka-test               ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

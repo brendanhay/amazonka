@@ -1,0 +1,77 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-outposts/amazonka-outposts.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-outposts",
+    srcs = [
+        "gen/Network/AWS/Outposts.hs",
+        "gen/Network/AWS/Outposts/CreateOrder.hs",
+        "gen/Network/AWS/Outposts/CreateOutpost.hs",
+        "gen/Network/AWS/Outposts/DeleteOutpost.hs",
+        "gen/Network/AWS/Outposts/DeleteSite.hs",
+        "gen/Network/AWS/Outposts/GetOutpost.hs",
+        "gen/Network/AWS/Outposts/GetOutpostInstanceTypes.hs",
+        "gen/Network/AWS/Outposts/Lens.hs",
+        "gen/Network/AWS/Outposts/ListOutposts.hs",
+        "gen/Network/AWS/Outposts/ListSites.hs",
+        "gen/Network/AWS/Outposts/ListTagsForResource.hs",
+        "gen/Network/AWS/Outposts/TagResource.hs",
+        "gen/Network/AWS/Outposts/Types.hs",
+        "gen/Network/AWS/Outposts/Types/InstanceTypeItem.hs",
+        "gen/Network/AWS/Outposts/Types/LineItem.hs",
+        "gen/Network/AWS/Outposts/Types/LineItemRequest.hs",
+        "gen/Network/AWS/Outposts/Types/Order.hs",
+        "gen/Network/AWS/Outposts/Types/OrderStatus.hs",
+        "gen/Network/AWS/Outposts/Types/Outpost.hs",
+        "gen/Network/AWS/Outposts/Types/PaymentOption.hs",
+        "gen/Network/AWS/Outposts/Types/PaymentTerm.hs",
+        "gen/Network/AWS/Outposts/Types/Site.hs",
+        "gen/Network/AWS/Outposts/UntagResource.hs",
+        "gen/Network/AWS/Outposts/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_outposts=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-outposts/amazonka-outposts.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-outposts-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Outposts.hs",
+        "test/Test/AWS/Outposts.hs",
+        "test/Test/AWS/Outposts/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_outposts=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-outposts",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

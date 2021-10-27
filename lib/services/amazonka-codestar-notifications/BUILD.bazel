@@ -1,0 +1,83 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-codestar-notifications/amazonka-codestar-notifications.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-codestar-notifications",
+    srcs = [
+        "gen/Network/AWS/CodeStarNotifications.hs",
+        "gen/Network/AWS/CodeStarNotifications/CreateNotificationRule.hs",
+        "gen/Network/AWS/CodeStarNotifications/DeleteNotificationRule.hs",
+        "gen/Network/AWS/CodeStarNotifications/DeleteTarget.hs",
+        "gen/Network/AWS/CodeStarNotifications/DescribeNotificationRule.hs",
+        "gen/Network/AWS/CodeStarNotifications/Lens.hs",
+        "gen/Network/AWS/CodeStarNotifications/ListEventTypes.hs",
+        "gen/Network/AWS/CodeStarNotifications/ListNotificationRules.hs",
+        "gen/Network/AWS/CodeStarNotifications/ListTagsForResource.hs",
+        "gen/Network/AWS/CodeStarNotifications/ListTargets.hs",
+        "gen/Network/AWS/CodeStarNotifications/Subscribe.hs",
+        "gen/Network/AWS/CodeStarNotifications/TagResource.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/DetailType.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/EventTypeSummary.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/ListEventTypesFilter.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/ListEventTypesFilterName.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/ListNotificationRulesFilter.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/ListNotificationRulesFilterName.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/ListTargetsFilter.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/ListTargetsFilterName.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/NotificationRuleStatus.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/NotificationRuleSummary.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/Target.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/TargetStatus.hs",
+        "gen/Network/AWS/CodeStarNotifications/Types/TargetSummary.hs",
+        "gen/Network/AWS/CodeStarNotifications/Unsubscribe.hs",
+        "gen/Network/AWS/CodeStarNotifications/UntagResource.hs",
+        "gen/Network/AWS/CodeStarNotifications/UpdateNotificationRule.hs",
+        "gen/Network/AWS/CodeStarNotifications/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_codestar_notifications=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-codestar-notifications/amazonka-codestar-notifications.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-codestar-notifications-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/CodeStarNotifications.hs",
+        "test/Test/AWS/CodeStarNotifications/Internal.hs",
+        "test/Test/AWS/Gen/CodeStarNotifications.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_codestar_notifications=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-codestar-notifications",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

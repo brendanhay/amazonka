@@ -1,0 +1,60 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-sso-oidc/amazonka-sso-oidc.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-sso-oidc",
+    srcs = [
+        "gen/Network/AWS/SSOOIDC.hs",
+        "gen/Network/AWS/SSOOIDC/CreateToken.hs",
+        "gen/Network/AWS/SSOOIDC/Lens.hs",
+        "gen/Network/AWS/SSOOIDC/RegisterClient.hs",
+        "gen/Network/AWS/SSOOIDC/StartDeviceAuthorization.hs",
+        "gen/Network/AWS/SSOOIDC/Types.hs",
+        "gen/Network/AWS/SSOOIDC/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sso_oidc=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-sso-oidc/amazonka-sso-oidc.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sso-oidc-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SSOOIDC.hs",
+        "test/Test/AWS/SSOOIDC.hs",
+        "test/Test/AWS/SSOOIDC/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sso_oidc=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sso-oidc",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

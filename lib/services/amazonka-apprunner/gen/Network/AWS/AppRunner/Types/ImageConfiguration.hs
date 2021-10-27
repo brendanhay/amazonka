@@ -35,7 +35,7 @@ data ImageConfiguration = ImageConfiguration'
     -- | Environment variables that are available to your running App Runner
     -- service. An array of key-value pairs. Keys with a prefix of
     -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
-    runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap (Core.Sensitive Prelude.Text) (Core.Sensitive Prelude.Text)),
+    runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
     -- | The port that your application listens to in the container.
     --
     -- Default: @8080@

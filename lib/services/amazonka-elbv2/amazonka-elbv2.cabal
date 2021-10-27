@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ELBv2.Lens"
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ELBV2.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
   Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
   .
-  See "Network.AWS.ELBv2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Network.AWS.ELBV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,94 +45,94 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ELBv2
-    Network.AWS.ELBv2.AddListenerCertificates
-    Network.AWS.ELBv2.AddTags
-    Network.AWS.ELBv2.CreateListener
-    Network.AWS.ELBv2.CreateLoadBalancer
-    Network.AWS.ELBv2.CreateRule
-    Network.AWS.ELBv2.CreateTargetGroup
-    Network.AWS.ELBv2.DeleteListener
-    Network.AWS.ELBv2.DeleteLoadBalancer
-    Network.AWS.ELBv2.DeleteRule
-    Network.AWS.ELBv2.DeleteTargetGroup
-    Network.AWS.ELBv2.DeregisterTargets
-    Network.AWS.ELBv2.DescribeAccountLimits
-    Network.AWS.ELBv2.DescribeListenerCertificates
-    Network.AWS.ELBv2.DescribeListeners
-    Network.AWS.ELBv2.DescribeLoadBalancerAttributes
-    Network.AWS.ELBv2.DescribeLoadBalancers
-    Network.AWS.ELBv2.DescribeRules
-    Network.AWS.ELBv2.DescribeSSLPolicies
-    Network.AWS.ELBv2.DescribeTags
-    Network.AWS.ELBv2.DescribeTargetGroupAttributes
-    Network.AWS.ELBv2.DescribeTargetGroups
-    Network.AWS.ELBv2.DescribeTargetHealth
-    Network.AWS.ELBv2.Lens
-    Network.AWS.ELBv2.ModifyListener
-    Network.AWS.ELBv2.ModifyLoadBalancerAttributes
-    Network.AWS.ELBv2.ModifyRule
-    Network.AWS.ELBv2.ModifyTargetGroup
-    Network.AWS.ELBv2.ModifyTargetGroupAttributes
-    Network.AWS.ELBv2.RegisterTargets
-    Network.AWS.ELBv2.RemoveListenerCertificates
-    Network.AWS.ELBv2.RemoveTags
-    Network.AWS.ELBv2.SetIpAddressType
-    Network.AWS.ELBv2.SetRulePriorities
-    Network.AWS.ELBv2.SetSecurityGroups
-    Network.AWS.ELBv2.SetSubnets
-    Network.AWS.ELBv2.Types
-    Network.AWS.ELBv2.Types.Action
-    Network.AWS.ELBv2.Types.ActionTypeEnum
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
-    Network.AWS.ELBv2.Types.AvailabilityZone
-    Network.AWS.ELBv2.Types.Certificate
-    Network.AWS.ELBv2.Types.Cipher
-    Network.AWS.ELBv2.Types.FixedResponseActionConfig
-    Network.AWS.ELBv2.Types.ForwardActionConfig
-    Network.AWS.ELBv2.Types.HostHeaderConditionConfig
-    Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
-    Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
-    Network.AWS.ELBv2.Types.IpAddressType
-    Network.AWS.ELBv2.Types.Limit
-    Network.AWS.ELBv2.Types.Listener
-    Network.AWS.ELBv2.Types.LoadBalancer
-    Network.AWS.ELBv2.Types.LoadBalancerAddress
-    Network.AWS.ELBv2.Types.LoadBalancerAttribute
-    Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
-    Network.AWS.ELBv2.Types.LoadBalancerState
-    Network.AWS.ELBv2.Types.LoadBalancerStateEnum
-    Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
-    Network.AWS.ELBv2.Types.Matcher
-    Network.AWS.ELBv2.Types.PathPatternConditionConfig
-    Network.AWS.ELBv2.Types.ProtocolEnum
-    Network.AWS.ELBv2.Types.QueryStringConditionConfig
-    Network.AWS.ELBv2.Types.QueryStringKeyValuePair
-    Network.AWS.ELBv2.Types.RedirectActionConfig
-    Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
-    Network.AWS.ELBv2.Types.Rule
-    Network.AWS.ELBv2.Types.RuleCondition
-    Network.AWS.ELBv2.Types.RulePriorityPair
-    Network.AWS.ELBv2.Types.SourceIpConditionConfig
-    Network.AWS.ELBv2.Types.SslPolicy
-    Network.AWS.ELBv2.Types.SubnetMapping
-    Network.AWS.ELBv2.Types.Tag
-    Network.AWS.ELBv2.Types.TagDescription
-    Network.AWS.ELBv2.Types.TargetDescription
-    Network.AWS.ELBv2.Types.TargetGroup
-    Network.AWS.ELBv2.Types.TargetGroupAttribute
-    Network.AWS.ELBv2.Types.TargetGroupIpAddressTypeEnum
-    Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
-    Network.AWS.ELBv2.Types.TargetGroupTuple
-    Network.AWS.ELBv2.Types.TargetHealth
-    Network.AWS.ELBv2.Types.TargetHealthDescription
-    Network.AWS.ELBv2.Types.TargetHealthReasonEnum
-    Network.AWS.ELBv2.Types.TargetHealthStateEnum
-    Network.AWS.ELBv2.Types.TargetTypeEnum
-    Network.AWS.ELBv2.Waiters
+    Network.AWS.ELBV2
+    Network.AWS.ELBV2.AddListenerCertificates
+    Network.AWS.ELBV2.AddTags
+    Network.AWS.ELBV2.CreateListener
+    Network.AWS.ELBV2.CreateLoadBalancer
+    Network.AWS.ELBV2.CreateRule
+    Network.AWS.ELBV2.CreateTargetGroup
+    Network.AWS.ELBV2.DeleteListener
+    Network.AWS.ELBV2.DeleteLoadBalancer
+    Network.AWS.ELBV2.DeleteRule
+    Network.AWS.ELBV2.DeleteTargetGroup
+    Network.AWS.ELBV2.DeregisterTargets
+    Network.AWS.ELBV2.DescribeAccountLimits
+    Network.AWS.ELBV2.DescribeListenerCertificates
+    Network.AWS.ELBV2.DescribeListeners
+    Network.AWS.ELBV2.DescribeLoadBalancerAttributes
+    Network.AWS.ELBV2.DescribeLoadBalancers
+    Network.AWS.ELBV2.DescribeRules
+    Network.AWS.ELBV2.DescribeSSLPolicies
+    Network.AWS.ELBV2.DescribeTags
+    Network.AWS.ELBV2.DescribeTargetGroupAttributes
+    Network.AWS.ELBV2.DescribeTargetGroups
+    Network.AWS.ELBV2.DescribeTargetHealth
+    Network.AWS.ELBV2.Lens
+    Network.AWS.ELBV2.ModifyListener
+    Network.AWS.ELBV2.ModifyLoadBalancerAttributes
+    Network.AWS.ELBV2.ModifyRule
+    Network.AWS.ELBV2.ModifyTargetGroup
+    Network.AWS.ELBV2.ModifyTargetGroupAttributes
+    Network.AWS.ELBV2.RegisterTargets
+    Network.AWS.ELBV2.RemoveListenerCertificates
+    Network.AWS.ELBV2.RemoveTags
+    Network.AWS.ELBV2.SetIpAddressType
+    Network.AWS.ELBV2.SetRulePriorities
+    Network.AWS.ELBV2.SetSecurityGroups
+    Network.AWS.ELBV2.SetSubnets
+    Network.AWS.ELBV2.Types
+    Network.AWS.ELBV2.Types.Action
+    Network.AWS.ELBV2.Types.ActionTypeEnum
+    Network.AWS.ELBV2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
+    Network.AWS.ELBV2.Types.AuthenticateCognitoActionConfig
+    Network.AWS.ELBV2.Types.AuthenticateOidcActionConditionalBehaviorEnum
+    Network.AWS.ELBV2.Types.AuthenticateOidcActionConfig
+    Network.AWS.ELBV2.Types.AvailabilityZone
+    Network.AWS.ELBV2.Types.Certificate
+    Network.AWS.ELBV2.Types.Cipher
+    Network.AWS.ELBV2.Types.FixedResponseActionConfig
+    Network.AWS.ELBV2.Types.ForwardActionConfig
+    Network.AWS.ELBV2.Types.HostHeaderConditionConfig
+    Network.AWS.ELBV2.Types.HttpHeaderConditionConfig
+    Network.AWS.ELBV2.Types.HttpRequestMethodConditionConfig
+    Network.AWS.ELBV2.Types.IpAddressType
+    Network.AWS.ELBV2.Types.Limit
+    Network.AWS.ELBV2.Types.Listener
+    Network.AWS.ELBV2.Types.LoadBalancer
+    Network.AWS.ELBV2.Types.LoadBalancerAddress
+    Network.AWS.ELBV2.Types.LoadBalancerAttribute
+    Network.AWS.ELBV2.Types.LoadBalancerSchemeEnum
+    Network.AWS.ELBV2.Types.LoadBalancerState
+    Network.AWS.ELBV2.Types.LoadBalancerStateEnum
+    Network.AWS.ELBV2.Types.LoadBalancerTypeEnum
+    Network.AWS.ELBV2.Types.Matcher
+    Network.AWS.ELBV2.Types.PathPatternConditionConfig
+    Network.AWS.ELBV2.Types.ProtocolEnum
+    Network.AWS.ELBV2.Types.QueryStringConditionConfig
+    Network.AWS.ELBV2.Types.QueryStringKeyValuePair
+    Network.AWS.ELBV2.Types.RedirectActionConfig
+    Network.AWS.ELBV2.Types.RedirectActionStatusCodeEnum
+    Network.AWS.ELBV2.Types.Rule
+    Network.AWS.ELBV2.Types.RuleCondition
+    Network.AWS.ELBV2.Types.RulePriorityPair
+    Network.AWS.ELBV2.Types.SourceIpConditionConfig
+    Network.AWS.ELBV2.Types.SslPolicy
+    Network.AWS.ELBV2.Types.SubnetMapping
+    Network.AWS.ELBV2.Types.Tag
+    Network.AWS.ELBV2.Types.TagDescription
+    Network.AWS.ELBV2.Types.TargetDescription
+    Network.AWS.ELBV2.Types.TargetGroup
+    Network.AWS.ELBV2.Types.TargetGroupAttribute
+    Network.AWS.ELBV2.Types.TargetGroupIpAddressTypeEnum
+    Network.AWS.ELBV2.Types.TargetGroupStickinessConfig
+    Network.AWS.ELBV2.Types.TargetGroupTuple
+    Network.AWS.ELBV2.Types.TargetHealth
+    Network.AWS.ELBV2.Types.TargetHealthDescription
+    Network.AWS.ELBV2.Types.TargetHealthReasonEnum
+    Network.AWS.ELBV2.Types.TargetHealthStateEnum
+    Network.AWS.ELBV2.Types.TargetTypeEnum
+    Network.AWS.ELBV2.Waiters
 
   reexported-modules: Network.AWS
   build-depends:
@@ -150,9 +150,9 @@ test-suite amazonka-elbv2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ELBv2
-    Test.AWS.ELBv2.Internal
-    Test.AWS.Gen.ELBv2
+    Test.AWS.ELBV2
+    Test.AWS.ELBV2.Internal
+    Test.AWS.Gen.ELBV2
 
   build-depends:
     , amazonka              ^>=2.0

@@ -1,0 +1,96 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.IdentityStore.Types.Filter
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.IdentityStore.Types.Filter where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | A query filter used by @ListUsers@ and @ListGroup@. This filter object
+-- provides the attribute name and attribute value to search users or
+-- groups.
+--
+-- /See:/ 'newFilter' smart constructor.
+data Filter = Filter'
+  { -- | The attribute path that is used to specify which attribute name to
+    -- search. Length limit is 255 characters. For example, @UserName@ is a
+    -- valid attribute path for the @ListUsers@ API, and @DisplayName@ is a
+    -- valid attribute path for the @ListGroups@ API.
+    attributePath :: Prelude.Text,
+    -- | Represents the data for an attribute. Each attribute value is described
+    -- as a name-value pair.
+    attributeValue :: Core.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'Filter' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'attributePath', 'filter_attributePath' - The attribute path that is used to specify which attribute name to
+-- search. Length limit is 255 characters. For example, @UserName@ is a
+-- valid attribute path for the @ListUsers@ API, and @DisplayName@ is a
+-- valid attribute path for the @ListGroups@ API.
+--
+-- 'attributeValue', 'filter_attributeValue' - Represents the data for an attribute. Each attribute value is described
+-- as a name-value pair.
+newFilter ::
+  -- | 'attributePath'
+  Prelude.Text ->
+  -- | 'attributeValue'
+  Prelude.Text ->
+  Filter
+newFilter pAttributePath_ pAttributeValue_ =
+  Filter'
+    { attributePath = pAttributePath_,
+      attributeValue =
+        Core._Sensitive Lens.# pAttributeValue_
+    }
+
+-- | The attribute path that is used to specify which attribute name to
+-- search. Length limit is 255 characters. For example, @UserName@ is a
+-- valid attribute path for the @ListUsers@ API, and @DisplayName@ is a
+-- valid attribute path for the @ListGroups@ API.
+filter_attributePath :: Lens.Lens' Filter Prelude.Text
+filter_attributePath = Lens.lens (\Filter' {attributePath} -> attributePath) (\s@Filter' {} a -> s {attributePath = a} :: Filter)
+
+-- | Represents the data for an attribute. Each attribute value is described
+-- as a name-value pair.
+filter_attributeValue :: Lens.Lens' Filter Prelude.Text
+filter_attributeValue = Lens.lens (\Filter' {attributeValue} -> attributeValue) (\s@Filter' {} a -> s {attributeValue = a} :: Filter) Prelude.. Core._Sensitive
+
+instance Prelude.Hashable Filter
+
+instance Prelude.NFData Filter
+
+instance Core.ToJSON Filter where
+  toJSON Filter' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AttributePath" Core..= attributePath),
+            Prelude.Just
+              ("AttributeValue" Core..= attributeValue)
+          ]
+      )

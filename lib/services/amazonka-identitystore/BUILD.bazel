@@ -1,0 +1,64 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-identitystore/amazonka-identitystore.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-identitystore",
+    srcs = [
+        "gen/Network/AWS/IdentityStore.hs",
+        "gen/Network/AWS/IdentityStore/DescribeGroup.hs",
+        "gen/Network/AWS/IdentityStore/DescribeUser.hs",
+        "gen/Network/AWS/IdentityStore/Lens.hs",
+        "gen/Network/AWS/IdentityStore/ListGroups.hs",
+        "gen/Network/AWS/IdentityStore/ListUsers.hs",
+        "gen/Network/AWS/IdentityStore/Types.hs",
+        "gen/Network/AWS/IdentityStore/Types/Filter.hs",
+        "gen/Network/AWS/IdentityStore/Types/Group.hs",
+        "gen/Network/AWS/IdentityStore/Types/User.hs",
+        "gen/Network/AWS/IdentityStore/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_identitystore=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-identitystore/amazonka-identitystore.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-identitystore-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/IdentityStore.hs",
+        "test/Test/AWS/IdentityStore.hs",
+        "test/Test/AWS/IdentityStore/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_identitystore=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-identitystore",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

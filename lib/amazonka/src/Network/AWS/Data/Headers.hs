@@ -59,6 +59,12 @@ class ToHeader a where
   default toHeader :: ToText a => HeaderName -> a -> [Header]
   toHeader k = toHeader k . toText
 
+instance ToHeader Int
+
+instance ToHeader Integer
+
+instance ToHeader Natural
+
 instance ToHeader Text where
   toHeader k v = [(k, Text.encodeUtf8 v)]
 

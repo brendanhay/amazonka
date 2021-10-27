@@ -1,0 +1,165 @@
+cabal-version:      2.2
+name:               amazonka-kafka
+version:            2.0
+synopsis:           Amazon Managed Streaming for Kafka SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-11-14@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Kafka.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Kafka" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-kafka
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Kafka
+    Network.AWS.Kafka.BatchAssociateScramSecret
+    Network.AWS.Kafka.BatchDisassociateScramSecret
+    Network.AWS.Kafka.CreateCluster
+    Network.AWS.Kafka.CreateConfiguration
+    Network.AWS.Kafka.DeleteCluster
+    Network.AWS.Kafka.DeleteConfiguration
+    Network.AWS.Kafka.DescribeCluster
+    Network.AWS.Kafka.DescribeClusterOperation
+    Network.AWS.Kafka.DescribeConfiguration
+    Network.AWS.Kafka.DescribeConfigurationRevision
+    Network.AWS.Kafka.GetBootstrapBrokers
+    Network.AWS.Kafka.GetCompatibleKafkaVersions
+    Network.AWS.Kafka.Lens
+    Network.AWS.Kafka.ListClusterOperations
+    Network.AWS.Kafka.ListClusters
+    Network.AWS.Kafka.ListConfigurationRevisions
+    Network.AWS.Kafka.ListConfigurations
+    Network.AWS.Kafka.ListKafkaVersions
+    Network.AWS.Kafka.ListNodes
+    Network.AWS.Kafka.ListScramSecrets
+    Network.AWS.Kafka.ListTagsForResource
+    Network.AWS.Kafka.RebootBroker
+    Network.AWS.Kafka.TagResource
+    Network.AWS.Kafka.Types
+    Network.AWS.Kafka.Types.BrokerAZDistribution
+    Network.AWS.Kafka.Types.BrokerEBSVolumeInfo
+    Network.AWS.Kafka.Types.BrokerLogs
+    Network.AWS.Kafka.Types.BrokerNodeGroupInfo
+    Network.AWS.Kafka.Types.BrokerNodeInfo
+    Network.AWS.Kafka.Types.BrokerSoftwareInfo
+    Network.AWS.Kafka.Types.ClientAuthentication
+    Network.AWS.Kafka.Types.ClientBroker
+    Network.AWS.Kafka.Types.CloudWatchLogs
+    Network.AWS.Kafka.Types.ClusterInfo
+    Network.AWS.Kafka.Types.ClusterOperationInfo
+    Network.AWS.Kafka.Types.ClusterOperationStep
+    Network.AWS.Kafka.Types.ClusterOperationStepInfo
+    Network.AWS.Kafka.Types.ClusterState
+    Network.AWS.Kafka.Types.CompatibleKafkaVersion
+    Network.AWS.Kafka.Types.Configuration
+    Network.AWS.Kafka.Types.ConfigurationInfo
+    Network.AWS.Kafka.Types.ConfigurationRevision
+    Network.AWS.Kafka.Types.ConfigurationState
+    Network.AWS.Kafka.Types.EBSStorageInfo
+    Network.AWS.Kafka.Types.EncryptionAtRest
+    Network.AWS.Kafka.Types.EncryptionInfo
+    Network.AWS.Kafka.Types.EncryptionInTransit
+    Network.AWS.Kafka.Types.EnhancedMonitoring
+    Network.AWS.Kafka.Types.ErrorInfo
+    Network.AWS.Kafka.Types.Firehose
+    Network.AWS.Kafka.Types.Iam
+    Network.AWS.Kafka.Types.JmxExporter
+    Network.AWS.Kafka.Types.JmxExporterInfo
+    Network.AWS.Kafka.Types.KafkaVersion
+    Network.AWS.Kafka.Types.KafkaVersionStatus
+    Network.AWS.Kafka.Types.LoggingInfo
+    Network.AWS.Kafka.Types.MutableClusterInfo
+    Network.AWS.Kafka.Types.NodeExporter
+    Network.AWS.Kafka.Types.NodeExporterInfo
+    Network.AWS.Kafka.Types.NodeInfo
+    Network.AWS.Kafka.Types.NodeType
+    Network.AWS.Kafka.Types.OpenMonitoring
+    Network.AWS.Kafka.Types.OpenMonitoringInfo
+    Network.AWS.Kafka.Types.Prometheus
+    Network.AWS.Kafka.Types.PrometheusInfo
+    Network.AWS.Kafka.Types.S3
+    Network.AWS.Kafka.Types.Sasl
+    Network.AWS.Kafka.Types.Scram
+    Network.AWS.Kafka.Types.StateInfo
+    Network.AWS.Kafka.Types.StorageInfo
+    Network.AWS.Kafka.Types.Tls
+    Network.AWS.Kafka.Types.Unauthenticated
+    Network.AWS.Kafka.Types.UnprocessedScramSecret
+    Network.AWS.Kafka.Types.ZookeeperNodeInfo
+    Network.AWS.Kafka.UntagResource
+    Network.AWS.Kafka.UpdateBrokerCount
+    Network.AWS.Kafka.UpdateBrokerStorage
+    Network.AWS.Kafka.UpdateBrokerType
+    Network.AWS.Kafka.UpdateClusterConfiguration
+    Network.AWS.Kafka.UpdateClusterKafkaVersion
+    Network.AWS.Kafka.UpdateConfiguration
+    Network.AWS.Kafka.UpdateMonitoring
+    Network.AWS.Kafka.UpdateSecurity
+    Network.AWS.Kafka.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-kafka-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Kafka
+    Test.AWS.Kafka
+    Test.AWS.Kafka.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-kafka
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

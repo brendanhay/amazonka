@@ -16,6 +16,7 @@ module Gen.AST.Data
   )
 where
 
+import Debug.Trace
 import Control.Comonad.Cofree
 import Control.Error
 import Control.Lens hiding (List, enum, mapping, (:<), (??))
@@ -241,10 +242,12 @@ prodData m s st = (,fields) <$> mk
 
     mkLens :: Field -> Either String Fun
     mkLens f =
-      Fun' (fieldLens f) (fieldHelp f)
-        <$> pp None (lensS m (s ^. annType) f)
-        <*> pp None (lensD n f)
-        <*> pure (LText.fromStrict (fieldAccessor f))
+      if _fieldId f == mkId "AttributeFilter" then trace (show f) g else g
+      where
+        g = Fun' (fieldLens f) (fieldHelp f)
+            <$> pp None (lensS m (s ^. annType) f)
+            <*> pp None (lensD n f)
+            <*> pure (LText.fromStrict (fieldAccessor f))
 
     mkCtor :: Either String Fun
     mkCtor =

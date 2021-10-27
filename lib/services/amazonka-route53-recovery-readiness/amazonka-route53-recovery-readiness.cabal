@@ -1,0 +1,132 @@
+cabal-version:      2.2
+name:               amazonka-route53-recovery-readiness
+version:            2.0
+synopsis:           Amazon Route53 Recovery Readiness SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-12-02@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53RecoveryReadiness.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Route53RecoveryReadiness" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-route53-recovery-readiness
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Route53RecoveryReadiness
+    Network.AWS.Route53RecoveryReadiness.CreateCell
+    Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization
+    Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck
+    Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup
+    Network.AWS.Route53RecoveryReadiness.CreateResourceSet
+    Network.AWS.Route53RecoveryReadiness.DeleteCell
+    Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
+    Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck
+    Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup
+    Network.AWS.Route53RecoveryReadiness.DeleteResourceSet
+    Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations
+    Network.AWS.Route53RecoveryReadiness.GetCell
+    Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary
+    Network.AWS.Route53RecoveryReadiness.GetReadinessCheck
+    Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
+    Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus
+    Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup
+    Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
+    Network.AWS.Route53RecoveryReadiness.GetResourceSet
+    Network.AWS.Route53RecoveryReadiness.Lens
+    Network.AWS.Route53RecoveryReadiness.ListCells
+    Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations
+    Network.AWS.Route53RecoveryReadiness.ListReadinessChecks
+    Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups
+    Network.AWS.Route53RecoveryReadiness.ListResourceSets
+    Network.AWS.Route53RecoveryReadiness.ListRules
+    Network.AWS.Route53RecoveryReadiness.ListTagsForResources
+    Network.AWS.Route53RecoveryReadiness.TagResource
+    Network.AWS.Route53RecoveryReadiness.Types
+    Network.AWS.Route53RecoveryReadiness.Types.CellOutput
+    Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource
+    Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput
+    Network.AWS.Route53RecoveryReadiness.Types.Message
+    Network.AWS.Route53RecoveryReadiness.Types.NLBResource
+    Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord
+    Network.AWS.Route53RecoveryReadiness.Types.Readiness
+    Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput
+    Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary
+    Network.AWS.Route53RecoveryReadiness.Types.Recommendation
+    Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput
+    Network.AWS.Route53RecoveryReadiness.Types.Resource
+    Network.AWS.Route53RecoveryReadiness.Types.ResourceResult
+    Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput
+    Network.AWS.Route53RecoveryReadiness.Types.RuleResult
+    Network.AWS.Route53RecoveryReadiness.Types.TargetResource
+    Network.AWS.Route53RecoveryReadiness.UntagResource
+    Network.AWS.Route53RecoveryReadiness.UpdateCell
+    Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck
+    Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup
+    Network.AWS.Route53RecoveryReadiness.UpdateResourceSet
+    Network.AWS.Route53RecoveryReadiness.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-route53-recovery-readiness-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Route53RecoveryReadiness
+    Test.AWS.Route53RecoveryReadiness
+    Test.AWS.Route53RecoveryReadiness.Internal
+
+  build-depends:
+    , amazonka                             ^>=2.0
+    , amazonka-route53-recovery-readiness
+    , amazonka-test                        ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

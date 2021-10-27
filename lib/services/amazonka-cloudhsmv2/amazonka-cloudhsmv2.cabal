@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudHSMv2.Lens"
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudHSMV2.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
   Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
   .
-  See "Network.AWS.CloudHSMv2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Network.AWS.CloudHSMV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,37 +45,37 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudHSMv2
-    Network.AWS.CloudHSMv2.CopyBackupToRegion
-    Network.AWS.CloudHSMv2.CreateCluster
-    Network.AWS.CloudHSMv2.CreateHsm
-    Network.AWS.CloudHSMv2.DeleteBackup
-    Network.AWS.CloudHSMv2.DeleteCluster
-    Network.AWS.CloudHSMv2.DeleteHsm
-    Network.AWS.CloudHSMv2.DescribeBackups
-    Network.AWS.CloudHSMv2.DescribeClusters
-    Network.AWS.CloudHSMv2.InitializeCluster
-    Network.AWS.CloudHSMv2.Lens
-    Network.AWS.CloudHSMv2.ListTags
-    Network.AWS.CloudHSMv2.ModifyBackupAttributes
-    Network.AWS.CloudHSMv2.ModifyCluster
-    Network.AWS.CloudHSMv2.RestoreBackup
-    Network.AWS.CloudHSMv2.TagResource
-    Network.AWS.CloudHSMv2.Types
-    Network.AWS.CloudHSMv2.Types.Backup
-    Network.AWS.CloudHSMv2.Types.BackupPolicy
-    Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy
-    Network.AWS.CloudHSMv2.Types.BackupRetentionType
-    Network.AWS.CloudHSMv2.Types.BackupState
-    Network.AWS.CloudHSMv2.Types.Certificates
-    Network.AWS.CloudHSMv2.Types.Cluster
-    Network.AWS.CloudHSMv2.Types.ClusterState
-    Network.AWS.CloudHSMv2.Types.DestinationBackup
-    Network.AWS.CloudHSMv2.Types.Hsm
-    Network.AWS.CloudHSMv2.Types.HsmState
-    Network.AWS.CloudHSMv2.Types.Tag
-    Network.AWS.CloudHSMv2.UntagResource
-    Network.AWS.CloudHSMv2.Waiters
+    Network.AWS.CloudHSMV2
+    Network.AWS.CloudHSMV2.CopyBackupToRegion
+    Network.AWS.CloudHSMV2.CreateCluster
+    Network.AWS.CloudHSMV2.CreateHsm
+    Network.AWS.CloudHSMV2.DeleteBackup
+    Network.AWS.CloudHSMV2.DeleteCluster
+    Network.AWS.CloudHSMV2.DeleteHsm
+    Network.AWS.CloudHSMV2.DescribeBackups
+    Network.AWS.CloudHSMV2.DescribeClusters
+    Network.AWS.CloudHSMV2.InitializeCluster
+    Network.AWS.CloudHSMV2.Lens
+    Network.AWS.CloudHSMV2.ListTags
+    Network.AWS.CloudHSMV2.ModifyBackupAttributes
+    Network.AWS.CloudHSMV2.ModifyCluster
+    Network.AWS.CloudHSMV2.RestoreBackup
+    Network.AWS.CloudHSMV2.TagResource
+    Network.AWS.CloudHSMV2.Types
+    Network.AWS.CloudHSMV2.Types.Backup
+    Network.AWS.CloudHSMV2.Types.BackupPolicy
+    Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy
+    Network.AWS.CloudHSMV2.Types.BackupRetentionType
+    Network.AWS.CloudHSMV2.Types.BackupState
+    Network.AWS.CloudHSMV2.Types.Certificates
+    Network.AWS.CloudHSMV2.Types.Cluster
+    Network.AWS.CloudHSMV2.Types.ClusterState
+    Network.AWS.CloudHSMV2.Types.DestinationBackup
+    Network.AWS.CloudHSMV2.Types.Hsm
+    Network.AWS.CloudHSMV2.Types.HsmState
+    Network.AWS.CloudHSMV2.Types.Tag
+    Network.AWS.CloudHSMV2.UntagResource
+    Network.AWS.CloudHSMV2.Waiters
 
   reexported-modules: Network.AWS
   build-depends:
@@ -93,9 +93,9 @@ test-suite amazonka-cloudhsmv2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudHSMv2
-    Test.AWS.CloudHSMv2.Internal
-    Test.AWS.Gen.CloudHSMv2
+    Test.AWS.CloudHSMV2
+    Test.AWS.CloudHSMV2.Internal
+    Test.AWS.Gen.CloudHSMV2
 
   build-depends:
     , amazonka              ^>=2.0

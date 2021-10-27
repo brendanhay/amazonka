@@ -1,0 +1,171 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.MacieV2.GetFindings
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves the details of one or more findings.
+module Network.AWS.MacieV2.GetFindings
+  ( -- * Creating a Request
+    GetFindings (..),
+    newGetFindings,
+
+    -- * Request Lenses
+    getFindings_sortCriteria,
+    getFindings_findingIds,
+
+    -- * Destructuring the Response
+    GetFindingsResponse (..),
+    newGetFindingsResponse,
+
+    -- * Response Lenses
+    getFindingsResponse_findings,
+    getFindingsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MacieV2.Types
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newGetFindings' smart constructor.
+data GetFindings = GetFindings'
+  { -- | The criteria for sorting the results of the request.
+    sortCriteria :: Prelude.Maybe SortCriteria,
+    -- | An array of strings that lists the unique identifiers for the findings
+    -- to retrieve.
+    findingIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetFindings' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'sortCriteria', 'getFindings_sortCriteria' - The criteria for sorting the results of the request.
+--
+-- 'findingIds', 'getFindings_findingIds' - An array of strings that lists the unique identifiers for the findings
+-- to retrieve.
+newGetFindings ::
+  GetFindings
+newGetFindings =
+  GetFindings'
+    { sortCriteria = Prelude.Nothing,
+      findingIds = Prelude.mempty
+    }
+
+-- | The criteria for sorting the results of the request.
+getFindings_sortCriteria :: Lens.Lens' GetFindings (Prelude.Maybe SortCriteria)
+getFindings_sortCriteria = Lens.lens (\GetFindings' {sortCriteria} -> sortCriteria) (\s@GetFindings' {} a -> s {sortCriteria = a} :: GetFindings)
+
+-- | An array of strings that lists the unique identifiers for the findings
+-- to retrieve.
+getFindings_findingIds :: Lens.Lens' GetFindings [Prelude.Text]
+getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\s@GetFindings' {} a -> s {findingIds = a} :: GetFindings) Prelude.. Lens.coerced
+
+instance Core.AWSRequest GetFindings where
+  type AWSResponse GetFindings = GetFindingsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetFindingsResponse'
+            Prelude.<$> (x Core..?> "findings" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetFindings
+
+instance Prelude.NFData GetFindings
+
+instance Core.ToHeaders GetFindings where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON GetFindings where
+  toJSON GetFindings' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+            Prelude.Just ("findingIds" Core..= findingIds)
+          ]
+      )
+
+instance Core.ToPath GetFindings where
+  toPath = Prelude.const "/findings/describe"
+
+instance Core.ToQuery GetFindings where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetFindingsResponse' smart constructor.
+data GetFindingsResponse = GetFindingsResponse'
+  { -- | An array of objects, one for each finding that meets the criteria
+    -- specified in the request.
+    findings :: Prelude.Maybe [Finding],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetFindingsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'findings', 'getFindingsResponse_findings' - An array of objects, one for each finding that meets the criteria
+-- specified in the request.
+--
+-- 'httpStatus', 'getFindingsResponse_httpStatus' - The response's http status code.
+newGetFindingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetFindingsResponse
+newGetFindingsResponse pHttpStatus_ =
+  GetFindingsResponse'
+    { findings = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | An array of objects, one for each finding that meets the criteria
+-- specified in the request.
+getFindingsResponse_findings :: Lens.Lens' GetFindingsResponse (Prelude.Maybe [Finding])
+getFindingsResponse_findings = Lens.lens (\GetFindingsResponse' {findings} -> findings) (\s@GetFindingsResponse' {} a -> s {findings = a} :: GetFindingsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response's http status code.
+getFindingsResponse_httpStatus :: Lens.Lens' GetFindingsResponse Prelude.Int
+getFindingsResponse_httpStatus = Lens.lens (\GetFindingsResponse' {httpStatus} -> httpStatus) (\s@GetFindingsResponse' {} a -> s {httpStatus = a} :: GetFindingsResponse)
+
+instance Prelude.NFData GetFindingsResponse

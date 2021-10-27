@@ -1,0 +1,89 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.MacieV2.Types.SearchResourcesSortCriteria
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.MacieV2.Types.SearchResourcesSortCriteria where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MacieV2.Types.OrderBy
+import Network.AWS.MacieV2.Types.SearchResourcesSortAttributeName
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Specifies criteria for sorting the results of a query for information
+-- about Amazon Web Services resources that Amazon Macie monitors and
+-- analyzes.
+--
+-- /See:/ 'newSearchResourcesSortCriteria' smart constructor.
+data SearchResourcesSortCriteria = SearchResourcesSortCriteria'
+  { -- | The sort order to apply to the results, based on the value for the
+    -- property specified by the attributeName property. Valid values are: ASC,
+    -- sort the results in ascending order; and, DESC, sort the results in
+    -- descending order.
+    orderBy :: Prelude.Maybe OrderBy,
+    -- | The property to sort the results by.
+    attributeName :: Prelude.Maybe SearchResourcesSortAttributeName
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'SearchResourcesSortCriteria' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'orderBy', 'searchResourcesSortCriteria_orderBy' - The sort order to apply to the results, based on the value for the
+-- property specified by the attributeName property. Valid values are: ASC,
+-- sort the results in ascending order; and, DESC, sort the results in
+-- descending order.
+--
+-- 'attributeName', 'searchResourcesSortCriteria_attributeName' - The property to sort the results by.
+newSearchResourcesSortCriteria ::
+  SearchResourcesSortCriteria
+newSearchResourcesSortCriteria =
+  SearchResourcesSortCriteria'
+    { orderBy =
+        Prelude.Nothing,
+      attributeName = Prelude.Nothing
+    }
+
+-- | The sort order to apply to the results, based on the value for the
+-- property specified by the attributeName property. Valid values are: ASC,
+-- sort the results in ascending order; and, DESC, sort the results in
+-- descending order.
+searchResourcesSortCriteria_orderBy :: Lens.Lens' SearchResourcesSortCriteria (Prelude.Maybe OrderBy)
+searchResourcesSortCriteria_orderBy = Lens.lens (\SearchResourcesSortCriteria' {orderBy} -> orderBy) (\s@SearchResourcesSortCriteria' {} a -> s {orderBy = a} :: SearchResourcesSortCriteria)
+
+-- | The property to sort the results by.
+searchResourcesSortCriteria_attributeName :: Lens.Lens' SearchResourcesSortCriteria (Prelude.Maybe SearchResourcesSortAttributeName)
+searchResourcesSortCriteria_attributeName = Lens.lens (\SearchResourcesSortCriteria' {attributeName} -> attributeName) (\s@SearchResourcesSortCriteria' {} a -> s {attributeName = a} :: SearchResourcesSortCriteria)
+
+instance Prelude.Hashable SearchResourcesSortCriteria
+
+instance Prelude.NFData SearchResourcesSortCriteria
+
+instance Core.ToJSON SearchResourcesSortCriteria where
+  toJSON SearchResourcesSortCriteria' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("orderBy" Core..=) Prelude.<$> orderBy,
+            ("attributeName" Core..=) Prelude.<$> attributeName
+          ]
+      )

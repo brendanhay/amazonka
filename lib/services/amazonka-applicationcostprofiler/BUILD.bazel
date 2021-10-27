@@ -1,0 +1,69 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-applicationcostprofiler/amazonka-applicationcostprofiler.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-applicationcostprofiler",
+    srcs = [
+        "gen/Network/AWS/ApplicationCostProfiler.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/DeleteReportDefinition.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/GetReportDefinition.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/ImportApplicationUsage.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Lens.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/ListReportDefinitions.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/PutReportDefinition.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types/Format.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types/ReportDefinition.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types/ReportFrequency.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types/S3BucketRegion.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types/S3Location.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Types/SourceS3Location.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/UpdateReportDefinition.hs",
+        "gen/Network/AWS/ApplicationCostProfiler/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_applicationcostprofiler=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-applicationcostprofiler/amazonka-applicationcostprofiler.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-applicationcostprofiler-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/ApplicationCostProfiler.hs",
+        "test/Test/AWS/ApplicationCostProfiler/Internal.hs",
+        "test/Test/AWS/Gen/ApplicationCostProfiler.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_applicationcostprofiler=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-applicationcostprofiler",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

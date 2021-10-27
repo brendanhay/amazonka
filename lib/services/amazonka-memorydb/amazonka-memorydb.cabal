@@ -1,0 +1,159 @@
+cabal-version:      2.2
+name:               amazonka-memorydb
+version:            2.0
+synopsis:           Amazon MemoryDB SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.MemoryDb.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.MemoryDb" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-memorydb
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.MemoryDb
+    Network.AWS.MemoryDb.BatchUpdateCluster
+    Network.AWS.MemoryDb.CopySnapshot
+    Network.AWS.MemoryDb.CreateACL
+    Network.AWS.MemoryDb.CreateCluster
+    Network.AWS.MemoryDb.CreateParameterGroup
+    Network.AWS.MemoryDb.CreateSnapshot
+    Network.AWS.MemoryDb.CreateSubnetGroup
+    Network.AWS.MemoryDb.CreateUser
+    Network.AWS.MemoryDb.DeleteACL
+    Network.AWS.MemoryDb.DeleteCluster
+    Network.AWS.MemoryDb.DeleteParameterGroup
+    Network.AWS.MemoryDb.DeleteSnapshot
+    Network.AWS.MemoryDb.DeleteSubnetGroup
+    Network.AWS.MemoryDb.DeleteUser
+    Network.AWS.MemoryDb.DescribeACLs
+    Network.AWS.MemoryDb.DescribeClusters
+    Network.AWS.MemoryDb.DescribeEngineVersions
+    Network.AWS.MemoryDb.DescribeEvents
+    Network.AWS.MemoryDb.DescribeParameterGroups
+    Network.AWS.MemoryDb.DescribeParameters
+    Network.AWS.MemoryDb.DescribeServiceUpdates
+    Network.AWS.MemoryDb.DescribeSnapshots
+    Network.AWS.MemoryDb.DescribeSubnetGroups
+    Network.AWS.MemoryDb.DescribeUsers
+    Network.AWS.MemoryDb.FailoverShard
+    Network.AWS.MemoryDb.Lens
+    Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates
+    Network.AWS.MemoryDb.ListTags
+    Network.AWS.MemoryDb.ResetParameterGroup
+    Network.AWS.MemoryDb.TagResource
+    Network.AWS.MemoryDb.Types
+    Network.AWS.MemoryDb.Types.ACL
+    Network.AWS.MemoryDb.Types.ACLPendingChanges
+    Network.AWS.MemoryDb.Types.ACLsUpdateStatus
+    Network.AWS.MemoryDb.Types.Authentication
+    Network.AWS.MemoryDb.Types.AuthenticationMode
+    Network.AWS.MemoryDb.Types.AuthenticationType
+    Network.AWS.MemoryDb.Types.AvailabilityZone
+    Network.AWS.MemoryDb.Types.AZStatus
+    Network.AWS.MemoryDb.Types.Cluster
+    Network.AWS.MemoryDb.Types.ClusterConfiguration
+    Network.AWS.MemoryDb.Types.ClusterPendingUpdates
+    Network.AWS.MemoryDb.Types.Endpoint
+    Network.AWS.MemoryDb.Types.EngineVersionInfo
+    Network.AWS.MemoryDb.Types.Event
+    Network.AWS.MemoryDb.Types.Filter
+    Network.AWS.MemoryDb.Types.InputAuthenticationType
+    Network.AWS.MemoryDb.Types.Node
+    Network.AWS.MemoryDb.Types.Parameter
+    Network.AWS.MemoryDb.Types.ParameterGroup
+    Network.AWS.MemoryDb.Types.ParameterNameValue
+    Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate
+    Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest
+    Network.AWS.MemoryDb.Types.ReshardingStatus
+    Network.AWS.MemoryDb.Types.SecurityGroupMembership
+    Network.AWS.MemoryDb.Types.ServiceUpdate
+    Network.AWS.MemoryDb.Types.ServiceUpdateRequest
+    Network.AWS.MemoryDb.Types.ServiceUpdateStatus
+    Network.AWS.MemoryDb.Types.ServiceUpdateType
+    Network.AWS.MemoryDb.Types.Shard
+    Network.AWS.MemoryDb.Types.ShardConfiguration
+    Network.AWS.MemoryDb.Types.ShardConfigurationRequest
+    Network.AWS.MemoryDb.Types.ShardDetail
+    Network.AWS.MemoryDb.Types.SlotMigration
+    Network.AWS.MemoryDb.Types.Snapshot
+    Network.AWS.MemoryDb.Types.SourceType
+    Network.AWS.MemoryDb.Types.Subnet
+    Network.AWS.MemoryDb.Types.SubnetGroup
+    Network.AWS.MemoryDb.Types.Tag
+    Network.AWS.MemoryDb.Types.UnprocessedCluster
+    Network.AWS.MemoryDb.Types.User
+    Network.AWS.MemoryDb.UntagResource
+    Network.AWS.MemoryDb.UpdateACL
+    Network.AWS.MemoryDb.UpdateCluster
+    Network.AWS.MemoryDb.UpdateParameterGroup
+    Network.AWS.MemoryDb.UpdateSubnetGroup
+    Network.AWS.MemoryDb.UpdateUser
+    Network.AWS.MemoryDb.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-memorydb-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MemoryDb
+    Test.AWS.MemoryDb
+    Test.AWS.MemoryDb.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-memorydb
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

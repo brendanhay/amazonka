@@ -1,0 +1,121 @@
+cabal-version:      2.2
+name:               amazonka-dlm
+version:            2.0
+synopsis:           Amazon Data Lifecycle Manager SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-01-12@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.DLM.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.DLM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-dlm
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.DLM
+    Network.AWS.DLM.CreateLifecyclePolicy
+    Network.AWS.DLM.DeleteLifecyclePolicy
+    Network.AWS.DLM.GetLifecyclePolicies
+    Network.AWS.DLM.GetLifecyclePolicy
+    Network.AWS.DLM.Lens
+    Network.AWS.DLM.ListTagsForResource
+    Network.AWS.DLM.TagResource
+    Network.AWS.DLM.Types
+    Network.AWS.DLM.Types.Action
+    Network.AWS.DLM.Types.CreateRule
+    Network.AWS.DLM.Types.CrossRegionCopyAction
+    Network.AWS.DLM.Types.CrossRegionCopyDeprecateRule
+    Network.AWS.DLM.Types.CrossRegionCopyRetainRule
+    Network.AWS.DLM.Types.CrossRegionCopyRule
+    Network.AWS.DLM.Types.DeprecateRule
+    Network.AWS.DLM.Types.EncryptionConfiguration
+    Network.AWS.DLM.Types.EventParameters
+    Network.AWS.DLM.Types.EventSource
+    Network.AWS.DLM.Types.EventSourceValues
+    Network.AWS.DLM.Types.EventTypeValues
+    Network.AWS.DLM.Types.FastRestoreRule
+    Network.AWS.DLM.Types.GettablePolicyStateValues
+    Network.AWS.DLM.Types.IntervalUnitValues
+    Network.AWS.DLM.Types.LifecyclePolicy
+    Network.AWS.DLM.Types.LifecyclePolicySummary
+    Network.AWS.DLM.Types.LocationValues
+    Network.AWS.DLM.Types.Parameters
+    Network.AWS.DLM.Types.PolicyDetails
+    Network.AWS.DLM.Types.PolicyTypeValues
+    Network.AWS.DLM.Types.ResourceLocationValues
+    Network.AWS.DLM.Types.ResourceTypeValues
+    Network.AWS.DLM.Types.RetainRule
+    Network.AWS.DLM.Types.RetentionIntervalUnitValues
+    Network.AWS.DLM.Types.Schedule
+    Network.AWS.DLM.Types.SettablePolicyStateValues
+    Network.AWS.DLM.Types.ShareRule
+    Network.AWS.DLM.Types.Tag
+    Network.AWS.DLM.UntagResource
+    Network.AWS.DLM.UpdateLifecyclePolicy
+    Network.AWS.DLM.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-dlm-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.DLM
+    Test.AWS.DLM.Internal
+    Test.AWS.Gen.DLM
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-dlm
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

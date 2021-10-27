@@ -1,0 +1,247 @@
+cabal-version:      2.2
+name:               amazonka-kinesisanalyticsv2
+version:            2.0
+synopsis:           Amazon Kinesis Analytics SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-05-23@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.KinesisAnalyticsV2.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.KinesisAnalyticsV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-kinesisanalyticsv2
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.KinesisAnalyticsV2
+    Network.AWS.KinesisAnalyticsV2.AddApplicationCloudWatchLoggingOption
+    Network.AWS.KinesisAnalyticsV2.AddApplicationInput
+    Network.AWS.KinesisAnalyticsV2.AddApplicationInputProcessingConfiguration
+    Network.AWS.KinesisAnalyticsV2.AddApplicationOutput
+    Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource
+    Network.AWS.KinesisAnalyticsV2.AddApplicationVpcConfiguration
+    Network.AWS.KinesisAnalyticsV2.CreateApplication
+    Network.AWS.KinesisAnalyticsV2.CreateApplicationPresignedUrl
+    Network.AWS.KinesisAnalyticsV2.CreateApplicationSnapshot
+    Network.AWS.KinesisAnalyticsV2.DeleteApplication
+    Network.AWS.KinesisAnalyticsV2.DeleteApplicationCloudWatchLoggingOption
+    Network.AWS.KinesisAnalyticsV2.DeleteApplicationInputProcessingConfiguration
+    Network.AWS.KinesisAnalyticsV2.DeleteApplicationOutput
+    Network.AWS.KinesisAnalyticsV2.DeleteApplicationReferenceDataSource
+    Network.AWS.KinesisAnalyticsV2.DeleteApplicationSnapshot
+    Network.AWS.KinesisAnalyticsV2.DeleteApplicationVpcConfiguration
+    Network.AWS.KinesisAnalyticsV2.DescribeApplication
+    Network.AWS.KinesisAnalyticsV2.DescribeApplicationSnapshot
+    Network.AWS.KinesisAnalyticsV2.DescribeApplicationVersion
+    Network.AWS.KinesisAnalyticsV2.DiscoverInputSchema
+    Network.AWS.KinesisAnalyticsV2.Lens
+    Network.AWS.KinesisAnalyticsV2.ListApplications
+    Network.AWS.KinesisAnalyticsV2.ListApplicationSnapshots
+    Network.AWS.KinesisAnalyticsV2.ListApplicationVersions
+    Network.AWS.KinesisAnalyticsV2.ListTagsForResource
+    Network.AWS.KinesisAnalyticsV2.RollbackApplication
+    Network.AWS.KinesisAnalyticsV2.StartApplication
+    Network.AWS.KinesisAnalyticsV2.StopApplication
+    Network.AWS.KinesisAnalyticsV2.TagResource
+    Network.AWS.KinesisAnalyticsV2.Types
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationDetail
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationMaintenanceConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationMaintenanceConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationMode
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreType
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationStatus
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationSummary
+    Network.AWS.KinesisAnalyticsV2.Types.ApplicationVersionSummary
+    Network.AWS.KinesisAnalyticsV2.Types.ArtifactType
+    Network.AWS.KinesisAnalyticsV2.Types.CatalogConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.CatalogConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.CheckpointConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.CloudWatchLoggingOption
+    Network.AWS.KinesisAnalyticsV2.Types.CloudWatchLoggingOptionDescription
+    Network.AWS.KinesisAnalyticsV2.Types.CloudWatchLoggingOptionUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.CodeContent
+    Network.AWS.KinesisAnalyticsV2.Types.CodeContentDescription
+    Network.AWS.KinesisAnalyticsV2.Types.CodeContentType
+    Network.AWS.KinesisAnalyticsV2.Types.CodeContentUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType
+    Network.AWS.KinesisAnalyticsV2.Types.CSVMappingParameters
+    Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.DestinationSchema
+    Network.AWS.KinesisAnalyticsV2.Types.EnvironmentProperties
+    Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyDescriptions
+    Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates
+    Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.FlinkRunConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.GlueDataCatalogConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.GlueDataCatalogConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.GlueDataCatalogConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.Input
+    Network.AWS.KinesisAnalyticsV2.Types.InputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.InputLambdaProcessor
+    Network.AWS.KinesisAnalyticsV2.Types.InputLambdaProcessorDescription
+    Network.AWS.KinesisAnalyticsV2.Types.InputLambdaProcessorUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.InputParallelism
+    Network.AWS.KinesisAnalyticsV2.Types.InputParallelismUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.InputProcessingConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.InputProcessingConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.InputProcessingConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.InputSchemaUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.InputStartingPosition
+    Network.AWS.KinesisAnalyticsV2.Types.InputStartingPositionConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.InputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.JSONMappingParameters
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseInput
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseInputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseInputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseOutput
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseOutputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseOutputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsInput
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsInputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsInputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsOutput
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsOutputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsOutputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.LambdaOutput
+    Network.AWS.KinesisAnalyticsV2.Types.LambdaOutputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.LambdaOutputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.LogLevel
+    Network.AWS.KinesisAnalyticsV2.Types.MappingParameters
+    Network.AWS.KinesisAnalyticsV2.Types.MavenReference
+    Network.AWS.KinesisAnalyticsV2.Types.MetricsLevel
+    Network.AWS.KinesisAnalyticsV2.Types.MonitoringConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.MonitoringConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.MonitoringConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.Output
+    Network.AWS.KinesisAnalyticsV2.Types.OutputDescription
+    Network.AWS.KinesisAnalyticsV2.Types.OutputUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup
+    Network.AWS.KinesisAnalyticsV2.Types.RecordColumn
+    Network.AWS.KinesisAnalyticsV2.Types.RecordFormat
+    Network.AWS.KinesisAnalyticsV2.Types.RecordFormatType
+    Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSource
+    Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSourceUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.RunConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.RuntimeEnvironment
+    Network.AWS.KinesisAnalyticsV2.Types.S3ApplicationCodeLocationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.S3Configuration
+    Network.AWS.KinesisAnalyticsV2.Types.S3ContentBaseLocation
+    Network.AWS.KinesisAnalyticsV2.Types.S3ContentBaseLocationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.S3ContentBaseLocationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.S3ContentLocation
+    Network.AWS.KinesisAnalyticsV2.Types.S3ContentLocationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.S3ReferenceDataSource
+    Network.AWS.KinesisAnalyticsV2.Types.S3ReferenceDataSourceDescription
+    Network.AWS.KinesisAnalyticsV2.Types.S3ReferenceDataSourceUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.SnapshotDetails
+    Network.AWS.KinesisAnalyticsV2.Types.SnapshotStatus
+    Network.AWS.KinesisAnalyticsV2.Types.SourceSchema
+    Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.SqlRunConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.Tag
+    Network.AWS.KinesisAnalyticsV2.Types.UrlType
+    Network.AWS.KinesisAnalyticsV2.Types.VpcConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfiguration
+    Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationDescription
+    Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate
+    Network.AWS.KinesisAnalyticsV2.UntagResource
+    Network.AWS.KinesisAnalyticsV2.UpdateApplication
+    Network.AWS.KinesisAnalyticsV2.UpdateApplicationMaintenanceConfiguration
+    Network.AWS.KinesisAnalyticsV2.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-kinesisanalyticsv2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.KinesisAnalyticsV2
+    Test.AWS.KinesisAnalyticsV2
+    Test.AWS.KinesisAnalyticsV2.Internal
+
+  build-depends:
+    , amazonka                     ^>=2.0
+    , amazonka-kinesisanalyticsv2
+    , amazonka-test                ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

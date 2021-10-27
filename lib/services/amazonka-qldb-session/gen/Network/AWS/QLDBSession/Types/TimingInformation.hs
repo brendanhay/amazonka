@@ -1,0 +1,72 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.QLDBSession.Types.TimingInformation
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.QLDBSession.Types.TimingInformation where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Contains server-side performance information for a command. Amazon QLDB
+-- captures timing information between the times when it receives the
+-- request and when it sends the corresponding response.
+--
+-- /See:/ 'newTimingInformation' smart constructor.
+data TimingInformation = TimingInformation'
+  { -- | The amount of time that QLDB spent on processing the command, measured
+    -- in milliseconds.
+    processingTimeMilliseconds :: Prelude.Maybe Prelude.Integer
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'TimingInformation' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'processingTimeMilliseconds', 'timingInformation_processingTimeMilliseconds' - The amount of time that QLDB spent on processing the command, measured
+-- in milliseconds.
+newTimingInformation ::
+  TimingInformation
+newTimingInformation =
+  TimingInformation'
+    { processingTimeMilliseconds =
+        Prelude.Nothing
+    }
+
+-- | The amount of time that QLDB spent on processing the command, measured
+-- in milliseconds.
+timingInformation_processingTimeMilliseconds :: Lens.Lens' TimingInformation (Prelude.Maybe Prelude.Integer)
+timingInformation_processingTimeMilliseconds = Lens.lens (\TimingInformation' {processingTimeMilliseconds} -> processingTimeMilliseconds) (\s@TimingInformation' {} a -> s {processingTimeMilliseconds = a} :: TimingInformation)
+
+instance Core.FromJSON TimingInformation where
+  parseJSON =
+    Core.withObject
+      "TimingInformation"
+      ( \x ->
+          TimingInformation'
+            Prelude.<$> (x Core..:? "ProcessingTimeMilliseconds")
+      )
+
+instance Prelude.Hashable TimingInformation
+
+instance Prelude.NFData TimingInformation

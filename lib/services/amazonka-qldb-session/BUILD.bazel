@@ -1,0 +1,76 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-qldb-session/amazonka-qldb-session.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-qldb-session",
+    srcs = [
+        "gen/Network/AWS/QLDBSession.hs",
+        "gen/Network/AWS/QLDBSession/Lens.hs",
+        "gen/Network/AWS/QLDBSession/SendCommand.hs",
+        "gen/Network/AWS/QLDBSession/Types.hs",
+        "gen/Network/AWS/QLDBSession/Types/AbortTransactionRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/AbortTransactionResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/CommitTransactionRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/CommitTransactionResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/EndSessionRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/EndSessionResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/ExecuteStatementRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/ExecuteStatementResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/FetchPageRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/FetchPageResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/IOUsage.hs",
+        "gen/Network/AWS/QLDBSession/Types/Page.hs",
+        "gen/Network/AWS/QLDBSession/Types/StartSessionRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/StartSessionResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/StartTransactionRequest.hs",
+        "gen/Network/AWS/QLDBSession/Types/StartTransactionResult.hs",
+        "gen/Network/AWS/QLDBSession/Types/TimingInformation.hs",
+        "gen/Network/AWS/QLDBSession/Types/ValueHolder.hs",
+        "gen/Network/AWS/QLDBSession/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_qldb_session=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-qldb-session/amazonka-qldb-session.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-qldb-session-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/QLDBSession.hs",
+        "test/Test/AWS/QLDBSession.hs",
+        "test/Test/AWS/QLDBSession/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_qldb_session=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-qldb-session",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

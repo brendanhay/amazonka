@@ -1,0 +1,161 @@
+cabal-version:      2.2
+name:               amazonka-mgn
+version:            2.0
+synopsis:           Amazon Application Migration Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-02-26@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.MGN.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.MGN" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-mgn
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.MGN
+    Network.AWS.MGN.ChangeServerLifeCycleState
+    Network.AWS.MGN.CreateReplicationConfigurationTemplate
+    Network.AWS.MGN.DeleteJob
+    Network.AWS.MGN.DeleteReplicationConfigurationTemplate
+    Network.AWS.MGN.DeleteSourceServer
+    Network.AWS.MGN.DescribeJobLogItems
+    Network.AWS.MGN.DescribeJobs
+    Network.AWS.MGN.DescribeReplicationConfigurationTemplates
+    Network.AWS.MGN.DescribeSourceServers
+    Network.AWS.MGN.DisconnectFromService
+    Network.AWS.MGN.FinalizeCutover
+    Network.AWS.MGN.GetLaunchConfiguration
+    Network.AWS.MGN.GetReplicationConfiguration
+    Network.AWS.MGN.InitializeService
+    Network.AWS.MGN.Lens
+    Network.AWS.MGN.ListTagsForResource
+    Network.AWS.MGN.MarkAsArchived
+    Network.AWS.MGN.RetryDataReplication
+    Network.AWS.MGN.StartCutover
+    Network.AWS.MGN.StartTest
+    Network.AWS.MGN.TagResource
+    Network.AWS.MGN.TerminateTargetInstances
+    Network.AWS.MGN.Types
+    Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
+    Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
+    Network.AWS.MGN.Types.CPU
+    Network.AWS.MGN.Types.DataReplicationError
+    Network.AWS.MGN.Types.DataReplicationErrorString
+    Network.AWS.MGN.Types.DataReplicationInfo
+    Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk
+    Network.AWS.MGN.Types.DataReplicationInitiation
+    Network.AWS.MGN.Types.DataReplicationInitiationStep
+    Network.AWS.MGN.Types.DataReplicationInitiationStepName
+    Network.AWS.MGN.Types.DataReplicationInitiationStepStatus
+    Network.AWS.MGN.Types.DataReplicationState
+    Network.AWS.MGN.Types.DescribeJobsRequestFilters
+    Network.AWS.MGN.Types.DescribeSourceServersRequestFilters
+    Network.AWS.MGN.Types.Disk
+    Network.AWS.MGN.Types.FirstBoot
+    Network.AWS.MGN.Types.IdentificationHints
+    Network.AWS.MGN.Types.InitiatedBy
+    Network.AWS.MGN.Types.Job
+    Network.AWS.MGN.Types.JobLog
+    Network.AWS.MGN.Types.JobLogEvent
+    Network.AWS.MGN.Types.JobLogEventData
+    Network.AWS.MGN.Types.JobStatus
+    Network.AWS.MGN.Types.JobType
+    Network.AWS.MGN.Types.LaunchConfiguration
+    Network.AWS.MGN.Types.LaunchDisposition
+    Network.AWS.MGN.Types.LaunchedInstance
+    Network.AWS.MGN.Types.LaunchStatus
+    Network.AWS.MGN.Types.Licensing
+    Network.AWS.MGN.Types.LifeCycle
+    Network.AWS.MGN.Types.LifeCycleLastCutover
+    Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized
+    Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated
+    Network.AWS.MGN.Types.LifeCycleLastCutoverReverted
+    Network.AWS.MGN.Types.LifeCycleLastTest
+    Network.AWS.MGN.Types.LifeCycleLastTestFinalized
+    Network.AWS.MGN.Types.LifeCycleLastTestInitiated
+    Network.AWS.MGN.Types.LifeCycleLastTestReverted
+    Network.AWS.MGN.Types.LifeCycleState
+    Network.AWS.MGN.Types.NetworkInterface
+    Network.AWS.MGN.Types.OS
+    Network.AWS.MGN.Types.ParticipatingServer
+    Network.AWS.MGN.Types.ReplicationConfiguration
+    Network.AWS.MGN.Types.ReplicationConfigurationDataPlaneRouting
+    Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
+    Network.AWS.MGN.Types.ReplicationConfigurationEbsEncryption
+    Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDisk
+    Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
+    Network.AWS.MGN.Types.ReplicationConfigurationTemplate
+    Network.AWS.MGN.Types.SourceProperties
+    Network.AWS.MGN.Types.SourceServer
+    Network.AWS.MGN.Types.TargetInstanceTypeRightSizingMethod
+    Network.AWS.MGN.UntagResource
+    Network.AWS.MGN.UpdateLaunchConfiguration
+    Network.AWS.MGN.UpdateReplicationConfiguration
+    Network.AWS.MGN.UpdateReplicationConfigurationTemplate
+    Network.AWS.MGN.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-mgn-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MGN
+    Test.AWS.MGN
+    Test.AWS.MGN.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-mgn
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

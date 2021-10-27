@@ -1,0 +1,231 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.AuditManager.BatchDisassociateAssessmentReportEvidence
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Disassociates a list of evidence from the specified assessment report in
+-- Audit Manager.
+module Network.AWS.AuditManager.BatchDisassociateAssessmentReportEvidence
+  ( -- * Creating a Request
+    BatchDisassociateAssessmentReportEvidence (..),
+    newBatchDisassociateAssessmentReportEvidence,
+
+    -- * Request Lenses
+    batchDisassociateAssessmentReportEvidence_assessmentId,
+    batchDisassociateAssessmentReportEvidence_evidenceFolderId,
+    batchDisassociateAssessmentReportEvidence_evidenceIds,
+
+    -- * Destructuring the Response
+    BatchDisassociateAssessmentReportEvidenceResponse (..),
+    newBatchDisassociateAssessmentReportEvidenceResponse,
+
+    -- * Response Lenses
+    batchDisassociateAssessmentReportEvidenceResponse_evidenceIds,
+    batchDisassociateAssessmentReportEvidenceResponse_errors,
+    batchDisassociateAssessmentReportEvidenceResponse_httpStatus,
+  )
+where
+
+import Network.AWS.AuditManager.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newBatchDisassociateAssessmentReportEvidence' smart constructor.
+data BatchDisassociateAssessmentReportEvidence = BatchDisassociateAssessmentReportEvidence'
+  { -- | The identifier for the specified assessment.
+    assessmentId :: Prelude.Text,
+    -- | The identifier for the folder in which evidence is stored.
+    evidenceFolderId :: Prelude.Text,
+    -- | The list of evidence identifiers.
+    evidenceIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'BatchDisassociateAssessmentReportEvidence' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'assessmentId', 'batchDisassociateAssessmentReportEvidence_assessmentId' - The identifier for the specified assessment.
+--
+-- 'evidenceFolderId', 'batchDisassociateAssessmentReportEvidence_evidenceFolderId' - The identifier for the folder in which evidence is stored.
+--
+-- 'evidenceIds', 'batchDisassociateAssessmentReportEvidence_evidenceIds' - The list of evidence identifiers.
+newBatchDisassociateAssessmentReportEvidence ::
+  -- | 'assessmentId'
+  Prelude.Text ->
+  -- | 'evidenceFolderId'
+  Prelude.Text ->
+  BatchDisassociateAssessmentReportEvidence
+newBatchDisassociateAssessmentReportEvidence
+  pAssessmentId_
+  pEvidenceFolderId_ =
+    BatchDisassociateAssessmentReportEvidence'
+      { assessmentId =
+          pAssessmentId_,
+        evidenceFolderId =
+          pEvidenceFolderId_,
+        evidenceIds = Prelude.mempty
+      }
+
+-- | The identifier for the specified assessment.
+batchDisassociateAssessmentReportEvidence_assessmentId :: Lens.Lens' BatchDisassociateAssessmentReportEvidence Prelude.Text
+batchDisassociateAssessmentReportEvidence_assessmentId = Lens.lens (\BatchDisassociateAssessmentReportEvidence' {assessmentId} -> assessmentId) (\s@BatchDisassociateAssessmentReportEvidence' {} a -> s {assessmentId = a} :: BatchDisassociateAssessmentReportEvidence)
+
+-- | The identifier for the folder in which evidence is stored.
+batchDisassociateAssessmentReportEvidence_evidenceFolderId :: Lens.Lens' BatchDisassociateAssessmentReportEvidence Prelude.Text
+batchDisassociateAssessmentReportEvidence_evidenceFolderId = Lens.lens (\BatchDisassociateAssessmentReportEvidence' {evidenceFolderId} -> evidenceFolderId) (\s@BatchDisassociateAssessmentReportEvidence' {} a -> s {evidenceFolderId = a} :: BatchDisassociateAssessmentReportEvidence)
+
+-- | The list of evidence identifiers.
+batchDisassociateAssessmentReportEvidence_evidenceIds :: Lens.Lens' BatchDisassociateAssessmentReportEvidence [Prelude.Text]
+batchDisassociateAssessmentReportEvidence_evidenceIds = Lens.lens (\BatchDisassociateAssessmentReportEvidence' {evidenceIds} -> evidenceIds) (\s@BatchDisassociateAssessmentReportEvidence' {} a -> s {evidenceIds = a} :: BatchDisassociateAssessmentReportEvidence) Prelude.. Lens.coerced
+
+instance
+  Core.AWSRequest
+    BatchDisassociateAssessmentReportEvidence
+  where
+  type
+    AWSResponse
+      BatchDisassociateAssessmentReportEvidence =
+      BatchDisassociateAssessmentReportEvidenceResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchDisassociateAssessmentReportEvidenceResponse'
+            Prelude.<$> (x Core..?> "evidenceIds" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    BatchDisassociateAssessmentReportEvidence
+
+instance
+  Prelude.NFData
+    BatchDisassociateAssessmentReportEvidence
+
+instance
+  Core.ToHeaders
+    BatchDisassociateAssessmentReportEvidence
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToJSON
+    BatchDisassociateAssessmentReportEvidence
+  where
+  toJSON BatchDisassociateAssessmentReportEvidence' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("evidenceFolderId" Core..= evidenceFolderId),
+            Prelude.Just ("evidenceIds" Core..= evidenceIds)
+          ]
+      )
+
+instance
+  Core.ToPath
+    BatchDisassociateAssessmentReportEvidence
+  where
+  toPath BatchDisassociateAssessmentReportEvidence' {..} =
+    Prelude.mconcat
+      [ "/assessments/",
+        Core.toBS assessmentId,
+        "/batchDisassociateFromAssessmentReport"
+      ]
+
+instance
+  Core.ToQuery
+    BatchDisassociateAssessmentReportEvidence
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newBatchDisassociateAssessmentReportEvidenceResponse' smart constructor.
+data BatchDisassociateAssessmentReportEvidenceResponse = BatchDisassociateAssessmentReportEvidenceResponse'
+  { -- | The identifier for the evidence.
+    evidenceIds :: Prelude.Maybe [Prelude.Text],
+    -- | A list of errors returned by the
+    -- @BatchDisassociateAssessmentReportEvidence@ API.
+    errors :: Prelude.Maybe [AssessmentReportEvidenceError],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'BatchDisassociateAssessmentReportEvidenceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'evidenceIds', 'batchDisassociateAssessmentReportEvidenceResponse_evidenceIds' - The identifier for the evidence.
+--
+-- 'errors', 'batchDisassociateAssessmentReportEvidenceResponse_errors' - A list of errors returned by the
+-- @BatchDisassociateAssessmentReportEvidence@ API.
+--
+-- 'httpStatus', 'batchDisassociateAssessmentReportEvidenceResponse_httpStatus' - The response's http status code.
+newBatchDisassociateAssessmentReportEvidenceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchDisassociateAssessmentReportEvidenceResponse
+newBatchDisassociateAssessmentReportEvidenceResponse
+  pHttpStatus_ =
+    BatchDisassociateAssessmentReportEvidenceResponse'
+      { evidenceIds =
+          Prelude.Nothing,
+        errors = Prelude.Nothing,
+        httpStatus =
+          pHttpStatus_
+      }
+
+-- | The identifier for the evidence.
+batchDisassociateAssessmentReportEvidenceResponse_evidenceIds :: Lens.Lens' BatchDisassociateAssessmentReportEvidenceResponse (Prelude.Maybe [Prelude.Text])
+batchDisassociateAssessmentReportEvidenceResponse_evidenceIds = Lens.lens (\BatchDisassociateAssessmentReportEvidenceResponse' {evidenceIds} -> evidenceIds) (\s@BatchDisassociateAssessmentReportEvidenceResponse' {} a -> s {evidenceIds = a} :: BatchDisassociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of errors returned by the
+-- @BatchDisassociateAssessmentReportEvidence@ API.
+batchDisassociateAssessmentReportEvidenceResponse_errors :: Lens.Lens' BatchDisassociateAssessmentReportEvidenceResponse (Prelude.Maybe [AssessmentReportEvidenceError])
+batchDisassociateAssessmentReportEvidenceResponse_errors = Lens.lens (\BatchDisassociateAssessmentReportEvidenceResponse' {errors} -> errors) (\s@BatchDisassociateAssessmentReportEvidenceResponse' {} a -> s {errors = a} :: BatchDisassociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response's http status code.
+batchDisassociateAssessmentReportEvidenceResponse_httpStatus :: Lens.Lens' BatchDisassociateAssessmentReportEvidenceResponse Prelude.Int
+batchDisassociateAssessmentReportEvidenceResponse_httpStatus = Lens.lens (\BatchDisassociateAssessmentReportEvidenceResponse' {httpStatus} -> httpStatus) (\s@BatchDisassociateAssessmentReportEvidenceResponse' {} a -> s {httpStatus = a} :: BatchDisassociateAssessmentReportEvidenceResponse)
+
+instance
+  Prelude.NFData
+    BatchDisassociateAssessmentReportEvidenceResponse

@@ -1,0 +1,253 @@
+cabal-version:      2.2
+name:               amazonka-appflow
+version:            2.0
+synopsis:           Amazon Appflow SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-08-23@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.AppFlow.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.AppFlow" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-appflow
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.AppFlow
+    Network.AWS.AppFlow.CreateConnectorProfile
+    Network.AWS.AppFlow.CreateFlow
+    Network.AWS.AppFlow.DeleteConnectorProfile
+    Network.AWS.AppFlow.DeleteFlow
+    Network.AWS.AppFlow.DescribeConnectorEntity
+    Network.AWS.AppFlow.DescribeConnectorProfiles
+    Network.AWS.AppFlow.DescribeConnectors
+    Network.AWS.AppFlow.DescribeFlow
+    Network.AWS.AppFlow.DescribeFlowExecutionRecords
+    Network.AWS.AppFlow.Lens
+    Network.AWS.AppFlow.ListConnectorEntities
+    Network.AWS.AppFlow.ListFlows
+    Network.AWS.AppFlow.ListTagsForResource
+    Network.AWS.AppFlow.StartFlow
+    Network.AWS.AppFlow.StopFlow
+    Network.AWS.AppFlow.TagResource
+    Network.AWS.AppFlow.Types
+    Network.AWS.AppFlow.Types.AggregationConfig
+    Network.AWS.AppFlow.Types.AggregationType
+    Network.AWS.AppFlow.Types.AmplitudeConnectorOperator
+    Network.AWS.AppFlow.Types.AmplitudeConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.AmplitudeConnectorProfileProperties
+    Network.AWS.AppFlow.Types.AmplitudeMetadata
+    Network.AWS.AppFlow.Types.AmplitudeSourceProperties
+    Network.AWS.AppFlow.Types.BasicAuthCredentials
+    Network.AWS.AppFlow.Types.ConnectionMode
+    Network.AWS.AppFlow.Types.ConnectorConfiguration
+    Network.AWS.AppFlow.Types.ConnectorEntity
+    Network.AWS.AppFlow.Types.ConnectorEntityField
+    Network.AWS.AppFlow.Types.ConnectorMetadata
+    Network.AWS.AppFlow.Types.ConnectorOAuthRequest
+    Network.AWS.AppFlow.Types.ConnectorOperator
+    Network.AWS.AppFlow.Types.ConnectorProfile
+    Network.AWS.AppFlow.Types.ConnectorProfileConfig
+    Network.AWS.AppFlow.Types.ConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.ConnectorProfileProperties
+    Network.AWS.AppFlow.Types.ConnectorType
+    Network.AWS.AppFlow.Types.CustomerProfilesDestinationProperties
+    Network.AWS.AppFlow.Types.CustomerProfilesMetadata
+    Network.AWS.AppFlow.Types.DatadogConnectorOperator
+    Network.AWS.AppFlow.Types.DatadogConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.DatadogConnectorProfileProperties
+    Network.AWS.AppFlow.Types.DatadogMetadata
+    Network.AWS.AppFlow.Types.DatadogSourceProperties
+    Network.AWS.AppFlow.Types.DataPullMode
+    Network.AWS.AppFlow.Types.DestinationConnectorProperties
+    Network.AWS.AppFlow.Types.DestinationFieldProperties
+    Network.AWS.AppFlow.Types.DestinationFlowConfig
+    Network.AWS.AppFlow.Types.DynatraceConnectorOperator
+    Network.AWS.AppFlow.Types.DynatraceConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.DynatraceConnectorProfileProperties
+    Network.AWS.AppFlow.Types.DynatraceMetadata
+    Network.AWS.AppFlow.Types.DynatraceSourceProperties
+    Network.AWS.AppFlow.Types.ErrorHandlingConfig
+    Network.AWS.AppFlow.Types.ErrorInfo
+    Network.AWS.AppFlow.Types.EventBridgeDestinationProperties
+    Network.AWS.AppFlow.Types.EventBridgeMetadata
+    Network.AWS.AppFlow.Types.ExecutionDetails
+    Network.AWS.AppFlow.Types.ExecutionRecord
+    Network.AWS.AppFlow.Types.ExecutionResult
+    Network.AWS.AppFlow.Types.ExecutionStatus
+    Network.AWS.AppFlow.Types.FieldTypeDetails
+    Network.AWS.AppFlow.Types.FileType
+    Network.AWS.AppFlow.Types.FlowDefinition
+    Network.AWS.AppFlow.Types.FlowStatus
+    Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator
+    Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
+    Network.AWS.AppFlow.Types.GoogleAnalyticsMetadata
+    Network.AWS.AppFlow.Types.GoogleAnalyticsSourceProperties
+    Network.AWS.AppFlow.Types.HoneycodeConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.HoneycodeConnectorProfileProperties
+    Network.AWS.AppFlow.Types.HoneycodeDestinationProperties
+    Network.AWS.AppFlow.Types.HoneycodeMetadata
+    Network.AWS.AppFlow.Types.IncrementalPullConfig
+    Network.AWS.AppFlow.Types.InforNexusConnectorOperator
+    Network.AWS.AppFlow.Types.InforNexusConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.InforNexusConnectorProfileProperties
+    Network.AWS.AppFlow.Types.InforNexusMetadata
+    Network.AWS.AppFlow.Types.InforNexusSourceProperties
+    Network.AWS.AppFlow.Types.LookoutMetricsDestinationProperties
+    Network.AWS.AppFlow.Types.MarketoConnectorOperator
+    Network.AWS.AppFlow.Types.MarketoConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.MarketoConnectorProfileProperties
+    Network.AWS.AppFlow.Types.MarketoMetadata
+    Network.AWS.AppFlow.Types.MarketoSourceProperties
+    Network.AWS.AppFlow.Types.OAuthCredentials
+    Network.AWS.AppFlow.Types.OAuthProperties
+    Network.AWS.AppFlow.Types.Operator
+    Network.AWS.AppFlow.Types.OperatorPropertiesKeys
+    Network.AWS.AppFlow.Types.PrefixConfig
+    Network.AWS.AppFlow.Types.PrefixFormat
+    Network.AWS.AppFlow.Types.PrefixType
+    Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause
+    Network.AWS.AppFlow.Types.PrivateConnectionProvisioningState
+    Network.AWS.AppFlow.Types.PrivateConnectionProvisioningStatus
+    Network.AWS.AppFlow.Types.RedshiftConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.RedshiftConnectorProfileProperties
+    Network.AWS.AppFlow.Types.RedshiftDestinationProperties
+    Network.AWS.AppFlow.Types.RedshiftMetadata
+    Network.AWS.AppFlow.Types.S3ConnectorOperator
+    Network.AWS.AppFlow.Types.S3DestinationProperties
+    Network.AWS.AppFlow.Types.S3InputFileType
+    Network.AWS.AppFlow.Types.S3InputFormatConfig
+    Network.AWS.AppFlow.Types.S3Metadata
+    Network.AWS.AppFlow.Types.S3OutputFormatConfig
+    Network.AWS.AppFlow.Types.S3SourceProperties
+    Network.AWS.AppFlow.Types.SalesforceConnectorOperator
+    Network.AWS.AppFlow.Types.SalesforceConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.SalesforceConnectorProfileProperties
+    Network.AWS.AppFlow.Types.SalesforceDestinationProperties
+    Network.AWS.AppFlow.Types.SalesforceMetadata
+    Network.AWS.AppFlow.Types.SalesforceSourceProperties
+    Network.AWS.AppFlow.Types.SAPODataConnectorOperator
+    Network.AWS.AppFlow.Types.SAPODataConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.SAPODataConnectorProfileProperties
+    Network.AWS.AppFlow.Types.SAPODataMetadata
+    Network.AWS.AppFlow.Types.SAPODataSourceProperties
+    Network.AWS.AppFlow.Types.ScheduledTriggerProperties
+    Network.AWS.AppFlow.Types.ScheduleFrequencyType
+    Network.AWS.AppFlow.Types.ServiceNowConnectorOperator
+    Network.AWS.AppFlow.Types.ServiceNowConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.ServiceNowConnectorProfileProperties
+    Network.AWS.AppFlow.Types.ServiceNowMetadata
+    Network.AWS.AppFlow.Types.ServiceNowSourceProperties
+    Network.AWS.AppFlow.Types.SingularConnectorOperator
+    Network.AWS.AppFlow.Types.SingularConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.SingularConnectorProfileProperties
+    Network.AWS.AppFlow.Types.SingularMetadata
+    Network.AWS.AppFlow.Types.SingularSourceProperties
+    Network.AWS.AppFlow.Types.SlackConnectorOperator
+    Network.AWS.AppFlow.Types.SlackConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.SlackConnectorProfileProperties
+    Network.AWS.AppFlow.Types.SlackMetadata
+    Network.AWS.AppFlow.Types.SlackSourceProperties
+    Network.AWS.AppFlow.Types.SnowflakeConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.SnowflakeConnectorProfileProperties
+    Network.AWS.AppFlow.Types.SnowflakeDestinationProperties
+    Network.AWS.AppFlow.Types.SnowflakeMetadata
+    Network.AWS.AppFlow.Types.SourceConnectorProperties
+    Network.AWS.AppFlow.Types.SourceFieldProperties
+    Network.AWS.AppFlow.Types.SourceFlowConfig
+    Network.AWS.AppFlow.Types.SupportedFieldTypeDetails
+    Network.AWS.AppFlow.Types.Task
+    Network.AWS.AppFlow.Types.TaskType
+    Network.AWS.AppFlow.Types.TrendmicroConnectorOperator
+    Network.AWS.AppFlow.Types.TrendmicroConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.TrendmicroConnectorProfileProperties
+    Network.AWS.AppFlow.Types.TrendmicroMetadata
+    Network.AWS.AppFlow.Types.TrendmicroSourceProperties
+    Network.AWS.AppFlow.Types.TriggerConfig
+    Network.AWS.AppFlow.Types.TriggerProperties
+    Network.AWS.AppFlow.Types.TriggerType
+    Network.AWS.AppFlow.Types.UpsolverDestinationProperties
+    Network.AWS.AppFlow.Types.UpsolverMetadata
+    Network.AWS.AppFlow.Types.UpsolverS3OutputFormatConfig
+    Network.AWS.AppFlow.Types.VeevaConnectorOperator
+    Network.AWS.AppFlow.Types.VeevaConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.VeevaConnectorProfileProperties
+    Network.AWS.AppFlow.Types.VeevaMetadata
+    Network.AWS.AppFlow.Types.VeevaSourceProperties
+    Network.AWS.AppFlow.Types.WriteOperationType
+    Network.AWS.AppFlow.Types.ZendeskConnectorOperator
+    Network.AWS.AppFlow.Types.ZendeskConnectorProfileCredentials
+    Network.AWS.AppFlow.Types.ZendeskConnectorProfileProperties
+    Network.AWS.AppFlow.Types.ZendeskDestinationProperties
+    Network.AWS.AppFlow.Types.ZendeskMetadata
+    Network.AWS.AppFlow.Types.ZendeskSourceProperties
+    Network.AWS.AppFlow.UntagResource
+    Network.AWS.AppFlow.UpdateConnectorProfile
+    Network.AWS.AppFlow.UpdateFlow
+    Network.AWS.AppFlow.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-appflow-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.AppFlow
+    Test.AWS.AppFlow.Internal
+    Test.AWS.Gen.AppFlow
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-appflow
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

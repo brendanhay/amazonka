@@ -1,0 +1,161 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.LakeFormation.DescribeResource
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves the current data access role for the given resource registered
+-- in AWS Lake Formation.
+module Network.AWS.LakeFormation.DescribeResource
+  ( -- * Creating a Request
+    DescribeResource (..),
+    newDescribeResource,
+
+    -- * Request Lenses
+    describeResource_resourceArn,
+
+    -- * Destructuring the Response
+    DescribeResourceResponse (..),
+    newDescribeResourceResponse,
+
+    -- * Response Lenses
+    describeResourceResponse_resourceInfo,
+    describeResourceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.LakeFormation.Types
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDescribeResource' smart constructor.
+data DescribeResource = DescribeResource'
+  { -- | The resource ARN.
+    resourceArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeResource' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'resourceArn', 'describeResource_resourceArn' - The resource ARN.
+newDescribeResource ::
+  -- | 'resourceArn'
+  Prelude.Text ->
+  DescribeResource
+newDescribeResource pResourceArn_ =
+  DescribeResource' {resourceArn = pResourceArn_}
+
+-- | The resource ARN.
+describeResource_resourceArn :: Lens.Lens' DescribeResource Prelude.Text
+describeResource_resourceArn = Lens.lens (\DescribeResource' {resourceArn} -> resourceArn) (\s@DescribeResource' {} a -> s {resourceArn = a} :: DescribeResource)
+
+instance Core.AWSRequest DescribeResource where
+  type
+    AWSResponse DescribeResource =
+      DescribeResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeResourceResponse'
+            Prelude.<$> (x Core..?> "ResourceInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeResource
+
+instance Prelude.NFData DescribeResource
+
+instance Core.ToHeaders DescribeResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSLakeFormation.DescribeResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeResource where
+  toJSON DescribeResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+      )
+
+instance Core.ToPath DescribeResource where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeResource where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeResourceResponse' smart constructor.
+data DescribeResourceResponse = DescribeResourceResponse'
+  { -- | A structure containing information about an AWS Lake Formation resource.
+    resourceInfo :: Prelude.Maybe ResourceInfo,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeResourceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'resourceInfo', 'describeResourceResponse_resourceInfo' - A structure containing information about an AWS Lake Formation resource.
+--
+-- 'httpStatus', 'describeResourceResponse_httpStatus' - The response's http status code.
+newDescribeResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeResourceResponse
+newDescribeResourceResponse pHttpStatus_ =
+  DescribeResourceResponse'
+    { resourceInfo =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A structure containing information about an AWS Lake Formation resource.
+describeResourceResponse_resourceInfo :: Lens.Lens' DescribeResourceResponse (Prelude.Maybe ResourceInfo)
+describeResourceResponse_resourceInfo = Lens.lens (\DescribeResourceResponse' {resourceInfo} -> resourceInfo) (\s@DescribeResourceResponse' {} a -> s {resourceInfo = a} :: DescribeResourceResponse)
+
+-- | The response's http status code.
+describeResourceResponse_httpStatus :: Lens.Lens' DescribeResourceResponse Prelude.Int
+describeResourceResponse_httpStatus = Lens.lens (\DescribeResourceResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceResponse' {} a -> s {httpStatus = a} :: DescribeResourceResponse)
+
+instance Prelude.NFData DescribeResourceResponse

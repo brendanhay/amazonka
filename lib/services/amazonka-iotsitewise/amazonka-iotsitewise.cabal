@@ -1,0 +1,245 @@
+cabal-version:      2.2
+name:               amazonka-iotsitewise
+version:            2.0
+synopsis:           Amazon IoT SiteWise SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-12-02@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTSiteWise.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.IoTSiteWise" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-iotsitewise
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.IoTSiteWise
+    Network.AWS.IoTSiteWise.AssociateAssets
+    Network.AWS.IoTSiteWise.BatchAssociateProjectAssets
+    Network.AWS.IoTSiteWise.BatchDisassociateProjectAssets
+    Network.AWS.IoTSiteWise.BatchPutAssetPropertyValue
+    Network.AWS.IoTSiteWise.CreateAccessPolicy
+    Network.AWS.IoTSiteWise.CreateAsset
+    Network.AWS.IoTSiteWise.CreateAssetModel
+    Network.AWS.IoTSiteWise.CreateDashboard
+    Network.AWS.IoTSiteWise.CreateGateway
+    Network.AWS.IoTSiteWise.CreatePortal
+    Network.AWS.IoTSiteWise.CreateProject
+    Network.AWS.IoTSiteWise.DeleteAccessPolicy
+    Network.AWS.IoTSiteWise.DeleteAsset
+    Network.AWS.IoTSiteWise.DeleteAssetModel
+    Network.AWS.IoTSiteWise.DeleteDashboard
+    Network.AWS.IoTSiteWise.DeleteGateway
+    Network.AWS.IoTSiteWise.DeletePortal
+    Network.AWS.IoTSiteWise.DeleteProject
+    Network.AWS.IoTSiteWise.DescribeAccessPolicy
+    Network.AWS.IoTSiteWise.DescribeAsset
+    Network.AWS.IoTSiteWise.DescribeAssetModel
+    Network.AWS.IoTSiteWise.DescribeAssetProperty
+    Network.AWS.IoTSiteWise.DescribeDashboard
+    Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
+    Network.AWS.IoTSiteWise.DescribeGateway
+    Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration
+    Network.AWS.IoTSiteWise.DescribeLoggingOptions
+    Network.AWS.IoTSiteWise.DescribePortal
+    Network.AWS.IoTSiteWise.DescribeProject
+    Network.AWS.IoTSiteWise.DescribeStorageConfiguration
+    Network.AWS.IoTSiteWise.DisassociateAssets
+    Network.AWS.IoTSiteWise.GetAssetPropertyAggregates
+    Network.AWS.IoTSiteWise.GetAssetPropertyValue
+    Network.AWS.IoTSiteWise.GetAssetPropertyValueHistory
+    Network.AWS.IoTSiteWise.GetInterpolatedAssetPropertyValues
+    Network.AWS.IoTSiteWise.Lens
+    Network.AWS.IoTSiteWise.ListAccessPolicies
+    Network.AWS.IoTSiteWise.ListAssetModels
+    Network.AWS.IoTSiteWise.ListAssetRelationships
+    Network.AWS.IoTSiteWise.ListAssets
+    Network.AWS.IoTSiteWise.ListAssociatedAssets
+    Network.AWS.IoTSiteWise.ListDashboards
+    Network.AWS.IoTSiteWise.ListGateways
+    Network.AWS.IoTSiteWise.ListPortals
+    Network.AWS.IoTSiteWise.ListProjectAssets
+    Network.AWS.IoTSiteWise.ListProjects
+    Network.AWS.IoTSiteWise.ListTagsForResource
+    Network.AWS.IoTSiteWise.PutDefaultEncryptionConfiguration
+    Network.AWS.IoTSiteWise.PutLoggingOptions
+    Network.AWS.IoTSiteWise.PutStorageConfiguration
+    Network.AWS.IoTSiteWise.TagResource
+    Network.AWS.IoTSiteWise.Types
+    Network.AWS.IoTSiteWise.Types.AccessPolicySummary
+    Network.AWS.IoTSiteWise.Types.AggregatedValue
+    Network.AWS.IoTSiteWise.Types.Aggregates
+    Network.AWS.IoTSiteWise.Types.AggregateType
+    Network.AWS.IoTSiteWise.Types.Alarms
+    Network.AWS.IoTSiteWise.Types.AssetCompositeModel
+    Network.AWS.IoTSiteWise.Types.AssetErrorCode
+    Network.AWS.IoTSiteWise.Types.AssetErrorDetails
+    Network.AWS.IoTSiteWise.Types.AssetHierarchy
+    Network.AWS.IoTSiteWise.Types.AssetHierarchyInfo
+    Network.AWS.IoTSiteWise.Types.AssetModelCompositeModel
+    Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition
+    Network.AWS.IoTSiteWise.Types.AssetModelHierarchy
+    Network.AWS.IoTSiteWise.Types.AssetModelHierarchyDefinition
+    Network.AWS.IoTSiteWise.Types.AssetModelProperty
+    Network.AWS.IoTSiteWise.Types.AssetModelPropertyDefinition
+    Network.AWS.IoTSiteWise.Types.AssetModelState
+    Network.AWS.IoTSiteWise.Types.AssetModelStatus
+    Network.AWS.IoTSiteWise.Types.AssetModelSummary
+    Network.AWS.IoTSiteWise.Types.AssetProperty
+    Network.AWS.IoTSiteWise.Types.AssetPropertyValue
+    Network.AWS.IoTSiteWise.Types.AssetRelationshipSummary
+    Network.AWS.IoTSiteWise.Types.AssetRelationshipType
+    Network.AWS.IoTSiteWise.Types.AssetState
+    Network.AWS.IoTSiteWise.Types.AssetStatus
+    Network.AWS.IoTSiteWise.Types.AssetSummary
+    Network.AWS.IoTSiteWise.Types.AssociatedAssetsSummary
+    Network.AWS.IoTSiteWise.Types.Attribute
+    Network.AWS.IoTSiteWise.Types.AuthMode
+    Network.AWS.IoTSiteWise.Types.BatchPutAssetPropertyError
+    Network.AWS.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry
+    Network.AWS.IoTSiteWise.Types.BatchPutAssetPropertyValueErrorCode
+    Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus
+    Network.AWS.IoTSiteWise.Types.CompositeModelProperty
+    Network.AWS.IoTSiteWise.Types.ComputeLocation
+    Network.AWS.IoTSiteWise.Types.ConfigurationErrorDetails
+    Network.AWS.IoTSiteWise.Types.ConfigurationState
+    Network.AWS.IoTSiteWise.Types.ConfigurationStatus
+    Network.AWS.IoTSiteWise.Types.CustomerManagedS3Storage
+    Network.AWS.IoTSiteWise.Types.DashboardSummary
+    Network.AWS.IoTSiteWise.Types.DetailedError
+    Network.AWS.IoTSiteWise.Types.DetailedErrorCode
+    Network.AWS.IoTSiteWise.Types.EncryptionType
+    Network.AWS.IoTSiteWise.Types.ErrorCode
+    Network.AWS.IoTSiteWise.Types.ErrorDetails
+    Network.AWS.IoTSiteWise.Types.ExpressionVariable
+    Network.AWS.IoTSiteWise.Types.ForwardingConfig
+    Network.AWS.IoTSiteWise.Types.ForwardingConfigState
+    Network.AWS.IoTSiteWise.Types.GatewayCapabilitySummary
+    Network.AWS.IoTSiteWise.Types.GatewayPlatform
+    Network.AWS.IoTSiteWise.Types.GatewaySummary
+    Network.AWS.IoTSiteWise.Types.Greengrass
+    Network.AWS.IoTSiteWise.Types.GreengrassV2
+    Network.AWS.IoTSiteWise.Types.GroupIdentity
+    Network.AWS.IoTSiteWise.Types.IAMRoleIdentity
+    Network.AWS.IoTSiteWise.Types.IAMUserIdentity
+    Network.AWS.IoTSiteWise.Types.Identity
+    Network.AWS.IoTSiteWise.Types.IdentityType
+    Network.AWS.IoTSiteWise.Types.Image
+    Network.AWS.IoTSiteWise.Types.ImageFile
+    Network.AWS.IoTSiteWise.Types.ImageFileType
+    Network.AWS.IoTSiteWise.Types.ImageLocation
+    Network.AWS.IoTSiteWise.Types.InterpolatedAssetPropertyValue
+    Network.AWS.IoTSiteWise.Types.ListAssetsFilter
+    Network.AWS.IoTSiteWise.Types.LoggingLevel
+    Network.AWS.IoTSiteWise.Types.LoggingOptions
+    Network.AWS.IoTSiteWise.Types.Measurement
+    Network.AWS.IoTSiteWise.Types.MeasurementProcessingConfig
+    Network.AWS.IoTSiteWise.Types.Metric
+    Network.AWS.IoTSiteWise.Types.MetricProcessingConfig
+    Network.AWS.IoTSiteWise.Types.MetricWindow
+    Network.AWS.IoTSiteWise.Types.MonitorErrorCode
+    Network.AWS.IoTSiteWise.Types.MonitorErrorDetails
+    Network.AWS.IoTSiteWise.Types.MultiLayerStorage
+    Network.AWS.IoTSiteWise.Types.Permission
+    Network.AWS.IoTSiteWise.Types.PortalResource
+    Network.AWS.IoTSiteWise.Types.PortalState
+    Network.AWS.IoTSiteWise.Types.PortalStatus
+    Network.AWS.IoTSiteWise.Types.PortalSummary
+    Network.AWS.IoTSiteWise.Types.ProjectResource
+    Network.AWS.IoTSiteWise.Types.ProjectSummary
+    Network.AWS.IoTSiteWise.Types.Property
+    Network.AWS.IoTSiteWise.Types.PropertyDataType
+    Network.AWS.IoTSiteWise.Types.PropertyNotification
+    Network.AWS.IoTSiteWise.Types.PropertyNotificationState
+    Network.AWS.IoTSiteWise.Types.PropertyType
+    Network.AWS.IoTSiteWise.Types.PutAssetPropertyValueEntry
+    Network.AWS.IoTSiteWise.Types.Quality
+    Network.AWS.IoTSiteWise.Types.Resource
+    Network.AWS.IoTSiteWise.Types.ResourceType
+    Network.AWS.IoTSiteWise.Types.StorageType
+    Network.AWS.IoTSiteWise.Types.TimeInNanos
+    Network.AWS.IoTSiteWise.Types.TimeOrdering
+    Network.AWS.IoTSiteWise.Types.Transform
+    Network.AWS.IoTSiteWise.Types.TransformProcessingConfig
+    Network.AWS.IoTSiteWise.Types.TraversalDirection
+    Network.AWS.IoTSiteWise.Types.TraversalType
+    Network.AWS.IoTSiteWise.Types.TumblingWindow
+    Network.AWS.IoTSiteWise.Types.UserIdentity
+    Network.AWS.IoTSiteWise.Types.VariableValue
+    Network.AWS.IoTSiteWise.Types.Variant
+    Network.AWS.IoTSiteWise.UntagResource
+    Network.AWS.IoTSiteWise.UpdateAccessPolicy
+    Network.AWS.IoTSiteWise.UpdateAsset
+    Network.AWS.IoTSiteWise.UpdateAssetModel
+    Network.AWS.IoTSiteWise.UpdateAssetProperty
+    Network.AWS.IoTSiteWise.UpdateDashboard
+    Network.AWS.IoTSiteWise.UpdateGateway
+    Network.AWS.IoTSiteWise.UpdateGatewayCapabilityConfiguration
+    Network.AWS.IoTSiteWise.UpdatePortal
+    Network.AWS.IoTSiteWise.UpdateProject
+    Network.AWS.IoTSiteWise.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-iotsitewise-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.IoTSiteWise
+    Test.AWS.IoTSiteWise
+    Test.AWS.IoTSiteWise.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-iotsitewise
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

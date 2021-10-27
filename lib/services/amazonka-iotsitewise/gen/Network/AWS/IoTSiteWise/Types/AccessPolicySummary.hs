@@ -1,0 +1,139 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.IoTSiteWise.Types.AccessPolicySummary
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.IoTSiteWise.Types.AccessPolicySummary where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.IoTSiteWise.Types.Identity
+import Network.AWS.IoTSiteWise.Types.Permission
+import Network.AWS.IoTSiteWise.Types.Resource
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Contains an access policy that defines an identity\'s access to an IoT
+-- SiteWise Monitor resource.
+--
+-- /See:/ 'newAccessPolicySummary' smart constructor.
+data AccessPolicySummary = AccessPolicySummary'
+  { -- | The date the access policy was last updated, in Unix epoch time.
+    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    -- | The date the access policy was created, in Unix epoch time.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the access policy.
+    id :: Prelude.Text,
+    -- | The identity (an Amazon Web Services SSO user, an Amazon Web Services
+    -- SSO group, or an IAM user).
+    identity :: Identity,
+    -- | The IoT SiteWise Monitor resource (a portal or project).
+    resource :: Resource,
+    -- | The permissions for the access policy. Note that a project
+    -- @ADMINISTRATOR@ is also known as a project owner.
+    permission :: Permission
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AccessPolicySummary' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'lastUpdateDate', 'accessPolicySummary_lastUpdateDate' - The date the access policy was last updated, in Unix epoch time.
+--
+-- 'creationDate', 'accessPolicySummary_creationDate' - The date the access policy was created, in Unix epoch time.
+--
+-- 'id', 'accessPolicySummary_id' - The ID of the access policy.
+--
+-- 'identity', 'accessPolicySummary_identity' - The identity (an Amazon Web Services SSO user, an Amazon Web Services
+-- SSO group, or an IAM user).
+--
+-- 'resource', 'accessPolicySummary_resource' - The IoT SiteWise Monitor resource (a portal or project).
+--
+-- 'permission', 'accessPolicySummary_permission' - The permissions for the access policy. Note that a project
+-- @ADMINISTRATOR@ is also known as a project owner.
+newAccessPolicySummary ::
+  -- | 'id'
+  Prelude.Text ->
+  -- | 'identity'
+  Identity ->
+  -- | 'resource'
+  Resource ->
+  -- | 'permission'
+  Permission ->
+  AccessPolicySummary
+newAccessPolicySummary
+  pId_
+  pIdentity_
+  pResource_
+  pPermission_ =
+    AccessPolicySummary'
+      { lastUpdateDate =
+          Prelude.Nothing,
+        creationDate = Prelude.Nothing,
+        id = pId_,
+        identity = pIdentity_,
+        resource = pResource_,
+        permission = pPermission_
+      }
+
+-- | The date the access policy was last updated, in Unix epoch time.
+accessPolicySummary_lastUpdateDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
+accessPolicySummary_lastUpdateDate = Lens.lens (\AccessPolicySummary' {lastUpdateDate} -> lastUpdateDate) (\s@AccessPolicySummary' {} a -> s {lastUpdateDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
+
+-- | The date the access policy was created, in Unix epoch time.
+accessPolicySummary_creationDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
+accessPolicySummary_creationDate = Lens.lens (\AccessPolicySummary' {creationDate} -> creationDate) (\s@AccessPolicySummary' {} a -> s {creationDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the access policy.
+accessPolicySummary_id :: Lens.Lens' AccessPolicySummary Prelude.Text
+accessPolicySummary_id = Lens.lens (\AccessPolicySummary' {id} -> id) (\s@AccessPolicySummary' {} a -> s {id = a} :: AccessPolicySummary)
+
+-- | The identity (an Amazon Web Services SSO user, an Amazon Web Services
+-- SSO group, or an IAM user).
+accessPolicySummary_identity :: Lens.Lens' AccessPolicySummary Identity
+accessPolicySummary_identity = Lens.lens (\AccessPolicySummary' {identity} -> identity) (\s@AccessPolicySummary' {} a -> s {identity = a} :: AccessPolicySummary)
+
+-- | The IoT SiteWise Monitor resource (a portal or project).
+accessPolicySummary_resource :: Lens.Lens' AccessPolicySummary Resource
+accessPolicySummary_resource = Lens.lens (\AccessPolicySummary' {resource} -> resource) (\s@AccessPolicySummary' {} a -> s {resource = a} :: AccessPolicySummary)
+
+-- | The permissions for the access policy. Note that a project
+-- @ADMINISTRATOR@ is also known as a project owner.
+accessPolicySummary_permission :: Lens.Lens' AccessPolicySummary Permission
+accessPolicySummary_permission = Lens.lens (\AccessPolicySummary' {permission} -> permission) (\s@AccessPolicySummary' {} a -> s {permission = a} :: AccessPolicySummary)
+
+instance Core.FromJSON AccessPolicySummary where
+  parseJSON =
+    Core.withObject
+      "AccessPolicySummary"
+      ( \x ->
+          AccessPolicySummary'
+            Prelude.<$> (x Core..:? "lastUpdateDate")
+            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..: "id")
+            Prelude.<*> (x Core..: "identity")
+            Prelude.<*> (x Core..: "resource")
+            Prelude.<*> (x Core..: "permission")
+      )
+
+instance Prelude.Hashable AccessPolicySummary
+
+instance Prelude.NFData AccessPolicySummary

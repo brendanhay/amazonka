@@ -1,0 +1,198 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves information about the default encryption configuration for the
+-- Amazon Web Services account in the default or specified Region. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html Key management>
+-- in the /IoT SiteWise User Guide/.
+module Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
+  ( -- * Creating a Request
+    DescribeDefaultEncryptionConfiguration (..),
+    newDescribeDefaultEncryptionConfiguration,
+
+    -- * Destructuring the Response
+    DescribeDefaultEncryptionConfigurationResponse (..),
+    newDescribeDefaultEncryptionConfigurationResponse,
+
+    -- * Response Lenses
+    describeDefaultEncryptionConfigurationResponse_kmsKeyArn,
+    describeDefaultEncryptionConfigurationResponse_httpStatus,
+    describeDefaultEncryptionConfigurationResponse_encryptionType,
+    describeDefaultEncryptionConfigurationResponse_configurationStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.IoTSiteWise.Types
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDescribeDefaultEncryptionConfiguration' smart constructor.
+data DescribeDefaultEncryptionConfiguration = DescribeDefaultEncryptionConfiguration'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeDefaultEncryptionConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeDefaultEncryptionConfiguration ::
+  DescribeDefaultEncryptionConfiguration
+newDescribeDefaultEncryptionConfiguration =
+  DescribeDefaultEncryptionConfiguration'
+
+instance
+  Core.AWSRequest
+    DescribeDefaultEncryptionConfiguration
+  where
+  type
+    AWSResponse
+      DescribeDefaultEncryptionConfiguration =
+      DescribeDefaultEncryptionConfigurationResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDefaultEncryptionConfigurationResponse'
+            Prelude.<$> (x Core..?> "kmsKeyArn")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "encryptionType")
+              Prelude.<*> (x Core..:> "configurationStatus")
+      )
+
+instance
+  Prelude.Hashable
+    DescribeDefaultEncryptionConfiguration
+
+instance
+  Prelude.NFData
+    DescribeDefaultEncryptionConfiguration
+
+instance
+  Core.ToHeaders
+    DescribeDefaultEncryptionConfiguration
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToPath
+    DescribeDefaultEncryptionConfiguration
+  where
+  toPath =
+    Prelude.const "/configuration/account/encryption"
+
+instance
+  Core.ToQuery
+    DescribeDefaultEncryptionConfiguration
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeDefaultEncryptionConfigurationResponse' smart constructor.
+data DescribeDefaultEncryptionConfigurationResponse = DescribeDefaultEncryptionConfigurationResponse'
+  { -- | The key ARN of the customer managed customer master key (CMK) used for
+    -- KMS encryption if you use @KMS_BASED_ENCRYPTION@.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The type of encryption used for the encryption configuration.
+    encryptionType :: EncryptionType,
+    -- | The status of the account configuration. This contains the
+    -- @ConfigurationState@. If there\'s an error, it also contains the
+    -- @ErrorDetails@.
+    configurationStatus :: ConfigurationStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeDefaultEncryptionConfigurationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'kmsKeyArn', 'describeDefaultEncryptionConfigurationResponse_kmsKeyArn' - The key ARN of the customer managed customer master key (CMK) used for
+-- KMS encryption if you use @KMS_BASED_ENCRYPTION@.
+--
+-- 'httpStatus', 'describeDefaultEncryptionConfigurationResponse_httpStatus' - The response's http status code.
+--
+-- 'encryptionType', 'describeDefaultEncryptionConfigurationResponse_encryptionType' - The type of encryption used for the encryption configuration.
+--
+-- 'configurationStatus', 'describeDefaultEncryptionConfigurationResponse_configurationStatus' - The status of the account configuration. This contains the
+-- @ConfigurationState@. If there\'s an error, it also contains the
+-- @ErrorDetails@.
+newDescribeDefaultEncryptionConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'encryptionType'
+  EncryptionType ->
+  -- | 'configurationStatus'
+  ConfigurationStatus ->
+  DescribeDefaultEncryptionConfigurationResponse
+newDescribeDefaultEncryptionConfigurationResponse
+  pHttpStatus_
+  pEncryptionType_
+  pConfigurationStatus_ =
+    DescribeDefaultEncryptionConfigurationResponse'
+      { kmsKeyArn =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        encryptionType =
+          pEncryptionType_,
+        configurationStatus =
+          pConfigurationStatus_
+      }
+
+-- | The key ARN of the customer managed customer master key (CMK) used for
+-- KMS encryption if you use @KMS_BASED_ENCRYPTION@.
+describeDefaultEncryptionConfigurationResponse_kmsKeyArn :: Lens.Lens' DescribeDefaultEncryptionConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeDefaultEncryptionConfigurationResponse_kmsKeyArn = Lens.lens (\DescribeDefaultEncryptionConfigurationResponse' {kmsKeyArn} -> kmsKeyArn) (\s@DescribeDefaultEncryptionConfigurationResponse' {} a -> s {kmsKeyArn = a} :: DescribeDefaultEncryptionConfigurationResponse)
+
+-- | The response's http status code.
+describeDefaultEncryptionConfigurationResponse_httpStatus :: Lens.Lens' DescribeDefaultEncryptionConfigurationResponse Prelude.Int
+describeDefaultEncryptionConfigurationResponse_httpStatus = Lens.lens (\DescribeDefaultEncryptionConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeDefaultEncryptionConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeDefaultEncryptionConfigurationResponse)
+
+-- | The type of encryption used for the encryption configuration.
+describeDefaultEncryptionConfigurationResponse_encryptionType :: Lens.Lens' DescribeDefaultEncryptionConfigurationResponse EncryptionType
+describeDefaultEncryptionConfigurationResponse_encryptionType = Lens.lens (\DescribeDefaultEncryptionConfigurationResponse' {encryptionType} -> encryptionType) (\s@DescribeDefaultEncryptionConfigurationResponse' {} a -> s {encryptionType = a} :: DescribeDefaultEncryptionConfigurationResponse)
+
+-- | The status of the account configuration. This contains the
+-- @ConfigurationState@. If there\'s an error, it also contains the
+-- @ErrorDetails@.
+describeDefaultEncryptionConfigurationResponse_configurationStatus :: Lens.Lens' DescribeDefaultEncryptionConfigurationResponse ConfigurationStatus
+describeDefaultEncryptionConfigurationResponse_configurationStatus = Lens.lens (\DescribeDefaultEncryptionConfigurationResponse' {configurationStatus} -> configurationStatus) (\s@DescribeDefaultEncryptionConfigurationResponse' {} a -> s {configurationStatus = a} :: DescribeDefaultEncryptionConfigurationResponse)
+
+instance
+  Prelude.NFData
+    DescribeDefaultEncryptionConfigurationResponse

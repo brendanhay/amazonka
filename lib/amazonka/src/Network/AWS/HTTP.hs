@@ -23,7 +23,6 @@ import qualified Control.Retry as Retry
 import qualified Data.List as List
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Time as Time
-import Network.AWS.Data.Body (isStreaming)
 import Network.AWS.Env
 import Network.AWS.Lens (to, (%~), (^.), (^?), _Just)
 import Network.AWS.Logger
@@ -31,6 +30,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types
 import Network.AWS.Waiter
 import qualified Network.HTTP.Conduit as Client.Conduit
+import Network.AWS.HTTPUnsigned (retryStream, retryService)
 
 retryRequest ::
   ( MonadResource m,
@@ -153,21 +153,3 @@ configureRequest :: AWSRequest a => Env -> a -> Request a
 configureRequest env x =
   let overrides = envOverride env
    in request x & requestService %~ appEndo (getDual overrides)
-
-retryStream :: Request a -> Retry.RetryPolicy
-retryStream x =
-  Retry.RetryPolicyM (\_ -> return (listToMaybe [0 | not streaming]))
-  where
-    streaming = isStreaming (_requestBody x)
-
-retryService :: Service -> Retry.RetryPolicy
-retryService s =
-  Retry.limitRetries _retryAttempts <> Retry.RetryPolicyM (return . delay)
-  where
-    delay (Retry.rsIterNumber -> n)
-      | n >= 0 = Just $ truncate (grow * 1000000)
-      | otherwise = Nothing
-      where
-        grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
-
-    Exponential {..} = _serviceRetry s

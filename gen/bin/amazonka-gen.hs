@@ -5,11 +5,12 @@
 
 module Main (main) where
 
-import Control.Lens (Lens', (^.))
+import Control.Lens (Lens', (^.), each, (%~))
 import qualified Control.Lens as Lens
 import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
+import qualified Data.HashMap.Strict as Map
 import qualified Data.List as List
 import qualified Data.Text as Text
 import qualified Data.Time as Time
@@ -32,6 +33,7 @@ data Options = Options
     _optionAssets :: FilePath,
     _optionRetry :: FilePath,
     _optionVersions :: Versions,
+    _optionOperations :: Text.Text,
     _optionModels :: [FilePath]
   }
   deriving (Show)
@@ -89,6 +91,14 @@ parser =
                   <> help "Client library version dependecy for examples."
               )
         )
+    <*>
+      ( strOption
+        ( long "operations"
+          <> metavar "CSV-OPERATIONS"
+          <> help "Generate only specific operations."
+          <> value ""
+        )
+    )
     <*> some
       ( strArgument
           ( metavar "MODEL-PATH"
@@ -154,6 +164,8 @@ main = do
 
   let hoistEither = either UnliftIO.throwString pure
       formatTime = Time.formatTime Time.defaultTimeLocale "%Y-%m-%d"
+      operationsFilter = filter (/= "") $ Text.splitOn "," _optionOperations
+      matchId key _val = any (key == ) (mkId <$> operationsFilter)
 
   retry <- JSON.required _optionRetry
 
@@ -195,7 +207,10 @@ main = do
         ++ Text.unpack (service ^. serviceFullName)
         ++ "' API definition"
 
-    library <- hoistEither (AST.rewrite _optionVersions config service)
+    let serviceFiltered = if operationsFilter == [] then service else
+          operations %~ (Map.filterWithKey matchId) $ service
+
+    library <- hoistEither (AST.rewrite _optionVersions config serviceFiltered)
 
     say $
       "Synthesised '"

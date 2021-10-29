@@ -107,6 +107,7 @@ haskell_binary(
         "@stackage//:text",
         "@stackage//:time",
         "@stackage//:unliftio",
+        "@stackage//:unordered-containers",
     ],
 )
 

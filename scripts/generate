@@ -96,6 +96,13 @@ generator=(
   --retry="${botocore}/_retry.json"
 )
 
+if [[ " ${model[*]} " =~ " sts " ]]; then
+    say "Generating embedded version of amazonka-sts into lib/amazonka/gen"
+    ./bazel-bin/gen/gen +RTS -qg0 -RTS "${generator[@]}" --operations=AssumeRoleWithWebIdentity sts
+    format_and_replace "$tmp"/amazonka-sts
+    cp -R "lib/service/amazonka-sts/gen" lib/amazonka/gen
+fi
+
 for model in "${models[@]}"; do
   generator+=("${botocore}/${model}")
 done

@@ -34,6 +34,7 @@ import Network.AWS.Auth
 import Network.AWS.Lens ((.~), (?~))
 import Network.AWS.Logger
 import Network.AWS.Prelude
+import Network.AWS.HTTPUnsigned (retryConnectionFailure)
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
@@ -94,22 +95,6 @@ newEnvWith c m = do
   (a, fromMaybe NorthVirginia -> r) <- getAuth m c
 
   pure $ Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m a
-
--- | Retry the subset of transport specific errors encompassing connection
--- failure up to the specific number of times.
-retryConnectionFailure :: Int -> Int -> Client.HttpException -> Bool
-retryConnectionFailure limit n = \case
-  Client.InvalidUrlException {} -> False
-  Client.HttpExceptionRequest _ ex
-    | n >= limit -> False
-    | otherwise ->
-      case ex of
-        Client.NoResponseDataReceived -> True
-        Client.ConnectionTimeout -> True
-        Client.ConnectionClosed -> True
-        Client.ConnectionFailure {} -> True
-        Client.InternalException {} -> True
-        _other -> False
 
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.

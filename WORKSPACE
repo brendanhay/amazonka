@@ -331,6 +331,7 @@ stack_snapshot(
         "unliftio",  # keep
         "unliftio-core",
         "unordered-containers",  # keep
+        "uuid",
         "xml-conduit",
         "xml-types",
         "yaml",

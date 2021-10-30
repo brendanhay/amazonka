@@ -66,7 +66,7 @@ data InvokeScreenAutomation = InvokeScreenAutomation'
     -- currently has only one property, rawValue, which holds the value of the
     -- variable to be passed to the screen. Any variables defined in a screen
     -- are required to be passed in the call.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap (Core.Sensitive Prelude.Text) (Core.Sensitive VariableValue))),
+    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
     -- | The request token for performing the automation action. Request tokens
     -- help to identify duplicate requests. If a call times out or fails due to
     -- a transient error like a failed network connection, you can retry the

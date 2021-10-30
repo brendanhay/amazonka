@@ -62,7 +62,7 @@ data GetScreenData = GetScreenData'
     -- the name of the variable as defined on the screen. The value is an
     -- object which currently has only one property, rawValue, which holds the
     -- value of the variable to be passed to the screen.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap (Core.Sensitive Prelude.Text) (Core.Sensitive VariableValue))),
+    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
     -- | This parameter is optional. If a nextToken is not specified, the API
     -- returns the first page of data.
     --
@@ -227,7 +227,7 @@ data GetScreenDataResponse = GetScreenDataResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A map of all the rows on the screen keyed by block name.
-    results :: Prelude.HashMap (Core.Sensitive Prelude.Text) ResultSet,
+    results :: Prelude.HashMap Prelude.Text ResultSet,
     -- | Indicates the cursor of the workbook at which the data returned by this
     -- workbook is read. Workbook cursor keeps increasing with every update and
     -- the increments are not sequential.

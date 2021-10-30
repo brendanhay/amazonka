@@ -54,7 +54,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateSipMediaApplicationCall' smart constructor.
 data CreateSipMediaApplicationCall = CreateSipMediaApplicationCall'
   { -- | The SIP headers added to an outbound call leg.
-    sipHeaders :: Prelude.Maybe (Prelude.HashMap (Core.Sensitive Prelude.Text) (Core.Sensitive Prelude.Text)),
+    sipHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
     -- | The phone number that a user calls from. This is a phone number in your
     -- Amazon Chime phone number inventory.
     fromPhoneNumber :: Core.Sensitive Prelude.Text,

@@ -58,7 +58,7 @@ data UpdateSipMediaApplicationCall = UpdateSipMediaApplicationCall'
     transactionId :: Prelude.Text,
     -- | Arguments made available to the Lambda function as part of the
     -- @CALL_UPDATE_REQUESTED@ event. Can contain 0-20 key-value pairs.
-    arguments :: Prelude.HashMap (Core.Sensitive Prelude.Text) (Core.Sensitive Prelude.Text)
+    arguments :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

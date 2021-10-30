@@ -36,7 +36,8 @@ newtype Sensitive a = Sensitive {fromSensitive :: a}
       ToHeader,
       ToBody,
       Hashable,
-      NFData
+      NFData,
+      IsList
     )
 
 instance Show (Sensitive a) where

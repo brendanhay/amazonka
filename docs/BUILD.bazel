@@ -169,8 +169,6 @@ haskell_doc(
         "//lib/services/amazonka-lambda",
         "//lib/services/amazonka-lex-models",
         "//lib/services/amazonka-lex-runtime",
-        "//lib/services/amazonka-lexv2-models",
-        "//lib/services/amazonka-lexv2-runtime",
         "//lib/services/amazonka-license-manager",
         "//lib/services/amazonka-lightsail",
         "//lib/services/amazonka-location",

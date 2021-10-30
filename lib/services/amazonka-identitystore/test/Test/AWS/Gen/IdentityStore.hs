@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IdentityStore where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IdentityStore
 import Test.AWS.Fixture
 import Test.AWS.IdentityStore.Internal
@@ -91,7 +91,7 @@ responseDescribeGroup =
     "DescribeGroupResponse"
     "fixture/DescribeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -99,7 +99,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -107,7 +107,7 @@ responseDescribeUser =
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -115,4 +115,4 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)

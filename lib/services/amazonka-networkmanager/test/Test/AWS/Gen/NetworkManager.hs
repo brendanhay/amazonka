@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.NetworkManager where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.NetworkManager
 import Test.AWS.Fixture
 import Test.AWS.NetworkManager.Internal
@@ -463,7 +463,7 @@ responseGetLinkAssociations =
     "GetLinkAssociationsResponse"
     "fixture/GetLinkAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLinkAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetLinkAssociations)
 
 responseAssociateLink :: AssociateLinkResponse -> TestTree
 responseAssociateLink =
@@ -471,7 +471,7 @@ responseAssociateLink =
     "AssociateLinkResponse"
     "fixture/AssociateLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateLink)
+    (Proxy.Proxy :: Proxy.Proxy AssociateLink)
 
 responseAssociateTransitGatewayConnectPeer :: AssociateTransitGatewayConnectPeerResponse -> TestTree
 responseAssociateTransitGatewayConnectPeer =
@@ -479,7 +479,7 @@ responseAssociateTransitGatewayConnectPeer =
     "AssociateTransitGatewayConnectPeerResponse"
     "fixture/AssociateTransitGatewayConnectPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTransitGatewayConnectPeer)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTransitGatewayConnectPeer)
 
 responseCreateSite :: CreateSiteResponse -> TestTree
 responseCreateSite =
@@ -487,7 +487,7 @@ responseCreateSite =
     "CreateSiteResponse"
     "fixture/CreateSiteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSite)
+    (Proxy.Proxy :: Proxy.Proxy CreateSite)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
 responseDeleteConnection =
@@ -495,7 +495,7 @@ responseDeleteConnection =
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseUpdateConnection :: UpdateConnectionResponse -> TestTree
 responseUpdateConnection =
@@ -503,7 +503,7 @@ responseUpdateConnection =
     "UpdateConnectionResponse"
     "fixture/UpdateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnection)
 
 responseDeregisterTransitGateway :: DeregisterTransitGatewayResponse -> TestTree
 responseDeregisterTransitGateway =
@@ -511,7 +511,7 @@ responseDeregisterTransitGateway =
     "DeregisterTransitGatewayResponse"
     "fixture/DeregisterTransitGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTransitGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTransitGateway)
 
 responseGetTransitGatewayConnectPeerAssociations :: GetTransitGatewayConnectPeerAssociationsResponse -> TestTree
 responseGetTransitGatewayConnectPeerAssociations =
@@ -519,7 +519,7 @@ responseGetTransitGatewayConnectPeerAssociations =
     "GetTransitGatewayConnectPeerAssociationsResponse"
     "fixture/GetTransitGatewayConnectPeerAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayConnectPeerAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayConnectPeerAssociations)
 
 responseUpdateSite :: UpdateSiteResponse -> TestTree
 responseUpdateSite =
@@ -527,7 +527,7 @@ responseUpdateSite =
     "UpdateSiteResponse"
     "fixture/UpdateSiteResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSite)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSite)
 
 responseDeleteSite :: DeleteSiteResponse -> TestTree
 responseDeleteSite =
@@ -535,7 +535,7 @@ responseDeleteSite =
     "DeleteSiteResponse"
     "fixture/DeleteSiteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSite)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSite)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -543,7 +543,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDisassociateLink :: DisassociateLinkResponse -> TestTree
 responseDisassociateLink =
@@ -551,7 +551,7 @@ responseDisassociateLink =
     "DisassociateLinkResponse"
     "fixture/DisassociateLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateLink)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateLink)
 
 responseCreateConnection :: CreateConnectionResponse -> TestTree
 responseCreateConnection =
@@ -559,7 +559,7 @@ responseCreateConnection =
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
 responseGetDevices :: GetDevicesResponse -> TestTree
 responseGetDevices =
@@ -567,7 +567,7 @@ responseGetDevices =
     "GetDevicesResponse"
     "fixture/GetDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevices)
+    (Proxy.Proxy :: Proxy.Proxy GetDevices)
 
 responseGetLinks :: GetLinksResponse -> TestTree
 responseGetLinks =
@@ -575,7 +575,7 @@ responseGetLinks =
     "GetLinksResponse"
     "fixture/GetLinksResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLinks)
+    (Proxy.Proxy :: Proxy.Proxy GetLinks)
 
 responseDescribeGlobalNetworks :: DescribeGlobalNetworksResponse -> TestTree
 responseDescribeGlobalNetworks =
@@ -583,7 +583,7 @@ responseDescribeGlobalNetworks =
     "DescribeGlobalNetworksResponse"
     "fixture/DescribeGlobalNetworksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGlobalNetworks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalNetworks)
 
 responseDisassociateCustomerGateway :: DisassociateCustomerGatewayResponse -> TestTree
 responseDisassociateCustomerGateway =
@@ -591,7 +591,7 @@ responseDisassociateCustomerGateway =
     "DisassociateCustomerGatewayResponse"
     "fixture/DisassociateCustomerGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateCustomerGateway)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateCustomerGateway)
 
 responseDisassociateTransitGatewayConnectPeer :: DisassociateTransitGatewayConnectPeerResponse -> TestTree
 responseDisassociateTransitGatewayConnectPeer =
@@ -599,7 +599,7 @@ responseDisassociateTransitGatewayConnectPeer =
     "DisassociateTransitGatewayConnectPeerResponse"
     "fixture/DisassociateTransitGatewayConnectPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTransitGatewayConnectPeer)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTransitGatewayConnectPeer)
 
 responseCreateGlobalNetwork :: CreateGlobalNetworkResponse -> TestTree
 responseCreateGlobalNetwork =
@@ -607,7 +607,7 @@ responseCreateGlobalNetwork =
     "CreateGlobalNetworkResponse"
     "fixture/CreateGlobalNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGlobalNetwork)
+    (Proxy.Proxy :: Proxy.Proxy CreateGlobalNetwork)
 
 responseCreateLink :: CreateLinkResponse -> TestTree
 responseCreateLink =
@@ -615,7 +615,7 @@ responseCreateLink =
     "CreateLinkResponse"
     "fixture/CreateLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLink)
+    (Proxy.Proxy :: Proxy.Proxy CreateLink)
 
 responseDeleteGlobalNetwork :: DeleteGlobalNetworkResponse -> TestTree
 responseDeleteGlobalNetwork =
@@ -623,7 +623,7 @@ responseDeleteGlobalNetwork =
     "DeleteGlobalNetworkResponse"
     "fixture/DeleteGlobalNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGlobalNetwork)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGlobalNetwork)
 
 responseUpdateGlobalNetwork :: UpdateGlobalNetworkResponse -> TestTree
 responseUpdateGlobalNetwork =
@@ -631,7 +631,7 @@ responseUpdateGlobalNetwork =
     "UpdateGlobalNetworkResponse"
     "fixture/UpdateGlobalNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGlobalNetwork)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalNetwork)
 
 responseCreateDevice :: CreateDeviceResponse -> TestTree
 responseCreateDevice =
@@ -639,7 +639,7 @@ responseCreateDevice =
     "CreateDeviceResponse"
     "fixture/CreateDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDevice)
+    (Proxy.Proxy :: Proxy.Proxy CreateDevice)
 
 responseAssociateCustomerGateway :: AssociateCustomerGatewayResponse -> TestTree
 responseAssociateCustomerGateway =
@@ -647,7 +647,7 @@ responseAssociateCustomerGateway =
     "AssociateCustomerGatewayResponse"
     "fixture/AssociateCustomerGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateCustomerGateway)
+    (Proxy.Proxy :: Proxy.Proxy AssociateCustomerGateway)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -655,7 +655,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetCustomerGatewayAssociations :: GetCustomerGatewayAssociationsResponse -> TestTree
 responseGetCustomerGatewayAssociations =
@@ -663,7 +663,7 @@ responseGetCustomerGatewayAssociations =
     "GetCustomerGatewayAssociationsResponse"
     "fixture/GetCustomerGatewayAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCustomerGatewayAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetCustomerGatewayAssociations)
 
 responseGetTransitGatewayRegistrations :: GetTransitGatewayRegistrationsResponse -> TestTree
 responseGetTransitGatewayRegistrations =
@@ -671,7 +671,7 @@ responseGetTransitGatewayRegistrations =
     "GetTransitGatewayRegistrationsResponse"
     "fixture/GetTransitGatewayRegistrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayRegistrations)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayRegistrations)
 
 responseGetConnections :: GetConnectionsResponse -> TestTree
 responseGetConnections =
@@ -679,7 +679,7 @@ responseGetConnections =
     "GetConnectionsResponse"
     "fixture/GetConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnections)
+    (Proxy.Proxy :: Proxy.Proxy GetConnections)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -687,7 +687,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetSites :: GetSitesResponse -> TestTree
 responseGetSites =
@@ -695,7 +695,7 @@ responseGetSites =
     "GetSitesResponse"
     "fixture/GetSitesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSites)
+    (Proxy.Proxy :: Proxy.Proxy GetSites)
 
 responseRegisterTransitGateway :: RegisterTransitGatewayResponse -> TestTree
 responseRegisterTransitGateway =
@@ -703,7 +703,7 @@ responseRegisterTransitGateway =
     "RegisterTransitGatewayResponse"
     "fixture/RegisterTransitGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTransitGateway)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTransitGateway)
 
 responseDeleteDevice :: DeleteDeviceResponse -> TestTree
 responseDeleteDevice =
@@ -711,7 +711,7 @@ responseDeleteDevice =
     "DeleteDeviceResponse"
     "fixture/DeleteDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDevice)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDevice)
 
 responseUpdateDevice :: UpdateDeviceResponse -> TestTree
 responseUpdateDevice =
@@ -719,7 +719,7 @@ responseUpdateDevice =
     "UpdateDeviceResponse"
     "fixture/UpdateDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDevice)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDevice)
 
 responseDeleteLink :: DeleteLinkResponse -> TestTree
 responseDeleteLink =
@@ -727,7 +727,7 @@ responseDeleteLink =
     "DeleteLinkResponse"
     "fixture/DeleteLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLink)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLink)
 
 responseUpdateLink :: UpdateLinkResponse -> TestTree
 responseUpdateLink =
@@ -735,4 +735,4 @@ responseUpdateLink =
     "UpdateLinkResponse"
     "fixture/UpdateLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLink)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLink)

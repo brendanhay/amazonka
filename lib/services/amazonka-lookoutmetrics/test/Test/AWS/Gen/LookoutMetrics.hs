@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LookoutMetrics where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LookoutMetrics
 import Test.AWS.Fixture
 import Test.AWS.LookoutMetrics.Internal
@@ -343,7 +343,7 @@ responseGetFeedback =
     "GetFeedbackResponse"
     "fixture/GetFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFeedback)
+    (Proxy.Proxy :: Proxy.Proxy GetFeedback)
 
 responseListAlerts :: ListAlertsResponse -> TestTree
 responseListAlerts =
@@ -351,7 +351,7 @@ responseListAlerts =
     "ListAlertsResponse"
     "fixture/ListAlertsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAlerts)
+    (Proxy.Proxy :: Proxy.Proxy ListAlerts)
 
 responseListMetricSets :: ListMetricSetsResponse -> TestTree
 responseListMetricSets =
@@ -359,7 +359,7 @@ responseListMetricSets =
     "ListMetricSetsResponse"
     "fixture/ListMetricSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMetricSets)
+    (Proxy.Proxy :: Proxy.Proxy ListMetricSets)
 
 responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
 responseDeleteAnomalyDetector =
@@ -367,7 +367,7 @@ responseDeleteAnomalyDetector =
     "DeleteAnomalyDetectorResponse"
     "fixture/DeleteAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnomalyDetector)
 
 responseUpdateAnomalyDetector :: UpdateAnomalyDetectorResponse -> TestTree
 responseUpdateAnomalyDetector =
@@ -375,7 +375,7 @@ responseUpdateAnomalyDetector =
     "UpdateAnomalyDetectorResponse"
     "fixture/UpdateAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnomalyDetector)
 
 responseListAnomalyDetectors :: ListAnomalyDetectorsResponse -> TestTree
 responseListAnomalyDetectors =
@@ -383,7 +383,7 @@ responseListAnomalyDetectors =
     "ListAnomalyDetectorsResponse"
     "fixture/ListAnomalyDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnomalyDetectors)
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyDetectors)
 
 responseDescribeAnomalyDetectionExecutions :: DescribeAnomalyDetectionExecutionsResponse -> TestTree
 responseDescribeAnomalyDetectionExecutions =
@@ -391,7 +391,7 @@ responseDescribeAnomalyDetectionExecutions =
     "DescribeAnomalyDetectionExecutionsResponse"
     "fixture/DescribeAnomalyDetectionExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnomalyDetectionExecutions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnomalyDetectionExecutions)
 
 responseCreateMetricSet :: CreateMetricSetResponse -> TestTree
 responseCreateMetricSet =
@@ -399,7 +399,7 @@ responseCreateMetricSet =
     "CreateMetricSetResponse"
     "fixture/CreateMetricSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMetricSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateMetricSet)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -407,7 +407,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateAlert :: CreateAlertResponse -> TestTree
 responseCreateAlert =
@@ -415,7 +415,7 @@ responseCreateAlert =
     "CreateAlertResponse"
     "fixture/CreateAlertResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlert)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlert)
 
 responseGetAnomalyGroup :: GetAnomalyGroupResponse -> TestTree
 responseGetAnomalyGroup =
@@ -423,7 +423,7 @@ responseGetAnomalyGroup =
     "GetAnomalyGroupResponse"
     "fixture/GetAnomalyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnomalyGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetAnomalyGroup)
 
 responsePutFeedback :: PutFeedbackResponse -> TestTree
 responsePutFeedback =
@@ -431,7 +431,7 @@ responsePutFeedback =
     "PutFeedbackResponse"
     "fixture/PutFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFeedback)
+    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
 
 responseBackTestAnomalyDetector :: BackTestAnomalyDetectorResponse -> TestTree
 responseBackTestAnomalyDetector =
@@ -439,7 +439,7 @@ responseBackTestAnomalyDetector =
     "BackTestAnomalyDetectorResponse"
     "fixture/BackTestAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy BackTestAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy BackTestAnomalyDetector)
 
 responseDeleteAlert :: DeleteAlertResponse -> TestTree
 responseDeleteAlert =
@@ -447,7 +447,7 @@ responseDeleteAlert =
     "DeleteAlertResponse"
     "fixture/DeleteAlertResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlert)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlert)
 
 responseCreateAnomalyDetector :: CreateAnomalyDetectorResponse -> TestTree
 responseCreateAnomalyDetector =
@@ -455,7 +455,7 @@ responseCreateAnomalyDetector =
     "CreateAnomalyDetectorResponse"
     "fixture/CreateAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnomalyDetector)
 
 responseUpdateMetricSet :: UpdateMetricSetResponse -> TestTree
 responseUpdateMetricSet =
@@ -463,7 +463,7 @@ responseUpdateMetricSet =
     "UpdateMetricSetResponse"
     "fixture/UpdateMetricSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMetricSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMetricSet)
 
 responseActivateAnomalyDetector :: ActivateAnomalyDetectorResponse -> TestTree
 responseActivateAnomalyDetector =
@@ -471,7 +471,7 @@ responseActivateAnomalyDetector =
     "ActivateAnomalyDetectorResponse"
     "fixture/ActivateAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy ActivateAnomalyDetector)
 
 responseListAnomalyGroupTimeSeries :: ListAnomalyGroupTimeSeriesResponse -> TestTree
 responseListAnomalyGroupTimeSeries =
@@ -479,7 +479,7 @@ responseListAnomalyGroupTimeSeries =
     "ListAnomalyGroupTimeSeriesResponse"
     "fixture/ListAnomalyGroupTimeSeriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnomalyGroupTimeSeries)
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupTimeSeries)
 
 responseGetSampleData :: GetSampleDataResponse -> TestTree
 responseGetSampleData =
@@ -487,7 +487,7 @@ responseGetSampleData =
     "GetSampleDataResponse"
     "fixture/GetSampleDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSampleData)
+    (Proxy.Proxy :: Proxy.Proxy GetSampleData)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -495,7 +495,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeMetricSet :: DescribeMetricSetResponse -> TestTree
 responseDescribeMetricSet =
@@ -503,7 +503,7 @@ responseDescribeMetricSet =
     "DescribeMetricSetResponse"
     "fixture/DescribeMetricSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMetricSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMetricSet)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -511,7 +511,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeAlert :: DescribeAlertResponse -> TestTree
 responseDescribeAlert =
@@ -519,7 +519,7 @@ responseDescribeAlert =
     "DescribeAlertResponse"
     "fixture/DescribeAlertResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlert)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlert)
 
 responseListAnomalyGroupSummaries :: ListAnomalyGroupSummariesResponse -> TestTree
 responseListAnomalyGroupSummaries =
@@ -527,7 +527,7 @@ responseListAnomalyGroupSummaries =
     "ListAnomalyGroupSummariesResponse"
     "fixture/ListAnomalyGroupSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnomalyGroupSummaries)
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupSummaries)
 
 responseDescribeAnomalyDetector :: DescribeAnomalyDetectorResponse -> TestTree
 responseDescribeAnomalyDetector =
@@ -535,4 +535,4 @@ responseDescribeAnomalyDetector =
     "DescribeAnomalyDetectorResponse"
     "fixture/DescribeAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnomalyDetector)

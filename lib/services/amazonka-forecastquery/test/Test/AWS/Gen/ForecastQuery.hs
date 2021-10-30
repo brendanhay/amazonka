@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ForecastQuery where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ForecastQuery
 import Test.AWS.Fixture
 import Test.AWS.ForecastQuery.Internal
@@ -55,4 +55,4 @@ responseQueryForecast =
     "QueryForecastResponse"
     "fixture/QueryForecastResponse.proto"
     defaultService
-    (Proxy :: Proxy QueryForecast)
+    (Proxy.Proxy :: Proxy.Proxy QueryForecast)

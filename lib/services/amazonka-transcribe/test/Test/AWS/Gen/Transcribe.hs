@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Transcribe where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Transcribe
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -511,7 +511,7 @@ responseListLanguageModels =
     "ListLanguageModelsResponse"
     "fixture/ListLanguageModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLanguageModels)
+    (Proxy.Proxy :: Proxy.Proxy ListLanguageModels)
 
 responseGetVocabulary :: GetVocabularyResponse -> TestTree
 responseGetVocabulary =
@@ -519,7 +519,7 @@ responseGetVocabulary =
     "GetVocabularyResponse"
     "fixture/GetVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy GetVocabulary)
 
 responseDeleteLanguageModel :: DeleteLanguageModelResponse -> TestTree
 responseDeleteLanguageModel =
@@ -527,7 +527,7 @@ responseDeleteLanguageModel =
     "DeleteLanguageModelResponse"
     "fixture/DeleteLanguageModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLanguageModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLanguageModel)
 
 responseGetTranscriptionJob :: GetTranscriptionJobResponse -> TestTree
 responseGetTranscriptionJob =
@@ -535,7 +535,7 @@ responseGetTranscriptionJob =
     "GetTranscriptionJobResponse"
     "fixture/GetTranscriptionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTranscriptionJob)
+    (Proxy.Proxy :: Proxy.Proxy GetTranscriptionJob)
 
 responseStartMedicalTranscriptionJob :: StartMedicalTranscriptionJobResponse -> TestTree
 responseStartMedicalTranscriptionJob =
@@ -543,7 +543,7 @@ responseStartMedicalTranscriptionJob =
     "StartMedicalTranscriptionJobResponse"
     "fixture/StartMedicalTranscriptionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMedicalTranscriptionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartMedicalTranscriptionJob)
 
 responseListCallAnalyticsJobs :: ListCallAnalyticsJobsResponse -> TestTree
 responseListCallAnalyticsJobs =
@@ -551,7 +551,7 @@ responseListCallAnalyticsJobs =
     "ListCallAnalyticsJobsResponse"
     "fixture/ListCallAnalyticsJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCallAnalyticsJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListCallAnalyticsJobs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -559,7 +559,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetCallAnalyticsCategory :: GetCallAnalyticsCategoryResponse -> TestTree
 responseGetCallAnalyticsCategory =
@@ -567,7 +567,7 @@ responseGetCallAnalyticsCategory =
     "GetCallAnalyticsCategoryResponse"
     "fixture/GetCallAnalyticsCategoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCallAnalyticsCategory)
+    (Proxy.Proxy :: Proxy.Proxy GetCallAnalyticsCategory)
 
 responseDeleteMedicalVocabulary :: DeleteMedicalVocabularyResponse -> TestTree
 responseDeleteMedicalVocabulary =
@@ -575,7 +575,7 @@ responseDeleteMedicalVocabulary =
     "DeleteMedicalVocabularyResponse"
     "fixture/DeleteMedicalVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMedicalVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMedicalVocabulary)
 
 responseUpdateMedicalVocabulary :: UpdateMedicalVocabularyResponse -> TestTree
 responseUpdateMedicalVocabulary =
@@ -583,7 +583,7 @@ responseUpdateMedicalVocabulary =
     "UpdateMedicalVocabularyResponse"
     "fixture/UpdateMedicalVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMedicalVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMedicalVocabulary)
 
 responseCreateCallAnalyticsCategory :: CreateCallAnalyticsCategoryResponse -> TestTree
 responseCreateCallAnalyticsCategory =
@@ -591,7 +591,7 @@ responseCreateCallAnalyticsCategory =
     "CreateCallAnalyticsCategoryResponse"
     "fixture/CreateCallAnalyticsCategoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCallAnalyticsCategory)
+    (Proxy.Proxy :: Proxy.Proxy CreateCallAnalyticsCategory)
 
 responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
 responseDeleteTranscriptionJob =
@@ -599,7 +599,7 @@ responseDeleteTranscriptionJob =
     "DeleteTranscriptionJobResponse"
     "fixture/DeleteTranscriptionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTranscriptionJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTranscriptionJob)
 
 responseDescribeLanguageModel :: DescribeLanguageModelResponse -> TestTree
 responseDescribeLanguageModel =
@@ -607,7 +607,7 @@ responseDescribeLanguageModel =
     "DescribeLanguageModelResponse"
     "fixture/DescribeLanguageModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLanguageModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLanguageModel)
 
 responseListCallAnalyticsCategories :: ListCallAnalyticsCategoriesResponse -> TestTree
 responseListCallAnalyticsCategories =
@@ -615,7 +615,7 @@ responseListCallAnalyticsCategories =
     "ListCallAnalyticsCategoriesResponse"
     "fixture/ListCallAnalyticsCategoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCallAnalyticsCategories)
+    (Proxy.Proxy :: Proxy.Proxy ListCallAnalyticsCategories)
 
 responseDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJobResponse -> TestTree
 responseDeleteMedicalTranscriptionJob =
@@ -623,7 +623,7 @@ responseDeleteMedicalTranscriptionJob =
     "DeleteMedicalTranscriptionJobResponse"
     "fixture/DeleteMedicalTranscriptionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMedicalTranscriptionJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMedicalTranscriptionJob)
 
 responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
 responseDeleteVocabulary =
@@ -631,7 +631,7 @@ responseDeleteVocabulary =
     "DeleteVocabularyResponse"
     "fixture/DeleteVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVocabulary)
 
 responseStartCallAnalyticsJob :: StartCallAnalyticsJobResponse -> TestTree
 responseStartCallAnalyticsJob =
@@ -639,7 +639,7 @@ responseStartCallAnalyticsJob =
     "StartCallAnalyticsJobResponse"
     "fixture/StartCallAnalyticsJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartCallAnalyticsJob)
+    (Proxy.Proxy :: Proxy.Proxy StartCallAnalyticsJob)
 
 responseUpdateVocabulary :: UpdateVocabularyResponse -> TestTree
 responseUpdateVocabulary =
@@ -647,7 +647,7 @@ responseUpdateVocabulary =
     "UpdateVocabularyResponse"
     "fixture/UpdateVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVocabulary)
 
 responseCreateVocabularyFilter :: CreateVocabularyFilterResponse -> TestTree
 responseCreateVocabularyFilter =
@@ -655,7 +655,7 @@ responseCreateVocabularyFilter =
     "CreateVocabularyFilterResponse"
     "fixture/CreateVocabularyFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVocabularyFilter)
+    (Proxy.Proxy :: Proxy.Proxy CreateVocabularyFilter)
 
 responseGetMedicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> TestTree
 responseGetMedicalTranscriptionJob =
@@ -663,7 +663,7 @@ responseGetMedicalTranscriptionJob =
     "GetMedicalTranscriptionJobResponse"
     "fixture/GetMedicalTranscriptionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMedicalTranscriptionJob)
+    (Proxy.Proxy :: Proxy.Proxy GetMedicalTranscriptionJob)
 
 responseGetVocabularyFilter :: GetVocabularyFilterResponse -> TestTree
 responseGetVocabularyFilter =
@@ -671,7 +671,7 @@ responseGetVocabularyFilter =
     "GetVocabularyFilterResponse"
     "fixture/GetVocabularyFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVocabularyFilter)
+    (Proxy.Proxy :: Proxy.Proxy GetVocabularyFilter)
 
 responseGetMedicalVocabulary :: GetMedicalVocabularyResponse -> TestTree
 responseGetMedicalVocabulary =
@@ -679,7 +679,7 @@ responseGetMedicalVocabulary =
     "GetMedicalVocabularyResponse"
     "fixture/GetMedicalVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMedicalVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy GetMedicalVocabulary)
 
 responseDeleteCallAnalyticsJob :: DeleteCallAnalyticsJobResponse -> TestTree
 responseDeleteCallAnalyticsJob =
@@ -687,7 +687,7 @@ responseDeleteCallAnalyticsJob =
     "DeleteCallAnalyticsJobResponse"
     "fixture/DeleteCallAnalyticsJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCallAnalyticsJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCallAnalyticsJob)
 
 responseCreateMedicalVocabulary :: CreateMedicalVocabularyResponse -> TestTree
 responseCreateMedicalVocabulary =
@@ -695,7 +695,7 @@ responseCreateMedicalVocabulary =
     "CreateMedicalVocabularyResponse"
     "fixture/CreateMedicalVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMedicalVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy CreateMedicalVocabulary)
 
 responseListMedicalVocabularies :: ListMedicalVocabulariesResponse -> TestTree
 responseListMedicalVocabularies =
@@ -703,7 +703,7 @@ responseListMedicalVocabularies =
     "ListMedicalVocabulariesResponse"
     "fixture/ListMedicalVocabulariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMedicalVocabularies)
+    (Proxy.Proxy :: Proxy.Proxy ListMedicalVocabularies)
 
 responseDeleteCallAnalyticsCategory :: DeleteCallAnalyticsCategoryResponse -> TestTree
 responseDeleteCallAnalyticsCategory =
@@ -711,7 +711,7 @@ responseDeleteCallAnalyticsCategory =
     "DeleteCallAnalyticsCategoryResponse"
     "fixture/DeleteCallAnalyticsCategoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCallAnalyticsCategory)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCallAnalyticsCategory)
 
 responseUpdateCallAnalyticsCategory :: UpdateCallAnalyticsCategoryResponse -> TestTree
 responseUpdateCallAnalyticsCategory =
@@ -719,7 +719,7 @@ responseUpdateCallAnalyticsCategory =
     "UpdateCallAnalyticsCategoryResponse"
     "fixture/UpdateCallAnalyticsCategoryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCallAnalyticsCategory)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCallAnalyticsCategory)
 
 responseGetCallAnalyticsJob :: GetCallAnalyticsJobResponse -> TestTree
 responseGetCallAnalyticsJob =
@@ -727,7 +727,7 @@ responseGetCallAnalyticsJob =
     "GetCallAnalyticsJobResponse"
     "fixture/GetCallAnalyticsJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCallAnalyticsJob)
+    (Proxy.Proxy :: Proxy.Proxy GetCallAnalyticsJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -735,7 +735,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListTranscriptionJobs :: ListTranscriptionJobsResponse -> TestTree
 responseListTranscriptionJobs =
@@ -743,7 +743,7 @@ responseListTranscriptionJobs =
     "ListTranscriptionJobsResponse"
     "fixture/ListTranscriptionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTranscriptionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListTranscriptionJobs)
 
 responseListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobsResponse -> TestTree
 responseListMedicalTranscriptionJobs =
@@ -751,7 +751,7 @@ responseListMedicalTranscriptionJobs =
     "ListMedicalTranscriptionJobsResponse"
     "fixture/ListMedicalTranscriptionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMedicalTranscriptionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListMedicalTranscriptionJobs)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -759,7 +759,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteVocabularyFilter :: DeleteVocabularyFilterResponse -> TestTree
 responseDeleteVocabularyFilter =
@@ -767,7 +767,7 @@ responseDeleteVocabularyFilter =
     "DeleteVocabularyFilterResponse"
     "fixture/DeleteVocabularyFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVocabularyFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVocabularyFilter)
 
 responseListVocabularyFilters :: ListVocabularyFiltersResponse -> TestTree
 responseListVocabularyFilters =
@@ -775,7 +775,7 @@ responseListVocabularyFilters =
     "ListVocabularyFiltersResponse"
     "fixture/ListVocabularyFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVocabularyFilters)
+    (Proxy.Proxy :: Proxy.Proxy ListVocabularyFilters)
 
 responseUpdateVocabularyFilter :: UpdateVocabularyFilterResponse -> TestTree
 responseUpdateVocabularyFilter =
@@ -783,7 +783,7 @@ responseUpdateVocabularyFilter =
     "UpdateVocabularyFilterResponse"
     "fixture/UpdateVocabularyFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVocabularyFilter)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVocabularyFilter)
 
 responseListVocabularies :: ListVocabulariesResponse -> TestTree
 responseListVocabularies =
@@ -791,7 +791,7 @@ responseListVocabularies =
     "ListVocabulariesResponse"
     "fixture/ListVocabulariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVocabularies)
+    (Proxy.Proxy :: Proxy.Proxy ListVocabularies)
 
 responseCreateVocabulary :: CreateVocabularyResponse -> TestTree
 responseCreateVocabulary =
@@ -799,7 +799,7 @@ responseCreateVocabulary =
     "CreateVocabularyResponse"
     "fixture/CreateVocabularyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy CreateVocabulary)
 
 responseCreateLanguageModel :: CreateLanguageModelResponse -> TestTree
 responseCreateLanguageModel =
@@ -807,7 +807,7 @@ responseCreateLanguageModel =
     "CreateLanguageModelResponse"
     "fixture/CreateLanguageModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLanguageModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateLanguageModel)
 
 responseStartTranscriptionJob :: StartTranscriptionJobResponse -> TestTree
 responseStartTranscriptionJob =
@@ -815,4 +815,4 @@ responseStartTranscriptionJob =
     "StartTranscriptionJobResponse"
     "fixture/StartTranscriptionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTranscriptionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartTranscriptionJob)

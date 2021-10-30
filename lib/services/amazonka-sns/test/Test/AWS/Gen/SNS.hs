@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SNS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SNS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -511,7 +511,7 @@ responseListPhoneNumbersOptedOut =
     "ListPhoneNumbersOptedOutResponse"
     "fixture/ListPhoneNumbersOptedOutResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPhoneNumbersOptedOut)
+    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumbersOptedOut)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint =
@@ -519,7 +519,7 @@ responseDeleteEndpoint =
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -527,7 +527,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =
@@ -535,7 +535,7 @@ responseRemovePermission =
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemovePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
 
 responseDeleteTopic :: DeleteTopicResponse -> TestTree
 responseDeleteTopic =
@@ -543,7 +543,7 @@ responseDeleteTopic =
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTopic)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTopic)
 
 responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
 responseSetSMSAttributes =
@@ -551,7 +551,7 @@ responseSetSMSAttributes =
     "SetSMSAttributesResponse"
     "fixture/SetSMSAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetSMSAttributes)
+    (Proxy.Proxy :: Proxy.Proxy SetSMSAttributes)
 
 responseListTopics :: ListTopicsResponse -> TestTree
 responseListTopics =
@@ -559,7 +559,7 @@ responseListTopics =
     "ListTopicsResponse"
     "fixture/ListTopicsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTopics)
+    (Proxy.Proxy :: Proxy.Proxy ListTopics)
 
 responseVerifySMSSandboxPhoneNumber :: VerifySMSSandboxPhoneNumberResponse -> TestTree
 responseVerifySMSSandboxPhoneNumber =
@@ -567,7 +567,7 @@ responseVerifySMSSandboxPhoneNumber =
     "VerifySMSSandboxPhoneNumberResponse"
     "fixture/VerifySMSSandboxPhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifySMSSandboxPhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy VerifySMSSandboxPhoneNumber)
 
 responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
 responseCreatePlatformEndpoint =
@@ -575,7 +575,7 @@ responseCreatePlatformEndpoint =
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlatformEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlatformEndpoint)
 
 responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
 responseSetPlatformApplicationAttributes =
@@ -583,7 +583,7 @@ responseSetPlatformApplicationAttributes =
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetPlatformApplicationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy SetPlatformApplicationAttributes)
 
 responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
 responseListSubscriptionsByTopic =
@@ -591,7 +591,7 @@ responseListSubscriptionsByTopic =
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscriptionsByTopic)
+    (Proxy.Proxy :: Proxy.Proxy ListSubscriptionsByTopic)
 
 responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
 responseGetTopicAttributes =
@@ -599,7 +599,7 @@ responseGetTopicAttributes =
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTopicAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetTopicAttributes)
 
 responseCreateSMSSandboxPhoneNumber :: CreateSMSSandboxPhoneNumberResponse -> TestTree
 responseCreateSMSSandboxPhoneNumber =
@@ -607,7 +607,7 @@ responseCreateSMSSandboxPhoneNumber =
     "CreateSMSSandboxPhoneNumberResponse"
     "fixture/CreateSMSSandboxPhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSMSSandboxPhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy CreateSMSSandboxPhoneNumber)
 
 responseOptInPhoneNumber :: OptInPhoneNumberResponse -> TestTree
 responseOptInPhoneNumber =
@@ -615,7 +615,7 @@ responseOptInPhoneNumber =
     "OptInPhoneNumberResponse"
     "fixture/OptInPhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy OptInPhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy OptInPhoneNumber)
 
 responseDeleteSMSSandboxPhoneNumber :: DeleteSMSSandboxPhoneNumberResponse -> TestTree
 responseDeleteSMSSandboxPhoneNumber =
@@ -623,7 +623,7 @@ responseDeleteSMSSandboxPhoneNumber =
     "DeleteSMSSandboxPhoneNumberResponse"
     "fixture/DeleteSMSSandboxPhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSMSSandboxPhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSMSSandboxPhoneNumber)
 
 responseListSMSSandboxPhoneNumbers :: ListSMSSandboxPhoneNumbersResponse -> TestTree
 responseListSMSSandboxPhoneNumbers =
@@ -631,7 +631,7 @@ responseListSMSSandboxPhoneNumbers =
     "ListSMSSandboxPhoneNumbersResponse"
     "fixture/ListSMSSandboxPhoneNumbersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSMSSandboxPhoneNumbers)
+    (Proxy.Proxy :: Proxy.Proxy ListSMSSandboxPhoneNumbers)
 
 responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
 responseCreatePlatformApplication =
@@ -639,7 +639,7 @@ responseCreatePlatformApplication =
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlatformApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlatformApplication)
 
 responseGetPlatformApplicationAttributes :: GetPlatformApplicationAttributesResponse -> TestTree
 responseGetPlatformApplicationAttributes =
@@ -647,7 +647,7 @@ responseGetPlatformApplicationAttributes =
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPlatformApplicationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetPlatformApplicationAttributes)
 
 responseListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplicationResponse -> TestTree
 responseListEndpointsByPlatformApplication =
@@ -655,7 +655,7 @@ responseListEndpointsByPlatformApplication =
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEndpointsByPlatformApplication)
+    (Proxy.Proxy :: Proxy.Proxy ListEndpointsByPlatformApplication)
 
 responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
 responseSetTopicAttributes =
@@ -663,7 +663,7 @@ responseSetTopicAttributes =
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTopicAttributes)
+    (Proxy.Proxy :: Proxy.Proxy SetTopicAttributes)
 
 responseDeletePlatformApplication :: DeletePlatformApplicationResponse -> TestTree
 responseDeletePlatformApplication =
@@ -671,7 +671,7 @@ responseDeletePlatformApplication =
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlatformApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeletePlatformApplication)
 
 responseGetSMSAttributes :: GetSMSAttributesResponse -> TestTree
 responseGetSMSAttributes =
@@ -679,7 +679,7 @@ responseGetSMSAttributes =
     "GetSMSAttributesResponse"
     "fixture/GetSMSAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSMSAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetSMSAttributes)
 
 responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
 responseListPlatformApplications =
@@ -687,7 +687,7 @@ responseListPlatformApplications =
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPlatformApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListPlatformApplications)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
 responseAddPermission =
@@ -695,7 +695,7 @@ responseAddPermission =
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddPermission)
+    (Proxy.Proxy :: Proxy.Proxy AddPermission)
 
 responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
 responseGetEndpointAttributes =
@@ -703,7 +703,7 @@ responseGetEndpointAttributes =
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEndpointAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetEndpointAttributes)
 
 responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
 responseListSubscriptions =
@@ -711,7 +711,7 @@ responseListSubscriptions =
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy ListSubscriptions)
 
 responseGetSubscriptionAttributes :: GetSubscriptionAttributesResponse -> TestTree
 responseGetSubscriptionAttributes =
@@ -719,7 +719,7 @@ responseGetSubscriptionAttributes =
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSubscriptionAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetSubscriptionAttributes)
 
 responseCreateTopic :: CreateTopicResponse -> TestTree
 responseCreateTopic =
@@ -727,7 +727,7 @@ responseCreateTopic =
     "CreateTopicResponse"
     "fixture/CreateTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTopic)
+    (Proxy.Proxy :: Proxy.Proxy CreateTopic)
 
 responseCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> TestTree
 responseCheckIfPhoneNumberIsOptedOut =
@@ -735,7 +735,7 @@ responseCheckIfPhoneNumberIsOptedOut =
     "CheckIfPhoneNumberIsOptedOutResponse"
     "fixture/CheckIfPhoneNumberIsOptedOutResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckIfPhoneNumberIsOptedOut)
+    (Proxy.Proxy :: Proxy.Proxy CheckIfPhoneNumberIsOptedOut)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -743,7 +743,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseSubscribe :: SubscribeResponse -> TestTree
 responseSubscribe =
@@ -751,7 +751,7 @@ responseSubscribe =
     "SubscribeResponse"
     "fixture/SubscribeResponse.proto"
     defaultService
-    (Proxy :: Proxy Subscribe)
+    (Proxy.Proxy :: Proxy.Proxy Subscribe)
 
 responseListOriginationNumbers :: ListOriginationNumbersResponse -> TestTree
 responseListOriginationNumbers =
@@ -759,7 +759,7 @@ responseListOriginationNumbers =
     "ListOriginationNumbersResponse"
     "fixture/ListOriginationNumbersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOriginationNumbers)
+    (Proxy.Proxy :: Proxy.Proxy ListOriginationNumbers)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -767,7 +767,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
 responseUnsubscribe =
@@ -775,7 +775,7 @@ responseUnsubscribe =
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse.proto"
     defaultService
-    (Proxy :: Proxy Unsubscribe)
+    (Proxy.Proxy :: Proxy.Proxy Unsubscribe)
 
 responseGetSMSSandboxAccountStatus :: GetSMSSandboxAccountStatusResponse -> TestTree
 responseGetSMSSandboxAccountStatus =
@@ -783,7 +783,7 @@ responseGetSMSSandboxAccountStatus =
     "GetSMSSandboxAccountStatusResponse"
     "fixture/GetSMSSandboxAccountStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSMSSandboxAccountStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetSMSSandboxAccountStatus)
 
 responseSetEndpointAttributes :: SetEndpointAttributesResponse -> TestTree
 responseSetEndpointAttributes =
@@ -791,7 +791,7 @@ responseSetEndpointAttributes =
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetEndpointAttributes)
+    (Proxy.Proxy :: Proxy.Proxy SetEndpointAttributes)
 
 responseSetSubscriptionAttributes :: SetSubscriptionAttributesResponse -> TestTree
 responseSetSubscriptionAttributes =
@@ -799,7 +799,7 @@ responseSetSubscriptionAttributes =
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetSubscriptionAttributes)
+    (Proxy.Proxy :: Proxy.Proxy SetSubscriptionAttributes)
 
 responseConfirmSubscription :: ConfirmSubscriptionResponse -> TestTree
 responseConfirmSubscription =
@@ -807,7 +807,7 @@ responseConfirmSubscription =
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmSubscription)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmSubscription)
 
 responsePublish :: PublishResponse -> TestTree
 responsePublish =
@@ -815,4 +815,4 @@ responsePublish =
     "PublishResponse"
     "fixture/PublishResponse.proto"
     defaultService
-    (Proxy :: Proxy Publish)
+    (Proxy.Proxy :: Proxy.Proxy Publish)

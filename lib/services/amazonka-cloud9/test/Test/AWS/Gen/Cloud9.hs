@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Cloud9 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Cloud9
 import Test.AWS.Cloud9.Internal
 import Test.AWS.Fixture
@@ -199,7 +199,7 @@ responseListEnvironments =
     "ListEnvironmentsResponse"
     "fixture/ListEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
 
 responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
 responseUpdateEnvironment =
@@ -207,7 +207,7 @@ responseUpdateEnvironment =
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -215,7 +215,7 @@ responseDeleteEnvironment =
     "DeleteEnvironmentResponse"
     "fixture/DeleteEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEnvironment)
 
 responseDescribeEnvironmentStatus :: DescribeEnvironmentStatusResponse -> TestTree
 responseDescribeEnvironmentStatus =
@@ -223,7 +223,7 @@ responseDescribeEnvironmentStatus =
     "DescribeEnvironmentStatusResponse"
     "fixture/DescribeEnvironmentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironmentStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEnvironmentStatus)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -231,7 +231,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateEnvironmentEC2 :: CreateEnvironmentEC2Response -> TestTree
 responseCreateEnvironmentEC2 =
@@ -239,7 +239,7 @@ responseCreateEnvironmentEC2 =
     "CreateEnvironmentEC2Response"
     "fixture/CreateEnvironmentEC2Response.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironmentEC2)
+    (Proxy.Proxy :: Proxy.Proxy CreateEnvironmentEC2)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -247,7 +247,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateEnvironmentMembership :: CreateEnvironmentMembershipResponse -> TestTree
 responseCreateEnvironmentMembership =
@@ -255,7 +255,7 @@ responseCreateEnvironmentMembership =
     "CreateEnvironmentMembershipResponse"
     "fixture/CreateEnvironmentMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironmentMembership)
+    (Proxy.Proxy :: Proxy.Proxy CreateEnvironmentMembership)
 
 responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
 responseDescribeEnvironments =
@@ -263,7 +263,7 @@ responseDescribeEnvironments =
     "DescribeEnvironmentsResponse"
     "fixture/DescribeEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEnvironments)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -271,7 +271,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteEnvironmentMembership :: DeleteEnvironmentMembershipResponse -> TestTree
 responseDeleteEnvironmentMembership =
@@ -279,7 +279,7 @@ responseDeleteEnvironmentMembership =
     "DeleteEnvironmentMembershipResponse"
     "fixture/DeleteEnvironmentMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEnvironmentMembership)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEnvironmentMembership)
 
 responseUpdateEnvironmentMembership :: UpdateEnvironmentMembershipResponse -> TestTree
 responseUpdateEnvironmentMembership =
@@ -287,7 +287,7 @@ responseUpdateEnvironmentMembership =
     "UpdateEnvironmentMembershipResponse"
     "fixture/UpdateEnvironmentMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironmentMembership)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironmentMembership)
 
 responseDescribeEnvironmentMemberships :: DescribeEnvironmentMembershipsResponse -> TestTree
 responseDescribeEnvironmentMemberships =
@@ -295,4 +295,4 @@ responseDescribeEnvironmentMemberships =
     "DescribeEnvironmentMembershipsResponse"
     "fixture/DescribeEnvironmentMembershipsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironmentMemberships)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEnvironmentMemberships)

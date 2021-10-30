@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AutoScalingPlans where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AutoScalingPlans
 import Test.AWS.AutoScalingPlans.Internal
 import Test.AWS.Fixture
@@ -115,7 +115,7 @@ responseDescribeScalingPlanResources =
     "DescribeScalingPlanResourcesResponse"
     "fixture/DescribeScalingPlanResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalingPlanResources)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalingPlanResources)
 
 responseCreateScalingPlan :: CreateScalingPlanResponse -> TestTree
 responseCreateScalingPlan =
@@ -123,7 +123,7 @@ responseCreateScalingPlan =
     "CreateScalingPlanResponse"
     "fixture/CreateScalingPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateScalingPlan)
+    (Proxy.Proxy :: Proxy.Proxy CreateScalingPlan)
 
 responseDeleteScalingPlan :: DeleteScalingPlanResponse -> TestTree
 responseDeleteScalingPlan =
@@ -131,7 +131,7 @@ responseDeleteScalingPlan =
     "DeleteScalingPlanResponse"
     "fixture/DeleteScalingPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScalingPlan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteScalingPlan)
 
 responseUpdateScalingPlan :: UpdateScalingPlanResponse -> TestTree
 responseUpdateScalingPlan =
@@ -139,7 +139,7 @@ responseUpdateScalingPlan =
     "UpdateScalingPlanResponse"
     "fixture/UpdateScalingPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateScalingPlan)
+    (Proxy.Proxy :: Proxy.Proxy UpdateScalingPlan)
 
 responseDescribeScalingPlans :: DescribeScalingPlansResponse -> TestTree
 responseDescribeScalingPlans =
@@ -147,7 +147,7 @@ responseDescribeScalingPlans =
     "DescribeScalingPlansResponse"
     "fixture/DescribeScalingPlansResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalingPlans)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalingPlans)
 
 responseGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastDataResponse -> TestTree
 responseGetScalingPlanResourceForecastData =
@@ -155,4 +155,4 @@ responseGetScalingPlanResourceForecastData =
     "GetScalingPlanResourceForecastDataResponse"
     "fixture/GetScalingPlanResourceForecastDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetScalingPlanResourceForecastData)
+    (Proxy.Proxy :: Proxy.Proxy GetScalingPlanResourceForecastData)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53RecoveryCluster where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53RecoveryCluster
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -79,7 +79,7 @@ responseUpdateRoutingControlState =
     "UpdateRoutingControlStateResponse"
     "fixture/UpdateRoutingControlStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingControlState)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingControlState)
 
 responseGetRoutingControlState :: GetRoutingControlStateResponse -> TestTree
 responseGetRoutingControlState =
@@ -87,7 +87,7 @@ responseGetRoutingControlState =
     "GetRoutingControlStateResponse"
     "fixture/GetRoutingControlStateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoutingControlState)
+    (Proxy.Proxy :: Proxy.Proxy GetRoutingControlState)
 
 responseUpdateRoutingControlStates :: UpdateRoutingControlStatesResponse -> TestTree
 responseUpdateRoutingControlStates =
@@ -95,4 +95,4 @@ responseUpdateRoutingControlStates =
     "UpdateRoutingControlStatesResponse"
     "fixture/UpdateRoutingControlStatesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingControlStates)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingControlStates)

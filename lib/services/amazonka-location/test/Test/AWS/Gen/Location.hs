@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Location where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Location
 import Test.AWS.Fixture
 import Test.AWS.Location.Internal
@@ -643,7 +643,7 @@ responseBatchUpdateDevicePosition =
     "BatchUpdateDevicePositionResponse"
     "fixture/BatchUpdateDevicePositionResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdateDevicePosition)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateDevicePosition)
 
 responseDeleteRouteCalculator :: DeleteRouteCalculatorResponse -> TestTree
 responseDeleteRouteCalculator =
@@ -651,7 +651,7 @@ responseDeleteRouteCalculator =
     "DeleteRouteCalculatorResponse"
     "fixture/DeleteRouteCalculatorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRouteCalculator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteCalculator)
 
 responseUpdateRouteCalculator :: UpdateRouteCalculatorResponse -> TestTree
 responseUpdateRouteCalculator =
@@ -659,7 +659,7 @@ responseUpdateRouteCalculator =
     "UpdateRouteCalculatorResponse"
     "fixture/UpdateRouteCalculatorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRouteCalculator)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRouteCalculator)
 
 responseCreateGeofenceCollection :: CreateGeofenceCollectionResponse -> TestTree
 responseCreateGeofenceCollection =
@@ -667,7 +667,7 @@ responseCreateGeofenceCollection =
     "CreateGeofenceCollectionResponse"
     "fixture/CreateGeofenceCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGeofenceCollection)
+    (Proxy.Proxy :: Proxy.Proxy CreateGeofenceCollection)
 
 responseListRouteCalculators :: ListRouteCalculatorsResponse -> TestTree
 responseListRouteCalculators =
@@ -675,7 +675,7 @@ responseListRouteCalculators =
     "ListRouteCalculatorsResponse"
     "fixture/ListRouteCalculatorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRouteCalculators)
+    (Proxy.Proxy :: Proxy.Proxy ListRouteCalculators)
 
 responseCreateTracker :: CreateTrackerResponse -> TestTree
 responseCreateTracker =
@@ -683,7 +683,7 @@ responseCreateTracker =
     "CreateTrackerResponse"
     "fixture/CreateTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTracker)
+    (Proxy.Proxy :: Proxy.Proxy CreateTracker)
 
 responseListTrackerConsumers :: ListTrackerConsumersResponse -> TestTree
 responseListTrackerConsumers =
@@ -691,7 +691,7 @@ responseListTrackerConsumers =
     "ListTrackerConsumersResponse"
     "fixture/ListTrackerConsumersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrackerConsumers)
+    (Proxy.Proxy :: Proxy.Proxy ListTrackerConsumers)
 
 responseGetDevicePosition :: GetDevicePositionResponse -> TestTree
 responseGetDevicePosition =
@@ -699,7 +699,7 @@ responseGetDevicePosition =
     "GetDevicePositionResponse"
     "fixture/GetDevicePositionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevicePosition)
+    (Proxy.Proxy :: Proxy.Proxy GetDevicePosition)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -707,7 +707,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseSearchPlaceIndexForText :: SearchPlaceIndexForTextResponse -> TestTree
 responseSearchPlaceIndexForText =
@@ -715,7 +715,7 @@ responseSearchPlaceIndexForText =
     "SearchPlaceIndexForTextResponse"
     "fixture/SearchPlaceIndexForTextResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchPlaceIndexForText)
+    (Proxy.Proxy :: Proxy.Proxy SearchPlaceIndexForText)
 
 responseDescribeGeofenceCollection :: DescribeGeofenceCollectionResponse -> TestTree
 responseDescribeGeofenceCollection =
@@ -723,7 +723,7 @@ responseDescribeGeofenceCollection =
     "DescribeGeofenceCollectionResponse"
     "fixture/DescribeGeofenceCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGeofenceCollection)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGeofenceCollection)
 
 responseListMaps :: ListMapsResponse -> TestTree
 responseListMaps =
@@ -731,7 +731,7 @@ responseListMaps =
     "ListMapsResponse"
     "fixture/ListMapsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMaps)
+    (Proxy.Proxy :: Proxy.Proxy ListMaps)
 
 responseGetMapSprites :: GetMapSpritesResponse -> TestTree
 responseGetMapSprites =
@@ -739,7 +739,7 @@ responseGetMapSprites =
     "GetMapSpritesResponse"
     "fixture/GetMapSpritesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMapSprites)
+    (Proxy.Proxy :: Proxy.Proxy GetMapSprites)
 
 responseCreateMap :: CreateMapResponse -> TestTree
 responseCreateMap =
@@ -747,7 +747,7 @@ responseCreateMap =
     "CreateMapResponse"
     "fixture/CreateMapResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMap)
+    (Proxy.Proxy :: Proxy.Proxy CreateMap)
 
 responseDescribeRouteCalculator :: DescribeRouteCalculatorResponse -> TestTree
 responseDescribeRouteCalculator =
@@ -755,7 +755,7 @@ responseDescribeRouteCalculator =
     "DescribeRouteCalculatorResponse"
     "fixture/DescribeRouteCalculatorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRouteCalculator)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRouteCalculator)
 
 responseBatchGetDevicePosition :: BatchGetDevicePositionResponse -> TestTree
 responseBatchGetDevicePosition =
@@ -763,7 +763,7 @@ responseBatchGetDevicePosition =
     "BatchGetDevicePositionResponse"
     "fixture/BatchGetDevicePositionResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetDevicePosition)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDevicePosition)
 
 responseGetMapStyleDescriptor :: GetMapStyleDescriptorResponse -> TestTree
 responseGetMapStyleDescriptor =
@@ -771,7 +771,7 @@ responseGetMapStyleDescriptor =
     "GetMapStyleDescriptorResponse"
     "fixture/GetMapStyleDescriptorResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMapStyleDescriptor)
+    (Proxy.Proxy :: Proxy.Proxy GetMapStyleDescriptor)
 
 responseGetMapTile :: GetMapTileResponse -> TestTree
 responseGetMapTile =
@@ -779,7 +779,7 @@ responseGetMapTile =
     "GetMapTileResponse"
     "fixture/GetMapTileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMapTile)
+    (Proxy.Proxy :: Proxy.Proxy GetMapTile)
 
 responseListGeofenceCollections :: ListGeofenceCollectionsResponse -> TestTree
 responseListGeofenceCollections =
@@ -787,7 +787,7 @@ responseListGeofenceCollections =
     "ListGeofenceCollectionsResponse"
     "fixture/ListGeofenceCollectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGeofenceCollections)
+    (Proxy.Proxy :: Proxy.Proxy ListGeofenceCollections)
 
 responseDeleteGeofenceCollection :: DeleteGeofenceCollectionResponse -> TestTree
 responseDeleteGeofenceCollection =
@@ -795,7 +795,7 @@ responseDeleteGeofenceCollection =
     "DeleteGeofenceCollectionResponse"
     "fixture/DeleteGeofenceCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGeofenceCollection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGeofenceCollection)
 
 responseUpdateGeofenceCollection :: UpdateGeofenceCollectionResponse -> TestTree
 responseUpdateGeofenceCollection =
@@ -803,7 +803,7 @@ responseUpdateGeofenceCollection =
     "UpdateGeofenceCollectionResponse"
     "fixture/UpdateGeofenceCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGeofenceCollection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGeofenceCollection)
 
 responseListTrackers :: ListTrackersResponse -> TestTree
 responseListTrackers =
@@ -811,7 +811,7 @@ responseListTrackers =
     "ListTrackersResponse"
     "fixture/ListTrackersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrackers)
+    (Proxy.Proxy :: Proxy.Proxy ListTrackers)
 
 responseDeletePlaceIndex :: DeletePlaceIndexResponse -> TestTree
 responseDeletePlaceIndex =
@@ -819,7 +819,7 @@ responseDeletePlaceIndex =
     "DeletePlaceIndexResponse"
     "fixture/DeletePlaceIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlaceIndex)
+    (Proxy.Proxy :: Proxy.Proxy DeletePlaceIndex)
 
 responseUpdatePlaceIndex :: UpdatePlaceIndexResponse -> TestTree
 responseUpdatePlaceIndex =
@@ -827,7 +827,7 @@ responseUpdatePlaceIndex =
     "UpdatePlaceIndexResponse"
     "fixture/UpdatePlaceIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePlaceIndex)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePlaceIndex)
 
 responseDisassociateTrackerConsumer :: DisassociateTrackerConsumerResponse -> TestTree
 responseDisassociateTrackerConsumer =
@@ -835,7 +835,7 @@ responseDisassociateTrackerConsumer =
     "DisassociateTrackerConsumerResponse"
     "fixture/DisassociateTrackerConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTrackerConsumer)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTrackerConsumer)
 
 responsePutGeofence :: PutGeofenceResponse -> TestTree
 responsePutGeofence =
@@ -843,7 +843,7 @@ responsePutGeofence =
     "PutGeofenceResponse"
     "fixture/PutGeofenceResponse.proto"
     defaultService
-    (Proxy :: Proxy PutGeofence)
+    (Proxy.Proxy :: Proxy.Proxy PutGeofence)
 
 responseListGeofences :: ListGeofencesResponse -> TestTree
 responseListGeofences =
@@ -851,7 +851,7 @@ responseListGeofences =
     "ListGeofencesResponse"
     "fixture/ListGeofencesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGeofences)
+    (Proxy.Proxy :: Proxy.Proxy ListGeofences)
 
 responseAssociateTrackerConsumer :: AssociateTrackerConsumerResponse -> TestTree
 responseAssociateTrackerConsumer =
@@ -859,7 +859,7 @@ responseAssociateTrackerConsumer =
     "AssociateTrackerConsumerResponse"
     "fixture/AssociateTrackerConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTrackerConsumer)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTrackerConsumer)
 
 responseBatchEvaluateGeofences :: BatchEvaluateGeofencesResponse -> TestTree
 responseBatchEvaluateGeofences =
@@ -867,7 +867,7 @@ responseBatchEvaluateGeofences =
     "BatchEvaluateGeofencesResponse"
     "fixture/BatchEvaluateGeofencesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchEvaluateGeofences)
+    (Proxy.Proxy :: Proxy.Proxy BatchEvaluateGeofences)
 
 responseCalculateRoute :: CalculateRouteResponse -> TestTree
 responseCalculateRoute =
@@ -875,7 +875,7 @@ responseCalculateRoute =
     "CalculateRouteResponse"
     "fixture/CalculateRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CalculateRoute)
+    (Proxy.Proxy :: Proxy.Proxy CalculateRoute)
 
 responseDeleteMap :: DeleteMapResponse -> TestTree
 responseDeleteMap =
@@ -883,7 +883,7 @@ responseDeleteMap =
     "DeleteMapResponse"
     "fixture/DeleteMapResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMap)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMap)
 
 responseUpdateMap :: UpdateMapResponse -> TestTree
 responseUpdateMap =
@@ -891,7 +891,7 @@ responseUpdateMap =
     "UpdateMapResponse"
     "fixture/UpdateMapResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMap)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMap)
 
 responseGetDevicePositionHistory :: GetDevicePositionHistoryResponse -> TestTree
 responseGetDevicePositionHistory =
@@ -899,7 +899,7 @@ responseGetDevicePositionHistory =
     "GetDevicePositionHistoryResponse"
     "fixture/GetDevicePositionHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevicePositionHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetDevicePositionHistory)
 
 responseDescribeTracker :: DescribeTrackerResponse -> TestTree
 responseDescribeTracker =
@@ -907,7 +907,7 @@ responseDescribeTracker =
     "DescribeTrackerResponse"
     "fixture/DescribeTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTracker)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTracker)
 
 responseDescribePlaceIndex :: DescribePlaceIndexResponse -> TestTree
 responseDescribePlaceIndex =
@@ -915,7 +915,7 @@ responseDescribePlaceIndex =
     "DescribePlaceIndexResponse"
     "fixture/DescribePlaceIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePlaceIndex)
+    (Proxy.Proxy :: Proxy.Proxy DescribePlaceIndex)
 
 responseGetGeofence :: GetGeofenceResponse -> TestTree
 responseGetGeofence =
@@ -923,7 +923,7 @@ responseGetGeofence =
     "GetGeofenceResponse"
     "fixture/GetGeofenceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGeofence)
+    (Proxy.Proxy :: Proxy.Proxy GetGeofence)
 
 responseListDevicePositions :: ListDevicePositionsResponse -> TestTree
 responseListDevicePositions =
@@ -931,7 +931,7 @@ responseListDevicePositions =
     "ListDevicePositionsResponse"
     "fixture/ListDevicePositionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevicePositions)
+    (Proxy.Proxy :: Proxy.Proxy ListDevicePositions)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -939,7 +939,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetMapGlyphs :: GetMapGlyphsResponse -> TestTree
 responseGetMapGlyphs =
@@ -947,7 +947,7 @@ responseGetMapGlyphs =
     "GetMapGlyphsResponse"
     "fixture/GetMapGlyphsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMapGlyphs)
+    (Proxy.Proxy :: Proxy.Proxy GetMapGlyphs)
 
 responseBatchPutGeofence :: BatchPutGeofenceResponse -> TestTree
 responseBatchPutGeofence =
@@ -955,7 +955,7 @@ responseBatchPutGeofence =
     "BatchPutGeofenceResponse"
     "fixture/BatchPutGeofenceResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchPutGeofence)
+    (Proxy.Proxy :: Proxy.Proxy BatchPutGeofence)
 
 responseBatchDeleteGeofence :: BatchDeleteGeofenceResponse -> TestTree
 responseBatchDeleteGeofence =
@@ -963,7 +963,7 @@ responseBatchDeleteGeofence =
     "BatchDeleteGeofenceResponse"
     "fixture/BatchDeleteGeofenceResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteGeofence)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteGeofence)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -971,7 +971,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseBatchDeleteDevicePositionHistory :: BatchDeleteDevicePositionHistoryResponse -> TestTree
 responseBatchDeleteDevicePositionHistory =
@@ -979,7 +979,7 @@ responseBatchDeleteDevicePositionHistory =
     "BatchDeleteDevicePositionHistoryResponse"
     "fixture/BatchDeleteDevicePositionHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteDevicePositionHistory)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteDevicePositionHistory)
 
 responseListPlaceIndexes :: ListPlaceIndexesResponse -> TestTree
 responseListPlaceIndexes =
@@ -987,7 +987,7 @@ responseListPlaceIndexes =
     "ListPlaceIndexesResponse"
     "fixture/ListPlaceIndexesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPlaceIndexes)
+    (Proxy.Proxy :: Proxy.Proxy ListPlaceIndexes)
 
 responseSearchPlaceIndexForPosition :: SearchPlaceIndexForPositionResponse -> TestTree
 responseSearchPlaceIndexForPosition =
@@ -995,7 +995,7 @@ responseSearchPlaceIndexForPosition =
     "SearchPlaceIndexForPositionResponse"
     "fixture/SearchPlaceIndexForPositionResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchPlaceIndexForPosition)
+    (Proxy.Proxy :: Proxy.Proxy SearchPlaceIndexForPosition)
 
 responseDeleteTracker :: DeleteTrackerResponse -> TestTree
 responseDeleteTracker =
@@ -1003,7 +1003,7 @@ responseDeleteTracker =
     "DeleteTrackerResponse"
     "fixture/DeleteTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTracker)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTracker)
 
 responseCreatePlaceIndex :: CreatePlaceIndexResponse -> TestTree
 responseCreatePlaceIndex =
@@ -1011,7 +1011,7 @@ responseCreatePlaceIndex =
     "CreatePlaceIndexResponse"
     "fixture/CreatePlaceIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlaceIndex)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlaceIndex)
 
 responseUpdateTracker :: UpdateTrackerResponse -> TestTree
 responseUpdateTracker =
@@ -1019,7 +1019,7 @@ responseUpdateTracker =
     "UpdateTrackerResponse"
     "fixture/UpdateTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTracker)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTracker)
 
 responseCreateRouteCalculator :: CreateRouteCalculatorResponse -> TestTree
 responseCreateRouteCalculator =
@@ -1027,7 +1027,7 @@ responseCreateRouteCalculator =
     "CreateRouteCalculatorResponse"
     "fixture/CreateRouteCalculatorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRouteCalculator)
+    (Proxy.Proxy :: Proxy.Proxy CreateRouteCalculator)
 
 responseDescribeMap :: DescribeMapResponse -> TestTree
 responseDescribeMap =
@@ -1035,4 +1035,4 @@ responseDescribeMap =
     "DescribeMapResponse"
     "fixture/DescribeMapResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMap)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMap)

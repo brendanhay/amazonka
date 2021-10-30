@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.HealthLake where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.HealthLake
 import Test.AWS.Fixture
 import Test.AWS.HealthLake.Internal
@@ -199,7 +199,7 @@ responseStartFHIRImportJob =
     "StartFHIRImportJobResponse"
     "fixture/StartFHIRImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFHIRImportJob)
+    (Proxy.Proxy :: Proxy.Proxy StartFHIRImportJob)
 
 responseDescribeFHIRDatastore :: DescribeFHIRDatastoreResponse -> TestTree
 responseDescribeFHIRDatastore =
@@ -207,7 +207,7 @@ responseDescribeFHIRDatastore =
     "DescribeFHIRDatastoreResponse"
     "fixture/DescribeFHIRDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFHIRDatastore)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRDatastore)
 
 responseDescribeFHIRImportJob :: DescribeFHIRImportJobResponse -> TestTree
 responseDescribeFHIRImportJob =
@@ -215,7 +215,7 @@ responseDescribeFHIRImportJob =
     "DescribeFHIRImportJobResponse"
     "fixture/DescribeFHIRImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFHIRImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRImportJob)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -223,7 +223,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteFHIRDatastore :: DeleteFHIRDatastoreResponse -> TestTree
 responseDeleteFHIRDatastore =
@@ -231,7 +231,7 @@ responseDeleteFHIRDatastore =
     "DeleteFHIRDatastoreResponse"
     "fixture/DeleteFHIRDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFHIRDatastore)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFHIRDatastore)
 
 responseDescribeFHIRExportJob :: DescribeFHIRExportJobResponse -> TestTree
 responseDescribeFHIRExportJob =
@@ -239,7 +239,7 @@ responseDescribeFHIRExportJob =
     "DescribeFHIRExportJobResponse"
     "fixture/DescribeFHIRExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFHIRExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRExportJob)
 
 responseCreateFHIRDatastore :: CreateFHIRDatastoreResponse -> TestTree
 responseCreateFHIRDatastore =
@@ -247,7 +247,7 @@ responseCreateFHIRDatastore =
     "CreateFHIRDatastoreResponse"
     "fixture/CreateFHIRDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFHIRDatastore)
+    (Proxy.Proxy :: Proxy.Proxy CreateFHIRDatastore)
 
 responseListFHIRExportJobs :: ListFHIRExportJobsResponse -> TestTree
 responseListFHIRExportJobs =
@@ -255,7 +255,7 @@ responseListFHIRExportJobs =
     "ListFHIRExportJobsResponse"
     "fixture/ListFHIRExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFHIRExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListFHIRExportJobs)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -263,7 +263,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -271,7 +271,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListFHIRDatastores :: ListFHIRDatastoresResponse -> TestTree
 responseListFHIRDatastores =
@@ -279,7 +279,7 @@ responseListFHIRDatastores =
     "ListFHIRDatastoresResponse"
     "fixture/ListFHIRDatastoresResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFHIRDatastores)
+    (Proxy.Proxy :: Proxy.Proxy ListFHIRDatastores)
 
 responseStartFHIRExportJob :: StartFHIRExportJobResponse -> TestTree
 responseStartFHIRExportJob =
@@ -287,7 +287,7 @@ responseStartFHIRExportJob =
     "StartFHIRExportJobResponse"
     "fixture/StartFHIRExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFHIRExportJob)
+    (Proxy.Proxy :: Proxy.Proxy StartFHIRExportJob)
 
 responseListFHIRImportJobs :: ListFHIRImportJobsResponse -> TestTree
 responseListFHIRImportJobs =
@@ -295,4 +295,4 @@ responseListFHIRImportJobs =
     "ListFHIRImportJobsResponse"
     "fixture/ListFHIRImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFHIRImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListFHIRImportJobs)

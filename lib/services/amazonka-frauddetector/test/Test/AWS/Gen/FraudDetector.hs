@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FraudDetector where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.FraudDetector
 import Test.AWS.Fixture
 import Test.AWS.FraudDetector.Internal
@@ -835,7 +835,7 @@ responseCreateDetectorVersion =
     "CreateDetectorVersionResponse"
     "fixture/CreateDetectorVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDetectorVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateDetectorVersion)
 
 responseBatchGetVariable :: BatchGetVariableResponse -> TestTree
 responseBatchGetVariable =
@@ -843,7 +843,7 @@ responseBatchGetVariable =
     "BatchGetVariableResponse"
     "fixture/BatchGetVariableResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetVariable)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetVariable)
 
 responseUpdateModelVersion :: UpdateModelVersionResponse -> TestTree
 responseUpdateModelVersion =
@@ -851,7 +851,7 @@ responseUpdateModelVersion =
     "UpdateModelVersionResponse"
     "fixture/UpdateModelVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateModelVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateModelVersion)
 
 responseDeleteModelVersion :: DeleteModelVersionResponse -> TestTree
 responseDeleteModelVersion =
@@ -859,7 +859,7 @@ responseDeleteModelVersion =
     "DeleteModelVersionResponse"
     "fixture/DeleteModelVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelVersion)
 
 responseUpdateDetectorVersionMetadata :: UpdateDetectorVersionMetadataResponse -> TestTree
 responseUpdateDetectorVersionMetadata =
@@ -867,7 +867,7 @@ responseUpdateDetectorVersionMetadata =
     "UpdateDetectorVersionMetadataResponse"
     "fixture/UpdateDetectorVersionMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDetectorVersionMetadata)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersionMetadata)
 
 responseDeleteBatchImportJob :: DeleteBatchImportJobResponse -> TestTree
 responseDeleteBatchImportJob =
@@ -875,7 +875,7 @@ responseDeleteBatchImportJob =
     "DeleteBatchImportJobResponse"
     "fixture/DeleteBatchImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBatchImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBatchImportJob)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
 responseDeleteRule =
@@ -883,7 +883,7 @@ responseDeleteRule =
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
 
 responsePutLabel :: PutLabelResponse -> TestTree
 responsePutLabel =
@@ -891,7 +891,7 @@ responsePutLabel =
     "PutLabelResponse"
     "fixture/PutLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLabel)
+    (Proxy.Proxy :: Proxy.Proxy PutLabel)
 
 responseGetExternalModels :: GetExternalModelsResponse -> TestTree
 responseGetExternalModels =
@@ -899,7 +899,7 @@ responseGetExternalModels =
     "GetExternalModelsResponse"
     "fixture/GetExternalModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExternalModels)
+    (Proxy.Proxy :: Proxy.Proxy GetExternalModels)
 
 responseGetDetectors :: GetDetectorsResponse -> TestTree
 responseGetDetectors =
@@ -907,7 +907,7 @@ responseGetDetectors =
     "GetDetectorsResponse"
     "fixture/GetDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDetectors)
+    (Proxy.Proxy :: Proxy.Proxy GetDetectors)
 
 responseDeleteLabel :: DeleteLabelResponse -> TestTree
 responseDeleteLabel =
@@ -915,7 +915,7 @@ responseDeleteLabel =
     "DeleteLabelResponse"
     "fixture/DeleteLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLabel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLabel)
 
 responseDeleteVariable :: DeleteVariableResponse -> TestTree
 responseDeleteVariable =
@@ -923,7 +923,7 @@ responseDeleteVariable =
     "DeleteVariableResponse"
     "fixture/DeleteVariableResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVariable)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVariable)
 
 responseUpdateVariable :: UpdateVariableResponse -> TestTree
 responseUpdateVariable =
@@ -931,7 +931,7 @@ responseUpdateVariable =
     "UpdateVariableResponse"
     "fixture/UpdateVariableResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVariable)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVariable)
 
 responseCreateVariable :: CreateVariableResponse -> TestTree
 responseCreateVariable =
@@ -939,7 +939,7 @@ responseCreateVariable =
     "CreateVariableResponse"
     "fixture/CreateVariableResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVariable)
+    (Proxy.Proxy :: Proxy.Proxy CreateVariable)
 
 responseCreateBatchImportJob :: CreateBatchImportJobResponse -> TestTree
 responseCreateBatchImportJob =
@@ -947,7 +947,7 @@ responseCreateBatchImportJob =
     "CreateBatchImportJobResponse"
     "fixture/CreateBatchImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBatchImportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchImportJob)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
 responseCreateRule =
@@ -955,7 +955,7 @@ responseCreateRule =
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateRule)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -963,7 +963,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetModels :: GetModelsResponse -> TestTree
 responseGetModels =
@@ -971,7 +971,7 @@ responseGetModels =
     "GetModelsResponse"
     "fixture/GetModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetModels)
+    (Proxy.Proxy :: Proxy.Proxy GetModels)
 
 responseUpdateRuleVersion :: UpdateRuleVersionResponse -> TestTree
 responseUpdateRuleVersion =
@@ -979,7 +979,7 @@ responseUpdateRuleVersion =
     "UpdateRuleVersionResponse"
     "fixture/UpdateRuleVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRuleVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleVersion)
 
 responseDeleteEvent :: DeleteEventResponse -> TestTree
 responseDeleteEvent =
@@ -987,7 +987,7 @@ responseDeleteEvent =
     "DeleteEventResponse"
     "fixture/DeleteEventResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEvent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEvent)
 
 responseCancelBatchPredictionJob :: CancelBatchPredictionJobResponse -> TestTree
 responseCancelBatchPredictionJob =
@@ -995,7 +995,7 @@ responseCancelBatchPredictionJob =
     "CancelBatchPredictionJobResponse"
     "fixture/CancelBatchPredictionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelBatchPredictionJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelBatchPredictionJob)
 
 responseUpdateModelVersionStatus :: UpdateModelVersionStatusResponse -> TestTree
 responseUpdateModelVersionStatus =
@@ -1003,7 +1003,7 @@ responseUpdateModelVersionStatus =
     "UpdateModelVersionStatusResponse"
     "fixture/UpdateModelVersionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateModelVersionStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateModelVersionStatus)
 
 responseGetBatchPredictionJobs :: GetBatchPredictionJobsResponse -> TestTree
 responseGetBatchPredictionJobs =
@@ -1011,7 +1011,7 @@ responseGetBatchPredictionJobs =
     "GetBatchPredictionJobsResponse"
     "fixture/GetBatchPredictionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBatchPredictionJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetBatchPredictionJobs)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -1019,7 +1019,7 @@ responseCreateModel =
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
 
 responseGetLabels :: GetLabelsResponse -> TestTree
 responseGetLabels =
@@ -1027,7 +1027,7 @@ responseGetLabels =
     "GetLabelsResponse"
     "fixture/GetLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLabels)
+    (Proxy.Proxy :: Proxy.Proxy GetLabels)
 
 responseGetModelVersion :: GetModelVersionResponse -> TestTree
 responseGetModelVersion =
@@ -1035,7 +1035,7 @@ responseGetModelVersion =
     "GetModelVersionResponse"
     "fixture/GetModelVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetModelVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetModelVersion)
 
 responsePutExternalModel :: PutExternalModelResponse -> TestTree
 responsePutExternalModel =
@@ -1043,7 +1043,7 @@ responsePutExternalModel =
     "PutExternalModelResponse"
     "fixture/PutExternalModelResponse.proto"
     defaultService
-    (Proxy :: Proxy PutExternalModel)
+    (Proxy.Proxy :: Proxy.Proxy PutExternalModel)
 
 responseDeleteExternalModel :: DeleteExternalModelResponse -> TestTree
 responseDeleteExternalModel =
@@ -1051,7 +1051,7 @@ responseDeleteExternalModel =
     "DeleteExternalModelResponse"
     "fixture/DeleteExternalModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteExternalModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteExternalModel)
 
 responseGetEntityTypes :: GetEntityTypesResponse -> TestTree
 responseGetEntityTypes =
@@ -1059,7 +1059,7 @@ responseGetEntityTypes =
     "GetEntityTypesResponse"
     "fixture/GetEntityTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEntityTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetEntityTypes)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -1067,7 +1067,7 @@ responseDeleteModel =
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
 
 responseUpdateModel :: UpdateModelResponse -> TestTree
 responseUpdateModel =
@@ -1075,7 +1075,7 @@ responseUpdateModel =
     "UpdateModelResponse"
     "fixture/UpdateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateModel)
 
 responseCreateModelVersion :: CreateModelVersionResponse -> TestTree
 responseCreateModelVersion =
@@ -1083,7 +1083,7 @@ responseCreateModelVersion =
     "CreateModelVersionResponse"
     "fixture/CreateModelVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateModelVersion)
 
 responseDeleteEventsByEventType :: DeleteEventsByEventTypeResponse -> TestTree
 responseDeleteEventsByEventType =
@@ -1091,7 +1091,7 @@ responseDeleteEventsByEventType =
     "DeleteEventsByEventTypeResponse"
     "fixture/DeleteEventsByEventTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventsByEventType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventsByEventType)
 
 responsePutKMSEncryptionKey :: PutKMSEncryptionKeyResponse -> TestTree
 responsePutKMSEncryptionKey =
@@ -1099,7 +1099,7 @@ responsePutKMSEncryptionKey =
     "PutKMSEncryptionKeyResponse"
     "fixture/PutKMSEncryptionKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutKMSEncryptionKey)
+    (Proxy.Proxy :: Proxy.Proxy PutKMSEncryptionKey)
 
 responseDescribeDetector :: DescribeDetectorResponse -> TestTree
 responseDescribeDetector =
@@ -1107,7 +1107,7 @@ responseDescribeDetector =
     "DescribeDetectorResponse"
     "fixture/DescribeDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDetector)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetector)
 
 responseGetOutcomes :: GetOutcomesResponse -> TestTree
 responseGetOutcomes =
@@ -1115,7 +1115,7 @@ responseGetOutcomes =
     "GetOutcomesResponse"
     "fixture/GetOutcomesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOutcomes)
+    (Proxy.Proxy :: Proxy.Proxy GetOutcomes)
 
 responseGetEventPrediction :: GetEventPredictionResponse -> TestTree
 responseGetEventPrediction =
@@ -1123,7 +1123,7 @@ responseGetEventPrediction =
     "GetEventPredictionResponse"
     "fixture/GetEventPredictionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventPrediction)
+    (Proxy.Proxy :: Proxy.Proxy GetEventPrediction)
 
 responseDeleteBatchPredictionJob :: DeleteBatchPredictionJobResponse -> TestTree
 responseDeleteBatchPredictionJob =
@@ -1131,7 +1131,7 @@ responseDeleteBatchPredictionJob =
     "DeleteBatchPredictionJobResponse"
     "fixture/DeleteBatchPredictionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBatchPredictionJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBatchPredictionJob)
 
 responseGetEvent :: GetEventResponse -> TestTree
 responseGetEvent =
@@ -1139,7 +1139,7 @@ responseGetEvent =
     "GetEventResponse"
     "fixture/GetEventResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvent)
+    (Proxy.Proxy :: Proxy.Proxy GetEvent)
 
 responseUpdateRuleMetadata :: UpdateRuleMetadataResponse -> TestTree
 responseUpdateRuleMetadata =
@@ -1147,7 +1147,7 @@ responseUpdateRuleMetadata =
     "UpdateRuleMetadataResponse"
     "fixture/UpdateRuleMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRuleMetadata)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleMetadata)
 
 responsePutEntityType :: PutEntityTypeResponse -> TestTree
 responsePutEntityType =
@@ -1155,7 +1155,7 @@ responsePutEntityType =
     "PutEntityTypeResponse"
     "fixture/PutEntityTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEntityType)
+    (Proxy.Proxy :: Proxy.Proxy PutEntityType)
 
 responseCreateBatchPredictionJob :: CreateBatchPredictionJobResponse -> TestTree
 responseCreateBatchPredictionJob =
@@ -1163,7 +1163,7 @@ responseCreateBatchPredictionJob =
     "CreateBatchPredictionJobResponse"
     "fixture/CreateBatchPredictionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBatchPredictionJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchPredictionJob)
 
 responseDeleteEntityType :: DeleteEntityTypeResponse -> TestTree
 responseDeleteEntityType =
@@ -1171,7 +1171,7 @@ responseDeleteEntityType =
     "DeleteEntityTypeResponse"
     "fixture/DeleteEntityTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEntityType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEntityType)
 
 responseDeleteEventType :: DeleteEventTypeResponse -> TestTree
 responseDeleteEventType =
@@ -1179,7 +1179,7 @@ responseDeleteEventType =
     "DeleteEventTypeResponse"
     "fixture/DeleteEventTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventType)
 
 responsePutEventType :: PutEventTypeResponse -> TestTree
 responsePutEventType =
@@ -1187,7 +1187,7 @@ responsePutEventType =
     "PutEventTypeResponse"
     "fixture/PutEventTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEventType)
+    (Proxy.Proxy :: Proxy.Proxy PutEventType)
 
 responseUpdateDetectorVersionStatus :: UpdateDetectorVersionStatusResponse -> TestTree
 responseUpdateDetectorVersionStatus =
@@ -1195,7 +1195,7 @@ responseUpdateDetectorVersionStatus =
     "UpdateDetectorVersionStatusResponse"
     "fixture/UpdateDetectorVersionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDetectorVersionStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersionStatus)
 
 responseCancelBatchImportJob :: CancelBatchImportJobResponse -> TestTree
 responseCancelBatchImportJob =
@@ -1203,7 +1203,7 @@ responseCancelBatchImportJob =
     "CancelBatchImportJobResponse"
     "fixture/CancelBatchImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelBatchImportJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelBatchImportJob)
 
 responseSendEvent :: SendEventResponse -> TestTree
 responseSendEvent =
@@ -1211,7 +1211,7 @@ responseSendEvent =
     "SendEventResponse"
     "fixture/SendEventResponse.proto"
     defaultService
-    (Proxy :: Proxy SendEvent)
+    (Proxy.Proxy :: Proxy.Proxy SendEvent)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1219,7 +1219,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetKMSEncryptionKey :: GetKMSEncryptionKeyResponse -> TestTree
 responseGetKMSEncryptionKey =
@@ -1227,7 +1227,7 @@ responseGetKMSEncryptionKey =
     "GetKMSEncryptionKeyResponse"
     "fixture/GetKMSEncryptionKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKMSEncryptionKey)
+    (Proxy.Proxy :: Proxy.Proxy GetKMSEncryptionKey)
 
 responseUpdateEventLabel :: UpdateEventLabelResponse -> TestTree
 responseUpdateEventLabel =
@@ -1235,7 +1235,7 @@ responseUpdateEventLabel =
     "UpdateEventLabelResponse"
     "fixture/UpdateEventLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEventLabel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventLabel)
 
 responseGetBatchImportJobs :: GetBatchImportJobsResponse -> TestTree
 responseGetBatchImportJobs =
@@ -1243,7 +1243,7 @@ responseGetBatchImportJobs =
     "GetBatchImportJobsResponse"
     "fixture/GetBatchImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBatchImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetBatchImportJobs)
 
 responseGetDeleteEventsByEventTypeStatus :: GetDeleteEventsByEventTypeStatusResponse -> TestTree
 responseGetDeleteEventsByEventTypeStatus =
@@ -1251,7 +1251,7 @@ responseGetDeleteEventsByEventTypeStatus =
     "GetDeleteEventsByEventTypeStatusResponse"
     "fixture/GetDeleteEventsByEventTypeStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeleteEventsByEventTypeStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetDeleteEventsByEventTypeStatus)
 
 responseDeleteOutcome :: DeleteOutcomeResponse -> TestTree
 responseDeleteOutcome =
@@ -1259,7 +1259,7 @@ responseDeleteOutcome =
     "DeleteOutcomeResponse"
     "fixture/DeleteOutcomeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOutcome)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOutcome)
 
 responseGetRules :: GetRulesResponse -> TestTree
 responseGetRules =
@@ -1267,7 +1267,7 @@ responseGetRules =
     "GetRulesResponse"
     "fixture/GetRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRules)
+    (Proxy.Proxy :: Proxy.Proxy GetRules)
 
 responseGetVariables :: GetVariablesResponse -> TestTree
 responseGetVariables =
@@ -1275,7 +1275,7 @@ responseGetVariables =
     "GetVariablesResponse"
     "fixture/GetVariablesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVariables)
+    (Proxy.Proxy :: Proxy.Proxy GetVariables)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1283,7 +1283,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responsePutDetector :: PutDetectorResponse -> TestTree
 responsePutDetector =
@@ -1291,7 +1291,7 @@ responsePutDetector =
     "PutDetectorResponse"
     "fixture/PutDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDetector)
+    (Proxy.Proxy :: Proxy.Proxy PutDetector)
 
 responsePutOutcome :: PutOutcomeResponse -> TestTree
 responsePutOutcome =
@@ -1299,7 +1299,7 @@ responsePutOutcome =
     "PutOutcomeResponse"
     "fixture/PutOutcomeResponse.proto"
     defaultService
-    (Proxy :: Proxy PutOutcome)
+    (Proxy.Proxy :: Proxy.Proxy PutOutcome)
 
 responseDeleteDetector :: DeleteDetectorResponse -> TestTree
 responseDeleteDetector =
@@ -1307,7 +1307,7 @@ responseDeleteDetector =
     "DeleteDetectorResponse"
     "fixture/DeleteDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDetector)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetector)
 
 responseDescribeModelVersions :: DescribeModelVersionsResponse -> TestTree
 responseDescribeModelVersions =
@@ -1315,7 +1315,7 @@ responseDescribeModelVersions =
     "DescribeModelVersionsResponse"
     "fixture/DescribeModelVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModelVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelVersions)
 
 responseBatchCreateVariable :: BatchCreateVariableResponse -> TestTree
 responseBatchCreateVariable =
@@ -1323,7 +1323,7 @@ responseBatchCreateVariable =
     "BatchCreateVariableResponse"
     "fixture/BatchCreateVariableResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateVariable)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateVariable)
 
 responseGetDetectorVersion :: GetDetectorVersionResponse -> TestTree
 responseGetDetectorVersion =
@@ -1331,7 +1331,7 @@ responseGetDetectorVersion =
     "GetDetectorVersionResponse"
     "fixture/GetDetectorVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDetectorVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetDetectorVersion)
 
 responseGetEventTypes :: GetEventTypesResponse -> TestTree
 responseGetEventTypes =
@@ -1339,7 +1339,7 @@ responseGetEventTypes =
     "GetEventTypesResponse"
     "fixture/GetEventTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetEventTypes)
 
 responseDeleteDetectorVersion :: DeleteDetectorVersionResponse -> TestTree
 responseDeleteDetectorVersion =
@@ -1347,7 +1347,7 @@ responseDeleteDetectorVersion =
     "DeleteDetectorVersionResponse"
     "fixture/DeleteDetectorVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDetectorVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetectorVersion)
 
 responseUpdateDetectorVersion :: UpdateDetectorVersionResponse -> TestTree
 responseUpdateDetectorVersion =
@@ -1355,4 +1355,4 @@ responseUpdateDetectorVersion =
     "UpdateDetectorVersionResponse"
     "fixture/UpdateDetectorVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDetectorVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersion)

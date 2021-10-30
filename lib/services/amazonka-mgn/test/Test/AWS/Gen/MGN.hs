@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MGN where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MGN
 import Test.AWS.Fixture
 import Test.AWS.MGN.Internal
@@ -343,7 +343,7 @@ responseUpdateLaunchConfiguration =
     "UpdateLaunchConfigurationResponse"
     "fixture/UpdateLaunchConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLaunchConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchConfiguration)
 
 responseDescribeReplicationConfigurationTemplates :: DescribeReplicationConfigurationTemplatesResponse -> TestTree
 responseDescribeReplicationConfigurationTemplates =
@@ -351,7 +351,7 @@ responseDescribeReplicationConfigurationTemplates =
     "DescribeReplicationConfigurationTemplatesResponse"
     "fixture/DescribeReplicationConfigurationTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReplicationConfigurationTemplates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReplicationConfigurationTemplates)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -359,7 +359,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseInitializeService :: InitializeServiceResponse -> TestTree
 responseInitializeService =
@@ -367,7 +367,7 @@ responseInitializeService =
     "InitializeServiceResponse"
     "fixture/InitializeServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy InitializeService)
+    (Proxy.Proxy :: Proxy.Proxy InitializeService)
 
 responseUpdateReplicationConfigurationTemplate :: ReplicationConfigurationTemplate -> TestTree
 responseUpdateReplicationConfigurationTemplate =
@@ -375,7 +375,7 @@ responseUpdateReplicationConfigurationTemplate =
     "UpdateReplicationConfigurationTemplateResponse"
     "fixture/UpdateReplicationConfigurationTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReplicationConfigurationTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReplicationConfigurationTemplate)
 
 responseDeleteReplicationConfigurationTemplate :: DeleteReplicationConfigurationTemplateResponse -> TestTree
 responseDeleteReplicationConfigurationTemplate =
@@ -383,7 +383,7 @@ responseDeleteReplicationConfigurationTemplate =
     "DeleteReplicationConfigurationTemplateResponse"
     "fixture/DeleteReplicationConfigurationTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReplicationConfigurationTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationConfigurationTemplate)
 
 responseCreateReplicationConfigurationTemplate :: ReplicationConfigurationTemplate -> TestTree
 responseCreateReplicationConfigurationTemplate =
@@ -391,7 +391,7 @@ responseCreateReplicationConfigurationTemplate =
     "CreateReplicationConfigurationTemplateResponse"
     "fixture/CreateReplicationConfigurationTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReplicationConfigurationTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateReplicationConfigurationTemplate)
 
 responseDescribeJobLogItems :: DescribeJobLogItemsResponse -> TestTree
 responseDescribeJobLogItems =
@@ -399,7 +399,7 @@ responseDescribeJobLogItems =
     "DescribeJobLogItemsResponse"
     "fixture/DescribeJobLogItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobLogItems)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobLogItems)
 
 responseDisconnectFromService :: SourceServer -> TestTree
 responseDisconnectFromService =
@@ -407,7 +407,7 @@ responseDisconnectFromService =
     "DisconnectFromServiceResponse"
     "fixture/DisconnectFromServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisconnectFromService)
+    (Proxy.Proxy :: Proxy.Proxy DisconnectFromService)
 
 responseStartTest :: StartTestResponse -> TestTree
 responseStartTest =
@@ -415,7 +415,7 @@ responseStartTest =
     "StartTestResponse"
     "fixture/StartTestResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTest)
+    (Proxy.Proxy :: Proxy.Proxy StartTest)
 
 responseDescribeSourceServers :: DescribeSourceServersResponse -> TestTree
 responseDescribeSourceServers =
@@ -423,7 +423,7 @@ responseDescribeSourceServers =
     "DescribeSourceServersResponse"
     "fixture/DescribeSourceServersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSourceServers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSourceServers)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
 responseDeleteJob =
@@ -431,7 +431,7 @@ responseDeleteJob =
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
 
 responseFinalizeCutover :: SourceServer -> TestTree
 responseFinalizeCutover =
@@ -439,7 +439,7 @@ responseFinalizeCutover =
     "FinalizeCutoverResponse"
     "fixture/FinalizeCutoverResponse.proto"
     defaultService
-    (Proxy :: Proxy FinalizeCutover)
+    (Proxy.Proxy :: Proxy.Proxy FinalizeCutover)
 
 responseDescribeJobs :: DescribeJobsResponse -> TestTree
 responseDescribeJobs =
@@ -447,7 +447,7 @@ responseDescribeJobs =
     "DescribeJobsResponse"
     "fixture/DescribeJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobs)
 
 responseMarkAsArchived :: SourceServer -> TestTree
 responseMarkAsArchived =
@@ -455,7 +455,7 @@ responseMarkAsArchived =
     "MarkAsArchivedResponse"
     "fixture/MarkAsArchivedResponse.proto"
     defaultService
-    (Proxy :: Proxy MarkAsArchived)
+    (Proxy.Proxy :: Proxy.Proxy MarkAsArchived)
 
 responseStartCutover :: StartCutoverResponse -> TestTree
 responseStartCutover =
@@ -463,7 +463,7 @@ responseStartCutover =
     "StartCutoverResponse"
     "fixture/StartCutoverResponse.proto"
     defaultService
-    (Proxy :: Proxy StartCutover)
+    (Proxy.Proxy :: Proxy.Proxy StartCutover)
 
 responseRetryDataReplication :: SourceServer -> TestTree
 responseRetryDataReplication =
@@ -471,7 +471,7 @@ responseRetryDataReplication =
     "RetryDataReplicationResponse"
     "fixture/RetryDataReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy RetryDataReplication)
+    (Proxy.Proxy :: Proxy.Proxy RetryDataReplication)
 
 responseGetReplicationConfiguration :: ReplicationConfiguration -> TestTree
 responseGetReplicationConfiguration =
@@ -479,7 +479,7 @@ responseGetReplicationConfiguration =
     "GetReplicationConfigurationResponse"
     "fixture/GetReplicationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReplicationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetReplicationConfiguration)
 
 responseChangeServerLifeCycleState :: SourceServer -> TestTree
 responseChangeServerLifeCycleState =
@@ -487,7 +487,7 @@ responseChangeServerLifeCycleState =
     "ChangeServerLifeCycleStateResponse"
     "fixture/ChangeServerLifeCycleStateResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeServerLifeCycleState)
+    (Proxy.Proxy :: Proxy.Proxy ChangeServerLifeCycleState)
 
 responseTerminateTargetInstances :: TerminateTargetInstancesResponse -> TestTree
 responseTerminateTargetInstances =
@@ -495,7 +495,7 @@ responseTerminateTargetInstances =
     "TerminateTargetInstancesResponse"
     "fixture/TerminateTargetInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateTargetInstances)
+    (Proxy.Proxy :: Proxy.Proxy TerminateTargetInstances)
 
 responseUpdateReplicationConfiguration :: ReplicationConfiguration -> TestTree
 responseUpdateReplicationConfiguration =
@@ -503,7 +503,7 @@ responseUpdateReplicationConfiguration =
     "UpdateReplicationConfigurationResponse"
     "fixture/UpdateReplicationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReplicationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReplicationConfiguration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -511,7 +511,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetLaunchConfiguration :: LaunchConfiguration -> TestTree
 responseGetLaunchConfiguration =
@@ -519,7 +519,7 @@ responseGetLaunchConfiguration =
     "GetLaunchConfigurationResponse"
     "fixture/GetLaunchConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLaunchConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchConfiguration)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -527,7 +527,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteSourceServer :: DeleteSourceServerResponse -> TestTree
 responseDeleteSourceServer =
@@ -535,4 +535,4 @@ responseDeleteSourceServer =
     "DeleteSourceServerResponse"
     "fixture/DeleteSourceServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSourceServer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSourceServer)

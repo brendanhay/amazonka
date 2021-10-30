@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Lambda where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Lambda
 import Test.AWS.Fixture
 import Test.AWS.Lambda.Internal
@@ -727,7 +727,7 @@ responseGetFunctionConfiguration =
     "GetFunctionConfigurationResponse"
     "fixture/GetFunctionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunctionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionConfiguration)
 
 responseDeleteEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
 responseDeleteEventSourceMapping =
@@ -735,7 +735,7 @@ responseDeleteEventSourceMapping =
     "DeleteEventSourceMappingResponse"
     "fixture/DeleteEventSourceMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventSourceMapping)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventSourceMapping)
 
 responseUpdateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
 responseUpdateEventSourceMapping =
@@ -743,7 +743,7 @@ responseUpdateEventSourceMapping =
     "UpdateEventSourceMappingResponse"
     "fixture/UpdateEventSourceMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEventSourceMapping)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventSourceMapping)
 
 responseGetLayerVersion :: GetLayerVersionResponse -> TestTree
 responseGetLayerVersion =
@@ -751,7 +751,7 @@ responseGetLayerVersion =
     "GetLayerVersionResponse"
     "fixture/GetLayerVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLayerVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetLayerVersion)
 
 responseDeleteFunctionCodeSigningConfig :: DeleteFunctionCodeSigningConfigResponse -> TestTree
 responseDeleteFunctionCodeSigningConfig =
@@ -759,7 +759,7 @@ responseDeleteFunctionCodeSigningConfig =
     "DeleteFunctionCodeSigningConfigResponse"
     "fixture/DeleteFunctionCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunctionCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunctionCodeSigningConfig)
 
 responsePutFunctionCodeSigningConfig :: PutFunctionCodeSigningConfigResponse -> TestTree
 responsePutFunctionCodeSigningConfig =
@@ -767,7 +767,7 @@ responsePutFunctionCodeSigningConfig =
     "PutFunctionCodeSigningConfigResponse"
     "fixture/PutFunctionCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFunctionCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy PutFunctionCodeSigningConfig)
 
 responseCreateAlias :: AliasConfiguration -> TestTree
 responseCreateAlias =
@@ -775,7 +775,7 @@ responseCreateAlias =
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlias)
 
 responseListVersionsByFunction :: ListVersionsByFunctionResponse -> TestTree
 responseListVersionsByFunction =
@@ -783,7 +783,7 @@ responseListVersionsByFunction =
     "ListVersionsByFunctionResponse"
     "fixture/ListVersionsByFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVersionsByFunction)
+    (Proxy.Proxy :: Proxy.Proxy ListVersionsByFunction)
 
 responseListAliases :: ListAliasesResponse -> TestTree
 responseListAliases =
@@ -791,7 +791,7 @@ responseListAliases =
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListAliases)
 
 responseDeleteCodeSigningConfig :: DeleteCodeSigningConfigResponse -> TestTree
 responseDeleteCodeSigningConfig =
@@ -799,7 +799,7 @@ responseDeleteCodeSigningConfig =
     "DeleteCodeSigningConfigResponse"
     "fixture/DeleteCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCodeSigningConfig)
 
 responseUpdateCodeSigningConfig :: UpdateCodeSigningConfigResponse -> TestTree
 responseUpdateCodeSigningConfig =
@@ -807,7 +807,7 @@ responseUpdateCodeSigningConfig =
     "UpdateCodeSigningConfigResponse"
     "fixture/UpdateCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCodeSigningConfig)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =
@@ -815,7 +815,7 @@ responseRemovePermission =
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemovePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
 
 responseDeleteFunctionEventInvokeConfig :: DeleteFunctionEventInvokeConfigResponse -> TestTree
 responseDeleteFunctionEventInvokeConfig =
@@ -823,7 +823,7 @@ responseDeleteFunctionEventInvokeConfig =
     "DeleteFunctionEventInvokeConfigResponse"
     "fixture/DeleteFunctionEventInvokeConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunctionEventInvokeConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunctionEventInvokeConfig)
 
 responseUpdateFunctionEventInvokeConfig :: FunctionEventInvokeConfig -> TestTree
 responseUpdateFunctionEventInvokeConfig =
@@ -831,7 +831,7 @@ responseUpdateFunctionEventInvokeConfig =
     "UpdateFunctionEventInvokeConfigResponse"
     "fixture/UpdateFunctionEventInvokeConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFunctionEventInvokeConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunctionEventInvokeConfig)
 
 responsePutFunctionEventInvokeConfig :: FunctionEventInvokeConfig -> TestTree
 responsePutFunctionEventInvokeConfig =
@@ -839,7 +839,7 @@ responsePutFunctionEventInvokeConfig =
     "PutFunctionEventInvokeConfigResponse"
     "fixture/PutFunctionEventInvokeConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFunctionEventInvokeConfig)
+    (Proxy.Proxy :: Proxy.Proxy PutFunctionEventInvokeConfig)
 
 responseInvoke :: InvokeResponse -> TestTree
 responseInvoke =
@@ -847,7 +847,7 @@ responseInvoke =
     "InvokeResponse"
     "fixture/InvokeResponse.proto"
     defaultService
-    (Proxy :: Proxy Invoke)
+    (Proxy.Proxy :: Proxy.Proxy Invoke)
 
 responseDeleteLayerVersion :: DeleteLayerVersionResponse -> TestTree
 responseDeleteLayerVersion =
@@ -855,7 +855,7 @@ responseDeleteLayerVersion =
     "DeleteLayerVersionResponse"
     "fixture/DeleteLayerVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLayerVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLayerVersion)
 
 responseGetAlias :: AliasConfiguration -> TestTree
 responseGetAlias =
@@ -863,7 +863,7 @@ responseGetAlias =
     "GetAliasResponse"
     "fixture/GetAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAlias)
+    (Proxy.Proxy :: Proxy.Proxy GetAlias)
 
 responsePublishLayerVersion :: PublishLayerVersionResponse -> TestTree
 responsePublishLayerVersion =
@@ -871,7 +871,7 @@ responsePublishLayerVersion =
     "PublishLayerVersionResponse"
     "fixture/PublishLayerVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishLayerVersion)
+    (Proxy.Proxy :: Proxy.Proxy PublishLayerVersion)
 
 responseGetEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
 responseGetEventSourceMapping =
@@ -879,7 +879,7 @@ responseGetEventSourceMapping =
     "GetEventSourceMappingResponse"
     "fixture/GetEventSourceMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventSourceMapping)
+    (Proxy.Proxy :: Proxy.Proxy GetEventSourceMapping)
 
 responseAddLayerVersionPermission :: AddLayerVersionPermissionResponse -> TestTree
 responseAddLayerVersionPermission =
@@ -887,7 +887,7 @@ responseAddLayerVersionPermission =
     "AddLayerVersionPermissionResponse"
     "fixture/AddLayerVersionPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddLayerVersionPermission)
+    (Proxy.Proxy :: Proxy.Proxy AddLayerVersionPermission)
 
 responseListProvisionedConcurrencyConfigs :: ListProvisionedConcurrencyConfigsResponse -> TestTree
 responseListProvisionedConcurrencyConfigs =
@@ -895,7 +895,7 @@ responseListProvisionedConcurrencyConfigs =
     "ListProvisionedConcurrencyConfigsResponse"
     "fixture/ListProvisionedConcurrencyConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProvisionedConcurrencyConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListProvisionedConcurrencyConfigs)
 
 responsePutFunctionConcurrency :: Concurrency -> TestTree
 responsePutFunctionConcurrency =
@@ -903,7 +903,7 @@ responsePutFunctionConcurrency =
     "PutFunctionConcurrencyResponse"
     "fixture/PutFunctionConcurrencyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFunctionConcurrency)
+    (Proxy.Proxy :: Proxy.Proxy PutFunctionConcurrency)
 
 responseCreateFunction :: FunctionConfiguration -> TestTree
 responseCreateFunction =
@@ -911,7 +911,7 @@ responseCreateFunction =
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFunction)
+    (Proxy.Proxy :: Proxy.Proxy CreateFunction)
 
 responseDeleteFunctionConcurrency :: DeleteFunctionConcurrencyResponse -> TestTree
 responseDeleteFunctionConcurrency =
@@ -919,7 +919,7 @@ responseDeleteFunctionConcurrency =
     "DeleteFunctionConcurrencyResponse"
     "fixture/DeleteFunctionConcurrencyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunctionConcurrency)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunctionConcurrency)
 
 responseGetLayerVersionByArn :: GetLayerVersionResponse -> TestTree
 responseGetLayerVersionByArn =
@@ -927,7 +927,7 @@ responseGetLayerVersionByArn =
     "GetLayerVersionByArnResponse"
     "fixture/GetLayerVersionByArnResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLayerVersionByArn)
+    (Proxy.Proxy :: Proxy.Proxy GetLayerVersionByArn)
 
 responseGetFunctionConcurrency :: GetFunctionConcurrencyResponse -> TestTree
 responseGetFunctionConcurrency =
@@ -935,7 +935,7 @@ responseGetFunctionConcurrency =
     "GetFunctionConcurrencyResponse"
     "fixture/GetFunctionConcurrencyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunctionConcurrency)
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionConcurrency)
 
 responseCreateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
 responseCreateEventSourceMapping =
@@ -943,7 +943,7 @@ responseCreateEventSourceMapping =
     "CreateEventSourceMappingResponse"
     "fixture/CreateEventSourceMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEventSourceMapping)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventSourceMapping)
 
 responseGetProvisionedConcurrencyConfig :: GetProvisionedConcurrencyConfigResponse -> TestTree
 responseGetProvisionedConcurrencyConfig =
@@ -951,7 +951,7 @@ responseGetProvisionedConcurrencyConfig =
     "GetProvisionedConcurrencyConfigResponse"
     "fixture/GetProvisionedConcurrencyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProvisionedConcurrencyConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetProvisionedConcurrencyConfig)
 
 responseRemoveLayerVersionPermission :: RemoveLayerVersionPermissionResponse -> TestTree
 responseRemoveLayerVersionPermission =
@@ -959,7 +959,7 @@ responseRemoveLayerVersionPermission =
     "RemoveLayerVersionPermissionResponse"
     "fixture/RemoveLayerVersionPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveLayerVersionPermission)
+    (Proxy.Proxy :: Proxy.Proxy RemoveLayerVersionPermission)
 
 responseListFunctionsByCodeSigningConfig :: ListFunctionsByCodeSigningConfigResponse -> TestTree
 responseListFunctionsByCodeSigningConfig =
@@ -967,7 +967,7 @@ responseListFunctionsByCodeSigningConfig =
     "ListFunctionsByCodeSigningConfigResponse"
     "fixture/ListFunctionsByCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctionsByCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctionsByCodeSigningConfig)
 
 responseGetFunction :: GetFunctionResponse -> TestTree
 responseGetFunction =
@@ -975,7 +975,7 @@ responseGetFunction =
     "GetFunctionResponse"
     "fixture/GetFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunction)
+    (Proxy.Proxy :: Proxy.Proxy GetFunction)
 
 responseListEventSourceMappings :: ListEventSourceMappingsResponse -> TestTree
 responseListEventSourceMappings =
@@ -983,7 +983,7 @@ responseListEventSourceMappings =
     "ListEventSourceMappingsResponse"
     "fixture/ListEventSourceMappingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventSourceMappings)
+    (Proxy.Proxy :: Proxy.Proxy ListEventSourceMappings)
 
 responseGetLayerVersionPolicy :: GetLayerVersionPolicyResponse -> TestTree
 responseGetLayerVersionPolicy =
@@ -991,7 +991,7 @@ responseGetLayerVersionPolicy =
     "GetLayerVersionPolicyResponse"
     "fixture/GetLayerVersionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLayerVersionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetLayerVersionPolicy)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
 responseDeleteAlias =
@@ -999,7 +999,7 @@ responseDeleteAlias =
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlias)
 
 responseUpdateAlias :: AliasConfiguration -> TestTree
 responseUpdateAlias =
@@ -1007,7 +1007,7 @@ responseUpdateAlias =
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAlias)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAlias)
 
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
 responseGetAccountSettings =
@@ -1015,7 +1015,7 @@ responseGetAccountSettings =
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
 
 responseGetFunctionEventInvokeConfig :: FunctionEventInvokeConfig -> TestTree
 responseGetFunctionEventInvokeConfig =
@@ -1023,7 +1023,7 @@ responseGetFunctionEventInvokeConfig =
     "GetFunctionEventInvokeConfigResponse"
     "fixture/GetFunctionEventInvokeConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunctionEventInvokeConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionEventInvokeConfig)
 
 responseGetCodeSigningConfig :: GetCodeSigningConfigResponse -> TestTree
 responseGetCodeSigningConfig =
@@ -1031,7 +1031,7 @@ responseGetCodeSigningConfig =
     "GetCodeSigningConfigResponse"
     "fixture/GetCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetCodeSigningConfig)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
 responseAddPermission =
@@ -1039,7 +1039,7 @@ responseAddPermission =
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddPermission)
+    (Proxy.Proxy :: Proxy.Proxy AddPermission)
 
 responseListLayers :: ListLayersResponse -> TestTree
 responseListLayers =
@@ -1047,7 +1047,7 @@ responseListLayers =
     "ListLayersResponse"
     "fixture/ListLayersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLayers)
+    (Proxy.Proxy :: Proxy.Proxy ListLayers)
 
 responseListFunctionEventInvokeConfigs :: ListFunctionEventInvokeConfigsResponse -> TestTree
 responseListFunctionEventInvokeConfigs =
@@ -1055,7 +1055,7 @@ responseListFunctionEventInvokeConfigs =
     "ListFunctionEventInvokeConfigsResponse"
     "fixture/ListFunctionEventInvokeConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctionEventInvokeConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctionEventInvokeConfigs)
 
 responseListCodeSigningConfigs :: ListCodeSigningConfigsResponse -> TestTree
 responseListCodeSigningConfigs =
@@ -1063,7 +1063,7 @@ responseListCodeSigningConfigs =
     "ListCodeSigningConfigsResponse"
     "fixture/ListCodeSigningConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCodeSigningConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListCodeSigningConfigs)
 
 responseGetFunctionCodeSigningConfig :: GetFunctionCodeSigningConfigResponse -> TestTree
 responseGetFunctionCodeSigningConfig =
@@ -1071,7 +1071,7 @@ responseGetFunctionCodeSigningConfig =
     "GetFunctionCodeSigningConfigResponse"
     "fixture/GetFunctionCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunctionCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionCodeSigningConfig)
 
 responseCreateCodeSigningConfig :: CreateCodeSigningConfigResponse -> TestTree
 responseCreateCodeSigningConfig =
@@ -1079,7 +1079,7 @@ responseCreateCodeSigningConfig =
     "CreateCodeSigningConfigResponse"
     "fixture/CreateCodeSigningConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCodeSigningConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateCodeSigningConfig)
 
 responseListLayerVersions :: ListLayerVersionsResponse -> TestTree
 responseListLayerVersions =
@@ -1087,7 +1087,7 @@ responseListLayerVersions =
     "ListLayerVersionsResponse"
     "fixture/ListLayerVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLayerVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListLayerVersions)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1095,7 +1095,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responsePublishVersion :: FunctionConfiguration -> TestTree
 responsePublishVersion =
@@ -1103,7 +1103,7 @@ responsePublishVersion =
     "PublishVersionResponse"
     "fixture/PublishVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishVersion)
+    (Proxy.Proxy :: Proxy.Proxy PublishVersion)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -1111,7 +1111,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
 responseDeleteFunction =
@@ -1119,7 +1119,7 @@ responseDeleteFunction =
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunction)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1127,7 +1127,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateFunctionConfiguration :: FunctionConfiguration -> TestTree
 responseUpdateFunctionConfiguration =
@@ -1135,7 +1135,7 @@ responseUpdateFunctionConfiguration =
     "UpdateFunctionConfigurationResponse"
     "fixture/UpdateFunctionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFunctionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunctionConfiguration)
 
 responseListFunctions :: ListFunctionsResponse -> TestTree
 responseListFunctions =
@@ -1143,7 +1143,7 @@ responseListFunctions =
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctions)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctions)
 
 responseUpdateFunctionCode :: FunctionConfiguration -> TestTree
 responseUpdateFunctionCode =
@@ -1151,7 +1151,7 @@ responseUpdateFunctionCode =
     "UpdateFunctionCodeResponse"
     "fixture/UpdateFunctionCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFunctionCode)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunctionCode)
 
 responseDeleteProvisionedConcurrencyConfig :: DeleteProvisionedConcurrencyConfigResponse -> TestTree
 responseDeleteProvisionedConcurrencyConfig =
@@ -1159,7 +1159,7 @@ responseDeleteProvisionedConcurrencyConfig =
     "DeleteProvisionedConcurrencyConfigResponse"
     "fixture/DeleteProvisionedConcurrencyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProvisionedConcurrencyConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProvisionedConcurrencyConfig)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -1167,7 +1167,7 @@ responseGetPolicy =
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
 
 responsePutProvisionedConcurrencyConfig :: PutProvisionedConcurrencyConfigResponse -> TestTree
 responsePutProvisionedConcurrencyConfig =
@@ -1175,4 +1175,4 @@ responsePutProvisionedConcurrencyConfig =
     "PutProvisionedConcurrencyConfigResponse"
     "fixture/PutProvisionedConcurrencyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy PutProvisionedConcurrencyConfig)
+    (Proxy.Proxy :: Proxy.Proxy PutProvisionedConcurrencyConfig)

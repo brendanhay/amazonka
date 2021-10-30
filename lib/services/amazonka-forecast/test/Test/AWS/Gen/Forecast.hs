@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Forecast where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Forecast
 import Test.AWS.Fixture
 import Test.AWS.Forecast.Internal
@@ -463,7 +463,7 @@ responseListDatasetGroups =
     "ListDatasetGroupsResponse"
     "fixture/ListDatasetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetGroups)
 
 responseCreateDatasetImportJob :: CreateDatasetImportJobResponse -> TestTree
 responseCreateDatasetImportJob =
@@ -471,7 +471,7 @@ responseCreateDatasetImportJob =
     "CreateDatasetImportJobResponse"
     "fixture/CreateDatasetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatasetImportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatasetImportJob)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
@@ -479,7 +479,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseListForecasts :: ListForecastsResponse -> TestTree
 responseListForecasts =
@@ -487,7 +487,7 @@ responseListForecasts =
     "ListForecastsResponse"
     "fixture/ListForecastsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListForecasts)
+    (Proxy.Proxy :: Proxy.Proxy ListForecasts)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -495,7 +495,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStopResource :: StopResourceResponse -> TestTree
 responseStopResource =
@@ -503,7 +503,7 @@ responseStopResource =
     "StopResourceResponse"
     "fixture/StopResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy StopResource)
+    (Proxy.Proxy :: Proxy.Proxy StopResource)
 
 responseDescribeDatasetImportJob :: DescribeDatasetImportJobResponse -> TestTree
 responseDescribeDatasetImportJob =
@@ -511,7 +511,7 @@ responseDescribeDatasetImportJob =
     "DescribeDatasetImportJobResponse"
     "fixture/DescribeDatasetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDatasetImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDatasetImportJob)
 
 responseDescribeForecastExportJob :: DescribeForecastExportJobResponse -> TestTree
 responseDescribeForecastExportJob =
@@ -519,7 +519,7 @@ responseDescribeForecastExportJob =
     "DescribeForecastExportJobResponse"
     "fixture/DescribeForecastExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeForecastExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeForecastExportJob)
 
 responseDescribePredictor :: DescribePredictorResponse -> TestTree
 responseDescribePredictor =
@@ -527,7 +527,7 @@ responseDescribePredictor =
     "DescribePredictorResponse"
     "fixture/DescribePredictorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePredictor)
+    (Proxy.Proxy :: Proxy.Proxy DescribePredictor)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -535,7 +535,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseDescribeForecast :: DescribeForecastResponse -> TestTree
 responseDescribeForecast =
@@ -543,7 +543,7 @@ responseDescribeForecast =
     "DescribeForecastResponse"
     "fixture/DescribeForecastResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeForecast)
+    (Proxy.Proxy :: Proxy.Proxy DescribeForecast)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
@@ -551,7 +551,7 @@ responseCreateDataset =
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseDeleteForecastExportJob :: DeleteForecastExportJobResponse -> TestTree
 responseDeleteForecastExportJob =
@@ -559,7 +559,7 @@ responseDeleteForecastExportJob =
     "DeleteForecastExportJobResponse"
     "fixture/DeleteForecastExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteForecastExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteForecastExportJob)
 
 responseDeletePredictor :: DeletePredictorResponse -> TestTree
 responseDeletePredictor =
@@ -567,7 +567,7 @@ responseDeletePredictor =
     "DeletePredictorResponse"
     "fixture/DeletePredictorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePredictor)
+    (Proxy.Proxy :: Proxy.Proxy DeletePredictor)
 
 responseListDatasetImportJobs :: ListDatasetImportJobsResponse -> TestTree
 responseListDatasetImportJobs =
@@ -575,7 +575,7 @@ responseListDatasetImportJobs =
     "ListDatasetImportJobsResponse"
     "fixture/ListDatasetImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetImportJobs)
 
 responseDeleteDatasetImportJob :: DeleteDatasetImportJobResponse -> TestTree
 responseDeleteDatasetImportJob =
@@ -583,7 +583,7 @@ responseDeleteDatasetImportJob =
     "DeleteDatasetImportJobResponse"
     "fixture/DeleteDatasetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDatasetImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDatasetImportJob)
 
 responseGetAccuracyMetrics :: GetAccuracyMetricsResponse -> TestTree
 responseGetAccuracyMetrics =
@@ -591,7 +591,7 @@ responseGetAccuracyMetrics =
     "GetAccuracyMetricsResponse"
     "fixture/GetAccuracyMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccuracyMetrics)
+    (Proxy.Proxy :: Proxy.Proxy GetAccuracyMetrics)
 
 responseDeleteDatasetGroup :: DeleteDatasetGroupResponse -> TestTree
 responseDeleteDatasetGroup =
@@ -599,7 +599,7 @@ responseDeleteDatasetGroup =
     "DeleteDatasetGroupResponse"
     "fixture/DeleteDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDatasetGroup)
 
 responseUpdateDatasetGroup :: UpdateDatasetGroupResponse -> TestTree
 responseUpdateDatasetGroup =
@@ -607,7 +607,7 @@ responseUpdateDatasetGroup =
     "UpdateDatasetGroupResponse"
     "fixture/UpdateDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDatasetGroup)
 
 responseCreateForecastExportJob :: CreateForecastExportJobResponse -> TestTree
 responseCreateForecastExportJob =
@@ -615,7 +615,7 @@ responseCreateForecastExportJob =
     "CreateForecastExportJobResponse"
     "fixture/CreateForecastExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateForecastExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateForecastExportJob)
 
 responseCreatePredictor :: CreatePredictorResponse -> TestTree
 responseCreatePredictor =
@@ -623,7 +623,7 @@ responseCreatePredictor =
     "CreatePredictorResponse"
     "fixture/CreatePredictorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePredictor)
+    (Proxy.Proxy :: Proxy.Proxy CreatePredictor)
 
 responseListPredictorBacktestExportJobs :: ListPredictorBacktestExportJobsResponse -> TestTree
 responseListPredictorBacktestExportJobs =
@@ -631,7 +631,7 @@ responseListPredictorBacktestExportJobs =
     "ListPredictorBacktestExportJobsResponse"
     "fixture/ListPredictorBacktestExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPredictorBacktestExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListPredictorBacktestExportJobs)
 
 responseDeletePredictorBacktestExportJob :: DeletePredictorBacktestExportJobResponse -> TestTree
 responseDeletePredictorBacktestExportJob =
@@ -639,7 +639,7 @@ responseDeletePredictorBacktestExportJob =
     "DeletePredictorBacktestExportJobResponse"
     "fixture/DeletePredictorBacktestExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePredictorBacktestExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DeletePredictorBacktestExportJob)
 
 responseCreateForecast :: CreateForecastResponse -> TestTree
 responseCreateForecast =
@@ -647,7 +647,7 @@ responseCreateForecast =
     "CreateForecastResponse"
     "fixture/CreateForecastResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateForecast)
+    (Proxy.Proxy :: Proxy.Proxy CreateForecast)
 
 responseCreatePredictorBacktestExportJob :: CreatePredictorBacktestExportJobResponse -> TestTree
 responseCreatePredictorBacktestExportJob =
@@ -655,7 +655,7 @@ responseCreatePredictorBacktestExportJob =
     "CreatePredictorBacktestExportJobResponse"
     "fixture/CreatePredictorBacktestExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePredictorBacktestExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreatePredictorBacktestExportJob)
 
 responseDeleteForecast :: DeleteForecastResponse -> TestTree
 responseDeleteForecast =
@@ -663,7 +663,7 @@ responseDeleteForecast =
     "DeleteForecastResponse"
     "fixture/DeleteForecastResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteForecast)
+    (Proxy.Proxy :: Proxy.Proxy DeleteForecast)
 
 responseDeleteResourceTree :: DeleteResourceTreeResponse -> TestTree
 responseDeleteResourceTree =
@@ -671,7 +671,7 @@ responseDeleteResourceTree =
     "DeleteResourceTreeResponse"
     "fixture/DeleteResourceTreeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceTree)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceTree)
 
 responseDescribeDatasetGroup :: DescribeDatasetGroupResponse -> TestTree
 responseDescribeDatasetGroup =
@@ -679,7 +679,7 @@ responseDescribeDatasetGroup =
     "DescribeDatasetGroupResponse"
     "fixture/DescribeDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDatasetGroup)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -687,7 +687,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -695,7 +695,7 @@ responseListDatasets =
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasets)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
 responseDescribePredictorBacktestExportJob :: DescribePredictorBacktestExportJobResponse -> TestTree
 responseDescribePredictorBacktestExportJob =
@@ -703,7 +703,7 @@ responseDescribePredictorBacktestExportJob =
     "DescribePredictorBacktestExportJobResponse"
     "fixture/DescribePredictorBacktestExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePredictorBacktestExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribePredictorBacktestExportJob)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -711,7 +711,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateDatasetGroup :: CreateDatasetGroupResponse -> TestTree
 responseCreateDatasetGroup =
@@ -719,7 +719,7 @@ responseCreateDatasetGroup =
     "CreateDatasetGroupResponse"
     "fixture/CreateDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatasetGroup)
 
 responseListForecastExportJobs :: ListForecastExportJobsResponse -> TestTree
 responseListForecastExportJobs =
@@ -727,7 +727,7 @@ responseListForecastExportJobs =
     "ListForecastExportJobsResponse"
     "fixture/ListForecastExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListForecastExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListForecastExportJobs)
 
 responseListPredictors :: ListPredictorsResponse -> TestTree
 responseListPredictors =
@@ -735,4 +735,4 @@ responseListPredictors =
     "ListPredictorsResponse"
     "fixture/ListPredictorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPredictors)
+    (Proxy.Proxy :: Proxy.Proxy ListPredictors)

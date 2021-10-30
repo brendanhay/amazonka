@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Grafana where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Grafana
 import Test.AWS.Fixture
 import Test.AWS.Grafana.Internal
@@ -175,7 +175,7 @@ responseListWorkspaces =
     "ListWorkspacesResponse"
     "fixture/ListWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkspaces)
 
 responseDeleteWorkspace :: DeleteWorkspaceResponse -> TestTree
 responseDeleteWorkspace =
@@ -183,7 +183,7 @@ responseDeleteWorkspace =
     "DeleteWorkspaceResponse"
     "fixture/DeleteWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkspace)
 
 responseUpdateWorkspace :: UpdateWorkspaceResponse -> TestTree
 responseUpdateWorkspace =
@@ -191,7 +191,7 @@ responseUpdateWorkspace =
     "UpdateWorkspaceResponse"
     "fixture/UpdateWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkspace)
 
 responseUpdateWorkspaceAuthentication :: UpdateWorkspaceAuthenticationResponse -> TestTree
 responseUpdateWorkspaceAuthentication =
@@ -199,7 +199,7 @@ responseUpdateWorkspaceAuthentication =
     "UpdateWorkspaceAuthenticationResponse"
     "fixture/UpdateWorkspaceAuthenticationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkspaceAuthentication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkspaceAuthentication)
 
 responseDescribeWorkspaceAuthentication :: DescribeWorkspaceAuthenticationResponse -> TestTree
 responseDescribeWorkspaceAuthentication =
@@ -207,7 +207,7 @@ responseDescribeWorkspaceAuthentication =
     "DescribeWorkspaceAuthenticationResponse"
     "fixture/DescribeWorkspaceAuthenticationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaceAuthentication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceAuthentication)
 
 responseDescribeWorkspace :: DescribeWorkspaceResponse -> TestTree
 responseDescribeWorkspace =
@@ -215,7 +215,7 @@ responseDescribeWorkspace =
     "DescribeWorkspaceResponse"
     "fixture/DescribeWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspace)
 
 responseAssociateLicense :: AssociateLicenseResponse -> TestTree
 responseAssociateLicense =
@@ -223,7 +223,7 @@ responseAssociateLicense =
     "AssociateLicenseResponse"
     "fixture/AssociateLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateLicense)
+    (Proxy.Proxy :: Proxy.Proxy AssociateLicense)
 
 responseListPermissions :: ListPermissionsResponse -> TestTree
 responseListPermissions =
@@ -231,7 +231,7 @@ responseListPermissions =
     "ListPermissionsResponse"
     "fixture/ListPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissions)
 
 responseUpdatePermissions :: UpdatePermissionsResponse -> TestTree
 responseUpdatePermissions =
@@ -239,7 +239,7 @@ responseUpdatePermissions =
     "UpdatePermissionsResponse"
     "fixture/UpdatePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePermissions)
 
 responseDisassociateLicense :: DisassociateLicenseResponse -> TestTree
 responseDisassociateLicense =
@@ -247,7 +247,7 @@ responseDisassociateLicense =
     "DisassociateLicenseResponse"
     "fixture/DisassociateLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateLicense)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateLicense)
 
 responseCreateWorkspace :: CreateWorkspaceResponse -> TestTree
 responseCreateWorkspace =
@@ -255,4 +255,4 @@ responseCreateWorkspace =
     "CreateWorkspaceResponse"
     "fixture/CreateWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkspace)

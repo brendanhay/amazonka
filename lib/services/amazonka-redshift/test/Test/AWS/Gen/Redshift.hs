@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Redshift where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Redshift
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1435,7 +1435,7 @@ responseCancelResize =
     "CancelResizeResponse"
     "fixture/CancelResizeResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelResize)
+    (Proxy.Proxy :: Proxy.Proxy CancelResize)
 
 responseDescribeStorage :: DescribeStorageResponse -> TestTree
 responseDescribeStorage =
@@ -1443,7 +1443,7 @@ responseDescribeStorage =
     "DescribeStorageResponse"
     "fixture/DescribeStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStorage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorage)
 
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
 responseDescribeClusters =
@@ -1451,7 +1451,7 @@ responseDescribeClusters =
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -1459,7 +1459,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseCreateUsageLimit :: UsageLimit -> TestTree
 responseCreateUsageLimit =
@@ -1467,7 +1467,7 @@ responseCreateUsageLimit =
     "CreateUsageLimitResponse"
     "fixture/CreateUsageLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUsageLimit)
+    (Proxy.Proxy :: Proxy.Proxy CreateUsageLimit)
 
 responseModifyEndpointAccess :: EndpointAccess -> TestTree
 responseModifyEndpointAccess =
@@ -1475,7 +1475,7 @@ responseModifyEndpointAccess =
     "ModifyEndpointAccessResponse"
     "fixture/ModifyEndpointAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyEndpointAccess)
+    (Proxy.Proxy :: Proxy.Proxy ModifyEndpointAccess)
 
 responseAssociateDataShareConsumer :: DataShare -> TestTree
 responseAssociateDataShareConsumer =
@@ -1483,7 +1483,7 @@ responseAssociateDataShareConsumer =
     "AssociateDataShareConsumerResponse"
     "fixture/AssociateDataShareConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDataShareConsumer)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDataShareConsumer)
 
 responseDeleteClusterSubnetGroup :: DeleteClusterSubnetGroupResponse -> TestTree
 responseDeleteClusterSubnetGroup =
@@ -1491,7 +1491,7 @@ responseDeleteClusterSubnetGroup =
     "DeleteClusterSubnetGroupResponse"
     "fixture/DeleteClusterSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteClusterSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteClusterSubnetGroup)
 
 responseModifyScheduledAction :: ScheduledAction -> TestTree
 responseModifyScheduledAction =
@@ -1499,7 +1499,7 @@ responseModifyScheduledAction =
     "ModifyScheduledActionResponse"
     "fixture/ModifyScheduledActionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyScheduledAction)
+    (Proxy.Proxy :: Proxy.Proxy ModifyScheduledAction)
 
 responseDisableLogging :: LoggingStatus -> TestTree
 responseDisableLogging =
@@ -1507,7 +1507,7 @@ responseDisableLogging =
     "DisableLoggingResponse"
     "fixture/DisableLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableLogging)
+    (Proxy.Proxy :: Proxy.Proxy DisableLogging)
 
 responseDescribeSnapshotSchedules :: DescribeSnapshotSchedulesResponse -> TestTree
 responseDescribeSnapshotSchedules =
@@ -1515,7 +1515,7 @@ responseDescribeSnapshotSchedules =
     "DescribeSnapshotSchedulesResponse"
     "fixture/DescribeSnapshotSchedulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshotSchedules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotSchedules)
 
 responseRevokeEndpointAccess :: EndpointAuthorization -> TestTree
 responseRevokeEndpointAccess =
@@ -1523,7 +1523,7 @@ responseRevokeEndpointAccess =
     "RevokeEndpointAccessResponse"
     "fixture/RevokeEndpointAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeEndpointAccess)
+    (Proxy.Proxy :: Proxy.Proxy RevokeEndpointAccess)
 
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
 responseModifyEventSubscription =
@@ -1531,7 +1531,7 @@ responseModifyEventSubscription =
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyEventSubscription)
+    (Proxy.Proxy :: Proxy.Proxy ModifyEventSubscription)
 
 responseModifyClusterDbRevision :: ModifyClusterDbRevisionResponse -> TestTree
 responseModifyClusterDbRevision =
@@ -1539,7 +1539,7 @@ responseModifyClusterDbRevision =
     "ModifyClusterDbRevisionResponse"
     "fixture/ModifyClusterDbRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterDbRevision)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterDbRevision)
 
 responseDeleteClusterSnapshot :: DeleteClusterSnapshotResponse -> TestTree
 responseDeleteClusterSnapshot =
@@ -1547,7 +1547,7 @@ responseDeleteClusterSnapshot =
     "DeleteClusterSnapshotResponse"
     "fixture/DeleteClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteClusterSnapshot)
 
 responseAddPartner :: PartnerIntegrationOutputMessage -> TestTree
 responseAddPartner =
@@ -1555,7 +1555,7 @@ responseAddPartner =
     "AddPartnerResponse"
     "fixture/AddPartnerResponse.proto"
     defaultService
-    (Proxy :: Proxy AddPartner)
+    (Proxy.Proxy :: Proxy.Proxy AddPartner)
 
 responsePurchaseReservedNodeOffering :: PurchaseReservedNodeOfferingResponse -> TestTree
 responsePurchaseReservedNodeOffering =
@@ -1563,7 +1563,7 @@ responsePurchaseReservedNodeOffering =
     "PurchaseReservedNodeOfferingResponse"
     "fixture/PurchaseReservedNodeOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseReservedNodeOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedNodeOffering)
 
 responseDescribeReservedNodeOfferings :: DescribeReservedNodeOfferingsResponse -> TestTree
 responseDescribeReservedNodeOfferings =
@@ -1571,7 +1571,7 @@ responseDescribeReservedNodeOfferings =
     "DescribeReservedNodeOfferingsResponse"
     "fixture/DescribeReservedNodeOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedNodeOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedNodeOfferings)
 
 responseDescribeEndpointAccess :: DescribeEndpointAccessResponse -> TestTree
 responseDescribeEndpointAccess =
@@ -1579,7 +1579,7 @@ responseDescribeEndpointAccess =
     "DescribeEndpointAccessResponse"
     "fixture/DescribeEndpointAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpointAccess)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpointAccess)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -1587,7 +1587,7 @@ responseDescribeEvents =
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
 responseDescribeReservedNodes :: DescribeReservedNodesResponse -> TestTree
 responseDescribeReservedNodes =
@@ -1595,7 +1595,7 @@ responseDescribeReservedNodes =
     "DescribeReservedNodesResponse"
     "fixture/DescribeReservedNodesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedNodes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedNodes)
 
 responseGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferingsResponse -> TestTree
 responseGetReservedNodeExchangeOfferings =
@@ -1603,7 +1603,7 @@ responseGetReservedNodeExchangeOfferings =
     "GetReservedNodeExchangeOfferingsResponse"
     "fixture/GetReservedNodeExchangeOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReservedNodeExchangeOfferings)
+    (Proxy.Proxy :: Proxy.Proxy GetReservedNodeExchangeOfferings)
 
 responseDeleteAuthenticationProfile :: DeleteAuthenticationProfileResponse -> TestTree
 responseDeleteAuthenticationProfile =
@@ -1611,7 +1611,7 @@ responseDeleteAuthenticationProfile =
     "DeleteAuthenticationProfileResponse"
     "fixture/DeleteAuthenticationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAuthenticationProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAuthenticationProfile)
 
 responseDescribeClusterParameterGroups :: DescribeClusterParameterGroupsResponse -> TestTree
 responseDescribeClusterParameterGroups =
@@ -1619,7 +1619,7 @@ responseDescribeClusterParameterGroups =
     "DescribeClusterParameterGroupsResponse"
     "fixture/DescribeClusterParameterGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterParameterGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterParameterGroups)
 
 responseEnableLogging :: LoggingStatus -> TestTree
 responseEnableLogging =
@@ -1627,7 +1627,7 @@ responseEnableLogging =
     "EnableLoggingResponse"
     "fixture/EnableLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableLogging)
+    (Proxy.Proxy :: Proxy.Proxy EnableLogging)
 
 responseCreateClusterSubnetGroup :: CreateClusterSubnetGroupResponse -> TestTree
 responseCreateClusterSubnetGroup =
@@ -1635,7 +1635,7 @@ responseCreateClusterSubnetGroup =
     "CreateClusterSubnetGroupResponse"
     "fixture/CreateClusterSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClusterSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateClusterSubnetGroup)
 
 responseDeleteClusterParameterGroup :: DeleteClusterParameterGroupResponse -> TestTree
 responseDeleteClusterParameterGroup =
@@ -1643,7 +1643,7 @@ responseDeleteClusterParameterGroup =
     "DeleteClusterParameterGroupResponse"
     "fixture/DeleteClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteClusterParameterGroup)
 
 responseDescribeClusterSecurityGroups :: DescribeClusterSecurityGroupsResponse -> TestTree
 responseDescribeClusterSecurityGroups =
@@ -1651,7 +1651,7 @@ responseDescribeClusterSecurityGroups =
     "DescribeClusterSecurityGroupsResponse"
     "fixture/DescribeClusterSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterSecurityGroups)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -1659,7 +1659,7 @@ responseCreateTags =
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateTags)
 
 responseDescribeEndpointAuthorization :: DescribeEndpointAuthorizationResponse -> TestTree
 responseDescribeEndpointAuthorization =
@@ -1667,7 +1667,7 @@ responseDescribeEndpointAuthorization =
     "DescribeEndpointAuthorizationResponse"
     "fixture/DescribeEndpointAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpointAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpointAuthorization)
 
 responseEnableSnapshotCopy :: EnableSnapshotCopyResponse -> TestTree
 responseEnableSnapshotCopy =
@@ -1675,7 +1675,7 @@ responseEnableSnapshotCopy =
     "EnableSnapshotCopyResponse"
     "fixture/EnableSnapshotCopyResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableSnapshotCopy)
+    (Proxy.Proxy :: Proxy.Proxy EnableSnapshotCopy)
 
 responseDescribeClusterSnapshots :: DescribeClusterSnapshotsResponse -> TestTree
 responseDescribeClusterSnapshots =
@@ -1683,7 +1683,7 @@ responseDescribeClusterSnapshots =
     "DescribeClusterSnapshotsResponse"
     "fixture/DescribeClusterSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterSnapshots)
 
 responseBatchDeleteClusterSnapshots :: BatchDeleteClusterSnapshotsResponse -> TestTree
 responseBatchDeleteClusterSnapshots =
@@ -1691,7 +1691,7 @@ responseBatchDeleteClusterSnapshots =
     "BatchDeleteClusterSnapshotsResponse"
     "fixture/BatchDeleteClusterSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteClusterSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteClusterSnapshots)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -1699,7 +1699,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseModifyUsageLimit :: UsageLimit -> TestTree
 responseModifyUsageLimit =
@@ -1707,7 +1707,7 @@ responseModifyUsageLimit =
     "ModifyUsageLimitResponse"
     "fixture/ModifyUsageLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyUsageLimit)
+    (Proxy.Proxy :: Proxy.Proxy ModifyUsageLimit)
 
 responseDescribeClusterSubnetGroups :: DescribeClusterSubnetGroupsResponse -> TestTree
 responseDescribeClusterSubnetGroups =
@@ -1715,7 +1715,7 @@ responseDescribeClusterSubnetGroups =
     "DescribeClusterSubnetGroupsResponse"
     "fixture/DescribeClusterSubnetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterSubnetGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterSubnetGroups)
 
 responseResizeCluster :: ResizeClusterResponse -> TestTree
 responseResizeCluster =
@@ -1723,7 +1723,7 @@ responseResizeCluster =
     "ResizeClusterResponse"
     "fixture/ResizeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ResizeCluster)
+    (Proxy.Proxy :: Proxy.Proxy ResizeCluster)
 
 responseModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriodResponse -> TestTree
 responseModifySnapshotCopyRetentionPeriod =
@@ -1731,7 +1731,7 @@ responseModifySnapshotCopyRetentionPeriod =
     "ModifySnapshotCopyRetentionPeriodResponse"
     "fixture/ModifySnapshotCopyRetentionPeriodResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySnapshotCopyRetentionPeriod)
+    (Proxy.Proxy :: Proxy.Proxy ModifySnapshotCopyRetentionPeriod)
 
 responseModifyClusterIamRoles :: ModifyClusterIamRolesResponse -> TestTree
 responseModifyClusterIamRoles =
@@ -1739,7 +1739,7 @@ responseModifyClusterIamRoles =
     "ModifyClusterIamRolesResponse"
     "fixture/ModifyClusterIamRolesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterIamRoles)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterIamRoles)
 
 responseAuthorizeSnapshotAccess :: AuthorizeSnapshotAccessResponse -> TestTree
 responseAuthorizeSnapshotAccess =
@@ -1747,7 +1747,7 @@ responseAuthorizeSnapshotAccess =
     "AuthorizeSnapshotAccessResponse"
     "fixture/AuthorizeSnapshotAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeSnapshotAccess)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeSnapshotAccess)
 
 responseRebootCluster :: RebootClusterResponse -> TestTree
 responseRebootCluster =
@@ -1755,7 +1755,7 @@ responseRebootCluster =
     "RebootClusterResponse"
     "fixture/RebootClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootCluster)
+    (Proxy.Proxy :: Proxy.Proxy RebootCluster)
 
 responseResumeCluster :: ResumeClusterResponse -> TestTree
 responseResumeCluster =
@@ -1763,7 +1763,7 @@ responseResumeCluster =
     "ResumeClusterResponse"
     "fixture/ResumeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ResumeCluster)
+    (Proxy.Proxy :: Proxy.Proxy ResumeCluster)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -1771,7 +1771,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
 responseCreateEventSubscription =
@@ -1779,7 +1779,7 @@ responseCreateEventSubscription =
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEventSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventSubscription)
 
 responseCreateScheduledAction :: ScheduledAction -> TestTree
 responseCreateScheduledAction =
@@ -1787,7 +1787,7 @@ responseCreateScheduledAction =
     "CreateScheduledActionResponse"
     "fixture/CreateScheduledActionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateScheduledAction)
+    (Proxy.Proxy :: Proxy.Proxy CreateScheduledAction)
 
 responseDescribeOrderableClusterOptions :: DescribeOrderableClusterOptionsResponse -> TestTree
 responseDescribeOrderableClusterOptions =
@@ -1795,7 +1795,7 @@ responseDescribeOrderableClusterOptions =
     "DescribeOrderableClusterOptionsResponse"
     "fixture/DescribeOrderableClusterOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrderableClusterOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrderableClusterOptions)
 
 responseCreateEndpointAccess :: EndpointAccess -> TestTree
 responseCreateEndpointAccess =
@@ -1803,7 +1803,7 @@ responseCreateEndpointAccess =
     "CreateEndpointAccessResponse"
     "fixture/CreateEndpointAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpointAccess)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpointAccess)
 
 responseDescribeClusterTracks :: DescribeClusterTracksResponse -> TestTree
 responseDescribeClusterTracks =
@@ -1811,7 +1811,7 @@ responseDescribeClusterTracks =
     "DescribeClusterTracksResponse"
     "fixture/DescribeClusterTracksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterTracks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterTracks)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -1819,7 +1819,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseCreateHsmClientCertificate :: CreateHsmClientCertificateResponse -> TestTree
 responseCreateHsmClientCertificate =
@@ -1827,7 +1827,7 @@ responseCreateHsmClientCertificate =
     "CreateHsmClientCertificateResponse"
     "fixture/CreateHsmClientCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHsmClientCertificate)
+    (Proxy.Proxy :: Proxy.Proxy CreateHsmClientCertificate)
 
 responseRestoreTableFromClusterSnapshot :: RestoreTableFromClusterSnapshotResponse -> TestTree
 responseRestoreTableFromClusterSnapshot =
@@ -1835,7 +1835,7 @@ responseRestoreTableFromClusterSnapshot =
     "RestoreTableFromClusterSnapshotResponse"
     "fixture/RestoreTableFromClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreTableFromClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy RestoreTableFromClusterSnapshot)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
 responseDeleteScheduledAction =
@@ -1843,7 +1843,7 @@ responseDeleteScheduledAction =
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScheduledAction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteScheduledAction)
 
 responseDescribeDefaultClusterParameters :: DescribeDefaultClusterParametersResponse -> TestTree
 responseDescribeDefaultClusterParameters =
@@ -1851,7 +1851,7 @@ responseDescribeDefaultClusterParameters =
     "DescribeDefaultClusterParametersResponse"
     "fixture/DescribeDefaultClusterParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDefaultClusterParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDefaultClusterParameters)
 
 responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
 responseDeleteEventSubscription =
@@ -1859,7 +1859,7 @@ responseDeleteEventSubscription =
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventSubscription)
 
 responseModifyClusterSnapshot :: ModifyClusterSnapshotResponse -> TestTree
 responseModifyClusterSnapshot =
@@ -1867,7 +1867,7 @@ responseModifyClusterSnapshot =
     "ModifyClusterSnapshotResponse"
     "fixture/ModifyClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterSnapshot)
 
 responseDescribeDataSharesForConsumer :: DescribeDataSharesForConsumerResponse -> TestTree
 responseDescribeDataSharesForConsumer =
@@ -1875,7 +1875,7 @@ responseDescribeDataSharesForConsumer =
     "DescribeDataSharesForConsumerResponse"
     "fixture/DescribeDataSharesForConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSharesForConsumer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSharesForConsumer)
 
 responseAuthorizeDataShare :: DataShare -> TestTree
 responseAuthorizeDataShare =
@@ -1883,7 +1883,7 @@ responseAuthorizeDataShare =
     "AuthorizeDataShareResponse"
     "fixture/AuthorizeDataShareResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeDataShare)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeDataShare)
 
 responseResetClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
 responseResetClusterParameterGroup =
@@ -1891,7 +1891,7 @@ responseResetClusterParameterGroup =
     "ResetClusterParameterGroupResponse"
     "fixture/ResetClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ResetClusterParameterGroup)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
 responseDescribeScheduledActions =
@@ -1899,7 +1899,7 @@ responseDescribeScheduledActions =
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScheduledActions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScheduledActions)
 
 responseDisassociateDataShareConsumer :: DataShare -> TestTree
 responseDisassociateDataShareConsumer =
@@ -1907,7 +1907,7 @@ responseDisassociateDataShareConsumer =
     "DisassociateDataShareConsumerResponse"
     "fixture/DisassociateDataShareConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDataShareConsumer)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDataShareConsumer)
 
 responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
 responseDescribeEventSubscriptions =
@@ -1915,7 +1915,7 @@ responseDescribeEventSubscriptions =
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventSubscriptions)
 
 responseDescribeClusterDbRevisions :: DescribeClusterDbRevisionsResponse -> TestTree
 responseDescribeClusterDbRevisions =
@@ -1923,7 +1923,7 @@ responseDescribeClusterDbRevisions =
     "DescribeClusterDbRevisionsResponse"
     "fixture/DescribeClusterDbRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterDbRevisions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterDbRevisions)
 
 responseBatchModifyClusterSnapshots :: BatchModifyClusterSnapshotsResponse -> TestTree
 responseBatchModifyClusterSnapshots =
@@ -1931,7 +1931,7 @@ responseBatchModifyClusterSnapshots =
     "BatchModifyClusterSnapshotsResponse"
     "fixture/BatchModifyClusterSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchModifyClusterSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy BatchModifyClusterSnapshots)
 
 responseDeleteUsageLimit :: DeleteUsageLimitResponse -> TestTree
 responseDeleteUsageLimit =
@@ -1939,7 +1939,7 @@ responseDeleteUsageLimit =
     "DeleteUsageLimitResponse"
     "fixture/DeleteUsageLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUsageLimit)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUsageLimit)
 
 responseRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngressResponse -> TestTree
 responseRevokeClusterSecurityGroupIngress =
@@ -1947,7 +1947,7 @@ responseRevokeClusterSecurityGroupIngress =
     "RevokeClusterSecurityGroupIngressResponse"
     "fixture/RevokeClusterSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeClusterSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy RevokeClusterSecurityGroupIngress)
 
 responseDescribeHsmClientCertificates :: DescribeHsmClientCertificatesResponse -> TestTree
 responseDescribeHsmClientCertificates =
@@ -1955,7 +1955,7 @@ responseDescribeHsmClientCertificates =
     "DescribeHsmClientCertificatesResponse"
     "fixture/DescribeHsmClientCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHsmClientCertificates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHsmClientCertificates)
 
 responseModifyClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
 responseModifyClusterParameterGroup =
@@ -1963,7 +1963,7 @@ responseModifyClusterParameterGroup =
     "ModifyClusterParameterGroupResponse"
     "fixture/ModifyClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterParameterGroup)
 
 responseAuthorizeEndpointAccess :: EndpointAuthorization -> TestTree
 responseAuthorizeEndpointAccess =
@@ -1971,7 +1971,7 @@ responseAuthorizeEndpointAccess =
     "AuthorizeEndpointAccessResponse"
     "fixture/AuthorizeEndpointAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeEndpointAccess)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeEndpointAccess)
 
 responseModifyAquaConfiguration :: ModifyAquaConfigurationResponse -> TestTree
 responseModifyAquaConfiguration =
@@ -1979,7 +1979,7 @@ responseModifyAquaConfiguration =
     "ModifyAquaConfigurationResponse"
     "fixture/ModifyAquaConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyAquaConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ModifyAquaConfiguration)
 
 responseGetClusterCredentials :: GetClusterCredentialsResponse -> TestTree
 responseGetClusterCredentials =
@@ -1987,7 +1987,7 @@ responseGetClusterCredentials =
     "GetClusterCredentialsResponse"
     "fixture/GetClusterCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetClusterCredentials)
+    (Proxy.Proxy :: Proxy.Proxy GetClusterCredentials)
 
 responseModifyClusterMaintenance :: ModifyClusterMaintenanceResponse -> TestTree
 responseModifyClusterMaintenance =
@@ -1995,7 +1995,7 @@ responseModifyClusterMaintenance =
     "ModifyClusterMaintenanceResponse"
     "fixture/ModifyClusterMaintenanceResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterMaintenance)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterMaintenance)
 
 responseCreateClusterSecurityGroup :: CreateClusterSecurityGroupResponse -> TestTree
 responseCreateClusterSecurityGroup =
@@ -2003,7 +2003,7 @@ responseCreateClusterSecurityGroup =
     "CreateClusterSecurityGroupResponse"
     "fixture/CreateClusterSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClusterSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateClusterSecurityGroup)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
 responseDescribeEventCategories =
@@ -2011,7 +2011,7 @@ responseDescribeEventCategories =
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventCategories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventCategories)
 
 responseDescribeResize :: ResizeProgressMessage -> TestTree
 responseDescribeResize =
@@ -2019,7 +2019,7 @@ responseDescribeResize =
     "DescribeResizeResponse"
     "fixture/DescribeResizeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResize)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResize)
 
 responseDeleteHsmConfiguration :: DeleteHsmConfigurationResponse -> TestTree
 responseDeleteHsmConfiguration =
@@ -2027,7 +2027,7 @@ responseDeleteHsmConfiguration =
     "DeleteHsmConfigurationResponse"
     "fixture/DeleteHsmConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHsmConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHsmConfiguration)
 
 responseCreateAuthenticationProfile :: CreateAuthenticationProfileResponse -> TestTree
 responseCreateAuthenticationProfile =
@@ -2035,7 +2035,7 @@ responseCreateAuthenticationProfile =
     "CreateAuthenticationProfileResponse"
     "fixture/CreateAuthenticationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAuthenticationProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateAuthenticationProfile)
 
 responseDeauthorizeDataShare :: DataShare -> TestTree
 responseDeauthorizeDataShare =
@@ -2043,7 +2043,7 @@ responseDeauthorizeDataShare =
     "DeauthorizeDataShareResponse"
     "fixture/DeauthorizeDataShareResponse.proto"
     defaultService
-    (Proxy :: Proxy DeauthorizeDataShare)
+    (Proxy.Proxy :: Proxy.Proxy DeauthorizeDataShare)
 
 responseAcceptReservedNodeExchange :: AcceptReservedNodeExchangeResponse -> TestTree
 responseAcceptReservedNodeExchange =
@@ -2051,7 +2051,7 @@ responseAcceptReservedNodeExchange =
     "AcceptReservedNodeExchangeResponse"
     "fixture/AcceptReservedNodeExchangeResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptReservedNodeExchange)
+    (Proxy.Proxy :: Proxy.Proxy AcceptReservedNodeExchange)
 
 responseAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngressResponse -> TestTree
 responseAuthorizeClusterSecurityGroupIngress =
@@ -2059,7 +2059,7 @@ responseAuthorizeClusterSecurityGroupIngress =
     "AuthorizeClusterSecurityGroupIngressResponse"
     "fixture/AuthorizeClusterSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeClusterSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeClusterSecurityGroupIngress)
 
 responseDeletePartner :: PartnerIntegrationOutputMessage -> TestTree
 responseDeletePartner =
@@ -2067,7 +2067,7 @@ responseDeletePartner =
     "DeletePartnerResponse"
     "fixture/DeletePartnerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePartner)
+    (Proxy.Proxy :: Proxy.Proxy DeletePartner)
 
 responseDescribeTableRestoreStatus :: DescribeTableRestoreStatusResponse -> TestTree
 responseDescribeTableRestoreStatus =
@@ -2075,7 +2075,7 @@ responseDescribeTableRestoreStatus =
     "DescribeTableRestoreStatusResponse"
     "fixture/DescribeTableRestoreStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTableRestoreStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTableRestoreStatus)
 
 responseCreateClusterSnapshot :: CreateClusterSnapshotResponse -> TestTree
 responseCreateClusterSnapshot =
@@ -2083,7 +2083,7 @@ responseCreateClusterSnapshot =
     "CreateClusterSnapshotResponse"
     "fixture/CreateClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateClusterSnapshot)
 
 responseRejectDataShare :: DataShare -> TestTree
 responseRejectDataShare =
@@ -2091,7 +2091,7 @@ responseRejectDataShare =
     "RejectDataShareResponse"
     "fixture/RejectDataShareResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectDataShare)
+    (Proxy.Proxy :: Proxy.Proxy RejectDataShare)
 
 responseCreateHsmConfiguration :: CreateHsmConfigurationResponse -> TestTree
 responseCreateHsmConfiguration =
@@ -2099,7 +2099,7 @@ responseCreateHsmConfiguration =
     "CreateHsmConfigurationResponse"
     "fixture/CreateHsmConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHsmConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateHsmConfiguration)
 
 responseDescribeLoggingStatus :: LoggingStatus -> TestTree
 responseDescribeLoggingStatus =
@@ -2107,7 +2107,7 @@ responseDescribeLoggingStatus =
     "DescribeLoggingStatusResponse"
     "fixture/DescribeLoggingStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoggingStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingStatus)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
 responseModifyCluster =
@@ -2115,7 +2115,7 @@ responseModifyCluster =
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCluster)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCluster)
 
 responseDeleteClusterSecurityGroup :: DeleteClusterSecurityGroupResponse -> TestTree
 responseDeleteClusterSecurityGroup =
@@ -2123,7 +2123,7 @@ responseDeleteClusterSecurityGroup =
     "DeleteClusterSecurityGroupResponse"
     "fixture/DeleteClusterSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteClusterSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteClusterSecurityGroup)
 
 responseCreateSnapshotSchedule :: SnapshotSchedule -> TestTree
 responseCreateSnapshotSchedule =
@@ -2131,7 +2131,7 @@ responseCreateSnapshotSchedule =
     "CreateSnapshotScheduleResponse"
     "fixture/CreateSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshotSchedule)
 
 responseDescribeAuthenticationProfiles :: DescribeAuthenticationProfilesResponse -> TestTree
 responseDescribeAuthenticationProfiles =
@@ -2139,7 +2139,7 @@ responseDescribeAuthenticationProfiles =
     "DescribeAuthenticationProfilesResponse"
     "fixture/DescribeAuthenticationProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAuthenticationProfiles)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAuthenticationProfiles)
 
 responseDescribeNodeConfigurationOptions :: DescribeNodeConfigurationOptionsResponse -> TestTree
 responseDescribeNodeConfigurationOptions =
@@ -2147,7 +2147,7 @@ responseDescribeNodeConfigurationOptions =
     "DescribeNodeConfigurationOptionsResponse"
     "fixture/DescribeNodeConfigurationOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNodeConfigurationOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNodeConfigurationOptions)
 
 responseDisableSnapshotCopy :: DisableSnapshotCopyResponse -> TestTree
 responseDisableSnapshotCopy =
@@ -2155,7 +2155,7 @@ responseDisableSnapshotCopy =
     "DisableSnapshotCopyResponse"
     "fixture/DisableSnapshotCopyResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableSnapshotCopy)
+    (Proxy.Proxy :: Proxy.Proxy DisableSnapshotCopy)
 
 responseDescribeClusterParameters :: DescribeClusterParametersResponse -> TestTree
 responseDescribeClusterParameters =
@@ -2163,7 +2163,7 @@ responseDescribeClusterParameters =
     "DescribeClusterParametersResponse"
     "fixture/DescribeClusterParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterParameters)
 
 responsePauseCluster :: PauseClusterResponse -> TestTree
 responsePauseCluster =
@@ -2171,7 +2171,7 @@ responsePauseCluster =
     "PauseClusterResponse"
     "fixture/PauseClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy PauseCluster)
+    (Proxy.Proxy :: Proxy.Proxy PauseCluster)
 
 responseDescribeDataSharesForProducer :: DescribeDataSharesForProducerResponse -> TestTree
 responseDescribeDataSharesForProducer =
@@ -2179,7 +2179,7 @@ responseDescribeDataSharesForProducer =
     "DescribeDataSharesForProducerResponse"
     "fixture/DescribeDataSharesForProducerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSharesForProducer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSharesForProducer)
 
 responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
 responseDeleteSnapshotSchedule =
@@ -2187,7 +2187,7 @@ responseDeleteSnapshotSchedule =
     "DeleteSnapshotScheduleResponse"
     "fixture/DeleteSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshotSchedule)
 
 responseRestoreFromClusterSnapshot :: RestoreFromClusterSnapshotResponse -> TestTree
 responseRestoreFromClusterSnapshot =
@@ -2195,7 +2195,7 @@ responseRestoreFromClusterSnapshot =
     "RestoreFromClusterSnapshotResponse"
     "fixture/RestoreFromClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreFromClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy RestoreFromClusterSnapshot)
 
 responseCreateClusterParameterGroup :: CreateClusterParameterGroupResponse -> TestTree
 responseCreateClusterParameterGroup =
@@ -2203,7 +2203,7 @@ responseCreateClusterParameterGroup =
     "CreateClusterParameterGroupResponse"
     "fixture/CreateClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateClusterParameterGroup)
 
 responseDescribePartners :: DescribePartnersResponse -> TestTree
 responseDescribePartners =
@@ -2211,7 +2211,7 @@ responseDescribePartners =
     "DescribePartnersResponse"
     "fixture/DescribePartnersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePartners)
+    (Proxy.Proxy :: Proxy.Proxy DescribePartners)
 
 responseRevokeSnapshotAccess :: RevokeSnapshotAccessResponse -> TestTree
 responseRevokeSnapshotAccess =
@@ -2219,7 +2219,7 @@ responseRevokeSnapshotAccess =
     "RevokeSnapshotAccessResponse"
     "fixture/RevokeSnapshotAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeSnapshotAccess)
+    (Proxy.Proxy :: Proxy.Proxy RevokeSnapshotAccess)
 
 responseDescribeHsmConfigurations :: DescribeHsmConfigurationsResponse -> TestTree
 responseDescribeHsmConfigurations =
@@ -2227,7 +2227,7 @@ responseDescribeHsmConfigurations =
     "DescribeHsmConfigurationsResponse"
     "fixture/DescribeHsmConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHsmConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHsmConfigurations)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
 responseDescribeAccountAttributes =
@@ -2235,7 +2235,7 @@ responseDescribeAccountAttributes =
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAttributes)
 
 responseCreateSnapshotCopyGrant :: CreateSnapshotCopyGrantResponse -> TestTree
 responseCreateSnapshotCopyGrant =
@@ -2243,7 +2243,7 @@ responseCreateSnapshotCopyGrant =
     "CreateSnapshotCopyGrantResponse"
     "fixture/CreateSnapshotCopyGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshotCopyGrant)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshotCopyGrant)
 
 responseCopyClusterSnapshot :: CopyClusterSnapshotResponse -> TestTree
 responseCopyClusterSnapshot =
@@ -2251,7 +2251,7 @@ responseCopyClusterSnapshot =
     "CopyClusterSnapshotResponse"
     "fixture/CopyClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopyClusterSnapshot)
 
 responseDescribeDataShares :: DescribeDataSharesResponse -> TestTree
 responseDescribeDataShares =
@@ -2259,7 +2259,7 @@ responseDescribeDataShares =
     "DescribeDataSharesResponse"
     "fixture/DescribeDataSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataShares)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataShares)
 
 responseDeleteHsmClientCertificate :: DeleteHsmClientCertificateResponse -> TestTree
 responseDeleteHsmClientCertificate =
@@ -2267,7 +2267,7 @@ responseDeleteHsmClientCertificate =
     "DeleteHsmClientCertificateResponse"
     "fixture/DeleteHsmClientCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHsmClientCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHsmClientCertificate)
 
 responseModifyAuthenticationProfile :: ModifyAuthenticationProfileResponse -> TestTree
 responseModifyAuthenticationProfile =
@@ -2275,7 +2275,7 @@ responseModifyAuthenticationProfile =
     "ModifyAuthenticationProfileResponse"
     "fixture/ModifyAuthenticationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyAuthenticationProfile)
+    (Proxy.Proxy :: Proxy.Proxy ModifyAuthenticationProfile)
 
 responseUpdatePartnerStatus :: PartnerIntegrationOutputMessage -> TestTree
 responseUpdatePartnerStatus =
@@ -2283,7 +2283,7 @@ responseUpdatePartnerStatus =
     "UpdatePartnerStatusResponse"
     "fixture/UpdatePartnerStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePartnerStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePartnerStatus)
 
 responseModifyClusterSnapshotSchedule :: ModifyClusterSnapshotScheduleResponse -> TestTree
 responseModifyClusterSnapshotSchedule =
@@ -2291,7 +2291,7 @@ responseModifyClusterSnapshotSchedule =
     "ModifyClusterSnapshotScheduleResponse"
     "fixture/ModifyClusterSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterSnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterSnapshotSchedule)
 
 responseDeleteEndpointAccess :: EndpointAccess -> TestTree
 responseDeleteEndpointAccess =
@@ -2299,7 +2299,7 @@ responseDeleteEndpointAccess =
     "DeleteEndpointAccessResponse"
     "fixture/DeleteEndpointAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpointAccess)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpointAccess)
 
 responseDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrantResponse -> TestTree
 responseDeleteSnapshotCopyGrant =
@@ -2307,7 +2307,7 @@ responseDeleteSnapshotCopyGrant =
     "DeleteSnapshotCopyGrantResponse"
     "fixture/DeleteSnapshotCopyGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshotCopyGrant)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshotCopyGrant)
 
 responseDescribeClusterVersions :: DescribeClusterVersionsResponse -> TestTree
 responseDescribeClusterVersions =
@@ -2315,7 +2315,7 @@ responseDescribeClusterVersions =
     "DescribeClusterVersionsResponse"
     "fixture/DescribeClusterVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterVersions)
 
 responseModifyClusterSubnetGroup :: ModifyClusterSubnetGroupResponse -> TestTree
 responseModifyClusterSubnetGroup =
@@ -2323,7 +2323,7 @@ responseModifyClusterSubnetGroup =
     "ModifyClusterSubnetGroupResponse"
     "fixture/ModifyClusterSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClusterSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClusterSubnetGroup)
 
 responseDescribeUsageLimits :: DescribeUsageLimitsResponse -> TestTree
 responseDescribeUsageLimits =
@@ -2331,7 +2331,7 @@ responseDescribeUsageLimits =
     "DescribeUsageLimitsResponse"
     "fixture/DescribeUsageLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUsageLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUsageLimits)
 
 responseModifySnapshotSchedule :: SnapshotSchedule -> TestTree
 responseModifySnapshotSchedule =
@@ -2339,7 +2339,7 @@ responseModifySnapshotSchedule =
     "ModifySnapshotScheduleResponse"
     "fixture/ModifySnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy ModifySnapshotSchedule)
 
 responseRotateEncryptionKey :: RotateEncryptionKeyResponse -> TestTree
 responseRotateEncryptionKey =
@@ -2347,7 +2347,7 @@ responseRotateEncryptionKey =
     "RotateEncryptionKeyResponse"
     "fixture/RotateEncryptionKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy RotateEncryptionKey)
+    (Proxy.Proxy :: Proxy.Proxy RotateEncryptionKey)
 
 responseDescribeSnapshotCopyGrants :: DescribeSnapshotCopyGrantsResponse -> TestTree
 responseDescribeSnapshotCopyGrants =
@@ -2355,4 +2355,4 @@ responseDescribeSnapshotCopyGrants =
     "DescribeSnapshotCopyGrantsResponse"
     "fixture/DescribeSnapshotCopyGrantsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshotCopyGrants)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotCopyGrants)

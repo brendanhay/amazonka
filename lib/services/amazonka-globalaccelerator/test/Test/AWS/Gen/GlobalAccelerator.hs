@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GlobalAccelerator where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.GlobalAccelerator
 import Test.AWS.Fixture
 import Test.AWS.GlobalAccelerator.Internal
@@ -607,7 +607,7 @@ responseDenyCustomRoutingTraffic =
     "DenyCustomRoutingTrafficResponse"
     "fixture/DenyCustomRoutingTrafficResponse.proto"
     defaultService
-    (Proxy :: Proxy DenyCustomRoutingTraffic)
+    (Proxy.Proxy :: Proxy.Proxy DenyCustomRoutingTraffic)
 
 responseDescribeCustomRoutingListener :: DescribeCustomRoutingListenerResponse -> TestTree
 responseDescribeCustomRoutingListener =
@@ -615,7 +615,7 @@ responseDescribeCustomRoutingListener =
     "DescribeCustomRoutingListenerResponse"
     "fixture/DescribeCustomRoutingListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomRoutingListener)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomRoutingListener)
 
 responseCreateCustomRoutingEndpointGroup :: CreateCustomRoutingEndpointGroupResponse -> TestTree
 responseCreateCustomRoutingEndpointGroup =
@@ -623,7 +623,7 @@ responseCreateCustomRoutingEndpointGroup =
     "CreateCustomRoutingEndpointGroupResponse"
     "fixture/CreateCustomRoutingEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomRoutingEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomRoutingEndpointGroup)
 
 responseDescribeCustomRoutingAcceleratorAttributes :: DescribeCustomRoutingAcceleratorAttributesResponse -> TestTree
 responseDescribeCustomRoutingAcceleratorAttributes =
@@ -631,7 +631,7 @@ responseDescribeCustomRoutingAcceleratorAttributes =
     "DescribeCustomRoutingAcceleratorAttributesResponse"
     "fixture/DescribeCustomRoutingAcceleratorAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomRoutingAcceleratorAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomRoutingAcceleratorAttributes)
 
 responseDeleteCustomRoutingEndpointGroup :: DeleteCustomRoutingEndpointGroupResponse -> TestTree
 responseDeleteCustomRoutingEndpointGroup =
@@ -639,7 +639,7 @@ responseDeleteCustomRoutingEndpointGroup =
     "DeleteCustomRoutingEndpointGroupResponse"
     "fixture/DeleteCustomRoutingEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomRoutingEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomRoutingEndpointGroup)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -647,7 +647,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeAcceleratorAttributes :: DescribeAcceleratorAttributesResponse -> TestTree
 responseDescribeAcceleratorAttributes =
@@ -655,7 +655,7 @@ responseDescribeAcceleratorAttributes =
     "DescribeAcceleratorAttributesResponse"
     "fixture/DescribeAcceleratorAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAcceleratorAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAcceleratorAttributes)
 
 responseDeleteEndpointGroup :: DeleteEndpointGroupResponse -> TestTree
 responseDeleteEndpointGroup =
@@ -663,7 +663,7 @@ responseDeleteEndpointGroup =
     "DeleteEndpointGroupResponse"
     "fixture/DeleteEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpointGroup)
 
 responseUpdateEndpointGroup :: UpdateEndpointGroupResponse -> TestTree
 responseUpdateEndpointGroup =
@@ -671,7 +671,7 @@ responseUpdateEndpointGroup =
     "UpdateEndpointGroupResponse"
     "fixture/UpdateEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpointGroup)
 
 responseListCustomRoutingListeners :: ListCustomRoutingListenersResponse -> TestTree
 responseListCustomRoutingListeners =
@@ -679,7 +679,7 @@ responseListCustomRoutingListeners =
     "ListCustomRoutingListenersResponse"
     "fixture/ListCustomRoutingListenersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomRoutingListeners)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomRoutingListeners)
 
 responseDeleteCustomRoutingListener :: DeleteCustomRoutingListenerResponse -> TestTree
 responseDeleteCustomRoutingListener =
@@ -687,7 +687,7 @@ responseDeleteCustomRoutingListener =
     "DeleteCustomRoutingListenerResponse"
     "fixture/DeleteCustomRoutingListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomRoutingListener)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomRoutingListener)
 
 responseUpdateCustomRoutingListener :: UpdateCustomRoutingListenerResponse -> TestTree
 responseUpdateCustomRoutingListener =
@@ -695,7 +695,7 @@ responseUpdateCustomRoutingListener =
     "UpdateCustomRoutingListenerResponse"
     "fixture/UpdateCustomRoutingListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCustomRoutingListener)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCustomRoutingListener)
 
 responseCreateAccelerator :: CreateAcceleratorResponse -> TestTree
 responseCreateAccelerator =
@@ -703,7 +703,7 @@ responseCreateAccelerator =
     "CreateAcceleratorResponse"
     "fixture/CreateAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccelerator)
 
 responseAllowCustomRoutingTraffic :: AllowCustomRoutingTrafficResponse -> TestTree
 responseAllowCustomRoutingTraffic =
@@ -711,7 +711,7 @@ responseAllowCustomRoutingTraffic =
     "AllowCustomRoutingTrafficResponse"
     "fixture/AllowCustomRoutingTrafficResponse.proto"
     defaultService
-    (Proxy :: Proxy AllowCustomRoutingTraffic)
+    (Proxy.Proxy :: Proxy.Proxy AllowCustomRoutingTraffic)
 
 responseWithdrawByoipCidr :: WithdrawByoipCidrResponse -> TestTree
 responseWithdrawByoipCidr =
@@ -719,7 +719,7 @@ responseWithdrawByoipCidr =
     "WithdrawByoipCidrResponse"
     "fixture/WithdrawByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy WithdrawByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy WithdrawByoipCidr)
 
 responseAdvertiseByoipCidr :: AdvertiseByoipCidrResponse -> TestTree
 responseAdvertiseByoipCidr =
@@ -727,7 +727,7 @@ responseAdvertiseByoipCidr =
     "AdvertiseByoipCidrResponse"
     "fixture/AdvertiseByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy AdvertiseByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy AdvertiseByoipCidr)
 
 responseDeleteAccelerator :: DeleteAcceleratorResponse -> TestTree
 responseDeleteAccelerator =
@@ -735,7 +735,7 @@ responseDeleteAccelerator =
     "DeleteAcceleratorResponse"
     "fixture/DeleteAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccelerator)
 
 responseUpdateAccelerator :: UpdateAcceleratorResponse -> TestTree
 responseUpdateAccelerator =
@@ -743,7 +743,7 @@ responseUpdateAccelerator =
     "UpdateAcceleratorResponse"
     "fixture/UpdateAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccelerator)
 
 responseListAccelerators :: ListAcceleratorsResponse -> TestTree
 responseListAccelerators =
@@ -751,7 +751,7 @@ responseListAccelerators =
     "ListAcceleratorsResponse"
     "fixture/ListAcceleratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccelerators)
+    (Proxy.Proxy :: Proxy.Proxy ListAccelerators)
 
 responseDescribeEndpointGroup :: DescribeEndpointGroupResponse -> TestTree
 responseDescribeEndpointGroup =
@@ -759,7 +759,7 @@ responseDescribeEndpointGroup =
     "DescribeEndpointGroupResponse"
     "fixture/DescribeEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpointGroup)
 
 responseUpdateAcceleratorAttributes :: UpdateAcceleratorAttributesResponse -> TestTree
 responseUpdateAcceleratorAttributes =
@@ -767,7 +767,7 @@ responseUpdateAcceleratorAttributes =
     "UpdateAcceleratorAttributesResponse"
     "fixture/UpdateAcceleratorAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAcceleratorAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAcceleratorAttributes)
 
 responseCreateCustomRoutingAccelerator :: CreateCustomRoutingAcceleratorResponse -> TestTree
 responseCreateCustomRoutingAccelerator =
@@ -775,7 +775,7 @@ responseCreateCustomRoutingAccelerator =
     "CreateCustomRoutingAcceleratorResponse"
     "fixture/CreateCustomRoutingAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomRoutingAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomRoutingAccelerator)
 
 responseListCustomRoutingPortMappingsByDestination :: ListCustomRoutingPortMappingsByDestinationResponse -> TestTree
 responseListCustomRoutingPortMappingsByDestination =
@@ -783,7 +783,7 @@ responseListCustomRoutingPortMappingsByDestination =
     "ListCustomRoutingPortMappingsByDestinationResponse"
     "fixture/ListCustomRoutingPortMappingsByDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomRoutingPortMappingsByDestination)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomRoutingPortMappingsByDestination)
 
 responseDeleteListener :: DeleteListenerResponse -> TestTree
 responseDeleteListener =
@@ -791,7 +791,7 @@ responseDeleteListener =
     "DeleteListenerResponse"
     "fixture/DeleteListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteListener)
+    (Proxy.Proxy :: Proxy.Proxy DeleteListener)
 
 responseUpdateListener :: UpdateListenerResponse -> TestTree
 responseUpdateListener =
@@ -799,7 +799,7 @@ responseUpdateListener =
     "UpdateListenerResponse"
     "fixture/UpdateListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateListener)
+    (Proxy.Proxy :: Proxy.Proxy UpdateListener)
 
 responseListListeners :: ListListenersResponse -> TestTree
 responseListListeners =
@@ -807,7 +807,7 @@ responseListListeners =
     "ListListenersResponse"
     "fixture/ListListenersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListListeners)
+    (Proxy.Proxy :: Proxy.Proxy ListListeners)
 
 responseListCustomRoutingEndpointGroups :: ListCustomRoutingEndpointGroupsResponse -> TestTree
 responseListCustomRoutingEndpointGroups =
@@ -815,7 +815,7 @@ responseListCustomRoutingEndpointGroups =
     "ListCustomRoutingEndpointGroupsResponse"
     "fixture/ListCustomRoutingEndpointGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomRoutingEndpointGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomRoutingEndpointGroups)
 
 responseCreateListener :: CreateListenerResponse -> TestTree
 responseCreateListener =
@@ -823,7 +823,7 @@ responseCreateListener =
     "CreateListenerResponse"
     "fixture/CreateListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateListener)
+    (Proxy.Proxy :: Proxy.Proxy CreateListener)
 
 responseDescribeAccelerator :: DescribeAcceleratorResponse -> TestTree
 responseDescribeAccelerator =
@@ -831,7 +831,7 @@ responseDescribeAccelerator =
     "DescribeAcceleratorResponse"
     "fixture/DescribeAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccelerator)
 
 responseCreateCustomRoutingListener :: CreateCustomRoutingListenerResponse -> TestTree
 responseCreateCustomRoutingListener =
@@ -839,7 +839,7 @@ responseCreateCustomRoutingListener =
     "CreateCustomRoutingListenerResponse"
     "fixture/CreateCustomRoutingListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomRoutingListener)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomRoutingListener)
 
 responseDescribeCustomRoutingAccelerator :: DescribeCustomRoutingAcceleratorResponse -> TestTree
 responseDescribeCustomRoutingAccelerator =
@@ -847,7 +847,7 @@ responseDescribeCustomRoutingAccelerator =
     "DescribeCustomRoutingAcceleratorResponse"
     "fixture/DescribeCustomRoutingAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomRoutingAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomRoutingAccelerator)
 
 responseListEndpointGroups :: ListEndpointGroupsResponse -> TestTree
 responseListEndpointGroups =
@@ -855,7 +855,7 @@ responseListEndpointGroups =
     "ListEndpointGroupsResponse"
     "fixture/ListEndpointGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEndpointGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListEndpointGroups)
 
 responseProvisionByoipCidr :: ProvisionByoipCidrResponse -> TestTree
 responseProvisionByoipCidr =
@@ -863,7 +863,7 @@ responseProvisionByoipCidr =
     "ProvisionByoipCidrResponse"
     "fixture/ProvisionByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy ProvisionByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy ProvisionByoipCidr)
 
 responseCreateEndpointGroup :: CreateEndpointGroupResponse -> TestTree
 responseCreateEndpointGroup =
@@ -871,7 +871,7 @@ responseCreateEndpointGroup =
     "CreateEndpointGroupResponse"
     "fixture/CreateEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpointGroup)
 
 responseListByoipCidrs :: ListByoipCidrsResponse -> TestTree
 responseListByoipCidrs =
@@ -879,7 +879,7 @@ responseListByoipCidrs =
     "ListByoipCidrsResponse"
     "fixture/ListByoipCidrsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListByoipCidrs)
+    (Proxy.Proxy :: Proxy.Proxy ListByoipCidrs)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -887,7 +887,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -895,7 +895,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeListener :: DescribeListenerResponse -> TestTree
 responseDescribeListener =
@@ -903,7 +903,7 @@ responseDescribeListener =
     "DescribeListenerResponse"
     "fixture/DescribeListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeListener)
+    (Proxy.Proxy :: Proxy.Proxy DescribeListener)
 
 responseListCustomRoutingPortMappings :: ListCustomRoutingPortMappingsResponse -> TestTree
 responseListCustomRoutingPortMappings =
@@ -911,7 +911,7 @@ responseListCustomRoutingPortMappings =
     "ListCustomRoutingPortMappingsResponse"
     "fixture/ListCustomRoutingPortMappingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomRoutingPortMappings)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomRoutingPortMappings)
 
 responseAddCustomRoutingEndpoints :: AddCustomRoutingEndpointsResponse -> TestTree
 responseAddCustomRoutingEndpoints =
@@ -919,7 +919,7 @@ responseAddCustomRoutingEndpoints =
     "AddCustomRoutingEndpointsResponse"
     "fixture/AddCustomRoutingEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddCustomRoutingEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy AddCustomRoutingEndpoints)
 
 responseDescribeCustomRoutingEndpointGroup :: DescribeCustomRoutingEndpointGroupResponse -> TestTree
 responseDescribeCustomRoutingEndpointGroup =
@@ -927,7 +927,7 @@ responseDescribeCustomRoutingEndpointGroup =
     "DescribeCustomRoutingEndpointGroupResponse"
     "fixture/DescribeCustomRoutingEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomRoutingEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomRoutingEndpointGroup)
 
 responseUpdateCustomRoutingAcceleratorAttributes :: UpdateCustomRoutingAcceleratorAttributesResponse -> TestTree
 responseUpdateCustomRoutingAcceleratorAttributes =
@@ -935,7 +935,7 @@ responseUpdateCustomRoutingAcceleratorAttributes =
     "UpdateCustomRoutingAcceleratorAttributesResponse"
     "fixture/UpdateCustomRoutingAcceleratorAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCustomRoutingAcceleratorAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCustomRoutingAcceleratorAttributes)
 
 responseRemoveCustomRoutingEndpoints :: RemoveCustomRoutingEndpointsResponse -> TestTree
 responseRemoveCustomRoutingEndpoints =
@@ -943,7 +943,7 @@ responseRemoveCustomRoutingEndpoints =
     "RemoveCustomRoutingEndpointsResponse"
     "fixture/RemoveCustomRoutingEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveCustomRoutingEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy RemoveCustomRoutingEndpoints)
 
 responseUpdateCustomRoutingAccelerator :: UpdateCustomRoutingAcceleratorResponse -> TestTree
 responseUpdateCustomRoutingAccelerator =
@@ -951,7 +951,7 @@ responseUpdateCustomRoutingAccelerator =
     "UpdateCustomRoutingAcceleratorResponse"
     "fixture/UpdateCustomRoutingAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCustomRoutingAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCustomRoutingAccelerator)
 
 responseDeleteCustomRoutingAccelerator :: DeleteCustomRoutingAcceleratorResponse -> TestTree
 responseDeleteCustomRoutingAccelerator =
@@ -959,7 +959,7 @@ responseDeleteCustomRoutingAccelerator =
     "DeleteCustomRoutingAcceleratorResponse"
     "fixture/DeleteCustomRoutingAcceleratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomRoutingAccelerator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomRoutingAccelerator)
 
 responseListCustomRoutingAccelerators :: ListCustomRoutingAcceleratorsResponse -> TestTree
 responseListCustomRoutingAccelerators =
@@ -967,7 +967,7 @@ responseListCustomRoutingAccelerators =
     "ListCustomRoutingAcceleratorsResponse"
     "fixture/ListCustomRoutingAcceleratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomRoutingAccelerators)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomRoutingAccelerators)
 
 responseDeprovisionByoipCidr :: DeprovisionByoipCidrResponse -> TestTree
 responseDeprovisionByoipCidr =
@@ -975,4 +975,4 @@ responseDeprovisionByoipCidr =
     "DeprovisionByoipCidrResponse"
     "fixture/DeprovisionByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprovisionByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy DeprovisionByoipCidr)

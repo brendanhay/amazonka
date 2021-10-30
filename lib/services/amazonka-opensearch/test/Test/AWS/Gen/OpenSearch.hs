@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.OpenSearch where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.OpenSearch
 import Test.AWS.Fixture
 import Test.AWS.OpenSearch.Internal
@@ -511,7 +511,7 @@ responseRejectInboundConnection =
     "RejectInboundConnectionResponse"
     "fixture/RejectInboundConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectInboundConnection)
+    (Proxy.Proxy :: Proxy.Proxy RejectInboundConnection)
 
 responseDescribeOutboundConnections :: DescribeOutboundConnectionsResponse -> TestTree
 responseDescribeOutboundConnections =
@@ -519,7 +519,7 @@ responseDescribeOutboundConnections =
     "DescribeOutboundConnectionsResponse"
     "fixture/DescribeOutboundConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOutboundConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOutboundConnections)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -527,7 +527,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseDescribeInstanceTypeLimits :: DescribeInstanceTypeLimitsResponse -> TestTree
 responseDescribeInstanceTypeLimits =
@@ -535,7 +535,7 @@ responseDescribeInstanceTypeLimits =
     "DescribeInstanceTypeLimitsResponse"
     "fixture/DescribeInstanceTypeLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceTypeLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceTypeLimits)
 
 responseDescribeInboundConnections :: DescribeInboundConnectionsResponse -> TestTree
 responseDescribeInboundConnections =
@@ -543,7 +543,7 @@ responseDescribeInboundConnections =
     "DescribeInboundConnectionsResponse"
     "fixture/DescribeInboundConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInboundConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInboundConnections)
 
 responseCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdateResponse -> TestTree
 responseCancelServiceSoftwareUpdate =
@@ -551,7 +551,7 @@ responseCancelServiceSoftwareUpdate =
     "CancelServiceSoftwareUpdateResponse"
     "fixture/CancelServiceSoftwareUpdateResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelServiceSoftwareUpdate)
+    (Proxy.Proxy :: Proxy.Proxy CancelServiceSoftwareUpdate)
 
 responseListDomainsForPackage :: ListDomainsForPackageResponse -> TestTree
 responseListDomainsForPackage =
@@ -559,7 +559,7 @@ responseListDomainsForPackage =
     "ListDomainsForPackageResponse"
     "fixture/ListDomainsForPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainsForPackage)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainsForPackage)
 
 responseListPackagesForDomain :: ListPackagesForDomainResponse -> TestTree
 responseListPackagesForDomain =
@@ -567,7 +567,7 @@ responseListPackagesForDomain =
     "ListPackagesForDomainResponse"
     "fixture/ListPackagesForDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackagesForDomain)
+    (Proxy.Proxy :: Proxy.Proxy ListPackagesForDomain)
 
 responseUpgradeDomain :: UpgradeDomainResponse -> TestTree
 responseUpgradeDomain =
@@ -575,7 +575,7 @@ responseUpgradeDomain =
     "UpgradeDomainResponse"
     "fixture/UpgradeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpgradeDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpgradeDomain)
 
 responseDescribeDomainAutoTunes :: DescribeDomainAutoTunesResponse -> TestTree
 responseDescribeDomainAutoTunes =
@@ -583,7 +583,7 @@ responseDescribeDomainAutoTunes =
     "DescribeDomainAutoTunesResponse"
     "fixture/DescribeDomainAutoTunesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomainAutoTunes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainAutoTunes)
 
 responseDescribeReservedInstances :: DescribeReservedInstancesResponse -> TestTree
 responseDescribeReservedInstances =
@@ -591,7 +591,7 @@ responseDescribeReservedInstances =
     "DescribeReservedInstancesResponse"
     "fixture/DescribeReservedInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstances)
 
 responseStartServiceSoftwareUpdate :: StartServiceSoftwareUpdateResponse -> TestTree
 responseStartServiceSoftwareUpdate =
@@ -599,7 +599,7 @@ responseStartServiceSoftwareUpdate =
     "StartServiceSoftwareUpdateResponse"
     "fixture/StartServiceSoftwareUpdateResponse.proto"
     defaultService
-    (Proxy :: Proxy StartServiceSoftwareUpdate)
+    (Proxy.Proxy :: Proxy.Proxy StartServiceSoftwareUpdate)
 
 responseDeleteOutboundConnection :: DeleteOutboundConnectionResponse -> TestTree
 responseDeleteOutboundConnection =
@@ -607,7 +607,7 @@ responseDeleteOutboundConnection =
     "DeleteOutboundConnectionResponse"
     "fixture/DeleteOutboundConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOutboundConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOutboundConnection)
 
 responseListVersions :: ListVersionsResponse -> TestTree
 responseListVersions =
@@ -615,7 +615,7 @@ responseListVersions =
     "ListVersionsResponse"
     "fixture/ListVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListVersions)
 
 responseDescribeReservedInstanceOfferings :: DescribeReservedInstanceOfferingsResponse -> TestTree
 responseDescribeReservedInstanceOfferings =
@@ -623,7 +623,7 @@ responseDescribeReservedInstanceOfferings =
     "DescribeReservedInstanceOfferingsResponse"
     "fixture/DescribeReservedInstanceOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedInstanceOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstanceOfferings)
 
 responseListDomainNames :: ListDomainNamesResponse -> TestTree
 responseListDomainNames =
@@ -631,7 +631,7 @@ responseListDomainNames =
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainNames)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainNames)
 
 responsePurchaseReservedInstanceOffering :: PurchaseReservedInstanceOfferingResponse -> TestTree
 responsePurchaseReservedInstanceOffering =
@@ -639,7 +639,7 @@ responsePurchaseReservedInstanceOffering =
     "PurchaseReservedInstanceOfferingResponse"
     "fixture/PurchaseReservedInstanceOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseReservedInstanceOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedInstanceOffering)
 
 responseDescribeDomains :: DescribeDomainsResponse -> TestTree
 responseDescribeDomains =
@@ -647,7 +647,7 @@ responseDescribeDomains =
     "DescribeDomainsResponse"
     "fixture/DescribeDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomains)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomains)
 
 responseAssociatePackage :: AssociatePackageResponse -> TestTree
 responseAssociatePackage =
@@ -655,7 +655,7 @@ responseAssociatePackage =
     "AssociatePackageResponse"
     "fixture/AssociatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociatePackage)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePackage)
 
 responseListInstanceTypeDetails :: ListInstanceTypeDetailsResponse -> TestTree
 responseListInstanceTypeDetails =
@@ -663,7 +663,7 @@ responseListInstanceTypeDetails =
     "ListInstanceTypeDetailsResponse"
     "fixture/ListInstanceTypeDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceTypeDetails)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceTypeDetails)
 
 responseGetPackageVersionHistory :: GetPackageVersionHistoryResponse -> TestTree
 responseGetPackageVersionHistory =
@@ -671,7 +671,7 @@ responseGetPackageVersionHistory =
     "GetPackageVersionHistoryResponse"
     "fixture/GetPackageVersionHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPackageVersionHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionHistory)
 
 responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
 responseGetUpgradeHistory =
@@ -679,7 +679,7 @@ responseGetUpgradeHistory =
     "GetUpgradeHistoryResponse"
     "fixture/GetUpgradeHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUpgradeHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetUpgradeHistory)
 
 responseDescribePackages :: DescribePackagesResponse -> TestTree
 responseDescribePackages =
@@ -687,7 +687,7 @@ responseDescribePackages =
     "DescribePackagesResponse"
     "fixture/DescribePackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePackages)
+    (Proxy.Proxy :: Proxy.Proxy DescribePackages)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -695,7 +695,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseDescribeDomainConfig :: DescribeDomainConfigResponse -> TestTree
 responseDescribeDomainConfig =
@@ -703,7 +703,7 @@ responseDescribeDomainConfig =
     "DescribeDomainConfigResponse"
     "fixture/DescribeDomainConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomainConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainConfig)
 
 responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
 responseGetUpgradeStatus =
@@ -711,7 +711,7 @@ responseGetUpgradeStatus =
     "GetUpgradeStatusResponse"
     "fixture/GetUpgradeStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUpgradeStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetUpgradeStatus)
 
 responseDeleteInboundConnection :: DeleteInboundConnectionResponse -> TestTree
 responseDeleteInboundConnection =
@@ -719,7 +719,7 @@ responseDeleteInboundConnection =
     "DeleteInboundConnectionResponse"
     "fixture/DeleteInboundConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInboundConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInboundConnection)
 
 responseDissociatePackage :: DissociatePackageResponse -> TestTree
 responseDissociatePackage =
@@ -727,7 +727,7 @@ responseDissociatePackage =
     "DissociatePackageResponse"
     "fixture/DissociatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DissociatePackage)
+    (Proxy.Proxy :: Proxy.Proxy DissociatePackage)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -735,7 +735,7 @@ responseDescribeDomain =
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -743,7 +743,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseAcceptInboundConnection :: AcceptInboundConnectionResponse -> TestTree
 responseAcceptInboundConnection =
@@ -751,7 +751,7 @@ responseAcceptInboundConnection =
     "AcceptInboundConnectionResponse"
     "fixture/AcceptInboundConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptInboundConnection)
+    (Proxy.Proxy :: Proxy.Proxy AcceptInboundConnection)
 
 responseUpdateDomainConfig :: UpdateDomainConfigResponse -> TestTree
 responseUpdateDomainConfig =
@@ -759,7 +759,7 @@ responseUpdateDomainConfig =
     "UpdateDomainConfigResponse"
     "fixture/UpdateDomainConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainConfig)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -767,7 +767,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseDeletePackage :: DeletePackageResponse -> TestTree
 responseDeletePackage =
@@ -775,7 +775,7 @@ responseDeletePackage =
     "DeletePackageResponse"
     "fixture/DeletePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePackage)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
 
 responseUpdatePackage :: UpdatePackageResponse -> TestTree
 responseUpdatePackage =
@@ -783,7 +783,7 @@ responseUpdatePackage =
     "UpdatePackageResponse"
     "fixture/UpdatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePackage)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
 
 responseCreateOutboundConnection :: CreateOutboundConnectionResponse -> TestTree
 responseCreateOutboundConnection =
@@ -791,7 +791,7 @@ responseCreateOutboundConnection =
     "CreateOutboundConnectionResponse"
     "fixture/CreateOutboundConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOutboundConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateOutboundConnection)
 
 responseCreatePackage :: CreatePackageResponse -> TestTree
 responseCreatePackage =
@@ -799,7 +799,7 @@ responseCreatePackage =
     "CreatePackageResponse"
     "fixture/CreatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePackage)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackage)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -807,7 +807,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseGetCompatibleVersions :: GetCompatibleVersionsResponse -> TestTree
 responseGetCompatibleVersions =
@@ -815,4 +815,4 @@ responseGetCompatibleVersions =
     "GetCompatibleVersionsResponse"
     "fixture/GetCompatibleVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCompatibleVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetCompatibleVersions)

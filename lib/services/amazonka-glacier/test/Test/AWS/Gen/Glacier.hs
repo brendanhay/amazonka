@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Glacier where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Glacier
 import Test.AWS.Fixture
 import Test.AWS.Glacier.Internal
@@ -427,7 +427,7 @@ responseSetVaultAccessPolicy =
     "SetVaultAccessPolicyResponse"
     "fixture/SetVaultAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy SetVaultAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy SetVaultAccessPolicy)
 
 responseInitiateJob :: InitiateJobResponse -> TestTree
 responseInitiateJob =
@@ -435,7 +435,7 @@ responseInitiateJob =
     "InitiateJobResponse"
     "fixture/InitiateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateJob)
+    (Proxy.Proxy :: Proxy.Proxy InitiateJob)
 
 responseSetDataRetrievalPolicy :: SetDataRetrievalPolicyResponse -> TestTree
 responseSetDataRetrievalPolicy =
@@ -443,7 +443,7 @@ responseSetDataRetrievalPolicy =
     "SetDataRetrievalPolicyResponse"
     "fixture/SetDataRetrievalPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy SetDataRetrievalPolicy)
+    (Proxy.Proxy :: Proxy.Proxy SetDataRetrievalPolicy)
 
 responseDeleteVaultAccessPolicy :: DeleteVaultAccessPolicyResponse -> TestTree
 responseDeleteVaultAccessPolicy =
@@ -451,7 +451,7 @@ responseDeleteVaultAccessPolicy =
     "DeleteVaultAccessPolicyResponse"
     "fixture/DeleteVaultAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVaultAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVaultAccessPolicy)
 
 responseGetVaultNotifications :: GetVaultNotificationsResponse -> TestTree
 responseGetVaultNotifications =
@@ -459,7 +459,7 @@ responseGetVaultNotifications =
     "GetVaultNotificationsResponse"
     "fixture/GetVaultNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVaultNotifications)
+    (Proxy.Proxy :: Proxy.Proxy GetVaultNotifications)
 
 responseListTagsForVault :: ListTagsForVaultResponse -> TestTree
 responseListTagsForVault =
@@ -467,7 +467,7 @@ responseListTagsForVault =
     "ListTagsForVaultResponse"
     "fixture/ListTagsForVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForVault)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForVault)
 
 responseUploadMultipartPart :: UploadMultipartPartResponse -> TestTree
 responseUploadMultipartPart =
@@ -475,7 +475,7 @@ responseUploadMultipartPart =
     "UploadMultipartPartResponse"
     "fixture/UploadMultipartPartResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadMultipartPart)
+    (Proxy.Proxy :: Proxy.Proxy UploadMultipartPart)
 
 responseDeleteVaultNotifications :: DeleteVaultNotificationsResponse -> TestTree
 responseDeleteVaultNotifications =
@@ -483,7 +483,7 @@ responseDeleteVaultNotifications =
     "DeleteVaultNotificationsResponse"
     "fixture/DeleteVaultNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVaultNotifications)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVaultNotifications)
 
 responseCompleteVaultLock :: CompleteVaultLockResponse -> TestTree
 responseCompleteVaultLock =
@@ -491,7 +491,7 @@ responseCompleteVaultLock =
     "CompleteVaultLockResponse"
     "fixture/CompleteVaultLockResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteVaultLock)
+    (Proxy.Proxy :: Proxy.Proxy CompleteVaultLock)
 
 responseAbortVaultLock :: AbortVaultLockResponse -> TestTree
 responseAbortVaultLock =
@@ -499,7 +499,7 @@ responseAbortVaultLock =
     "AbortVaultLockResponse"
     "fixture/AbortVaultLockResponse.proto"
     defaultService
-    (Proxy :: Proxy AbortVaultLock)
+    (Proxy.Proxy :: Proxy.Proxy AbortVaultLock)
 
 responseListVaults :: ListVaultsResponse -> TestTree
 responseListVaults =
@@ -507,7 +507,7 @@ responseListVaults =
     "ListVaultsResponse"
     "fixture/ListVaultsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVaults)
+    (Proxy.Proxy :: Proxy.Proxy ListVaults)
 
 responseListProvisionedCapacity :: ListProvisionedCapacityResponse -> TestTree
 responseListProvisionedCapacity =
@@ -515,7 +515,7 @@ responseListProvisionedCapacity =
     "ListProvisionedCapacityResponse"
     "fixture/ListProvisionedCapacityResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProvisionedCapacity)
+    (Proxy.Proxy :: Proxy.Proxy ListProvisionedCapacity)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -523,7 +523,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseSetVaultNotifications :: SetVaultNotificationsResponse -> TestTree
 responseSetVaultNotifications =
@@ -531,7 +531,7 @@ responseSetVaultNotifications =
     "SetVaultNotificationsResponse"
     "fixture/SetVaultNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy SetVaultNotifications)
+    (Proxy.Proxy :: Proxy.Proxy SetVaultNotifications)
 
 responseCompleteMultipartUpload :: ArchiveCreationOutput -> TestTree
 responseCompleteMultipartUpload =
@@ -539,7 +539,7 @@ responseCompleteMultipartUpload =
     "CompleteMultipartUploadResponse"
     "fixture/CompleteMultipartUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteMultipartUpload)
+    (Proxy.Proxy :: Proxy.Proxy CompleteMultipartUpload)
 
 responseListMultipartUploads :: ListMultipartUploadsResponse -> TestTree
 responseListMultipartUploads =
@@ -547,7 +547,7 @@ responseListMultipartUploads =
     "ListMultipartUploadsResponse"
     "fixture/ListMultipartUploadsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMultipartUploads)
+    (Proxy.Proxy :: Proxy.Proxy ListMultipartUploads)
 
 responseAbortMultipartUpload :: AbortMultipartUploadResponse -> TestTree
 responseAbortMultipartUpload =
@@ -555,7 +555,7 @@ responseAbortMultipartUpload =
     "AbortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy AbortMultipartUpload)
+    (Proxy.Proxy :: Proxy.Proxy AbortMultipartUpload)
 
 responsePurchaseProvisionedCapacity :: PurchaseProvisionedCapacityResponse -> TestTree
 responsePurchaseProvisionedCapacity =
@@ -563,7 +563,7 @@ responsePurchaseProvisionedCapacity =
     "PurchaseProvisionedCapacityResponse"
     "fixture/PurchaseProvisionedCapacityResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseProvisionedCapacity)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseProvisionedCapacity)
 
 responseDescribeVault :: DescribeVaultOutput -> TestTree
 responseDescribeVault =
@@ -571,7 +571,7 @@ responseDescribeVault =
     "DescribeVaultResponse"
     "fixture/DescribeVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVault)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVault)
 
 responseGetVaultLock :: GetVaultLockResponse -> TestTree
 responseGetVaultLock =
@@ -579,7 +579,7 @@ responseGetVaultLock =
     "GetVaultLockResponse"
     "fixture/GetVaultLockResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVaultLock)
+    (Proxy.Proxy :: Proxy.Proxy GetVaultLock)
 
 responseDescribeJob :: GlacierJobDescription -> TestTree
 responseDescribeJob =
@@ -587,7 +587,7 @@ responseDescribeJob =
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJob)
 
 responseInitiateVaultLock :: InitiateVaultLockResponse -> TestTree
 responseInitiateVaultLock =
@@ -595,7 +595,7 @@ responseInitiateVaultLock =
     "InitiateVaultLockResponse"
     "fixture/InitiateVaultLockResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateVaultLock)
+    (Proxy.Proxy :: Proxy.Proxy InitiateVaultLock)
 
 responseGetVaultAccessPolicy :: GetVaultAccessPolicyResponse -> TestTree
 responseGetVaultAccessPolicy =
@@ -603,7 +603,7 @@ responseGetVaultAccessPolicy =
     "GetVaultAccessPolicyResponse"
     "fixture/GetVaultAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVaultAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetVaultAccessPolicy)
 
 responseGetDataRetrievalPolicy :: GetDataRetrievalPolicyResponse -> TestTree
 responseGetDataRetrievalPolicy =
@@ -611,7 +611,7 @@ responseGetDataRetrievalPolicy =
     "GetDataRetrievalPolicyResponse"
     "fixture/GetDataRetrievalPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataRetrievalPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetDataRetrievalPolicy)
 
 responseRemoveTagsFromVault :: RemoveTagsFromVaultResponse -> TestTree
 responseRemoveTagsFromVault =
@@ -619,7 +619,7 @@ responseRemoveTagsFromVault =
     "RemoveTagsFromVaultResponse"
     "fixture/RemoveTagsFromVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromVault)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromVault)
 
 responseDeleteVault :: DeleteVaultResponse -> TestTree
 responseDeleteVault =
@@ -627,7 +627,7 @@ responseDeleteVault =
     "DeleteVaultResponse"
     "fixture/DeleteVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVault)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVault)
 
 responseDeleteArchive :: DeleteArchiveResponse -> TestTree
 responseDeleteArchive =
@@ -635,7 +635,7 @@ responseDeleteArchive =
     "DeleteArchiveResponse"
     "fixture/DeleteArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteArchive)
+    (Proxy.Proxy :: Proxy.Proxy DeleteArchive)
 
 responseCreateVault :: CreateVaultResponse -> TestTree
 responseCreateVault =
@@ -643,7 +643,7 @@ responseCreateVault =
     "CreateVaultResponse"
     "fixture/CreateVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVault)
+    (Proxy.Proxy :: Proxy.Proxy CreateVault)
 
 responseInitiateMultipartUpload :: InitiateMultipartUploadResponse -> TestTree
 responseInitiateMultipartUpload =
@@ -651,7 +651,7 @@ responseInitiateMultipartUpload =
     "InitiateMultipartUploadResponse"
     "fixture/InitiateMultipartUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateMultipartUpload)
+    (Proxy.Proxy :: Proxy.Proxy InitiateMultipartUpload)
 
 responseListParts :: ListPartsResponse -> TestTree
 responseListParts =
@@ -659,7 +659,7 @@ responseListParts =
     "ListPartsResponse"
     "fixture/ListPartsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListParts)
+    (Proxy.Proxy :: Proxy.Proxy ListParts)
 
 responseAddTagsToVault :: AddTagsToVaultResponse -> TestTree
 responseAddTagsToVault =
@@ -667,7 +667,7 @@ responseAddTagsToVault =
     "AddTagsToVaultResponse"
     "fixture/AddTagsToVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToVault)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToVault)
 
 responseUploadArchive :: ArchiveCreationOutput -> TestTree
 responseUploadArchive =
@@ -675,4 +675,4 @@ responseUploadArchive =
     "UploadArchiveResponse"
     "fixture/UploadArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadArchive)
+    (Proxy.Proxy :: Proxy.Proxy UploadArchive)

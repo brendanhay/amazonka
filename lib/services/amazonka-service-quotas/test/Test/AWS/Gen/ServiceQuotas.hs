@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServiceQuotas where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ServiceQuotas
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -271,7 +271,7 @@ responseListServices =
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServices)
+    (Proxy.Proxy :: Proxy.Proxy ListServices)
 
 responseListAWSDefaultServiceQuotas :: ListAWSDefaultServiceQuotasResponse -> TestTree
 responseListAWSDefaultServiceQuotas =
@@ -279,7 +279,7 @@ responseListAWSDefaultServiceQuotas =
     "ListAWSDefaultServiceQuotasResponse"
     "fixture/ListAWSDefaultServiceQuotasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAWSDefaultServiceQuotas)
+    (Proxy.Proxy :: Proxy.Proxy ListAWSDefaultServiceQuotas)
 
 responseGetAssociationForServiceQuotaTemplate :: GetAssociationForServiceQuotaTemplateResponse -> TestTree
 responseGetAssociationForServiceQuotaTemplate =
@@ -287,7 +287,7 @@ responseGetAssociationForServiceQuotaTemplate =
     "GetAssociationForServiceQuotaTemplateResponse"
     "fixture/GetAssociationForServiceQuotaTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssociationForServiceQuotaTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetAssociationForServiceQuotaTemplate)
 
 responseAssociateServiceQuotaTemplate :: AssociateServiceQuotaTemplateResponse -> TestTree
 responseAssociateServiceQuotaTemplate =
@@ -295,7 +295,7 @@ responseAssociateServiceQuotaTemplate =
     "AssociateServiceQuotaTemplateResponse"
     "fixture/AssociateServiceQuotaTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateServiceQuotaTemplate)
+    (Proxy.Proxy :: Proxy.Proxy AssociateServiceQuotaTemplate)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -303,7 +303,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetServiceQuota :: GetServiceQuotaResponse -> TestTree
 responseGetServiceQuota =
@@ -311,7 +311,7 @@ responseGetServiceQuota =
     "GetServiceQuotaResponse"
     "fixture/GetServiceQuotaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceQuota)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceQuota)
 
 responsePutServiceQuotaIncreaseRequestIntoTemplate :: PutServiceQuotaIncreaseRequestIntoTemplateResponse -> TestTree
 responsePutServiceQuotaIncreaseRequestIntoTemplate =
@@ -319,7 +319,7 @@ responsePutServiceQuotaIncreaseRequestIntoTemplate =
     "PutServiceQuotaIncreaseRequestIntoTemplateResponse"
     "fixture/PutServiceQuotaIncreaseRequestIntoTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy PutServiceQuotaIncreaseRequestIntoTemplate)
+    (Proxy.Proxy :: Proxy.Proxy PutServiceQuotaIncreaseRequestIntoTemplate)
 
 responseRequestServiceQuotaIncrease :: RequestServiceQuotaIncreaseResponse -> TestTree
 responseRequestServiceQuotaIncrease =
@@ -327,7 +327,7 @@ responseRequestServiceQuotaIncrease =
     "RequestServiceQuotaIncreaseResponse"
     "fixture/RequestServiceQuotaIncreaseResponse.proto"
     defaultService
-    (Proxy :: Proxy RequestServiceQuotaIncrease)
+    (Proxy.Proxy :: Proxy.Proxy RequestServiceQuotaIncrease)
 
 responseGetServiceQuotaIncreaseRequestFromTemplate :: GetServiceQuotaIncreaseRequestFromTemplateResponse -> TestTree
 responseGetServiceQuotaIncreaseRequestFromTemplate =
@@ -335,7 +335,7 @@ responseGetServiceQuotaIncreaseRequestFromTemplate =
     "GetServiceQuotaIncreaseRequestFromTemplateResponse"
     "fixture/GetServiceQuotaIncreaseRequestFromTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceQuotaIncreaseRequestFromTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceQuotaIncreaseRequestFromTemplate)
 
 responseDisassociateServiceQuotaTemplate :: DisassociateServiceQuotaTemplateResponse -> TestTree
 responseDisassociateServiceQuotaTemplate =
@@ -343,7 +343,7 @@ responseDisassociateServiceQuotaTemplate =
     "DisassociateServiceQuotaTemplateResponse"
     "fixture/DisassociateServiceQuotaTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateServiceQuotaTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateServiceQuotaTemplate)
 
 responseDeleteServiceQuotaIncreaseRequestFromTemplate :: DeleteServiceQuotaIncreaseRequestFromTemplateResponse -> TestTree
 responseDeleteServiceQuotaIncreaseRequestFromTemplate =
@@ -351,7 +351,7 @@ responseDeleteServiceQuotaIncreaseRequestFromTemplate =
     "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
     "fixture/DeleteServiceQuotaIncreaseRequestFromTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServiceQuotaIncreaseRequestFromTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceQuotaIncreaseRequestFromTemplate)
 
 responseListServiceQuotas :: ListServiceQuotasResponse -> TestTree
 responseListServiceQuotas =
@@ -359,7 +359,7 @@ responseListServiceQuotas =
     "ListServiceQuotasResponse"
     "fixture/ListServiceQuotasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServiceQuotas)
+    (Proxy.Proxy :: Proxy.Proxy ListServiceQuotas)
 
 responseListRequestedServiceQuotaChangeHistory :: ListRequestedServiceQuotaChangeHistoryResponse -> TestTree
 responseListRequestedServiceQuotaChangeHistory =
@@ -367,7 +367,7 @@ responseListRequestedServiceQuotaChangeHistory =
     "ListRequestedServiceQuotaChangeHistoryResponse"
     "fixture/ListRequestedServiceQuotaChangeHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRequestedServiceQuotaChangeHistory)
+    (Proxy.Proxy :: Proxy.Proxy ListRequestedServiceQuotaChangeHistory)
 
 responseListServiceQuotaIncreaseRequestsInTemplate :: ListServiceQuotaIncreaseRequestsInTemplateResponse -> TestTree
 responseListServiceQuotaIncreaseRequestsInTemplate =
@@ -375,7 +375,7 @@ responseListServiceQuotaIncreaseRequestsInTemplate =
     "ListServiceQuotaIncreaseRequestsInTemplateResponse"
     "fixture/ListServiceQuotaIncreaseRequestsInTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServiceQuotaIncreaseRequestsInTemplate)
+    (Proxy.Proxy :: Proxy.Proxy ListServiceQuotaIncreaseRequestsInTemplate)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -383,7 +383,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListRequestedServiceQuotaChangeHistoryByQuota :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -> TestTree
 responseListRequestedServiceQuotaChangeHistoryByQuota =
@@ -391,7 +391,7 @@ responseListRequestedServiceQuotaChangeHistoryByQuota =
     "ListRequestedServiceQuotaChangeHistoryByQuotaResponse"
     "fixture/ListRequestedServiceQuotaChangeHistoryByQuotaResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRequestedServiceQuotaChangeHistoryByQuota)
+    (Proxy.Proxy :: Proxy.Proxy ListRequestedServiceQuotaChangeHistoryByQuota)
 
 responseGetRequestedServiceQuotaChange :: GetRequestedServiceQuotaChangeResponse -> TestTree
 responseGetRequestedServiceQuotaChange =
@@ -399,7 +399,7 @@ responseGetRequestedServiceQuotaChange =
     "GetRequestedServiceQuotaChangeResponse"
     "fixture/GetRequestedServiceQuotaChangeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRequestedServiceQuotaChange)
+    (Proxy.Proxy :: Proxy.Proxy GetRequestedServiceQuotaChange)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -407,7 +407,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetAWSDefaultServiceQuota :: GetAWSDefaultServiceQuotaResponse -> TestTree
 responseGetAWSDefaultServiceQuota =
@@ -415,4 +415,4 @@ responseGetAWSDefaultServiceQuota =
     "GetAWSDefaultServiceQuotaResponse"
     "fixture/GetAWSDefaultServiceQuotaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAWSDefaultServiceQuota)
+    (Proxy.Proxy :: Proxy.Proxy GetAWSDefaultServiceQuota)

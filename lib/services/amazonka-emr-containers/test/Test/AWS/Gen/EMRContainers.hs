@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EMRContainers where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EMRContainers
 import Test.AWS.EMRContainers.Internal
 import Test.AWS.Fixture
@@ -223,7 +223,7 @@ responseListManagedEndpoints =
     "ListManagedEndpointsResponse"
     "fixture/ListManagedEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListManagedEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy ListManagedEndpoints)
 
 responseCreateVirtualCluster :: CreateVirtualClusterResponse -> TestTree
 responseCreateVirtualCluster =
@@ -231,7 +231,7 @@ responseCreateVirtualCluster =
     "CreateVirtualClusterResponse"
     "fixture/CreateVirtualClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVirtualCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualCluster)
 
 responseDeleteVirtualCluster :: DeleteVirtualClusterResponse -> TestTree
 responseDeleteVirtualCluster =
@@ -239,7 +239,7 @@ responseDeleteVirtualCluster =
     "DeleteVirtualClusterResponse"
     "fixture/DeleteVirtualClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualCluster)
 
 responseCreateManagedEndpoint :: CreateManagedEndpointResponse -> TestTree
 responseCreateManagedEndpoint =
@@ -247,7 +247,7 @@ responseCreateManagedEndpoint =
     "CreateManagedEndpointResponse"
     "fixture/CreateManagedEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateManagedEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateManagedEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -255,7 +255,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCancelJobRun :: CancelJobRunResponse -> TestTree
 responseCancelJobRun =
@@ -263,7 +263,7 @@ responseCancelJobRun =
     "CancelJobRunResponse"
     "fixture/CancelJobRunResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJobRun)
+    (Proxy.Proxy :: Proxy.Proxy CancelJobRun)
 
 responseDeleteManagedEndpoint :: DeleteManagedEndpointResponse -> TestTree
 responseDeleteManagedEndpoint =
@@ -271,7 +271,7 @@ responseDeleteManagedEndpoint =
     "DeleteManagedEndpointResponse"
     "fixture/DeleteManagedEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteManagedEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteManagedEndpoint)
 
 responseListJobRuns :: ListJobRunsResponse -> TestTree
 responseListJobRuns =
@@ -279,7 +279,7 @@ responseListJobRuns =
     "ListJobRunsResponse"
     "fixture/ListJobRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobRuns)
+    (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
 
 responseListVirtualClusters :: ListVirtualClustersResponse -> TestTree
 responseListVirtualClusters =
@@ -287,7 +287,7 @@ responseListVirtualClusters =
     "ListVirtualClustersResponse"
     "fixture/ListVirtualClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualClusters)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -295,7 +295,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeManagedEndpoint :: DescribeManagedEndpointResponse -> TestTree
 responseDescribeManagedEndpoint =
@@ -303,7 +303,7 @@ responseDescribeManagedEndpoint =
     "DescribeManagedEndpointResponse"
     "fixture/DescribeManagedEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeManagedEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DescribeManagedEndpoint)
 
 responseDescribeJobRun :: DescribeJobRunResponse -> TestTree
 responseDescribeJobRun =
@@ -311,7 +311,7 @@ responseDescribeJobRun =
     "DescribeJobRunResponse"
     "fixture/DescribeJobRunResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobRun)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobRun)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -319,7 +319,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeVirtualCluster :: DescribeVirtualClusterResponse -> TestTree
 responseDescribeVirtualCluster =
@@ -327,7 +327,7 @@ responseDescribeVirtualCluster =
     "DescribeVirtualClusterResponse"
     "fixture/DescribeVirtualClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualCluster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualCluster)
 
 responseStartJobRun :: StartJobRunResponse -> TestTree
 responseStartJobRun =
@@ -335,4 +335,4 @@ responseStartJobRun =
     "StartJobRunResponse"
     "fixture/StartJobRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StartJobRun)
+    (Proxy.Proxy :: Proxy.Proxy StartJobRun)

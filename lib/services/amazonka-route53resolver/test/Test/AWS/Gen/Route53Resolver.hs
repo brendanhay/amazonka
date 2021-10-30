@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53Resolver where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53Resolver
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -763,7 +763,7 @@ responseUpdateResolverEndpoint =
     "UpdateResolverEndpointResponse"
     "fixture/UpdateResolverEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResolverEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolverEndpoint)
 
 responseDeleteResolverEndpoint :: DeleteResolverEndpointResponse -> TestTree
 responseDeleteResolverEndpoint =
@@ -771,7 +771,7 @@ responseDeleteResolverEndpoint =
     "DeleteResolverEndpointResponse"
     "fixture/DeleteResolverEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResolverEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolverEndpoint)
 
 responseCreateResolverRule :: CreateResolverRuleResponse -> TestTree
 responseCreateResolverRule =
@@ -779,7 +779,7 @@ responseCreateResolverRule =
     "CreateResolverRuleResponse"
     "fixture/CreateResolverRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateResolverRule)
 
 responseGetResolverQueryLogConfig :: GetResolverQueryLogConfigResponse -> TestTree
 responseGetResolverQueryLogConfig =
@@ -787,7 +787,7 @@ responseGetResolverQueryLogConfig =
     "GetResolverQueryLogConfigResponse"
     "fixture/GetResolverQueryLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverQueryLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfig)
 
 responseCreateFirewallRule :: CreateFirewallRuleResponse -> TestTree
 responseCreateFirewallRule =
@@ -795,7 +795,7 @@ responseCreateFirewallRule =
     "CreateFirewallRuleResponse"
     "fixture/CreateFirewallRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFirewallRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallRule)
 
 responseUpdateFirewallRuleGroupAssociation :: UpdateFirewallRuleGroupAssociationResponse -> TestTree
 responseUpdateFirewallRuleGroupAssociation =
@@ -803,7 +803,7 @@ responseUpdateFirewallRuleGroupAssociation =
     "UpdateFirewallRuleGroupAssociationResponse"
     "fixture/UpdateFirewallRuleGroupAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallRuleGroupAssociation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRuleGroupAssociation)
 
 responseListFirewallRuleGroupAssociations :: ListFirewallRuleGroupAssociationsResponse -> TestTree
 responseListFirewallRuleGroupAssociations =
@@ -811,7 +811,7 @@ responseListFirewallRuleGroupAssociations =
     "ListFirewallRuleGroupAssociationsResponse"
     "fixture/ListFirewallRuleGroupAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallRuleGroupAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallRuleGroupAssociations)
 
 responseListResolverQueryLogConfigAssociations :: ListResolverQueryLogConfigAssociationsResponse -> TestTree
 responseListResolverQueryLogConfigAssociations =
@@ -819,7 +819,7 @@ responseListResolverQueryLogConfigAssociations =
     "ListResolverQueryLogConfigAssociationsResponse"
     "fixture/ListResolverQueryLogConfigAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverQueryLogConfigAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverQueryLogConfigAssociations)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -827,7 +827,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetFirewallRuleGroupAssociation :: GetFirewallRuleGroupAssociationResponse -> TestTree
 responseGetFirewallRuleGroupAssociation =
@@ -835,7 +835,7 @@ responseGetFirewallRuleGroupAssociation =
     "GetFirewallRuleGroupAssociationResponse"
     "fixture/GetFirewallRuleGroupAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFirewallRuleGroupAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupAssociation)
 
 responseDisassociateResolverEndpointIpAddress :: DisassociateResolverEndpointIpAddressResponse -> TestTree
 responseDisassociateResolverEndpointIpAddress =
@@ -843,7 +843,7 @@ responseDisassociateResolverEndpointIpAddress =
     "DisassociateResolverEndpointIpAddressResponse"
     "fixture/DisassociateResolverEndpointIpAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateResolverEndpointIpAddress)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverEndpointIpAddress)
 
 responseListResolverRuleAssociations :: ListResolverRuleAssociationsResponse -> TestTree
 responseListResolverRuleAssociations =
@@ -851,7 +851,7 @@ responseListResolverRuleAssociations =
     "ListResolverRuleAssociationsResponse"
     "fixture/ListResolverRuleAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverRuleAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverRuleAssociations)
 
 responseDeleteResolverQueryLogConfig :: DeleteResolverQueryLogConfigResponse -> TestTree
 responseDeleteResolverQueryLogConfig =
@@ -859,7 +859,7 @@ responseDeleteResolverQueryLogConfig =
     "DeleteResolverQueryLogConfigResponse"
     "fixture/DeleteResolverQueryLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResolverQueryLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolverQueryLogConfig)
 
 responseCreateFirewallRuleGroup :: CreateFirewallRuleGroupResponse -> TestTree
 responseCreateFirewallRuleGroup =
@@ -867,7 +867,7 @@ responseCreateFirewallRuleGroup =
     "CreateFirewallRuleGroupResponse"
     "fixture/CreateFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFirewallRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallRuleGroup)
 
 responseGetResolverEndpoint :: GetResolverEndpointResponse -> TestTree
 responseGetResolverEndpoint =
@@ -875,7 +875,7 @@ responseGetResolverEndpoint =
     "GetResolverEndpointResponse"
     "fixture/GetResolverEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverEndpoint)
 
 responseListResolverQueryLogConfigs :: ListResolverQueryLogConfigsResponse -> TestTree
 responseListResolverQueryLogConfigs =
@@ -883,7 +883,7 @@ responseListResolverQueryLogConfigs =
     "ListResolverQueryLogConfigsResponse"
     "fixture/ListResolverQueryLogConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverQueryLogConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverQueryLogConfigs)
 
 responseDeleteFirewallRuleGroup :: DeleteFirewallRuleGroupResponse -> TestTree
 responseDeleteFirewallRuleGroup =
@@ -891,7 +891,7 @@ responseDeleteFirewallRuleGroup =
     "DeleteFirewallRuleGroupResponse"
     "fixture/DeleteFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFirewallRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallRuleGroup)
 
 responseListResolverEndpointIpAddresses :: ListResolverEndpointIpAddressesResponse -> TestTree
 responseListResolverEndpointIpAddresses =
@@ -899,7 +899,7 @@ responseListResolverEndpointIpAddresses =
     "ListResolverEndpointIpAddressesResponse"
     "fixture/ListResolverEndpointIpAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverEndpointIpAddresses)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverEndpointIpAddresses)
 
 responseAssociateResolverQueryLogConfig :: AssociateResolverQueryLogConfigResponse -> TestTree
 responseAssociateResolverQueryLogConfig =
@@ -907,7 +907,7 @@ responseAssociateResolverQueryLogConfig =
     "AssociateResolverQueryLogConfigResponse"
     "fixture/AssociateResolverQueryLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateResolverQueryLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResolverQueryLogConfig)
 
 responseGetResolverRulePolicy :: GetResolverRulePolicyResponse -> TestTree
 responseGetResolverRulePolicy =
@@ -915,7 +915,7 @@ responseGetResolverRulePolicy =
     "GetResolverRulePolicyResponse"
     "fixture/GetResolverRulePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverRulePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverRulePolicy)
 
 responseGetResolverDnssecConfig :: GetResolverDnssecConfigResponse -> TestTree
 responseGetResolverDnssecConfig =
@@ -923,7 +923,7 @@ responseGetResolverDnssecConfig =
     "GetResolverDnssecConfigResponse"
     "fixture/GetResolverDnssecConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverDnssecConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverDnssecConfig)
 
 responseListFirewallRuleGroups :: ListFirewallRuleGroupsResponse -> TestTree
 responseListFirewallRuleGroups =
@@ -931,7 +931,7 @@ responseListFirewallRuleGroups =
     "ListFirewallRuleGroupsResponse"
     "fixture/ListFirewallRuleGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallRuleGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallRuleGroups)
 
 responseUpdateResolverRule :: UpdateResolverRuleResponse -> TestTree
 responseUpdateResolverRule =
@@ -939,7 +939,7 @@ responseUpdateResolverRule =
     "UpdateResolverRuleResponse"
     "fixture/UpdateResolverRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolverRule)
 
 responseDeleteResolverRule :: DeleteResolverRuleResponse -> TestTree
 responseDeleteResolverRule =
@@ -947,7 +947,7 @@ responseDeleteResolverRule =
     "DeleteResolverRuleResponse"
     "fixture/DeleteResolverRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolverRule)
 
 responseDeleteFirewallRule :: DeleteFirewallRuleResponse -> TestTree
 responseDeleteFirewallRule =
@@ -955,7 +955,7 @@ responseDeleteFirewallRule =
     "DeleteFirewallRuleResponse"
     "fixture/DeleteFirewallRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFirewallRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallRule)
 
 responseUpdateFirewallRule :: UpdateFirewallRuleResponse -> TestTree
 responseUpdateFirewallRule =
@@ -963,7 +963,7 @@ responseUpdateFirewallRule =
     "UpdateFirewallRuleResponse"
     "fixture/UpdateFirewallRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRule)
 
 responseListFirewallRules :: ListFirewallRulesResponse -> TestTree
 responseListFirewallRules =
@@ -971,7 +971,7 @@ responseListFirewallRules =
     "ListFirewallRulesResponse"
     "fixture/ListFirewallRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallRules)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallRules)
 
 responseGetFirewallRuleGroup :: GetFirewallRuleGroupResponse -> TestTree
 responseGetFirewallRuleGroup =
@@ -979,7 +979,7 @@ responseGetFirewallRuleGroup =
     "GetFirewallRuleGroupResponse"
     "fixture/GetFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFirewallRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroup)
 
 responseListResolverRules :: ListResolverRulesResponse -> TestTree
 responseListResolverRules =
@@ -987,7 +987,7 @@ responseListResolverRules =
     "ListResolverRulesResponse"
     "fixture/ListResolverRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverRules)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverRules)
 
 responseCreateResolverEndpoint :: CreateResolverEndpointResponse -> TestTree
 responseCreateResolverEndpoint =
@@ -995,7 +995,7 @@ responseCreateResolverEndpoint =
     "CreateResolverEndpointResponse"
     "fixture/CreateResolverEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResolverEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateResolverEndpoint)
 
 responseAssociateResolverRule :: AssociateResolverRuleResponse -> TestTree
 responseAssociateResolverRule =
@@ -1003,7 +1003,7 @@ responseAssociateResolverRule =
     "AssociateResolverRuleResponse"
     "fixture/AssociateResolverRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResolverRule)
 
 responseGetResolverQueryLogConfigPolicy :: GetResolverQueryLogConfigPolicyResponse -> TestTree
 responseGetResolverQueryLogConfigPolicy =
@@ -1011,7 +1011,7 @@ responseGetResolverQueryLogConfigPolicy =
     "GetResolverQueryLogConfigPolicyResponse"
     "fixture/GetResolverQueryLogConfigPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverQueryLogConfigPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfigPolicy)
 
 responseUpdateFirewallDomains :: UpdateFirewallDomainsResponse -> TestTree
 responseUpdateFirewallDomains =
@@ -1019,7 +1019,7 @@ responseUpdateFirewallDomains =
     "UpdateFirewallDomainsResponse"
     "fixture/UpdateFirewallDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallDomains)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDomains)
 
 responseListResolverEndpoints :: ListResolverEndpointsResponse -> TestTree
 responseListResolverEndpoints =
@@ -1027,7 +1027,7 @@ responseListResolverEndpoints =
     "ListResolverEndpointsResponse"
     "fixture/ListResolverEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverEndpoints)
 
 responseListFirewallDomains :: ListFirewallDomainsResponse -> TestTree
 responseListFirewallDomains =
@@ -1035,7 +1035,7 @@ responseListFirewallDomains =
     "ListFirewallDomainsResponse"
     "fixture/ListFirewallDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallDomains)
 
 responseGetResolverRuleAssociation :: GetResolverRuleAssociationResponse -> TestTree
 responseGetResolverRuleAssociation =
@@ -1043,7 +1043,7 @@ responseGetResolverRuleAssociation =
     "GetResolverRuleAssociationResponse"
     "fixture/GetResolverRuleAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverRuleAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverRuleAssociation)
 
 responseGetFirewallConfig :: GetFirewallConfigResponse -> TestTree
 responseGetFirewallConfig =
@@ -1051,7 +1051,7 @@ responseGetFirewallConfig =
     "GetFirewallConfigResponse"
     "fixture/GetFirewallConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFirewallConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallConfig)
 
 responseGetFirewallDomainList :: GetFirewallDomainListResponse -> TestTree
 responseGetFirewallDomainList =
@@ -1059,7 +1059,7 @@ responseGetFirewallDomainList =
     "GetFirewallDomainListResponse"
     "fixture/GetFirewallDomainListResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFirewallDomainList)
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallDomainList)
 
 responseDisassociateResolverRule :: DisassociateResolverRuleResponse -> TestTree
 responseDisassociateResolverRule =
@@ -1067,7 +1067,7 @@ responseDisassociateResolverRule =
     "DisassociateResolverRuleResponse"
     "fixture/DisassociateResolverRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverRule)
 
 responseGetResolverQueryLogConfigAssociation :: GetResolverQueryLogConfigAssociationResponse -> TestTree
 responseGetResolverQueryLogConfigAssociation =
@@ -1075,7 +1075,7 @@ responseGetResolverQueryLogConfigAssociation =
     "GetResolverQueryLogConfigAssociationResponse"
     "fixture/GetResolverQueryLogConfigAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverQueryLogConfigAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfigAssociation)
 
 responseListFirewallDomainLists :: ListFirewallDomainListsResponse -> TestTree
 responseListFirewallDomainLists =
@@ -1083,7 +1083,7 @@ responseListFirewallDomainLists =
     "ListFirewallDomainListsResponse"
     "fixture/ListFirewallDomainListsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallDomainLists)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallDomainLists)
 
 responseDisassociateFirewallRuleGroup :: DisassociateFirewallRuleGroupResponse -> TestTree
 responseDisassociateFirewallRuleGroup =
@@ -1091,7 +1091,7 @@ responseDisassociateFirewallRuleGroup =
     "DisassociateFirewallRuleGroupResponse"
     "fixture/DisassociateFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateFirewallRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFirewallRuleGroup)
 
 responseUpdateFirewallConfig :: UpdateFirewallConfigResponse -> TestTree
 responseUpdateFirewallConfig =
@@ -1099,7 +1099,7 @@ responseUpdateFirewallConfig =
     "UpdateFirewallConfigResponse"
     "fixture/UpdateFirewallConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallConfig)
 
 responseDeleteFirewallDomainList :: DeleteFirewallDomainListResponse -> TestTree
 responseDeleteFirewallDomainList =
@@ -1107,7 +1107,7 @@ responseDeleteFirewallDomainList =
     "DeleteFirewallDomainListResponse"
     "fixture/DeleteFirewallDomainListResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFirewallDomainList)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallDomainList)
 
 responseListFirewallConfigs :: ListFirewallConfigsResponse -> TestTree
 responseListFirewallConfigs =
@@ -1115,7 +1115,7 @@ responseListFirewallConfigs =
     "ListFirewallConfigsResponse"
     "fixture/ListFirewallConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallConfigs)
 
 responseCreateFirewallDomainList :: CreateFirewallDomainListResponse -> TestTree
 responseCreateFirewallDomainList =
@@ -1123,7 +1123,7 @@ responseCreateFirewallDomainList =
     "CreateFirewallDomainListResponse"
     "fixture/CreateFirewallDomainListResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFirewallDomainList)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallDomainList)
 
 responseImportFirewallDomains :: ImportFirewallDomainsResponse -> TestTree
 responseImportFirewallDomains =
@@ -1131,7 +1131,7 @@ responseImportFirewallDomains =
     "ImportFirewallDomainsResponse"
     "fixture/ImportFirewallDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportFirewallDomains)
+    (Proxy.Proxy :: Proxy.Proxy ImportFirewallDomains)
 
 responseDisassociateResolverQueryLogConfig :: DisassociateResolverQueryLogConfigResponse -> TestTree
 responseDisassociateResolverQueryLogConfig =
@@ -1139,7 +1139,7 @@ responseDisassociateResolverQueryLogConfig =
     "DisassociateResolverQueryLogConfigResponse"
     "fixture/DisassociateResolverQueryLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateResolverQueryLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverQueryLogConfig)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1147,7 +1147,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseAssociateFirewallRuleGroup :: AssociateFirewallRuleGroupResponse -> TestTree
 responseAssociateFirewallRuleGroup =
@@ -1155,7 +1155,7 @@ responseAssociateFirewallRuleGroup =
     "AssociateFirewallRuleGroupResponse"
     "fixture/AssociateFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateFirewallRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy AssociateFirewallRuleGroup)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1163,7 +1163,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responsePutResolverQueryLogConfigPolicy :: PutResolverQueryLogConfigPolicyResponse -> TestTree
 responsePutResolverQueryLogConfigPolicy =
@@ -1171,7 +1171,7 @@ responsePutResolverQueryLogConfigPolicy =
     "PutResolverQueryLogConfigPolicyResponse"
     "fixture/PutResolverQueryLogConfigPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResolverQueryLogConfigPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResolverQueryLogConfigPolicy)
 
 responseAssociateResolverEndpointIpAddress :: AssociateResolverEndpointIpAddressResponse -> TestTree
 responseAssociateResolverEndpointIpAddress =
@@ -1179,7 +1179,7 @@ responseAssociateResolverEndpointIpAddress =
     "AssociateResolverEndpointIpAddressResponse"
     "fixture/AssociateResolverEndpointIpAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateResolverEndpointIpAddress)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResolverEndpointIpAddress)
 
 responseCreateResolverQueryLogConfig :: CreateResolverQueryLogConfigResponse -> TestTree
 responseCreateResolverQueryLogConfig =
@@ -1187,7 +1187,7 @@ responseCreateResolverQueryLogConfig =
     "CreateResolverQueryLogConfigResponse"
     "fixture/CreateResolverQueryLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResolverQueryLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateResolverQueryLogConfig)
 
 responseGetResolverRule :: GetResolverRuleResponse -> TestTree
 responseGetResolverRule =
@@ -1195,7 +1195,7 @@ responseGetResolverRule =
     "GetResolverRuleResponse"
     "fixture/GetResolverRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverRule)
 
 responsePutFirewallRuleGroupPolicy :: PutFirewallRuleGroupPolicyResponse -> TestTree
 responsePutFirewallRuleGroupPolicy =
@@ -1203,7 +1203,7 @@ responsePutFirewallRuleGroupPolicy =
     "PutFirewallRuleGroupPolicyResponse"
     "fixture/PutFirewallRuleGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFirewallRuleGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutFirewallRuleGroupPolicy)
 
 responsePutResolverRulePolicy :: PutResolverRulePolicyResponse -> TestTree
 responsePutResolverRulePolicy =
@@ -1211,7 +1211,7 @@ responsePutResolverRulePolicy =
     "PutResolverRulePolicyResponse"
     "fixture/PutResolverRulePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResolverRulePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResolverRulePolicy)
 
 responseListResolverDnssecConfigs :: ListResolverDnssecConfigsResponse -> TestTree
 responseListResolverDnssecConfigs =
@@ -1219,7 +1219,7 @@ responseListResolverDnssecConfigs =
     "ListResolverDnssecConfigsResponse"
     "fixture/ListResolverDnssecConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolverDnssecConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListResolverDnssecConfigs)
 
 responseUpdateResolverDnssecConfig :: UpdateResolverDnssecConfigResponse -> TestTree
 responseUpdateResolverDnssecConfig =
@@ -1227,7 +1227,7 @@ responseUpdateResolverDnssecConfig =
     "UpdateResolverDnssecConfigResponse"
     "fixture/UpdateResolverDnssecConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResolverDnssecConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolverDnssecConfig)
 
 responseGetFirewallRuleGroupPolicy :: GetFirewallRuleGroupPolicyResponse -> TestTree
 responseGetFirewallRuleGroupPolicy =
@@ -1235,4 +1235,4 @@ responseGetFirewallRuleGroupPolicy =
     "GetFirewallRuleGroupPolicyResponse"
     "fixture/GetFirewallRuleGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFirewallRuleGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupPolicy)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Kendra where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Kendra
 import Test.AWS.Fixture
 import Test.AWS.Kendra.Internal
@@ -559,7 +559,7 @@ responseUpdateDataSource =
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
 responseDeleteDataSource =
@@ -567,7 +567,7 @@ responseDeleteDataSource =
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
 
 responseClearQuerySuggestions :: ClearQuerySuggestionsResponse -> TestTree
 responseClearQuerySuggestions =
@@ -575,7 +575,7 @@ responseClearQuerySuggestions =
     "ClearQuerySuggestionsResponse"
     "fixture/ClearQuerySuggestionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ClearQuerySuggestions)
+    (Proxy.Proxy :: Proxy.Proxy ClearQuerySuggestions)
 
 responseListFaqs :: ListFaqsResponse -> TestTree
 responseListFaqs =
@@ -583,7 +583,7 @@ responseListFaqs =
     "ListFaqsResponse"
     "fixture/ListFaqsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFaqs)
+    (Proxy.Proxy :: Proxy.Proxy ListFaqs)
 
 responseDeleteIndex :: DeleteIndexResponse -> TestTree
 responseDeleteIndex =
@@ -591,7 +591,7 @@ responseDeleteIndex =
     "DeleteIndexResponse"
     "fixture/DeleteIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIndex)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIndex)
 
 responseUpdateIndex :: UpdateIndexResponse -> TestTree
 responseUpdateIndex =
@@ -599,7 +599,7 @@ responseUpdateIndex =
     "UpdateIndexResponse"
     "fixture/UpdateIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIndex)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIndex)
 
 responseListQuerySuggestionsBlockLists :: ListQuerySuggestionsBlockListsResponse -> TestTree
 responseListQuerySuggestionsBlockLists =
@@ -607,7 +607,7 @@ responseListQuerySuggestionsBlockLists =
     "ListQuerySuggestionsBlockListsResponse"
     "fixture/ListQuerySuggestionsBlockListsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQuerySuggestionsBlockLists)
+    (Proxy.Proxy :: Proxy.Proxy ListQuerySuggestionsBlockLists)
 
 responseCreateFaq :: CreateFaqResponse -> TestTree
 responseCreateFaq =
@@ -615,7 +615,7 @@ responseCreateFaq =
     "CreateFaqResponse"
     "fixture/CreateFaqResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFaq)
+    (Proxy.Proxy :: Proxy.Proxy CreateFaq)
 
 responseCreateQuerySuggestionsBlockList :: CreateQuerySuggestionsBlockListResponse -> TestTree
 responseCreateQuerySuggestionsBlockList =
@@ -623,7 +623,7 @@ responseCreateQuerySuggestionsBlockList =
     "CreateQuerySuggestionsBlockListResponse"
     "fixture/CreateQuerySuggestionsBlockListResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQuerySuggestionsBlockList)
+    (Proxy.Proxy :: Proxy.Proxy CreateQuerySuggestionsBlockList)
 
 responseBatchPutDocument :: BatchPutDocumentResponse -> TestTree
 responseBatchPutDocument =
@@ -631,7 +631,7 @@ responseBatchPutDocument =
     "BatchPutDocumentResponse"
     "fixture/BatchPutDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchPutDocument)
+    (Proxy.Proxy :: Proxy.Proxy BatchPutDocument)
 
 responseBatchDeleteDocument :: BatchDeleteDocumentResponse -> TestTree
 responseBatchDeleteDocument =
@@ -639,7 +639,7 @@ responseBatchDeleteDocument =
     "BatchDeleteDocumentResponse"
     "fixture/BatchDeleteDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteDocument)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteDocument)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -647,7 +647,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseSubmitFeedback :: SubmitFeedbackResponse -> TestTree
 responseSubmitFeedback =
@@ -655,7 +655,7 @@ responseSubmitFeedback =
     "SubmitFeedbackResponse"
     "fixture/SubmitFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy SubmitFeedback)
+    (Proxy.Proxy :: Proxy.Proxy SubmitFeedback)
 
 responseStopDataSourceSyncJob :: StopDataSourceSyncJobResponse -> TestTree
 responseStopDataSourceSyncJob =
@@ -663,7 +663,7 @@ responseStopDataSourceSyncJob =
     "StopDataSourceSyncJobResponse"
     "fixture/StopDataSourceSyncJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDataSourceSyncJob)
+    (Proxy.Proxy :: Proxy.Proxy StopDataSourceSyncJob)
 
 responseDescribeDataSource :: DescribeDataSourceResponse -> TestTree
 responseDescribeDataSource =
@@ -671,7 +671,7 @@ responseDescribeDataSource =
     "DescribeDataSourceResponse"
     "fixture/DescribeDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSource)
 
 responseDescribeIndex :: DescribeIndexResponse -> TestTree
 responseDescribeIndex =
@@ -679,7 +679,7 @@ responseDescribeIndex =
     "DescribeIndexResponse"
     "fixture/DescribeIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIndex)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIndex)
 
 responseUpdateQuerySuggestionsConfig :: UpdateQuerySuggestionsConfigResponse -> TestTree
 responseUpdateQuerySuggestionsConfig =
@@ -687,7 +687,7 @@ responseUpdateQuerySuggestionsConfig =
     "UpdateQuerySuggestionsConfigResponse"
     "fixture/UpdateQuerySuggestionsConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQuerySuggestionsConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQuerySuggestionsConfig)
 
 responseCreateDataSource :: CreateDataSourceResponse -> TestTree
 responseCreateDataSource =
@@ -695,7 +695,7 @@ responseCreateDataSource =
     "CreateDataSourceResponse"
     "fixture/CreateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSource)
 
 responseBatchGetDocumentStatus :: BatchGetDocumentStatusResponse -> TestTree
 responseBatchGetDocumentStatus =
@@ -703,7 +703,7 @@ responseBatchGetDocumentStatus =
     "BatchGetDocumentStatusResponse"
     "fixture/BatchGetDocumentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetDocumentStatus)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDocumentStatus)
 
 responseListDataSourceSyncJobs :: ListDataSourceSyncJobsResponse -> TestTree
 responseListDataSourceSyncJobs =
@@ -711,7 +711,7 @@ responseListDataSourceSyncJobs =
     "ListDataSourceSyncJobsResponse"
     "fixture/ListDataSourceSyncJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataSourceSyncJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDataSourceSyncJobs)
 
 responseListDataSources :: ListDataSourcesResponse -> TestTree
 responseListDataSources =
@@ -719,7 +719,7 @@ responseListDataSources =
     "ListDataSourcesResponse"
     "fixture/ListDataSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataSources)
+    (Proxy.Proxy :: Proxy.Proxy ListDataSources)
 
 responseDeleteQuerySuggestionsBlockList :: DeleteQuerySuggestionsBlockListResponse -> TestTree
 responseDeleteQuerySuggestionsBlockList =
@@ -727,7 +727,7 @@ responseDeleteQuerySuggestionsBlockList =
     "DeleteQuerySuggestionsBlockListResponse"
     "fixture/DeleteQuerySuggestionsBlockListResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQuerySuggestionsBlockList)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQuerySuggestionsBlockList)
 
 responseUpdateQuerySuggestionsBlockList :: UpdateQuerySuggestionsBlockListResponse -> TestTree
 responseUpdateQuerySuggestionsBlockList =
@@ -735,7 +735,7 @@ responseUpdateQuerySuggestionsBlockList =
     "UpdateQuerySuggestionsBlockListResponse"
     "fixture/UpdateQuerySuggestionsBlockListResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQuerySuggestionsBlockList)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQuerySuggestionsBlockList)
 
 responseDeleteFaq :: DeleteFaqResponse -> TestTree
 responseDeleteFaq =
@@ -743,7 +743,7 @@ responseDeleteFaq =
     "DeleteFaqResponse"
     "fixture/DeleteFaqResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFaq)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFaq)
 
 responsePutPrincipalMapping :: PutPrincipalMappingResponse -> TestTree
 responsePutPrincipalMapping =
@@ -751,7 +751,7 @@ responsePutPrincipalMapping =
     "PutPrincipalMappingResponse"
     "fixture/PutPrincipalMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPrincipalMapping)
+    (Proxy.Proxy :: Proxy.Proxy PutPrincipalMapping)
 
 responseDeletePrincipalMapping :: DeletePrincipalMappingResponse -> TestTree
 responseDeletePrincipalMapping =
@@ -759,7 +759,7 @@ responseDeletePrincipalMapping =
     "DeletePrincipalMappingResponse"
     "fixture/DeletePrincipalMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePrincipalMapping)
+    (Proxy.Proxy :: Proxy.Proxy DeletePrincipalMapping)
 
 responseDescribeThesaurus :: DescribeThesaurusResponse -> TestTree
 responseDescribeThesaurus =
@@ -767,7 +767,7 @@ responseDescribeThesaurus =
     "DescribeThesaurusResponse"
     "fixture/DescribeThesaurusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeThesaurus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeThesaurus)
 
 responseListThesauri :: ListThesauriResponse -> TestTree
 responseListThesauri =
@@ -775,7 +775,7 @@ responseListThesauri =
     "ListThesauriResponse"
     "fixture/ListThesauriResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThesauri)
+    (Proxy.Proxy :: Proxy.Proxy ListThesauri)
 
 responseCreateIndex :: CreateIndexResponse -> TestTree
 responseCreateIndex =
@@ -783,7 +783,7 @@ responseCreateIndex =
     "CreateIndexResponse"
     "fixture/CreateIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIndex)
+    (Proxy.Proxy :: Proxy.Proxy CreateIndex)
 
 responseQuery :: QueryResponse -> TestTree
 responseQuery =
@@ -791,7 +791,7 @@ responseQuery =
     "QueryResponse"
     "fixture/QueryResponse.proto"
     defaultService
-    (Proxy :: Proxy Query)
+    (Proxy.Proxy :: Proxy.Proxy Query)
 
 responseDescribeQuerySuggestionsConfig :: DescribeQuerySuggestionsConfigResponse -> TestTree
 responseDescribeQuerySuggestionsConfig =
@@ -799,7 +799,7 @@ responseDescribeQuerySuggestionsConfig =
     "DescribeQuerySuggestionsConfigResponse"
     "fixture/DescribeQuerySuggestionsConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeQuerySuggestionsConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeQuerySuggestionsConfig)
 
 responseStartDataSourceSyncJob :: StartDataSourceSyncJobResponse -> TestTree
 responseStartDataSourceSyncJob =
@@ -807,7 +807,7 @@ responseStartDataSourceSyncJob =
     "StartDataSourceSyncJobResponse"
     "fixture/StartDataSourceSyncJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDataSourceSyncJob)
+    (Proxy.Proxy :: Proxy.Proxy StartDataSourceSyncJob)
 
 responseListIndices :: ListIndicesResponse -> TestTree
 responseListIndices =
@@ -815,7 +815,7 @@ responseListIndices =
     "ListIndicesResponse"
     "fixture/ListIndicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIndices)
+    (Proxy.Proxy :: Proxy.Proxy ListIndices)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -823,7 +823,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetQuerySuggestions :: GetQuerySuggestionsResponse -> TestTree
 responseGetQuerySuggestions =
@@ -831,7 +831,7 @@ responseGetQuerySuggestions =
     "GetQuerySuggestionsResponse"
     "fixture/GetQuerySuggestionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQuerySuggestions)
+    (Proxy.Proxy :: Proxy.Proxy GetQuerySuggestions)
 
 responseDeleteThesaurus :: DeleteThesaurusResponse -> TestTree
 responseDeleteThesaurus =
@@ -839,7 +839,7 @@ responseDeleteThesaurus =
     "DeleteThesaurusResponse"
     "fixture/DeleteThesaurusResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteThesaurus)
+    (Proxy.Proxy :: Proxy.Proxy DeleteThesaurus)
 
 responseUpdateThesaurus :: UpdateThesaurusResponse -> TestTree
 responseUpdateThesaurus =
@@ -847,7 +847,7 @@ responseUpdateThesaurus =
     "UpdateThesaurusResponse"
     "fixture/UpdateThesaurusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThesaurus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateThesaurus)
 
 responseDescribeFaq :: DescribeFaqResponse -> TestTree
 responseDescribeFaq =
@@ -855,7 +855,7 @@ responseDescribeFaq =
     "DescribeFaqResponse"
     "fixture/DescribeFaqResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFaq)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFaq)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -863,7 +863,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeQuerySuggestionsBlockList :: DescribeQuerySuggestionsBlockListResponse -> TestTree
 responseDescribeQuerySuggestionsBlockList =
@@ -871,7 +871,7 @@ responseDescribeQuerySuggestionsBlockList =
     "DescribeQuerySuggestionsBlockListResponse"
     "fixture/DescribeQuerySuggestionsBlockListResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeQuerySuggestionsBlockList)
+    (Proxy.Proxy :: Proxy.Proxy DescribeQuerySuggestionsBlockList)
 
 responseDescribePrincipalMapping :: DescribePrincipalMappingResponse -> TestTree
 responseDescribePrincipalMapping =
@@ -879,7 +879,7 @@ responseDescribePrincipalMapping =
     "DescribePrincipalMappingResponse"
     "fixture/DescribePrincipalMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePrincipalMapping)
+    (Proxy.Proxy :: Proxy.Proxy DescribePrincipalMapping)
 
 responseListGroupsOlderThanOrderingId :: ListGroupsOlderThanOrderingIdResponse -> TestTree
 responseListGroupsOlderThanOrderingId =
@@ -887,7 +887,7 @@ responseListGroupsOlderThanOrderingId =
     "ListGroupsOlderThanOrderingIdResponse"
     "fixture/ListGroupsOlderThanOrderingIdResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupsOlderThanOrderingId)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupsOlderThanOrderingId)
 
 responseCreateThesaurus :: CreateThesaurusResponse -> TestTree
 responseCreateThesaurus =
@@ -895,4 +895,4 @@ responseCreateThesaurus =
     "CreateThesaurusResponse"
     "fixture/CreateThesaurusResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateThesaurus)
+    (Proxy.Proxy :: Proxy.Proxy CreateThesaurus)

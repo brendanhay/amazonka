@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ResourceGroupsTagging where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ResourceGroupsTagging
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -139,7 +139,7 @@ responseGetComplianceSummary =
     "GetComplianceSummaryResponse"
     "fixture/GetComplianceSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComplianceSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceSummary)
 
 responseDescribeReportCreation :: DescribeReportCreationResponse -> TestTree
 responseDescribeReportCreation =
@@ -147,7 +147,7 @@ responseDescribeReportCreation =
     "DescribeReportCreationResponse"
     "fixture/DescribeReportCreationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReportCreation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReportCreation)
 
 responseGetTagKeys :: GetTagKeysResponse -> TestTree
 responseGetTagKeys =
@@ -155,7 +155,7 @@ responseGetTagKeys =
     "GetTagKeysResponse"
     "fixture/GetTagKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTagKeys)
+    (Proxy.Proxy :: Proxy.Proxy GetTagKeys)
 
 responseTagResources :: TagResourcesResponse -> TestTree
 responseTagResources =
@@ -163,7 +163,7 @@ responseTagResources =
     "TagResourcesResponse"
     "fixture/TagResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResources)
+    (Proxy.Proxy :: Proxy.Proxy TagResources)
 
 responseGetTagValues :: GetTagValuesResponse -> TestTree
 responseGetTagValues =
@@ -171,7 +171,7 @@ responseGetTagValues =
     "GetTagValuesResponse"
     "fixture/GetTagValuesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTagValues)
+    (Proxy.Proxy :: Proxy.Proxy GetTagValues)
 
 responseStartReportCreation :: StartReportCreationResponse -> TestTree
 responseStartReportCreation =
@@ -179,7 +179,7 @@ responseStartReportCreation =
     "StartReportCreationResponse"
     "fixture/StartReportCreationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartReportCreation)
+    (Proxy.Proxy :: Proxy.Proxy StartReportCreation)
 
 responseGetResources :: GetResourcesResponse -> TestTree
 responseGetResources =
@@ -187,7 +187,7 @@ responseGetResources =
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResources)
+    (Proxy.Proxy :: Proxy.Proxy GetResources)
 
 responseUntagResources :: UntagResourcesResponse -> TestTree
 responseUntagResources =
@@ -195,4 +195,4 @@ responseUntagResources =
     "UntagResourcesResponse"
     "fixture/UntagResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResources)
+    (Proxy.Proxy :: Proxy.Proxy UntagResources)

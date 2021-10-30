@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DevOpsGuru where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DevOpsGuru
 import Test.AWS.DevOpsGuru.Internal
 import Test.AWS.Fixture
@@ -295,7 +295,7 @@ responseDescribeAnomaly =
     "DescribeAnomalyResponse"
     "fixture/DescribeAnomalyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnomaly)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnomaly)
 
 responseDescribeFeedback :: DescribeFeedbackResponse -> TestTree
 responseDescribeFeedback =
@@ -303,7 +303,7 @@ responseDescribeFeedback =
     "DescribeFeedbackResponse"
     "fixture/DescribeFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFeedback)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFeedback)
 
 responseListInsights :: ListInsightsResponse -> TestTree
 responseListInsights =
@@ -311,7 +311,7 @@ responseListInsights =
     "ListInsightsResponse"
     "fixture/ListInsightsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInsights)
+    (Proxy.Proxy :: Proxy.Proxy ListInsights)
 
 responseAddNotificationChannel :: AddNotificationChannelResponse -> TestTree
 responseAddNotificationChannel =
@@ -319,7 +319,7 @@ responseAddNotificationChannel =
     "AddNotificationChannelResponse"
     "fixture/AddNotificationChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy AddNotificationChannel)
+    (Proxy.Proxy :: Proxy.Proxy AddNotificationChannel)
 
 responseListNotificationChannels :: ListNotificationChannelsResponse -> TestTree
 responseListNotificationChannels =
@@ -327,7 +327,7 @@ responseListNotificationChannels =
     "ListNotificationChannelsResponse"
     "fixture/ListNotificationChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotificationChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListNotificationChannels)
 
 responseDescribeAccountOverview :: DescribeAccountOverviewResponse -> TestTree
 responseDescribeAccountOverview =
@@ -335,7 +335,7 @@ responseDescribeAccountOverview =
     "DescribeAccountOverviewResponse"
     "fixture/DescribeAccountOverviewResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountOverview)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountOverview)
 
 responseDescribeResourceCollectionHealth :: DescribeResourceCollectionHealthResponse -> TestTree
 responseDescribeResourceCollectionHealth =
@@ -343,7 +343,7 @@ responseDescribeResourceCollectionHealth =
     "DescribeResourceCollectionHealthResponse"
     "fixture/DescribeResourceCollectionHealthResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResourceCollectionHealth)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourceCollectionHealth)
 
 responseRemoveNotificationChannel :: RemoveNotificationChannelResponse -> TestTree
 responseRemoveNotificationChannel =
@@ -351,7 +351,7 @@ responseRemoveNotificationChannel =
     "RemoveNotificationChannelResponse"
     "fixture/RemoveNotificationChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveNotificationChannel)
+    (Proxy.Proxy :: Proxy.Proxy RemoveNotificationChannel)
 
 responseListAnomaliesForInsight :: ListAnomaliesForInsightResponse -> TestTree
 responseListAnomaliesForInsight =
@@ -359,7 +359,7 @@ responseListAnomaliesForInsight =
     "ListAnomaliesForInsightResponse"
     "fixture/ListAnomaliesForInsightResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnomaliesForInsight)
+    (Proxy.Proxy :: Proxy.Proxy ListAnomaliesForInsight)
 
 responsePutFeedback :: PutFeedbackResponse -> TestTree
 responsePutFeedback =
@@ -367,7 +367,7 @@ responsePutFeedback =
     "PutFeedbackResponse"
     "fixture/PutFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFeedback)
+    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
 
 responseSearchInsights :: SearchInsightsResponse -> TestTree
 responseSearchInsights =
@@ -375,7 +375,7 @@ responseSearchInsights =
     "SearchInsightsResponse"
     "fixture/SearchInsightsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchInsights)
+    (Proxy.Proxy :: Proxy.Proxy SearchInsights)
 
 responseDescribeServiceIntegration :: DescribeServiceIntegrationResponse -> TestTree
 responseDescribeServiceIntegration =
@@ -383,7 +383,7 @@ responseDescribeServiceIntegration =
     "DescribeServiceIntegrationResponse"
     "fixture/DescribeServiceIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceIntegration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceIntegration)
 
 responseUpdateServiceIntegration :: UpdateServiceIntegrationResponse -> TestTree
 responseUpdateServiceIntegration =
@@ -391,7 +391,7 @@ responseUpdateServiceIntegration =
     "UpdateServiceIntegrationResponse"
     "fixture/UpdateServiceIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServiceIntegration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceIntegration)
 
 responseGetResourceCollection :: GetResourceCollectionResponse -> TestTree
 responseGetResourceCollection =
@@ -399,7 +399,7 @@ responseGetResourceCollection =
     "GetResourceCollectionResponse"
     "fixture/GetResourceCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceCollection)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceCollection)
 
 responseListEvents :: ListEventsResponse -> TestTree
 responseListEvents =
@@ -407,7 +407,7 @@ responseListEvents =
     "ListEventsResponse"
     "fixture/ListEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEvents)
+    (Proxy.Proxy :: Proxy.Proxy ListEvents)
 
 responseUpdateResourceCollection :: UpdateResourceCollectionResponse -> TestTree
 responseUpdateResourceCollection =
@@ -415,7 +415,7 @@ responseUpdateResourceCollection =
     "UpdateResourceCollectionResponse"
     "fixture/UpdateResourceCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResourceCollection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceCollection)
 
 responseStartCostEstimation :: StartCostEstimationResponse -> TestTree
 responseStartCostEstimation =
@@ -423,7 +423,7 @@ responseStartCostEstimation =
     "StartCostEstimationResponse"
     "fixture/StartCostEstimationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartCostEstimation)
+    (Proxy.Proxy :: Proxy.Proxy StartCostEstimation)
 
 responseListRecommendations :: ListRecommendationsResponse -> TestTree
 responseListRecommendations =
@@ -431,7 +431,7 @@ responseListRecommendations =
     "ListRecommendationsResponse"
     "fixture/ListRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ListRecommendations)
 
 responseDescribeAccountHealth :: DescribeAccountHealthResponse -> TestTree
 responseDescribeAccountHealth =
@@ -439,7 +439,7 @@ responseDescribeAccountHealth =
     "DescribeAccountHealthResponse"
     "fixture/DescribeAccountHealthResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountHealth)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountHealth)
 
 responseDescribeInsight :: DescribeInsightResponse -> TestTree
 responseDescribeInsight =
@@ -447,7 +447,7 @@ responseDescribeInsight =
     "DescribeInsightResponse"
     "fixture/DescribeInsightResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInsight)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInsight)
 
 responseGetCostEstimation :: GetCostEstimationResponse -> TestTree
 responseGetCostEstimation =
@@ -455,4 +455,4 @@ responseGetCostEstimation =
     "GetCostEstimationResponse"
     "fixture/GetCostEstimationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCostEstimation)
+    (Proxy.Proxy :: Proxy.Proxy GetCostEstimation)

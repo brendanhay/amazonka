@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaTailor where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaTailor
 import Test.AWS.Fixture
 import Test.AWS.MediaTailor.Internal
@@ -487,7 +487,7 @@ responseCreateSourceLocation =
     "CreateSourceLocationResponse"
     "fixture/CreateSourceLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSourceLocation)
+    (Proxy.Proxy :: Proxy.Proxy CreateSourceLocation)
 
 responseListPrefetchSchedules :: ListPrefetchSchedulesResponse -> TestTree
 responseListPrefetchSchedules =
@@ -495,7 +495,7 @@ responseListPrefetchSchedules =
     "ListPrefetchSchedulesResponse"
     "fixture/ListPrefetchSchedulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPrefetchSchedules)
+    (Proxy.Proxy :: Proxy.Proxy ListPrefetchSchedules)
 
 responseDeletePrefetchSchedule :: DeletePrefetchScheduleResponse -> TestTree
 responseDeletePrefetchSchedule =
@@ -503,7 +503,7 @@ responseDeletePrefetchSchedule =
     "DeletePrefetchScheduleResponse"
     "fixture/DeletePrefetchScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePrefetchSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeletePrefetchSchedule)
 
 responseListAlerts :: ListAlertsResponse -> TestTree
 responseListAlerts =
@@ -511,7 +511,7 @@ responseListAlerts =
     "ListAlertsResponse"
     "fixture/ListAlertsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAlerts)
+    (Proxy.Proxy :: Proxy.Proxy ListAlerts)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -519,7 +519,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseCreatePrefetchSchedule :: CreatePrefetchScheduleResponse -> TestTree
 responseCreatePrefetchSchedule =
@@ -527,7 +527,7 @@ responseCreatePrefetchSchedule =
     "CreatePrefetchScheduleResponse"
     "fixture/CreatePrefetchScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePrefetchSchedule)
+    (Proxy.Proxy :: Proxy.Proxy CreatePrefetchSchedule)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -535,7 +535,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -543,7 +543,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -551,7 +551,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseGetChannelPolicy :: GetChannelPolicyResponse -> TestTree
 responseGetChannelPolicy =
@@ -559,7 +559,7 @@ responseGetChannelPolicy =
     "GetChannelPolicyResponse"
     "fixture/GetChannelPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannelPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetChannelPolicy)
 
 responseDescribeVodSource :: DescribeVodSourceResponse -> TestTree
 responseDescribeVodSource =
@@ -567,7 +567,7 @@ responseDescribeVodSource =
     "DescribeVodSourceResponse"
     "fixture/DescribeVodSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVodSource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVodSource)
 
 responseDescribeSourceLocation :: DescribeSourceLocationResponse -> TestTree
 responseDescribeSourceLocation =
@@ -575,7 +575,7 @@ responseDescribeSourceLocation =
     "DescribeSourceLocationResponse"
     "fixture/DescribeSourceLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSourceLocation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSourceLocation)
 
 responseGetPrefetchSchedule :: GetPrefetchScheduleResponse -> TestTree
 responseGetPrefetchSchedule =
@@ -583,7 +583,7 @@ responseGetPrefetchSchedule =
     "GetPrefetchScheduleResponse"
     "fixture/GetPrefetchScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPrefetchSchedule)
+    (Proxy.Proxy :: Proxy.Proxy GetPrefetchSchedule)
 
 responseCreateProgram :: CreateProgramResponse -> TestTree
 responseCreateProgram =
@@ -591,7 +591,7 @@ responseCreateProgram =
     "CreateProgramResponse"
     "fixture/CreateProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProgram)
+    (Proxy.Proxy :: Proxy.Proxy CreateProgram)
 
 responseStartChannel :: StartChannelResponse -> TestTree
 responseStartChannel =
@@ -599,7 +599,7 @@ responseStartChannel =
     "StartChannelResponse"
     "fixture/StartChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy StartChannel)
+    (Proxy.Proxy :: Proxy.Proxy StartChannel)
 
 responseListPlaybackConfigurations :: ListPlaybackConfigurationsResponse -> TestTree
 responseListPlaybackConfigurations =
@@ -607,7 +607,7 @@ responseListPlaybackConfigurations =
     "ListPlaybackConfigurationsResponse"
     "fixture/ListPlaybackConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPlaybackConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListPlaybackConfigurations)
 
 responseDeletePlaybackConfiguration :: DeletePlaybackConfigurationResponse -> TestTree
 responseDeletePlaybackConfiguration =
@@ -615,7 +615,7 @@ responseDeletePlaybackConfiguration =
     "DeletePlaybackConfigurationResponse"
     "fixture/DeletePlaybackConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlaybackConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeletePlaybackConfiguration)
 
 responsePutPlaybackConfiguration :: PutPlaybackConfigurationResponse -> TestTree
 responsePutPlaybackConfiguration =
@@ -623,7 +623,7 @@ responsePutPlaybackConfiguration =
     "PutPlaybackConfigurationResponse"
     "fixture/PutPlaybackConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPlaybackConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutPlaybackConfiguration)
 
 responseListSourceLocations :: ListSourceLocationsResponse -> TestTree
 responseListSourceLocations =
@@ -631,7 +631,7 @@ responseListSourceLocations =
     "ListSourceLocationsResponse"
     "fixture/ListSourceLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSourceLocations)
+    (Proxy.Proxy :: Proxy.Proxy ListSourceLocations)
 
 responseUpdateSourceLocation :: UpdateSourceLocationResponse -> TestTree
 responseUpdateSourceLocation =
@@ -639,7 +639,7 @@ responseUpdateSourceLocation =
     "UpdateSourceLocationResponse"
     "fixture/UpdateSourceLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSourceLocation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSourceLocation)
 
 responseDeleteSourceLocation :: DeleteSourceLocationResponse -> TestTree
 responseDeleteSourceLocation =
@@ -647,7 +647,7 @@ responseDeleteSourceLocation =
     "DeleteSourceLocationResponse"
     "fixture/DeleteSourceLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSourceLocation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSourceLocation)
 
 responseGetPlaybackConfiguration :: GetPlaybackConfigurationResponse -> TestTree
 responseGetPlaybackConfiguration =
@@ -655,7 +655,7 @@ responseGetPlaybackConfiguration =
     "GetPlaybackConfigurationResponse"
     "fixture/GetPlaybackConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPlaybackConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetPlaybackConfiguration)
 
 responseDeleteVodSource :: DeleteVodSourceResponse -> TestTree
 responseDeleteVodSource =
@@ -663,7 +663,7 @@ responseDeleteVodSource =
     "DeleteVodSourceResponse"
     "fixture/DeleteVodSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVodSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVodSource)
 
 responseUpdateVodSource :: UpdateVodSourceResponse -> TestTree
 responseUpdateVodSource =
@@ -671,7 +671,7 @@ responseUpdateVodSource =
     "UpdateVodSourceResponse"
     "fixture/UpdateVodSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVodSource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVodSource)
 
 responseCreateVodSource :: CreateVodSourceResponse -> TestTree
 responseCreateVodSource =
@@ -679,7 +679,7 @@ responseCreateVodSource =
     "CreateVodSourceResponse"
     "fixture/CreateVodSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVodSource)
+    (Proxy.Proxy :: Proxy.Proxy CreateVodSource)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -687,7 +687,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
 
 responseDeleteChannelPolicy :: DeleteChannelPolicyResponse -> TestTree
 responseDeleteChannelPolicy =
@@ -695,7 +695,7 @@ responseDeleteChannelPolicy =
     "DeleteChannelPolicyResponse"
     "fixture/DeleteChannelPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelPolicy)
 
 responsePutChannelPolicy :: PutChannelPolicyResponse -> TestTree
 responsePutChannelPolicy =
@@ -703,7 +703,7 @@ responsePutChannelPolicy =
     "PutChannelPolicyResponse"
     "fixture/PutChannelPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutChannelPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutChannelPolicy)
 
 responseDeleteProgram :: DeleteProgramResponse -> TestTree
 responseDeleteProgram =
@@ -711,7 +711,7 @@ responseDeleteProgram =
     "DeleteProgramResponse"
     "fixture/DeleteProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProgram)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProgram)
 
 responseGetChannelSchedule :: GetChannelScheduleResponse -> TestTree
 responseGetChannelSchedule =
@@ -719,7 +719,7 @@ responseGetChannelSchedule =
     "GetChannelScheduleResponse"
     "fixture/GetChannelScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannelSchedule)
+    (Proxy.Proxy :: Proxy.Proxy GetChannelSchedule)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -727,7 +727,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfigurationResponse -> TestTree
 responseConfigureLogsForPlaybackConfiguration =
@@ -735,7 +735,7 @@ responseConfigureLogsForPlaybackConfiguration =
     "ConfigureLogsForPlaybackConfigurationResponse"
     "fixture/ConfigureLogsForPlaybackConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfigureLogsForPlaybackConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ConfigureLogsForPlaybackConfiguration)
 
 responseStopChannel :: StopChannelResponse -> TestTree
 responseStopChannel =
@@ -743,7 +743,7 @@ responseStopChannel =
     "StopChannelResponse"
     "fixture/StopChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy StopChannel)
+    (Proxy.Proxy :: Proxy.Proxy StopChannel)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -751,7 +751,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
@@ -759,7 +759,7 @@ responseDescribeChannel =
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
 
 responseListVodSources :: ListVodSourcesResponse -> TestTree
 responseListVodSources =
@@ -767,7 +767,7 @@ responseListVodSources =
     "ListVodSourcesResponse"
     "fixture/ListVodSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVodSources)
+    (Proxy.Proxy :: Proxy.Proxy ListVodSources)
 
 responseDescribeProgram :: DescribeProgramResponse -> TestTree
 responseDescribeProgram =
@@ -775,4 +775,4 @@ responseDescribeProgram =
     "DescribeProgramResponse"
     "fixture/DescribeProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProgram)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProgram)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AMP where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AMP
 import Test.AWS.AMP.Internal
 import Test.AWS.Fixture
@@ -247,7 +247,7 @@ responseListWorkspaces =
     "ListWorkspacesResponse"
     "fixture/ListWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkspaces)
 
 responseCreateAlertManagerDefinition :: CreateAlertManagerDefinitionResponse -> TestTree
 responseCreateAlertManagerDefinition =
@@ -255,7 +255,7 @@ responseCreateAlertManagerDefinition =
     "CreateAlertManagerDefinitionResponse"
     "fixture/CreateAlertManagerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlertManagerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlertManagerDefinition)
 
 responseDeleteWorkspace :: DeleteWorkspaceResponse -> TestTree
 responseDeleteWorkspace =
@@ -263,7 +263,7 @@ responseDeleteWorkspace =
     "DeleteWorkspaceResponse"
     "fixture/DeleteWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkspace)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -271,7 +271,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateRuleGroupsNamespace :: CreateRuleGroupsNamespaceResponse -> TestTree
 responseCreateRuleGroupsNamespace =
@@ -279,7 +279,7 @@ responseCreateRuleGroupsNamespace =
     "CreateRuleGroupsNamespaceResponse"
     "fixture/CreateRuleGroupsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRuleGroupsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy CreateRuleGroupsNamespace)
 
 responseDescribeAlertManagerDefinition :: DescribeAlertManagerDefinitionResponse -> TestTree
 responseDescribeAlertManagerDefinition =
@@ -287,7 +287,7 @@ responseDescribeAlertManagerDefinition =
     "DescribeAlertManagerDefinitionResponse"
     "fixture/DescribeAlertManagerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlertManagerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlertManagerDefinition)
 
 responseDescribeWorkspace :: DescribeWorkspaceResponse -> TestTree
 responseDescribeWorkspace =
@@ -295,7 +295,7 @@ responseDescribeWorkspace =
     "DescribeWorkspaceResponse"
     "fixture/DescribeWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspace)
 
 responsePutAlertManagerDefinition :: PutAlertManagerDefinitionResponse -> TestTree
 responsePutAlertManagerDefinition =
@@ -303,7 +303,7 @@ responsePutAlertManagerDefinition =
     "PutAlertManagerDefinitionResponse"
     "fixture/PutAlertManagerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAlertManagerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy PutAlertManagerDefinition)
 
 responseDeleteAlertManagerDefinition :: DeleteAlertManagerDefinitionResponse -> TestTree
 responseDeleteAlertManagerDefinition =
@@ -311,7 +311,7 @@ responseDeleteAlertManagerDefinition =
     "DeleteAlertManagerDefinitionResponse"
     "fixture/DeleteAlertManagerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlertManagerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlertManagerDefinition)
 
 responseDescribeRuleGroupsNamespace :: DescribeRuleGroupsNamespaceResponse -> TestTree
 responseDescribeRuleGroupsNamespace =
@@ -319,7 +319,7 @@ responseDescribeRuleGroupsNamespace =
     "DescribeRuleGroupsNamespaceResponse"
     "fixture/DescribeRuleGroupsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRuleGroupsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroupsNamespace)
 
 responseUpdateWorkspaceAlias :: UpdateWorkspaceAliasResponse -> TestTree
 responseUpdateWorkspaceAlias =
@@ -327,7 +327,7 @@ responseUpdateWorkspaceAlias =
     "UpdateWorkspaceAliasResponse"
     "fixture/UpdateWorkspaceAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkspaceAlias)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkspaceAlias)
 
 responseDeleteRuleGroupsNamespace :: DeleteRuleGroupsNamespaceResponse -> TestTree
 responseDeleteRuleGroupsNamespace =
@@ -335,7 +335,7 @@ responseDeleteRuleGroupsNamespace =
     "DeleteRuleGroupsNamespaceResponse"
     "fixture/DeleteRuleGroupsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRuleGroupsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRuleGroupsNamespace)
 
 responsePutRuleGroupsNamespace :: PutRuleGroupsNamespaceResponse -> TestTree
 responsePutRuleGroupsNamespace =
@@ -343,7 +343,7 @@ responsePutRuleGroupsNamespace =
     "PutRuleGroupsNamespaceResponse"
     "fixture/PutRuleGroupsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRuleGroupsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy PutRuleGroupsNamespace)
 
 responseListRuleGroupsNamespaces :: ListRuleGroupsNamespacesResponse -> TestTree
 responseListRuleGroupsNamespaces =
@@ -351,7 +351,7 @@ responseListRuleGroupsNamespaces =
     "ListRuleGroupsNamespacesResponse"
     "fixture/ListRuleGroupsNamespacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRuleGroupsNamespaces)
+    (Proxy.Proxy :: Proxy.Proxy ListRuleGroupsNamespaces)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -359,7 +359,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -367,7 +367,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateWorkspace :: CreateWorkspaceResponse -> TestTree
 responseCreateWorkspace =
@@ -375,4 +375,4 @@ responseCreateWorkspace =
     "CreateWorkspaceResponse"
     "fixture/CreateWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkspace)

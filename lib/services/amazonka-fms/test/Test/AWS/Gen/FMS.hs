@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FMS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.FMS
 import Test.AWS.FMS.Internal
 import Test.AWS.Fixture
@@ -355,7 +355,7 @@ responseListPolicies =
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicies)
 
 responseGetComplianceDetail :: GetComplianceDetailResponse -> TestTree
 responseGetComplianceDetail =
@@ -363,7 +363,7 @@ responseGetComplianceDetail =
     "GetComplianceDetailResponse"
     "fixture/GetComplianceDetailResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComplianceDetail)
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceDetail)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -371,7 +371,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetNotificationChannel :: GetNotificationChannelResponse -> TestTree
 responseGetNotificationChannel =
@@ -379,7 +379,7 @@ responseGetNotificationChannel =
     "GetNotificationChannelResponse"
     "fixture/GetNotificationChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNotificationChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetNotificationChannel)
 
 responseGetAdminAccount :: GetAdminAccountResponse -> TestTree
 responseGetAdminAccount =
@@ -387,7 +387,7 @@ responseGetAdminAccount =
     "GetAdminAccountResponse"
     "fixture/GetAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetAdminAccount)
 
 responseListComplianceStatus :: ListComplianceStatusResponse -> TestTree
 responseListComplianceStatus =
@@ -395,7 +395,7 @@ responseListComplianceStatus =
     "ListComplianceStatusResponse"
     "fixture/ListComplianceStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComplianceStatus)
+    (Proxy.Proxy :: Proxy.Proxy ListComplianceStatus)
 
 responseGetAppsList :: GetAppsListResponse -> TestTree
 responseGetAppsList =
@@ -403,7 +403,7 @@ responseGetAppsList =
     "GetAppsListResponse"
     "fixture/GetAppsListResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppsList)
+    (Proxy.Proxy :: Proxy.Proxy GetAppsList)
 
 responsePutPolicy :: PutPolicyResponse -> TestTree
 responsePutPolicy =
@@ -411,7 +411,7 @@ responsePutPolicy =
     "PutPolicyResponse"
     "fixture/PutPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutPolicy)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -419,7 +419,7 @@ responseDeletePolicy =
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
 
 responseDisassociateAdminAccount :: DisassociateAdminAccountResponse -> TestTree
 responseDisassociateAdminAccount =
@@ -427,7 +427,7 @@ responseDisassociateAdminAccount =
     "DisassociateAdminAccountResponse"
     "fixture/DisassociateAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAdminAccount)
 
 responsePutNotificationChannel :: PutNotificationChannelResponse -> TestTree
 responsePutNotificationChannel =
@@ -435,7 +435,7 @@ responsePutNotificationChannel =
     "PutNotificationChannelResponse"
     "fixture/PutNotificationChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy PutNotificationChannel)
+    (Proxy.Proxy :: Proxy.Proxy PutNotificationChannel)
 
 responseDeleteNotificationChannel :: DeleteNotificationChannelResponse -> TestTree
 responseDeleteNotificationChannel =
@@ -443,7 +443,7 @@ responseDeleteNotificationChannel =
     "DeleteNotificationChannelResponse"
     "fixture/DeleteNotificationChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotificationChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotificationChannel)
 
 responseAssociateAdminAccount :: AssociateAdminAccountResponse -> TestTree
 responseAssociateAdminAccount =
@@ -451,7 +451,7 @@ responseAssociateAdminAccount =
     "AssociateAdminAccountResponse"
     "fixture/AssociateAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAdminAccount)
 
 responseGetViolationDetails :: GetViolationDetailsResponse -> TestTree
 responseGetViolationDetails =
@@ -459,7 +459,7 @@ responseGetViolationDetails =
     "GetViolationDetailsResponse"
     "fixture/GetViolationDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetViolationDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetViolationDetails)
 
 responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
 responseListMemberAccounts =
@@ -467,7 +467,7 @@ responseListMemberAccounts =
     "ListMemberAccountsResponse"
     "fixture/ListMemberAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMemberAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListMemberAccounts)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -475,7 +475,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -483,7 +483,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteProtocolsList :: DeleteProtocolsListResponse -> TestTree
 responseDeleteProtocolsList =
@@ -491,7 +491,7 @@ responseDeleteProtocolsList =
     "DeleteProtocolsListResponse"
     "fixture/DeleteProtocolsListResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProtocolsList)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProtocolsList)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -499,7 +499,7 @@ responseGetPolicy =
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
 
 responseListProtocolsLists :: ListProtocolsListsResponse -> TestTree
 responseListProtocolsLists =
@@ -507,7 +507,7 @@ responseListProtocolsLists =
     "ListProtocolsListsResponse"
     "fixture/ListProtocolsListsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProtocolsLists)
+    (Proxy.Proxy :: Proxy.Proxy ListProtocolsLists)
 
 responsePutProtocolsList :: PutProtocolsListResponse -> TestTree
 responsePutProtocolsList =
@@ -515,7 +515,7 @@ responsePutProtocolsList =
     "PutProtocolsListResponse"
     "fixture/PutProtocolsListResponse.proto"
     defaultService
-    (Proxy :: Proxy PutProtocolsList)
+    (Proxy.Proxy :: Proxy.Proxy PutProtocolsList)
 
 responsePutAppsList :: PutAppsListResponse -> TestTree
 responsePutAppsList =
@@ -523,7 +523,7 @@ responsePutAppsList =
     "PutAppsListResponse"
     "fixture/PutAppsListResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppsList)
+    (Proxy.Proxy :: Proxy.Proxy PutAppsList)
 
 responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
 responseDeleteAppsList =
@@ -531,7 +531,7 @@ responseDeleteAppsList =
     "DeleteAppsListResponse"
     "fixture/DeleteAppsListResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppsList)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppsList)
 
 responseListAppsLists :: ListAppsListsResponse -> TestTree
 responseListAppsLists =
@@ -539,7 +539,7 @@ responseListAppsLists =
     "ListAppsListsResponse"
     "fixture/ListAppsListsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppsLists)
+    (Proxy.Proxy :: Proxy.Proxy ListAppsLists)
 
 responseGetProtocolsList :: GetProtocolsListResponse -> TestTree
 responseGetProtocolsList =
@@ -547,7 +547,7 @@ responseGetProtocolsList =
     "GetProtocolsListResponse"
     "fixture/GetProtocolsListResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProtocolsList)
+    (Proxy.Proxy :: Proxy.Proxy GetProtocolsList)
 
 responseGetProtectionStatus :: GetProtectionStatusResponse -> TestTree
 responseGetProtectionStatus =
@@ -555,4 +555,4 @@ responseGetProtectionStatus =
     "GetProtectionStatusResponse"
     "fixture/GetProtectionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProtectionStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetProtectionStatus)

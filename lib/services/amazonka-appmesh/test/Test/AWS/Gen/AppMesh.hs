@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppMesh where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppMesh
 import Test.AWS.AppMesh.Internal
 import Test.AWS.Fixture
@@ -499,7 +499,7 @@ responseDescribeVirtualNode =
     "DescribeVirtualNodeResponse"
     "fixture/DescribeVirtualNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualNode)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualNode)
 
 responseDescribeVirtualGateway :: DescribeVirtualGatewayResponse -> TestTree
 responseDescribeVirtualGateway =
@@ -507,7 +507,7 @@ responseDescribeVirtualGateway =
     "DescribeVirtualGatewayResponse"
     "fixture/DescribeVirtualGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualGateway)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualGateway)
 
 responseDescribeRoute :: DescribeRouteResponse -> TestTree
 responseDescribeRoute =
@@ -515,7 +515,7 @@ responseDescribeRoute =
     "DescribeRouteResponse"
     "fixture/DescribeRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRoute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRoute)
 
 responseDescribeVirtualRouter :: DescribeVirtualRouterResponse -> TestTree
 responseDescribeVirtualRouter =
@@ -523,7 +523,7 @@ responseDescribeVirtualRouter =
     "DescribeVirtualRouterResponse"
     "fixture/DescribeVirtualRouterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualRouter)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualRouter)
 
 responseListMeshes :: ListMeshesResponse -> TestTree
 responseListMeshes =
@@ -531,7 +531,7 @@ responseListMeshes =
     "ListMeshesResponse"
     "fixture/ListMeshesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMeshes)
+    (Proxy.Proxy :: Proxy.Proxy ListMeshes)
 
 responseCreateMesh :: CreateMeshResponse -> TestTree
 responseCreateMesh =
@@ -539,7 +539,7 @@ responseCreateMesh =
     "CreateMeshResponse"
     "fixture/CreateMeshResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMesh)
+    (Proxy.Proxy :: Proxy.Proxy CreateMesh)
 
 responseUpdateMesh :: UpdateMeshResponse -> TestTree
 responseUpdateMesh =
@@ -547,7 +547,7 @@ responseUpdateMesh =
     "UpdateMeshResponse"
     "fixture/UpdateMeshResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMesh)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMesh)
 
 responseDeleteMesh :: DeleteMeshResponse -> TestTree
 responseDeleteMesh =
@@ -555,7 +555,7 @@ responseDeleteMesh =
     "DeleteMeshResponse"
     "fixture/DeleteMeshResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMesh)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMesh)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -563,7 +563,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateVirtualGateway :: CreateVirtualGatewayResponse -> TestTree
 responseCreateVirtualGateway =
@@ -571,7 +571,7 @@ responseCreateVirtualGateway =
     "CreateVirtualGatewayResponse"
     "fixture/CreateVirtualGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVirtualGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualGateway)
 
 responseListVirtualServices :: ListVirtualServicesResponse -> TestTree
 responseListVirtualServices =
@@ -579,7 +579,7 @@ responseListVirtualServices =
     "ListVirtualServicesResponse"
     "fixture/ListVirtualServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualServices)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualServices)
 
 responseDeleteVirtualService :: DeleteVirtualServiceResponse -> TestTree
 responseDeleteVirtualService =
@@ -587,7 +587,7 @@ responseDeleteVirtualService =
     "DeleteVirtualServiceResponse"
     "fixture/DeleteVirtualServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualService)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualService)
 
 responseUpdateVirtualService :: UpdateVirtualServiceResponse -> TestTree
 responseUpdateVirtualService =
@@ -595,7 +595,7 @@ responseUpdateVirtualService =
     "UpdateVirtualServiceResponse"
     "fixture/UpdateVirtualServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVirtualService)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualService)
 
 responseUpdateVirtualGateway :: UpdateVirtualGatewayResponse -> TestTree
 responseUpdateVirtualGateway =
@@ -603,7 +603,7 @@ responseUpdateVirtualGateway =
     "UpdateVirtualGatewayResponse"
     "fixture/UpdateVirtualGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVirtualGateway)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualGateway)
 
 responseDeleteVirtualGateway :: DeleteVirtualGatewayResponse -> TestTree
 responseDeleteVirtualGateway =
@@ -611,7 +611,7 @@ responseDeleteVirtualGateway =
     "DeleteVirtualGatewayResponse"
     "fixture/DeleteVirtualGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualGateway)
 
 responseDeleteRoute :: DeleteRouteResponse -> TestTree
 responseDeleteRoute =
@@ -619,7 +619,7 @@ responseDeleteRoute =
     "DeleteRouteResponse"
     "fixture/DeleteRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
 
 responseUpdateRoute :: UpdateRouteResponse -> TestTree
 responseUpdateRoute =
@@ -627,7 +627,7 @@ responseUpdateRoute =
     "UpdateRouteResponse"
     "fixture/UpdateRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoute)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoute)
 
 responseCreateVirtualService :: CreateVirtualServiceResponse -> TestTree
 responseCreateVirtualService =
@@ -635,7 +635,7 @@ responseCreateVirtualService =
     "CreateVirtualServiceResponse"
     "fixture/CreateVirtualServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVirtualService)
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualService)
 
 responseDeleteVirtualNode :: DeleteVirtualNodeResponse -> TestTree
 responseDeleteVirtualNode =
@@ -643,7 +643,7 @@ responseDeleteVirtualNode =
     "DeleteVirtualNodeResponse"
     "fixture/DeleteVirtualNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualNode)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualNode)
 
 responseUpdateVirtualNode :: UpdateVirtualNodeResponse -> TestTree
 responseUpdateVirtualNode =
@@ -651,7 +651,7 @@ responseUpdateVirtualNode =
     "UpdateVirtualNodeResponse"
     "fixture/UpdateVirtualNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVirtualNode)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualNode)
 
 responseListGatewayRoutes :: ListGatewayRoutesResponse -> TestTree
 responseListGatewayRoutes =
@@ -659,7 +659,7 @@ responseListGatewayRoutes =
     "ListGatewayRoutesResponse"
     "fixture/ListGatewayRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGatewayRoutes)
+    (Proxy.Proxy :: Proxy.Proxy ListGatewayRoutes)
 
 responseListRoutes :: ListRoutesResponse -> TestTree
 responseListRoutes =
@@ -667,7 +667,7 @@ responseListRoutes =
     "ListRoutesResponse"
     "fixture/ListRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoutes)
+    (Proxy.Proxy :: Proxy.Proxy ListRoutes)
 
 responseListVirtualNodes :: ListVirtualNodesResponse -> TestTree
 responseListVirtualNodes =
@@ -675,7 +675,7 @@ responseListVirtualNodes =
     "ListVirtualNodesResponse"
     "fixture/ListVirtualNodesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualNodes)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualNodes)
 
 responseDeleteVirtualRouter :: DeleteVirtualRouterResponse -> TestTree
 responseDeleteVirtualRouter =
@@ -683,7 +683,7 @@ responseDeleteVirtualRouter =
     "DeleteVirtualRouterResponse"
     "fixture/DeleteVirtualRouterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualRouter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualRouter)
 
 responseUpdateVirtualRouter :: UpdateVirtualRouterResponse -> TestTree
 responseUpdateVirtualRouter =
@@ -691,7 +691,7 @@ responseUpdateVirtualRouter =
     "UpdateVirtualRouterResponse"
     "fixture/UpdateVirtualRouterResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVirtualRouter)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualRouter)
 
 responseCreateVirtualRouter :: CreateVirtualRouterResponse -> TestTree
 responseCreateVirtualRouter =
@@ -699,7 +699,7 @@ responseCreateVirtualRouter =
     "CreateVirtualRouterResponse"
     "fixture/CreateVirtualRouterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVirtualRouter)
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualRouter)
 
 responseDescribeVirtualService :: DescribeVirtualServiceResponse -> TestTree
 responseDescribeVirtualService =
@@ -707,7 +707,7 @@ responseDescribeVirtualService =
     "DescribeVirtualServiceResponse"
     "fixture/DescribeVirtualServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualService)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualService)
 
 responseDescribeGatewayRoute :: DescribeGatewayRouteResponse -> TestTree
 responseDescribeGatewayRoute =
@@ -715,7 +715,7 @@ responseDescribeGatewayRoute =
     "DescribeGatewayRouteResponse"
     "fixture/DescribeGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayRoute)
 
 responseCreateRoute :: CreateRouteResponse -> TestTree
 responseCreateRoute =
@@ -723,7 +723,7 @@ responseCreateRoute =
     "CreateRouteResponse"
     "fixture/CreateRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
 
 responseCreateVirtualNode :: CreateVirtualNodeResponse -> TestTree
 responseCreateVirtualNode =
@@ -731,7 +731,7 @@ responseCreateVirtualNode =
     "CreateVirtualNodeResponse"
     "fixture/CreateVirtualNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVirtualNode)
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualNode)
 
 responseCreateGatewayRoute :: CreateGatewayRouteResponse -> TestTree
 responseCreateGatewayRoute =
@@ -739,7 +739,7 @@ responseCreateGatewayRoute =
     "CreateGatewayRouteResponse"
     "fixture/CreateGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateGatewayRoute)
 
 responseUpdateGatewayRoute :: UpdateGatewayRouteResponse -> TestTree
 responseUpdateGatewayRoute =
@@ -747,7 +747,7 @@ responseUpdateGatewayRoute =
     "UpdateGatewayRouteResponse"
     "fixture/UpdateGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayRoute)
 
 responseDeleteGatewayRoute :: DeleteGatewayRouteResponse -> TestTree
 responseDeleteGatewayRoute =
@@ -755,7 +755,7 @@ responseDeleteGatewayRoute =
     "DeleteGatewayRouteResponse"
     "fixture/DeleteGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGatewayRoute)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -763,7 +763,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListVirtualGateways :: ListVirtualGatewaysResponse -> TestTree
 responseListVirtualGateways =
@@ -771,7 +771,7 @@ responseListVirtualGateways =
     "ListVirtualGatewaysResponse"
     "fixture/ListVirtualGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualGateways)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualGateways)
 
 responseListVirtualRouters :: ListVirtualRoutersResponse -> TestTree
 responseListVirtualRouters =
@@ -779,7 +779,7 @@ responseListVirtualRouters =
     "ListVirtualRoutersResponse"
     "fixture/ListVirtualRoutersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualRouters)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualRouters)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -787,7 +787,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeMesh :: DescribeMeshResponse -> TestTree
 responseDescribeMesh =
@@ -795,4 +795,4 @@ responseDescribeMesh =
     "DescribeMeshResponse"
     "fixture/DescribeMeshResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMesh)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMesh)

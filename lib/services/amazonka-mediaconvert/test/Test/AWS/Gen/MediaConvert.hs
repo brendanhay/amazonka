@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaConvert where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaConvert
 import Test.AWS.Fixture
 import Test.AWS.MediaConvert.Internal
@@ -379,7 +379,7 @@ responseDeletePreset =
     "DeletePresetResponse"
     "fixture/DeletePresetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePreset)
+    (Proxy.Proxy :: Proxy.Proxy DeletePreset)
 
 responseUpdatePreset :: UpdatePresetResponse -> TestTree
 responseUpdatePreset =
@@ -387,7 +387,7 @@ responseUpdatePreset =
     "UpdatePresetResponse"
     "fixture/UpdatePresetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePreset)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePreset)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -395,7 +395,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListQueues :: ListQueuesResponse -> TestTree
 responseListQueues =
@@ -403,7 +403,7 @@ responseListQueues =
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueues)
+    (Proxy.Proxy :: Proxy.Proxy ListQueues)
 
 responseDeleteQueue :: DeleteQueueResponse -> TestTree
 responseDeleteQueue =
@@ -411,7 +411,7 @@ responseDeleteQueue =
     "DeleteQueueResponse"
     "fixture/DeleteQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueue)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueue)
 
 responseUpdateQueue :: UpdateQueueResponse -> TestTree
 responseUpdateQueue =
@@ -419,7 +419,7 @@ responseUpdateQueue =
     "UpdateQueueResponse"
     "fixture/UpdateQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueue)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQueue)
 
 responseGetPreset :: GetPresetResponse -> TestTree
 responseGetPreset =
@@ -427,7 +427,7 @@ responseGetPreset =
     "GetPresetResponse"
     "fixture/GetPresetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPreset)
+    (Proxy.Proxy :: Proxy.Proxy GetPreset)
 
 responseCreateJob :: CreateJobResponse -> TestTree
 responseCreateJob =
@@ -435,7 +435,7 @@ responseCreateJob =
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -443,7 +443,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responsePutPolicy :: PutPolicyResponse -> TestTree
 responsePutPolicy =
@@ -451,7 +451,7 @@ responsePutPolicy =
     "PutPolicyResponse"
     "fixture/PutPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutPolicy)
 
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob =
@@ -459,7 +459,7 @@ responseGetJob =
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJob)
+    (Proxy.Proxy :: Proxy.Proxy GetJob)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -467,7 +467,7 @@ responseDeletePolicy =
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
 responseCreatePreset =
@@ -475,7 +475,7 @@ responseCreatePreset =
     "CreatePresetResponse"
     "fixture/CreatePresetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePreset)
+    (Proxy.Proxy :: Proxy.Proxy CreatePreset)
 
 responseListPresets :: ListPresetsResponse -> TestTree
 responseListPresets =
@@ -483,7 +483,7 @@ responseListPresets =
     "ListPresetsResponse"
     "fixture/ListPresetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPresets)
+    (Proxy.Proxy :: Proxy.Proxy ListPresets)
 
 responseDisassociateCertificate :: DisassociateCertificateResponse -> TestTree
 responseDisassociateCertificate =
@@ -491,7 +491,7 @@ responseDisassociateCertificate =
     "DisassociateCertificateResponse"
     "fixture/DisassociateCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateCertificate)
 
 responseGetQueue :: GetQueueResponse -> TestTree
 responseGetQueue =
@@ -499,7 +499,7 @@ responseGetQueue =
     "GetQueueResponse"
     "fixture/GetQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueue)
+    (Proxy.Proxy :: Proxy.Proxy GetQueue)
 
 responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
 responseDescribeEndpoints =
@@ -507,7 +507,7 @@ responseDescribeEndpoints =
     "DescribeEndpointsResponse"
     "fixture/DescribeEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoints)
 
 responseCreateQueue :: CreateQueueResponse -> TestTree
 responseCreateQueue =
@@ -515,7 +515,7 @@ responseCreateQueue =
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQueue)
+    (Proxy.Proxy :: Proxy.Proxy CreateQueue)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -523,7 +523,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateJobTemplate :: CreateJobTemplateResponse -> TestTree
 responseCreateJobTemplate =
@@ -531,7 +531,7 @@ responseCreateJobTemplate =
     "CreateJobTemplateResponse"
     "fixture/CreateJobTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJobTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateJobTemplate)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -539,7 +539,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteJobTemplate :: DeleteJobTemplateResponse -> TestTree
 responseDeleteJobTemplate =
@@ -547,7 +547,7 @@ responseDeleteJobTemplate =
     "DeleteJobTemplateResponse"
     "fixture/DeleteJobTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJobTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJobTemplate)
 
 responseUpdateJobTemplate :: UpdateJobTemplateResponse -> TestTree
 responseUpdateJobTemplate =
@@ -555,7 +555,7 @@ responseUpdateJobTemplate =
     "UpdateJobTemplateResponse"
     "fixture/UpdateJobTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJobTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJobTemplate)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -563,7 +563,7 @@ responseGetPolicy =
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
 
 responseListJobTemplates :: ListJobTemplatesResponse -> TestTree
 responseListJobTemplates =
@@ -571,7 +571,7 @@ responseListJobTemplates =
     "ListJobTemplatesResponse"
     "fixture/ListJobTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListJobTemplates)
 
 responseGetJobTemplate :: GetJobTemplateResponse -> TestTree
 responseGetJobTemplate =
@@ -579,7 +579,7 @@ responseGetJobTemplate =
     "GetJobTemplateResponse"
     "fixture/GetJobTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetJobTemplate)
 
 responseAssociateCertificate :: AssociateCertificateResponse -> TestTree
 responseAssociateCertificate =
@@ -587,7 +587,7 @@ responseAssociateCertificate =
     "AssociateCertificateResponse"
     "fixture/AssociateCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateCertificate)
+    (Proxy.Proxy :: Proxy.Proxy AssociateCertificate)
 
 responseCancelJob :: CancelJobResponse -> TestTree
 responseCancelJob =
@@ -595,4 +595,4 @@ responseCancelJob =
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)

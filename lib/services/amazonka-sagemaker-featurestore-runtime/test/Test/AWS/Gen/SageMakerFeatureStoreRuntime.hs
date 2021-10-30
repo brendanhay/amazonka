@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMakerFeatureStoreRuntime where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SageMakerFeatureStoreRuntime
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -91,7 +91,7 @@ responsePutRecord =
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRecord)
+    (Proxy.Proxy :: Proxy.Proxy PutRecord)
 
 responseDeleteRecord :: DeleteRecordResponse -> TestTree
 responseDeleteRecord =
@@ -99,7 +99,7 @@ responseDeleteRecord =
     "DeleteRecordResponse"
     "fixture/DeleteRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRecord)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecord)
 
 responseBatchGetRecord :: BatchGetRecordResponse -> TestTree
 responseBatchGetRecord =
@@ -107,7 +107,7 @@ responseBatchGetRecord =
     "BatchGetRecordResponse"
     "fixture/BatchGetRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetRecord)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetRecord)
 
 responseGetRecord :: GetRecordResponse -> TestTree
 responseGetRecord =
@@ -115,4 +115,4 @@ responseGetRecord =
     "GetRecordResponse"
     "fixture/GetRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecord)
+    (Proxy.Proxy :: Proxy.Proxy GetRecord)

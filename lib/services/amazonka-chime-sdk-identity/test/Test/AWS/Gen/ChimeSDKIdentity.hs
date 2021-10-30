@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ChimeSDKIdentity where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ChimeSDKIdentity
 import Test.AWS.ChimeSDKIdentity.Internal
 import Test.AWS.Fixture
@@ -235,7 +235,7 @@ responseCreateAppInstance =
     "CreateAppInstanceResponse"
     "fixture/CreateAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstance)
 
 responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
 responseGetAppInstanceRetentionSettings =
@@ -243,7 +243,7 @@ responseGetAppInstanceRetentionSettings =
     "GetAppInstanceRetentionSettingsResponse"
     "fixture/GetAppInstanceRetentionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppInstanceRetentionSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceRetentionSettings)
 
 responseDescribeAppInstanceAdmin :: DescribeAppInstanceAdminResponse -> TestTree
 responseDescribeAppInstanceAdmin =
@@ -251,7 +251,7 @@ responseDescribeAppInstanceAdmin =
     "DescribeAppInstanceAdminResponse"
     "fixture/DescribeAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
 
 responseCreateAppInstanceUser :: CreateAppInstanceUserResponse -> TestTree
 responseCreateAppInstanceUser =
@@ -259,7 +259,7 @@ responseCreateAppInstanceUser =
     "CreateAppInstanceUserResponse"
     "fixture/CreateAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceUser)
 
 responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
 responsePutAppInstanceRetentionSettings =
@@ -267,7 +267,7 @@ responsePutAppInstanceRetentionSettings =
     "PutAppInstanceRetentionSettingsResponse"
     "fixture/PutAppInstanceRetentionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppInstanceRetentionSettings)
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
 
 responseCreateAppInstanceAdmin :: CreateAppInstanceAdminResponse -> TestTree
 responseCreateAppInstanceAdmin =
@@ -275,7 +275,7 @@ responseCreateAppInstanceAdmin =
     "CreateAppInstanceAdminResponse"
     "fixture/CreateAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
 
 responseListAppInstanceAdmins :: ListAppInstanceAdminsResponse -> TestTree
 responseListAppInstanceAdmins =
@@ -283,7 +283,7 @@ responseListAppInstanceAdmins =
     "ListAppInstanceAdminsResponse"
     "fixture/ListAppInstanceAdminsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppInstanceAdmins)
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
 
 responseListAppInstances :: ListAppInstancesResponse -> TestTree
 responseListAppInstances =
@@ -291,7 +291,7 @@ responseListAppInstances =
     "ListAppInstancesResponse"
     "fixture/ListAppInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
 
 responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
 responseDescribeAppInstanceUser =
@@ -299,7 +299,7 @@ responseDescribeAppInstanceUser =
     "DescribeAppInstanceUserResponse"
     "fixture/DescribeAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
 
 responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
 responseDescribeAppInstance =
@@ -307,7 +307,7 @@ responseDescribeAppInstance =
     "DescribeAppInstanceResponse"
     "fixture/DescribeAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstance)
 
 responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
 responseListAppInstanceUsers =
@@ -315,7 +315,7 @@ responseListAppInstanceUsers =
     "ListAppInstanceUsersResponse"
     "fixture/ListAppInstanceUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppInstanceUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUsers)
 
 responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
 responseDeleteAppInstanceUser =
@@ -323,7 +323,7 @@ responseDeleteAppInstanceUser =
     "DeleteAppInstanceUserResponse"
     "fixture/DeleteAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
 
 responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
 responseUpdateAppInstanceUser =
@@ -331,7 +331,7 @@ responseUpdateAppInstanceUser =
     "UpdateAppInstanceUserResponse"
     "fixture/UpdateAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)
 
 responseDeleteAppInstanceAdmin :: DeleteAppInstanceAdminResponse -> TestTree
 responseDeleteAppInstanceAdmin =
@@ -339,7 +339,7 @@ responseDeleteAppInstanceAdmin =
     "DeleteAppInstanceAdminResponse"
     "fixture/DeleteAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceAdmin)
 
 responseDeleteAppInstance :: DeleteAppInstanceResponse -> TestTree
 responseDeleteAppInstance =
@@ -347,7 +347,7 @@ responseDeleteAppInstance =
     "DeleteAppInstanceResponse"
     "fixture/DeleteAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstance)
 
 responseUpdateAppInstance :: UpdateAppInstanceResponse -> TestTree
 responseUpdateAppInstance =
@@ -355,4 +355,4 @@ responseUpdateAppInstance =
     "UpdateAppInstanceResponse"
     "fixture/UpdateAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstance)

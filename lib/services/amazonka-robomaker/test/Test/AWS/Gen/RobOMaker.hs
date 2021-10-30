@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RobOMaker where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.RobOMaker
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -727,7 +727,7 @@ responseDescribeWorldExportJob =
     "DescribeWorldExportJobResponse"
     "fixture/DescribeWorldExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorldExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorldExportJob)
 
 responseBatchDeleteWorlds :: BatchDeleteWorldsResponse -> TestTree
 responseBatchDeleteWorlds =
@@ -735,7 +735,7 @@ responseBatchDeleteWorlds =
     "BatchDeleteWorldsResponse"
     "fixture/BatchDeleteWorldsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteWorlds)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteWorlds)
 
 responseGetWorldTemplateBody :: GetWorldTemplateBodyResponse -> TestTree
 responseGetWorldTemplateBody =
@@ -743,7 +743,7 @@ responseGetWorldTemplateBody =
     "GetWorldTemplateBodyResponse"
     "fixture/GetWorldTemplateBodyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorldTemplateBody)
+    (Proxy.Proxy :: Proxy.Proxy GetWorldTemplateBody)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
 responseDeleteFleet =
@@ -751,7 +751,7 @@ responseDeleteFleet =
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFleet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
 
 responseCreateWorldGenerationJob :: CreateWorldGenerationJobResponse -> TestTree
 responseCreateWorldGenerationJob =
@@ -759,7 +759,7 @@ responseCreateWorldGenerationJob =
     "CreateWorldGenerationJobResponse"
     "fixture/CreateWorldGenerationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorldGenerationJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorldGenerationJob)
 
 responseListRobotApplications :: ListRobotApplicationsResponse -> TestTree
 responseListRobotApplications =
@@ -767,7 +767,7 @@ responseListRobotApplications =
     "ListRobotApplicationsResponse"
     "fixture/ListRobotApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRobotApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListRobotApplications)
 
 responseUpdateRobotApplication :: UpdateRobotApplicationResponse -> TestTree
 responseUpdateRobotApplication =
@@ -775,7 +775,7 @@ responseUpdateRobotApplication =
     "UpdateRobotApplicationResponse"
     "fixture/UpdateRobotApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRobotApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRobotApplication)
 
 responseDeleteRobotApplication :: DeleteRobotApplicationResponse -> TestTree
 responseDeleteRobotApplication =
@@ -783,7 +783,7 @@ responseDeleteRobotApplication =
     "DeleteRobotApplicationResponse"
     "fixture/DeleteRobotApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRobotApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRobotApplication)
 
 responseCreateSimulationApplicationVersion :: CreateSimulationApplicationVersionResponse -> TestTree
 responseCreateSimulationApplicationVersion =
@@ -791,7 +791,7 @@ responseCreateSimulationApplicationVersion =
     "CreateSimulationApplicationVersionResponse"
     "fixture/CreateSimulationApplicationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSimulationApplicationVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateSimulationApplicationVersion)
 
 responseListDeploymentJobs :: ListDeploymentJobsResponse -> TestTree
 responseListDeploymentJobs =
@@ -799,7 +799,7 @@ responseListDeploymentJobs =
     "ListDeploymentJobsResponse"
     "fixture/ListDeploymentJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeploymentJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentJobs)
 
 responseDescribeWorld :: DescribeWorldResponse -> TestTree
 responseDescribeWorld =
@@ -807,7 +807,7 @@ responseDescribeWorld =
     "DescribeWorldResponse"
     "fixture/DescribeWorldResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorld)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorld)
 
 responseCancelSimulationJob :: CancelSimulationJobResponse -> TestTree
 responseCancelSimulationJob =
@@ -815,7 +815,7 @@ responseCancelSimulationJob =
     "CancelSimulationJobResponse"
     "fixture/CancelSimulationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSimulationJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelSimulationJob)
 
 responseCreateRobotApplication :: CreateRobotApplicationResponse -> TestTree
 responseCreateRobotApplication =
@@ -823,7 +823,7 @@ responseCreateRobotApplication =
     "CreateRobotApplicationResponse"
     "fixture/CreateRobotApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRobotApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateRobotApplication)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -831,7 +831,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateDeploymentJob :: CreateDeploymentJobResponse -> TestTree
 responseCreateDeploymentJob =
@@ -839,7 +839,7 @@ responseCreateDeploymentJob =
     "CreateDeploymentJobResponse"
     "fixture/CreateDeploymentJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeploymentJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentJob)
 
 responseRegisterRobot :: RegisterRobotResponse -> TestTree
 responseRegisterRobot =
@@ -847,7 +847,7 @@ responseRegisterRobot =
     "RegisterRobotResponse"
     "fixture/RegisterRobotResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterRobot)
+    (Proxy.Proxy :: Proxy.Proxy RegisterRobot)
 
 responseListRobots :: ListRobotsResponse -> TestTree
 responseListRobots =
@@ -855,7 +855,7 @@ responseListRobots =
     "ListRobotsResponse"
     "fixture/ListRobotsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRobots)
+    (Proxy.Proxy :: Proxy.Proxy ListRobots)
 
 responseCreateWorldExportJob :: CreateWorldExportJobResponse -> TestTree
 responseCreateWorldExportJob =
@@ -863,7 +863,7 @@ responseCreateWorldExportJob =
     "CreateWorldExportJobResponse"
     "fixture/CreateWorldExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorldExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorldExportJob)
 
 responseBatchDescribeSimulationJob :: BatchDescribeSimulationJobResponse -> TestTree
 responseBatchDescribeSimulationJob =
@@ -871,7 +871,7 @@ responseBatchDescribeSimulationJob =
     "BatchDescribeSimulationJobResponse"
     "fixture/BatchDescribeSimulationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDescribeSimulationJob)
+    (Proxy.Proxy :: Proxy.Proxy BatchDescribeSimulationJob)
 
 responseCreateSimulationApplication :: CreateSimulationApplicationResponse -> TestTree
 responseCreateSimulationApplication =
@@ -879,7 +879,7 @@ responseCreateSimulationApplication =
     "CreateSimulationApplicationResponse"
     "fixture/CreateSimulationApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSimulationApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateSimulationApplication)
 
 responseStartSimulationJobBatch :: StartSimulationJobBatchResponse -> TestTree
 responseStartSimulationJobBatch =
@@ -887,7 +887,7 @@ responseStartSimulationJobBatch =
     "StartSimulationJobBatchResponse"
     "fixture/StartSimulationJobBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSimulationJobBatch)
+    (Proxy.Proxy :: Proxy.Proxy StartSimulationJobBatch)
 
 responseCreateRobot :: CreateRobotResponse -> TestTree
 responseCreateRobot =
@@ -895,7 +895,7 @@ responseCreateRobot =
     "CreateRobotResponse"
     "fixture/CreateRobotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRobot)
+    (Proxy.Proxy :: Proxy.Proxy CreateRobot)
 
 responseDescribeFleet :: DescribeFleetResponse -> TestTree
 responseDescribeFleet =
@@ -903,7 +903,7 @@ responseDescribeFleet =
     "DescribeFleetResponse"
     "fixture/DescribeFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleet)
 
 responseListWorldTemplates :: ListWorldTemplatesResponse -> TestTree
 responseListWorldTemplates =
@@ -911,7 +911,7 @@ responseListWorldTemplates =
     "ListWorldTemplatesResponse"
     "fixture/ListWorldTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorldTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListWorldTemplates)
 
 responseDescribeRobotApplication :: DescribeRobotApplicationResponse -> TestTree
 responseDescribeRobotApplication =
@@ -919,7 +919,7 @@ responseDescribeRobotApplication =
     "DescribeRobotApplicationResponse"
     "fixture/DescribeRobotApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRobotApplication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRobotApplication)
 
 responseRestartSimulationJob :: RestartSimulationJobResponse -> TestTree
 responseRestartSimulationJob =
@@ -927,7 +927,7 @@ responseRestartSimulationJob =
     "RestartSimulationJobResponse"
     "fixture/RestartSimulationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy RestartSimulationJob)
+    (Proxy.Proxy :: Proxy.Proxy RestartSimulationJob)
 
 responseDescribeSimulationJob :: DescribeSimulationJobResponse -> TestTree
 responseDescribeSimulationJob =
@@ -935,7 +935,7 @@ responseDescribeSimulationJob =
     "DescribeSimulationJobResponse"
     "fixture/DescribeSimulationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSimulationJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSimulationJob)
 
 responseDeregisterRobot :: DeregisterRobotResponse -> TestTree
 responseDeregisterRobot =
@@ -943,7 +943,7 @@ responseDeregisterRobot =
     "DeregisterRobotResponse"
     "fixture/DeregisterRobotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterRobot)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterRobot)
 
 responseDescribeSimulationApplication :: DescribeSimulationApplicationResponse -> TestTree
 responseDescribeSimulationApplication =
@@ -951,7 +951,7 @@ responseDescribeSimulationApplication =
     "DescribeSimulationApplicationResponse"
     "fixture/DescribeSimulationApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSimulationApplication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSimulationApplication)
 
 responseListSimulationJobBatches :: ListSimulationJobBatchesResponse -> TestTree
 responseListSimulationJobBatches =
@@ -959,7 +959,7 @@ responseListSimulationJobBatches =
     "ListSimulationJobBatchesResponse"
     "fixture/ListSimulationJobBatchesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSimulationJobBatches)
+    (Proxy.Proxy :: Proxy.Proxy ListSimulationJobBatches)
 
 responseListFleets :: ListFleetsResponse -> TestTree
 responseListFleets =
@@ -967,7 +967,7 @@ responseListFleets =
     "ListFleetsResponse"
     "fixture/ListFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFleets)
+    (Proxy.Proxy :: Proxy.Proxy ListFleets)
 
 responseDescribeWorldTemplate :: DescribeWorldTemplateResponse -> TestTree
 responseDescribeWorldTemplate =
@@ -975,7 +975,7 @@ responseDescribeWorldTemplate =
     "DescribeWorldTemplateResponse"
     "fixture/DescribeWorldTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorldTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorldTemplate)
 
 responseCancelWorldExportJob :: CancelWorldExportJobResponse -> TestTree
 responseCancelWorldExportJob =
@@ -983,7 +983,7 @@ responseCancelWorldExportJob =
     "CancelWorldExportJobResponse"
     "fixture/CancelWorldExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelWorldExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelWorldExportJob)
 
 responseListWorldGenerationJobs :: ListWorldGenerationJobsResponse -> TestTree
 responseListWorldGenerationJobs =
@@ -991,7 +991,7 @@ responseListWorldGenerationJobs =
     "ListWorldGenerationJobsResponse"
     "fixture/ListWorldGenerationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorldGenerationJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListWorldGenerationJobs)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -999,7 +999,7 @@ responseCreateFleet =
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateFleet)
 
 responseCancelWorldGenerationJob :: CancelWorldGenerationJobResponse -> TestTree
 responseCancelWorldGenerationJob =
@@ -1007,7 +1007,7 @@ responseCancelWorldGenerationJob =
     "CancelWorldGenerationJobResponse"
     "fixture/CancelWorldGenerationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelWorldGenerationJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelWorldGenerationJob)
 
 responseDescribeSimulationJobBatch :: DescribeSimulationJobBatchResponse -> TestTree
 responseDescribeSimulationJobBatch =
@@ -1015,7 +1015,7 @@ responseDescribeSimulationJobBatch =
     "DescribeSimulationJobBatchResponse"
     "fixture/DescribeSimulationJobBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSimulationJobBatch)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSimulationJobBatch)
 
 responseListSimulationJobs :: ListSimulationJobsResponse -> TestTree
 responseListSimulationJobs =
@@ -1023,7 +1023,7 @@ responseListSimulationJobs =
     "ListSimulationJobsResponse"
     "fixture/ListSimulationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSimulationJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListSimulationJobs)
 
 responseDeleteRobot :: DeleteRobotResponse -> TestTree
 responseDeleteRobot =
@@ -1031,7 +1031,7 @@ responseDeleteRobot =
     "DeleteRobotResponse"
     "fixture/DeleteRobotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRobot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRobot)
 
 responseDeleteSimulationApplication :: DeleteSimulationApplicationResponse -> TestTree
 responseDeleteSimulationApplication =
@@ -1039,7 +1039,7 @@ responseDeleteSimulationApplication =
     "DeleteSimulationApplicationResponse"
     "fixture/DeleteSimulationApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSimulationApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSimulationApplication)
 
 responseUpdateSimulationApplication :: UpdateSimulationApplicationResponse -> TestTree
 responseUpdateSimulationApplication =
@@ -1047,7 +1047,7 @@ responseUpdateSimulationApplication =
     "UpdateSimulationApplicationResponse"
     "fixture/UpdateSimulationApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSimulationApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSimulationApplication)
 
 responseCreateSimulationJob :: CreateSimulationJobResponse -> TestTree
 responseCreateSimulationJob =
@@ -1055,7 +1055,7 @@ responseCreateSimulationJob =
     "CreateSimulationJobResponse"
     "fixture/CreateSimulationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSimulationJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateSimulationJob)
 
 responseListWorldExportJobs :: ListWorldExportJobsResponse -> TestTree
 responseListWorldExportJobs =
@@ -1063,7 +1063,7 @@ responseListWorldExportJobs =
     "ListWorldExportJobsResponse"
     "fixture/ListWorldExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorldExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListWorldExportJobs)
 
 responseListSimulationApplications :: ListSimulationApplicationsResponse -> TestTree
 responseListSimulationApplications =
@@ -1071,7 +1071,7 @@ responseListSimulationApplications =
     "ListSimulationApplicationsResponse"
     "fixture/ListSimulationApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSimulationApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListSimulationApplications)
 
 responseCreateRobotApplicationVersion :: CreateRobotApplicationVersionResponse -> TestTree
 responseCreateRobotApplicationVersion =
@@ -1079,7 +1079,7 @@ responseCreateRobotApplicationVersion =
     "CreateRobotApplicationVersionResponse"
     "fixture/CreateRobotApplicationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRobotApplicationVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateRobotApplicationVersion)
 
 responseCancelDeploymentJob :: CancelDeploymentJobResponse -> TestTree
 responseCancelDeploymentJob =
@@ -1087,7 +1087,7 @@ responseCancelDeploymentJob =
     "CancelDeploymentJobResponse"
     "fixture/CancelDeploymentJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelDeploymentJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelDeploymentJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1095,7 +1095,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListWorlds :: ListWorldsResponse -> TestTree
 responseListWorlds =
@@ -1103,7 +1103,7 @@ responseListWorlds =
     "ListWorldsResponse"
     "fixture/ListWorldsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorlds)
+    (Proxy.Proxy :: Proxy.Proxy ListWorlds)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1111,7 +1111,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeDeploymentJob :: DescribeDeploymentJobResponse -> TestTree
 responseDescribeDeploymentJob =
@@ -1119,7 +1119,7 @@ responseDescribeDeploymentJob =
     "DescribeDeploymentJobResponse"
     "fixture/DescribeDeploymentJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeploymentJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeploymentJob)
 
 responseDeleteWorldTemplate :: DeleteWorldTemplateResponse -> TestTree
 responseDeleteWorldTemplate =
@@ -1127,7 +1127,7 @@ responseDeleteWorldTemplate =
     "DeleteWorldTemplateResponse"
     "fixture/DeleteWorldTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorldTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorldTemplate)
 
 responseUpdateWorldTemplate :: UpdateWorldTemplateResponse -> TestTree
 responseUpdateWorldTemplate =
@@ -1135,7 +1135,7 @@ responseUpdateWorldTemplate =
     "UpdateWorldTemplateResponse"
     "fixture/UpdateWorldTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorldTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorldTemplate)
 
 responseDescribeWorldGenerationJob :: DescribeWorldGenerationJobResponse -> TestTree
 responseDescribeWorldGenerationJob =
@@ -1143,7 +1143,7 @@ responseDescribeWorldGenerationJob =
     "DescribeWorldGenerationJobResponse"
     "fixture/DescribeWorldGenerationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorldGenerationJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorldGenerationJob)
 
 responseCreateWorldTemplate :: CreateWorldTemplateResponse -> TestTree
 responseCreateWorldTemplate =
@@ -1151,7 +1151,7 @@ responseCreateWorldTemplate =
     "CreateWorldTemplateResponse"
     "fixture/CreateWorldTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorldTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorldTemplate)
 
 responseCancelSimulationJobBatch :: CancelSimulationJobBatchResponse -> TestTree
 responseCancelSimulationJobBatch =
@@ -1159,7 +1159,7 @@ responseCancelSimulationJobBatch =
     "CancelSimulationJobBatchResponse"
     "fixture/CancelSimulationJobBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSimulationJobBatch)
+    (Proxy.Proxy :: Proxy.Proxy CancelSimulationJobBatch)
 
 responseDescribeRobot :: DescribeRobotResponse -> TestTree
 responseDescribeRobot =
@@ -1167,7 +1167,7 @@ responseDescribeRobot =
     "DescribeRobotResponse"
     "fixture/DescribeRobotResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRobot)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRobot)
 
 responseSyncDeploymentJob :: SyncDeploymentJobResponse -> TestTree
 responseSyncDeploymentJob =
@@ -1175,4 +1175,4 @@ responseSyncDeploymentJob =
     "SyncDeploymentJobResponse"
     "fixture/SyncDeploymentJobResponse.proto"
     defaultService
-    (Proxy :: Proxy SyncDeploymentJob)
+    (Proxy.Proxy :: Proxy.Proxy SyncDeploymentJob)

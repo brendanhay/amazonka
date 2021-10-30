@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Backup where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Backup
 import Test.AWS.Backup.Internal
 import Test.AWS.Fixture
@@ -835,7 +835,7 @@ responseUpdateBackupPlan =
     "UpdateBackupPlanResponse"
     "fixture/UpdateBackupPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBackupPlan)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBackupPlan)
 
 responseDeleteBackupPlan :: DeleteBackupPlanResponse -> TestTree
 responseDeleteBackupPlan =
@@ -843,7 +843,7 @@ responseDeleteBackupPlan =
     "DeleteBackupPlanResponse"
     "fixture/DeleteBackupPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackupPlan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackupPlan)
 
 responseDescribeBackupJob :: DescribeBackupJobResponse -> TestTree
 responseDescribeBackupJob =
@@ -851,7 +851,7 @@ responseDescribeBackupJob =
     "DescribeBackupJobResponse"
     "fixture/DescribeBackupJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackupJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackupJob)
 
 responseListBackupPlanTemplates :: ListBackupPlanTemplatesResponse -> TestTree
 responseListBackupPlanTemplates =
@@ -859,7 +859,7 @@ responseListBackupPlanTemplates =
     "ListBackupPlanTemplatesResponse"
     "fixture/ListBackupPlanTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackupPlanTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListBackupPlanTemplates)
 
 responseDeleteReportPlan :: DeleteReportPlanResponse -> TestTree
 responseDeleteReportPlan =
@@ -867,7 +867,7 @@ responseDeleteReportPlan =
     "DeleteReportPlanResponse"
     "fixture/DeleteReportPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReportPlan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReportPlan)
 
 responseUpdateReportPlan :: UpdateReportPlanResponse -> TestTree
 responseUpdateReportPlan =
@@ -875,7 +875,7 @@ responseUpdateReportPlan =
     "UpdateReportPlanResponse"
     "fixture/UpdateReportPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReportPlan)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReportPlan)
 
 responseDescribeReportJob :: DescribeReportJobResponse -> TestTree
 responseDescribeReportJob =
@@ -883,7 +883,7 @@ responseDescribeReportJob =
     "DescribeReportJobResponse"
     "fixture/DescribeReportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReportJob)
 
 responseUpdateRegionSettings :: UpdateRegionSettingsResponse -> TestTree
 responseUpdateRegionSettings =
@@ -891,7 +891,7 @@ responseUpdateRegionSettings =
     "UpdateRegionSettingsResponse"
     "fixture/UpdateRegionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRegionSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRegionSettings)
 
 responseUpdateGlobalSettings :: UpdateGlobalSettingsResponse -> TestTree
 responseUpdateGlobalSettings =
@@ -899,7 +899,7 @@ responseUpdateGlobalSettings =
     "UpdateGlobalSettingsResponse"
     "fixture/UpdateGlobalSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGlobalSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalSettings)
 
 responseDeleteBackupSelection :: DeleteBackupSelectionResponse -> TestTree
 responseDeleteBackupSelection =
@@ -907,7 +907,7 @@ responseDeleteBackupSelection =
     "DeleteBackupSelectionResponse"
     "fixture/DeleteBackupSelectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackupSelection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackupSelection)
 
 responseDescribeCopyJob :: DescribeCopyJobResponse -> TestTree
 responseDescribeCopyJob =
@@ -915,7 +915,7 @@ responseDescribeCopyJob =
     "DescribeCopyJobResponse"
     "fixture/DescribeCopyJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCopyJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCopyJob)
 
 responseDescribeRecoveryPoint :: DescribeRecoveryPointResponse -> TestTree
 responseDescribeRecoveryPoint =
@@ -923,7 +923,7 @@ responseDescribeRecoveryPoint =
     "DescribeRecoveryPointResponse"
     "fixture/DescribeRecoveryPointResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRecoveryPoint)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecoveryPoint)
 
 responseDescribeRestoreJob :: DescribeRestoreJobResponse -> TestTree
 responseDescribeRestoreJob =
@@ -931,7 +931,7 @@ responseDescribeRestoreJob =
     "DescribeRestoreJobResponse"
     "fixture/DescribeRestoreJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRestoreJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRestoreJob)
 
 responseStartCopyJob :: StartCopyJobResponse -> TestTree
 responseStartCopyJob =
@@ -939,7 +939,7 @@ responseStartCopyJob =
     "StartCopyJobResponse"
     "fixture/StartCopyJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartCopyJob)
+    (Proxy.Proxy :: Proxy.Proxy StartCopyJob)
 
 responseGetBackupPlanFromTemplate :: GetBackupPlanFromTemplateResponse -> TestTree
 responseGetBackupPlanFromTemplate =
@@ -947,7 +947,7 @@ responseGetBackupPlanFromTemplate =
     "GetBackupPlanFromTemplateResponse"
     "fixture/GetBackupPlanFromTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackupPlanFromTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetBackupPlanFromTemplate)
 
 responseDisassociateRecoveryPoint :: DisassociateRecoveryPointResponse -> TestTree
 responseDisassociateRecoveryPoint =
@@ -955,7 +955,7 @@ responseDisassociateRecoveryPoint =
     "DisassociateRecoveryPointResponse"
     "fixture/DisassociateRecoveryPointResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateRecoveryPoint)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRecoveryPoint)
 
 responseDeleteBackupVault :: DeleteBackupVaultResponse -> TestTree
 responseDeleteBackupVault =
@@ -963,7 +963,7 @@ responseDeleteBackupVault =
     "DeleteBackupVaultResponse"
     "fixture/DeleteBackupVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackupVault)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackupVault)
 
 responseDeleteFramework :: DeleteFrameworkResponse -> TestTree
 responseDeleteFramework =
@@ -971,7 +971,7 @@ responseDeleteFramework =
     "DeleteFrameworkResponse"
     "fixture/DeleteFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFramework)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFramework)
 
 responseUpdateFramework :: UpdateFrameworkResponse -> TestTree
 responseUpdateFramework =
@@ -979,7 +979,7 @@ responseUpdateFramework =
     "UpdateFrameworkResponse"
     "fixture/UpdateFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFramework)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFramework)
 
 responseListReportJobs :: ListReportJobsResponse -> TestTree
 responseListReportJobs =
@@ -987,7 +987,7 @@ responseListReportJobs =
     "ListReportJobsResponse"
     "fixture/ListReportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListReportJobs)
 
 responseListBackupJobs :: ListBackupJobsResponse -> TestTree
 responseListBackupJobs =
@@ -995,7 +995,7 @@ responseListBackupJobs =
     "ListBackupJobsResponse"
     "fixture/ListBackupJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackupJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListBackupJobs)
 
 responseDescribeReportPlan :: DescribeReportPlanResponse -> TestTree
 responseDescribeReportPlan =
@@ -1003,7 +1003,7 @@ responseDescribeReportPlan =
     "DescribeReportPlanResponse"
     "fixture/DescribeReportPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReportPlan)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReportPlan)
 
 responseDescribeRegionSettings :: DescribeRegionSettingsResponse -> TestTree
 responseDescribeRegionSettings =
@@ -1011,7 +1011,7 @@ responseDescribeRegionSettings =
     "DescribeRegionSettingsResponse"
     "fixture/DescribeRegionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRegionSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegionSettings)
 
 responseGetBackupPlan :: GetBackupPlanResponse -> TestTree
 responseGetBackupPlan =
@@ -1019,7 +1019,7 @@ responseGetBackupPlan =
     "GetBackupPlanResponse"
     "fixture/GetBackupPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackupPlan)
+    (Proxy.Proxy :: Proxy.Proxy GetBackupPlan)
 
 responseDescribeGlobalSettings :: DescribeGlobalSettingsResponse -> TestTree
 responseDescribeGlobalSettings =
@@ -1027,7 +1027,7 @@ responseDescribeGlobalSettings =
     "DescribeGlobalSettingsResponse"
     "fixture/DescribeGlobalSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGlobalSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalSettings)
 
 responseListBackupPlanVersions :: ListBackupPlanVersionsResponse -> TestTree
 responseListBackupPlanVersions =
@@ -1035,7 +1035,7 @@ responseListBackupPlanVersions =
     "ListBackupPlanVersionsResponse"
     "fixture/ListBackupPlanVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackupPlanVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListBackupPlanVersions)
 
 responseListRestoreJobs :: ListRestoreJobsResponse -> TestTree
 responseListRestoreJobs =
@@ -1043,7 +1043,7 @@ responseListRestoreJobs =
     "ListRestoreJobsResponse"
     "fixture/ListRestoreJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRestoreJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListRestoreJobs)
 
 responseCreateReportPlan :: CreateReportPlanResponse -> TestTree
 responseCreateReportPlan =
@@ -1051,7 +1051,7 @@ responseCreateReportPlan =
     "CreateReportPlanResponse"
     "fixture/CreateReportPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReportPlan)
+    (Proxy.Proxy :: Proxy.Proxy CreateReportPlan)
 
 responseExportBackupPlanTemplate :: ExportBackupPlanTemplateResponse -> TestTree
 responseExportBackupPlanTemplate =
@@ -1059,7 +1059,7 @@ responseExportBackupPlanTemplate =
     "ExportBackupPlanTemplateResponse"
     "fixture/ExportBackupPlanTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportBackupPlanTemplate)
+    (Proxy.Proxy :: Proxy.Proxy ExportBackupPlanTemplate)
 
 responseStartBackupJob :: StartBackupJobResponse -> TestTree
 responseStartBackupJob =
@@ -1067,7 +1067,7 @@ responseStartBackupJob =
     "StartBackupJobResponse"
     "fixture/StartBackupJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartBackupJob)
+    (Proxy.Proxy :: Proxy.Proxy StartBackupJob)
 
 responseDescribeFramework :: DescribeFrameworkResponse -> TestTree
 responseDescribeFramework =
@@ -1075,7 +1075,7 @@ responseDescribeFramework =
     "DescribeFrameworkResponse"
     "fixture/DescribeFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFramework)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFramework)
 
 responseCreateBackupPlan :: CreateBackupPlanResponse -> TestTree
 responseCreateBackupPlan =
@@ -1083,7 +1083,7 @@ responseCreateBackupPlan =
     "CreateBackupPlanResponse"
     "fixture/CreateBackupPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackupPlan)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackupPlan)
 
 responseListProtectedResources :: ListProtectedResourcesResponse -> TestTree
 responseListProtectedResources =
@@ -1091,7 +1091,7 @@ responseListProtectedResources =
     "ListProtectedResourcesResponse"
     "fixture/ListProtectedResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProtectedResources)
+    (Proxy.Proxy :: Proxy.Proxy ListProtectedResources)
 
 responseStartReportJob :: StartReportJobResponse -> TestTree
 responseStartReportJob =
@@ -1099,7 +1099,7 @@ responseStartReportJob =
     "StartReportJobResponse"
     "fixture/StartReportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartReportJob)
+    (Proxy.Proxy :: Proxy.Proxy StartReportJob)
 
 responseDescribeBackupVault :: DescribeBackupVaultResponse -> TestTree
 responseDescribeBackupVault =
@@ -1107,7 +1107,7 @@ responseDescribeBackupVault =
     "DescribeBackupVaultResponse"
     "fixture/DescribeBackupVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackupVault)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackupVault)
 
 responseGetBackupVaultNotifications :: GetBackupVaultNotificationsResponse -> TestTree
 responseGetBackupVaultNotifications =
@@ -1115,7 +1115,7 @@ responseGetBackupVaultNotifications =
     "GetBackupVaultNotificationsResponse"
     "fixture/GetBackupVaultNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackupVaultNotifications)
+    (Proxy.Proxy :: Proxy.Proxy GetBackupVaultNotifications)
 
 responseListReportPlans :: ListReportPlansResponse -> TestTree
 responseListReportPlans =
@@ -1123,7 +1123,7 @@ responseListReportPlans =
     "ListReportPlansResponse"
     "fixture/ListReportPlansResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReportPlans)
+    (Proxy.Proxy :: Proxy.Proxy ListReportPlans)
 
 responseGetRecoveryPointRestoreMetadata :: GetRecoveryPointRestoreMetadataResponse -> TestTree
 responseGetRecoveryPointRestoreMetadata =
@@ -1131,7 +1131,7 @@ responseGetRecoveryPointRestoreMetadata =
     "GetRecoveryPointRestoreMetadataResponse"
     "fixture/GetRecoveryPointRestoreMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecoveryPointRestoreMetadata)
+    (Proxy.Proxy :: Proxy.Proxy GetRecoveryPointRestoreMetadata)
 
 responseListBackupPlans :: ListBackupPlansResponse -> TestTree
 responseListBackupPlans =
@@ -1139,7 +1139,7 @@ responseListBackupPlans =
     "ListBackupPlansResponse"
     "fixture/ListBackupPlansResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackupPlans)
+    (Proxy.Proxy :: Proxy.Proxy ListBackupPlans)
 
 responseStartRestoreJob :: StartRestoreJobResponse -> TestTree
 responseStartRestoreJob =
@@ -1147,7 +1147,7 @@ responseStartRestoreJob =
     "StartRestoreJobResponse"
     "fixture/StartRestoreJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartRestoreJob)
+    (Proxy.Proxy :: Proxy.Proxy StartRestoreJob)
 
 responseListBackupSelections :: ListBackupSelectionsResponse -> TestTree
 responseListBackupSelections =
@@ -1155,7 +1155,7 @@ responseListBackupSelections =
     "ListBackupSelectionsResponse"
     "fixture/ListBackupSelectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackupSelections)
+    (Proxy.Proxy :: Proxy.Proxy ListBackupSelections)
 
 responseListRecoveryPointsByResource :: ListRecoveryPointsByResourceResponse -> TestTree
 responseListRecoveryPointsByResource =
@@ -1163,7 +1163,7 @@ responseListRecoveryPointsByResource =
     "ListRecoveryPointsByResourceResponse"
     "fixture/ListRecoveryPointsByResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecoveryPointsByResource)
+    (Proxy.Proxy :: Proxy.Proxy ListRecoveryPointsByResource)
 
 responseCreateBackupSelection :: CreateBackupSelectionResponse -> TestTree
 responseCreateBackupSelection =
@@ -1171,7 +1171,7 @@ responseCreateBackupSelection =
     "CreateBackupSelectionResponse"
     "fixture/CreateBackupSelectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackupSelection)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackupSelection)
 
 responseListFrameworks :: ListFrameworksResponse -> TestTree
 responseListFrameworks =
@@ -1179,7 +1179,7 @@ responseListFrameworks =
     "ListFrameworksResponse"
     "fixture/ListFrameworksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFrameworks)
+    (Proxy.Proxy :: Proxy.Proxy ListFrameworks)
 
 responseDescribeProtectedResource :: DescribeProtectedResourceResponse -> TestTree
 responseDescribeProtectedResource =
@@ -1187,7 +1187,7 @@ responseDescribeProtectedResource =
     "DescribeProtectedResourceResponse"
     "fixture/DescribeProtectedResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProtectedResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProtectedResource)
 
 responseGetBackupPlanFromJSON :: GetBackupPlanFromJSONResponse -> TestTree
 responseGetBackupPlanFromJSON =
@@ -1195,7 +1195,7 @@ responseGetBackupPlanFromJSON =
     "GetBackupPlanFromJSONResponse"
     "fixture/GetBackupPlanFromJSONResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackupPlanFromJSON)
+    (Proxy.Proxy :: Proxy.Proxy GetBackupPlanFromJSON)
 
 responseListBackupVaults :: ListBackupVaultsResponse -> TestTree
 responseListBackupVaults =
@@ -1203,7 +1203,7 @@ responseListBackupVaults =
     "ListBackupVaultsResponse"
     "fixture/ListBackupVaultsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackupVaults)
+    (Proxy.Proxy :: Proxy.Proxy ListBackupVaults)
 
 responseGetBackupSelection :: GetBackupSelectionResponse -> TestTree
 responseGetBackupSelection =
@@ -1211,7 +1211,7 @@ responseGetBackupSelection =
     "GetBackupSelectionResponse"
     "fixture/GetBackupSelectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackupSelection)
+    (Proxy.Proxy :: Proxy.Proxy GetBackupSelection)
 
 responseCreateBackupVault :: CreateBackupVaultResponse -> TestTree
 responseCreateBackupVault =
@@ -1219,7 +1219,7 @@ responseCreateBackupVault =
     "CreateBackupVaultResponse"
     "fixture/CreateBackupVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackupVault)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackupVault)
 
 responseUpdateRecoveryPointLifecycle :: UpdateRecoveryPointLifecycleResponse -> TestTree
 responseUpdateRecoveryPointLifecycle =
@@ -1227,7 +1227,7 @@ responseUpdateRecoveryPointLifecycle =
     "UpdateRecoveryPointLifecycleResponse"
     "fixture/UpdateRecoveryPointLifecycleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRecoveryPointLifecycle)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecoveryPointLifecycle)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1235,7 +1235,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateFramework :: CreateFrameworkResponse -> TestTree
 responseCreateFramework =
@@ -1243,7 +1243,7 @@ responseCreateFramework =
     "CreateFrameworkResponse"
     "fixture/CreateFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFramework)
+    (Proxy.Proxy :: Proxy.Proxy CreateFramework)
 
 responsePutBackupVaultNotifications :: PutBackupVaultNotificationsResponse -> TestTree
 responsePutBackupVaultNotifications =
@@ -1251,7 +1251,7 @@ responsePutBackupVaultNotifications =
     "PutBackupVaultNotificationsResponse"
     "fixture/PutBackupVaultNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBackupVaultNotifications)
+    (Proxy.Proxy :: Proxy.Proxy PutBackupVaultNotifications)
 
 responseDeleteBackupVaultNotifications :: DeleteBackupVaultNotificationsResponse -> TestTree
 responseDeleteBackupVaultNotifications =
@@ -1259,7 +1259,7 @@ responseDeleteBackupVaultNotifications =
     "DeleteBackupVaultNotificationsResponse"
     "fixture/DeleteBackupVaultNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackupVaultNotifications)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackupVaultNotifications)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -1267,7 +1267,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1275,7 +1275,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListCopyJobs :: ListCopyJobsResponse -> TestTree
 responseListCopyJobs =
@@ -1283,7 +1283,7 @@ responseListCopyJobs =
     "ListCopyJobsResponse"
     "fixture/ListCopyJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCopyJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListCopyJobs)
 
 responseDeleteBackupVaultLockConfiguration :: DeleteBackupVaultLockConfigurationResponse -> TestTree
 responseDeleteBackupVaultLockConfiguration =
@@ -1291,7 +1291,7 @@ responseDeleteBackupVaultLockConfiguration =
     "DeleteBackupVaultLockConfigurationResponse"
     "fixture/DeleteBackupVaultLockConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackupVaultLockConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackupVaultLockConfiguration)
 
 responseGetBackupVaultAccessPolicy :: GetBackupVaultAccessPolicyResponse -> TestTree
 responseGetBackupVaultAccessPolicy =
@@ -1299,7 +1299,7 @@ responseGetBackupVaultAccessPolicy =
     "GetBackupVaultAccessPolicyResponse"
     "fixture/GetBackupVaultAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackupVaultAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetBackupVaultAccessPolicy)
 
 responseDeleteRecoveryPoint :: DeleteRecoveryPointResponse -> TestTree
 responseDeleteRecoveryPoint =
@@ -1307,7 +1307,7 @@ responseDeleteRecoveryPoint =
     "DeleteRecoveryPointResponse"
     "fixture/DeleteRecoveryPointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRecoveryPoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecoveryPoint)
 
 responsePutBackupVaultLockConfiguration :: PutBackupVaultLockConfigurationResponse -> TestTree
 responsePutBackupVaultLockConfiguration =
@@ -1315,7 +1315,7 @@ responsePutBackupVaultLockConfiguration =
     "PutBackupVaultLockConfigurationResponse"
     "fixture/PutBackupVaultLockConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBackupVaultLockConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBackupVaultLockConfiguration)
 
 responseGetSupportedResourceTypes :: GetSupportedResourceTypesResponse -> TestTree
 responseGetSupportedResourceTypes =
@@ -1323,7 +1323,7 @@ responseGetSupportedResourceTypes =
     "GetSupportedResourceTypesResponse"
     "fixture/GetSupportedResourceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSupportedResourceTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetSupportedResourceTypes)
 
 responseStopBackupJob :: StopBackupJobResponse -> TestTree
 responseStopBackupJob =
@@ -1331,7 +1331,7 @@ responseStopBackupJob =
     "StopBackupJobResponse"
     "fixture/StopBackupJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopBackupJob)
+    (Proxy.Proxy :: Proxy.Proxy StopBackupJob)
 
 responseListRecoveryPointsByBackupVault :: ListRecoveryPointsByBackupVaultResponse -> TestTree
 responseListRecoveryPointsByBackupVault =
@@ -1339,7 +1339,7 @@ responseListRecoveryPointsByBackupVault =
     "ListRecoveryPointsByBackupVaultResponse"
     "fixture/ListRecoveryPointsByBackupVaultResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecoveryPointsByBackupVault)
+    (Proxy.Proxy :: Proxy.Proxy ListRecoveryPointsByBackupVault)
 
 responsePutBackupVaultAccessPolicy :: PutBackupVaultAccessPolicyResponse -> TestTree
 responsePutBackupVaultAccessPolicy =
@@ -1347,7 +1347,7 @@ responsePutBackupVaultAccessPolicy =
     "PutBackupVaultAccessPolicyResponse"
     "fixture/PutBackupVaultAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBackupVaultAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutBackupVaultAccessPolicy)
 
 responseDeleteBackupVaultAccessPolicy :: DeleteBackupVaultAccessPolicyResponse -> TestTree
 responseDeleteBackupVaultAccessPolicy =
@@ -1355,4 +1355,4 @@ responseDeleteBackupVaultAccessPolicy =
     "DeleteBackupVaultAccessPolicyResponse"
     "fixture/DeleteBackupVaultAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackupVaultAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackupVaultAccessPolicy)

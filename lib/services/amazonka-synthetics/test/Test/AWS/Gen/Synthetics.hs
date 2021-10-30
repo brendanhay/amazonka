@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Synthetics where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Synthetics
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -199,7 +199,7 @@ responseUpdateCanary =
     "UpdateCanaryResponse"
     "fixture/UpdateCanaryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCanary)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCanary)
 
 responseDeleteCanary :: DeleteCanaryResponse -> TestTree
 responseDeleteCanary =
@@ -207,7 +207,7 @@ responseDeleteCanary =
     "DeleteCanaryResponse"
     "fixture/DeleteCanaryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCanary)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCanary)
 
 responseCreateCanary :: CreateCanaryResponse -> TestTree
 responseCreateCanary =
@@ -215,7 +215,7 @@ responseCreateCanary =
     "CreateCanaryResponse"
     "fixture/CreateCanaryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCanary)
+    (Proxy.Proxy :: Proxy.Proxy CreateCanary)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -223,7 +223,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetCanaryRuns :: GetCanaryRunsResponse -> TestTree
 responseGetCanaryRuns =
@@ -231,7 +231,7 @@ responseGetCanaryRuns =
     "GetCanaryRunsResponse"
     "fixture/GetCanaryRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCanaryRuns)
+    (Proxy.Proxy :: Proxy.Proxy GetCanaryRuns)
 
 responseGetCanary :: GetCanaryResponse -> TestTree
 responseGetCanary =
@@ -239,7 +239,7 @@ responseGetCanary =
     "GetCanaryResponse"
     "fixture/GetCanaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCanary)
+    (Proxy.Proxy :: Proxy.Proxy GetCanary)
 
 responseDescribeRuntimeVersions :: DescribeRuntimeVersionsResponse -> TestTree
 responseDescribeRuntimeVersions =
@@ -247,7 +247,7 @@ responseDescribeRuntimeVersions =
     "DescribeRuntimeVersionsResponse"
     "fixture/DescribeRuntimeVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRuntimeVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuntimeVersions)
 
 responseDescribeCanariesLastRun :: DescribeCanariesLastRunResponse -> TestTree
 responseDescribeCanariesLastRun =
@@ -255,7 +255,7 @@ responseDescribeCanariesLastRun =
     "DescribeCanariesLastRunResponse"
     "fixture/DescribeCanariesLastRunResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCanariesLastRun)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCanariesLastRun)
 
 responseStartCanary :: StartCanaryResponse -> TestTree
 responseStartCanary =
@@ -263,7 +263,7 @@ responseStartCanary =
     "StartCanaryResponse"
     "fixture/StartCanaryResponse.proto"
     defaultService
-    (Proxy :: Proxy StartCanary)
+    (Proxy.Proxy :: Proxy.Proxy StartCanary)
 
 responseDescribeCanaries :: DescribeCanariesResponse -> TestTree
 responseDescribeCanaries =
@@ -271,7 +271,7 @@ responseDescribeCanaries =
     "DescribeCanariesResponse"
     "fixture/DescribeCanariesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCanaries)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCanaries)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -279,7 +279,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -287,7 +287,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseStopCanary :: StopCanaryResponse -> TestTree
 responseStopCanary =
@@ -295,4 +295,4 @@ responseStopCanary =
     "StopCanaryResponse"
     "fixture/StopCanaryResponse.proto"
     defaultService
-    (Proxy :: Proxy StopCanary)
+    (Proxy.Proxy :: Proxy.Proxy StopCanary)

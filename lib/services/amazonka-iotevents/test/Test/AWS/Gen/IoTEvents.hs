@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTEvents where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTEvents
 import Test.AWS.Fixture
 import Test.AWS.IoTEvents.Internal
@@ -355,7 +355,7 @@ responseListInputs =
     "ListInputsResponse"
     "fixture/ListInputsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInputs)
+    (Proxy.Proxy :: Proxy.Proxy ListInputs)
 
 responseStartDetectorModelAnalysis :: StartDetectorModelAnalysisResponse -> TestTree
 responseStartDetectorModelAnalysis =
@@ -363,7 +363,7 @@ responseStartDetectorModelAnalysis =
     "StartDetectorModelAnalysisResponse"
     "fixture/StartDetectorModelAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDetectorModelAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy StartDetectorModelAnalysis)
 
 responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
 responsePutLoggingOptions =
@@ -371,7 +371,7 @@ responsePutLoggingOptions =
     "PutLoggingOptionsResponse"
     "fixture/PutLoggingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
 
 responseDescribeDetectorModelAnalysis :: DescribeDetectorModelAnalysisResponse -> TestTree
 responseDescribeDetectorModelAnalysis =
@@ -379,7 +379,7 @@ responseDescribeDetectorModelAnalysis =
     "DescribeDetectorModelAnalysisResponse"
     "fixture/DescribeDetectorModelAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDetectorModelAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetectorModelAnalysis)
 
 responseCreateInput :: CreateInputResponse -> TestTree
 responseCreateInput =
@@ -387,7 +387,7 @@ responseCreateInput =
     "CreateInputResponse"
     "fixture/CreateInputResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInput)
+    (Proxy.Proxy :: Proxy.Proxy CreateInput)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -395,7 +395,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListAlarmModels :: ListAlarmModelsResponse -> TestTree
 responseListAlarmModels =
@@ -403,7 +403,7 @@ responseListAlarmModels =
     "ListAlarmModelsResponse"
     "fixture/ListAlarmModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAlarmModels)
+    (Proxy.Proxy :: Proxy.Proxy ListAlarmModels)
 
 responseDeleteAlarmModel :: DeleteAlarmModelResponse -> TestTree
 responseDeleteAlarmModel =
@@ -411,7 +411,7 @@ responseDeleteAlarmModel =
     "DeleteAlarmModelResponse"
     "fixture/DeleteAlarmModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlarmModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlarmModel)
 
 responseUpdateAlarmModel :: UpdateAlarmModelResponse -> TestTree
 responseUpdateAlarmModel =
@@ -419,7 +419,7 @@ responseUpdateAlarmModel =
     "UpdateAlarmModelResponse"
     "fixture/UpdateAlarmModelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAlarmModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAlarmModel)
 
 responseCreateAlarmModel :: CreateAlarmModelResponse -> TestTree
 responseCreateAlarmModel =
@@ -427,7 +427,7 @@ responseCreateAlarmModel =
     "CreateAlarmModelResponse"
     "fixture/CreateAlarmModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlarmModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlarmModel)
 
 responseGetDetectorModelAnalysisResults :: GetDetectorModelAnalysisResultsResponse -> TestTree
 responseGetDetectorModelAnalysisResults =
@@ -435,7 +435,7 @@ responseGetDetectorModelAnalysisResults =
     "GetDetectorModelAnalysisResultsResponse"
     "fixture/GetDetectorModelAnalysisResultsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDetectorModelAnalysisResults)
+    (Proxy.Proxy :: Proxy.Proxy GetDetectorModelAnalysisResults)
 
 responseListDetectorModelVersions :: ListDetectorModelVersionsResponse -> TestTree
 responseListDetectorModelVersions =
@@ -443,7 +443,7 @@ responseListDetectorModelVersions =
     "ListDetectorModelVersionsResponse"
     "fixture/ListDetectorModelVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDetectorModelVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListDetectorModelVersions)
 
 responseDescribeAlarmModel :: DescribeAlarmModelResponse -> TestTree
 responseDescribeAlarmModel =
@@ -451,7 +451,7 @@ responseDescribeAlarmModel =
     "DescribeAlarmModelResponse"
     "fixture/DescribeAlarmModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlarmModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarmModel)
 
 responseCreateDetectorModel :: CreateDetectorModelResponse -> TestTree
 responseCreateDetectorModel =
@@ -459,7 +459,7 @@ responseCreateDetectorModel =
     "CreateDetectorModelResponse"
     "fixture/CreateDetectorModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDetectorModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateDetectorModel)
 
 responseListDetectorModels :: ListDetectorModelsResponse -> TestTree
 responseListDetectorModels =
@@ -467,7 +467,7 @@ responseListDetectorModels =
     "ListDetectorModelsResponse"
     "fixture/ListDetectorModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDetectorModels)
+    (Proxy.Proxy :: Proxy.Proxy ListDetectorModels)
 
 responseUpdateDetectorModel :: UpdateDetectorModelResponse -> TestTree
 responseUpdateDetectorModel =
@@ -475,7 +475,7 @@ responseUpdateDetectorModel =
     "UpdateDetectorModelResponse"
     "fixture/UpdateDetectorModelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDetectorModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorModel)
 
 responseDeleteDetectorModel :: DeleteDetectorModelResponse -> TestTree
 responseDeleteDetectorModel =
@@ -483,7 +483,7 @@ responseDeleteDetectorModel =
     "DeleteDetectorModelResponse"
     "fixture/DeleteDetectorModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDetectorModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetectorModel)
 
 responseDeleteInput :: DeleteInputResponse -> TestTree
 responseDeleteInput =
@@ -491,7 +491,7 @@ responseDeleteInput =
     "DeleteInputResponse"
     "fixture/DeleteInputResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInput)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInput)
 
 responseUpdateInput :: UpdateInputResponse -> TestTree
 responseUpdateInput =
@@ -499,7 +499,7 @@ responseUpdateInput =
     "UpdateInputResponse"
     "fixture/UpdateInputResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInput)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInput)
 
 responseListAlarmModelVersions :: ListAlarmModelVersionsResponse -> TestTree
 responseListAlarmModelVersions =
@@ -507,7 +507,7 @@ responseListAlarmModelVersions =
     "ListAlarmModelVersionsResponse"
     "fixture/ListAlarmModelVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAlarmModelVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListAlarmModelVersions)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -515,7 +515,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeDetectorModel :: DescribeDetectorModelResponse -> TestTree
 responseDescribeDetectorModel =
@@ -523,7 +523,7 @@ responseDescribeDetectorModel =
     "DescribeDetectorModelResponse"
     "fixture/DescribeDetectorModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDetectorModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetectorModel)
 
 responseDescribeInput :: DescribeInputResponse -> TestTree
 responseDescribeInput =
@@ -531,7 +531,7 @@ responseDescribeInput =
     "DescribeInputResponse"
     "fixture/DescribeInputResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInput)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInput)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -539,7 +539,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListInputRoutings :: ListInputRoutingsResponse -> TestTree
 responseListInputRoutings =
@@ -547,7 +547,7 @@ responseListInputRoutings =
     "ListInputRoutingsResponse"
     "fixture/ListInputRoutingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInputRoutings)
+    (Proxy.Proxy :: Proxy.Proxy ListInputRoutings)
 
 responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
 responseDescribeLoggingOptions =
@@ -555,4 +555,4 @@ responseDescribeLoggingOptions =
     "DescribeLoggingOptionsResponse"
     "fixture/DescribeLoggingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)

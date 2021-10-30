@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTJobsData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTJobsData
 import Test.AWS.Fixture
 import Test.AWS.IoTJobsData.Internal
@@ -91,7 +91,7 @@ responseUpdateJobExecution =
     "UpdateJobExecutionResponse"
     "fixture/UpdateJobExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJobExecution)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJobExecution)
 
 responseStartNextPendingJobExecution :: StartNextPendingJobExecutionResponse -> TestTree
 responseStartNextPendingJobExecution =
@@ -99,7 +99,7 @@ responseStartNextPendingJobExecution =
     "StartNextPendingJobExecutionResponse"
     "fixture/StartNextPendingJobExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartNextPendingJobExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartNextPendingJobExecution)
 
 responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
 responseDescribeJobExecution =
@@ -107,7 +107,7 @@ responseDescribeJobExecution =
     "DescribeJobExecutionResponse"
     "fixture/DescribeJobExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobExecution)
 
 responseGetPendingJobExecutions :: GetPendingJobExecutionsResponse -> TestTree
 responseGetPendingJobExecutions =
@@ -115,4 +115,4 @@ responseGetPendingJobExecutions =
     "GetPendingJobExecutionsResponse"
     "fixture/GetPendingJobExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPendingJobExecutions)
+    (Proxy.Proxy :: Proxy.Proxy GetPendingJobExecutions)

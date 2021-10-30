@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.QLDBSession where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.QLDBSession
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -55,4 +55,4 @@ responseSendCommand =
     "SendCommandResponse"
     "fixture/SendCommandResponse.proto"
     defaultService
-    (Proxy :: Proxy SendCommand)
+    (Proxy.Proxy :: Proxy.Proxy SendCommand)

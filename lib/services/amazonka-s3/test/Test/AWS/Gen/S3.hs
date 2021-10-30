@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.S3 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.S3
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1129,7 +1129,7 @@ responsePutBucketRequestPayment =
     "PutBucketRequestPaymentResponse"
     "fixture/PutBucketRequestPaymentResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketRequestPayment)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketRequestPayment)
 
 responsePutObject :: PutObjectResponse -> TestTree
 responsePutObject =
@@ -1137,7 +1137,7 @@ responsePutObject =
     "PutObjectResponse"
     "fixture/PutObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObject)
+    (Proxy.Proxy :: Proxy.Proxy PutObject)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
 responseDeleteObject =
@@ -1145,7 +1145,7 @@ responseDeleteObject =
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteObject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteObject)
 
 responsePutBucketLogging :: PutBucketLoggingResponse -> TestTree
 responsePutBucketLogging =
@@ -1153,7 +1153,7 @@ responsePutBucketLogging =
     "PutBucketLoggingResponse"
     "fixture/PutBucketLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketLogging)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketLogging)
 
 responseGetBucketMetricsConfiguration :: GetBucketMetricsConfigurationResponse -> TestTree
 responseGetBucketMetricsConfiguration =
@@ -1161,7 +1161,7 @@ responseGetBucketMetricsConfiguration =
     "GetBucketMetricsConfigurationResponse"
     "fixture/GetBucketMetricsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketMetricsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketMetricsConfiguration)
 
 responseListBuckets :: ListBucketsResponse -> TestTree
 responseListBuckets =
@@ -1169,7 +1169,7 @@ responseListBuckets =
     "ListBucketsResponse"
     "fixture/ListBucketsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBuckets)
+    (Proxy.Proxy :: Proxy.Proxy ListBuckets)
 
 responseDeleteBucket :: DeleteBucketResponse -> TestTree
 responseDeleteBucket =
@@ -1177,7 +1177,7 @@ responseDeleteBucket =
     "DeleteBucketResponse"
     "fixture/DeleteBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucket)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucket)
 
 responseCreateBucket :: CreateBucketResponse -> TestTree
 responseCreateBucket =
@@ -1185,7 +1185,7 @@ responseCreateBucket =
     "CreateBucketResponse"
     "fixture/CreateBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBucket)
+    (Proxy.Proxy :: Proxy.Proxy CreateBucket)
 
 responseDeleteBucketTagging :: DeleteBucketTaggingResponse -> TestTree
 responseDeleteBucketTagging =
@@ -1193,7 +1193,7 @@ responseDeleteBucketTagging =
     "DeleteBucketTaggingResponse"
     "fixture/DeleteBucketTaggingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketTagging)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketTagging)
 
 responsePutObjectAcl :: PutObjectAclResponse -> TestTree
 responsePutObjectAcl =
@@ -1201,7 +1201,7 @@ responsePutObjectAcl =
     "PutObjectAclResponse"
     "fixture/PutObjectAclResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObjectAcl)
+    (Proxy.Proxy :: Proxy.Proxy PutObjectAcl)
 
 responsePutBucketTagging :: PutBucketTaggingResponse -> TestTree
 responsePutBucketTagging =
@@ -1209,7 +1209,7 @@ responsePutBucketTagging =
     "PutBucketTaggingResponse"
     "fixture/PutBucketTaggingResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketTagging)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketTagging)
 
 responseGetBucketInventoryConfiguration :: GetBucketInventoryConfigurationResponse -> TestTree
 responseGetBucketInventoryConfiguration =
@@ -1217,7 +1217,7 @@ responseGetBucketInventoryConfiguration =
     "GetBucketInventoryConfigurationResponse"
     "fixture/GetBucketInventoryConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketInventoryConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketInventoryConfiguration)
 
 responseDeletePublicAccessBlock :: DeletePublicAccessBlockResponse -> TestTree
 responseDeletePublicAccessBlock =
@@ -1225,7 +1225,7 @@ responseDeletePublicAccessBlock =
     "DeletePublicAccessBlockResponse"
     "fixture/DeletePublicAccessBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePublicAccessBlock)
+    (Proxy.Proxy :: Proxy.Proxy DeletePublicAccessBlock)
 
 responsePutBucketInventoryConfiguration :: PutBucketInventoryConfigurationResponse -> TestTree
 responsePutBucketInventoryConfiguration =
@@ -1233,7 +1233,7 @@ responsePutBucketInventoryConfiguration =
     "PutBucketInventoryConfigurationResponse"
     "fixture/PutBucketInventoryConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketInventoryConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketInventoryConfiguration)
 
 responseGetBucketLocation :: GetBucketLocationResponse -> TestTree
 responseGetBucketLocation =
@@ -1241,7 +1241,7 @@ responseGetBucketLocation =
     "GetBucketLocationResponse"
     "fixture/GetBucketLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketLocation)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketLocation)
 
 responseListBucketInventoryConfigurations :: ListBucketInventoryConfigurationsResponse -> TestTree
 responseListBucketInventoryConfigurations =
@@ -1249,7 +1249,7 @@ responseListBucketInventoryConfigurations =
     "ListBucketInventoryConfigurationsResponse"
     "fixture/ListBucketInventoryConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBucketInventoryConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListBucketInventoryConfigurations)
 
 responsePutPublicAccessBlock :: PutPublicAccessBlockResponse -> TestTree
 responsePutPublicAccessBlock =
@@ -1257,7 +1257,7 @@ responsePutPublicAccessBlock =
     "PutPublicAccessBlockResponse"
     "fixture/PutPublicAccessBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPublicAccessBlock)
+    (Proxy.Proxy :: Proxy.Proxy PutPublicAccessBlock)
 
 responseDeleteBucketInventoryConfiguration :: DeleteBucketInventoryConfigurationResponse -> TestTree
 responseDeleteBucketInventoryConfiguration =
@@ -1265,7 +1265,7 @@ responseDeleteBucketInventoryConfiguration =
     "DeleteBucketInventoryConfigurationResponse"
     "fixture/DeleteBucketInventoryConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketInventoryConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketInventoryConfiguration)
 
 responseGetBucketIntelligentTieringConfiguration :: GetBucketIntelligentTieringConfigurationResponse -> TestTree
 responseGetBucketIntelligentTieringConfiguration =
@@ -1273,7 +1273,7 @@ responseGetBucketIntelligentTieringConfiguration =
     "GetBucketIntelligentTieringConfigurationResponse"
     "fixture/GetBucketIntelligentTieringConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketIntelligentTieringConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketIntelligentTieringConfiguration)
 
 responseGetBucketNotificationConfiguration :: NotificationConfiguration -> TestTree
 responseGetBucketNotificationConfiguration =
@@ -1281,7 +1281,7 @@ responseGetBucketNotificationConfiguration =
     "GetBucketNotificationConfigurationResponse"
     "fixture/GetBucketNotificationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketNotificationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketNotificationConfiguration)
 
 responseGetObjectLockConfiguration :: GetObjectLockConfigurationResponse -> TestTree
 responseGetObjectLockConfiguration =
@@ -1289,7 +1289,7 @@ responseGetObjectLockConfiguration =
     "GetObjectLockConfigurationResponse"
     "fixture/GetObjectLockConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectLockConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectLockConfiguration)
 
 responsePutObjectRetention :: PutObjectRetentionResponse -> TestTree
 responsePutObjectRetention =
@@ -1297,7 +1297,7 @@ responsePutObjectRetention =
     "PutObjectRetentionResponse"
     "fixture/PutObjectRetentionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObjectRetention)
+    (Proxy.Proxy :: Proxy.Proxy PutObjectRetention)
 
 responsePutBucketAccelerateConfiguration :: PutBucketAccelerateConfigurationResponse -> TestTree
 responsePutBucketAccelerateConfiguration =
@@ -1305,7 +1305,7 @@ responsePutBucketAccelerateConfiguration =
     "PutBucketAccelerateConfigurationResponse"
     "fixture/PutBucketAccelerateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketAccelerateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketAccelerateConfiguration)
 
 responsePutObjectLegalHold :: PutObjectLegalHoldResponse -> TestTree
 responsePutObjectLegalHold =
@@ -1313,7 +1313,7 @@ responsePutObjectLegalHold =
     "PutObjectLegalHoldResponse"
     "fixture/PutObjectLegalHoldResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObjectLegalHold)
+    (Proxy.Proxy :: Proxy.Proxy PutObjectLegalHold)
 
 responsePutBucketOwnershipControls :: PutBucketOwnershipControlsResponse -> TestTree
 responsePutBucketOwnershipControls =
@@ -1321,7 +1321,7 @@ responsePutBucketOwnershipControls =
     "PutBucketOwnershipControlsResponse"
     "fixture/PutBucketOwnershipControlsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketOwnershipControls)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketOwnershipControls)
 
 responseDeleteBucketOwnershipControls :: DeleteBucketOwnershipControlsResponse -> TestTree
 responseDeleteBucketOwnershipControls =
@@ -1329,7 +1329,7 @@ responseDeleteBucketOwnershipControls =
     "DeleteBucketOwnershipControlsResponse"
     "fixture/DeleteBucketOwnershipControlsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketOwnershipControls)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketOwnershipControls)
 
 responsePutBucketMetricsConfiguration :: PutBucketMetricsConfigurationResponse -> TestTree
 responsePutBucketMetricsConfiguration =
@@ -1337,7 +1337,7 @@ responsePutBucketMetricsConfiguration =
     "PutBucketMetricsConfigurationResponse"
     "fixture/PutBucketMetricsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketMetricsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketMetricsConfiguration)
 
 responseDeleteBucketMetricsConfiguration :: DeleteBucketMetricsConfigurationResponse -> TestTree
 responseDeleteBucketMetricsConfiguration =
@@ -1345,7 +1345,7 @@ responseDeleteBucketMetricsConfiguration =
     "DeleteBucketMetricsConfigurationResponse"
     "fixture/DeleteBucketMetricsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketMetricsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketMetricsConfiguration)
 
 responseListObjectsV2 :: ListObjectsV2Response -> TestTree
 responseListObjectsV2 =
@@ -1353,7 +1353,7 @@ responseListObjectsV2 =
     "ListObjectsV2Response"
     "fixture/ListObjectsV2Response.proto"
     defaultService
-    (Proxy :: Proxy ListObjectsV2)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectsV2)
 
 responsePutBucketReplication :: PutBucketReplicationResponse -> TestTree
 responsePutBucketReplication =
@@ -1361,7 +1361,7 @@ responsePutBucketReplication =
     "PutBucketReplicationResponse"
     "fixture/PutBucketReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketReplication)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketReplication)
 
 responseGetBucketWebsite :: GetBucketWebsiteResponse -> TestTree
 responseGetBucketWebsite =
@@ -1369,7 +1369,7 @@ responseGetBucketWebsite =
     "GetBucketWebsiteResponse"
     "fixture/GetBucketWebsiteResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketWebsite)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketWebsite)
 
 responseGetBucketRequestPayment :: GetBucketRequestPaymentResponse -> TestTree
 responseGetBucketRequestPayment =
@@ -1377,7 +1377,7 @@ responseGetBucketRequestPayment =
     "GetBucketRequestPaymentResponse"
     "fixture/GetBucketRequestPaymentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketRequestPayment)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketRequestPayment)
 
 responseDeleteBucketReplication :: DeleteBucketReplicationResponse -> TestTree
 responseDeleteBucketReplication =
@@ -1385,7 +1385,7 @@ responseDeleteBucketReplication =
     "DeleteBucketReplicationResponse"
     "fixture/DeleteBucketReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketReplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketReplication)
 
 responseListObjectVersions :: ListObjectVersionsResponse -> TestTree
 responseListObjectVersions =
@@ -1393,7 +1393,7 @@ responseListObjectVersions =
     "ListObjectVersionsResponse"
     "fixture/ListObjectVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjectVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectVersions)
 
 responseHeadBucket :: HeadBucketResponse -> TestTree
 responseHeadBucket =
@@ -1401,7 +1401,7 @@ responseHeadBucket =
     "HeadBucketResponse"
     "fixture/HeadBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy HeadBucket)
+    (Proxy.Proxy :: Proxy.Proxy HeadBucket)
 
 responseDeleteBucketLifecycle :: DeleteBucketLifecycleResponse -> TestTree
 responseDeleteBucketLifecycle =
@@ -1409,7 +1409,7 @@ responseDeleteBucketLifecycle =
     "DeleteBucketLifecycleResponse"
     "fixture/DeleteBucketLifecycleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketLifecycle)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketLifecycle)
 
 responsePutBucketLifecycleConfiguration :: PutBucketLifecycleConfigurationResponse -> TestTree
 responsePutBucketLifecycleConfiguration =
@@ -1417,7 +1417,7 @@ responsePutBucketLifecycleConfiguration =
     "PutBucketLifecycleConfigurationResponse"
     "fixture/PutBucketLifecycleConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketLifecycleConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketLifecycleConfiguration)
 
 responsePutBucketAnalyticsConfiguration :: PutBucketAnalyticsConfigurationResponse -> TestTree
 responsePutBucketAnalyticsConfiguration =
@@ -1425,7 +1425,7 @@ responsePutBucketAnalyticsConfiguration =
     "PutBucketAnalyticsConfigurationResponse"
     "fixture/PutBucketAnalyticsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketAnalyticsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketAnalyticsConfiguration)
 
 responseListBucketAnalyticsConfigurations :: ListBucketAnalyticsConfigurationsResponse -> TestTree
 responseListBucketAnalyticsConfigurations =
@@ -1433,7 +1433,7 @@ responseListBucketAnalyticsConfigurations =
     "ListBucketAnalyticsConfigurationsResponse"
     "fixture/ListBucketAnalyticsConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBucketAnalyticsConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListBucketAnalyticsConfigurations)
 
 responseDeleteBucketAnalyticsConfiguration :: DeleteBucketAnalyticsConfigurationResponse -> TestTree
 responseDeleteBucketAnalyticsConfiguration =
@@ -1441,7 +1441,7 @@ responseDeleteBucketAnalyticsConfiguration =
     "DeleteBucketAnalyticsConfigurationResponse"
     "fixture/DeleteBucketAnalyticsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketAnalyticsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketAnalyticsConfiguration)
 
 responseCreateMultipartUpload :: CreateMultipartUploadResponse -> TestTree
 responseCreateMultipartUpload =
@@ -1449,7 +1449,7 @@ responseCreateMultipartUpload =
     "CreateMultipartUploadResponse"
     "fixture/CreateMultipartUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMultipartUpload)
+    (Proxy.Proxy :: Proxy.Proxy CreateMultipartUpload)
 
 responseGetBucketPolicyStatus :: GetBucketPolicyStatusResponse -> TestTree
 responseGetBucketPolicyStatus =
@@ -1457,7 +1457,7 @@ responseGetBucketPolicyStatus =
     "GetBucketPolicyStatusResponse"
     "fixture/GetBucketPolicyStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketPolicyStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketPolicyStatus)
 
 responseUploadPart :: UploadPartResponse -> TestTree
 responseUploadPart =
@@ -1465,7 +1465,7 @@ responseUploadPart =
     "UploadPartResponse"
     "fixture/UploadPartResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadPart)
+    (Proxy.Proxy :: Proxy.Proxy UploadPart)
 
 responseSelectObjectContent :: SelectObjectContentResponse -> TestTree
 responseSelectObjectContent =
@@ -1473,7 +1473,7 @@ responseSelectObjectContent =
     "SelectObjectContentResponse"
     "fixture/SelectObjectContentResponse.proto"
     defaultService
-    (Proxy :: Proxy SelectObjectContent)
+    (Proxy.Proxy :: Proxy.Proxy SelectObjectContent)
 
 responseGetBucketReplication :: GetBucketReplicationResponse -> TestTree
 responseGetBucketReplication =
@@ -1481,7 +1481,7 @@ responseGetBucketReplication =
     "GetBucketReplicationResponse"
     "fixture/GetBucketReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketReplication)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketReplication)
 
 responsePutBucketWebsite :: PutBucketWebsiteResponse -> TestTree
 responsePutBucketWebsite =
@@ -1489,7 +1489,7 @@ responsePutBucketWebsite =
     "PutBucketWebsiteResponse"
     "fixture/PutBucketWebsiteResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketWebsite)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketWebsite)
 
 responseDeleteBucketWebsite :: DeleteBucketWebsiteResponse -> TestTree
 responseDeleteBucketWebsite =
@@ -1497,7 +1497,7 @@ responseDeleteBucketWebsite =
     "DeleteBucketWebsiteResponse"
     "fixture/DeleteBucketWebsiteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketWebsite)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketWebsite)
 
 responseCompleteMultipartUpload :: CompleteMultipartUploadResponse -> TestTree
 responseCompleteMultipartUpload =
@@ -1505,7 +1505,7 @@ responseCompleteMultipartUpload =
     "CompleteMultipartUploadResponse"
     "fixture/CompleteMultipartUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteMultipartUpload)
+    (Proxy.Proxy :: Proxy.Proxy CompleteMultipartUpload)
 
 responseListMultipartUploads :: ListMultipartUploadsResponse -> TestTree
 responseListMultipartUploads =
@@ -1513,7 +1513,7 @@ responseListMultipartUploads =
     "ListMultipartUploadsResponse"
     "fixture/ListMultipartUploadsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMultipartUploads)
+    (Proxy.Proxy :: Proxy.Proxy ListMultipartUploads)
 
 responseListObjects :: ListObjectsResponse -> TestTree
 responseListObjects =
@@ -1521,7 +1521,7 @@ responseListObjects =
     "ListObjectsResponse"
     "fixture/ListObjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjects)
+    (Proxy.Proxy :: Proxy.Proxy ListObjects)
 
 responseGetBucketOwnershipControls :: GetBucketOwnershipControlsResponse -> TestTree
 responseGetBucketOwnershipControls =
@@ -1529,7 +1529,7 @@ responseGetBucketOwnershipControls =
     "GetBucketOwnershipControlsResponse"
     "fixture/GetBucketOwnershipControlsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketOwnershipControls)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketOwnershipControls)
 
 responseGetObjectLegalHold :: GetObjectLegalHoldResponse -> TestTree
 responseGetObjectLegalHold =
@@ -1537,7 +1537,7 @@ responseGetObjectLegalHold =
     "GetObjectLegalHoldResponse"
     "fixture/GetObjectLegalHoldResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectLegalHold)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectLegalHold)
 
 responseGetObjectRetention :: GetObjectRetentionResponse -> TestTree
 responseGetObjectRetention =
@@ -1545,7 +1545,7 @@ responseGetObjectRetention =
     "GetObjectRetentionResponse"
     "fixture/GetObjectRetentionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectRetention)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectRetention)
 
 responseDeleteBucketPolicy :: DeleteBucketPolicyResponse -> TestTree
 responseDeleteBucketPolicy =
@@ -1553,7 +1553,7 @@ responseDeleteBucketPolicy =
     "DeleteBucketPolicyResponse"
     "fixture/DeleteBucketPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketPolicy)
 
 responseGetBucketEncryption :: GetBucketEncryptionResponse -> TestTree
 responseGetBucketEncryption =
@@ -1561,7 +1561,7 @@ responseGetBucketEncryption =
     "GetBucketEncryptionResponse"
     "fixture/GetBucketEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketEncryption)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketEncryption)
 
 responseAbortMultipartUpload :: AbortMultipartUploadResponse -> TestTree
 responseAbortMultipartUpload =
@@ -1569,7 +1569,7 @@ responseAbortMultipartUpload =
     "AbortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy AbortMultipartUpload)
+    (Proxy.Proxy :: Proxy.Proxy AbortMultipartUpload)
 
 responsePutBucketPolicy :: PutBucketPolicyResponse -> TestTree
 responsePutBucketPolicy =
@@ -1577,7 +1577,7 @@ responsePutBucketPolicy =
     "PutBucketPolicyResponse"
     "fixture/PutBucketPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketPolicy)
 
 responseGetBucketAccelerateConfiguration :: GetBucketAccelerateConfigurationResponse -> TestTree
 responseGetBucketAccelerateConfiguration =
@@ -1585,7 +1585,7 @@ responseGetBucketAccelerateConfiguration =
     "GetBucketAccelerateConfigurationResponse"
     "fixture/GetBucketAccelerateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketAccelerateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketAccelerateConfiguration)
 
 responseDeleteObjects :: DeleteObjectsResponse -> TestTree
 responseDeleteObjects =
@@ -1593,7 +1593,7 @@ responseDeleteObjects =
     "DeleteObjectsResponse"
     "fixture/DeleteObjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteObjects)
+    (Proxy.Proxy :: Proxy.Proxy DeleteObjects)
 
 responsePutObjectLockConfiguration :: PutObjectLockConfigurationResponse -> TestTree
 responsePutObjectLockConfiguration =
@@ -1601,7 +1601,7 @@ responsePutObjectLockConfiguration =
     "PutObjectLockConfigurationResponse"
     "fixture/PutObjectLockConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObjectLockConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutObjectLockConfiguration)
 
 responsePutBucketNotificationConfiguration :: PutBucketNotificationConfigurationResponse -> TestTree
 responsePutBucketNotificationConfiguration =
@@ -1609,7 +1609,7 @@ responsePutBucketNotificationConfiguration =
     "PutBucketNotificationConfigurationResponse"
     "fixture/PutBucketNotificationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketNotificationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketNotificationConfiguration)
 
 responseGetBucketVersioning :: GetBucketVersioningResponse -> TestTree
 responseGetBucketVersioning =
@@ -1617,7 +1617,7 @@ responseGetBucketVersioning =
     "GetBucketVersioningResponse"
     "fixture/GetBucketVersioningResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketVersioning)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketVersioning)
 
 responseDeleteBucketCors :: DeleteBucketCorsResponse -> TestTree
 responseDeleteBucketCors =
@@ -1625,7 +1625,7 @@ responseDeleteBucketCors =
     "DeleteBucketCorsResponse"
     "fixture/DeleteBucketCorsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketCors)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketCors)
 
 responseDeleteBucketIntelligentTieringConfiguration :: DeleteBucketIntelligentTieringConfigurationResponse -> TestTree
 responseDeleteBucketIntelligentTieringConfiguration =
@@ -1633,7 +1633,7 @@ responseDeleteBucketIntelligentTieringConfiguration =
     "DeleteBucketIntelligentTieringConfigurationResponse"
     "fixture/DeleteBucketIntelligentTieringConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketIntelligentTieringConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketIntelligentTieringConfiguration)
 
 responseListBucketIntelligentTieringConfigurations :: ListBucketIntelligentTieringConfigurationsResponse -> TestTree
 responseListBucketIntelligentTieringConfigurations =
@@ -1641,7 +1641,7 @@ responseListBucketIntelligentTieringConfigurations =
     "ListBucketIntelligentTieringConfigurationsResponse"
     "fixture/ListBucketIntelligentTieringConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBucketIntelligentTieringConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListBucketIntelligentTieringConfigurations)
 
 responsePutBucketCors :: PutBucketCorsResponse -> TestTree
 responsePutBucketCors =
@@ -1649,7 +1649,7 @@ responsePutBucketCors =
     "PutBucketCorsResponse"
     "fixture/PutBucketCorsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketCors)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketCors)
 
 responseGetPublicAccessBlock :: GetPublicAccessBlockResponse -> TestTree
 responseGetPublicAccessBlock =
@@ -1657,7 +1657,7 @@ responseGetPublicAccessBlock =
     "GetPublicAccessBlockResponse"
     "fixture/GetPublicAccessBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPublicAccessBlock)
+    (Proxy.Proxy :: Proxy.Proxy GetPublicAccessBlock)
 
 responsePutBucketIntelligentTieringConfiguration :: PutBucketIntelligentTieringConfigurationResponse -> TestTree
 responsePutBucketIntelligentTieringConfiguration =
@@ -1665,7 +1665,7 @@ responsePutBucketIntelligentTieringConfiguration =
     "PutBucketIntelligentTieringConfigurationResponse"
     "fixture/PutBucketIntelligentTieringConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketIntelligentTieringConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketIntelligentTieringConfiguration)
 
 responseGetBucketCors :: GetBucketCorsResponse -> TestTree
 responseGetBucketCors =
@@ -1673,7 +1673,7 @@ responseGetBucketCors =
     "GetBucketCorsResponse"
     "fixture/GetBucketCorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketCors)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketCors)
 
 responseWriteGetObjectResponse :: WriteGetObjectResponseResponse -> TestTree
 responseWriteGetObjectResponse =
@@ -1681,7 +1681,7 @@ responseWriteGetObjectResponse =
     "WriteGetObjectResponseResponse"
     "fixture/WriteGetObjectResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy WriteGetObjectResponse)
+    (Proxy.Proxy :: Proxy.Proxy WriteGetObjectResponse)
 
 responseGetObjectAcl :: GetObjectAclResponse -> TestTree
 responseGetObjectAcl =
@@ -1689,7 +1689,7 @@ responseGetObjectAcl =
     "GetObjectAclResponse"
     "fixture/GetObjectAclResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectAcl)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectAcl)
 
 responseRestoreObject :: RestoreObjectResponse -> TestTree
 responseRestoreObject =
@@ -1697,7 +1697,7 @@ responseRestoreObject =
     "RestoreObjectResponse"
     "fixture/RestoreObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreObject)
+    (Proxy.Proxy :: Proxy.Proxy RestoreObject)
 
 responseHeadObject :: HeadObjectResponse -> TestTree
 responseHeadObject =
@@ -1705,7 +1705,7 @@ responseHeadObject =
     "HeadObjectResponse"
     "fixture/HeadObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy HeadObject)
+    (Proxy.Proxy :: Proxy.Proxy HeadObject)
 
 responsePutBucketVersioning :: PutBucketVersioningResponse -> TestTree
 responsePutBucketVersioning =
@@ -1713,7 +1713,7 @@ responsePutBucketVersioning =
     "PutBucketVersioningResponse"
     "fixture/PutBucketVersioningResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketVersioning)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketVersioning)
 
 responseGetBucketTagging :: GetBucketTaggingResponse -> TestTree
 responseGetBucketTagging =
@@ -1721,7 +1721,7 @@ responseGetBucketTagging =
     "GetBucketTaggingResponse"
     "fixture/GetBucketTaggingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketTagging)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketTagging)
 
 responseCopyObject :: CopyObjectResponse -> TestTree
 responseCopyObject =
@@ -1729,7 +1729,7 @@ responseCopyObject =
     "CopyObjectResponse"
     "fixture/CopyObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyObject)
+    (Proxy.Proxy :: Proxy.Proxy CopyObject)
 
 responseListBucketMetricsConfigurations :: ListBucketMetricsConfigurationsResponse -> TestTree
 responseListBucketMetricsConfigurations =
@@ -1737,7 +1737,7 @@ responseListBucketMetricsConfigurations =
     "ListBucketMetricsConfigurationsResponse"
     "fixture/ListBucketMetricsConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBucketMetricsConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListBucketMetricsConfigurations)
 
 responseGetBucketPolicy :: GetBucketPolicyResponse -> TestTree
 responseGetBucketPolicy =
@@ -1745,7 +1745,7 @@ responseGetBucketPolicy =
     "GetBucketPolicyResponse"
     "fixture/GetBucketPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketPolicy)
 
 responsePutBucketEncryption :: PutBucketEncryptionResponse -> TestTree
 responsePutBucketEncryption =
@@ -1753,7 +1753,7 @@ responsePutBucketEncryption =
     "PutBucketEncryptionResponse"
     "fixture/PutBucketEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketEncryption)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketEncryption)
 
 responseDeleteBucketEncryption :: DeleteBucketEncryptionResponse -> TestTree
 responseDeleteBucketEncryption =
@@ -1761,7 +1761,7 @@ responseDeleteBucketEncryption =
     "DeleteBucketEncryptionResponse"
     "fixture/DeleteBucketEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketEncryption)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketEncryption)
 
 responseGetBucketLogging :: GetBucketLoggingResponse -> TestTree
 responseGetBucketLogging =
@@ -1769,7 +1769,7 @@ responseGetBucketLogging =
     "GetBucketLoggingResponse"
     "fixture/GetBucketLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketLogging)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketLogging)
 
 responseGetBucketAcl :: GetBucketAclResponse -> TestTree
 responseGetBucketAcl =
@@ -1777,7 +1777,7 @@ responseGetBucketAcl =
     "GetBucketAclResponse"
     "fixture/GetBucketAclResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketAcl)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketAcl)
 
 responseGetBucketLifecycleConfiguration :: GetBucketLifecycleConfigurationResponse -> TestTree
 responseGetBucketLifecycleConfiguration =
@@ -1785,7 +1785,7 @@ responseGetBucketLifecycleConfiguration =
     "GetBucketLifecycleConfigurationResponse"
     "fixture/GetBucketLifecycleConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketLifecycleConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketLifecycleConfiguration)
 
 responseGetBucketAnalyticsConfiguration :: GetBucketAnalyticsConfigurationResponse -> TestTree
 responseGetBucketAnalyticsConfiguration =
@@ -1793,7 +1793,7 @@ responseGetBucketAnalyticsConfiguration =
     "GetBucketAnalyticsConfigurationResponse"
     "fixture/GetBucketAnalyticsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketAnalyticsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketAnalyticsConfiguration)
 
 responseGetObjectTagging :: GetObjectTaggingResponse -> TestTree
 responseGetObjectTagging =
@@ -1801,7 +1801,7 @@ responseGetObjectTagging =
     "GetObjectTaggingResponse"
     "fixture/GetObjectTaggingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectTagging)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectTagging)
 
 responseListParts :: ListPartsResponse -> TestTree
 responseListParts =
@@ -1809,7 +1809,7 @@ responseListParts =
     "ListPartsResponse"
     "fixture/ListPartsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListParts)
+    (Proxy.Proxy :: Proxy.Proxy ListParts)
 
 responseDeleteObjectTagging :: DeleteObjectTaggingResponse -> TestTree
 responseDeleteObjectTagging =
@@ -1817,7 +1817,7 @@ responseDeleteObjectTagging =
     "DeleteObjectTaggingResponse"
     "fixture/DeleteObjectTaggingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteObjectTagging)
+    (Proxy.Proxy :: Proxy.Proxy DeleteObjectTagging)
 
 responseUploadPartCopy :: UploadPartCopyResponse -> TestTree
 responseUploadPartCopy =
@@ -1825,7 +1825,7 @@ responseUploadPartCopy =
     "UploadPartCopyResponse"
     "fixture/UploadPartCopyResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadPartCopy)
+    (Proxy.Proxy :: Proxy.Proxy UploadPartCopy)
 
 responsePutObjectTagging :: PutObjectTaggingResponse -> TestTree
 responsePutObjectTagging =
@@ -1833,7 +1833,7 @@ responsePutObjectTagging =
     "PutObjectTaggingResponse"
     "fixture/PutObjectTaggingResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObjectTagging)
+    (Proxy.Proxy :: Proxy.Proxy PutObjectTagging)
 
 responsePutBucketAcl :: PutBucketAclResponse -> TestTree
 responsePutBucketAcl =
@@ -1841,4 +1841,4 @@ responsePutBucketAcl =
     "PutBucketAclResponse"
     "fixture/PutBucketAclResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBucketAcl)
+    (Proxy.Proxy :: Proxy.Proxy PutBucketAcl)

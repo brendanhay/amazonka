@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CognitoIdentity where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CognitoIdentity
 import Test.AWS.CognitoIdentity.Internal
 import Test.AWS.Fixture
@@ -319,7 +319,7 @@ responseGetOpenIdToken =
     "GetOpenIdTokenResponse"
     "fixture/GetOpenIdTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOpenIdToken)
+    (Proxy.Proxy :: Proxy.Proxy GetOpenIdToken)
 
 responseGetOpenIdTokenForDeveloperIdentity :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
 responseGetOpenIdTokenForDeveloperIdentity =
@@ -327,7 +327,7 @@ responseGetOpenIdTokenForDeveloperIdentity =
     "GetOpenIdTokenForDeveloperIdentityResponse"
     "fixture/GetOpenIdTokenForDeveloperIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
+    (Proxy.Proxy :: Proxy.Proxy GetOpenIdTokenForDeveloperIdentity)
 
 responseDescribeIdentityPool :: IdentityPool -> TestTree
 responseDescribeIdentityPool =
@@ -335,7 +335,7 @@ responseDescribeIdentityPool =
     "DescribeIdentityPoolResponse"
     "fixture/DescribeIdentityPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityPool)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityPool)
 
 responseSetPrincipalTagAttributeMap :: SetPrincipalTagAttributeMapResponse -> TestTree
 responseSetPrincipalTagAttributeMap =
@@ -343,7 +343,7 @@ responseSetPrincipalTagAttributeMap =
     "SetPrincipalTagAttributeMapResponse"
     "fixture/SetPrincipalTagAttributeMapResponse.proto"
     defaultService
-    (Proxy :: Proxy SetPrincipalTagAttributeMap)
+    (Proxy.Proxy :: Proxy.Proxy SetPrincipalTagAttributeMap)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -351,7 +351,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetId :: GetIdResponse -> TestTree
 responseGetId =
@@ -359,7 +359,7 @@ responseGetId =
     "GetIdResponse"
     "fixture/GetIdResponse.proto"
     defaultService
-    (Proxy :: Proxy GetId)
+    (Proxy.Proxy :: Proxy.Proxy GetId)
 
 responseDeleteIdentityPool :: DeleteIdentityPoolResponse -> TestTree
 responseDeleteIdentityPool =
@@ -367,7 +367,7 @@ responseDeleteIdentityPool =
     "DeleteIdentityPoolResponse"
     "fixture/DeleteIdentityPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIdentityPool)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIdentityPool)
 
 responseUpdateIdentityPool :: IdentityPool -> TestTree
 responseUpdateIdentityPool =
@@ -375,7 +375,7 @@ responseUpdateIdentityPool =
     "UpdateIdentityPoolResponse"
     "fixture/UpdateIdentityPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIdentityPool)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIdentityPool)
 
 responseUnlinkDeveloperIdentity :: UnlinkDeveloperIdentityResponse -> TestTree
 responseUnlinkDeveloperIdentity =
@@ -383,7 +383,7 @@ responseUnlinkDeveloperIdentity =
     "UnlinkDeveloperIdentityResponse"
     "fixture/UnlinkDeveloperIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy UnlinkDeveloperIdentity)
+    (Proxy.Proxy :: Proxy.Proxy UnlinkDeveloperIdentity)
 
 responseGetIdentityPoolRoles :: GetIdentityPoolRolesResponse -> TestTree
 responseGetIdentityPoolRoles =
@@ -391,7 +391,7 @@ responseGetIdentityPoolRoles =
     "GetIdentityPoolRolesResponse"
     "fixture/GetIdentityPoolRolesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityPoolRoles)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityPoolRoles)
 
 responseListIdentityPools :: ListIdentityPoolsResponse -> TestTree
 responseListIdentityPools =
@@ -399,7 +399,7 @@ responseListIdentityPools =
     "ListIdentityPoolsResponse"
     "fixture/ListIdentityPoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentityPools)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentityPools)
 
 responseGetCredentialsForIdentity :: GetCredentialsForIdentityResponse -> TestTree
 responseGetCredentialsForIdentity =
@@ -407,7 +407,7 @@ responseGetCredentialsForIdentity =
     "GetCredentialsForIdentityResponse"
     "fixture/GetCredentialsForIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCredentialsForIdentity)
+    (Proxy.Proxy :: Proxy.Proxy GetCredentialsForIdentity)
 
 responseGetPrincipalTagAttributeMap :: GetPrincipalTagAttributeMapResponse -> TestTree
 responseGetPrincipalTagAttributeMap =
@@ -415,7 +415,7 @@ responseGetPrincipalTagAttributeMap =
     "GetPrincipalTagAttributeMapResponse"
     "fixture/GetPrincipalTagAttributeMapResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPrincipalTagAttributeMap)
+    (Proxy.Proxy :: Proxy.Proxy GetPrincipalTagAttributeMap)
 
 responseDeleteIdentities :: DeleteIdentitiesResponse -> TestTree
 responseDeleteIdentities =
@@ -423,7 +423,7 @@ responseDeleteIdentities =
     "DeleteIdentitiesResponse"
     "fixture/DeleteIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIdentities)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIdentities)
 
 responseSetIdentityPoolRoles :: SetIdentityPoolRolesResponse -> TestTree
 responseSetIdentityPoolRoles =
@@ -431,7 +431,7 @@ responseSetIdentityPoolRoles =
     "SetIdentityPoolRolesResponse"
     "fixture/SetIdentityPoolRolesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityPoolRoles)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityPoolRoles)
 
 responseListIdentities :: ListIdentitiesResponse -> TestTree
 responseListIdentities =
@@ -439,7 +439,7 @@ responseListIdentities =
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentities)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentities)
 
 responseLookupDeveloperIdentity :: LookupDeveloperIdentityResponse -> TestTree
 responseLookupDeveloperIdentity =
@@ -447,7 +447,7 @@ responseLookupDeveloperIdentity =
     "LookupDeveloperIdentityResponse"
     "fixture/LookupDeveloperIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy LookupDeveloperIdentity)
+    (Proxy.Proxy :: Proxy.Proxy LookupDeveloperIdentity)
 
 responseUnlinkIdentity :: UnlinkIdentityResponse -> TestTree
 responseUnlinkIdentity =
@@ -455,7 +455,7 @@ responseUnlinkIdentity =
     "UnlinkIdentityResponse"
     "fixture/UnlinkIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy UnlinkIdentity)
+    (Proxy.Proxy :: Proxy.Proxy UnlinkIdentity)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -463,7 +463,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeIdentity :: IdentityDescription -> TestTree
 responseDescribeIdentity =
@@ -471,7 +471,7 @@ responseDescribeIdentity =
     "DescribeIdentityResponse"
     "fixture/DescribeIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentity)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentity)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -479,7 +479,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateIdentityPool :: IdentityPool -> TestTree
 responseCreateIdentityPool =
@@ -487,7 +487,7 @@ responseCreateIdentityPool =
     "CreateIdentityPoolResponse"
     "fixture/CreateIdentityPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIdentityPool)
+    (Proxy.Proxy :: Proxy.Proxy CreateIdentityPool)
 
 responseMergeDeveloperIdentities :: MergeDeveloperIdentitiesResponse -> TestTree
 responseMergeDeveloperIdentities =
@@ -495,4 +495,4 @@ responseMergeDeveloperIdentities =
     "MergeDeveloperIdentitiesResponse"
     "fixture/MergeDeveloperIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeDeveloperIdentities)
+    (Proxy.Proxy :: Proxy.Proxy MergeDeveloperIdentities)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Textract where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Textract
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -127,7 +127,7 @@ responseDetectDocumentText =
     "DetectDocumentTextResponse"
     "fixture/DetectDocumentTextResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectDocumentText)
+    (Proxy.Proxy :: Proxy.Proxy DetectDocumentText)
 
 responseStartDocumentAnalysis :: StartDocumentAnalysisResponse -> TestTree
 responseStartDocumentAnalysis =
@@ -135,7 +135,7 @@ responseStartDocumentAnalysis =
     "StartDocumentAnalysisResponse"
     "fixture/StartDocumentAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDocumentAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy StartDocumentAnalysis)
 
 responseAnalyzeDocument :: AnalyzeDocumentResponse -> TestTree
 responseAnalyzeDocument =
@@ -143,7 +143,7 @@ responseAnalyzeDocument =
     "AnalyzeDocumentResponse"
     "fixture/AnalyzeDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy AnalyzeDocument)
+    (Proxy.Proxy :: Proxy.Proxy AnalyzeDocument)
 
 responseGetDocumentTextDetection :: GetDocumentTextDetectionResponse -> TestTree
 responseGetDocumentTextDetection =
@@ -151,7 +151,7 @@ responseGetDocumentTextDetection =
     "GetDocumentTextDetectionResponse"
     "fixture/GetDocumentTextDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDocumentTextDetection)
+    (Proxy.Proxy :: Proxy.Proxy GetDocumentTextDetection)
 
 responseAnalyzeExpense :: AnalyzeExpenseResponse -> TestTree
 responseAnalyzeExpense =
@@ -159,7 +159,7 @@ responseAnalyzeExpense =
     "AnalyzeExpenseResponse"
     "fixture/AnalyzeExpenseResponse.proto"
     defaultService
-    (Proxy :: Proxy AnalyzeExpense)
+    (Proxy.Proxy :: Proxy.Proxy AnalyzeExpense)
 
 responseStartDocumentTextDetection :: StartDocumentTextDetectionResponse -> TestTree
 responseStartDocumentTextDetection =
@@ -167,7 +167,7 @@ responseStartDocumentTextDetection =
     "StartDocumentTextDetectionResponse"
     "fixture/StartDocumentTextDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDocumentTextDetection)
+    (Proxy.Proxy :: Proxy.Proxy StartDocumentTextDetection)
 
 responseGetDocumentAnalysis :: GetDocumentAnalysisResponse -> TestTree
 responseGetDocumentAnalysis =
@@ -175,4 +175,4 @@ responseGetDocumentAnalysis =
     "GetDocumentAnalysisResponse"
     "fixture/GetDocumentAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDocumentAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy GetDocumentAnalysis)

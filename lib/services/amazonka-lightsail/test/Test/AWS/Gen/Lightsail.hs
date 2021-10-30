@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Lightsail where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Lightsail
 import Test.AWS.Fixture
 import Test.AWS.Lightsail.Internal
@@ -1879,7 +1879,7 @@ responseCloseInstancePublicPorts =
     "CloseInstancePublicPortsResponse"
     "fixture/CloseInstancePublicPortsResponse.proto"
     defaultService
-    (Proxy :: Proxy CloseInstancePublicPorts)
+    (Proxy.Proxy :: Proxy.Proxy CloseInstancePublicPorts)
 
 responseGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricDataResponse -> TestTree
 responseGetRelationalDatabaseMetricData =
@@ -1887,7 +1887,7 @@ responseGetRelationalDatabaseMetricData =
     "GetRelationalDatabaseMetricDataResponse"
     "fixture/GetRelationalDatabaseMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseMetricData)
 
 responseDeleteBucketAccessKey :: DeleteBucketAccessKeyResponse -> TestTree
 responseDeleteBucketAccessKey =
@@ -1895,7 +1895,7 @@ responseDeleteBucketAccessKey =
     "DeleteBucketAccessKeyResponse"
     "fixture/DeleteBucketAccessKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucketAccessKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucketAccessKey)
 
 responseAllocateStaticIp :: AllocateStaticIpResponse -> TestTree
 responseAllocateStaticIp =
@@ -1903,7 +1903,7 @@ responseAllocateStaticIp =
     "AllocateStaticIpResponse"
     "fixture/AllocateStaticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocateStaticIp)
+    (Proxy.Proxy :: Proxy.Proxy AllocateStaticIp)
 
 responseDeleteKeyPair :: DeleteKeyPairResponse -> TestTree
 responseDeleteKeyPair =
@@ -1911,7 +1911,7 @@ responseDeleteKeyPair =
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy DeleteKeyPair)
 
 responseDeleteInstanceSnapshot :: DeleteInstanceSnapshotResponse -> TestTree
 responseDeleteInstanceSnapshot =
@@ -1919,7 +1919,7 @@ responseDeleteInstanceSnapshot =
     "DeleteInstanceSnapshotResponse"
     "fixture/DeleteInstanceSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstanceSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstanceSnapshot)
 
 responseGetInstances :: GetInstancesResponse -> TestTree
 responseGetInstances =
@@ -1927,7 +1927,7 @@ responseGetInstances =
     "GetInstancesResponse"
     "fixture/GetInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstances)
+    (Proxy.Proxy :: Proxy.Proxy GetInstances)
 
 responseGetLoadBalancer :: GetLoadBalancerResponse -> TestTree
 responseGetLoadBalancer =
@@ -1935,7 +1935,7 @@ responseGetLoadBalancer =
     "GetLoadBalancerResponse"
     "fixture/GetLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy GetLoadBalancer)
 
 responseDisableAddOn :: DisableAddOnResponse -> TestTree
 responseDisableAddOn =
@@ -1943,7 +1943,7 @@ responseDisableAddOn =
     "DisableAddOnResponse"
     "fixture/DisableAddOnResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableAddOn)
+    (Proxy.Proxy :: Proxy.Proxy DisableAddOn)
 
 responseGetDistributions :: GetDistributionsResponse -> TestTree
 responseGetDistributions =
@@ -1951,7 +1951,7 @@ responseGetDistributions =
     "GetDistributionsResponse"
     "fixture/GetDistributionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributions)
+    (Proxy.Proxy :: Proxy.Proxy GetDistributions)
 
 responseCreateContainerServiceDeployment :: CreateContainerServiceDeploymentResponse -> TestTree
 responseCreateContainerServiceDeployment =
@@ -1959,7 +1959,7 @@ responseCreateContainerServiceDeployment =
     "CreateContainerServiceDeploymentResponse"
     "fixture/CreateContainerServiceDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContainerServiceDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateContainerServiceDeployment)
 
 responseGetInstance :: GetInstanceResponse -> TestTree
 responseGetInstance =
@@ -1967,7 +1967,7 @@ responseGetInstance =
     "GetInstanceResponse"
     "fixture/GetInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetInstance)
 
 responseDeleteBucket :: DeleteBucketResponse -> TestTree
 responseDeleteBucket =
@@ -1975,7 +1975,7 @@ responseDeleteBucket =
     "DeleteBucketResponse"
     "fixture/DeleteBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBucket)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBucket)
 
 responseUpdateBucket :: UpdateBucketResponse -> TestTree
 responseUpdateBucket =
@@ -1983,7 +1983,7 @@ responseUpdateBucket =
     "UpdateBucketResponse"
     "fixture/UpdateBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBucket)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBucket)
 
 responseGetRelationalDatabaseEvents :: GetRelationalDatabaseEventsResponse -> TestTree
 responseGetRelationalDatabaseEvents =
@@ -1991,7 +1991,7 @@ responseGetRelationalDatabaseEvents =
     "GetRelationalDatabaseEventsResponse"
     "fixture/GetRelationalDatabaseEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseEvents)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseEvents)
 
 responseAttachCertificateToDistribution :: AttachCertificateToDistributionResponse -> TestTree
 responseAttachCertificateToDistribution =
@@ -1999,7 +1999,7 @@ responseAttachCertificateToDistribution =
     "AttachCertificateToDistributionResponse"
     "fixture/AttachCertificateToDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachCertificateToDistribution)
+    (Proxy.Proxy :: Proxy.Proxy AttachCertificateToDistribution)
 
 responseGetContainerServices :: GetContainerServicesResponse -> TestTree
 responseGetContainerServices =
@@ -2007,7 +2007,7 @@ responseGetContainerServices =
     "GetContainerServicesResponse"
     "fixture/GetContainerServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerServices)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerServices)
 
 responseUpdateDistributionBundle :: UpdateDistributionBundleResponse -> TestTree
 responseUpdateDistributionBundle =
@@ -2015,7 +2015,7 @@ responseUpdateDistributionBundle =
     "UpdateDistributionBundleResponse"
     "fixture/UpdateDistributionBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDistributionBundle)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDistributionBundle)
 
 responseGetRelationalDatabaseSnapshots :: GetRelationalDatabaseSnapshotsResponse -> TestTree
 responseGetRelationalDatabaseSnapshots =
@@ -2023,7 +2023,7 @@ responseGetRelationalDatabaseSnapshots =
     "GetRelationalDatabaseSnapshotsResponse"
     "fixture/GetRelationalDatabaseSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseSnapshots)
 
 responseGetBucketBundles :: GetBucketBundlesResponse -> TestTree
 responseGetBucketBundles =
@@ -2031,7 +2031,7 @@ responseGetBucketBundles =
     "GetBucketBundlesResponse"
     "fixture/GetBucketBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketBundles)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketBundles)
 
 responseCreateBucket :: CreateBucketResponse -> TestTree
 responseCreateBucket =
@@ -2039,7 +2039,7 @@ responseCreateBucket =
     "CreateBucketResponse"
     "fixture/CreateBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBucket)
+    (Proxy.Proxy :: Proxy.Proxy CreateBucket)
 
 responseAttachStaticIp :: AttachStaticIpResponse -> TestTree
 responseAttachStaticIp =
@@ -2047,7 +2047,7 @@ responseAttachStaticIp =
     "AttachStaticIpResponse"
     "fixture/AttachStaticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachStaticIp)
+    (Proxy.Proxy :: Proxy.Proxy AttachStaticIp)
 
 responseGetRelationalDatabaseParameters :: GetRelationalDatabaseParametersResponse -> TestTree
 responseGetRelationalDatabaseParameters =
@@ -2055,7 +2055,7 @@ responseGetRelationalDatabaseParameters =
     "GetRelationalDatabaseParametersResponse"
     "fixture/GetRelationalDatabaseParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseParameters)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseParameters)
 
 responseDetachDisk :: DetachDiskResponse -> TestTree
 responseDetachDisk =
@@ -2063,7 +2063,7 @@ responseDetachDisk =
     "DetachDiskResponse"
     "fixture/DetachDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachDisk)
+    (Proxy.Proxy :: Proxy.Proxy DetachDisk)
 
 responseGetContactMethods :: GetContactMethodsResponse -> TestTree
 responseGetContactMethods =
@@ -2071,7 +2071,7 @@ responseGetContactMethods =
     "GetContactMethodsResponse"
     "fixture/GetContactMethodsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContactMethods)
+    (Proxy.Proxy :: Proxy.Proxy GetContactMethods)
 
 responseDownloadDefaultKeyPair :: DownloadDefaultKeyPairResponse -> TestTree
 responseDownloadDefaultKeyPair =
@@ -2079,7 +2079,7 @@ responseDownloadDefaultKeyPair =
     "DownloadDefaultKeyPairResponse"
     "fixture/DownloadDefaultKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy DownloadDefaultKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy DownloadDefaultKeyPair)
 
 responseDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificateResponse -> TestTree
 responseDeleteLoadBalancerTlsCertificate =
@@ -2087,7 +2087,7 @@ responseDeleteLoadBalancerTlsCertificate =
     "DeleteLoadBalancerTlsCertificateResponse"
     "fixture/DeleteLoadBalancerTlsCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancerTlsCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoadBalancerTlsCertificate)
 
 responseTestAlarm :: TestAlarmResponse -> TestTree
 responseTestAlarm =
@@ -2095,7 +2095,7 @@ responseTestAlarm =
     "TestAlarmResponse"
     "fixture/TestAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy TestAlarm)
+    (Proxy.Proxy :: Proxy.Proxy TestAlarm)
 
 responseGetDomains :: GetDomainsResponse -> TestTree
 responseGetDomains =
@@ -2103,7 +2103,7 @@ responseGetDomains =
     "GetDomainsResponse"
     "fixture/GetDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomains)
+    (Proxy.Proxy :: Proxy.Proxy GetDomains)
 
 responseGetContainerImages :: GetContainerImagesResponse -> TestTree
 responseGetContainerImages =
@@ -2111,7 +2111,7 @@ responseGetContainerImages =
     "GetContainerImagesResponse"
     "fixture/GetContainerImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerImages)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerImages)
 
 responseUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParametersResponse -> TestTree
 responseUpdateRelationalDatabaseParameters =
@@ -2119,7 +2119,7 @@ responseUpdateRelationalDatabaseParameters =
     "UpdateRelationalDatabaseParametersResponse"
     "fixture/UpdateRelationalDatabaseParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRelationalDatabaseParameters)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRelationalDatabaseParameters)
 
 responseCreateLoadBalancerTlsCertificate :: CreateLoadBalancerTlsCertificateResponse -> TestTree
 responseCreateLoadBalancerTlsCertificate =
@@ -2127,7 +2127,7 @@ responseCreateLoadBalancerTlsCertificate =
     "CreateLoadBalancerTlsCertificateResponse"
     "fixture/CreateLoadBalancerTlsCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoadBalancerTlsCertificate)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoadBalancerTlsCertificate)
 
 responseCreateDomainEntry :: CreateDomainEntryResponse -> TestTree
 responseCreateDomainEntry =
@@ -2135,7 +2135,7 @@ responseCreateDomainEntry =
     "CreateDomainEntryResponse"
     "fixture/CreateDomainEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomainEntry)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomainEntry)
 
 responseGetContainerServicePowers :: GetContainerServicePowersResponse -> TestTree
 responseGetContainerServicePowers =
@@ -2143,7 +2143,7 @@ responseGetContainerServicePowers =
     "GetContainerServicePowersResponse"
     "fixture/GetContainerServicePowersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerServicePowers)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerServicePowers)
 
 responseImportKeyPair :: ImportKeyPairResponse -> TestTree
 responseImportKeyPair =
@@ -2151,7 +2151,7 @@ responseImportKeyPair =
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy ImportKeyPair)
 
 responseGetInstanceSnapshots :: GetInstanceSnapshotsResponse -> TestTree
 responseGetInstanceSnapshots =
@@ -2159,7 +2159,7 @@ responseGetInstanceSnapshots =
     "GetInstanceSnapshotsResponse"
     "fixture/GetInstanceSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceSnapshots)
 
 responseExportSnapshot :: ExportSnapshotResponse -> TestTree
 responseExportSnapshot =
@@ -2167,7 +2167,7 @@ responseExportSnapshot =
     "ExportSnapshotResponse"
     "fixture/ExportSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy ExportSnapshot)
 
 responseCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshotResponse -> TestTree
 responseCreateRelationalDatabaseFromSnapshot =
@@ -2175,7 +2175,7 @@ responseCreateRelationalDatabaseFromSnapshot =
     "CreateRelationalDatabaseFromSnapshotResponse"
     "fixture/CreateRelationalDatabaseFromSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRelationalDatabaseFromSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateRelationalDatabaseFromSnapshot)
 
 responseCreateCloudFormationStack :: CreateCloudFormationStackResponse -> TestTree
 responseCreateCloudFormationStack =
@@ -2183,7 +2183,7 @@ responseCreateCloudFormationStack =
     "CreateCloudFormationStackResponse"
     "fixture/CreateCloudFormationStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCloudFormationStack)
+    (Proxy.Proxy :: Proxy.Proxy CreateCloudFormationStack)
 
 responseGetExportSnapshotRecords :: GetExportSnapshotRecordsResponse -> TestTree
 responseGetExportSnapshotRecords =
@@ -2191,7 +2191,7 @@ responseGetExportSnapshotRecords =
     "GetExportSnapshotRecordsResponse"
     "fixture/GetExportSnapshotRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExportSnapshotRecords)
+    (Proxy.Proxy :: Proxy.Proxy GetExportSnapshotRecords)
 
 responseReleaseStaticIp :: ReleaseStaticIpResponse -> TestTree
 responseReleaseStaticIp =
@@ -2199,7 +2199,7 @@ responseReleaseStaticIp =
     "ReleaseStaticIpResponse"
     "fixture/ReleaseStaticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy ReleaseStaticIp)
+    (Proxy.Proxy :: Proxy.Proxy ReleaseStaticIp)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
 responseDeleteInstance =
@@ -2207,7 +2207,7 @@ responseDeleteInstance =
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstance)
 
 responseCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLoginResponse -> TestTree
 responseCreateContainerServiceRegistryLogin =
@@ -2215,7 +2215,7 @@ responseCreateContainerServiceRegistryLogin =
     "CreateContainerServiceRegistryLoginResponse"
     "fixture/CreateContainerServiceRegistryLoginResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContainerServiceRegistryLogin)
+    (Proxy.Proxy :: Proxy.Proxy CreateContainerServiceRegistryLogin)
 
 responseGetCertificates :: GetCertificatesResponse -> TestTree
 responseGetCertificates =
@@ -2223,7 +2223,7 @@ responseGetCertificates =
     "GetCertificatesResponse"
     "fixture/GetCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificates)
+    (Proxy.Proxy :: Proxy.Proxy GetCertificates)
 
 responseGetContainerServiceMetricData :: GetContainerServiceMetricDataResponse -> TestTree
 responseGetContainerServiceMetricData =
@@ -2231,7 +2231,7 @@ responseGetContainerServiceMetricData =
     "GetContainerServiceMetricDataResponse"
     "fixture/GetContainerServiceMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerServiceMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerServiceMetricData)
 
 responseGetDistributionMetricData :: GetDistributionMetricDataResponse -> TestTree
 responseGetDistributionMetricData =
@@ -2239,7 +2239,7 @@ responseGetDistributionMetricData =
     "GetDistributionMetricDataResponse"
     "fixture/GetDistributionMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributionMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetDistributionMetricData)
 
 responseRebootInstance :: RebootInstanceResponse -> TestTree
 responseRebootInstance =
@@ -2247,7 +2247,7 @@ responseRebootInstance =
     "RebootInstanceResponse"
     "fixture/RebootInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootInstance)
+    (Proxy.Proxy :: Proxy.Proxy RebootInstance)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
 responseDeleteLoadBalancer =
@@ -2255,7 +2255,7 @@ responseDeleteLoadBalancer =
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoadBalancer)
 
 responseCreateDiskFromSnapshot :: CreateDiskFromSnapshotResponse -> TestTree
 responseCreateDiskFromSnapshot =
@@ -2263,7 +2263,7 @@ responseCreateDiskFromSnapshot =
     "CreateDiskFromSnapshotResponse"
     "fixture/CreateDiskFromSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDiskFromSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateDiskFromSnapshot)
 
 responseGetRelationalDatabases :: GetRelationalDatabasesResponse -> TestTree
 responseGetRelationalDatabases =
@@ -2271,7 +2271,7 @@ responseGetRelationalDatabases =
     "GetRelationalDatabasesResponse"
     "fixture/GetRelationalDatabasesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabases)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabases)
 
 responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
 responseGetInstanceSnapshot =
@@ -2279,7 +2279,7 @@ responseGetInstanceSnapshot =
     "GetInstanceSnapshotResponse"
     "fixture/GetInstanceSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceSnapshot)
 
 responseGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEventsResponse -> TestTree
 responseGetRelationalDatabaseLogEvents =
@@ -2287,7 +2287,7 @@ responseGetRelationalDatabaseLogEvents =
     "GetRelationalDatabaseLogEventsResponse"
     "fixture/GetRelationalDatabaseLogEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseLogEvents)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseLogEvents)
 
 responseCreateContactMethod :: CreateContactMethodResponse -> TestTree
 responseCreateContactMethod =
@@ -2295,7 +2295,7 @@ responseCreateContactMethod =
     "CreateContactMethodResponse"
     "fixture/CreateContactMethodResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContactMethod)
+    (Proxy.Proxy :: Proxy.Proxy CreateContactMethod)
 
 responseGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreamsResponse -> TestTree
 responseGetRelationalDatabaseLogStreams =
@@ -2303,7 +2303,7 @@ responseGetRelationalDatabaseLogStreams =
     "GetRelationalDatabaseLogStreamsResponse"
     "fixture/GetRelationalDatabaseLogStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseLogStreams)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseLogStreams)
 
 responseGetDomain :: GetDomainResponse -> TestTree
 responseGetDomain =
@@ -2311,7 +2311,7 @@ responseGetDomain =
     "GetDomainResponse"
     "fixture/GetDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomain)
+    (Proxy.Proxy :: Proxy.Proxy GetDomain)
 
 responseGetAutoSnapshots :: GetAutoSnapshotsResponse -> TestTree
 responseGetAutoSnapshots =
@@ -2319,7 +2319,7 @@ responseGetAutoSnapshots =
     "GetAutoSnapshotsResponse"
     "fixture/GetAutoSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAutoSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy GetAutoSnapshots)
 
 responseGetActiveNames :: GetActiveNamesResponse -> TestTree
 responseGetActiveNames =
@@ -2327,7 +2327,7 @@ responseGetActiveNames =
     "GetActiveNamesResponse"
     "fixture/GetActiveNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetActiveNames)
+    (Proxy.Proxy :: Proxy.Proxy GetActiveNames)
 
 responseDeleteContactMethod :: DeleteContactMethodResponse -> TestTree
 responseDeleteContactMethod =
@@ -2335,7 +2335,7 @@ responseDeleteContactMethod =
     "DeleteContactMethodResponse"
     "fixture/DeleteContactMethodResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContactMethod)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContactMethod)
 
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
 responseCreateDistribution =
@@ -2343,7 +2343,7 @@ responseCreateDistribution =
     "CreateDistributionResponse"
     "fixture/CreateDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDistribution)
+    (Proxy.Proxy :: Proxy.Proxy CreateDistribution)
 
 responseStopRelationalDatabase :: StopRelationalDatabaseResponse -> TestTree
 responseStopRelationalDatabase =
@@ -2351,7 +2351,7 @@ responseStopRelationalDatabase =
     "StopRelationalDatabaseResponse"
     "fixture/StopRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy StopRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy StopRelationalDatabase)
 
 responseCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshotResponse -> TestTree
 responseCreateRelationalDatabaseSnapshot =
@@ -2359,7 +2359,7 @@ responseCreateRelationalDatabaseSnapshot =
     "CreateRelationalDatabaseSnapshotResponse"
     "fixture/CreateRelationalDatabaseSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRelationalDatabaseSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateRelationalDatabaseSnapshot)
 
 responseDetachCertificateFromDistribution :: DetachCertificateFromDistributionResponse -> TestTree
 responseDetachCertificateFromDistribution =
@@ -2367,7 +2367,7 @@ responseDetachCertificateFromDistribution =
     "DetachCertificateFromDistributionResponse"
     "fixture/DetachCertificateFromDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachCertificateFromDistribution)
+    (Proxy.Proxy :: Proxy.Proxy DetachCertificateFromDistribution)
 
 responseCreateContainerService :: CreateContainerServiceResponse -> TestTree
 responseCreateContainerService =
@@ -2375,7 +2375,7 @@ responseCreateContainerService =
     "CreateContainerServiceResponse"
     "fixture/CreateContainerServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContainerService)
+    (Proxy.Proxy :: Proxy.Proxy CreateContainerService)
 
 responseGetInstanceAccessDetails :: GetInstanceAccessDetailsResponse -> TestTree
 responseGetInstanceAccessDetails =
@@ -2383,7 +2383,7 @@ responseGetInstanceAccessDetails =
     "GetInstanceAccessDetailsResponse"
     "fixture/GetInstanceAccessDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceAccessDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceAccessDetails)
 
 responseEnableAddOn :: EnableAddOnResponse -> TestTree
 responseEnableAddOn =
@@ -2391,7 +2391,7 @@ responseEnableAddOn =
     "EnableAddOnResponse"
     "fixture/EnableAddOnResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAddOn)
+    (Proxy.Proxy :: Proxy.Proxy EnableAddOn)
 
 responseStopInstance :: StopInstanceResponse -> TestTree
 responseStopInstance =
@@ -2399,7 +2399,7 @@ responseStopInstance =
     "StopInstanceResponse"
     "fixture/StopInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StopInstance)
+    (Proxy.Proxy :: Proxy.Proxy StopInstance)
 
 responseDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancerResponse -> TestTree
 responseDetachInstancesFromLoadBalancer =
@@ -2407,7 +2407,7 @@ responseDetachInstancesFromLoadBalancer =
     "DetachInstancesFromLoadBalancerResponse"
     "fixture/DetachInstancesFromLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachInstancesFromLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DetachInstancesFromLoadBalancer)
 
 responseRegisterContainerImage :: RegisterContainerImageResponse -> TestTree
 responseRegisterContainerImage =
@@ -2415,7 +2415,7 @@ responseRegisterContainerImage =
     "RegisterContainerImageResponse"
     "fixture/RegisterContainerImageResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterContainerImage)
+    (Proxy.Proxy :: Proxy.Proxy RegisterContainerImage)
 
 responseCreateCertificate :: CreateCertificateResponse -> TestTree
 responseCreateCertificate =
@@ -2423,7 +2423,7 @@ responseCreateCertificate =
     "CreateCertificateResponse"
     "fixture/CreateCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCertificate)
+    (Proxy.Proxy :: Proxy.Proxy CreateCertificate)
 
 responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
 responseCreateInstanceSnapshot =
@@ -2431,7 +2431,7 @@ responseCreateInstanceSnapshot =
     "CreateInstanceSnapshotResponse"
     "fixture/CreateInstanceSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstanceSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceSnapshot)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
 responseCopySnapshot =
@@ -2439,7 +2439,7 @@ responseCopySnapshot =
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopySnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopySnapshot)
 
 responseGetRelationalDatabaseSnapshot :: GetRelationalDatabaseSnapshotResponse -> TestTree
 responseGetRelationalDatabaseSnapshot =
@@ -2447,7 +2447,7 @@ responseGetRelationalDatabaseSnapshot =
     "GetRelationalDatabaseSnapshotResponse"
     "fixture/GetRelationalDatabaseSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseSnapshot)
 
 responseIsVpcPeered :: IsVpcPeeredResponse -> TestTree
 responseIsVpcPeered =
@@ -2455,7 +2455,7 @@ responseIsVpcPeered =
     "IsVpcPeeredResponse"
     "fixture/IsVpcPeeredResponse.proto"
     defaultService
-    (Proxy :: Proxy IsVpcPeered)
+    (Proxy.Proxy :: Proxy.Proxy IsVpcPeered)
 
 responseGetStaticIps :: GetStaticIpsResponse -> TestTree
 responseGetStaticIps =
@@ -2463,7 +2463,7 @@ responseGetStaticIps =
     "GetStaticIpsResponse"
     "fixture/GetStaticIpsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStaticIps)
+    (Proxy.Proxy :: Proxy.Proxy GetStaticIps)
 
 responseUnpeerVpc :: UnpeerVpcResponse -> TestTree
 responseUnpeerVpc =
@@ -2471,7 +2471,7 @@ responseUnpeerVpc =
     "UnpeerVpcResponse"
     "fixture/UnpeerVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy UnpeerVpc)
+    (Proxy.Proxy :: Proxy.Proxy UnpeerVpc)
 
 responseDeleteDisk :: DeleteDiskResponse -> TestTree
 responseDeleteDisk =
@@ -2479,7 +2479,7 @@ responseDeleteDisk =
     "DeleteDiskResponse"
     "fixture/DeleteDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDisk)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDisk)
 
 responseCreateInstancesFromSnapshot :: CreateInstancesFromSnapshotResponse -> TestTree
 responseCreateInstancesFromSnapshot =
@@ -2487,7 +2487,7 @@ responseCreateInstancesFromSnapshot =
     "CreateInstancesFromSnapshotResponse"
     "fixture/CreateInstancesFromSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstancesFromSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstancesFromSnapshot)
 
 responseGetCloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> TestTree
 responseGetCloudFormationStackRecords =
@@ -2495,7 +2495,7 @@ responseGetCloudFormationStackRecords =
     "GetCloudFormationStackRecordsResponse"
     "fixture/GetCloudFormationStackRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCloudFormationStackRecords)
+    (Proxy.Proxy :: Proxy.Proxy GetCloudFormationStackRecords)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -2503,7 +2503,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprintsResponse -> TestTree
 responseGetRelationalDatabaseBlueprints =
@@ -2511,7 +2511,7 @@ responseGetRelationalDatabaseBlueprints =
     "GetRelationalDatabaseBlueprintsResponse"
     "fixture/GetRelationalDatabaseBlueprintsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseBlueprints)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseBlueprints)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
 responseDeleteCertificate =
@@ -2519,7 +2519,7 @@ responseDeleteCertificate =
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCertificate)
 
 responseGetDiskSnapshots :: GetDiskSnapshotsResponse -> TestTree
 responseGetDiskSnapshots =
@@ -2527,7 +2527,7 @@ responseGetDiskSnapshots =
     "GetDiskSnapshotsResponse"
     "fixture/GetDiskSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDiskSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy GetDiskSnapshots)
 
 responseGetContainerAPIMetadata :: GetContainerAPIMetadataResponse -> TestTree
 responseGetContainerAPIMetadata =
@@ -2535,7 +2535,7 @@ responseGetContainerAPIMetadata =
     "GetContainerAPIMetadataResponse"
     "fixture/GetContainerAPIMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerAPIMetadata)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerAPIMetadata)
 
 responseGetBucketMetricData :: GetBucketMetricDataResponse -> TestTree
 responseGetBucketMetricData =
@@ -2543,7 +2543,7 @@ responseGetBucketMetricData =
     "GetBucketMetricDataResponse"
     "fixture/GetBucketMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketMetricData)
 
 responsePeerVpc :: PeerVpcResponse -> TestTree
 responsePeerVpc =
@@ -2551,7 +2551,7 @@ responsePeerVpc =
     "PeerVpcResponse"
     "fixture/PeerVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy PeerVpc)
+    (Proxy.Proxy :: Proxy.Proxy PeerVpc)
 
 responseGetRelationalDatabaseBundles :: GetRelationalDatabaseBundlesResponse -> TestTree
 responseGetRelationalDatabaseBundles =
@@ -2559,7 +2559,7 @@ responseGetRelationalDatabaseBundles =
     "GetRelationalDatabaseBundlesResponse"
     "fixture/GetRelationalDatabaseBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseBundles)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseBundles)
 
 responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
 responseGetLoadBalancers =
@@ -2567,7 +2567,7 @@ responseGetLoadBalancers =
     "GetLoadBalancersResponse"
     "fixture/GetLoadBalancersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoadBalancers)
+    (Proxy.Proxy :: Proxy.Proxy GetLoadBalancers)
 
 responseRebootRelationalDatabase :: RebootRelationalDatabaseResponse -> TestTree
 responseRebootRelationalDatabase =
@@ -2575,7 +2575,7 @@ responseRebootRelationalDatabase =
     "RebootRelationalDatabaseResponse"
     "fixture/RebootRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy RebootRelationalDatabase)
 
 responseAttachLoadBalancerTlsCertificate :: AttachLoadBalancerTlsCertificateResponse -> TestTree
 responseAttachLoadBalancerTlsCertificate =
@@ -2583,7 +2583,7 @@ responseAttachLoadBalancerTlsCertificate =
     "AttachLoadBalancerTlsCertificateResponse"
     "fixture/AttachLoadBalancerTlsCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachLoadBalancerTlsCertificate)
+    (Proxy.Proxy :: Proxy.Proxy AttachLoadBalancerTlsCertificate)
 
 responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
 responseUpdateLoadBalancerAttribute =
@@ -2591,7 +2591,7 @@ responseUpdateLoadBalancerAttribute =
     "UpdateLoadBalancerAttributeResponse"
     "fixture/UpdateLoadBalancerAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLoadBalancerAttribute)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoadBalancerAttribute)
 
 responseDeleteRelationalDatabase :: DeleteRelationalDatabaseResponse -> TestTree
 responseDeleteRelationalDatabase =
@@ -2599,7 +2599,7 @@ responseDeleteRelationalDatabase =
     "DeleteRelationalDatabaseResponse"
     "fixture/DeleteRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRelationalDatabase)
 
 responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
 responseGetDiskSnapshot =
@@ -2607,7 +2607,7 @@ responseGetDiskSnapshot =
     "GetDiskSnapshotResponse"
     "fixture/GetDiskSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDiskSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy GetDiskSnapshot)
 
 responseUpdateRelationalDatabase :: UpdateRelationalDatabaseResponse -> TestTree
 responseUpdateRelationalDatabase =
@@ -2615,7 +2615,7 @@ responseUpdateRelationalDatabase =
     "UpdateRelationalDatabaseResponse"
     "fixture/UpdateRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRelationalDatabase)
 
 responseGetStaticIp :: GetStaticIpResponse -> TestTree
 responseGetStaticIp =
@@ -2623,7 +2623,7 @@ responseGetStaticIp =
     "GetStaticIpResponse"
     "fixture/GetStaticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStaticIp)
+    (Proxy.Proxy :: Proxy.Proxy GetStaticIp)
 
 responseGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPasswordResponse -> TestTree
 responseGetRelationalDatabaseMasterUserPassword =
@@ -2631,7 +2631,7 @@ responseGetRelationalDatabaseMasterUserPassword =
     "GetRelationalDatabaseMasterUserPasswordResponse"
     "fixture/GetRelationalDatabaseMasterUserPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabaseMasterUserPassword)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabaseMasterUserPassword)
 
 responseGetBlueprints :: GetBlueprintsResponse -> TestTree
 responseGetBlueprints =
@@ -2639,7 +2639,7 @@ responseGetBlueprints =
     "GetBlueprintsResponse"
     "fixture/GetBlueprintsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBlueprints)
+    (Proxy.Proxy :: Proxy.Proxy GetBlueprints)
 
 responsePutAlarm :: PutAlarmResponse -> TestTree
 responsePutAlarm =
@@ -2647,7 +2647,7 @@ responsePutAlarm =
     "PutAlarmResponse"
     "fixture/PutAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAlarm)
+    (Proxy.Proxy :: Proxy.Proxy PutAlarm)
 
 responseDeleteAlarm :: DeleteAlarmResponse -> TestTree
 responseDeleteAlarm =
@@ -2655,7 +2655,7 @@ responseDeleteAlarm =
     "DeleteAlarmResponse"
     "fixture/DeleteAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlarm)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlarm)
 
 responseGetInstancePortStates :: GetInstancePortStatesResponse -> TestTree
 responseGetInstancePortStates =
@@ -2663,7 +2663,7 @@ responseGetInstancePortStates =
     "GetInstancePortStatesResponse"
     "fixture/GetInstancePortStatesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstancePortStates)
+    (Proxy.Proxy :: Proxy.Proxy GetInstancePortStates)
 
 responseDeleteAutoSnapshot :: DeleteAutoSnapshotResponse -> TestTree
 responseDeleteAutoSnapshot =
@@ -2671,7 +2671,7 @@ responseDeleteAutoSnapshot =
     "DeleteAutoSnapshotResponse"
     "fixture/DeleteAutoSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAutoSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAutoSnapshot)
 
 responseCreateRelationalDatabase :: CreateRelationalDatabaseResponse -> TestTree
 responseCreateRelationalDatabase =
@@ -2679,7 +2679,7 @@ responseCreateRelationalDatabase =
     "CreateRelationalDatabaseResponse"
     "fixture/CreateRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy CreateRelationalDatabase)
 
 responseSendContactMethodVerification :: SendContactMethodVerificationResponse -> TestTree
 responseSendContactMethodVerification =
@@ -2687,7 +2687,7 @@ responseSendContactMethodVerification =
     "SendContactMethodVerificationResponse"
     "fixture/SendContactMethodVerificationResponse.proto"
     defaultService
-    (Proxy :: Proxy SendContactMethodVerification)
+    (Proxy.Proxy :: Proxy.Proxy SendContactMethodVerification)
 
 responseGetContainerLog :: GetContainerLogResponse -> TestTree
 responseGetContainerLog =
@@ -2695,7 +2695,7 @@ responseGetContainerLog =
     "GetContainerLogResponse"
     "fixture/GetContainerLogResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerLog)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerLog)
 
 responseCreateDiskSnapshot :: CreateDiskSnapshotResponse -> TestTree
 responseCreateDiskSnapshot =
@@ -2703,7 +2703,7 @@ responseCreateDiskSnapshot =
     "CreateDiskSnapshotResponse"
     "fixture/CreateDiskSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDiskSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateDiskSnapshot)
 
 responseDeleteDomainEntry :: DeleteDomainEntryResponse -> TestTree
 responseDeleteDomainEntry =
@@ -2711,7 +2711,7 @@ responseDeleteDomainEntry =
     "DeleteDomainEntryResponse"
     "fixture/DeleteDomainEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomainEntry)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainEntry)
 
 responseUpdateDomainEntry :: UpdateDomainEntryResponse -> TestTree
 responseUpdateDomainEntry =
@@ -2719,7 +2719,7 @@ responseUpdateDomainEntry =
     "UpdateDomainEntryResponse"
     "fixture/UpdateDomainEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainEntry)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainEntry)
 
 responseGetRegions :: GetRegionsResponse -> TestTree
 responseGetRegions =
@@ -2727,7 +2727,7 @@ responseGetRegions =
     "GetRegionsResponse"
     "fixture/GetRegionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRegions)
+    (Proxy.Proxy :: Proxy.Proxy GetRegions)
 
 responseSetIpAddressType :: SetIpAddressTypeResponse -> TestTree
 responseSetIpAddressType =
@@ -2735,7 +2735,7 @@ responseSetIpAddressType =
     "SetIpAddressTypeResponse"
     "fixture/SetIpAddressTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIpAddressType)
+    (Proxy.Proxy :: Proxy.Proxy SetIpAddressType)
 
 responseDeleteDiskSnapshot :: DeleteDiskSnapshotResponse -> TestTree
 responseDeleteDiskSnapshot =
@@ -2743,7 +2743,7 @@ responseDeleteDiskSnapshot =
     "DeleteDiskSnapshotResponse"
     "fixture/DeleteDiskSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDiskSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDiskSnapshot)
 
 responseGetLoadBalancerMetricData :: GetLoadBalancerMetricDataResponse -> TestTree
 responseGetLoadBalancerMetricData =
@@ -2751,7 +2751,7 @@ responseGetLoadBalancerMetricData =
     "GetLoadBalancerMetricDataResponse"
     "fixture/GetLoadBalancerMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoadBalancerMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetLoadBalancerMetricData)
 
 responseGetInstanceState :: GetInstanceStateResponse -> TestTree
 responseGetInstanceState =
@@ -2759,7 +2759,7 @@ responseGetInstanceState =
     "GetInstanceStateResponse"
     "fixture/GetInstanceStateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceState)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceState)
 
 responseGetKeyPairs :: GetKeyPairsResponse -> TestTree
 responseGetKeyPairs =
@@ -2767,7 +2767,7 @@ responseGetKeyPairs =
     "GetKeyPairsResponse"
     "fixture/GetKeyPairsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKeyPairs)
+    (Proxy.Proxy :: Proxy.Proxy GetKeyPairs)
 
 responseGetOperations :: GetOperationsResponse -> TestTree
 responseGetOperations =
@@ -2775,7 +2775,7 @@ responseGetOperations =
     "GetOperationsResponse"
     "fixture/GetOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOperations)
+    (Proxy.Proxy :: Proxy.Proxy GetOperations)
 
 responseGetBucketAccessKeys :: GetBucketAccessKeysResponse -> TestTree
 responseGetBucketAccessKeys =
@@ -2783,7 +2783,7 @@ responseGetBucketAccessKeys =
     "GetBucketAccessKeysResponse"
     "fixture/GetBucketAccessKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBucketAccessKeys)
+    (Proxy.Proxy :: Proxy.Proxy GetBucketAccessKeys)
 
 responseGetDisks :: GetDisksResponse -> TestTree
 responseGetDisks =
@@ -2791,7 +2791,7 @@ responseGetDisks =
     "GetDisksResponse"
     "fixture/GetDisksResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDisks)
+    (Proxy.Proxy :: Proxy.Proxy GetDisks)
 
 responseGetRelationalDatabase :: GetRelationalDatabaseResponse -> TestTree
 responseGetRelationalDatabase =
@@ -2799,7 +2799,7 @@ responseGetRelationalDatabase =
     "GetRelationalDatabaseResponse"
     "fixture/GetRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy GetRelationalDatabase)
 
 responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
 responseAttachInstancesToLoadBalancer =
@@ -2807,7 +2807,7 @@ responseAttachInstancesToLoadBalancer =
     "AttachInstancesToLoadBalancerResponse"
     "fixture/AttachInstancesToLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachInstancesToLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy AttachInstancesToLoadBalancer)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -2815,7 +2815,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetOperation :: GetOperationResponse -> TestTree
 responseGetOperation =
@@ -2823,7 +2823,7 @@ responseGetOperation =
     "GetOperationResponse"
     "fixture/GetOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOperation)
+    (Proxy.Proxy :: Proxy.Proxy GetOperation)
 
 responseResetDistributionCache :: ResetDistributionCacheResponse -> TestTree
 responseResetDistributionCache =
@@ -2831,7 +2831,7 @@ responseResetDistributionCache =
     "ResetDistributionCacheResponse"
     "fixture/ResetDistributionCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetDistributionCache)
+    (Proxy.Proxy :: Proxy.Proxy ResetDistributionCache)
 
 responseUpdateBucketBundle :: UpdateBucketBundleResponse -> TestTree
 responseUpdateBucketBundle =
@@ -2839,7 +2839,7 @@ responseUpdateBucketBundle =
     "UpdateBucketBundleResponse"
     "fixture/UpdateBucketBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBucketBundle)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBucketBundle)
 
 responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
 responseUpdateDistribution =
@@ -2847,7 +2847,7 @@ responseUpdateDistribution =
     "UpdateDistributionResponse"
     "fixture/UpdateDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDistribution)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDistribution)
 
 responseGetBuckets :: GetBucketsResponse -> TestTree
 responseGetBuckets =
@@ -2855,7 +2855,7 @@ responseGetBuckets =
     "GetBucketsResponse"
     "fixture/GetBucketsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBuckets)
+    (Proxy.Proxy :: Proxy.Proxy GetBuckets)
 
 responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
 responseDeleteDistribution =
@@ -2863,7 +2863,7 @@ responseDeleteDistribution =
     "DeleteDistributionResponse"
     "fixture/DeleteDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDistribution)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDistribution)
 
 responseUpdateContainerService :: UpdateContainerServiceResponse -> TestTree
 responseUpdateContainerService =
@@ -2871,7 +2871,7 @@ responseUpdateContainerService =
     "UpdateContainerServiceResponse"
     "fixture/UpdateContainerServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContainerService)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContainerService)
 
 responseDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshotResponse -> TestTree
 responseDeleteRelationalDatabaseSnapshot =
@@ -2879,7 +2879,7 @@ responseDeleteRelationalDatabaseSnapshot =
     "DeleteRelationalDatabaseSnapshotResponse"
     "fixture/DeleteRelationalDatabaseSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRelationalDatabaseSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRelationalDatabaseSnapshot)
 
 responseDeleteContainerService :: DeleteContainerServiceResponse -> TestTree
 responseDeleteContainerService =
@@ -2887,7 +2887,7 @@ responseDeleteContainerService =
     "DeleteContainerServiceResponse"
     "fixture/DeleteContainerServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContainerService)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContainerService)
 
 responseGetInstanceMetricData :: GetInstanceMetricDataResponse -> TestTree
 responseGetInstanceMetricData =
@@ -2895,7 +2895,7 @@ responseGetInstanceMetricData =
     "GetInstanceMetricDataResponse"
     "fixture/GetInstanceMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceMetricData)
 
 responseGetKeyPair :: GetKeyPairResponse -> TestTree
 responseGetKeyPair =
@@ -2903,7 +2903,7 @@ responseGetKeyPair =
     "GetKeyPairResponse"
     "fixture/GetKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy GetKeyPair)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -2911,7 +2911,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
 responsePutInstancePublicPorts =
@@ -2919,7 +2919,7 @@ responsePutInstancePublicPorts =
     "PutInstancePublicPortsResponse"
     "fixture/PutInstancePublicPortsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInstancePublicPorts)
+    (Proxy.Proxy :: Proxy.Proxy PutInstancePublicPorts)
 
 responseGetDistributionBundles :: GetDistributionBundlesResponse -> TestTree
 responseGetDistributionBundles =
@@ -2927,7 +2927,7 @@ responseGetDistributionBundles =
     "GetDistributionBundlesResponse"
     "fixture/GetDistributionBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributionBundles)
+    (Proxy.Proxy :: Proxy.Proxy GetDistributionBundles)
 
 responseGetDisk :: GetDiskResponse -> TestTree
 responseGetDisk =
@@ -2935,7 +2935,7 @@ responseGetDisk =
     "GetDiskResponse"
     "fixture/GetDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDisk)
+    (Proxy.Proxy :: Proxy.Proxy GetDisk)
 
 responseGetDistributionLatestCacheReset :: GetDistributionLatestCacheResetResponse -> TestTree
 responseGetDistributionLatestCacheReset =
@@ -2943,7 +2943,7 @@ responseGetDistributionLatestCacheReset =
     "GetDistributionLatestCacheResetResponse"
     "fixture/GetDistributionLatestCacheResetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributionLatestCacheReset)
+    (Proxy.Proxy :: Proxy.Proxy GetDistributionLatestCacheReset)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
 responseCreateLoadBalancer =
@@ -2951,7 +2951,7 @@ responseCreateLoadBalancer =
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoadBalancer)
 
 responseGetContainerServiceDeployments :: GetContainerServiceDeploymentsResponse -> TestTree
 responseGetContainerServiceDeployments =
@@ -2959,7 +2959,7 @@ responseGetContainerServiceDeployments =
     "GetContainerServiceDeploymentsResponse"
     "fixture/GetContainerServiceDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerServiceDeployments)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerServiceDeployments)
 
 responseDeleteKnownHostKeys :: DeleteKnownHostKeysResponse -> TestTree
 responseDeleteKnownHostKeys =
@@ -2967,7 +2967,7 @@ responseDeleteKnownHostKeys =
     "DeleteKnownHostKeysResponse"
     "fixture/DeleteKnownHostKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteKnownHostKeys)
+    (Proxy.Proxy :: Proxy.Proxy DeleteKnownHostKeys)
 
 responseAttachDisk :: AttachDiskResponse -> TestTree
 responseAttachDisk =
@@ -2975,7 +2975,7 @@ responseAttachDisk =
     "AttachDiskResponse"
     "fixture/AttachDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachDisk)
+    (Proxy.Proxy :: Proxy.Proxy AttachDisk)
 
 responseDetachStaticIp :: DetachStaticIpResponse -> TestTree
 responseDetachStaticIp =
@@ -2983,7 +2983,7 @@ responseDetachStaticIp =
     "DetachStaticIpResponse"
     "fixture/DetachStaticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachStaticIp)
+    (Proxy.Proxy :: Proxy.Proxy DetachStaticIp)
 
 responseCreateInstances :: CreateInstancesResponse -> TestTree
 responseCreateInstances =
@@ -2991,7 +2991,7 @@ responseCreateInstances =
     "CreateInstancesResponse"
     "fixture/CreateInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstances)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstances)
 
 responseGetAlarms :: GetAlarmsResponse -> TestTree
 responseGetAlarms =
@@ -2999,7 +2999,7 @@ responseGetAlarms =
     "GetAlarmsResponse"
     "fixture/GetAlarmsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAlarms)
+    (Proxy.Proxy :: Proxy.Proxy GetAlarms)
 
 responseOpenInstancePublicPorts :: OpenInstancePublicPortsResponse -> TestTree
 responseOpenInstancePublicPorts =
@@ -3007,7 +3007,7 @@ responseOpenInstancePublicPorts =
     "OpenInstancePublicPortsResponse"
     "fixture/OpenInstancePublicPortsResponse.proto"
     defaultService
-    (Proxy :: Proxy OpenInstancePublicPorts)
+    (Proxy.Proxy :: Proxy.Proxy OpenInstancePublicPorts)
 
 responseStartRelationalDatabase :: StartRelationalDatabaseResponse -> TestTree
 responseStartRelationalDatabase =
@@ -3015,7 +3015,7 @@ responseStartRelationalDatabase =
     "StartRelationalDatabaseResponse"
     "fixture/StartRelationalDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy StartRelationalDatabase)
+    (Proxy.Proxy :: Proxy.Proxy StartRelationalDatabase)
 
 responseDeleteContainerImage :: DeleteContainerImageResponse -> TestTree
 responseDeleteContainerImage =
@@ -3023,7 +3023,7 @@ responseDeleteContainerImage =
     "DeleteContainerImageResponse"
     "fixture/DeleteContainerImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContainerImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContainerImage)
 
 responseGetBundles :: GetBundlesResponse -> TestTree
 responseGetBundles =
@@ -3031,7 +3031,7 @@ responseGetBundles =
     "GetBundlesResponse"
     "fixture/GetBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBundles)
+    (Proxy.Proxy :: Proxy.Proxy GetBundles)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -3039,7 +3039,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificatesResponse -> TestTree
 responseGetLoadBalancerTlsCertificates =
@@ -3047,7 +3047,7 @@ responseGetLoadBalancerTlsCertificates =
     "GetLoadBalancerTlsCertificatesResponse"
     "fixture/GetLoadBalancerTlsCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoadBalancerTlsCertificates)
+    (Proxy.Proxy :: Proxy.Proxy GetLoadBalancerTlsCertificates)
 
 responseSetResourceAccessForBucket :: SetResourceAccessForBucketResponse -> TestTree
 responseSetResourceAccessForBucket =
@@ -3055,7 +3055,7 @@ responseSetResourceAccessForBucket =
     "SetResourceAccessForBucketResponse"
     "fixture/SetResourceAccessForBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy SetResourceAccessForBucket)
+    (Proxy.Proxy :: Proxy.Proxy SetResourceAccessForBucket)
 
 responseCreateDisk :: CreateDiskResponse -> TestTree
 responseCreateDisk =
@@ -3063,7 +3063,7 @@ responseCreateDisk =
     "CreateDiskResponse"
     "fixture/CreateDiskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDisk)
+    (Proxy.Proxy :: Proxy.Proxy CreateDisk)
 
 responseCreateBucketAccessKey :: CreateBucketAccessKeyResponse -> TestTree
 responseCreateBucketAccessKey =
@@ -3071,7 +3071,7 @@ responseCreateBucketAccessKey =
     "CreateBucketAccessKeyResponse"
     "fixture/CreateBucketAccessKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBucketAccessKey)
+    (Proxy.Proxy :: Proxy.Proxy CreateBucketAccessKey)
 
 responseGetOperationsForResource :: GetOperationsForResourceResponse -> TestTree
 responseGetOperationsForResource =
@@ -3079,7 +3079,7 @@ responseGetOperationsForResource =
     "GetOperationsForResourceResponse"
     "fixture/GetOperationsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOperationsForResource)
+    (Proxy.Proxy :: Proxy.Proxy GetOperationsForResource)
 
 responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
 responseCreateKeyPair =
@@ -3087,7 +3087,7 @@ responseCreateKeyPair =
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy CreateKeyPair)
 
 responseStartInstance :: StartInstanceResponse -> TestTree
 responseStartInstance =
@@ -3095,4 +3095,4 @@ responseStartInstance =
     "StartInstanceResponse"
     "fixture/StartInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StartInstance)
+    (Proxy.Proxy :: Proxy.Proxy StartInstance)

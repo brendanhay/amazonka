@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Connect where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Connect
 import Test.AWS.Connect.Internal
 import Test.AWS.Fixture
@@ -1351,7 +1351,7 @@ responseDescribeInstance =
     "DescribeInstanceResponse"
     "fixture/DescribeInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstance)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstance)
 
 responseListSecurityProfiles :: ListSecurityProfilesResponse -> TestTree
 responseListSecurityProfiles =
@@ -1359,7 +1359,7 @@ responseListSecurityProfiles =
     "ListSecurityProfilesResponse"
     "fixture/ListSecurityProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecurityProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityProfiles)
 
 responseAssociateLexBot :: AssociateLexBotResponse -> TestTree
 responseAssociateLexBot =
@@ -1367,7 +1367,7 @@ responseAssociateLexBot =
     "AssociateLexBotResponse"
     "fixture/AssociateLexBotResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateLexBot)
+    (Proxy.Proxy :: Proxy.Proxy AssociateLexBot)
 
 responseUpdateInstanceAttribute :: UpdateInstanceAttributeResponse -> TestTree
 responseUpdateInstanceAttribute =
@@ -1375,7 +1375,7 @@ responseUpdateInstanceAttribute =
     "UpdateInstanceAttributeResponse"
     "fixture/UpdateInstanceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInstanceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceAttribute)
 
 responseUpdateQueueStatus :: UpdateQueueStatusResponse -> TestTree
 responseUpdateQueueStatus =
@@ -1383,7 +1383,7 @@ responseUpdateQueueStatus =
     "UpdateQueueStatusResponse"
     "fixture/UpdateQueueStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueueStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQueueStatus)
 
 responseUpdateRoutingProfileQueues :: UpdateRoutingProfileQueuesResponse -> TestTree
 responseUpdateRoutingProfileQueues =
@@ -1391,7 +1391,7 @@ responseUpdateRoutingProfileQueues =
     "UpdateRoutingProfileQueuesResponse"
     "fixture/UpdateRoutingProfileQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingProfileQueues)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingProfileQueues)
 
 responseDescribeQueue :: DescribeQueueResponse -> TestTree
 responseDescribeQueue =
@@ -1399,7 +1399,7 @@ responseDescribeQueue =
     "DescribeQueueResponse"
     "fixture/DescribeQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeQueue)
+    (Proxy.Proxy :: Proxy.Proxy DescribeQueue)
 
 responseListInstanceAttributes :: ListInstanceAttributesResponse -> TestTree
 responseListInstanceAttributes =
@@ -1407,7 +1407,7 @@ responseListInstanceAttributes =
     "ListInstanceAttributesResponse"
     "fixture/ListInstanceAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceAttributes)
 
 responseUpdateAgentStatus :: UpdateAgentStatusResponse -> TestTree
 responseUpdateAgentStatus =
@@ -1415,7 +1415,7 @@ responseUpdateAgentStatus =
     "UpdateAgentStatusResponse"
     "fixture/UpdateAgentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAgentStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAgentStatus)
 
 responseDescribeInstanceStorageConfig :: DescribeInstanceStorageConfigResponse -> TestTree
 responseDescribeInstanceStorageConfig =
@@ -1423,7 +1423,7 @@ responseDescribeInstanceStorageConfig =
     "DescribeInstanceStorageConfigResponse"
     "fixture/DescribeInstanceStorageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceStorageConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceStorageConfig)
 
 responseCreateQuickConnect :: CreateQuickConnectResponse -> TestTree
 responseCreateQuickConnect =
@@ -1431,7 +1431,7 @@ responseCreateQuickConnect =
     "CreateQuickConnectResponse"
     "fixture/CreateQuickConnectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQuickConnect)
+    (Proxy.Proxy :: Proxy.Proxy CreateQuickConnect)
 
 responseDescribeContactFlow :: DescribeContactFlowResponse -> TestTree
 responseDescribeContactFlow =
@@ -1439,7 +1439,7 @@ responseDescribeContactFlow =
     "DescribeContactFlowResponse"
     "fixture/DescribeContactFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContactFlow)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContactFlow)
 
 responseUpdateUserHierarchy :: UpdateUserHierarchyResponse -> TestTree
 responseUpdateUserHierarchy =
@@ -1447,7 +1447,7 @@ responseUpdateUserHierarchy =
     "UpdateUserHierarchyResponse"
     "fixture/UpdateUserHierarchyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserHierarchy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserHierarchy)
 
 responseUpdateUserRoutingProfile :: UpdateUserRoutingProfileResponse -> TestTree
 responseUpdateUserRoutingProfile =
@@ -1455,7 +1455,7 @@ responseUpdateUserRoutingProfile =
     "UpdateUserRoutingProfileResponse"
     "fixture/UpdateUserRoutingProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserRoutingProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserRoutingProfile)
 
 responseUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupNameResponse -> TestTree
 responseUpdateUserHierarchyGroupName =
@@ -1463,7 +1463,7 @@ responseUpdateUserHierarchyGroupName =
     "UpdateUserHierarchyGroupNameResponse"
     "fixture/UpdateUserHierarchyGroupNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserHierarchyGroupName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserHierarchyGroupName)
 
 responseUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperationResponse -> TestTree
 responseUpdateQueueHoursOfOperation =
@@ -1471,7 +1471,7 @@ responseUpdateQueueHoursOfOperation =
     "UpdateQueueHoursOfOperationResponse"
     "fixture/UpdateQueueHoursOfOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueueHoursOfOperation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQueueHoursOfOperation)
 
 responseDescribeRoutingProfile :: DescribeRoutingProfileResponse -> TestTree
 responseDescribeRoutingProfile =
@@ -1479,7 +1479,7 @@ responseDescribeRoutingProfile =
     "DescribeRoutingProfileResponse"
     "fixture/DescribeRoutingProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRoutingProfile)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRoutingProfile)
 
 responseDisassociateLexBot :: DisassociateLexBotResponse -> TestTree
 responseDisassociateLexBot =
@@ -1487,7 +1487,7 @@ responseDisassociateLexBot =
     "DisassociateLexBotResponse"
     "fixture/DisassociateLexBotResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateLexBot)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateLexBot)
 
 responseDeleteQuickConnect :: DeleteQuickConnectResponse -> TestTree
 responseDeleteQuickConnect =
@@ -1495,7 +1495,7 @@ responseDeleteQuickConnect =
     "DeleteQuickConnectResponse"
     "fixture/DeleteQuickConnectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQuickConnect)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQuickConnect)
 
 responseStartOutboundVoiceContact :: StartOutboundVoiceContactResponse -> TestTree
 responseStartOutboundVoiceContact =
@@ -1503,7 +1503,7 @@ responseStartOutboundVoiceContact =
     "StartOutboundVoiceContactResponse"
     "fixture/StartOutboundVoiceContactResponse.proto"
     defaultService
-    (Proxy :: Proxy StartOutboundVoiceContact)
+    (Proxy.Proxy :: Proxy.Proxy StartOutboundVoiceContact)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1511,7 +1511,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
 responseGetMetricData =
@@ -1519,7 +1519,7 @@ responseGetMetricData =
     "GetMetricDataResponse"
     "fixture/GetMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetMetricData)
 
 responseStartContactRecording :: StartContactRecordingResponse -> TestTree
 responseStartContactRecording =
@@ -1527,7 +1527,7 @@ responseStartContactRecording =
     "StartContactRecordingResponse"
     "fixture/StartContactRecordingResponse.proto"
     defaultService
-    (Proxy :: Proxy StartContactRecording)
+    (Proxy.Proxy :: Proxy.Proxy StartContactRecording)
 
 responseCreateInstance :: CreateInstanceResponse -> TestTree
 responseCreateInstance =
@@ -1535,7 +1535,7 @@ responseCreateInstance =
     "CreateInstanceResponse"
     "fixture/CreateInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstance)
 
 responseAssociateBot :: AssociateBotResponse -> TestTree
 responseAssociateBot =
@@ -1543,7 +1543,7 @@ responseAssociateBot =
     "AssociateBotResponse"
     "fixture/AssociateBotResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateBot)
+    (Proxy.Proxy :: Proxy.Proxy AssociateBot)
 
 responseAssociateQueueQuickConnects :: AssociateQueueQuickConnectsResponse -> TestTree
 responseAssociateQueueQuickConnects =
@@ -1551,7 +1551,7 @@ responseAssociateQueueQuickConnects =
     "AssociateQueueQuickConnectsResponse"
     "fixture/AssociateQueueQuickConnectsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateQueueQuickConnects)
+    (Proxy.Proxy :: Proxy.Proxy AssociateQueueQuickConnects)
 
 responseStartTaskContact :: StartTaskContactResponse -> TestTree
 responseStartTaskContact =
@@ -1559,7 +1559,7 @@ responseStartTaskContact =
     "StartTaskContactResponse"
     "fixture/StartTaskContactResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTaskContact)
+    (Proxy.Proxy :: Proxy.Proxy StartTaskContact)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -1567,7 +1567,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseListUserHierarchyGroups :: ListUserHierarchyGroupsResponse -> TestTree
 responseListUserHierarchyGroups =
@@ -1575,7 +1575,7 @@ responseListUserHierarchyGroups =
     "ListUserHierarchyGroupsResponse"
     "fixture/ListUserHierarchyGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserHierarchyGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListUserHierarchyGroups)
 
 responseListQueues :: ListQueuesResponse -> TestTree
 responseListQueues =
@@ -1583,7 +1583,7 @@ responseListQueues =
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueues)
+    (Proxy.Proxy :: Proxy.Proxy ListQueues)
 
 responseDescribeInstanceAttribute :: DescribeInstanceAttributeResponse -> TestTree
 responseDescribeInstanceAttribute =
@@ -1591,7 +1591,7 @@ responseDescribeInstanceAttribute =
     "DescribeInstanceAttributeResponse"
     "fixture/DescribeInstanceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceAttribute)
 
 responseListBots :: ListBotsResponse -> TestTree
 responseListBots =
@@ -1599,7 +1599,7 @@ responseListBots =
     "ListBotsResponse"
     "fixture/ListBotsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBots)
+    (Proxy.Proxy :: Proxy.Proxy ListBots)
 
 responseUpdateQuickConnectConfig :: UpdateQuickConnectConfigResponse -> TestTree
 responseUpdateQuickConnectConfig =
@@ -1607,7 +1607,7 @@ responseUpdateQuickConnectConfig =
     "UpdateQuickConnectConfigResponse"
     "fixture/UpdateQuickConnectConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQuickConnectConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQuickConnectConfig)
 
 responseDescribeAgentStatus :: DescribeAgentStatusResponse -> TestTree
 responseDescribeAgentStatus =
@@ -1615,7 +1615,7 @@ responseDescribeAgentStatus =
     "DescribeAgentStatusResponse"
     "fixture/DescribeAgentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAgentStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAgentStatus)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
 responseDeleteInstance =
@@ -1623,7 +1623,7 @@ responseDeleteInstance =
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstance)
 
 responseDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfigResponse -> TestTree
 responseDisassociateInstanceStorageConfig =
@@ -1631,7 +1631,7 @@ responseDisassociateInstanceStorageConfig =
     "DisassociateInstanceStorageConfigResponse"
     "fixture/DisassociateInstanceStorageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateInstanceStorageConfig)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateInstanceStorageConfig)
 
 responseCreateRoutingProfile :: CreateRoutingProfileResponse -> TestTree
 responseCreateRoutingProfile =
@@ -1639,7 +1639,7 @@ responseCreateRoutingProfile =
     "CreateRoutingProfileResponse"
     "fixture/CreateRoutingProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoutingProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoutingProfile)
 
 responseUpdateInstanceStorageConfig :: UpdateInstanceStorageConfigResponse -> TestTree
 responseUpdateInstanceStorageConfig =
@@ -1647,7 +1647,7 @@ responseUpdateInstanceStorageConfig =
     "UpdateInstanceStorageConfigResponse"
     "fixture/UpdateInstanceStorageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInstanceStorageConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceStorageConfig)
 
 responseDisassociateQueueQuickConnects :: DisassociateQueueQuickConnectsResponse -> TestTree
 responseDisassociateQueueQuickConnects =
@@ -1655,7 +1655,7 @@ responseDisassociateQueueQuickConnects =
     "DisassociateQueueQuickConnectsResponse"
     "fixture/DisassociateQueueQuickConnectsResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateQueueQuickConnects)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateQueueQuickConnects)
 
 responseCreateUseCase :: CreateUseCaseResponse -> TestTree
 responseCreateUseCase =
@@ -1663,7 +1663,7 @@ responseCreateUseCase =
     "CreateUseCaseResponse"
     "fixture/CreateUseCaseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUseCase)
+    (Proxy.Proxy :: Proxy.Proxy CreateUseCase)
 
 responseDisassociateBot :: DisassociateBotResponse -> TestTree
 responseDisassociateBot =
@@ -1671,7 +1671,7 @@ responseDisassociateBot =
     "DisassociateBotResponse"
     "fixture/DisassociateBotResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateBot)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateBot)
 
 responseListQueueQuickConnects :: ListQueueQuickConnectsResponse -> TestTree
 responseListQueueQuickConnects =
@@ -1679,7 +1679,7 @@ responseListQueueQuickConnects =
     "ListQueueQuickConnectsResponse"
     "fixture/ListQueueQuickConnectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueueQuickConnects)
+    (Proxy.Proxy :: Proxy.Proxy ListQueueQuickConnects)
 
 responseGetCurrentMetricData :: GetCurrentMetricDataResponse -> TestTree
 responseGetCurrentMetricData =
@@ -1687,7 +1687,7 @@ responseGetCurrentMetricData =
     "GetCurrentMetricDataResponse"
     "fixture/GetCurrentMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCurrentMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetCurrentMetricData)
 
 responseCreateContactFlow :: CreateContactFlowResponse -> TestTree
 responseCreateContactFlow =
@@ -1695,7 +1695,7 @@ responseCreateContactFlow =
     "CreateContactFlowResponse"
     "fixture/CreateContactFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContactFlow)
+    (Proxy.Proxy :: Proxy.Proxy CreateContactFlow)
 
 responseListRoutingProfiles :: ListRoutingProfilesResponse -> TestTree
 responseListRoutingProfiles =
@@ -1703,7 +1703,7 @@ responseListRoutingProfiles =
     "ListRoutingProfilesResponse"
     "fixture/ListRoutingProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoutingProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListRoutingProfiles)
 
 responseDeleteIntegrationAssociation :: DeleteIntegrationAssociationResponse -> TestTree
 responseDeleteIntegrationAssociation =
@@ -1711,7 +1711,7 @@ responseDeleteIntegrationAssociation =
     "DeleteIntegrationAssociationResponse"
     "fixture/DeleteIntegrationAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIntegrationAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntegrationAssociation)
 
 responseDeleteHoursOfOperation :: DeleteHoursOfOperationResponse -> TestTree
 responseDeleteHoursOfOperation =
@@ -1719,7 +1719,7 @@ responseDeleteHoursOfOperation =
     "DeleteHoursOfOperationResponse"
     "fixture/DeleteHoursOfOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHoursOfOperation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHoursOfOperation)
 
 responseUpdateUserPhoneConfig :: UpdateUserPhoneConfigResponse -> TestTree
 responseUpdateUserPhoneConfig =
@@ -1727,7 +1727,7 @@ responseUpdateUserPhoneConfig =
     "UpdateUserPhoneConfigResponse"
     "fixture/UpdateUserPhoneConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserPhoneConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserPhoneConfig)
 
 responseUpdateHoursOfOperation :: UpdateHoursOfOperationResponse -> TestTree
 responseUpdateHoursOfOperation =
@@ -1735,7 +1735,7 @@ responseUpdateHoursOfOperation =
     "UpdateHoursOfOperationResponse"
     "fixture/UpdateHoursOfOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHoursOfOperation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHoursOfOperation)
 
 responseListApprovedOrigins :: ListApprovedOriginsResponse -> TestTree
 responseListApprovedOrigins =
@@ -1743,7 +1743,7 @@ responseListApprovedOrigins =
     "ListApprovedOriginsResponse"
     "fixture/ListApprovedOriginsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApprovedOrigins)
+    (Proxy.Proxy :: Proxy.Proxy ListApprovedOrigins)
 
 responseDescribeUserHierarchyStructure :: DescribeUserHierarchyStructureResponse -> TestTree
 responseDescribeUserHierarchyStructure =
@@ -1751,7 +1751,7 @@ responseDescribeUserHierarchyStructure =
     "DescribeUserHierarchyStructureResponse"
     "fixture/DescribeUserHierarchyStructureResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserHierarchyStructure)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserHierarchyStructure)
 
 responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
 responseListPhoneNumbers =
@@ -1759,7 +1759,7 @@ responseListPhoneNumbers =
     "ListPhoneNumbersResponse"
     "fixture/ListPhoneNumbersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPhoneNumbers)
+    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumbers)
 
 responseUpdateContactAttributes :: UpdateContactAttributesResponse -> TestTree
 responseUpdateContactAttributes =
@@ -1767,7 +1767,7 @@ responseUpdateContactAttributes =
     "UpdateContactAttributesResponse"
     "fixture/UpdateContactAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContactAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContactAttributes)
 
 responseListUseCases :: ListUseCasesResponse -> TestTree
 responseListUseCases =
@@ -1775,7 +1775,7 @@ responseListUseCases =
     "ListUseCasesResponse"
     "fixture/ListUseCasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUseCases)
+    (Proxy.Proxy :: Proxy.Proxy ListUseCases)
 
 responseStartChatContact :: StartChatContactResponse -> TestTree
 responseStartChatContact =
@@ -1783,7 +1783,7 @@ responseStartChatContact =
     "StartChatContactResponse"
     "fixture/StartChatContactResponse.proto"
     defaultService
-    (Proxy :: Proxy StartChatContact)
+    (Proxy.Proxy :: Proxy.Proxy StartChatContact)
 
 responseDeleteUseCase :: DeleteUseCaseResponse -> TestTree
 responseDeleteUseCase =
@@ -1791,7 +1791,7 @@ responseDeleteUseCase =
     "DeleteUseCaseResponse"
     "fixture/DeleteUseCaseResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUseCase)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUseCase)
 
 responseUpdateUserSecurityProfiles :: UpdateUserSecurityProfilesResponse -> TestTree
 responseUpdateUserSecurityProfiles =
@@ -1799,7 +1799,7 @@ responseUpdateUserSecurityProfiles =
     "UpdateUserSecurityProfilesResponse"
     "fixture/UpdateUserSecurityProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserSecurityProfiles)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserSecurityProfiles)
 
 responseGetContactAttributes :: GetContactAttributesResponse -> TestTree
 responseGetContactAttributes =
@@ -1807,7 +1807,7 @@ responseGetContactAttributes =
     "GetContactAttributesResponse"
     "fixture/GetContactAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContactAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetContactAttributes)
 
 responseListLambdaFunctions :: ListLambdaFunctionsResponse -> TestTree
 responseListLambdaFunctions =
@@ -1815,7 +1815,7 @@ responseListLambdaFunctions =
     "ListLambdaFunctionsResponse"
     "fixture/ListLambdaFunctionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLambdaFunctions)
+    (Proxy.Proxy :: Proxy.Proxy ListLambdaFunctions)
 
 responseDescribeUserHierarchyGroup :: DescribeUserHierarchyGroupResponse -> TestTree
 responseDescribeUserHierarchyGroup =
@@ -1823,7 +1823,7 @@ responseDescribeUserHierarchyGroup =
     "DescribeUserHierarchyGroupResponse"
     "fixture/DescribeUserHierarchyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserHierarchyGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserHierarchyGroup)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -1831,7 +1831,7 @@ responseDescribeUser =
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responseResumeContactRecording :: ResumeContactRecordingResponse -> TestTree
 responseResumeContactRecording =
@@ -1839,7 +1839,7 @@ responseResumeContactRecording =
     "ResumeContactRecordingResponse"
     "fixture/ResumeContactRecordingResponse.proto"
     defaultService
-    (Proxy :: Proxy ResumeContactRecording)
+    (Proxy.Proxy :: Proxy.Proxy ResumeContactRecording)
 
 responseUpdateContactFlowName :: UpdateContactFlowNameResponse -> TestTree
 responseUpdateContactFlowName =
@@ -1847,7 +1847,7 @@ responseUpdateContactFlowName =
     "UpdateContactFlowNameResponse"
     "fixture/UpdateContactFlowNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContactFlowName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContactFlowName)
 
 responseSuspendContactRecording :: SuspendContactRecordingResponse -> TestTree
 responseSuspendContactRecording =
@@ -1855,7 +1855,7 @@ responseSuspendContactRecording =
     "SuspendContactRecordingResponse"
     "fixture/SuspendContactRecordingResponse.proto"
     defaultService
-    (Proxy :: Proxy SuspendContactRecording)
+    (Proxy.Proxy :: Proxy.Proxy SuspendContactRecording)
 
 responseUpdateQueueName :: UpdateQueueNameResponse -> TestTree
 responseUpdateQueueName =
@@ -1863,7 +1863,7 @@ responseUpdateQueueName =
     "UpdateQueueNameResponse"
     "fixture/UpdateQueueNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueueName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQueueName)
 
 responseUpdateQueueMaxContacts :: UpdateQueueMaxContactsResponse -> TestTree
 responseUpdateQueueMaxContacts =
@@ -1871,7 +1871,7 @@ responseUpdateQueueMaxContacts =
     "UpdateQueueMaxContactsResponse"
     "fixture/UpdateQueueMaxContactsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueueMaxContacts)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQueueMaxContacts)
 
 responseListRoutingProfileQueues :: ListRoutingProfileQueuesResponse -> TestTree
 responseListRoutingProfileQueues =
@@ -1879,7 +1879,7 @@ responseListRoutingProfileQueues =
     "ListRoutingProfileQueuesResponse"
     "fixture/ListRoutingProfileQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoutingProfileQueues)
+    (Proxy.Proxy :: Proxy.Proxy ListRoutingProfileQueues)
 
 responseDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueuesResponse -> TestTree
 responseDisassociateRoutingProfileQueues =
@@ -1887,7 +1887,7 @@ responseDisassociateRoutingProfileQueues =
     "DisassociateRoutingProfileQueuesResponse"
     "fixture/DisassociateRoutingProfileQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateRoutingProfileQueues)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRoutingProfileQueues)
 
 responseDisassociateLambdaFunction :: DisassociateLambdaFunctionResponse -> TestTree
 responseDisassociateLambdaFunction =
@@ -1895,7 +1895,7 @@ responseDisassociateLambdaFunction =
     "DisassociateLambdaFunctionResponse"
     "fixture/DisassociateLambdaFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateLambdaFunction)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateLambdaFunction)
 
 responseUpdateContactFlowContent :: UpdateContactFlowContentResponse -> TestTree
 responseUpdateContactFlowContent =
@@ -1903,7 +1903,7 @@ responseUpdateContactFlowContent =
     "UpdateContactFlowContentResponse"
     "fixture/UpdateContactFlowContentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContactFlowContent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContactFlowContent)
 
 responseUpdateUserHierarchyStructure :: UpdateUserHierarchyStructureResponse -> TestTree
 responseUpdateUserHierarchyStructure =
@@ -1911,7 +1911,7 @@ responseUpdateUserHierarchyStructure =
     "UpdateUserHierarchyStructureResponse"
     "fixture/UpdateUserHierarchyStructureResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserHierarchyStructure)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserHierarchyStructure)
 
 responseDescribeHoursOfOperation :: DescribeHoursOfOperationResponse -> TestTree
 responseDescribeHoursOfOperation =
@@ -1919,7 +1919,7 @@ responseDescribeHoursOfOperation =
     "DescribeHoursOfOperationResponse"
     "fixture/DescribeHoursOfOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHoursOfOperation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHoursOfOperation)
 
 responseListQuickConnects :: ListQuickConnectsResponse -> TestTree
 responseListQuickConnects =
@@ -1927,7 +1927,7 @@ responseListQuickConnects =
     "ListQuickConnectsResponse"
     "fixture/ListQuickConnectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQuickConnects)
+    (Proxy.Proxy :: Proxy.Proxy ListQuickConnects)
 
 responseCreateUserHierarchyGroup :: CreateUserHierarchyGroupResponse -> TestTree
 responseCreateUserHierarchyGroup =
@@ -1935,7 +1935,7 @@ responseCreateUserHierarchyGroup =
     "CreateUserHierarchyGroupResponse"
     "fixture/CreateUserHierarchyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserHierarchyGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserHierarchyGroup)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -1943,7 +1943,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseCreateQueue :: CreateQueueResponse -> TestTree
 responseCreateQueue =
@@ -1951,7 +1951,7 @@ responseCreateQueue =
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQueue)
+    (Proxy.Proxy :: Proxy.Proxy CreateQueue)
 
 responseUpdateQuickConnectName :: UpdateQuickConnectNameResponse -> TestTree
 responseUpdateQuickConnectName =
@@ -1959,7 +1959,7 @@ responseUpdateQuickConnectName =
     "UpdateQuickConnectNameResponse"
     "fixture/UpdateQuickConnectNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQuickConnectName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQuickConnectName)
 
 responseListPrompts :: ListPromptsResponse -> TestTree
 responseListPrompts =
@@ -1967,7 +1967,7 @@ responseListPrompts =
     "ListPromptsResponse"
     "fixture/ListPromptsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPrompts)
+    (Proxy.Proxy :: Proxy.Proxy ListPrompts)
 
 responseAssociateSecurityKey :: AssociateSecurityKeyResponse -> TestTree
 responseAssociateSecurityKey =
@@ -1975,7 +1975,7 @@ responseAssociateSecurityKey =
     "AssociateSecurityKeyResponse"
     "fixture/AssociateSecurityKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSecurityKey)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSecurityKey)
 
 responseStopContactRecording :: StopContactRecordingResponse -> TestTree
 responseStopContactRecording =
@@ -1983,7 +1983,7 @@ responseStopContactRecording =
     "StopContactRecordingResponse"
     "fixture/StopContactRecordingResponse.proto"
     defaultService
-    (Proxy :: Proxy StopContactRecording)
+    (Proxy.Proxy :: Proxy.Proxy StopContactRecording)
 
 responseDisassociateApprovedOrigin :: DisassociateApprovedOriginResponse -> TestTree
 responseDisassociateApprovedOrigin =
@@ -1991,7 +1991,7 @@ responseDisassociateApprovedOrigin =
     "DisassociateApprovedOriginResponse"
     "fixture/DisassociateApprovedOriginResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateApprovedOrigin)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateApprovedOrigin)
 
 responseListSecurityKeys :: ListSecurityKeysResponse -> TestTree
 responseListSecurityKeys =
@@ -1999,7 +1999,7 @@ responseListSecurityKeys =
     "ListSecurityKeysResponse"
     "fixture/ListSecurityKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecurityKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityKeys)
 
 responseGetFederationToken :: GetFederationTokenResponse -> TestTree
 responseGetFederationToken =
@@ -2007,7 +2007,7 @@ responseGetFederationToken =
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFederationToken)
+    (Proxy.Proxy :: Proxy.Proxy GetFederationToken)
 
 responseStopContact :: StopContactResponse -> TestTree
 responseStopContact =
@@ -2015,7 +2015,7 @@ responseStopContact =
     "StopContactResponse"
     "fixture/StopContactResponse.proto"
     defaultService
-    (Proxy :: Proxy StopContact)
+    (Proxy.Proxy :: Proxy.Proxy StopContact)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -2023,7 +2023,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -2031,7 +2031,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUpdateUserIdentityInfo :: UpdateUserIdentityInfoResponse -> TestTree
 responseUpdateUserIdentityInfo =
@@ -2039,7 +2039,7 @@ responseUpdateUserIdentityInfo =
     "UpdateUserIdentityInfoResponse"
     "fixture/UpdateUserIdentityInfoResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserIdentityInfo)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserIdentityInfo)
 
 responseListInstances :: ListInstancesResponse -> TestTree
 responseListInstances =
@@ -2047,7 +2047,7 @@ responseListInstances =
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListInstances)
 
 responseDeleteUserHierarchyGroup :: DeleteUserHierarchyGroupResponse -> TestTree
 responseDeleteUserHierarchyGroup =
@@ -2055,7 +2055,7 @@ responseDeleteUserHierarchyGroup =
     "DeleteUserHierarchyGroupResponse"
     "fixture/DeleteUserHierarchyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserHierarchyGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserHierarchyGroup)
 
 responseUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueueResponse -> TestTree
 responseUpdateRoutingProfileDefaultOutboundQueue =
@@ -2063,7 +2063,7 @@ responseUpdateRoutingProfileDefaultOutboundQueue =
     "UpdateRoutingProfileDefaultOutboundQueueResponse"
     "fixture/UpdateRoutingProfileDefaultOutboundQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingProfileDefaultOutboundQueue)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingProfileDefaultOutboundQueue)
 
 responseUpdateQueueOutboundCallerConfig :: UpdateQueueOutboundCallerConfigResponse -> TestTree
 responseUpdateQueueOutboundCallerConfig =
@@ -2071,7 +2071,7 @@ responseUpdateQueueOutboundCallerConfig =
     "UpdateQueueOutboundCallerConfigResponse"
     "fixture/UpdateQueueOutboundCallerConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueueOutboundCallerConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQueueOutboundCallerConfig)
 
 responseListContactFlows :: ListContactFlowsResponse -> TestTree
 responseListContactFlows =
@@ -2079,7 +2079,7 @@ responseListContactFlows =
     "ListContactFlowsResponse"
     "fixture/ListContactFlowsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContactFlows)
+    (Proxy.Proxy :: Proxy.Proxy ListContactFlows)
 
 responseCreateIntegrationAssociation :: CreateIntegrationAssociationResponse -> TestTree
 responseCreateIntegrationAssociation =
@@ -2087,7 +2087,7 @@ responseCreateIntegrationAssociation =
     "CreateIntegrationAssociationResponse"
     "fixture/CreateIntegrationAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIntegrationAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateIntegrationAssociation)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -2095,7 +2095,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseAssociateApprovedOrigin :: AssociateApprovedOriginResponse -> TestTree
 responseAssociateApprovedOrigin =
@@ -2103,7 +2103,7 @@ responseAssociateApprovedOrigin =
     "AssociateApprovedOriginResponse"
     "fixture/AssociateApprovedOriginResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateApprovedOrigin)
+    (Proxy.Proxy :: Proxy.Proxy AssociateApprovedOrigin)
 
 responseCreateHoursOfOperation :: CreateHoursOfOperationResponse -> TestTree
 responseCreateHoursOfOperation =
@@ -2111,7 +2111,7 @@ responseCreateHoursOfOperation =
     "CreateHoursOfOperationResponse"
     "fixture/CreateHoursOfOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHoursOfOperation)
+    (Proxy.Proxy :: Proxy.Proxy CreateHoursOfOperation)
 
 responseDisassociateSecurityKey :: DisassociateSecurityKeyResponse -> TestTree
 responseDisassociateSecurityKey =
@@ -2119,7 +2119,7 @@ responseDisassociateSecurityKey =
     "DisassociateSecurityKeyResponse"
     "fixture/DisassociateSecurityKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSecurityKey)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSecurityKey)
 
 responseUpdateRoutingProfileConcurrency :: UpdateRoutingProfileConcurrencyResponse -> TestTree
 responseUpdateRoutingProfileConcurrency =
@@ -2127,7 +2127,7 @@ responseUpdateRoutingProfileConcurrency =
     "UpdateRoutingProfileConcurrencyResponse"
     "fixture/UpdateRoutingProfileConcurrencyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingProfileConcurrency)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingProfileConcurrency)
 
 responseListInstanceStorageConfigs :: ListInstanceStorageConfigsResponse -> TestTree
 responseListInstanceStorageConfigs =
@@ -2135,7 +2135,7 @@ responseListInstanceStorageConfigs =
     "ListInstanceStorageConfigsResponse"
     "fixture/ListInstanceStorageConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceStorageConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceStorageConfigs)
 
 responseDescribeQuickConnect :: DescribeQuickConnectResponse -> TestTree
 responseDescribeQuickConnect =
@@ -2143,7 +2143,7 @@ responseDescribeQuickConnect =
     "DescribeQuickConnectResponse"
     "fixture/DescribeQuickConnectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeQuickConnect)
+    (Proxy.Proxy :: Proxy.Proxy DescribeQuickConnect)
 
 responseAssociateInstanceStorageConfig :: AssociateInstanceStorageConfigResponse -> TestTree
 responseAssociateInstanceStorageConfig =
@@ -2151,7 +2151,7 @@ responseAssociateInstanceStorageConfig =
     "AssociateInstanceStorageConfigResponse"
     "fixture/AssociateInstanceStorageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateInstanceStorageConfig)
+    (Proxy.Proxy :: Proxy.Proxy AssociateInstanceStorageConfig)
 
 responseListHoursOfOperations :: ListHoursOfOperationsResponse -> TestTree
 responseListHoursOfOperations =
@@ -2159,7 +2159,7 @@ responseListHoursOfOperations =
     "ListHoursOfOperationsResponse"
     "fixture/ListHoursOfOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHoursOfOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListHoursOfOperations)
 
 responseListIntegrationAssociations :: ListIntegrationAssociationsResponse -> TestTree
 responseListIntegrationAssociations =
@@ -2167,7 +2167,7 @@ responseListIntegrationAssociations =
     "ListIntegrationAssociationsResponse"
     "fixture/ListIntegrationAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIntegrationAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListIntegrationAssociations)
 
 responseCreateAgentStatus :: CreateAgentStatusResponse -> TestTree
 responseCreateAgentStatus =
@@ -2175,7 +2175,7 @@ responseCreateAgentStatus =
     "CreateAgentStatusResponse"
     "fixture/CreateAgentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAgentStatus)
+    (Proxy.Proxy :: Proxy.Proxy CreateAgentStatus)
 
 responseUpdateRoutingProfileName :: UpdateRoutingProfileNameResponse -> TestTree
 responseUpdateRoutingProfileName =
@@ -2183,7 +2183,7 @@ responseUpdateRoutingProfileName =
     "UpdateRoutingProfileNameResponse"
     "fixture/UpdateRoutingProfileNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingProfileName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingProfileName)
 
 responseListLexBots :: ListLexBotsResponse -> TestTree
 responseListLexBots =
@@ -2191,7 +2191,7 @@ responseListLexBots =
     "ListLexBotsResponse"
     "fixture/ListLexBotsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLexBots)
+    (Proxy.Proxy :: Proxy.Proxy ListLexBots)
 
 responseListAgentStatuses :: ListAgentStatusesResponse -> TestTree
 responseListAgentStatuses =
@@ -2199,7 +2199,7 @@ responseListAgentStatuses =
     "ListAgentStatusesResponse"
     "fixture/ListAgentStatusesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAgentStatuses)
+    (Proxy.Proxy :: Proxy.Proxy ListAgentStatuses)
 
 responseAssociateLambdaFunction :: AssociateLambdaFunctionResponse -> TestTree
 responseAssociateLambdaFunction =
@@ -2207,7 +2207,7 @@ responseAssociateLambdaFunction =
     "AssociateLambdaFunctionResponse"
     "fixture/AssociateLambdaFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateLambdaFunction)
+    (Proxy.Proxy :: Proxy.Proxy AssociateLambdaFunction)
 
 responseAssociateRoutingProfileQueues :: AssociateRoutingProfileQueuesResponse -> TestTree
 responseAssociateRoutingProfileQueues =
@@ -2215,4 +2215,4 @@ responseAssociateRoutingProfileQueues =
     "AssociateRoutingProfileQueuesResponse"
     "fixture/AssociateRoutingProfileQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateRoutingProfileQueues)
+    (Proxy.Proxy :: Proxy.Proxy AssociateRoutingProfileQueues)

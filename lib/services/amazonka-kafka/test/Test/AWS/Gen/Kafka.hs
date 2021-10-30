@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Kafka where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Kafka
 import Test.AWS.Fixture
 import Test.AWS.Kafka.Internal
@@ -415,7 +415,7 @@ responseCreateConfiguration =
     "CreateConfigurationResponse"
     "fixture/CreateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfiguration)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
 responseDescribeCluster =
@@ -423,7 +423,7 @@ responseDescribeCluster =
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCluster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
 
 responseRebootBroker :: RebootBrokerResponse -> TestTree
 responseRebootBroker =
@@ -431,7 +431,7 @@ responseRebootBroker =
     "RebootBrokerResponse"
     "fixture/RebootBrokerResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootBroker)
+    (Proxy.Proxy :: Proxy.Proxy RebootBroker)
 
 responseListConfigurationRevisions :: ListConfigurationRevisionsResponse -> TestTree
 responseListConfigurationRevisions =
@@ -439,7 +439,7 @@ responseListConfigurationRevisions =
     "ListConfigurationRevisionsResponse"
     "fixture/ListConfigurationRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationRevisions)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationRevisions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -447,7 +447,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListKafkaVersions :: ListKafkaVersionsResponse -> TestTree
 responseListKafkaVersions =
@@ -455,7 +455,7 @@ responseListKafkaVersions =
     "ListKafkaVersionsResponse"
     "fixture/ListKafkaVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKafkaVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListKafkaVersions)
 
 responseUpdateMonitoring :: UpdateMonitoringResponse -> TestTree
 responseUpdateMonitoring =
@@ -463,7 +463,7 @@ responseUpdateMonitoring =
     "UpdateMonitoringResponse"
     "fixture/UpdateMonitoringResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMonitoring)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMonitoring)
 
 responseBatchAssociateScramSecret :: BatchAssociateScramSecretResponse -> TestTree
 responseBatchAssociateScramSecret =
@@ -471,7 +471,7 @@ responseBatchAssociateScramSecret =
     "BatchAssociateScramSecretResponse"
     "fixture/BatchAssociateScramSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateScramSecret)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateScramSecret)
 
 responseUpdateBrokerStorage :: UpdateBrokerStorageResponse -> TestTree
 responseUpdateBrokerStorage =
@@ -479,7 +479,7 @@ responseUpdateBrokerStorage =
     "UpdateBrokerStorageResponse"
     "fixture/UpdateBrokerStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBrokerStorage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerStorage)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -487,7 +487,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseUpdateClusterConfiguration :: UpdateClusterConfigurationResponse -> TestTree
 responseUpdateClusterConfiguration =
@@ -495,7 +495,7 @@ responseUpdateClusterConfiguration =
     "UpdateClusterConfigurationResponse"
     "fixture/UpdateClusterConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateClusterConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterConfiguration)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -503,7 +503,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseUpdateBrokerCount :: UpdateBrokerCountResponse -> TestTree
 responseUpdateBrokerCount =
@@ -511,7 +511,7 @@ responseUpdateBrokerCount =
     "UpdateBrokerCountResponse"
     "fixture/UpdateBrokerCountResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBrokerCount)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerCount)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
 responseListConfigurations =
@@ -519,7 +519,7 @@ responseListConfigurations =
     "ListConfigurationsResponse"
     "fixture/ListConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurations)
 
 responseGetBootstrapBrokers :: GetBootstrapBrokersResponse -> TestTree
 responseGetBootstrapBrokers =
@@ -527,7 +527,7 @@ responseGetBootstrapBrokers =
     "GetBootstrapBrokersResponse"
     "fixture/GetBootstrapBrokersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBootstrapBrokers)
+    (Proxy.Proxy :: Proxy.Proxy GetBootstrapBrokers)
 
 responseUpdateClusterKafkaVersion :: UpdateClusterKafkaVersionResponse -> TestTree
 responseUpdateClusterKafkaVersion =
@@ -535,7 +535,7 @@ responseUpdateClusterKafkaVersion =
     "UpdateClusterKafkaVersionResponse"
     "fixture/UpdateClusterKafkaVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateClusterKafkaVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterKafkaVersion)
 
 responseUpdateSecurity :: UpdateSecurityResponse -> TestTree
 responseUpdateSecurity =
@@ -543,7 +543,7 @@ responseUpdateSecurity =
     "UpdateSecurityResponse"
     "fixture/UpdateSecurityResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecurity)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecurity)
 
 responseGetCompatibleKafkaVersions :: GetCompatibleKafkaVersionsResponse -> TestTree
 responseGetCompatibleKafkaVersions =
@@ -551,7 +551,7 @@ responseGetCompatibleKafkaVersions =
     "GetCompatibleKafkaVersionsResponse"
     "fixture/GetCompatibleKafkaVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCompatibleKafkaVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetCompatibleKafkaVersions)
 
 responseDescribeClusterOperation :: DescribeClusterOperationResponse -> TestTree
 responseDescribeClusterOperation =
@@ -559,7 +559,7 @@ responseDescribeClusterOperation =
     "DescribeClusterOperationResponse"
     "fixture/DescribeClusterOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusterOperation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterOperation)
 
 responseUpdateBrokerType :: UpdateBrokerTypeResponse -> TestTree
 responseUpdateBrokerType =
@@ -567,7 +567,7 @@ responseUpdateBrokerType =
     "UpdateBrokerTypeResponse"
     "fixture/UpdateBrokerTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBrokerType)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerType)
 
 responseDescribeConfiguration :: DescribeConfigurationResponse -> TestTree
 responseDescribeConfiguration =
@@ -575,7 +575,7 @@ responseDescribeConfiguration =
     "DescribeConfigurationResponse"
     "fixture/DescribeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfiguration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -583,7 +583,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
@@ -591,7 +591,7 @@ responseListClusters =
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -599,7 +599,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListClusterOperations :: ListClusterOperationsResponse -> TestTree
 responseListClusterOperations =
@@ -607,7 +607,7 @@ responseListClusterOperations =
     "ListClusterOperationsResponse"
     "fixture/ListClusterOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusterOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListClusterOperations)
 
 responseBatchDisassociateScramSecret :: BatchDisassociateScramSecretResponse -> TestTree
 responseBatchDisassociateScramSecret =
@@ -615,7 +615,7 @@ responseBatchDisassociateScramSecret =
     "BatchDisassociateScramSecretResponse"
     "fixture/BatchDisassociateScramSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateScramSecret)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateScramSecret)
 
 responseDescribeConfigurationRevision :: DescribeConfigurationRevisionResponse -> TestTree
 responseDescribeConfigurationRevision =
@@ -623,7 +623,7 @@ responseDescribeConfigurationRevision =
     "DescribeConfigurationRevisionResponse"
     "fixture/DescribeConfigurationRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationRevision)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRevision)
 
 responseDeleteConfiguration :: DeleteConfigurationResponse -> TestTree
 responseDeleteConfiguration =
@@ -631,7 +631,7 @@ responseDeleteConfiguration =
     "DeleteConfigurationResponse"
     "fixture/DeleteConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfiguration)
 
 responseUpdateConfiguration :: UpdateConfigurationResponse -> TestTree
 responseUpdateConfiguration =
@@ -639,7 +639,7 @@ responseUpdateConfiguration =
     "UpdateConfigurationResponse"
     "fixture/UpdateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfiguration)
 
 responseListNodes :: ListNodesResponse -> TestTree
 responseListNodes =
@@ -647,7 +647,7 @@ responseListNodes =
     "ListNodesResponse"
     "fixture/ListNodesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNodes)
+    (Proxy.Proxy :: Proxy.Proxy ListNodes)
 
 responseListScramSecrets :: ListScramSecretsResponse -> TestTree
 responseListScramSecrets =
@@ -655,4 +655,4 @@ responseListScramSecrets =
     "ListScramSecretsResponse"
     "fixture/ListScramSecretsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListScramSecrets)
+    (Proxy.Proxy :: Proxy.Proxy ListScramSecrets)

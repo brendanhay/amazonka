@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GuardDuty where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.GuardDuty
 import Test.AWS.Fixture
 import Test.AWS.GuardDuty.Internal
@@ -739,7 +739,7 @@ responseCreateFilter =
     "CreateFilterResponse"
     "fixture/CreateFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFilter)
+    (Proxy.Proxy :: Proxy.Proxy CreateFilter)
 
 responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
 responseEnableOrganizationAdminAccount =
@@ -747,7 +747,7 @@ responseEnableOrganizationAdminAccount =
     "EnableOrganizationAdminAccountResponse"
     "fixture/EnableOrganizationAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableOrganizationAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
 
 responseListFindings :: ListFindingsResponse -> TestTree
 responseListFindings =
@@ -755,7 +755,7 @@ responseListFindings =
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFindings)
+    (Proxy.Proxy :: Proxy.Proxy ListFindings)
 
 responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
 responseListOrganizationAdminAccounts =
@@ -763,7 +763,7 @@ responseListOrganizationAdminAccounts =
     "ListOrganizationAdminAccountsResponse"
     "fixture/ListOrganizationAdminAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOrganizationAdminAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
 
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
 responseCreateIPSet =
@@ -771,7 +771,7 @@ responseCreateIPSet =
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIPSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateIPSet)
 
 responseDeleteThreatIntelSet :: DeleteThreatIntelSetResponse -> TestTree
 responseDeleteThreatIntelSet =
@@ -779,7 +779,7 @@ responseDeleteThreatIntelSet =
     "DeleteThreatIntelSetResponse"
     "fixture/DeleteThreatIntelSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteThreatIntelSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteThreatIntelSet)
 
 responseUpdateThreatIntelSet :: UpdateThreatIntelSetResponse -> TestTree
 responseUpdateThreatIntelSet =
@@ -787,7 +787,7 @@ responseUpdateThreatIntelSet =
     "UpdateThreatIntelSetResponse"
     "fixture/UpdateThreatIntelSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThreatIntelSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateThreatIntelSet)
 
 responseStopMonitoringMembers :: StopMonitoringMembersResponse -> TestTree
 responseStopMonitoringMembers =
@@ -795,7 +795,7 @@ responseStopMonitoringMembers =
     "StopMonitoringMembersResponse"
     "fixture/StopMonitoringMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy StopMonitoringMembers)
+    (Proxy.Proxy :: Proxy.Proxy StopMonitoringMembers)
 
 responseListThreatIntelSets :: ListThreatIntelSetsResponse -> TestTree
 responseListThreatIntelSets =
@@ -803,7 +803,7 @@ responseListThreatIntelSets =
     "ListThreatIntelSetsResponse"
     "fixture/ListThreatIntelSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThreatIntelSets)
+    (Proxy.Proxy :: Proxy.Proxy ListThreatIntelSets)
 
 responseCreateThreatIntelSet :: CreateThreatIntelSetResponse -> TestTree
 responseCreateThreatIntelSet =
@@ -811,7 +811,7 @@ responseCreateThreatIntelSet =
     "CreateThreatIntelSetResponse"
     "fixture/CreateThreatIntelSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateThreatIntelSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateThreatIntelSet)
 
 responseDeleteMembers :: DeleteMembersResponse -> TestTree
 responseDeleteMembers =
@@ -819,7 +819,7 @@ responseDeleteMembers =
     "DeleteMembersResponse"
     "fixture/DeleteMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMembers)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -827,7 +827,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetFindingsStatistics :: GetFindingsStatisticsResponse -> TestTree
 responseGetFindingsStatistics =
@@ -835,7 +835,7 @@ responseGetFindingsStatistics =
     "GetFindingsStatisticsResponse"
     "fixture/GetFindingsStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFindingsStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetFindingsStatistics)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
 responseGetIPSet =
@@ -843,7 +843,7 @@ responseGetIPSet =
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIPSet)
+    (Proxy.Proxy :: Proxy.Proxy GetIPSet)
 
 responseListInvitations :: ListInvitationsResponse -> TestTree
 responseListInvitations =
@@ -851,7 +851,7 @@ responseListInvitations =
     "ListInvitationsResponse"
     "fixture/ListInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInvitations)
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
 
 responseUpdateMemberDetectors :: UpdateMemberDetectorsResponse -> TestTree
 responseUpdateMemberDetectors =
@@ -859,7 +859,7 @@ responseUpdateMemberDetectors =
     "UpdateMemberDetectorsResponse"
     "fixture/UpdateMemberDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMemberDetectors)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMemberDetectors)
 
 responseGetThreatIntelSet :: GetThreatIntelSetResponse -> TestTree
 responseGetThreatIntelSet =
@@ -867,7 +867,7 @@ responseGetThreatIntelSet =
     "GetThreatIntelSetResponse"
     "fixture/GetThreatIntelSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetThreatIntelSet)
+    (Proxy.Proxy :: Proxy.Proxy GetThreatIntelSet)
 
 responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
 responseDeleteInvitations =
@@ -875,7 +875,7 @@ responseDeleteInvitations =
     "DeleteInvitationsResponse"
     "fixture/DeleteInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInvitations)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInvitations)
 
 responseGetMasterAccount :: GetMasterAccountResponse -> TestTree
 responseGetMasterAccount =
@@ -883,7 +883,7 @@ responseGetMasterAccount =
     "GetMasterAccountResponse"
     "fixture/GetMasterAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMasterAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetMasterAccount)
 
 responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
 responseGetUsageStatistics =
@@ -891,7 +891,7 @@ responseGetUsageStatistics =
     "GetUsageStatisticsResponse"
     "fixture/GetUsageStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUsageStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetUsageStatistics)
 
 responseCreateDetector :: CreateDetectorResponse -> TestTree
 responseCreateDetector =
@@ -899,7 +899,7 @@ responseCreateDetector =
     "CreateDetectorResponse"
     "fixture/CreateDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDetector)
+    (Proxy.Proxy :: Proxy.Proxy CreateDetector)
 
 responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
 responseDeclineInvitations =
@@ -907,7 +907,7 @@ responseDeclineInvitations =
     "DeclineInvitationsResponse"
     "fixture/DeclineInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeclineInvitations)
+    (Proxy.Proxy :: Proxy.Proxy DeclineInvitations)
 
 responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
 responseDescribeOrganizationConfiguration =
@@ -915,7 +915,7 @@ responseDescribeOrganizationConfiguration =
     "DescribeOrganizationConfigurationResponse"
     "fixture/DescribeOrganizationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganizationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfiguration)
 
 responseCreatePublishingDestination :: CreatePublishingDestinationResponse -> TestTree
 responseCreatePublishingDestination =
@@ -923,7 +923,7 @@ responseCreatePublishingDestination =
     "CreatePublishingDestinationResponse"
     "fixture/CreatePublishingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePublishingDestination)
+    (Proxy.Proxy :: Proxy.Proxy CreatePublishingDestination)
 
 responseUpdateFilter :: UpdateFilterResponse -> TestTree
 responseUpdateFilter =
@@ -931,7 +931,7 @@ responseUpdateFilter =
     "UpdateFilterResponse"
     "fixture/UpdateFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFilter)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFilter)
 
 responseDeleteFilter :: DeleteFilterResponse -> TestTree
 responseDeleteFilter =
@@ -939,7 +939,7 @@ responseDeleteFilter =
     "DeleteFilterResponse"
     "fixture/DeleteFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFilter)
 
 responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
 responseDisassociateMembers =
@@ -947,7 +947,7 @@ responseDisassociateMembers =
     "DisassociateMembersResponse"
     "fixture/DisassociateMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateMembers)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMembers)
 
 responseDisassociateFromMasterAccount :: DisassociateFromMasterAccountResponse -> TestTree
 responseDisassociateFromMasterAccount =
@@ -955,7 +955,7 @@ responseDisassociateFromMasterAccount =
     "DisassociateFromMasterAccountResponse"
     "fixture/DisassociateFromMasterAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateFromMasterAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFromMasterAccount)
 
 responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
 responseAcceptInvitation =
@@ -963,7 +963,7 @@ responseAcceptInvitation =
     "AcceptInvitationResponse"
     "fixture/AcceptInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptInvitation)
+    (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
 
 responseListFilters :: ListFiltersResponse -> TestTree
 responseListFilters =
@@ -971,7 +971,7 @@ responseListFilters =
     "ListFiltersResponse"
     "fixture/ListFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFilters)
+    (Proxy.Proxy :: Proxy.Proxy ListFilters)
 
 responseListMembers :: ListMembersResponse -> TestTree
 responseListMembers =
@@ -979,7 +979,7 @@ responseListMembers =
     "ListMembersResponse"
     "fixture/ListMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListMembers)
 
 responseListPublishingDestinations :: ListPublishingDestinationsResponse -> TestTree
 responseListPublishingDestinations =
@@ -987,7 +987,7 @@ responseListPublishingDestinations =
     "ListPublishingDestinationsResponse"
     "fixture/ListPublishingDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPublishingDestinations)
+    (Proxy.Proxy :: Proxy.Proxy ListPublishingDestinations)
 
 responseDeletePublishingDestination :: DeletePublishingDestinationResponse -> TestTree
 responseDeletePublishingDestination =
@@ -995,7 +995,7 @@ responseDeletePublishingDestination =
     "DeletePublishingDestinationResponse"
     "fixture/DeletePublishingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePublishingDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeletePublishingDestination)
 
 responseUpdatePublishingDestination :: UpdatePublishingDestinationResponse -> TestTree
 responseUpdatePublishingDestination =
@@ -1003,7 +1003,7 @@ responseUpdatePublishingDestination =
     "UpdatePublishingDestinationResponse"
     "fixture/UpdatePublishingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePublishingDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePublishingDestination)
 
 responseGetDetector :: GetDetectorResponse -> TestTree
 responseGetDetector =
@@ -1011,7 +1011,7 @@ responseGetDetector =
     "GetDetectorResponse"
     "fixture/GetDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDetector)
+    (Proxy.Proxy :: Proxy.Proxy GetDetector)
 
 responseCreateSampleFindings :: CreateSampleFindingsResponse -> TestTree
 responseCreateSampleFindings =
@@ -1019,7 +1019,7 @@ responseCreateSampleFindings =
     "CreateSampleFindingsResponse"
     "fixture/CreateSampleFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSampleFindings)
+    (Proxy.Proxy :: Proxy.Proxy CreateSampleFindings)
 
 responseArchiveFindings :: ArchiveFindingsResponse -> TestTree
 responseArchiveFindings =
@@ -1027,7 +1027,7 @@ responseArchiveFindings =
     "ArchiveFindingsResponse"
     "fixture/ArchiveFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ArchiveFindings)
+    (Proxy.Proxy :: Proxy.Proxy ArchiveFindings)
 
 responseCreateMembers :: CreateMembersResponse -> TestTree
 responseCreateMembers =
@@ -1035,7 +1035,7 @@ responseCreateMembers =
     "CreateMembersResponse"
     "fixture/CreateMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMembers)
+    (Proxy.Proxy :: Proxy.Proxy CreateMembers)
 
 responseUnarchiveFindings :: UnarchiveFindingsResponse -> TestTree
 responseUnarchiveFindings =
@@ -1043,7 +1043,7 @@ responseUnarchiveFindings =
     "UnarchiveFindingsResponse"
     "fixture/UnarchiveFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UnarchiveFindings)
+    (Proxy.Proxy :: Proxy.Proxy UnarchiveFindings)
 
 responseGetMemberDetectors :: GetMemberDetectorsResponse -> TestTree
 responseGetMemberDetectors =
@@ -1051,7 +1051,7 @@ responseGetMemberDetectors =
     "GetMemberDetectorsResponse"
     "fixture/GetMemberDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMemberDetectors)
+    (Proxy.Proxy :: Proxy.Proxy GetMemberDetectors)
 
 responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
 responseGetInvitationsCount =
@@ -1059,7 +1059,7 @@ responseGetInvitationsCount =
     "GetInvitationsCountResponse"
     "fixture/GetInvitationsCountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInvitationsCount)
+    (Proxy.Proxy :: Proxy.Proxy GetInvitationsCount)
 
 responseStartMonitoringMembers :: StartMonitoringMembersResponse -> TestTree
 responseStartMonitoringMembers =
@@ -1067,7 +1067,7 @@ responseStartMonitoringMembers =
     "StartMonitoringMembersResponse"
     "fixture/StartMonitoringMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMonitoringMembers)
+    (Proxy.Proxy :: Proxy.Proxy StartMonitoringMembers)
 
 responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
 responseUpdateOrganizationConfiguration =
@@ -1075,7 +1075,7 @@ responseUpdateOrganizationConfiguration =
     "UpdateOrganizationConfigurationResponse"
     "fixture/UpdateOrganizationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOrganizationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
 
 responseInviteMembers :: InviteMembersResponse -> TestTree
 responseInviteMembers =
@@ -1083,7 +1083,7 @@ responseInviteMembers =
     "InviteMembersResponse"
     "fixture/InviteMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy InviteMembers)
+    (Proxy.Proxy :: Proxy.Proxy InviteMembers)
 
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
 responseDeleteIPSet =
@@ -1091,7 +1091,7 @@ responseDeleteIPSet =
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIPSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIPSet)
 
 responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
 responseUpdateIPSet =
@@ -1099,7 +1099,7 @@ responseUpdateIPSet =
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIPSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIPSet)
 
 responseListIPSets :: ListIPSetsResponse -> TestTree
 responseListIPSets =
@@ -1107,7 +1107,7 @@ responseListIPSets =
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIPSets)
+    (Proxy.Proxy :: Proxy.Proxy ListIPSets)
 
 responseGetMembers :: GetMembersResponse -> TestTree
 responseGetMembers =
@@ -1115,7 +1115,7 @@ responseGetMembers =
     "GetMembersResponse"
     "fixture/GetMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMembers)
+    (Proxy.Proxy :: Proxy.Proxy GetMembers)
 
 responseDescribePublishingDestination :: DescribePublishingDestinationResponse -> TestTree
 responseDescribePublishingDestination =
@@ -1123,7 +1123,7 @@ responseDescribePublishingDestination =
     "DescribePublishingDestinationResponse"
     "fixture/DescribePublishingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePublishingDestination)
+    (Proxy.Proxy :: Proxy.Proxy DescribePublishingDestination)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1131,7 +1131,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetFindings :: GetFindingsResponse -> TestTree
 responseGetFindings =
@@ -1139,7 +1139,7 @@ responseGetFindings =
     "GetFindingsResponse"
     "fixture/GetFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFindings)
+    (Proxy.Proxy :: Proxy.Proxy GetFindings)
 
 responseListDetectors :: ListDetectorsResponse -> TestTree
 responseListDetectors =
@@ -1147,7 +1147,7 @@ responseListDetectors =
     "ListDetectorsResponse"
     "fixture/ListDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDetectors)
+    (Proxy.Proxy :: Proxy.Proxy ListDetectors)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1155,7 +1155,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateDetector :: UpdateDetectorResponse -> TestTree
 responseUpdateDetector =
@@ -1163,7 +1163,7 @@ responseUpdateDetector =
     "UpdateDetectorResponse"
     "fixture/UpdateDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDetector)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetector)
 
 responseDeleteDetector :: DeleteDetectorResponse -> TestTree
 responseDeleteDetector =
@@ -1171,7 +1171,7 @@ responseDeleteDetector =
     "DeleteDetectorResponse"
     "fixture/DeleteDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDetector)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetector)
 
 responseUpdateFindingsFeedback :: UpdateFindingsFeedbackResponse -> TestTree
 responseUpdateFindingsFeedback =
@@ -1179,7 +1179,7 @@ responseUpdateFindingsFeedback =
     "UpdateFindingsFeedbackResponse"
     "fixture/UpdateFindingsFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFindingsFeedback)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFindingsFeedback)
 
 responseGetFilter :: GetFilterResponse -> TestTree
 responseGetFilter =
@@ -1187,7 +1187,7 @@ responseGetFilter =
     "GetFilterResponse"
     "fixture/GetFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFilter)
+    (Proxy.Proxy :: Proxy.Proxy GetFilter)
 
 responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
 responseDisableOrganizationAdminAccount =
@@ -1195,4 +1195,4 @@ responseDisableOrganizationAdminAccount =
     "DisableOrganizationAdminAccountResponse"
     "fixture/DisableOrganizationAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableOrganizationAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisableOrganizationAdminAccount)

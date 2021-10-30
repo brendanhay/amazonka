@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EMR where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EMR
 import Test.AWS.EMR.Internal
 import Test.AWS.Fixture
@@ -655,7 +655,7 @@ responseRunJobFlow =
     "RunJobFlowResponse"
     "fixture/RunJobFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy RunJobFlow)
+    (Proxy.Proxy :: Proxy.Proxy RunJobFlow)
 
 responseRemoveAutoScalingPolicy :: RemoveAutoScalingPolicyResponse -> TestTree
 responseRemoveAutoScalingPolicy =
@@ -663,7 +663,7 @@ responseRemoveAutoScalingPolicy =
     "RemoveAutoScalingPolicyResponse"
     "fixture/RemoveAutoScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAutoScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAutoScalingPolicy)
 
 responseCreateStudio :: CreateStudioResponse -> TestTree
 responseCreateStudio =
@@ -671,7 +671,7 @@ responseCreateStudio =
     "CreateStudioResponse"
     "fixture/CreateStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStudio)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudio)
 
 responseSetVisibleToAllUsers :: SetVisibleToAllUsersResponse -> TestTree
 responseSetVisibleToAllUsers =
@@ -679,7 +679,7 @@ responseSetVisibleToAllUsers =
     "SetVisibleToAllUsersResponse"
     "fixture/SetVisibleToAllUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy SetVisibleToAllUsers)
+    (Proxy.Proxy :: Proxy.Proxy SetVisibleToAllUsers)
 
 responseTerminateJobFlows :: TerminateJobFlowsResponse -> TestTree
 responseTerminateJobFlows =
@@ -687,7 +687,7 @@ responseTerminateJobFlows =
     "TerminateJobFlowsResponse"
     "fixture/TerminateJobFlowsResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateJobFlows)
+    (Proxy.Proxy :: Proxy.Proxy TerminateJobFlows)
 
 responseDescribeStep :: DescribeStepResponse -> TestTree
 responseDescribeStep =
@@ -695,7 +695,7 @@ responseDescribeStep =
     "DescribeStepResponse"
     "fixture/DescribeStepResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStep)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStep)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -703,7 +703,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
 responseDescribeCluster =
@@ -711,7 +711,7 @@ responseDescribeCluster =
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCluster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
 
 responseListSecurityConfigurations :: ListSecurityConfigurationsResponse -> TestTree
 responseListSecurityConfigurations =
@@ -719,7 +719,7 @@ responseListSecurityConfigurations =
     "ListSecurityConfigurationsResponse"
     "fixture/ListSecurityConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecurityConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityConfigurations)
 
 responseCancelSteps :: CancelStepsResponse -> TestTree
 responseCancelSteps =
@@ -727,7 +727,7 @@ responseCancelSteps =
     "CancelStepsResponse"
     "fixture/CancelStepsResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSteps)
+    (Proxy.Proxy :: Proxy.Proxy CancelSteps)
 
 responseListNotebookExecutions :: ListNotebookExecutionsResponse -> TestTree
 responseListNotebookExecutions =
@@ -735,7 +735,7 @@ responseListNotebookExecutions =
     "ListNotebookExecutionsResponse"
     "fixture/ListNotebookExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotebookExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListNotebookExecutions)
 
 responsePutAutoTerminationPolicy :: PutAutoTerminationPolicyResponse -> TestTree
 responsePutAutoTerminationPolicy =
@@ -743,7 +743,7 @@ responsePutAutoTerminationPolicy =
     "PutAutoTerminationPolicyResponse"
     "fixture/PutAutoTerminationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAutoTerminationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutAutoTerminationPolicy)
 
 responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
 responseCreateSecurityConfiguration =
@@ -751,7 +751,7 @@ responseCreateSecurityConfiguration =
     "CreateSecurityConfigurationResponse"
     "fixture/CreateSecurityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSecurityConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateSecurityConfiguration)
 
 responseDescribeReleaseLabel :: DescribeReleaseLabelResponse -> TestTree
 responseDescribeReleaseLabel =
@@ -759,7 +759,7 @@ responseDescribeReleaseLabel =
     "DescribeReleaseLabelResponse"
     "fixture/DescribeReleaseLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReleaseLabel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReleaseLabel)
 
 responseSetTerminationProtection :: SetTerminationProtectionResponse -> TestTree
 responseSetTerminationProtection =
@@ -767,7 +767,7 @@ responseSetTerminationProtection =
     "SetTerminationProtectionResponse"
     "fixture/SetTerminationProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTerminationProtection)
+    (Proxy.Proxy :: Proxy.Proxy SetTerminationProtection)
 
 responseAddJobFlowSteps :: AddJobFlowStepsResponse -> TestTree
 responseAddJobFlowSteps =
@@ -775,7 +775,7 @@ responseAddJobFlowSteps =
     "AddJobFlowStepsResponse"
     "fixture/AddJobFlowStepsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddJobFlowSteps)
+    (Proxy.Proxy :: Proxy.Proxy AddJobFlowSteps)
 
 responseDescribeStudio :: DescribeStudioResponse -> TestTree
 responseDescribeStudio =
@@ -783,7 +783,7 @@ responseDescribeStudio =
     "DescribeStudioResponse"
     "fixture/DescribeStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStudio)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStudio)
 
 responseModifyInstanceGroups :: ModifyInstanceGroupsResponse -> TestTree
 responseModifyInstanceGroups =
@@ -791,7 +791,7 @@ responseModifyInstanceGroups =
     "ModifyInstanceGroupsResponse"
     "fixture/ModifyInstanceGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceGroups)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceGroups)
 
 responseStartNotebookExecution :: StartNotebookExecutionResponse -> TestTree
 responseStartNotebookExecution =
@@ -799,7 +799,7 @@ responseStartNotebookExecution =
     "StartNotebookExecutionResponse"
     "fixture/StartNotebookExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartNotebookExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartNotebookExecution)
 
 responseListSteps :: ListStepsResponse -> TestTree
 responseListSteps =
@@ -807,7 +807,7 @@ responseListSteps =
     "ListStepsResponse"
     "fixture/ListStepsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSteps)
+    (Proxy.Proxy :: Proxy.Proxy ListSteps)
 
 responseListReleaseLabels :: ListReleaseLabelsResponse -> TestTree
 responseListReleaseLabels =
@@ -815,7 +815,7 @@ responseListReleaseLabels =
     "ListReleaseLabelsResponse"
     "fixture/ListReleaseLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReleaseLabels)
+    (Proxy.Proxy :: Proxy.Proxy ListReleaseLabels)
 
 responseCreateStudioSessionMapping :: CreateStudioSessionMappingResponse -> TestTree
 responseCreateStudioSessionMapping =
@@ -823,7 +823,7 @@ responseCreateStudioSessionMapping =
     "CreateStudioSessionMappingResponse"
     "fixture/CreateStudioSessionMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStudioSessionMapping)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudioSessionMapping)
 
 responseAddInstanceFleet :: AddInstanceFleetResponse -> TestTree
 responseAddInstanceFleet =
@@ -831,7 +831,7 @@ responseAddInstanceFleet =
     "AddInstanceFleetResponse"
     "fixture/AddInstanceFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy AddInstanceFleet)
+    (Proxy.Proxy :: Proxy.Proxy AddInstanceFleet)
 
 responseDeleteStudio :: DeleteStudioResponse -> TestTree
 responseDeleteStudio =
@@ -839,7 +839,7 @@ responseDeleteStudio =
     "DeleteStudioResponse"
     "fixture/DeleteStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStudio)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudio)
 
 responseUpdateStudio :: UpdateStudioResponse -> TestTree
 responseUpdateStudio =
@@ -847,7 +847,7 @@ responseUpdateStudio =
     "UpdateStudioResponse"
     "fixture/UpdateStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStudio)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudio)
 
 responseListStudios :: ListStudiosResponse -> TestTree
 responseListStudios =
@@ -855,7 +855,7 @@ responseListStudios =
     "ListStudiosResponse"
     "fixture/ListStudiosResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStudios)
+    (Proxy.Proxy :: Proxy.Proxy ListStudios)
 
 responsePutManagedScalingPolicy :: PutManagedScalingPolicyResponse -> TestTree
 responsePutManagedScalingPolicy =
@@ -863,7 +863,7 @@ responsePutManagedScalingPolicy =
     "PutManagedScalingPolicyResponse"
     "fixture/PutManagedScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutManagedScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutManagedScalingPolicy)
 
 responseAddInstanceGroups :: AddInstanceGroupsResponse -> TestTree
 responseAddInstanceGroups =
@@ -871,7 +871,7 @@ responseAddInstanceGroups =
     "AddInstanceGroupsResponse"
     "fixture/AddInstanceGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddInstanceGroups)
+    (Proxy.Proxy :: Proxy.Proxy AddInstanceGroups)
 
 responseGetStudioSessionMapping :: GetStudioSessionMappingResponse -> TestTree
 responseGetStudioSessionMapping =
@@ -879,7 +879,7 @@ responseGetStudioSessionMapping =
     "GetStudioSessionMappingResponse"
     "fixture/GetStudioSessionMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStudioSessionMapping)
+    (Proxy.Proxy :: Proxy.Proxy GetStudioSessionMapping)
 
 responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
 responseDeleteSecurityConfiguration =
@@ -887,7 +887,7 @@ responseDeleteSecurityConfiguration =
     "DeleteSecurityConfigurationResponse"
     "fixture/DeleteSecurityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSecurityConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSecurityConfiguration)
 
 responseModifyInstanceFleet :: ModifyInstanceFleetResponse -> TestTree
 responseModifyInstanceFleet =
@@ -895,7 +895,7 @@ responseModifyInstanceFleet =
     "ModifyInstanceFleetResponse"
     "fixture/ModifyInstanceFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceFleet)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceFleet)
 
 responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
 responseListInstanceGroups =
@@ -903,7 +903,7 @@ responseListInstanceGroups =
     "ListInstanceGroupsResponse"
     "fixture/ListInstanceGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceGroups)
 
 responseGetBlockPublicAccessConfiguration :: GetBlockPublicAccessConfigurationResponse -> TestTree
 responseGetBlockPublicAccessConfiguration =
@@ -911,7 +911,7 @@ responseGetBlockPublicAccessConfiguration =
     "GetBlockPublicAccessConfigurationResponse"
     "fixture/GetBlockPublicAccessConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBlockPublicAccessConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetBlockPublicAccessConfiguration)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
 responseModifyCluster =
@@ -919,7 +919,7 @@ responseModifyCluster =
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCluster)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCluster)
 
 responseGetAutoTerminationPolicy :: GetAutoTerminationPolicyResponse -> TestTree
 responseGetAutoTerminationPolicy =
@@ -927,7 +927,7 @@ responseGetAutoTerminationPolicy =
     "GetAutoTerminationPolicyResponse"
     "fixture/GetAutoTerminationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAutoTerminationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetAutoTerminationPolicy)
 
 responsePutBlockPublicAccessConfiguration :: PutBlockPublicAccessConfigurationResponse -> TestTree
 responsePutBlockPublicAccessConfiguration =
@@ -935,7 +935,7 @@ responsePutBlockPublicAccessConfiguration =
     "PutBlockPublicAccessConfigurationResponse"
     "fixture/PutBlockPublicAccessConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBlockPublicAccessConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutBlockPublicAccessConfiguration)
 
 responseListBootstrapActions :: ListBootstrapActionsResponse -> TestTree
 responseListBootstrapActions =
@@ -943,7 +943,7 @@ responseListBootstrapActions =
     "ListBootstrapActionsResponse"
     "fixture/ListBootstrapActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBootstrapActions)
+    (Proxy.Proxy :: Proxy.Proxy ListBootstrapActions)
 
 responseRemoveAutoTerminationPolicy :: RemoveAutoTerminationPolicyResponse -> TestTree
 responseRemoveAutoTerminationPolicy =
@@ -951,7 +951,7 @@ responseRemoveAutoTerminationPolicy =
     "RemoveAutoTerminationPolicyResponse"
     "fixture/RemoveAutoTerminationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAutoTerminationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAutoTerminationPolicy)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -959,7 +959,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseListInstances :: ListInstancesResponse -> TestTree
 responseListInstances =
@@ -967,7 +967,7 @@ responseListInstances =
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListInstances)
 
 responsePutAutoScalingPolicy :: PutAutoScalingPolicyResponse -> TestTree
 responsePutAutoScalingPolicy =
@@ -975,7 +975,7 @@ responsePutAutoScalingPolicy =
     "PutAutoScalingPolicyResponse"
     "fixture/PutAutoScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAutoScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutAutoScalingPolicy)
 
 responseDeleteStudioSessionMapping :: DeleteStudioSessionMappingResponse -> TestTree
 responseDeleteStudioSessionMapping =
@@ -983,7 +983,7 @@ responseDeleteStudioSessionMapping =
     "DeleteStudioSessionMappingResponse"
     "fixture/DeleteStudioSessionMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStudioSessionMapping)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudioSessionMapping)
 
 responseUpdateStudioSessionMapping :: UpdateStudioSessionMappingResponse -> TestTree
 responseUpdateStudioSessionMapping =
@@ -991,7 +991,7 @@ responseUpdateStudioSessionMapping =
     "UpdateStudioSessionMappingResponse"
     "fixture/UpdateStudioSessionMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStudioSessionMapping)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudioSessionMapping)
 
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
@@ -999,7 +999,7 @@ responseListClusters =
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
 
 responseDescribeSecurityConfiguration :: DescribeSecurityConfigurationResponse -> TestTree
 responseDescribeSecurityConfiguration =
@@ -1007,7 +1007,7 @@ responseDescribeSecurityConfiguration =
     "DescribeSecurityConfigurationResponse"
     "fixture/DescribeSecurityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecurityConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityConfiguration)
 
 responseStopNotebookExecution :: StopNotebookExecutionResponse -> TestTree
 responseStopNotebookExecution =
@@ -1015,7 +1015,7 @@ responseStopNotebookExecution =
     "StopNotebookExecutionResponse"
     "fixture/StopNotebookExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopNotebookExecution)
+    (Proxy.Proxy :: Proxy.Proxy StopNotebookExecution)
 
 responseListStudioSessionMappings :: ListStudioSessionMappingsResponse -> TestTree
 responseListStudioSessionMappings =
@@ -1023,7 +1023,7 @@ responseListStudioSessionMappings =
     "ListStudioSessionMappingsResponse"
     "fixture/ListStudioSessionMappingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStudioSessionMappings)
+    (Proxy.Proxy :: Proxy.Proxy ListStudioSessionMappings)
 
 responseGetManagedScalingPolicy :: GetManagedScalingPolicyResponse -> TestTree
 responseGetManagedScalingPolicy =
@@ -1031,7 +1031,7 @@ responseGetManagedScalingPolicy =
     "GetManagedScalingPolicyResponse"
     "fixture/GetManagedScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetManagedScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetManagedScalingPolicy)
 
 responseListInstanceFleets :: ListInstanceFleetsResponse -> TestTree
 responseListInstanceFleets =
@@ -1039,7 +1039,7 @@ responseListInstanceFleets =
     "ListInstanceFleetsResponse"
     "fixture/ListInstanceFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceFleets)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceFleets)
 
 responseRemoveManagedScalingPolicy :: RemoveManagedScalingPolicyResponse -> TestTree
 responseRemoveManagedScalingPolicy =
@@ -1047,7 +1047,7 @@ responseRemoveManagedScalingPolicy =
     "RemoveManagedScalingPolicyResponse"
     "fixture/RemoveManagedScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveManagedScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy RemoveManagedScalingPolicy)
 
 responseDescribeNotebookExecution :: DescribeNotebookExecutionResponse -> TestTree
 responseDescribeNotebookExecution =
@@ -1055,4 +1055,4 @@ responseDescribeNotebookExecution =
     "DescribeNotebookExecutionResponse"
     "fixture/DescribeNotebookExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotebookExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotebookExecution)

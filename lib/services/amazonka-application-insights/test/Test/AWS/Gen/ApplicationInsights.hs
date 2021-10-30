@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApplicationInsights where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ApplicationInsights
 import Test.AWS.ApplicationInsights.Internal
 import Test.AWS.Fixture
@@ -367,7 +367,7 @@ responseDescribeApplication =
     "DescribeApplicationResponse"
     "fixture/DescribeApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
 
 responseDescribeComponent :: DescribeComponentResponse -> TestTree
 responseDescribeComponent =
@@ -375,7 +375,7 @@ responseDescribeComponent =
     "DescribeComponentResponse"
     "fixture/DescribeComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComponent)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComponent)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -383,7 +383,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -391,7 +391,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -399,7 +399,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseDescribeComponentConfigurationRecommendation :: DescribeComponentConfigurationRecommendationResponse -> TestTree
 responseDescribeComponentConfigurationRecommendation =
@@ -407,7 +407,7 @@ responseDescribeComponentConfigurationRecommendation =
     "DescribeComponentConfigurationRecommendationResponse"
     "fixture/DescribeComponentConfigurationRecommendationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComponentConfigurationRecommendation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComponentConfigurationRecommendation)
 
 responseDescribeProblem :: DescribeProblemResponse -> TestTree
 responseDescribeProblem =
@@ -415,7 +415,7 @@ responseDescribeProblem =
     "DescribeProblemResponse"
     "fixture/DescribeProblemResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProblem)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProblem)
 
 responseUpdateComponentConfiguration :: UpdateComponentConfigurationResponse -> TestTree
 responseUpdateComponentConfiguration =
@@ -423,7 +423,7 @@ responseUpdateComponentConfiguration =
     "UpdateComponentConfigurationResponse"
     "fixture/UpdateComponentConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateComponentConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateComponentConfiguration)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -431,7 +431,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseDescribeProblemObservations :: DescribeProblemObservationsResponse -> TestTree
 responseDescribeProblemObservations =
@@ -439,7 +439,7 @@ responseDescribeProblemObservations =
     "DescribeProblemObservationsResponse"
     "fixture/DescribeProblemObservationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProblemObservations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProblemObservations)
 
 responseDescribeObservation :: DescribeObservationResponse -> TestTree
 responseDescribeObservation =
@@ -447,7 +447,7 @@ responseDescribeObservation =
     "DescribeObservationResponse"
     "fixture/DescribeObservationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeObservation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeObservation)
 
 responseListLogPatternSets :: ListLogPatternSetsResponse -> TestTree
 responseListLogPatternSets =
@@ -455,7 +455,7 @@ responseListLogPatternSets =
     "ListLogPatternSetsResponse"
     "fixture/ListLogPatternSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLogPatternSets)
+    (Proxy.Proxy :: Proxy.Proxy ListLogPatternSets)
 
 responseDescribeComponentConfiguration :: DescribeComponentConfigurationResponse -> TestTree
 responseDescribeComponentConfiguration =
@@ -463,7 +463,7 @@ responseDescribeComponentConfiguration =
     "DescribeComponentConfigurationResponse"
     "fixture/DescribeComponentConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComponentConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComponentConfiguration)
 
 responseListProblems :: ListProblemsResponse -> TestTree
 responseListProblems =
@@ -471,7 +471,7 @@ responseListProblems =
     "ListProblemsResponse"
     "fixture/ListProblemsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProblems)
+    (Proxy.Proxy :: Proxy.Proxy ListProblems)
 
 responseListLogPatterns :: ListLogPatternsResponse -> TestTree
 responseListLogPatterns =
@@ -479,7 +479,7 @@ responseListLogPatterns =
     "ListLogPatternsResponse"
     "fixture/ListLogPatternsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLogPatterns)
+    (Proxy.Proxy :: Proxy.Proxy ListLogPatterns)
 
 responseDeleteLogPattern :: DeleteLogPatternResponse -> TestTree
 responseDeleteLogPattern =
@@ -487,7 +487,7 @@ responseDeleteLogPattern =
     "DeleteLogPatternResponse"
     "fixture/DeleteLogPatternResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLogPattern)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLogPattern)
 
 responseUpdateLogPattern :: UpdateLogPatternResponse -> TestTree
 responseUpdateLogPattern =
@@ -495,7 +495,7 @@ responseUpdateLogPattern =
     "UpdateLogPatternResponse"
     "fixture/UpdateLogPatternResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLogPattern)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLogPattern)
 
 responseCreateLogPattern :: CreateLogPatternResponse -> TestTree
 responseCreateLogPattern =
@@ -503,7 +503,7 @@ responseCreateLogPattern =
     "CreateLogPatternResponse"
     "fixture/CreateLogPatternResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLogPattern)
+    (Proxy.Proxy :: Proxy.Proxy CreateLogPattern)
 
 responseListConfigurationHistory :: ListConfigurationHistoryResponse -> TestTree
 responseListConfigurationHistory =
@@ -511,7 +511,7 @@ responseListConfigurationHistory =
     "ListConfigurationHistoryResponse"
     "fixture/ListConfigurationHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationHistory)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationHistory)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -519,7 +519,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -527,7 +527,7 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -535,7 +535,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateComponent :: CreateComponentResponse -> TestTree
 responseCreateComponent =
@@ -543,7 +543,7 @@ responseCreateComponent =
     "CreateComponentResponse"
     "fixture/CreateComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateComponent)
+    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
 
 responseListComponents :: ListComponentsResponse -> TestTree
 responseListComponents =
@@ -551,7 +551,7 @@ responseListComponents =
     "ListComponentsResponse"
     "fixture/ListComponentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComponents)
+    (Proxy.Proxy :: Proxy.Proxy ListComponents)
 
 responseDeleteComponent :: DeleteComponentResponse -> TestTree
 responseDeleteComponent =
@@ -559,7 +559,7 @@ responseDeleteComponent =
     "DeleteComponentResponse"
     "fixture/DeleteComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteComponent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
 
 responseUpdateComponent :: UpdateComponentResponse -> TestTree
 responseUpdateComponent =
@@ -567,7 +567,7 @@ responseUpdateComponent =
     "UpdateComponentResponse"
     "fixture/UpdateComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateComponent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateComponent)
 
 responseDescribeLogPattern :: DescribeLogPatternResponse -> TestTree
 responseDescribeLogPattern =
@@ -575,4 +575,4 @@ responseDescribeLogPattern =
     "DescribeLogPatternResponse"
     "fixture/DescribeLogPatternResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLogPattern)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLogPattern)

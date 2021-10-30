@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RAM where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.RAM
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -331,7 +331,7 @@ responsePromoteResourceShareCreatedFromPolicy =
     "PromoteResourceShareCreatedFromPolicyResponse"
     "fixture/PromoteResourceShareCreatedFromPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PromoteResourceShareCreatedFromPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PromoteResourceShareCreatedFromPolicy)
 
 responseGetResourceShares :: GetResourceSharesResponse -> TestTree
 responseGetResourceShares =
@@ -339,7 +339,7 @@ responseGetResourceShares =
     "GetResourceSharesResponse"
     "fixture/GetResourceSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceShares)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceShares)
 
 responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
 responseGetResourcePolicies =
@@ -347,7 +347,7 @@ responseGetResourcePolicies =
     "GetResourcePoliciesResponse"
     "fixture/GetResourcePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicies)
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
 
 responseListPendingInvitationResources :: ListPendingInvitationResourcesResponse -> TestTree
 responseListPendingInvitationResources =
@@ -355,7 +355,7 @@ responseListPendingInvitationResources =
     "ListPendingInvitationResourcesResponse"
     "fixture/ListPendingInvitationResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPendingInvitationResources)
+    (Proxy.Proxy :: Proxy.Proxy ListPendingInvitationResources)
 
 responseGetPermission :: GetPermissionResponse -> TestTree
 responseGetPermission =
@@ -363,7 +363,7 @@ responseGetPermission =
     "GetPermissionResponse"
     "fixture/GetPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPermission)
+    (Proxy.Proxy :: Proxy.Proxy GetPermission)
 
 responseEnableSharingWithAwsOrganization :: EnableSharingWithAwsOrganizationResponse -> TestTree
 responseEnableSharingWithAwsOrganization =
@@ -371,7 +371,7 @@ responseEnableSharingWithAwsOrganization =
     "EnableSharingWithAwsOrganizationResponse"
     "fixture/EnableSharingWithAwsOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableSharingWithAwsOrganization)
+    (Proxy.Proxy :: Proxy.Proxy EnableSharingWithAwsOrganization)
 
 responseAssociateResourceSharePermission :: AssociateResourceSharePermissionResponse -> TestTree
 responseAssociateResourceSharePermission =
@@ -379,7 +379,7 @@ responseAssociateResourceSharePermission =
     "AssociateResourceSharePermissionResponse"
     "fixture/AssociateResourceSharePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateResourceSharePermission)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResourceSharePermission)
 
 responseCreateResourceShare :: CreateResourceShareResponse -> TestTree
 responseCreateResourceShare =
@@ -387,7 +387,7 @@ responseCreateResourceShare =
     "CreateResourceShareResponse"
     "fixture/CreateResourceShareResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceShare)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceShare)
 
 responseListPrincipals :: ListPrincipalsResponse -> TestTree
 responseListPrincipals =
@@ -395,7 +395,7 @@ responseListPrincipals =
     "ListPrincipalsResponse"
     "fixture/ListPrincipalsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPrincipals)
+    (Proxy.Proxy :: Proxy.Proxy ListPrincipals)
 
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
@@ -403,7 +403,7 @@ responseListResources =
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResources)
+    (Proxy.Proxy :: Proxy.Proxy ListResources)
 
 responseAcceptResourceShareInvitation :: AcceptResourceShareInvitationResponse -> TestTree
 responseAcceptResourceShareInvitation =
@@ -411,7 +411,7 @@ responseAcceptResourceShareInvitation =
     "AcceptResourceShareInvitationResponse"
     "fixture/AcceptResourceShareInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptResourceShareInvitation)
+    (Proxy.Proxy :: Proxy.Proxy AcceptResourceShareInvitation)
 
 responseDeleteResourceShare :: DeleteResourceShareResponse -> TestTree
 responseDeleteResourceShare =
@@ -419,7 +419,7 @@ responseDeleteResourceShare =
     "DeleteResourceShareResponse"
     "fixture/DeleteResourceShareResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceShare)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceShare)
 
 responseUpdateResourceShare :: UpdateResourceShareResponse -> TestTree
 responseUpdateResourceShare =
@@ -427,7 +427,7 @@ responseUpdateResourceShare =
     "UpdateResourceShareResponse"
     "fixture/UpdateResourceShareResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResourceShare)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceShare)
 
 responseRejectResourceShareInvitation :: RejectResourceShareInvitationResponse -> TestTree
 responseRejectResourceShareInvitation =
@@ -435,7 +435,7 @@ responseRejectResourceShareInvitation =
     "RejectResourceShareInvitationResponse"
     "fixture/RejectResourceShareInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectResourceShareInvitation)
+    (Proxy.Proxy :: Proxy.Proxy RejectResourceShareInvitation)
 
 responseListPermissions :: ListPermissionsResponse -> TestTree
 responseListPermissions =
@@ -443,7 +443,7 @@ responseListPermissions =
     "ListPermissionsResponse"
     "fixture/ListPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissions)
 
 responseDisassociateResourceShare :: DisassociateResourceShareResponse -> TestTree
 responseDisassociateResourceShare =
@@ -451,7 +451,7 @@ responseDisassociateResourceShare =
     "DisassociateResourceShareResponse"
     "fixture/DisassociateResourceShareResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateResourceShare)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResourceShare)
 
 responseListResourceSharePermissions :: ListResourceSharePermissionsResponse -> TestTree
 responseListResourceSharePermissions =
@@ -459,7 +459,7 @@ responseListResourceSharePermissions =
     "ListResourceSharePermissionsResponse"
     "fixture/ListResourceSharePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceSharePermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceSharePermissions)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -467,7 +467,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListResourceTypes :: ListResourceTypesResponse -> TestTree
 responseListResourceTypes =
@@ -475,7 +475,7 @@ responseListResourceTypes =
     "ListResourceTypesResponse"
     "fixture/ListResourceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceTypes)
 
 responseGetResourceShareAssociations :: GetResourceShareAssociationsResponse -> TestTree
 responseGetResourceShareAssociations =
@@ -483,7 +483,7 @@ responseGetResourceShareAssociations =
     "GetResourceShareAssociationsResponse"
     "fixture/GetResourceShareAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceShareAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceShareAssociations)
 
 responseGetResourceShareInvitations :: GetResourceShareInvitationsResponse -> TestTree
 responseGetResourceShareInvitations =
@@ -491,7 +491,7 @@ responseGetResourceShareInvitations =
     "GetResourceShareInvitationsResponse"
     "fixture/GetResourceShareInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceShareInvitations)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceShareInvitations)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -499,7 +499,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseAssociateResourceShare :: AssociateResourceShareResponse -> TestTree
 responseAssociateResourceShare =
@@ -507,7 +507,7 @@ responseAssociateResourceShare =
     "AssociateResourceShareResponse"
     "fixture/AssociateResourceShareResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateResourceShare)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResourceShare)
 
 responseDisassociateResourceSharePermission :: DisassociateResourceSharePermissionResponse -> TestTree
 responseDisassociateResourceSharePermission =
@@ -515,4 +515,4 @@ responseDisassociateResourceSharePermission =
     "DisassociateResourceSharePermissionResponse"
     "fixture/DisassociateResourceSharePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateResourceSharePermission)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResourceSharePermission)

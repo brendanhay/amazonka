@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Nimble where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Nimble
 import Test.AWS.Fixture
 import Test.AWS.Nimble.Internal
@@ -583,7 +583,7 @@ responsePutLaunchProfileMembers =
     "PutLaunchProfileMembersResponse"
     "fixture/PutLaunchProfileMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLaunchProfileMembers)
+    (Proxy.Proxy :: Proxy.Proxy PutLaunchProfileMembers)
 
 responseCreateStudio :: CreateStudioResponse -> TestTree
 responseCreateStudio =
@@ -591,7 +591,7 @@ responseCreateStudio =
     "CreateStudioResponse"
     "fixture/CreateStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStudio)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudio)
 
 responseUpdateLaunchProfileMember :: UpdateLaunchProfileMemberResponse -> TestTree
 responseUpdateLaunchProfileMember =
@@ -599,7 +599,7 @@ responseUpdateLaunchProfileMember =
     "UpdateLaunchProfileMemberResponse"
     "fixture/UpdateLaunchProfileMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLaunchProfileMember)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchProfileMember)
 
 responseDeleteLaunchProfileMember :: DeleteLaunchProfileMemberResponse -> TestTree
 responseDeleteLaunchProfileMember =
@@ -607,7 +607,7 @@ responseDeleteLaunchProfileMember =
     "DeleteLaunchProfileMemberResponse"
     "fixture/DeleteLaunchProfileMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLaunchProfileMember)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchProfileMember)
 
 responseListLaunchProfiles :: ListLaunchProfilesResponse -> TestTree
 responseListLaunchProfiles =
@@ -615,7 +615,7 @@ responseListLaunchProfiles =
     "ListLaunchProfilesResponse"
     "fixture/ListLaunchProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLaunchProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListLaunchProfiles)
 
 responseCreateLaunchProfile :: CreateLaunchProfileResponse -> TestTree
 responseCreateLaunchProfile =
@@ -623,7 +623,7 @@ responseCreateLaunchProfile =
     "CreateLaunchProfileResponse"
     "fixture/CreateLaunchProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLaunchProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateLaunchProfile)
 
 responseListStreamingImages :: ListStreamingImagesResponse -> TestTree
 responseListStreamingImages =
@@ -631,7 +631,7 @@ responseListStreamingImages =
     "ListStreamingImagesResponse"
     "fixture/ListStreamingImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreamingImages)
+    (Proxy.Proxy :: Proxy.Proxy ListStreamingImages)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -639,7 +639,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepairResponse -> TestTree
 responseStartStudioSSOConfigurationRepair =
@@ -647,7 +647,7 @@ responseStartStudioSSOConfigurationRepair =
     "StartStudioSSOConfigurationRepairResponse"
     "fixture/StartStudioSSOConfigurationRepairResponse.proto"
     defaultService
-    (Proxy :: Proxy StartStudioSSOConfigurationRepair)
+    (Proxy.Proxy :: Proxy.Proxy StartStudioSSOConfigurationRepair)
 
 responseGetLaunchProfileInitialization :: GetLaunchProfileInitializationResponse -> TestTree
 responseGetLaunchProfileInitialization =
@@ -655,7 +655,7 @@ responseGetLaunchProfileInitialization =
     "GetLaunchProfileInitializationResponse"
     "fixture/GetLaunchProfileInitializationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLaunchProfileInitialization)
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileInitialization)
 
 responseGetLaunchProfile :: GetLaunchProfileResponse -> TestTree
 responseGetLaunchProfile =
@@ -663,7 +663,7 @@ responseGetLaunchProfile =
     "GetLaunchProfileResponse"
     "fixture/GetLaunchProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLaunchProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfile)
 
 responseCreateStudioComponent :: CreateStudioComponentResponse -> TestTree
 responseCreateStudioComponent =
@@ -671,7 +671,7 @@ responseCreateStudioComponent =
     "CreateStudioComponentResponse"
     "fixture/CreateStudioComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStudioComponent)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudioComponent)
 
 responseGetEula :: GetEulaResponse -> TestTree
 responseGetEula =
@@ -679,7 +679,7 @@ responseGetEula =
     "GetEulaResponse"
     "fixture/GetEulaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEula)
+    (Proxy.Proxy :: Proxy.Proxy GetEula)
 
 responseListStudioComponents :: ListStudioComponentsResponse -> TestTree
 responseListStudioComponents =
@@ -687,7 +687,7 @@ responseListStudioComponents =
     "ListStudioComponentsResponse"
     "fixture/ListStudioComponentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStudioComponents)
+    (Proxy.Proxy :: Proxy.Proxy ListStudioComponents)
 
 responseAcceptEulas :: AcceptEulasResponse -> TestTree
 responseAcceptEulas =
@@ -695,7 +695,7 @@ responseAcceptEulas =
     "AcceptEulasResponse"
     "fixture/AcceptEulasResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptEulas)
+    (Proxy.Proxy :: Proxy.Proxy AcceptEulas)
 
 responseCreateStreamingSession :: CreateStreamingSessionResponse -> TestTree
 responseCreateStreamingSession =
@@ -703,7 +703,7 @@ responseCreateStreamingSession =
     "CreateStreamingSessionResponse"
     "fixture/CreateStreamingSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingSession)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingSession)
 
 responseDeleteStudioComponent :: DeleteStudioComponentResponse -> TestTree
 responseDeleteStudioComponent =
@@ -711,7 +711,7 @@ responseDeleteStudioComponent =
     "DeleteStudioComponentResponse"
     "fixture/DeleteStudioComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStudioComponent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudioComponent)
 
 responseUpdateStudioComponent :: UpdateStudioComponentResponse -> TestTree
 responseUpdateStudioComponent =
@@ -719,7 +719,7 @@ responseUpdateStudioComponent =
     "UpdateStudioComponentResponse"
     "fixture/UpdateStudioComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStudioComponent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudioComponent)
 
 responseGetStudioMember :: GetStudioMemberResponse -> TestTree
 responseGetStudioMember =
@@ -727,7 +727,7 @@ responseGetStudioMember =
     "GetStudioMemberResponse"
     "fixture/GetStudioMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStudioMember)
+    (Proxy.Proxy :: Proxy.Proxy GetStudioMember)
 
 responseDeleteStudio :: DeleteStudioResponse -> TestTree
 responseDeleteStudio =
@@ -735,7 +735,7 @@ responseDeleteStudio =
     "DeleteStudioResponse"
     "fixture/DeleteStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStudio)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudio)
 
 responseUpdateStudio :: UpdateStudioResponse -> TestTree
 responseUpdateStudio =
@@ -743,7 +743,7 @@ responseUpdateStudio =
     "UpdateStudioResponse"
     "fixture/UpdateStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStudio)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudio)
 
 responseListStudios :: ListStudiosResponse -> TestTree
 responseListStudios =
@@ -751,7 +751,7 @@ responseListStudios =
     "ListStudiosResponse"
     "fixture/ListStudiosResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStudios)
+    (Proxy.Proxy :: Proxy.Proxy ListStudios)
 
 responseGetStudioComponent :: GetStudioComponentResponse -> TestTree
 responseGetStudioComponent =
@@ -759,7 +759,7 @@ responseGetStudioComponent =
     "GetStudioComponentResponse"
     "fixture/GetStudioComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStudioComponent)
+    (Proxy.Proxy :: Proxy.Proxy GetStudioComponent)
 
 responseListEulas :: ListEulasResponse -> TestTree
 responseListEulas =
@@ -767,7 +767,7 @@ responseListEulas =
     "ListEulasResponse"
     "fixture/ListEulasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEulas)
+    (Proxy.Proxy :: Proxy.Proxy ListEulas)
 
 responseGetStreamingSession :: GetStreamingSessionResponse -> TestTree
 responseGetStreamingSession =
@@ -775,7 +775,7 @@ responseGetStreamingSession =
     "GetStreamingSessionResponse"
     "fixture/GetStreamingSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStreamingSession)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingSession)
 
 responseListLaunchProfileMembers :: ListLaunchProfileMembersResponse -> TestTree
 responseListLaunchProfileMembers =
@@ -783,7 +783,7 @@ responseListLaunchProfileMembers =
     "ListLaunchProfileMembersResponse"
     "fixture/ListLaunchProfileMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLaunchProfileMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListLaunchProfileMembers)
 
 responseDeleteLaunchProfile :: DeleteLaunchProfileResponse -> TestTree
 responseDeleteLaunchProfile =
@@ -791,7 +791,7 @@ responseDeleteLaunchProfile =
     "DeleteLaunchProfileResponse"
     "fixture/DeleteLaunchProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLaunchProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchProfile)
 
 responseUpdateLaunchProfile :: UpdateLaunchProfileResponse -> TestTree
 responseUpdateLaunchProfile =
@@ -799,7 +799,7 @@ responseUpdateLaunchProfile =
     "UpdateLaunchProfileResponse"
     "fixture/UpdateLaunchProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLaunchProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchProfile)
 
 responseCreateStreamingImage :: CreateStreamingImageResponse -> TestTree
 responseCreateStreamingImage =
@@ -807,7 +807,7 @@ responseCreateStreamingImage =
     "CreateStreamingImageResponse"
     "fixture/CreateStreamingImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingImage)
 
 responseCreateStreamingSessionStream :: CreateStreamingSessionStreamResponse -> TestTree
 responseCreateStreamingSessionStream =
@@ -815,7 +815,7 @@ responseCreateStreamingSessionStream =
     "CreateStreamingSessionStreamResponse"
     "fixture/CreateStreamingSessionStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingSessionStream)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingSessionStream)
 
 responseGetLaunchProfileDetails :: GetLaunchProfileDetailsResponse -> TestTree
 responseGetLaunchProfileDetails =
@@ -823,7 +823,7 @@ responseGetLaunchProfileDetails =
     "GetLaunchProfileDetailsResponse"
     "fixture/GetLaunchProfileDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLaunchProfileDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileDetails)
 
 responsePutStudioMembers :: PutStudioMembersResponse -> TestTree
 responsePutStudioMembers =
@@ -831,7 +831,7 @@ responsePutStudioMembers =
     "PutStudioMembersResponse"
     "fixture/PutStudioMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy PutStudioMembers)
+    (Proxy.Proxy :: Proxy.Proxy PutStudioMembers)
 
 responseDeleteStreamingImage :: DeleteStreamingImageResponse -> TestTree
 responseDeleteStreamingImage =
@@ -839,7 +839,7 @@ responseDeleteStreamingImage =
     "DeleteStreamingImageResponse"
     "fixture/DeleteStreamingImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStreamingImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamingImage)
 
 responseUpdateStreamingImage :: UpdateStreamingImageResponse -> TestTree
 responseUpdateStreamingImage =
@@ -847,7 +847,7 @@ responseUpdateStreamingImage =
     "UpdateStreamingImageResponse"
     "fixture/UpdateStreamingImageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStreamingImage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStreamingImage)
 
 responseGetStreamingImage :: GetStreamingImageResponse -> TestTree
 responseGetStreamingImage =
@@ -855,7 +855,7 @@ responseGetStreamingImage =
     "GetStreamingImageResponse"
     "fixture/GetStreamingImageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStreamingImage)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingImage)
 
 responseListEulaAcceptances :: ListEulaAcceptancesResponse -> TestTree
 responseListEulaAcceptances =
@@ -863,7 +863,7 @@ responseListEulaAcceptances =
     "ListEulaAcceptancesResponse"
     "fixture/ListEulaAcceptancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEulaAcceptances)
+    (Proxy.Proxy :: Proxy.Proxy ListEulaAcceptances)
 
 responseGetStreamingSessionStream :: GetStreamingSessionStreamResponse -> TestTree
 responseGetStreamingSessionStream =
@@ -871,7 +871,7 @@ responseGetStreamingSessionStream =
     "GetStreamingSessionStreamResponse"
     "fixture/GetStreamingSessionStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStreamingSessionStream)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingSessionStream)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -879,7 +879,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetLaunchProfileMember :: GetLaunchProfileMemberResponse -> TestTree
 responseGetLaunchProfileMember =
@@ -887,7 +887,7 @@ responseGetLaunchProfileMember =
     "GetLaunchProfileMemberResponse"
     "fixture/GetLaunchProfileMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLaunchProfileMember)
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileMember)
 
 responseDeleteStreamingSession :: DeleteStreamingSessionResponse -> TestTree
 responseDeleteStreamingSession =
@@ -895,7 +895,7 @@ responseDeleteStreamingSession =
     "DeleteStreamingSessionResponse"
     "fixture/DeleteStreamingSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStreamingSession)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamingSession)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -903,7 +903,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListStreamingSessions :: ListStreamingSessionsResponse -> TestTree
 responseListStreamingSessions =
@@ -911,7 +911,7 @@ responseListStreamingSessions =
     "ListStreamingSessionsResponse"
     "fixture/ListStreamingSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreamingSessions)
+    (Proxy.Proxy :: Proxy.Proxy ListStreamingSessions)
 
 responseGetStudio :: GetStudioResponse -> TestTree
 responseGetStudio =
@@ -919,7 +919,7 @@ responseGetStudio =
     "GetStudioResponse"
     "fixture/GetStudioResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStudio)
+    (Proxy.Proxy :: Proxy.Proxy GetStudio)
 
 responseListStudioMembers :: ListStudioMembersResponse -> TestTree
 responseListStudioMembers =
@@ -927,7 +927,7 @@ responseListStudioMembers =
     "ListStudioMembersResponse"
     "fixture/ListStudioMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStudioMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListStudioMembers)
 
 responseDeleteStudioMember :: DeleteStudioMemberResponse -> TestTree
 responseDeleteStudioMember =
@@ -935,4 +935,4 @@ responseDeleteStudioMember =
     "DeleteStudioMemberResponse"
     "fixture/DeleteStudioMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStudioMember)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudioMember)

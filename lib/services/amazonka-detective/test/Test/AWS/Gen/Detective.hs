@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Detective where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Detective
 import Test.AWS.Detective.Internal
 import Test.AWS.Fixture
@@ -223,7 +223,7 @@ responseStartMonitoringMember =
     "StartMonitoringMemberResponse"
     "fixture/StartMonitoringMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMonitoringMember)
+    (Proxy.Proxy :: Proxy.Proxy StartMonitoringMember)
 
 responseDeleteMembers :: DeleteMembersResponse -> TestTree
 responseDeleteMembers =
@@ -231,7 +231,7 @@ responseDeleteMembers =
     "DeleteMembersResponse"
     "fixture/DeleteMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMembers)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -239,7 +239,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteGraph :: DeleteGraphResponse -> TestTree
 responseDeleteGraph =
@@ -247,7 +247,7 @@ responseDeleteGraph =
     "DeleteGraphResponse"
     "fixture/DeleteGraphResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGraph)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGraph)
 
 responseListInvitations :: ListInvitationsResponse -> TestTree
 responseListInvitations =
@@ -255,7 +255,7 @@ responseListInvitations =
     "ListInvitationsResponse"
     "fixture/ListInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInvitations)
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
 
 responseDisassociateMembership :: DisassociateMembershipResponse -> TestTree
 responseDisassociateMembership =
@@ -263,7 +263,7 @@ responseDisassociateMembership =
     "DisassociateMembershipResponse"
     "fixture/DisassociateMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateMembership)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMembership)
 
 responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
 responseAcceptInvitation =
@@ -271,7 +271,7 @@ responseAcceptInvitation =
     "AcceptInvitationResponse"
     "fixture/AcceptInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptInvitation)
+    (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
 
 responseListMembers :: ListMembersResponse -> TestTree
 responseListMembers =
@@ -279,7 +279,7 @@ responseListMembers =
     "ListMembersResponse"
     "fixture/ListMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListMembers)
 
 responseCreateMembers :: CreateMembersResponse -> TestTree
 responseCreateMembers =
@@ -287,7 +287,7 @@ responseCreateMembers =
     "CreateMembersResponse"
     "fixture/CreateMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMembers)
+    (Proxy.Proxy :: Proxy.Proxy CreateMembers)
 
 responseGetMembers :: GetMembersResponse -> TestTree
 responseGetMembers =
@@ -295,7 +295,7 @@ responseGetMembers =
     "GetMembersResponse"
     "fixture/GetMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMembers)
+    (Proxy.Proxy :: Proxy.Proxy GetMembers)
 
 responseListGraphs :: ListGraphsResponse -> TestTree
 responseListGraphs =
@@ -303,7 +303,7 @@ responseListGraphs =
     "ListGraphsResponse"
     "fixture/ListGraphsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGraphs)
+    (Proxy.Proxy :: Proxy.Proxy ListGraphs)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -311,7 +311,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateGraph :: CreateGraphResponse -> TestTree
 responseCreateGraph =
@@ -319,7 +319,7 @@ responseCreateGraph =
     "CreateGraphResponse"
     "fixture/CreateGraphResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGraph)
+    (Proxy.Proxy :: Proxy.Proxy CreateGraph)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -327,7 +327,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseRejectInvitation :: RejectInvitationResponse -> TestTree
 responseRejectInvitation =
@@ -335,4 +335,4 @@ responseRejectInvitation =
     "RejectInvitationResponse"
     "fixture/RejectInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectInvitation)
+    (Proxy.Proxy :: Proxy.Proxy RejectInvitation)

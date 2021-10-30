@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Braket where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Braket
 import Test.AWS.Braket.Internal
 import Test.AWS.Fixture
@@ -151,7 +151,7 @@ responseGetQuantumTask =
     "GetQuantumTaskResponse"
     "fixture/GetQuantumTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQuantumTask)
+    (Proxy.Proxy :: Proxy.Proxy GetQuantumTask)
 
 responseSearchQuantumTasks :: SearchQuantumTasksResponse -> TestTree
 responseSearchQuantumTasks =
@@ -159,7 +159,7 @@ responseSearchQuantumTasks =
     "SearchQuantumTasksResponse"
     "fixture/SearchQuantumTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchQuantumTasks)
+    (Proxy.Proxy :: Proxy.Proxy SearchQuantumTasks)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -167,7 +167,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice =
@@ -175,7 +175,7 @@ responseGetDevice =
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevice)
+    (Proxy.Proxy :: Proxy.Proxy GetDevice)
 
 responseCancelQuantumTask :: CancelQuantumTaskResponse -> TestTree
 responseCancelQuantumTask =
@@ -183,7 +183,7 @@ responseCancelQuantumTask =
     "CancelQuantumTaskResponse"
     "fixture/CancelQuantumTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelQuantumTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelQuantumTask)
 
 responseSearchDevices :: SearchDevicesResponse -> TestTree
 responseSearchDevices =
@@ -191,7 +191,7 @@ responseSearchDevices =
     "SearchDevicesResponse"
     "fixture/SearchDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchDevices)
+    (Proxy.Proxy :: Proxy.Proxy SearchDevices)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -199,7 +199,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -207,7 +207,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateQuantumTask :: CreateQuantumTaskResponse -> TestTree
 responseCreateQuantumTask =
@@ -215,4 +215,4 @@ responseCreateQuantumTask =
     "CreateQuantumTaskResponse"
     "fixture/CreateQuantumTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQuantumTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateQuantumTask)

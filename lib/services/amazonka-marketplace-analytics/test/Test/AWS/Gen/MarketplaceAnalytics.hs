@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceAnalytics where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MarketplaceAnalytics
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceAnalytics.Internal
@@ -67,7 +67,7 @@ responseStartSupportDataExport =
     "StartSupportDataExportResponse"
     "fixture/StartSupportDataExportResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSupportDataExport)
+    (Proxy.Proxy :: Proxy.Proxy StartSupportDataExport)
 
 responseGenerateDataSet :: GenerateDataSetResponse -> TestTree
 responseGenerateDataSet =
@@ -75,4 +75,4 @@ responseGenerateDataSet =
     "GenerateDataSetResponse"
     "fixture/GenerateDataSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateDataSet)
+    (Proxy.Proxy :: Proxy.Proxy GenerateDataSet)

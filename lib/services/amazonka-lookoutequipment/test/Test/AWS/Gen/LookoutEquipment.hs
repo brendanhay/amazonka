@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LookoutEquipment where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LookoutEquipment
 import Test.AWS.Fixture
 import Test.AWS.LookoutEquipment.Internal
@@ -307,7 +307,7 @@ responseStartInferenceScheduler =
     "StartInferenceSchedulerResponse"
     "fixture/StartInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy :: Proxy StartInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy StartInferenceScheduler)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
@@ -315,7 +315,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -323,7 +323,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeDataIngestionJob :: DescribeDataIngestionJobResponse -> TestTree
 responseDescribeDataIngestionJob =
@@ -331,7 +331,7 @@ responseDescribeDataIngestionJob =
     "DescribeDataIngestionJobResponse"
     "fixture/DescribeDataIngestionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataIngestionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataIngestionJob)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -339,7 +339,7 @@ responseCreateModel =
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -347,7 +347,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
@@ -355,7 +355,7 @@ responseCreateDataset =
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -363,7 +363,7 @@ responseDeleteModel =
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
 
 responseListModels :: ListModelsResponse -> TestTree
 responseListModels =
@@ -371,7 +371,7 @@ responseListModels =
     "ListModelsResponse"
     "fixture/ListModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModels)
+    (Proxy.Proxy :: Proxy.Proxy ListModels)
 
 responseStopInferenceScheduler :: StopInferenceSchedulerResponse -> TestTree
 responseStopInferenceScheduler =
@@ -379,7 +379,7 @@ responseStopInferenceScheduler =
     "StopInferenceSchedulerResponse"
     "fixture/StopInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy :: Proxy StopInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy StopInferenceScheduler)
 
 responseListDataIngestionJobs :: ListDataIngestionJobsResponse -> TestTree
 responseListDataIngestionJobs =
@@ -387,7 +387,7 @@ responseListDataIngestionJobs =
     "ListDataIngestionJobsResponse"
     "fixture/ListDataIngestionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataIngestionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDataIngestionJobs)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
 responseDescribeModel =
@@ -395,7 +395,7 @@ responseDescribeModel =
     "DescribeModelResponse"
     "fixture/DescribeModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModel)
 
 responseStartDataIngestionJob :: StartDataIngestionJobResponse -> TestTree
 responseStartDataIngestionJob =
@@ -403,7 +403,7 @@ responseStartDataIngestionJob =
     "StartDataIngestionJobResponse"
     "fixture/StartDataIngestionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDataIngestionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartDataIngestionJob)
 
 responseListInferenceSchedulers :: ListInferenceSchedulersResponse -> TestTree
 responseListInferenceSchedulers =
@@ -411,7 +411,7 @@ responseListInferenceSchedulers =
     "ListInferenceSchedulersResponse"
     "fixture/ListInferenceSchedulersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInferenceSchedulers)
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceSchedulers)
 
 responseUpdateInferenceScheduler :: UpdateInferenceSchedulerResponse -> TestTree
 responseUpdateInferenceScheduler =
@@ -419,7 +419,7 @@ responseUpdateInferenceScheduler =
     "UpdateInferenceSchedulerResponse"
     "fixture/UpdateInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInferenceScheduler)
 
 responseDeleteInferenceScheduler :: DeleteInferenceSchedulerResponse -> TestTree
 responseDeleteInferenceScheduler =
@@ -427,7 +427,7 @@ responseDeleteInferenceScheduler =
     "DeleteInferenceSchedulerResponse"
     "fixture/DeleteInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInferenceScheduler)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -435,7 +435,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListInferenceExecutions :: ListInferenceExecutionsResponse -> TestTree
 responseListInferenceExecutions =
@@ -443,7 +443,7 @@ responseListInferenceExecutions =
     "ListInferenceExecutionsResponse"
     "fixture/ListInferenceExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInferenceExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceExecutions)
 
 responseCreateInferenceScheduler :: CreateInferenceSchedulerResponse -> TestTree
 responseCreateInferenceScheduler =
@@ -451,7 +451,7 @@ responseCreateInferenceScheduler =
     "CreateInferenceSchedulerResponse"
     "fixture/CreateInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy CreateInferenceScheduler)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -459,7 +459,7 @@ responseListDatasets =
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasets)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -467,7 +467,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeInferenceScheduler :: DescribeInferenceSchedulerResponse -> TestTree
 responseDescribeInferenceScheduler =
@@ -475,4 +475,4 @@ responseDescribeInferenceScheduler =
     "DescribeInferenceSchedulerResponse"
     "fixture/DescribeInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInferenceScheduler)

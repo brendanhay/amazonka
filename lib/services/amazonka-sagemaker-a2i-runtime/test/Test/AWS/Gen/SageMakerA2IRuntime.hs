@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMakerA2IRuntime where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SageMakerA2IRuntime
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -103,7 +103,7 @@ responseListHumanLoops =
     "ListHumanLoopsResponse"
     "fixture/ListHumanLoopsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHumanLoops)
+    (Proxy.Proxy :: Proxy.Proxy ListHumanLoops)
 
 responseDeleteHumanLoop :: DeleteHumanLoopResponse -> TestTree
 responseDeleteHumanLoop =
@@ -111,7 +111,7 @@ responseDeleteHumanLoop =
     "DeleteHumanLoopResponse"
     "fixture/DeleteHumanLoopResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHumanLoop)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHumanLoop)
 
 responseStartHumanLoop :: StartHumanLoopResponse -> TestTree
 responseStartHumanLoop =
@@ -119,7 +119,7 @@ responseStartHumanLoop =
     "StartHumanLoopResponse"
     "fixture/StartHumanLoopResponse.proto"
     defaultService
-    (Proxy :: Proxy StartHumanLoop)
+    (Proxy.Proxy :: Proxy.Proxy StartHumanLoop)
 
 responseStopHumanLoop :: StopHumanLoopResponse -> TestTree
 responseStopHumanLoop =
@@ -127,7 +127,7 @@ responseStopHumanLoop =
     "StopHumanLoopResponse"
     "fixture/StopHumanLoopResponse.proto"
     defaultService
-    (Proxy :: Proxy StopHumanLoop)
+    (Proxy.Proxy :: Proxy.Proxy StopHumanLoop)
 
 responseDescribeHumanLoop :: DescribeHumanLoopResponse -> TestTree
 responseDescribeHumanLoop =
@@ -135,4 +135,4 @@ responseDescribeHumanLoop =
     "DescribeHumanLoopResponse"
     "fixture/DescribeHumanLoopResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHumanLoop)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHumanLoop)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ELB where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ELB
 import Test.AWS.ELB.Internal
 import Test.AWS.Fixture
@@ -391,7 +391,7 @@ responseDescribeLoadBalancers =
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBalancers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBalancers)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -399,7 +399,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypesResponse -> TestTree
 responseDescribeLoadBalancerPolicyTypes =
@@ -407,7 +407,7 @@ responseDescribeLoadBalancerPolicyTypes =
     "DescribeLoadBalancerPolicyTypesResponse"
     "fixture/DescribeLoadBalancerPolicyTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBalancerPolicyTypes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBalancerPolicyTypes)
 
 responseApplySecurityGroupsToLoadBalancer :: ApplySecurityGroupsToLoadBalancerResponse -> TestTree
 responseApplySecurityGroupsToLoadBalancer =
@@ -415,7 +415,7 @@ responseApplySecurityGroupsToLoadBalancer =
     "ApplySecurityGroupsToLoadBalancerResponse"
     "fixture/ApplySecurityGroupsToLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy ApplySecurityGroupsToLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy ApplySecurityGroupsToLoadBalancer)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -423,7 +423,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseCreateLBCookieStickinessPolicy :: CreateLBCookieStickinessPolicyResponse -> TestTree
 responseCreateLBCookieStickinessPolicy =
@@ -431,7 +431,7 @@ responseCreateLBCookieStickinessPolicy =
     "CreateLBCookieStickinessPolicyResponse"
     "fixture/CreateLBCookieStickinessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLBCookieStickinessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateLBCookieStickinessPolicy)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
 responseDeleteLoadBalancer =
@@ -439,7 +439,7 @@ responseDeleteLoadBalancer =
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoadBalancer)
 
 responseDeregisterInstancesFromLoadBalancer :: DeregisterInstancesFromLoadBalancerResponse -> TestTree
 responseDeregisterInstancesFromLoadBalancer =
@@ -447,7 +447,7 @@ responseDeregisterInstancesFromLoadBalancer =
     "DeregisterInstancesFromLoadBalancerResponse"
     "fixture/DeregisterInstancesFromLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterInstancesFromLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterInstancesFromLoadBalancer)
 
 responseCreateLoadBalancerPolicy :: CreateLoadBalancerPolicyResponse -> TestTree
 responseCreateLoadBalancerPolicy =
@@ -455,7 +455,7 @@ responseCreateLoadBalancerPolicy =
     "CreateLoadBalancerPolicyResponse"
     "fixture/CreateLoadBalancerPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoadBalancerPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoadBalancerPolicy)
 
 responseDescribeLoadBalancerPolicies :: DescribeLoadBalancerPoliciesResponse -> TestTree
 responseDescribeLoadBalancerPolicies =
@@ -463,7 +463,7 @@ responseDescribeLoadBalancerPolicies =
     "DescribeLoadBalancerPoliciesResponse"
     "fixture/DescribeLoadBalancerPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBalancerPolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBalancerPolicies)
 
 responseDisableAvailabilityZonesForLoadBalancer :: DisableAvailabilityZonesForLoadBalancerResponse -> TestTree
 responseDisableAvailabilityZonesForLoadBalancer =
@@ -471,7 +471,7 @@ responseDisableAvailabilityZonesForLoadBalancer =
     "DisableAvailabilityZonesForLoadBalancerResponse"
     "fixture/DisableAvailabilityZonesForLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableAvailabilityZonesForLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DisableAvailabilityZonesForLoadBalancer)
 
 responseEnableAvailabilityZonesForLoadBalancer :: EnableAvailabilityZonesForLoadBalancerResponse -> TestTree
 responseEnableAvailabilityZonesForLoadBalancer =
@@ -479,7 +479,7 @@ responseEnableAvailabilityZonesForLoadBalancer =
     "EnableAvailabilityZonesForLoadBalancerResponse"
     "fixture/EnableAvailabilityZonesForLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAvailabilityZonesForLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy EnableAvailabilityZonesForLoadBalancer)
 
 responseSetLoadBalancerPoliciesForBackendServer :: SetLoadBalancerPoliciesForBackendServerResponse -> TestTree
 responseSetLoadBalancerPoliciesForBackendServer =
@@ -487,7 +487,7 @@ responseSetLoadBalancerPoliciesForBackendServer =
     "SetLoadBalancerPoliciesForBackendServerResponse"
     "fixture/SetLoadBalancerPoliciesForBackendServerResponse.proto"
     defaultService
-    (Proxy :: Proxy SetLoadBalancerPoliciesForBackendServer)
+    (Proxy.Proxy :: Proxy.Proxy SetLoadBalancerPoliciesForBackendServer)
 
 responseSetLoadBalancerListenerSSLCertificate :: SetLoadBalancerListenerSSLCertificateResponse -> TestTree
 responseSetLoadBalancerListenerSSLCertificate =
@@ -495,7 +495,7 @@ responseSetLoadBalancerListenerSSLCertificate =
     "SetLoadBalancerListenerSSLCertificateResponse"
     "fixture/SetLoadBalancerListenerSSLCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
+    (Proxy.Proxy :: Proxy.Proxy SetLoadBalancerListenerSSLCertificate)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
 responseDescribeAccountLimits =
@@ -503,7 +503,7 @@ responseDescribeAccountLimits =
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountLimits)
 
 responseAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnetsResponse -> TestTree
 responseAttachLoadBalancerToSubnets =
@@ -511,7 +511,7 @@ responseAttachLoadBalancerToSubnets =
     "AttachLoadBalancerToSubnetsResponse"
     "fixture/AttachLoadBalancerToSubnetsResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachLoadBalancerToSubnets)
+    (Proxy.Proxy :: Proxy.Proxy AttachLoadBalancerToSubnets)
 
 responseConfigureHealthCheck :: ConfigureHealthCheckResponse -> TestTree
 responseConfigureHealthCheck =
@@ -519,7 +519,7 @@ responseConfigureHealthCheck =
     "ConfigureHealthCheckResponse"
     "fixture/ConfigureHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfigureHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy ConfigureHealthCheck)
 
 responseModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> TestTree
 responseModifyLoadBalancerAttributes =
@@ -527,7 +527,7 @@ responseModifyLoadBalancerAttributes =
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyLoadBalancerAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ModifyLoadBalancerAttributes)
 
 responseCreateAppCookieStickinessPolicy :: CreateAppCookieStickinessPolicyResponse -> TestTree
 responseCreateAppCookieStickinessPolicy =
@@ -535,7 +535,7 @@ responseCreateAppCookieStickinessPolicy =
     "CreateAppCookieStickinessPolicyResponse"
     "fixture/CreateAppCookieStickinessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppCookieStickinessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppCookieStickinessPolicy)
 
 responseDescribeInstanceHealth :: DescribeInstanceHealthResponse -> TestTree
 responseDescribeInstanceHealth =
@@ -543,7 +543,7 @@ responseDescribeInstanceHealth =
     "DescribeInstanceHealthResponse"
     "fixture/DescribeInstanceHealthResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceHealth)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceHealth)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -551,7 +551,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributesResponse -> TestTree
 responseDescribeLoadBalancerAttributes =
@@ -559,7 +559,7 @@ responseDescribeLoadBalancerAttributes =
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBalancerAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBalancerAttributes)
 
 responseCreateLoadBalancerListeners :: CreateLoadBalancerListenersResponse -> TestTree
 responseCreateLoadBalancerListeners =
@@ -567,7 +567,7 @@ responseCreateLoadBalancerListeners =
     "CreateLoadBalancerListenersResponse"
     "fixture/CreateLoadBalancerListenersResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoadBalancerListeners)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoadBalancerListeners)
 
 responseDeleteLoadBalancerPolicy :: DeleteLoadBalancerPolicyResponse -> TestTree
 responseDeleteLoadBalancerPolicy =
@@ -575,7 +575,7 @@ responseDeleteLoadBalancerPolicy =
     "DeleteLoadBalancerPolicyResponse"
     "fixture/DeleteLoadBalancerPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancerPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoadBalancerPolicy)
 
 responseDetachLoadBalancerFromSubnets :: DetachLoadBalancerFromSubnetsResponse -> TestTree
 responseDetachLoadBalancerFromSubnets =
@@ -583,7 +583,7 @@ responseDetachLoadBalancerFromSubnets =
     "DetachLoadBalancerFromSubnetsResponse"
     "fixture/DetachLoadBalancerFromSubnetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachLoadBalancerFromSubnets)
+    (Proxy.Proxy :: Proxy.Proxy DetachLoadBalancerFromSubnets)
 
 responseRegisterInstancesWithLoadBalancer :: RegisterInstancesWithLoadBalancerResponse -> TestTree
 responseRegisterInstancesWithLoadBalancer =
@@ -591,7 +591,7 @@ responseRegisterInstancesWithLoadBalancer =
     "RegisterInstancesWithLoadBalancerResponse"
     "fixture/RegisterInstancesWithLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterInstancesWithLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy RegisterInstancesWithLoadBalancer)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
 responseCreateLoadBalancer =
@@ -599,7 +599,7 @@ responseCreateLoadBalancer =
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoadBalancer)
 
 responseDeleteLoadBalancerListeners :: DeleteLoadBalancerListenersResponse -> TestTree
 responseDeleteLoadBalancerListeners =
@@ -607,7 +607,7 @@ responseDeleteLoadBalancerListeners =
     "DeleteLoadBalancerListenersResponse"
     "fixture/DeleteLoadBalancerListenersResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancerListeners)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoadBalancerListeners)
 
 responseSetLoadBalancerPoliciesOfListener :: SetLoadBalancerPoliciesOfListenerResponse -> TestTree
 responseSetLoadBalancerPoliciesOfListener =
@@ -615,4 +615,4 @@ responseSetLoadBalancerPoliciesOfListener =
     "SetLoadBalancerPoliciesOfListenerResponse"
     "fixture/SetLoadBalancerPoliciesOfListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy SetLoadBalancerPoliciesOfListener)
+    (Proxy.Proxy :: Proxy.Proxy SetLoadBalancerPoliciesOfListener)

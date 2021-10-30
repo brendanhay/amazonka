@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SnowDeviceManagement where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SnowDeviceManagement
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -199,7 +199,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeTask :: DescribeTaskResponse -> TestTree
 responseDescribeTask =
@@ -207,7 +207,7 @@ responseDescribeTask =
     "DescribeTaskResponse"
     "fixture/DescribeTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTask)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTask)
 
 responseListDeviceResources :: ListDeviceResourcesResponse -> TestTree
 responseListDeviceResources =
@@ -215,7 +215,7 @@ responseListDeviceResources =
     "ListDeviceResourcesResponse"
     "fixture/ListDeviceResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceResources)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceResources)
 
 responseListExecutions :: ListExecutionsResponse -> TestTree
 responseListExecutions =
@@ -223,7 +223,7 @@ responseListExecutions =
     "ListExecutionsResponse"
     "fixture/ListExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListExecutions)
 
 responseDescribeDeviceEc2Instances :: DescribeDeviceEc2InstancesResponse -> TestTree
 responseDescribeDeviceEc2Instances =
@@ -231,7 +231,7 @@ responseDescribeDeviceEc2Instances =
     "DescribeDeviceEc2InstancesResponse"
     "fixture/DescribeDeviceEc2InstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeviceEc2Instances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeviceEc2Instances)
 
 responseCreateTask :: CreateTaskResponse -> TestTree
 responseCreateTask =
@@ -239,7 +239,7 @@ responseCreateTask =
     "CreateTaskResponse"
     "fixture/CreateTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateTask)
 
 responseListTasks :: ListTasksResponse -> TestTree
 responseListTasks =
@@ -247,7 +247,7 @@ responseListTasks =
     "ListTasksResponse"
     "fixture/ListTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTasks)
+    (Proxy.Proxy :: Proxy.Proxy ListTasks)
 
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
 responseDescribeExecution =
@@ -255,7 +255,7 @@ responseDescribeExecution =
     "DescribeExecutionResponse"
     "fixture/DescribeExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
 
 responseDescribeDevice :: DescribeDeviceResponse -> TestTree
 responseDescribeDevice =
@@ -263,7 +263,7 @@ responseDescribeDevice =
     "DescribeDeviceResponse"
     "fixture/DescribeDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDevice)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -271,7 +271,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCancelTask :: CancelTaskResponse -> TestTree
 responseCancelTask =
@@ -279,7 +279,7 @@ responseCancelTask =
     "CancelTaskResponse"
     "fixture/CancelTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelTask)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -287,7 +287,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -295,4 +295,4 @@ responseListDevices =
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)

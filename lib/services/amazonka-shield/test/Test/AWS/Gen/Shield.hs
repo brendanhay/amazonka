@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Shield where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Shield
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -427,7 +427,7 @@ responseAssociateDRTLogBucket =
     "AssociateDRTLogBucketResponse"
     "fixture/AssociateDRTLogBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDRTLogBucket)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDRTLogBucket)
 
 responseDisassociateDRTRole :: DisassociateDRTRoleResponse -> TestTree
 responseDisassociateDRTRole =
@@ -435,7 +435,7 @@ responseDisassociateDRTRole =
     "DisassociateDRTRoleResponse"
     "fixture/DisassociateDRTRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDRTRole)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDRTRole)
 
 responseCreateSubscription :: CreateSubscriptionResponse -> TestTree
 responseCreateSubscription =
@@ -443,7 +443,7 @@ responseCreateSubscription =
     "CreateSubscriptionResponse"
     "fixture/CreateSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubscription)
 
 responseListProtections :: ListProtectionsResponse -> TestTree
 responseListProtections =
@@ -451,7 +451,7 @@ responseListProtections =
     "ListProtectionsResponse"
     "fixture/ListProtectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProtections)
+    (Proxy.Proxy :: Proxy.Proxy ListProtections)
 
 responseAssociateDRTRole :: AssociateDRTRoleResponse -> TestTree
 responseAssociateDRTRole =
@@ -459,7 +459,7 @@ responseAssociateDRTRole =
     "AssociateDRTRoleResponse"
     "fixture/AssociateDRTRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDRTRole)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDRTRole)
 
 responseUpdateSubscription :: UpdateSubscriptionResponse -> TestTree
 responseUpdateSubscription =
@@ -467,7 +467,7 @@ responseUpdateSubscription =
     "UpdateSubscriptionResponse"
     "fixture/UpdateSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSubscription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubscription)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -475,7 +475,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDisassociateDRTLogBucket :: DisassociateDRTLogBucketResponse -> TestTree
 responseDisassociateDRTLogBucket =
@@ -483,7 +483,7 @@ responseDisassociateDRTLogBucket =
     "DisassociateDRTLogBucketResponse"
     "fixture/DisassociateDRTLogBucketResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDRTLogBucket)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDRTLogBucket)
 
 responseAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetailsResponse -> TestTree
 responseAssociateProactiveEngagementDetails =
@@ -491,7 +491,7 @@ responseAssociateProactiveEngagementDetails =
     "AssociateProactiveEngagementDetailsResponse"
     "fixture/AssociateProactiveEngagementDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateProactiveEngagementDetails)
+    (Proxy.Proxy :: Proxy.Proxy AssociateProactiveEngagementDetails)
 
 responseDescribeAttack :: DescribeAttackResponse -> TestTree
 responseDescribeAttack =
@@ -499,7 +499,7 @@ responseDescribeAttack =
     "DescribeAttackResponse"
     "fixture/DescribeAttackResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAttack)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAttack)
 
 responseListProtectionGroups :: ListProtectionGroupsResponse -> TestTree
 responseListProtectionGroups =
@@ -507,7 +507,7 @@ responseListProtectionGroups =
     "ListProtectionGroupsResponse"
     "fixture/ListProtectionGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProtectionGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListProtectionGroups)
 
 responseEnableProactiveEngagement :: EnableProactiveEngagementResponse -> TestTree
 responseEnableProactiveEngagement =
@@ -515,7 +515,7 @@ responseEnableProactiveEngagement =
     "EnableProactiveEngagementResponse"
     "fixture/EnableProactiveEngagementResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableProactiveEngagement)
+    (Proxy.Proxy :: Proxy.Proxy EnableProactiveEngagement)
 
 responseUpdateEmergencyContactSettings :: UpdateEmergencyContactSettingsResponse -> TestTree
 responseUpdateEmergencyContactSettings =
@@ -523,7 +523,7 @@ responseUpdateEmergencyContactSettings =
     "UpdateEmergencyContactSettingsResponse"
     "fixture/UpdateEmergencyContactSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEmergencyContactSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEmergencyContactSettings)
 
 responseCreateProtectionGroup :: CreateProtectionGroupResponse -> TestTree
 responseCreateProtectionGroup =
@@ -531,7 +531,7 @@ responseCreateProtectionGroup =
     "CreateProtectionGroupResponse"
     "fixture/CreateProtectionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProtectionGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateProtectionGroup)
 
 responseDisableProactiveEngagement :: DisableProactiveEngagementResponse -> TestTree
 responseDisableProactiveEngagement =
@@ -539,7 +539,7 @@ responseDisableProactiveEngagement =
     "DisableProactiveEngagementResponse"
     "fixture/DisableProactiveEngagementResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableProactiveEngagement)
+    (Proxy.Proxy :: Proxy.Proxy DisableProactiveEngagement)
 
 responseDisassociateHealthCheck :: DisassociateHealthCheckResponse -> TestTree
 responseDisassociateHealthCheck =
@@ -547,7 +547,7 @@ responseDisassociateHealthCheck =
     "DisassociateHealthCheckResponse"
     "fixture/DisassociateHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateHealthCheck)
 
 responseListResourcesInProtectionGroup :: ListResourcesInProtectionGroupResponse -> TestTree
 responseListResourcesInProtectionGroup =
@@ -555,7 +555,7 @@ responseListResourcesInProtectionGroup =
     "ListResourcesInProtectionGroupResponse"
     "fixture/ListResourcesInProtectionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourcesInProtectionGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListResourcesInProtectionGroup)
 
 responseDescribeProtection :: DescribeProtectionResponse -> TestTree
 responseDescribeProtection =
@@ -563,7 +563,7 @@ responseDescribeProtection =
     "DescribeProtectionResponse"
     "fixture/DescribeProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProtection)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProtection)
 
 responseListAttacks :: ListAttacksResponse -> TestTree
 responseListAttacks =
@@ -571,7 +571,7 @@ responseListAttacks =
     "ListAttacksResponse"
     "fixture/ListAttacksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttacks)
+    (Proxy.Proxy :: Proxy.Proxy ListAttacks)
 
 responseDescribeEmergencyContactSettings :: DescribeEmergencyContactSettingsResponse -> TestTree
 responseDescribeEmergencyContactSettings =
@@ -579,7 +579,7 @@ responseDescribeEmergencyContactSettings =
     "DescribeEmergencyContactSettingsResponse"
     "fixture/DescribeEmergencyContactSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEmergencyContactSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEmergencyContactSettings)
 
 responseCreateProtection :: CreateProtectionResponse -> TestTree
 responseCreateProtection =
@@ -587,7 +587,7 @@ responseCreateProtection =
     "CreateProtectionResponse"
     "fixture/CreateProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProtection)
+    (Proxy.Proxy :: Proxy.Proxy CreateProtection)
 
 responseDeleteProtection :: DeleteProtectionResponse -> TestTree
 responseDeleteProtection =
@@ -595,7 +595,7 @@ responseDeleteProtection =
     "DeleteProtectionResponse"
     "fixture/DeleteProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProtection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProtection)
 
 responseGetSubscriptionState :: GetSubscriptionStateResponse -> TestTree
 responseGetSubscriptionState =
@@ -603,7 +603,7 @@ responseGetSubscriptionState =
     "GetSubscriptionStateResponse"
     "fixture/GetSubscriptionStateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSubscriptionState)
+    (Proxy.Proxy :: Proxy.Proxy GetSubscriptionState)
 
 responseDeleteProtectionGroup :: DeleteProtectionGroupResponse -> TestTree
 responseDeleteProtectionGroup =
@@ -611,7 +611,7 @@ responseDeleteProtectionGroup =
     "DeleteProtectionGroupResponse"
     "fixture/DeleteProtectionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProtectionGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProtectionGroup)
 
 responseUpdateProtectionGroup :: UpdateProtectionGroupResponse -> TestTree
 responseUpdateProtectionGroup =
@@ -619,7 +619,7 @@ responseUpdateProtectionGroup =
     "UpdateProtectionGroupResponse"
     "fixture/UpdateProtectionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProtectionGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProtectionGroup)
 
 responseDescribeAttackStatistics :: DescribeAttackStatisticsResponse -> TestTree
 responseDescribeAttackStatistics =
@@ -627,7 +627,7 @@ responseDescribeAttackStatistics =
     "DescribeAttackStatisticsResponse"
     "fixture/DescribeAttackStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAttackStatistics)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAttackStatistics)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -635,7 +635,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeDRTAccess :: DescribeDRTAccessResponse -> TestTree
 responseDescribeDRTAccess =
@@ -643,7 +643,7 @@ responseDescribeDRTAccess =
     "DescribeDRTAccessResponse"
     "fixture/DescribeDRTAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDRTAccess)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDRTAccess)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -651,7 +651,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeSubscription :: DescribeSubscriptionResponse -> TestTree
 responseDescribeSubscription =
@@ -659,7 +659,7 @@ responseDescribeSubscription =
     "DescribeSubscriptionResponse"
     "fixture/DescribeSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSubscription)
 
 responseAssociateHealthCheck :: AssociateHealthCheckResponse -> TestTree
 responseAssociateHealthCheck =
@@ -667,7 +667,7 @@ responseAssociateHealthCheck =
     "AssociateHealthCheckResponse"
     "fixture/AssociateHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy AssociateHealthCheck)
 
 responseDescribeProtectionGroup :: DescribeProtectionGroupResponse -> TestTree
 responseDescribeProtectionGroup =
@@ -675,4 +675,4 @@ responseDescribeProtectionGroup =
     "DescribeProtectionGroupResponse"
     "fixture/DescribeProtectionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProtectionGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProtectionGroup)

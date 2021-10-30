@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticInference where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ElasticInference
 import Test.AWS.ElasticInference.Internal
 import Test.AWS.Fixture
@@ -115,7 +115,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeAcceleratorOfferings :: DescribeAcceleratorOfferingsResponse -> TestTree
 responseDescribeAcceleratorOfferings =
@@ -123,7 +123,7 @@ responseDescribeAcceleratorOfferings =
     "DescribeAcceleratorOfferingsResponse"
     "fixture/DescribeAcceleratorOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAcceleratorOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAcceleratorOfferings)
 
 responseDescribeAccelerators :: DescribeAcceleratorsResponse -> TestTree
 responseDescribeAccelerators =
@@ -131,7 +131,7 @@ responseDescribeAccelerators =
     "DescribeAcceleratorsResponse"
     "fixture/DescribeAcceleratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccelerators)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccelerators)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -139,7 +139,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -147,7 +147,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeAcceleratorTypes :: DescribeAcceleratorTypesResponse -> TestTree
 responseDescribeAcceleratorTypes =
@@ -155,4 +155,4 @@ responseDescribeAcceleratorTypes =
     "DescribeAcceleratorTypesResponse"
     "fixture/DescribeAcceleratorTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAcceleratorTypes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAcceleratorTypes)

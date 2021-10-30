@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.XRay where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.XRay
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -367,7 +367,7 @@ responsePutEncryptionConfig =
     "PutEncryptionConfigResponse"
     "fixture/PutEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy PutEncryptionConfig)
 
 responseGetServiceGraph :: GetServiceGraphResponse -> TestTree
 responseGetServiceGraph =
@@ -375,7 +375,7 @@ responseGetServiceGraph =
     "GetServiceGraphResponse"
     "fixture/GetServiceGraphResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceGraph)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceGraph)
 
 responseGetSamplingTargets :: GetSamplingTargetsResponse -> TestTree
 responseGetSamplingTargets =
@@ -383,7 +383,7 @@ responseGetSamplingTargets =
     "GetSamplingTargetsResponse"
     "fixture/GetSamplingTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSamplingTargets)
+    (Proxy.Proxy :: Proxy.Proxy GetSamplingTargets)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -391,7 +391,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetTraceSummaries :: GetTraceSummariesResponse -> TestTree
 responseGetTraceSummaries =
@@ -399,7 +399,7 @@ responseGetTraceSummaries =
     "GetTraceSummariesResponse"
     "fixture/GetTraceSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTraceSummaries)
+    (Proxy.Proxy :: Proxy.Proxy GetTraceSummaries)
 
 responsePutTraceSegments :: PutTraceSegmentsResponse -> TestTree
 responsePutTraceSegments =
@@ -407,7 +407,7 @@ responsePutTraceSegments =
     "PutTraceSegmentsResponse"
     "fixture/PutTraceSegmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutTraceSegments)
+    (Proxy.Proxy :: Proxy.Proxy PutTraceSegments)
 
 responseBatchGetTraces :: BatchGetTracesResponse -> TestTree
 responseBatchGetTraces =
@@ -415,7 +415,7 @@ responseBatchGetTraces =
     "BatchGetTracesResponse"
     "fixture/BatchGetTracesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetTraces)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetTraces)
 
 responseGetInsight :: GetInsightResponse -> TestTree
 responseGetInsight =
@@ -423,7 +423,7 @@ responseGetInsight =
     "GetInsightResponse"
     "fixture/GetInsightResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsight)
+    (Proxy.Proxy :: Proxy.Proxy GetInsight)
 
 responseGetTimeSeriesServiceStatistics :: GetTimeSeriesServiceStatisticsResponse -> TestTree
 responseGetTimeSeriesServiceStatistics =
@@ -431,7 +431,7 @@ responseGetTimeSeriesServiceStatistics =
     "GetTimeSeriesServiceStatisticsResponse"
     "fixture/GetTimeSeriesServiceStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTimeSeriesServiceStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetTimeSeriesServiceStatistics)
 
 responseGetEncryptionConfig :: GetEncryptionConfigResponse -> TestTree
 responseGetEncryptionConfig =
@@ -439,7 +439,7 @@ responseGetEncryptionConfig =
     "GetEncryptionConfigResponse"
     "fixture/GetEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetEncryptionConfig)
 
 responseGetInsightImpactGraph :: GetInsightImpactGraphResponse -> TestTree
 responseGetInsightImpactGraph =
@@ -447,7 +447,7 @@ responseGetInsightImpactGraph =
     "GetInsightImpactGraphResponse"
     "fixture/GetInsightImpactGraphResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsightImpactGraph)
+    (Proxy.Proxy :: Proxy.Proxy GetInsightImpactGraph)
 
 responseUpdateSamplingRule :: UpdateSamplingRuleResponse -> TestTree
 responseUpdateSamplingRule =
@@ -455,7 +455,7 @@ responseUpdateSamplingRule =
     "UpdateSamplingRuleResponse"
     "fixture/UpdateSamplingRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSamplingRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSamplingRule)
 
 responseDeleteSamplingRule :: DeleteSamplingRuleResponse -> TestTree
 responseDeleteSamplingRule =
@@ -463,7 +463,7 @@ responseDeleteSamplingRule =
     "DeleteSamplingRuleResponse"
     "fixture/DeleteSamplingRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSamplingRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSamplingRule)
 
 responseGetInsightEvents :: GetInsightEventsResponse -> TestTree
 responseGetInsightEvents =
@@ -471,7 +471,7 @@ responseGetInsightEvents =
     "GetInsightEventsResponse"
     "fixture/GetInsightEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsightEvents)
+    (Proxy.Proxy :: Proxy.Proxy GetInsightEvents)
 
 responseGetGroups :: GetGroupsResponse -> TestTree
 responseGetGroups =
@@ -479,7 +479,7 @@ responseGetGroups =
     "GetGroupsResponse"
     "fixture/GetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroups)
+    (Proxy.Proxy :: Proxy.Proxy GetGroups)
 
 responseGetInsightSummaries :: GetInsightSummariesResponse -> TestTree
 responseGetInsightSummaries =
@@ -487,7 +487,7 @@ responseGetInsightSummaries =
     "GetInsightSummariesResponse"
     "fixture/GetInsightSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsightSummaries)
+    (Proxy.Proxy :: Proxy.Proxy GetInsightSummaries)
 
 responsePutTelemetryRecords :: PutTelemetryRecordsResponse -> TestTree
 responsePutTelemetryRecords =
@@ -495,7 +495,7 @@ responsePutTelemetryRecords =
     "PutTelemetryRecordsResponse"
     "fixture/PutTelemetryRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutTelemetryRecords)
+    (Proxy.Proxy :: Proxy.Proxy PutTelemetryRecords)
 
 responseGetSamplingRules :: GetSamplingRulesResponse -> TestTree
 responseGetSamplingRules =
@@ -503,7 +503,7 @@ responseGetSamplingRules =
     "GetSamplingRulesResponse"
     "fixture/GetSamplingRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSamplingRules)
+    (Proxy.Proxy :: Proxy.Proxy GetSamplingRules)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -511,7 +511,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetTraceGraph :: GetTraceGraphResponse -> TestTree
 responseGetTraceGraph =
@@ -519,7 +519,7 @@ responseGetTraceGraph =
     "GetTraceGraphResponse"
     "fixture/GetTraceGraphResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTraceGraph)
+    (Proxy.Proxy :: Proxy.Proxy GetTraceGraph)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -527,7 +527,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -535,7 +535,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -543,7 +543,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =
@@ -551,7 +551,7 @@ responseUpdateGroup =
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
 
 responseGetGroup :: GetGroupResponse -> TestTree
 responseGetGroup =
@@ -559,7 +559,7 @@ responseGetGroup =
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetGroup)
 
 responseGetSamplingStatisticSummaries :: GetSamplingStatisticSummariesResponse -> TestTree
 responseGetSamplingStatisticSummaries =
@@ -567,7 +567,7 @@ responseGetSamplingStatisticSummaries =
     "GetSamplingStatisticSummariesResponse"
     "fixture/GetSamplingStatisticSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSamplingStatisticSummaries)
+    (Proxy.Proxy :: Proxy.Proxy GetSamplingStatisticSummaries)
 
 responseCreateSamplingRule :: CreateSamplingRuleResponse -> TestTree
 responseCreateSamplingRule =
@@ -575,4 +575,4 @@ responseCreateSamplingRule =
     "CreateSamplingRuleResponse"
     "fixture/CreateSamplingRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSamplingRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateSamplingRule)

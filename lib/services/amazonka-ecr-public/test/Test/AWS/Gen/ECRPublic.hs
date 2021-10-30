@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ECRPublic where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ECRPublic
 import Test.AWS.ECRPublic.Internal
 import Test.AWS.Fixture
@@ -319,7 +319,7 @@ responseGetRepositoryPolicy =
     "GetRepositoryPolicyResponse"
     "fixture/GetRepositoryPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRepositoryPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryPolicy)
 
 responsePutRegistryCatalogData :: PutRegistryCatalogDataResponse -> TestTree
 responsePutRegistryCatalogData =
@@ -327,7 +327,7 @@ responsePutRegistryCatalogData =
     "PutRegistryCatalogDataResponse"
     "fixture/PutRegistryCatalogDataResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRegistryCatalogData)
+    (Proxy.Proxy :: Proxy.Proxy PutRegistryCatalogData)
 
 responseBatchDeleteImage :: BatchDeleteImageResponse -> TestTree
 responseBatchDeleteImage =
@@ -335,7 +335,7 @@ responseBatchDeleteImage =
     "BatchDeleteImageResponse"
     "fixture/BatchDeleteImageResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteImage)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteImage)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -343,7 +343,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseBatchCheckLayerAvailability :: BatchCheckLayerAvailabilityResponse -> TestTree
 responseBatchCheckLayerAvailability =
@@ -351,7 +351,7 @@ responseBatchCheckLayerAvailability =
     "BatchCheckLayerAvailabilityResponse"
     "fixture/BatchCheckLayerAvailabilityResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCheckLayerAvailability)
+    (Proxy.Proxy :: Proxy.Proxy BatchCheckLayerAvailability)
 
 responsePutRepositoryCatalogData :: PutRepositoryCatalogDataResponse -> TestTree
 responsePutRepositoryCatalogData =
@@ -359,7 +359,7 @@ responsePutRepositoryCatalogData =
     "PutRepositoryCatalogDataResponse"
     "fixture/PutRepositoryCatalogDataResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRepositoryCatalogData)
+    (Proxy.Proxy :: Proxy.Proxy PutRepositoryCatalogData)
 
 responseDeleteRepositoryPolicy :: DeleteRepositoryPolicyResponse -> TestTree
 responseDeleteRepositoryPolicy =
@@ -367,7 +367,7 @@ responseDeleteRepositoryPolicy =
     "DeleteRepositoryPolicyResponse"
     "fixture/DeleteRepositoryPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRepositoryPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepositoryPolicy)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
 responseCreateRepository =
@@ -375,7 +375,7 @@ responseCreateRepository =
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRepository)
+    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
 
 responseDescribeRegistries :: DescribeRegistriesResponse -> TestTree
 responseDescribeRegistries =
@@ -383,7 +383,7 @@ responseDescribeRegistries =
     "DescribeRegistriesResponse"
     "fixture/DescribeRegistriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRegistries)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegistries)
 
 responseCompleteLayerUpload :: CompleteLayerUploadResponse -> TestTree
 responseCompleteLayerUpload =
@@ -391,7 +391,7 @@ responseCompleteLayerUpload =
     "CompleteLayerUploadResponse"
     "fixture/CompleteLayerUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteLayerUpload)
+    (Proxy.Proxy :: Proxy.Proxy CompleteLayerUpload)
 
 responseDescribeRepositories :: DescribeRepositoriesResponse -> TestTree
 responseDescribeRepositories =
@@ -399,7 +399,7 @@ responseDescribeRepositories =
     "DescribeRepositoriesResponse"
     "fixture/DescribeRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRepositories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRepositories)
 
 responseUploadLayerPart :: UploadLayerPartResponse -> TestTree
 responseUploadLayerPart =
@@ -407,7 +407,7 @@ responseUploadLayerPart =
     "UploadLayerPartResponse"
     "fixture/UploadLayerPartResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadLayerPart)
+    (Proxy.Proxy :: Proxy.Proxy UploadLayerPart)
 
 responseGetRepositoryCatalogData :: GetRepositoryCatalogDataResponse -> TestTree
 responseGetRepositoryCatalogData =
@@ -415,7 +415,7 @@ responseGetRepositoryCatalogData =
     "GetRepositoryCatalogDataResponse"
     "fixture/GetRepositoryCatalogDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRepositoryCatalogData)
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryCatalogData)
 
 responseGetRegistryCatalogData :: GetRegistryCatalogDataResponse -> TestTree
 responseGetRegistryCatalogData =
@@ -423,7 +423,7 @@ responseGetRegistryCatalogData =
     "GetRegistryCatalogDataResponse"
     "fixture/GetRegistryCatalogDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRegistryCatalogData)
+    (Proxy.Proxy :: Proxy.Proxy GetRegistryCatalogData)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -431,7 +431,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
 responseSetRepositoryPolicy =
@@ -439,7 +439,7 @@ responseSetRepositoryPolicy =
     "SetRepositoryPolicyResponse"
     "fixture/SetRepositoryPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy SetRepositoryPolicy)
+    (Proxy.Proxy :: Proxy.Proxy SetRepositoryPolicy)
 
 responseInitiateLayerUpload :: InitiateLayerUploadResponse -> TestTree
 responseInitiateLayerUpload =
@@ -447,7 +447,7 @@ responseInitiateLayerUpload =
     "InitiateLayerUploadResponse"
     "fixture/InitiateLayerUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateLayerUpload)
+    (Proxy.Proxy :: Proxy.Proxy InitiateLayerUpload)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -455,7 +455,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeImageTags :: DescribeImageTagsResponse -> TestTree
 responseDescribeImageTags =
@@ -463,7 +463,7 @@ responseDescribeImageTags =
     "DescribeImageTagsResponse"
     "fixture/DescribeImageTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImageTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImageTags)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
 responseDeleteRepository =
@@ -471,7 +471,7 @@ responseDeleteRepository =
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRepository)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
 
 responsePutImage :: PutImageResponse -> TestTree
 responsePutImage =
@@ -479,7 +479,7 @@ responsePutImage =
     "PutImageResponse"
     "fixture/PutImageResponse.proto"
     defaultService
-    (Proxy :: Proxy PutImage)
+    (Proxy.Proxy :: Proxy.Proxy PutImage)
 
 responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
 responseGetAuthorizationToken =
@@ -487,7 +487,7 @@ responseGetAuthorizationToken =
     "GetAuthorizationTokenResponse"
     "fixture/GetAuthorizationTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAuthorizationToken)
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizationToken)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
 responseDescribeImages =
@@ -495,4 +495,4 @@ responseDescribeImages =
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImages)

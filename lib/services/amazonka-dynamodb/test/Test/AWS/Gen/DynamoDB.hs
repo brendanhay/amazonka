@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DynamoDB where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DynamoDB
 import Test.AWS.DynamoDB.Internal
 import Test.AWS.Fixture
@@ -643,7 +643,7 @@ responsePutItem =
     "PutItemResponse"
     "fixture/PutItemResponse.proto"
     defaultService
-    (Proxy :: Proxy PutItem)
+    (Proxy.Proxy :: Proxy.Proxy PutItem)
 
 responseDeleteItem :: DeleteItemResponse -> TestTree
 responseDeleteItem =
@@ -651,7 +651,7 @@ responseDeleteItem =
     "DeleteItemResponse"
     "fixture/DeleteItemResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteItem)
+    (Proxy.Proxy :: Proxy.Proxy DeleteItem)
 
 responseUpdateItem :: UpdateItemResponse -> TestTree
 responseUpdateItem =
@@ -659,7 +659,7 @@ responseUpdateItem =
     "UpdateItemResponse"
     "fixture/UpdateItemResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateItem)
+    (Proxy.Proxy :: Proxy.Proxy UpdateItem)
 
 responseDisableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
 responseDisableKinesisStreamingDestination =
@@ -667,7 +667,7 @@ responseDisableKinesisStreamingDestination =
     "DisableKinesisStreamingDestinationResponse"
     "fixture/DisableKinesisStreamingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableKinesisStreamingDestination)
+    (Proxy.Proxy :: Proxy.Proxy DisableKinesisStreamingDestination)
 
 responseListGlobalTables :: ListGlobalTablesResponse -> TestTree
 responseListGlobalTables =
@@ -675,7 +675,7 @@ responseListGlobalTables =
     "ListGlobalTablesResponse"
     "fixture/ListGlobalTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGlobalTables)
+    (Proxy.Proxy :: Proxy.Proxy ListGlobalTables)
 
 responseUpdateGlobalTable :: UpdateGlobalTableResponse -> TestTree
 responseUpdateGlobalTable =
@@ -683,7 +683,7 @@ responseUpdateGlobalTable =
     "UpdateGlobalTableResponse"
     "fixture/UpdateGlobalTableResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGlobalTable)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalTable)
 
 responseDeleteTable :: DeleteTableResponse -> TestTree
 responseDeleteTable =
@@ -691,7 +691,7 @@ responseDeleteTable =
     "DeleteTableResponse"
     "fixture/DeleteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTable)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTable)
 
 responseUpdateTable :: UpdateTableResponse -> TestTree
 responseUpdateTable =
@@ -699,7 +699,7 @@ responseUpdateTable =
     "UpdateTableResponse"
     "fixture/UpdateTableResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTable)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTable)
 
 responseBatchGetItem :: BatchGetItemResponse -> TestTree
 responseBatchGetItem =
@@ -707,7 +707,7 @@ responseBatchGetItem =
     "BatchGetItemResponse"
     "fixture/BatchGetItemResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetItem)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetItem)
 
 responseListBackups :: ListBackupsResponse -> TestTree
 responseListBackups =
@@ -715,7 +715,7 @@ responseListBackups =
     "ListBackupsResponse"
     "fixture/ListBackupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackups)
+    (Proxy.Proxy :: Proxy.Proxy ListBackups)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
 responseDeleteBackup =
@@ -723,7 +723,7 @@ responseDeleteBackup =
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackup)
 
 responseCreateBackup :: CreateBackupResponse -> TestTree
 responseCreateBackup =
@@ -731,7 +731,7 @@ responseCreateBackup =
     "CreateBackupResponse"
     "fixture/CreateBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackup)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackup)
 
 responseUpdateTableReplicaAutoScaling :: UpdateTableReplicaAutoScalingResponse -> TestTree
 responseUpdateTableReplicaAutoScaling =
@@ -739,7 +739,7 @@ responseUpdateTableReplicaAutoScaling =
     "UpdateTableReplicaAutoScalingResponse"
     "fixture/UpdateTableReplicaAutoScalingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTableReplicaAutoScaling)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTableReplicaAutoScaling)
 
 responseDescribeGlobalTableSettings :: DescribeGlobalTableSettingsResponse -> TestTree
 responseDescribeGlobalTableSettings =
@@ -747,7 +747,7 @@ responseDescribeGlobalTableSettings =
     "DescribeGlobalTableSettingsResponse"
     "fixture/DescribeGlobalTableSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGlobalTableSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTableSettings)
 
 responseListTagsOfResource :: ListTagsOfResourceResponse -> TestTree
 responseListTagsOfResource =
@@ -755,7 +755,7 @@ responseListTagsOfResource =
     "ListTagsOfResourceResponse"
     "fixture/ListTagsOfResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsOfResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsOfResource)
 
 responseDescribeGlobalTable :: DescribeGlobalTableResponse -> TestTree
 responseDescribeGlobalTable =
@@ -763,7 +763,7 @@ responseDescribeGlobalTable =
     "DescribeGlobalTableResponse"
     "fixture/DescribeGlobalTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGlobalTable)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTable)
 
 responseDescribeTable :: DescribeTableResponse -> TestTree
 responseDescribeTable =
@@ -771,7 +771,7 @@ responseDescribeTable =
     "DescribeTableResponse"
     "fixture/DescribeTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTable)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTable)
 
 responseDescribeLimits :: DescribeLimitsResponse -> TestTree
 responseDescribeLimits =
@@ -779,7 +779,7 @@ responseDescribeLimits =
     "DescribeLimitsResponse"
     "fixture/DescribeLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLimits)
 
 responseExecuteTransaction :: ExecuteTransactionResponse -> TestTree
 responseExecuteTransaction =
@@ -787,7 +787,7 @@ responseExecuteTransaction =
     "ExecuteTransactionResponse"
     "fixture/ExecuteTransactionResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteTransaction)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteTransaction)
 
 responseGetItem :: GetItemResponse -> TestTree
 responseGetItem =
@@ -795,7 +795,7 @@ responseGetItem =
     "GetItemResponse"
     "fixture/GetItemResponse.proto"
     defaultService
-    (Proxy :: Proxy GetItem)
+    (Proxy.Proxy :: Proxy.Proxy GetItem)
 
 responseDescribeBackup :: DescribeBackupResponse -> TestTree
 responseDescribeBackup =
@@ -803,7 +803,7 @@ responseDescribeBackup =
     "DescribeBackupResponse"
     "fixture/DescribeBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackup)
 
 responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
 responseBatchExecuteStatement =
@@ -811,7 +811,7 @@ responseBatchExecuteStatement =
     "BatchExecuteStatementResponse"
     "fixture/BatchExecuteStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
 
 responseDescribeTableReplicaAutoScaling :: DescribeTableReplicaAutoScalingResponse -> TestTree
 responseDescribeTableReplicaAutoScaling =
@@ -819,7 +819,7 @@ responseDescribeTableReplicaAutoScaling =
     "DescribeTableReplicaAutoScalingResponse"
     "fixture/DescribeTableReplicaAutoScalingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTableReplicaAutoScaling)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTableReplicaAutoScaling)
 
 responseUpdateGlobalTableSettings :: UpdateGlobalTableSettingsResponse -> TestTree
 responseUpdateGlobalTableSettings =
@@ -827,7 +827,7 @@ responseUpdateGlobalTableSettings =
     "UpdateGlobalTableSettingsResponse"
     "fixture/UpdateGlobalTableSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGlobalTableSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalTableSettings)
 
 responseEnableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
 responseEnableKinesisStreamingDestination =
@@ -835,7 +835,7 @@ responseEnableKinesisStreamingDestination =
     "EnableKinesisStreamingDestinationResponse"
     "fixture/EnableKinesisStreamingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableKinesisStreamingDestination)
+    (Proxy.Proxy :: Proxy.Proxy EnableKinesisStreamingDestination)
 
 responseTransactGetItems :: TransactGetItemsResponse -> TestTree
 responseTransactGetItems =
@@ -843,7 +843,7 @@ responseTransactGetItems =
     "TransactGetItemsResponse"
     "fixture/TransactGetItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy TransactGetItems)
+    (Proxy.Proxy :: Proxy.Proxy TransactGetItems)
 
 responseListContributorInsights :: ListContributorInsightsResponse -> TestTree
 responseListContributorInsights =
@@ -851,7 +851,7 @@ responseListContributorInsights =
     "ListContributorInsightsResponse"
     "fixture/ListContributorInsightsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContributorInsights)
+    (Proxy.Proxy :: Proxy.Proxy ListContributorInsights)
 
 responseBatchWriteItem :: BatchWriteItemResponse -> TestTree
 responseBatchWriteItem =
@@ -859,7 +859,7 @@ responseBatchWriteItem =
     "BatchWriteItemResponse"
     "fixture/BatchWriteItemResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchWriteItem)
+    (Proxy.Proxy :: Proxy.Proxy BatchWriteItem)
 
 responseExportTableToPointInTime :: ExportTableToPointInTimeResponse -> TestTree
 responseExportTableToPointInTime =
@@ -867,7 +867,7 @@ responseExportTableToPointInTime =
     "ExportTableToPointInTimeResponse"
     "fixture/ExportTableToPointInTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportTableToPointInTime)
+    (Proxy.Proxy :: Proxy.Proxy ExportTableToPointInTime)
 
 responseTransactWriteItems :: TransactWriteItemsResponse -> TestTree
 responseTransactWriteItems =
@@ -875,7 +875,7 @@ responseTransactWriteItems =
     "TransactWriteItemsResponse"
     "fixture/TransactWriteItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy TransactWriteItems)
+    (Proxy.Proxy :: Proxy.Proxy TransactWriteItems)
 
 responseListTables :: ListTablesResponse -> TestTree
 responseListTables =
@@ -883,7 +883,7 @@ responseListTables =
     "ListTablesResponse"
     "fixture/ListTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTables)
+    (Proxy.Proxy :: Proxy.Proxy ListTables)
 
 responseScan :: ScanResponse -> TestTree
 responseScan =
@@ -891,7 +891,7 @@ responseScan =
     "ScanResponse"
     "fixture/ScanResponse.proto"
     defaultService
-    (Proxy :: Proxy Scan)
+    (Proxy.Proxy :: Proxy.Proxy Scan)
 
 responseUpdateContributorInsights :: UpdateContributorInsightsResponse -> TestTree
 responseUpdateContributorInsights =
@@ -899,7 +899,7 @@ responseUpdateContributorInsights =
     "UpdateContributorInsightsResponse"
     "fixture/UpdateContributorInsightsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContributorInsights)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContributorInsights)
 
 responseExecuteStatement :: ExecuteStatementResponse -> TestTree
 responseExecuteStatement =
@@ -907,7 +907,7 @@ responseExecuteStatement =
     "ExecuteStatementResponse"
     "fixture/ExecuteStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
 
 responseQuery :: QueryResponse -> TestTree
 responseQuery =
@@ -915,7 +915,7 @@ responseQuery =
     "QueryResponse"
     "fixture/QueryResponse.proto"
     defaultService
-    (Proxy :: Proxy Query)
+    (Proxy.Proxy :: Proxy.Proxy Query)
 
 responseCreateTable :: CreateTableResponse -> TestTree
 responseCreateTable =
@@ -923,7 +923,7 @@ responseCreateTable =
     "CreateTableResponse"
     "fixture/CreateTableResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTable)
+    (Proxy.Proxy :: Proxy.Proxy CreateTable)
 
 responseDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestinationResponse -> TestTree
 responseDescribeKinesisStreamingDestination =
@@ -931,7 +931,7 @@ responseDescribeKinesisStreamingDestination =
     "DescribeKinesisStreamingDestinationResponse"
     "fixture/DescribeKinesisStreamingDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeKinesisStreamingDestination)
+    (Proxy.Proxy :: Proxy.Proxy DescribeKinesisStreamingDestination)
 
 responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
 responseDescribeEndpoints =
@@ -939,7 +939,7 @@ responseDescribeEndpoints =
     "DescribeEndpointsResponse"
     "fixture/DescribeEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoints)
 
 responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
 responseDescribeTimeToLive =
@@ -947,7 +947,7 @@ responseDescribeTimeToLive =
     "DescribeTimeToLiveResponse"
     "fixture/DescribeTimeToLiveResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTimeToLive)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTimeToLive)
 
 responseDescribeContinuousBackups :: DescribeContinuousBackupsResponse -> TestTree
 responseDescribeContinuousBackups =
@@ -955,7 +955,7 @@ responseDescribeContinuousBackups =
     "DescribeContinuousBackupsResponse"
     "fixture/DescribeContinuousBackupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContinuousBackups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContinuousBackups)
 
 responseListExports :: ListExportsResponse -> TestTree
 responseListExports =
@@ -963,7 +963,7 @@ responseListExports =
     "ListExportsResponse"
     "fixture/ListExportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExports)
+    (Proxy.Proxy :: Proxy.Proxy ListExports)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -971,7 +971,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeContributorInsights :: DescribeContributorInsightsResponse -> TestTree
 responseDescribeContributorInsights =
@@ -979,7 +979,7 @@ responseDescribeContributorInsights =
     "DescribeContributorInsightsResponse"
     "fixture/DescribeContributorInsightsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContributorInsights)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContributorInsights)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -987,7 +987,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseRestoreTableToPointInTime :: RestoreTableToPointInTimeResponse -> TestTree
 responseRestoreTableToPointInTime =
@@ -995,7 +995,7 @@ responseRestoreTableToPointInTime =
     "RestoreTableToPointInTimeResponse"
     "fixture/RestoreTableToPointInTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreTableToPointInTime)
+    (Proxy.Proxy :: Proxy.Proxy RestoreTableToPointInTime)
 
 responseRestoreTableFromBackup :: RestoreTableFromBackupResponse -> TestTree
 responseRestoreTableFromBackup =
@@ -1003,7 +1003,7 @@ responseRestoreTableFromBackup =
     "RestoreTableFromBackupResponse"
     "fixture/RestoreTableFromBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreTableFromBackup)
+    (Proxy.Proxy :: Proxy.Proxy RestoreTableFromBackup)
 
 responseUpdateTimeToLive :: UpdateTimeToLiveResponse -> TestTree
 responseUpdateTimeToLive =
@@ -1011,7 +1011,7 @@ responseUpdateTimeToLive =
     "UpdateTimeToLiveResponse"
     "fixture/UpdateTimeToLiveResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTimeToLive)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTimeToLive)
 
 responseCreateGlobalTable :: CreateGlobalTableResponse -> TestTree
 responseCreateGlobalTable =
@@ -1019,7 +1019,7 @@ responseCreateGlobalTable =
     "CreateGlobalTableResponse"
     "fixture/CreateGlobalTableResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGlobalTable)
+    (Proxy.Proxy :: Proxy.Proxy CreateGlobalTable)
 
 responseUpdateContinuousBackups :: UpdateContinuousBackupsResponse -> TestTree
 responseUpdateContinuousBackups =
@@ -1027,7 +1027,7 @@ responseUpdateContinuousBackups =
     "UpdateContinuousBackupsResponse"
     "fixture/UpdateContinuousBackupsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContinuousBackups)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContinuousBackups)
 
 responseDescribeExport :: DescribeExportResponse -> TestTree
 responseDescribeExport =
@@ -1035,4 +1035,4 @@ responseDescribeExport =
     "DescribeExportResponse"
     "fixture/DescribeExportResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExport)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExport)

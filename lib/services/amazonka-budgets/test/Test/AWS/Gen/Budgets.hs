@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Budgets where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Budgets
 import Test.AWS.Budgets.Internal
 import Test.AWS.Fixture
@@ -307,7 +307,7 @@ responseCreateBudgetAction =
     "CreateBudgetActionResponse"
     "fixture/CreateBudgetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBudgetAction)
+    (Proxy.Proxy :: Proxy.Proxy CreateBudgetAction)
 
 responseUpdateBudgetAction :: UpdateBudgetActionResponse -> TestTree
 responseUpdateBudgetAction =
@@ -315,7 +315,7 @@ responseUpdateBudgetAction =
     "UpdateBudgetActionResponse"
     "fixture/UpdateBudgetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBudgetAction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBudgetAction)
 
 responseDeleteBudgetAction :: DeleteBudgetActionResponse -> TestTree
 responseDeleteBudgetAction =
@@ -323,7 +323,7 @@ responseDeleteBudgetAction =
     "DeleteBudgetActionResponse"
     "fixture/DeleteBudgetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBudgetAction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBudgetAction)
 
 responseDescribeSubscribersForNotification :: DescribeSubscribersForNotificationResponse -> TestTree
 responseDescribeSubscribersForNotification =
@@ -331,7 +331,7 @@ responseDescribeSubscribersForNotification =
     "DescribeSubscribersForNotificationResponse"
     "fixture/DescribeSubscribersForNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubscribersForNotification)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSubscribersForNotification)
 
 responseDescribeNotificationsForBudget :: DescribeNotificationsForBudgetResponse -> TestTree
 responseDescribeNotificationsForBudget =
@@ -339,7 +339,7 @@ responseDescribeNotificationsForBudget =
     "DescribeNotificationsForBudgetResponse"
     "fixture/DescribeNotificationsForBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotificationsForBudget)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotificationsForBudget)
 
 responseDescribeBudgets :: DescribeBudgetsResponse -> TestTree
 responseDescribeBudgets =
@@ -347,7 +347,7 @@ responseDescribeBudgets =
     "DescribeBudgetsResponse"
     "fixture/DescribeBudgetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgets)
 
 responseCreateSubscriber :: CreateSubscriberResponse -> TestTree
 responseCreateSubscriber =
@@ -355,7 +355,7 @@ responseCreateSubscriber =
     "CreateSubscriberResponse"
     "fixture/CreateSubscriberResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubscriber)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubscriber)
 
 responseExecuteBudgetAction :: ExecuteBudgetActionResponse -> TestTree
 responseExecuteBudgetAction =
@@ -363,7 +363,7 @@ responseExecuteBudgetAction =
     "ExecuteBudgetActionResponse"
     "fixture/ExecuteBudgetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteBudgetAction)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteBudgetAction)
 
 responseUpdateBudget :: UpdateBudgetResponse -> TestTree
 responseUpdateBudget =
@@ -371,7 +371,7 @@ responseUpdateBudget =
     "UpdateBudgetResponse"
     "fixture/UpdateBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBudget)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBudget)
 
 responseDeleteBudget :: DeleteBudgetResponse -> TestTree
 responseDeleteBudget =
@@ -379,7 +379,7 @@ responseDeleteBudget =
     "DeleteBudgetResponse"
     "fixture/DeleteBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBudget)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBudget)
 
 responseDeleteNotification :: DeleteNotificationResponse -> TestTree
 responseDeleteNotification =
@@ -387,7 +387,7 @@ responseDeleteNotification =
     "DeleteNotificationResponse"
     "fixture/DeleteNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotification)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotification)
 
 responseUpdateNotification :: UpdateNotificationResponse -> TestTree
 responseUpdateNotification =
@@ -395,7 +395,7 @@ responseUpdateNotification =
     "UpdateNotificationResponse"
     "fixture/UpdateNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNotification)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotification)
 
 responseDescribeBudgetActionsForAccount :: DescribeBudgetActionsForAccountResponse -> TestTree
 responseDescribeBudgetActionsForAccount =
@@ -403,7 +403,7 @@ responseDescribeBudgetActionsForAccount =
     "DescribeBudgetActionsForAccountResponse"
     "fixture/DescribeBudgetActionsForAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgetActionsForAccount)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgetActionsForAccount)
 
 responseDescribeBudgetPerformanceHistory :: DescribeBudgetPerformanceHistoryResponse -> TestTree
 responseDescribeBudgetPerformanceHistory =
@@ -411,7 +411,7 @@ responseDescribeBudgetPerformanceHistory =
     "DescribeBudgetPerformanceHistoryResponse"
     "fixture/DescribeBudgetPerformanceHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgetPerformanceHistory)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgetPerformanceHistory)
 
 responseDescribeBudgetActionHistories :: DescribeBudgetActionHistoriesResponse -> TestTree
 responseDescribeBudgetActionHistories =
@@ -419,7 +419,7 @@ responseDescribeBudgetActionHistories =
     "DescribeBudgetActionHistoriesResponse"
     "fixture/DescribeBudgetActionHistoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgetActionHistories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgetActionHistories)
 
 responseDescribeBudget :: DescribeBudgetResponse -> TestTree
 responseDescribeBudget =
@@ -427,7 +427,7 @@ responseDescribeBudget =
     "DescribeBudgetResponse"
     "fixture/DescribeBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudget)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudget)
 
 responseUpdateSubscriber :: UpdateSubscriberResponse -> TestTree
 responseUpdateSubscriber =
@@ -435,7 +435,7 @@ responseUpdateSubscriber =
     "UpdateSubscriberResponse"
     "fixture/UpdateSubscriberResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSubscriber)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubscriber)
 
 responseDeleteSubscriber :: DeleteSubscriberResponse -> TestTree
 responseDeleteSubscriber =
@@ -443,7 +443,7 @@ responseDeleteSubscriber =
     "DeleteSubscriberResponse"
     "fixture/DeleteSubscriberResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSubscriber)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubscriber)
 
 responseDescribeBudgetActionsForBudget :: DescribeBudgetActionsForBudgetResponse -> TestTree
 responseDescribeBudgetActionsForBudget =
@@ -451,7 +451,7 @@ responseDescribeBudgetActionsForBudget =
     "DescribeBudgetActionsForBudgetResponse"
     "fixture/DescribeBudgetActionsForBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgetActionsForBudget)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgetActionsForBudget)
 
 responseDescribeBudgetAction :: DescribeBudgetActionResponse -> TestTree
 responseDescribeBudgetAction =
@@ -459,7 +459,7 @@ responseDescribeBudgetAction =
     "DescribeBudgetActionResponse"
     "fixture/DescribeBudgetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBudgetAction)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgetAction)
 
 responseCreateBudget :: CreateBudgetResponse -> TestTree
 responseCreateBudget =
@@ -467,7 +467,7 @@ responseCreateBudget =
     "CreateBudgetResponse"
     "fixture/CreateBudgetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBudget)
+    (Proxy.Proxy :: Proxy.Proxy CreateBudget)
 
 responseCreateNotification :: CreateNotificationResponse -> TestTree
 responseCreateNotification =
@@ -475,4 +475,4 @@ responseCreateNotification =
     "CreateNotificationResponse"
     "fixture/CreateNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNotification)
+    (Proxy.Proxy :: Proxy.Proxy CreateNotification)

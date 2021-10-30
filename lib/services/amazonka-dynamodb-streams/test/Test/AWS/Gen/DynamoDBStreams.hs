@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DynamoDBStreams where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DynamoDBStreams
 import Test.AWS.DynamoDBStreams.Internal
 import Test.AWS.Fixture
@@ -91,7 +91,7 @@ responseGetShardIterator =
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     defaultService
-    (Proxy :: Proxy GetShardIterator)
+    (Proxy.Proxy :: Proxy.Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
 responseGetRecords =
@@ -99,7 +99,7 @@ responseGetRecords =
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecords)
+    (Proxy.Proxy :: Proxy.Proxy GetRecords)
 
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
@@ -107,7 +107,7 @@ responseListStreams =
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListStreams)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
 responseDescribeStream =
@@ -115,4 +115,4 @@ responseDescribeStream =
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStream)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStream)

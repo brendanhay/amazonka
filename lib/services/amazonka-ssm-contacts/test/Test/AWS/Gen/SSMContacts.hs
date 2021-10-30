@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSMContacts where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SSMContacts
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -367,7 +367,7 @@ responseListPagesByEngagement =
     "ListPagesByEngagementResponse"
     "fixture/ListPagesByEngagementResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPagesByEngagement)
+    (Proxy.Proxy :: Proxy.Proxy ListPagesByEngagement)
 
 responseListEngagements :: ListEngagementsResponse -> TestTree
 responseListEngagements =
@@ -375,7 +375,7 @@ responseListEngagements =
     "ListEngagementsResponse"
     "fixture/ListEngagementsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEngagements)
+    (Proxy.Proxy :: Proxy.Proxy ListEngagements)
 
 responseListContactChannels :: ListContactChannelsResponse -> TestTree
 responseListContactChannels =
@@ -383,7 +383,7 @@ responseListContactChannels =
     "ListContactChannelsResponse"
     "fixture/ListContactChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContactChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListContactChannels)
 
 responseActivateContactChannel :: ActivateContactChannelResponse -> TestTree
 responseActivateContactChannel =
@@ -391,7 +391,7 @@ responseActivateContactChannel =
     "ActivateContactChannelResponse"
     "fixture/ActivateContactChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy ActivateContactChannel)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -399,7 +399,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStartEngagement :: StartEngagementResponse -> TestTree
 responseStartEngagement =
@@ -407,7 +407,7 @@ responseStartEngagement =
     "StartEngagementResponse"
     "fixture/StartEngagementResponse.proto"
     defaultService
-    (Proxy :: Proxy StartEngagement)
+    (Proxy.Proxy :: Proxy.Proxy StartEngagement)
 
 responseDeactivateContactChannel :: DeactivateContactChannelResponse -> TestTree
 responseDeactivateContactChannel =
@@ -415,7 +415,7 @@ responseDeactivateContactChannel =
     "DeactivateContactChannelResponse"
     "fixture/DeactivateContactChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeactivateContactChannel)
 
 responseAcceptPage :: AcceptPageResponse -> TestTree
 responseAcceptPage =
@@ -423,7 +423,7 @@ responseAcceptPage =
     "AcceptPageResponse"
     "fixture/AcceptPageResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptPage)
+    (Proxy.Proxy :: Proxy.Proxy AcceptPage)
 
 responseListPageReceipts :: ListPageReceiptsResponse -> TestTree
 responseListPageReceipts =
@@ -431,7 +431,7 @@ responseListPageReceipts =
     "ListPageReceiptsResponse"
     "fixture/ListPageReceiptsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPageReceipts)
+    (Proxy.Proxy :: Proxy.Proxy ListPageReceipts)
 
 responseGetContact :: GetContactResponse -> TestTree
 responseGetContact =
@@ -439,7 +439,7 @@ responseGetContact =
     "GetContactResponse"
     "fixture/GetContactResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContact)
+    (Proxy.Proxy :: Proxy.Proxy GetContact)
 
 responseDescribePage :: DescribePageResponse -> TestTree
 responseDescribePage =
@@ -447,7 +447,7 @@ responseDescribePage =
     "DescribePageResponse"
     "fixture/DescribePageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePage)
+    (Proxy.Proxy :: Proxy.Proxy DescribePage)
 
 responseDeleteContact :: DeleteContactResponse -> TestTree
 responseDeleteContact =
@@ -455,7 +455,7 @@ responseDeleteContact =
     "DeleteContactResponse"
     "fixture/DeleteContactResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContact)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContact)
 
 responseUpdateContact :: UpdateContactResponse -> TestTree
 responseUpdateContact =
@@ -463,7 +463,7 @@ responseUpdateContact =
     "UpdateContactResponse"
     "fixture/UpdateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContact)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContact)
 
 responseCreateContact :: CreateContactResponse -> TestTree
 responseCreateContact =
@@ -471,7 +471,7 @@ responseCreateContact =
     "CreateContactResponse"
     "fixture/CreateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContact)
+    (Proxy.Proxy :: Proxy.Proxy CreateContact)
 
 responseCreateContactChannel :: CreateContactChannelResponse -> TestTree
 responseCreateContactChannel =
@@ -479,7 +479,7 @@ responseCreateContactChannel =
     "CreateContactChannelResponse"
     "fixture/CreateContactChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateContactChannel)
 
 responseDeleteContactChannel :: DeleteContactChannelResponse -> TestTree
 responseDeleteContactChannel =
@@ -487,7 +487,7 @@ responseDeleteContactChannel =
     "DeleteContactChannelResponse"
     "fixture/DeleteContactChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContactChannel)
 
 responseUpdateContactChannel :: UpdateContactChannelResponse -> TestTree
 responseUpdateContactChannel =
@@ -495,7 +495,7 @@ responseUpdateContactChannel =
     "UpdateContactChannelResponse"
     "fixture/UpdateContactChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContactChannel)
 
 responseGetContactChannel :: GetContactChannelResponse -> TestTree
 responseGetContactChannel =
@@ -503,7 +503,7 @@ responseGetContactChannel =
     "GetContactChannelResponse"
     "fixture/GetContactChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetContactChannel)
 
 responseSendActivationCode :: SendActivationCodeResponse -> TestTree
 responseSendActivationCode =
@@ -511,7 +511,7 @@ responseSendActivationCode =
     "SendActivationCodeResponse"
     "fixture/SendActivationCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy SendActivationCode)
+    (Proxy.Proxy :: Proxy.Proxy SendActivationCode)
 
 responseStopEngagement :: StopEngagementResponse -> TestTree
 responseStopEngagement =
@@ -519,7 +519,7 @@ responseStopEngagement =
     "StopEngagementResponse"
     "fixture/StopEngagementResponse.proto"
     defaultService
-    (Proxy :: Proxy StopEngagement)
+    (Proxy.Proxy :: Proxy.Proxy StopEngagement)
 
 responseDescribeEngagement :: DescribeEngagementResponse -> TestTree
 responseDescribeEngagement =
@@ -527,7 +527,7 @@ responseDescribeEngagement =
     "DescribeEngagementResponse"
     "fixture/DescribeEngagementResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEngagement)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEngagement)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -535,7 +535,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -543,7 +543,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetContactPolicy :: GetContactPolicyResponse -> TestTree
 responseGetContactPolicy =
@@ -551,7 +551,7 @@ responseGetContactPolicy =
     "GetContactPolicyResponse"
     "fixture/GetContactPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContactPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetContactPolicy)
 
 responsePutContactPolicy :: PutContactPolicyResponse -> TestTree
 responsePutContactPolicy =
@@ -559,7 +559,7 @@ responsePutContactPolicy =
     "PutContactPolicyResponse"
     "fixture/PutContactPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutContactPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutContactPolicy)
 
 responseListContacts :: ListContactsResponse -> TestTree
 responseListContacts =
@@ -567,7 +567,7 @@ responseListContacts =
     "ListContactsResponse"
     "fixture/ListContactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContacts)
+    (Proxy.Proxy :: Proxy.Proxy ListContacts)
 
 responseListPagesByContact :: ListPagesByContactResponse -> TestTree
 responseListPagesByContact =
@@ -575,4 +575,4 @@ responseListPagesByContact =
     "ListPagesByContactResponse"
     "fixture/ListPagesByContactResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPagesByContact)
+    (Proxy.Proxy :: Proxy.Proxy ListPagesByContact)

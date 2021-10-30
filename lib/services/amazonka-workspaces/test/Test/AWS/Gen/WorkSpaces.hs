@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkSpaces where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WorkSpaces
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -691,7 +691,7 @@ responseAssociateConnectionAlias =
     "AssociateConnectionAliasResponse"
     "fixture/AssociateConnectionAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateConnectionAlias)
+    (Proxy.Proxy :: Proxy.Proxy AssociateConnectionAlias)
 
 responseDescribeAccount :: DescribeAccountResponse -> TestTree
 responseDescribeAccount =
@@ -699,7 +699,7 @@ responseDescribeAccount =
     "DescribeAccountResponse"
     "fixture/DescribeAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccount)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccount)
 
 responseRevokeIpRules :: RevokeIpRulesResponse -> TestTree
 responseRevokeIpRules =
@@ -707,7 +707,7 @@ responseRevokeIpRules =
     "RevokeIpRulesResponse"
     "fixture/RevokeIpRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeIpRules)
+    (Proxy.Proxy :: Proxy.Proxy RevokeIpRules)
 
 responseDescribeWorkspaceImages :: DescribeWorkspaceImagesResponse -> TestTree
 responseDescribeWorkspaceImages =
@@ -715,7 +715,7 @@ responseDescribeWorkspaceImages =
     "DescribeWorkspaceImagesResponse"
     "fixture/DescribeWorkspaceImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaceImages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceImages)
 
 responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
 responseModifyWorkspaceProperties =
@@ -723,7 +723,7 @@ responseModifyWorkspaceProperties =
     "ModifyWorkspacePropertiesResponse"
     "fixture/ModifyWorkspacePropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyWorkspaceProperties)
+    (Proxy.Proxy :: Proxy.Proxy ModifyWorkspaceProperties)
 
 responseDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectoryResponse -> TestTree
 responseDeregisterWorkspaceDirectory =
@@ -731,7 +731,7 @@ responseDeregisterWorkspaceDirectory =
     "DeregisterWorkspaceDirectoryResponse"
     "fixture/DeregisterWorkspaceDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterWorkspaceDirectory)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterWorkspaceDirectory)
 
 responseMigrateWorkspace :: MigrateWorkspaceResponse -> TestTree
 responseMigrateWorkspace =
@@ -739,7 +739,7 @@ responseMigrateWorkspace =
     "MigrateWorkspaceResponse"
     "fixture/MigrateWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy MigrateWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy MigrateWorkspace)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -747,7 +747,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseDescribeWorkspaceDirectories :: DescribeWorkspaceDirectoriesResponse -> TestTree
 responseDescribeWorkspaceDirectories =
@@ -755,7 +755,7 @@ responseDescribeWorkspaceDirectories =
     "DescribeWorkspaceDirectoriesResponse"
     "fixture/DescribeWorkspaceDirectoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaceDirectories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceDirectories)
 
 responseDisassociateIpGroups :: DisassociateIpGroupsResponse -> TestTree
 responseDisassociateIpGroups =
@@ -763,7 +763,7 @@ responseDisassociateIpGroups =
     "DisassociateIpGroupsResponse"
     "fixture/DisassociateIpGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateIpGroups)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateIpGroups)
 
 responseDescribeWorkspaceBundles :: DescribeWorkspaceBundlesResponse -> TestTree
 responseDescribeWorkspaceBundles =
@@ -771,7 +771,7 @@ responseDescribeWorkspaceBundles =
     "DescribeWorkspaceBundlesResponse"
     "fixture/DescribeWorkspaceBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaceBundles)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceBundles)
 
 responseAuthorizeIpRules :: AuthorizeIpRulesResponse -> TestTree
 responseAuthorizeIpRules =
@@ -779,7 +779,7 @@ responseAuthorizeIpRules =
     "AuthorizeIpRulesResponse"
     "fixture/AuthorizeIpRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeIpRules)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeIpRules)
 
 responseDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissionsResponse -> TestTree
 responseDescribeWorkspaceImagePermissions =
@@ -787,7 +787,7 @@ responseDescribeWorkspaceImagePermissions =
     "DescribeWorkspaceImagePermissionsResponse"
     "fixture/DescribeWorkspaceImagePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaceImagePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceImagePermissions)
 
 responseRebuildWorkspaces :: RebuildWorkspacesResponse -> TestTree
 responseRebuildWorkspaces =
@@ -795,7 +795,7 @@ responseRebuildWorkspaces =
     "RebuildWorkspacesResponse"
     "fixture/RebuildWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy RebuildWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy RebuildWorkspaces)
 
 responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
 responseImportWorkspaceImage =
@@ -803,7 +803,7 @@ responseImportWorkspaceImage =
     "ImportWorkspaceImageResponse"
     "fixture/ImportWorkspaceImageResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportWorkspaceImage)
+    (Proxy.Proxy :: Proxy.Proxy ImportWorkspaceImage)
 
 responseModifyWorkspaceState :: ModifyWorkspaceStateResponse -> TestTree
 responseModifyWorkspaceState =
@@ -811,7 +811,7 @@ responseModifyWorkspaceState =
     "ModifyWorkspaceStateResponse"
     "fixture/ModifyWorkspaceStateResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyWorkspaceState)
+    (Proxy.Proxy :: Proxy.Proxy ModifyWorkspaceState)
 
 responseCreateIpGroup :: CreateIpGroupResponse -> TestTree
 responseCreateIpGroup =
@@ -819,7 +819,7 @@ responseCreateIpGroup =
     "CreateIpGroupResponse"
     "fixture/CreateIpGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIpGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateIpGroup)
 
 responseDisassociateConnectionAlias :: DisassociateConnectionAliasResponse -> TestTree
 responseDisassociateConnectionAlias =
@@ -827,7 +827,7 @@ responseDisassociateConnectionAlias =
     "DisassociateConnectionAliasResponse"
     "fixture/DisassociateConnectionAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateConnectionAlias)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateConnectionAlias)
 
 responseModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationPropertiesResponse -> TestTree
 responseModifyWorkspaceCreationProperties =
@@ -835,7 +835,7 @@ responseModifyWorkspaceCreationProperties =
     "ModifyWorkspaceCreationPropertiesResponse"
     "fixture/ModifyWorkspaceCreationPropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyWorkspaceCreationProperties)
+    (Proxy.Proxy :: Proxy.Proxy ModifyWorkspaceCreationProperties)
 
 responseRegisterWorkspaceDirectory :: RegisterWorkspaceDirectoryResponse -> TestTree
 responseRegisterWorkspaceDirectory =
@@ -843,7 +843,7 @@ responseRegisterWorkspaceDirectory =
     "RegisterWorkspaceDirectoryResponse"
     "fixture/RegisterWorkspaceDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterWorkspaceDirectory)
+    (Proxy.Proxy :: Proxy.Proxy RegisterWorkspaceDirectory)
 
 responseRestoreWorkspace :: RestoreWorkspaceResponse -> TestTree
 responseRestoreWorkspace =
@@ -851,7 +851,7 @@ responseRestoreWorkspace =
     "RestoreWorkspaceResponse"
     "fixture/RestoreWorkspaceResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreWorkspace)
+    (Proxy.Proxy :: Proxy.Proxy RestoreWorkspace)
 
 responseDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> TestTree
 responseDescribeConnectionAliasPermissions =
@@ -859,7 +859,7 @@ responseDescribeConnectionAliasPermissions =
     "DescribeConnectionAliasPermissionsResponse"
     "fixture/DescribeConnectionAliasPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnectionAliasPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectionAliasPermissions)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -867,7 +867,7 @@ responseCreateTags =
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateTags)
 
 responseCreateWorkspaceBundle :: CreateWorkspaceBundleResponse -> TestTree
 responseCreateWorkspaceBundle =
@@ -875,7 +875,7 @@ responseCreateWorkspaceBundle =
     "CreateWorkspaceBundleResponse"
     "fixture/CreateWorkspaceBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkspaceBundle)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkspaceBundle)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -883,7 +883,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessPropertiesResponse -> TestTree
 responseModifyWorkspaceAccessProperties =
@@ -891,7 +891,7 @@ responseModifyWorkspaceAccessProperties =
     "ModifyWorkspaceAccessPropertiesResponse"
     "fixture/ModifyWorkspaceAccessPropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyWorkspaceAccessProperties)
+    (Proxy.Proxy :: Proxy.Proxy ModifyWorkspaceAccessProperties)
 
 responseUpdateRulesOfIpGroup :: UpdateRulesOfIpGroupResponse -> TestTree
 responseUpdateRulesOfIpGroup =
@@ -899,7 +899,7 @@ responseUpdateRulesOfIpGroup =
     "UpdateRulesOfIpGroupResponse"
     "fixture/UpdateRulesOfIpGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRulesOfIpGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRulesOfIpGroup)
 
 responseDeleteWorkspaceImage :: DeleteWorkspaceImageResponse -> TestTree
 responseDeleteWorkspaceImage =
@@ -907,7 +907,7 @@ responseDeleteWorkspaceImage =
     "DeleteWorkspaceImageResponse"
     "fixture/DeleteWorkspaceImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkspaceImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkspaceImage)
 
 responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
 responseStopWorkspaces =
@@ -915,7 +915,7 @@ responseStopWorkspaces =
     "StopWorkspacesResponse"
     "fixture/StopWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy StopWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy StopWorkspaces)
 
 responseAssociateIpGroups :: AssociateIpGroupsResponse -> TestTree
 responseAssociateIpGroups =
@@ -923,7 +923,7 @@ responseAssociateIpGroups =
     "AssociateIpGroupsResponse"
     "fixture/AssociateIpGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateIpGroups)
+    (Proxy.Proxy :: Proxy.Proxy AssociateIpGroups)
 
 responseModifySelfservicePermissions :: ModifySelfservicePermissionsResponse -> TestTree
 responseModifySelfservicePermissions =
@@ -931,7 +931,7 @@ responseModifySelfservicePermissions =
     "ModifySelfservicePermissionsResponse"
     "fixture/ModifySelfservicePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySelfservicePermissions)
+    (Proxy.Proxy :: Proxy.Proxy ModifySelfservicePermissions)
 
 responseDeleteConnectionAlias :: DeleteConnectionAliasResponse -> TestTree
 responseDeleteConnectionAlias =
@@ -939,7 +939,7 @@ responseDeleteConnectionAlias =
     "DeleteConnectionAliasResponse"
     "fixture/DeleteConnectionAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnectionAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnectionAlias)
 
 responseDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> TestTree
 responseDescribeWorkspacesConnectionStatus =
@@ -947,7 +947,7 @@ responseDescribeWorkspacesConnectionStatus =
     "DescribeWorkspacesConnectionStatusResponse"
     "fixture/DescribeWorkspacesConnectionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspacesConnectionStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspacesConnectionStatus)
 
 responseCreateConnectionAlias :: CreateConnectionAliasResponse -> TestTree
 responseCreateConnectionAlias =
@@ -955,7 +955,7 @@ responseCreateConnectionAlias =
     "CreateConnectionAliasResponse"
     "fixture/CreateConnectionAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnectionAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnectionAlias)
 
 responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
 responseRebootWorkspaces =
@@ -963,7 +963,7 @@ responseRebootWorkspaces =
     "RebootWorkspacesResponse"
     "fixture/RebootWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy RebootWorkspaces)
 
 responseDeleteIpGroup :: DeleteIpGroupResponse -> TestTree
 responseDeleteIpGroup =
@@ -971,7 +971,7 @@ responseDeleteIpGroup =
     "DeleteIpGroupResponse"
     "fixture/DeleteIpGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIpGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIpGroup)
 
 responseCopyWorkspaceImage :: CopyWorkspaceImageResponse -> TestTree
 responseCopyWorkspaceImage =
@@ -979,7 +979,7 @@ responseCopyWorkspaceImage =
     "CopyWorkspaceImageResponse"
     "fixture/CopyWorkspaceImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyWorkspaceImage)
+    (Proxy.Proxy :: Proxy.Proxy CopyWorkspaceImage)
 
 responseDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshotsResponse -> TestTree
 responseDescribeWorkspaceSnapshots =
@@ -987,7 +987,7 @@ responseDescribeWorkspaceSnapshots =
     "DescribeWorkspaceSnapshotsResponse"
     "fixture/DescribeWorkspaceSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaceSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaceSnapshots)
 
 responseTerminateWorkspaces :: TerminateWorkspacesResponse -> TestTree
 responseTerminateWorkspaces =
@@ -995,7 +995,7 @@ responseTerminateWorkspaces =
     "TerminateWorkspacesResponse"
     "fixture/TerminateWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy TerminateWorkspaces)
 
 responseUpdateConnectionAliasPermission :: UpdateConnectionAliasPermissionResponse -> TestTree
 responseUpdateConnectionAliasPermission =
@@ -1003,7 +1003,7 @@ responseUpdateConnectionAliasPermission =
     "UpdateConnectionAliasPermissionResponse"
     "fixture/UpdateConnectionAliasPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnectionAliasPermission)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectionAliasPermission)
 
 responseCreateWorkspaces :: CreateWorkspacesResponse -> TestTree
 responseCreateWorkspaces =
@@ -1011,7 +1011,7 @@ responseCreateWorkspaces =
     "CreateWorkspacesResponse"
     "fixture/CreateWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkspaces)
 
 responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
 responseDescribeClientProperties =
@@ -1019,7 +1019,7 @@ responseDescribeClientProperties =
     "DescribeClientPropertiesResponse"
     "fixture/DescribeClientPropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientProperties)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientProperties)
 
 responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
 responseModifyClientProperties =
@@ -1027,7 +1027,7 @@ responseModifyClientProperties =
     "ModifyClientPropertiesResponse"
     "fixture/ModifyClientPropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClientProperties)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClientProperties)
 
 responseDescribeIpGroups :: DescribeIpGroupsResponse -> TestTree
 responseDescribeIpGroups =
@@ -1035,7 +1035,7 @@ responseDescribeIpGroups =
     "DescribeIpGroupsResponse"
     "fixture/DescribeIpGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIpGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpGroups)
 
 responseDeleteWorkspaceBundle :: DeleteWorkspaceBundleResponse -> TestTree
 responseDeleteWorkspaceBundle =
@@ -1043,7 +1043,7 @@ responseDeleteWorkspaceBundle =
     "DeleteWorkspaceBundleResponse"
     "fixture/DeleteWorkspaceBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkspaceBundle)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkspaceBundle)
 
 responseUpdateWorkspaceBundle :: UpdateWorkspaceBundleResponse -> TestTree
 responseUpdateWorkspaceBundle =
@@ -1051,7 +1051,7 @@ responseUpdateWorkspaceBundle =
     "UpdateWorkspaceBundleResponse"
     "fixture/UpdateWorkspaceBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkspaceBundle)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkspaceBundle)
 
 responseListAvailableManagementCidrRanges :: ListAvailableManagementCidrRangesResponse -> TestTree
 responseListAvailableManagementCidrRanges =
@@ -1059,7 +1059,7 @@ responseListAvailableManagementCidrRanges =
     "ListAvailableManagementCidrRangesResponse"
     "fixture/ListAvailableManagementCidrRangesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAvailableManagementCidrRanges)
+    (Proxy.Proxy :: Proxy.Proxy ListAvailableManagementCidrRanges)
 
 responseUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermissionResponse -> TestTree
 responseUpdateWorkspaceImagePermission =
@@ -1067,7 +1067,7 @@ responseUpdateWorkspaceImagePermission =
     "UpdateWorkspaceImagePermissionResponse"
     "fixture/UpdateWorkspaceImagePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkspaceImagePermission)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkspaceImagePermission)
 
 responseCreateUpdatedWorkspaceImage :: CreateUpdatedWorkspaceImageResponse -> TestTree
 responseCreateUpdatedWorkspaceImage =
@@ -1075,7 +1075,7 @@ responseCreateUpdatedWorkspaceImage =
     "CreateUpdatedWorkspaceImageResponse"
     "fixture/CreateUpdatedWorkspaceImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUpdatedWorkspaceImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateUpdatedWorkspaceImage)
 
 responseDescribeWorkspaces :: DescribeWorkspacesResponse -> TestTree
 responseDescribeWorkspaces =
@@ -1083,7 +1083,7 @@ responseDescribeWorkspaces =
     "DescribeWorkspacesResponse"
     "fixture/DescribeWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkspaces)
 
 responseDescribeConnectionAliases :: DescribeConnectionAliasesResponse -> TestTree
 responseDescribeConnectionAliases =
@@ -1091,7 +1091,7 @@ responseDescribeConnectionAliases =
     "DescribeConnectionAliasesResponse"
     "fixture/DescribeConnectionAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnectionAliases)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectionAliases)
 
 responseStartWorkspaces :: StartWorkspacesResponse -> TestTree
 responseStartWorkspaces =
@@ -1099,7 +1099,7 @@ responseStartWorkspaces =
     "StartWorkspacesResponse"
     "fixture/StartWorkspacesResponse.proto"
     defaultService
-    (Proxy :: Proxy StartWorkspaces)
+    (Proxy.Proxy :: Proxy.Proxy StartWorkspaces)
 
 responseDescribeAccountModifications :: DescribeAccountModificationsResponse -> TestTree
 responseDescribeAccountModifications =
@@ -1107,7 +1107,7 @@ responseDescribeAccountModifications =
     "DescribeAccountModificationsResponse"
     "fixture/DescribeAccountModificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountModifications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountModifications)
 
 responseModifyAccount :: ModifyAccountResponse -> TestTree
 responseModifyAccount =
@@ -1115,4 +1115,4 @@ responseModifyAccount =
     "ModifyAccountResponse"
     "fixture/ModifyAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyAccount)
+    (Proxy.Proxy :: Proxy.Proxy ModifyAccount)

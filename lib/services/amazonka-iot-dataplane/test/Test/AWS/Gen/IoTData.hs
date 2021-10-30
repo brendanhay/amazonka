@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTData
 import Test.AWS.Fixture
 import Test.AWS.IoTData.Internal
@@ -127,7 +127,7 @@ responseGetThingShadow =
     "GetThingShadowResponse"
     "fixture/GetThingShadowResponse.proto"
     defaultService
-    (Proxy :: Proxy GetThingShadow)
+    (Proxy.Proxy :: Proxy.Proxy GetThingShadow)
 
 responseListNamedShadowsForThing :: ListNamedShadowsForThingResponse -> TestTree
 responseListNamedShadowsForThing =
@@ -135,7 +135,7 @@ responseListNamedShadowsForThing =
     "ListNamedShadowsForThingResponse"
     "fixture/ListNamedShadowsForThingResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNamedShadowsForThing)
+    (Proxy.Proxy :: Proxy.Proxy ListNamedShadowsForThing)
 
 responseDeleteThingShadow :: DeleteThingShadowResponse -> TestTree
 responseDeleteThingShadow =
@@ -143,7 +143,7 @@ responseDeleteThingShadow =
     "DeleteThingShadowResponse"
     "fixture/DeleteThingShadowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteThingShadow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteThingShadow)
 
 responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
 responseUpdateThingShadow =
@@ -151,7 +151,7 @@ responseUpdateThingShadow =
     "UpdateThingShadowResponse"
     "fixture/UpdateThingShadowResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThingShadow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateThingShadow)
 
 responseListRetainedMessages :: ListRetainedMessagesResponse -> TestTree
 responseListRetainedMessages =
@@ -159,7 +159,7 @@ responseListRetainedMessages =
     "ListRetainedMessagesResponse"
     "fixture/ListRetainedMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRetainedMessages)
+    (Proxy.Proxy :: Proxy.Proxy ListRetainedMessages)
 
 responseGetRetainedMessage :: GetRetainedMessageResponse -> TestTree
 responseGetRetainedMessage =
@@ -167,7 +167,7 @@ responseGetRetainedMessage =
     "GetRetainedMessageResponse"
     "fixture/GetRetainedMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRetainedMessage)
+    (Proxy.Proxy :: Proxy.Proxy GetRetainedMessage)
 
 responsePublish :: PublishResponse -> TestTree
 responsePublish =
@@ -175,4 +175,4 @@ responsePublish =
     "PublishResponse"
     "fixture/PublishResponse.proto"
     defaultService
-    (Proxy :: Proxy Publish)
+    (Proxy.Proxy :: Proxy.Proxy Publish)

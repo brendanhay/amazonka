@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ImageBuilder where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ImageBuilder
 import Test.AWS.Fixture
 import Test.AWS.ImageBuilder.Internal
@@ -631,7 +631,7 @@ responseListImagePackages =
     "ListImagePackagesResponse"
     "fixture/ListImagePackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImagePackages)
+    (Proxy.Proxy :: Proxy.Proxy ListImagePackages)
 
 responseGetDistributionConfiguration :: GetDistributionConfigurationResponse -> TestTree
 responseGetDistributionConfiguration =
@@ -639,7 +639,7 @@ responseGetDistributionConfiguration =
     "GetDistributionConfigurationResponse"
     "fixture/GetDistributionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetDistributionConfiguration)
 
 responseImportComponent :: ImportComponentResponse -> TestTree
 responseImportComponent =
@@ -647,7 +647,7 @@ responseImportComponent =
     "ImportComponentResponse"
     "fixture/ImportComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportComponent)
+    (Proxy.Proxy :: Proxy.Proxy ImportComponent)
 
 responseListComponentBuildVersions :: ListComponentBuildVersionsResponse -> TestTree
 responseListComponentBuildVersions =
@@ -655,7 +655,7 @@ responseListComponentBuildVersions =
     "ListComponentBuildVersionsResponse"
     "fixture/ListComponentBuildVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComponentBuildVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListComponentBuildVersions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -663,7 +663,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListImageBuildVersions :: ListImageBuildVersionsResponse -> TestTree
 responseListImageBuildVersions =
@@ -671,7 +671,7 @@ responseListImageBuildVersions =
     "ListImageBuildVersionsResponse"
     "fixture/ListImageBuildVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImageBuildVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListImageBuildVersions)
 
 responseCancelImageCreation :: CancelImageCreationResponse -> TestTree
 responseCancelImageCreation =
@@ -679,7 +679,7 @@ responseCancelImageCreation =
     "CancelImageCreationResponse"
     "fixture/CancelImageCreationResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelImageCreation)
+    (Proxy.Proxy :: Proxy.Proxy CancelImageCreation)
 
 responseGetImagePipeline :: GetImagePipelineResponse -> TestTree
 responseGetImagePipeline =
@@ -687,7 +687,7 @@ responseGetImagePipeline =
     "GetImagePipelineResponse"
     "fixture/GetImagePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImagePipeline)
+    (Proxy.Proxy :: Proxy.Proxy GetImagePipeline)
 
 responseCreateInfrastructureConfiguration :: CreateInfrastructureConfigurationResponse -> TestTree
 responseCreateInfrastructureConfiguration =
@@ -695,7 +695,7 @@ responseCreateInfrastructureConfiguration =
     "CreateInfrastructureConfigurationResponse"
     "fixture/CreateInfrastructureConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInfrastructureConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateInfrastructureConfiguration)
 
 responseListDistributionConfigurations :: ListDistributionConfigurationsResponse -> TestTree
 responseListDistributionConfigurations =
@@ -703,7 +703,7 @@ responseListDistributionConfigurations =
     "ListDistributionConfigurationsResponse"
     "fixture/ListDistributionConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributionConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionConfigurations)
 
 responseCreateContainerRecipe :: CreateContainerRecipeResponse -> TestTree
 responseCreateContainerRecipe =
@@ -711,7 +711,7 @@ responseCreateContainerRecipe =
     "CreateContainerRecipeResponse"
     "fixture/CreateContainerRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContainerRecipe)
+    (Proxy.Proxy :: Proxy.Proxy CreateContainerRecipe)
 
 responseListInfrastructureConfigurations :: ListInfrastructureConfigurationsResponse -> TestTree
 responseListInfrastructureConfigurations =
@@ -719,7 +719,7 @@ responseListInfrastructureConfigurations =
     "ListInfrastructureConfigurationsResponse"
     "fixture/ListInfrastructureConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInfrastructureConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListInfrastructureConfigurations)
 
 responsePutImageRecipePolicy :: PutImageRecipePolicyResponse -> TestTree
 responsePutImageRecipePolicy =
@@ -727,7 +727,7 @@ responsePutImageRecipePolicy =
     "PutImageRecipePolicyResponse"
     "fixture/PutImageRecipePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutImageRecipePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutImageRecipePolicy)
 
 responseListContainerRecipes :: ListContainerRecipesResponse -> TestTree
 responseListContainerRecipes =
@@ -735,7 +735,7 @@ responseListContainerRecipes =
     "ListContainerRecipesResponse"
     "fixture/ListContainerRecipesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContainerRecipes)
+    (Proxy.Proxy :: Proxy.Proxy ListContainerRecipes)
 
 responsePutImagePolicy :: PutImagePolicyResponse -> TestTree
 responsePutImagePolicy =
@@ -743,7 +743,7 @@ responsePutImagePolicy =
     "PutImagePolicyResponse"
     "fixture/PutImagePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutImagePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutImagePolicy)
 
 responseDeleteContainerRecipe :: DeleteContainerRecipeResponse -> TestTree
 responseDeleteContainerRecipe =
@@ -751,7 +751,7 @@ responseDeleteContainerRecipe =
     "DeleteContainerRecipeResponse"
     "fixture/DeleteContainerRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContainerRecipe)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContainerRecipe)
 
 responsePutComponentPolicy :: PutComponentPolicyResponse -> TestTree
 responsePutComponentPolicy =
@@ -759,7 +759,7 @@ responsePutComponentPolicy =
     "PutComponentPolicyResponse"
     "fixture/PutComponentPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutComponentPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutComponentPolicy)
 
 responseDeleteInfrastructureConfiguration :: DeleteInfrastructureConfigurationResponse -> TestTree
 responseDeleteInfrastructureConfiguration =
@@ -767,7 +767,7 @@ responseDeleteInfrastructureConfiguration =
     "DeleteInfrastructureConfigurationResponse"
     "fixture/DeleteInfrastructureConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInfrastructureConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInfrastructureConfiguration)
 
 responseUpdateInfrastructureConfiguration :: UpdateInfrastructureConfigurationResponse -> TestTree
 responseUpdateInfrastructureConfiguration =
@@ -775,7 +775,7 @@ responseUpdateInfrastructureConfiguration =
     "UpdateInfrastructureConfigurationResponse"
     "fixture/UpdateInfrastructureConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInfrastructureConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInfrastructureConfiguration)
 
 responseCreateImagePipeline :: CreateImagePipelineResponse -> TestTree
 responseCreateImagePipeline =
@@ -783,7 +783,7 @@ responseCreateImagePipeline =
     "CreateImagePipelineResponse"
     "fixture/CreateImagePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImagePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreateImagePipeline)
 
 responseGetContainerRecipe :: GetContainerRecipeResponse -> TestTree
 responseGetContainerRecipe =
@@ -791,7 +791,7 @@ responseGetContainerRecipe =
     "GetContainerRecipeResponse"
     "fixture/GetContainerRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerRecipe)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerRecipe)
 
 responseGetInfrastructureConfiguration :: GetInfrastructureConfigurationResponse -> TestTree
 responseGetInfrastructureConfiguration =
@@ -799,7 +799,7 @@ responseGetInfrastructureConfiguration =
     "GetInfrastructureConfigurationResponse"
     "fixture/GetInfrastructureConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInfrastructureConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetInfrastructureConfiguration)
 
 responseGetImagePolicy :: GetImagePolicyResponse -> TestTree
 responseGetImagePolicy =
@@ -807,7 +807,7 @@ responseGetImagePolicy =
     "GetImagePolicyResponse"
     "fixture/GetImagePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImagePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetImagePolicy)
 
 responseGetImageRecipePolicy :: GetImageRecipePolicyResponse -> TestTree
 responseGetImageRecipePolicy =
@@ -815,7 +815,7 @@ responseGetImageRecipePolicy =
     "GetImageRecipePolicyResponse"
     "fixture/GetImageRecipePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImageRecipePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetImageRecipePolicy)
 
 responseGetComponentPolicy :: GetComponentPolicyResponse -> TestTree
 responseGetComponentPolicy =
@@ -823,7 +823,7 @@ responseGetComponentPolicy =
     "GetComponentPolicyResponse"
     "fixture/GetComponentPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComponentPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetComponentPolicy)
 
 responseDeleteImagePipeline :: DeleteImagePipelineResponse -> TestTree
 responseDeleteImagePipeline =
@@ -831,7 +831,7 @@ responseDeleteImagePipeline =
     "DeleteImagePipelineResponse"
     "fixture/DeleteImagePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImagePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImagePipeline)
 
 responseUpdateImagePipeline :: UpdateImagePipelineResponse -> TestTree
 responseUpdateImagePipeline =
@@ -839,7 +839,7 @@ responseUpdateImagePipeline =
     "UpdateImagePipelineResponse"
     "fixture/UpdateImagePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateImagePipeline)
+    (Proxy.Proxy :: Proxy.Proxy UpdateImagePipeline)
 
 responseListImagePipelines :: ListImagePipelinesResponse -> TestTree
 responseListImagePipelines =
@@ -847,7 +847,7 @@ responseListImagePipelines =
     "ListImagePipelinesResponse"
     "fixture/ListImagePipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImagePipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListImagePipelines)
 
 responseStartImagePipelineExecution :: StartImagePipelineExecutionResponse -> TestTree
 responseStartImagePipelineExecution =
@@ -855,7 +855,7 @@ responseStartImagePipelineExecution =
     "StartImagePipelineExecutionResponse"
     "fixture/StartImagePipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartImagePipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartImagePipelineExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -863,7 +863,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateImageRecipe :: CreateImageRecipeResponse -> TestTree
 responseCreateImageRecipe =
@@ -871,7 +871,7 @@ responseCreateImageRecipe =
     "CreateImageRecipeResponse"
     "fixture/CreateImageRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageRecipe)
+    (Proxy.Proxy :: Proxy.Proxy CreateImageRecipe)
 
 responseCreateImage :: CreateImageResponse -> TestTree
 responseCreateImage =
@@ -879,7 +879,7 @@ responseCreateImage =
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateImage)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -887,7 +887,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateComponent :: CreateComponentResponse -> TestTree
 responseCreateComponent =
@@ -895,7 +895,7 @@ responseCreateComponent =
     "CreateComponentResponse"
     "fixture/CreateComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateComponent)
+    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
 
 responseDeleteDistributionConfiguration :: DeleteDistributionConfigurationResponse -> TestTree
 responseDeleteDistributionConfiguration =
@@ -903,7 +903,7 @@ responseDeleteDistributionConfiguration =
     "DeleteDistributionConfigurationResponse"
     "fixture/DeleteDistributionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDistributionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDistributionConfiguration)
 
 responseUpdateDistributionConfiguration :: UpdateDistributionConfigurationResponse -> TestTree
 responseUpdateDistributionConfiguration =
@@ -911,7 +911,7 @@ responseUpdateDistributionConfiguration =
     "UpdateDistributionConfigurationResponse"
     "fixture/UpdateDistributionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDistributionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDistributionConfiguration)
 
 responseListImagePipelineImages :: ListImagePipelineImagesResponse -> TestTree
 responseListImagePipelineImages =
@@ -919,7 +919,7 @@ responseListImagePipelineImages =
     "ListImagePipelineImagesResponse"
     "fixture/ListImagePipelineImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImagePipelineImages)
+    (Proxy.Proxy :: Proxy.Proxy ListImagePipelineImages)
 
 responseDeleteImageRecipe :: DeleteImageRecipeResponse -> TestTree
 responseDeleteImageRecipe =
@@ -927,7 +927,7 @@ responseDeleteImageRecipe =
     "DeleteImageRecipeResponse"
     "fixture/DeleteImageRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImageRecipe)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImageRecipe)
 
 responseListComponents :: ListComponentsResponse -> TestTree
 responseListComponents =
@@ -935,7 +935,7 @@ responseListComponents =
     "ListComponentsResponse"
     "fixture/ListComponentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComponents)
+    (Proxy.Proxy :: Proxy.Proxy ListComponents)
 
 responsePutContainerRecipePolicy :: PutContainerRecipePolicyResponse -> TestTree
 responsePutContainerRecipePolicy =
@@ -943,7 +943,7 @@ responsePutContainerRecipePolicy =
     "PutContainerRecipePolicyResponse"
     "fixture/PutContainerRecipePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutContainerRecipePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutContainerRecipePolicy)
 
 responseListImages :: ListImagesResponse -> TestTree
 responseListImages =
@@ -951,7 +951,7 @@ responseListImages =
     "ListImagesResponse"
     "fixture/ListImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImages)
+    (Proxy.Proxy :: Proxy.Proxy ListImages)
 
 responseCreateDistributionConfiguration :: CreateDistributionConfigurationResponse -> TestTree
 responseCreateDistributionConfiguration =
@@ -959,7 +959,7 @@ responseCreateDistributionConfiguration =
     "CreateDistributionConfigurationResponse"
     "fixture/CreateDistributionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDistributionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateDistributionConfiguration)
 
 responseListImageRecipes :: ListImageRecipesResponse -> TestTree
 responseListImageRecipes =
@@ -967,7 +967,7 @@ responseListImageRecipes =
     "ListImageRecipesResponse"
     "fixture/ListImageRecipesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImageRecipes)
+    (Proxy.Proxy :: Proxy.Proxy ListImageRecipes)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
 responseDeleteImage =
@@ -975,7 +975,7 @@ responseDeleteImage =
     "DeleteImageResponse"
     "fixture/DeleteImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImage)
 
 responseDeleteComponent :: DeleteComponentResponse -> TestTree
 responseDeleteComponent =
@@ -983,7 +983,7 @@ responseDeleteComponent =
     "DeleteComponentResponse"
     "fixture/DeleteComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteComponent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
 
 responseGetImage :: GetImageResponse -> TestTree
 responseGetImage =
@@ -991,7 +991,7 @@ responseGetImage =
     "GetImageResponse"
     "fixture/GetImageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImage)
+    (Proxy.Proxy :: Proxy.Proxy GetImage)
 
 responseGetContainerRecipePolicy :: GetContainerRecipePolicyResponse -> TestTree
 responseGetContainerRecipePolicy =
@@ -999,7 +999,7 @@ responseGetContainerRecipePolicy =
     "GetContainerRecipePolicyResponse"
     "fixture/GetContainerRecipePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerRecipePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerRecipePolicy)
 
 responseGetImageRecipe :: GetImageRecipeResponse -> TestTree
 responseGetImageRecipe =
@@ -1007,7 +1007,7 @@ responseGetImageRecipe =
     "GetImageRecipeResponse"
     "fixture/GetImageRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImageRecipe)
+    (Proxy.Proxy :: Proxy.Proxy GetImageRecipe)
 
 responseGetComponent :: GetComponentResponse -> TestTree
 responseGetComponent =
@@ -1015,4 +1015,4 @@ responseGetComponent =
     "GetComponentResponse"
     "fixture/GetComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComponent)
+    (Proxy.Proxy :: Proxy.Proxy GetComponent)

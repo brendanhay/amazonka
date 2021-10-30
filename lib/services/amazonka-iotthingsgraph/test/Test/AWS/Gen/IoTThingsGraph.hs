@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTThingsGraph where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTThingsGraph
 import Test.AWS.Fixture
 import Test.AWS.IoTThingsGraph.Internal
@@ -463,7 +463,7 @@ responseGetFlowTemplate =
     "GetFlowTemplateResponse"
     "fixture/GetFlowTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetFlowTemplate)
 
 responseUpdateSystemTemplate :: UpdateSystemTemplateResponse -> TestTree
 responseUpdateSystemTemplate =
@@ -471,7 +471,7 @@ responseUpdateSystemTemplate =
     "UpdateSystemTemplateResponse"
     "fixture/UpdateSystemTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSystemTemplate)
 
 responseDeleteSystemTemplate :: DeleteSystemTemplateResponse -> TestTree
 responseDeleteSystemTemplate =
@@ -479,7 +479,7 @@ responseDeleteSystemTemplate =
     "DeleteSystemTemplateResponse"
     "fixture/DeleteSystemTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSystemTemplate)
 
 responseDeprecateFlowTemplate :: DeprecateFlowTemplateResponse -> TestTree
 responseDeprecateFlowTemplate =
@@ -487,7 +487,7 @@ responseDeprecateFlowTemplate =
     "DeprecateFlowTemplateResponse"
     "fixture/DeprecateFlowTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprecateFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateFlowTemplate)
 
 responseDeploySystemInstance :: DeploySystemInstanceResponse -> TestTree
 responseDeploySystemInstance =
@@ -495,7 +495,7 @@ responseDeploySystemInstance =
     "DeploySystemInstanceResponse"
     "fixture/DeploySystemInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeploySystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeploySystemInstance)
 
 responseSearchFlowTemplates :: SearchFlowTemplatesResponse -> TestTree
 responseSearchFlowTemplates =
@@ -503,7 +503,7 @@ responseSearchFlowTemplates =
     "SearchFlowTemplatesResponse"
     "fixture/SearchFlowTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchFlowTemplates)
+    (Proxy.Proxy :: Proxy.Proxy SearchFlowTemplates)
 
 responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
 responseDeleteNamespace =
@@ -511,7 +511,7 @@ responseDeleteNamespace =
     "DeleteNamespaceResponse"
     "fixture/DeleteNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
 
 responseGetSystemInstance :: GetSystemInstanceResponse -> TestTree
 responseGetSystemInstance =
@@ -519,7 +519,7 @@ responseGetSystemInstance =
     "GetSystemInstanceResponse"
     "fixture/GetSystemInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetSystemInstance)
 
 responseListFlowExecutionMessages :: ListFlowExecutionMessagesResponse -> TestTree
 responseListFlowExecutionMessages =
@@ -527,7 +527,7 @@ responseListFlowExecutionMessages =
     "ListFlowExecutionMessagesResponse"
     "fixture/ListFlowExecutionMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFlowExecutionMessages)
+    (Proxy.Proxy :: Proxy.Proxy ListFlowExecutionMessages)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -535,7 +535,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseSearchFlowExecutions :: SearchFlowExecutionsResponse -> TestTree
 responseSearchFlowExecutions =
@@ -543,7 +543,7 @@ responseSearchFlowExecutions =
     "SearchFlowExecutionsResponse"
     "fixture/SearchFlowExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchFlowExecutions)
+    (Proxy.Proxy :: Proxy.Proxy SearchFlowExecutions)
 
 responseDeleteSystemInstance :: DeleteSystemInstanceResponse -> TestTree
 responseDeleteSystemInstance =
@@ -551,7 +551,7 @@ responseDeleteSystemInstance =
     "DeleteSystemInstanceResponse"
     "fixture/DeleteSystemInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSystemInstance)
 
 responseCreateSystemInstance :: CreateSystemInstanceResponse -> TestTree
 responseCreateSystemInstance =
@@ -559,7 +559,7 @@ responseCreateSystemInstance =
     "CreateSystemInstanceResponse"
     "fixture/CreateSystemInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateSystemInstance)
 
 responseDeprecateSystemTemplate :: DeprecateSystemTemplateResponse -> TestTree
 responseDeprecateSystemTemplate =
@@ -567,7 +567,7 @@ responseDeprecateSystemTemplate =
     "DeprecateSystemTemplateResponse"
     "fixture/DeprecateSystemTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprecateSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateSystemTemplate)
 
 responseGetSystemTemplateRevisions :: GetSystemTemplateRevisionsResponse -> TestTree
 responseGetSystemTemplateRevisions =
@@ -575,7 +575,7 @@ responseGetSystemTemplateRevisions =
     "GetSystemTemplateRevisionsResponse"
     "fixture/GetSystemTemplateRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSystemTemplateRevisions)
+    (Proxy.Proxy :: Proxy.Proxy GetSystemTemplateRevisions)
 
 responseSearchEntities :: SearchEntitiesResponse -> TestTree
 responseSearchEntities =
@@ -583,7 +583,7 @@ responseSearchEntities =
     "SearchEntitiesResponse"
     "fixture/SearchEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchEntities)
+    (Proxy.Proxy :: Proxy.Proxy SearchEntities)
 
 responseDeleteFlowTemplate :: DeleteFlowTemplateResponse -> TestTree
 responseDeleteFlowTemplate =
@@ -591,7 +591,7 @@ responseDeleteFlowTemplate =
     "DeleteFlowTemplateResponse"
     "fixture/DeleteFlowTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlowTemplate)
 
 responseUpdateFlowTemplate :: UpdateFlowTemplateResponse -> TestTree
 responseUpdateFlowTemplate =
@@ -599,7 +599,7 @@ responseUpdateFlowTemplate =
     "UpdateFlowTemplateResponse"
     "fixture/UpdateFlowTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowTemplate)
 
 responseGetSystemTemplate :: GetSystemTemplateResponse -> TestTree
 responseGetSystemTemplate =
@@ -607,7 +607,7 @@ responseGetSystemTemplate =
     "GetSystemTemplateResponse"
     "fixture/GetSystemTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetSystemTemplate)
 
 responseSearchSystemInstances :: SearchSystemInstancesResponse -> TestTree
 responseSearchSystemInstances =
@@ -615,7 +615,7 @@ responseSearchSystemInstances =
     "SearchSystemInstancesResponse"
     "fixture/SearchSystemInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchSystemInstances)
+    (Proxy.Proxy :: Proxy.Proxy SearchSystemInstances)
 
 responseGetUploadStatus :: GetUploadStatusResponse -> TestTree
 responseGetUploadStatus =
@@ -623,7 +623,7 @@ responseGetUploadStatus =
     "GetUploadStatusResponse"
     "fixture/GetUploadStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUploadStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetUploadStatus)
 
 responseCreateSystemTemplate :: CreateSystemTemplateResponse -> TestTree
 responseCreateSystemTemplate =
@@ -631,7 +631,7 @@ responseCreateSystemTemplate =
     "CreateSystemTemplateResponse"
     "fixture/CreateSystemTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateSystemTemplate)
 
 responseUndeploySystemInstance :: UndeploySystemInstanceResponse -> TestTree
 responseUndeploySystemInstance =
@@ -639,7 +639,7 @@ responseUndeploySystemInstance =
     "UndeploySystemInstanceResponse"
     "fixture/UndeploySystemInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UndeploySystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy UndeploySystemInstance)
 
 responseGetFlowTemplateRevisions :: GetFlowTemplateRevisionsResponse -> TestTree
 responseGetFlowTemplateRevisions =
@@ -647,7 +647,7 @@ responseGetFlowTemplateRevisions =
     "GetFlowTemplateRevisionsResponse"
     "fixture/GetFlowTemplateRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFlowTemplateRevisions)
+    (Proxy.Proxy :: Proxy.Proxy GetFlowTemplateRevisions)
 
 responseGetNamespaceDeletionStatus :: GetNamespaceDeletionStatusResponse -> TestTree
 responseGetNamespaceDeletionStatus =
@@ -655,7 +655,7 @@ responseGetNamespaceDeletionStatus =
     "GetNamespaceDeletionStatusResponse"
     "fixture/GetNamespaceDeletionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNamespaceDeletionStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetNamespaceDeletionStatus)
 
 responseAssociateEntityToThing :: AssociateEntityToThingResponse -> TestTree
 responseAssociateEntityToThing =
@@ -663,7 +663,7 @@ responseAssociateEntityToThing =
     "AssociateEntityToThingResponse"
     "fixture/AssociateEntityToThingResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateEntityToThing)
+    (Proxy.Proxy :: Proxy.Proxy AssociateEntityToThing)
 
 responseSearchSystemTemplates :: SearchSystemTemplatesResponse -> TestTree
 responseSearchSystemTemplates =
@@ -671,7 +671,7 @@ responseSearchSystemTemplates =
     "SearchSystemTemplatesResponse"
     "fixture/SearchSystemTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchSystemTemplates)
+    (Proxy.Proxy :: Proxy.Proxy SearchSystemTemplates)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -679,7 +679,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -687,7 +687,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetEntities :: GetEntitiesResponse -> TestTree
 responseGetEntities =
@@ -695,7 +695,7 @@ responseGetEntities =
     "GetEntitiesResponse"
     "fixture/GetEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEntities)
+    (Proxy.Proxy :: Proxy.Proxy GetEntities)
 
 responseDescribeNamespace :: DescribeNamespaceResponse -> TestTree
 responseDescribeNamespace =
@@ -703,7 +703,7 @@ responseDescribeNamespace =
     "DescribeNamespaceResponse"
     "fixture/DescribeNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
 
 responseCreateFlowTemplate :: CreateFlowTemplateResponse -> TestTree
 responseCreateFlowTemplate =
@@ -711,7 +711,7 @@ responseCreateFlowTemplate =
     "CreateFlowTemplateResponse"
     "fixture/CreateFlowTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateFlowTemplate)
 
 responseUploadEntityDefinitions :: UploadEntityDefinitionsResponse -> TestTree
 responseUploadEntityDefinitions =
@@ -719,7 +719,7 @@ responseUploadEntityDefinitions =
     "UploadEntityDefinitionsResponse"
     "fixture/UploadEntityDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadEntityDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy UploadEntityDefinitions)
 
 responseDissociateEntityFromThing :: DissociateEntityFromThingResponse -> TestTree
 responseDissociateEntityFromThing =
@@ -727,7 +727,7 @@ responseDissociateEntityFromThing =
     "DissociateEntityFromThingResponse"
     "fixture/DissociateEntityFromThingResponse.proto"
     defaultService
-    (Proxy :: Proxy DissociateEntityFromThing)
+    (Proxy.Proxy :: Proxy.Proxy DissociateEntityFromThing)
 
 responseSearchThings :: SearchThingsResponse -> TestTree
 responseSearchThings =
@@ -735,4 +735,4 @@ responseSearchThings =
     "SearchThingsResponse"
     "fixture/SearchThingsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchThings)
+    (Proxy.Proxy :: Proxy.Proxy SearchThings)

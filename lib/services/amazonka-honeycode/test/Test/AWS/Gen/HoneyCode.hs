@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.HoneyCode where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.HoneyCode
 import Test.AWS.Fixture
 import Test.AWS.HoneyCode.Internal
@@ -187,7 +187,7 @@ responseBatchDeleteTableRows =
     "BatchDeleteTableRowsResponse"
     "fixture/BatchDeleteTableRowsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteTableRows)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteTableRows)
 
 responseBatchUpdateTableRows :: BatchUpdateTableRowsResponse -> TestTree
 responseBatchUpdateTableRows =
@@ -195,7 +195,7 @@ responseBatchUpdateTableRows =
     "BatchUpdateTableRowsResponse"
     "fixture/BatchUpdateTableRowsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdateTableRows)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateTableRows)
 
 responseListTableRows :: ListTableRowsResponse -> TestTree
 responseListTableRows =
@@ -203,7 +203,7 @@ responseListTableRows =
     "ListTableRowsResponse"
     "fixture/ListTableRowsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTableRows)
+    (Proxy.Proxy :: Proxy.Proxy ListTableRows)
 
 responseInvokeScreenAutomation :: InvokeScreenAutomationResponse -> TestTree
 responseInvokeScreenAutomation =
@@ -211,7 +211,7 @@ responseInvokeScreenAutomation =
     "InvokeScreenAutomationResponse"
     "fixture/InvokeScreenAutomationResponse.proto"
     defaultService
-    (Proxy :: Proxy InvokeScreenAutomation)
+    (Proxy.Proxy :: Proxy.Proxy InvokeScreenAutomation)
 
 responseDescribeTableDataImportJob :: DescribeTableDataImportJobResponse -> TestTree
 responseDescribeTableDataImportJob =
@@ -219,7 +219,7 @@ responseDescribeTableDataImportJob =
     "DescribeTableDataImportJobResponse"
     "fixture/DescribeTableDataImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTableDataImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTableDataImportJob)
 
 responseStartTableDataImportJob :: StartTableDataImportJobResponse -> TestTree
 responseStartTableDataImportJob =
@@ -227,7 +227,7 @@ responseStartTableDataImportJob =
     "StartTableDataImportJobResponse"
     "fixture/StartTableDataImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTableDataImportJob)
+    (Proxy.Proxy :: Proxy.Proxy StartTableDataImportJob)
 
 responseBatchCreateTableRows :: BatchCreateTableRowsResponse -> TestTree
 responseBatchCreateTableRows =
@@ -235,7 +235,7 @@ responseBatchCreateTableRows =
     "BatchCreateTableRowsResponse"
     "fixture/BatchCreateTableRowsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateTableRows)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateTableRows)
 
 responseListTables :: ListTablesResponse -> TestTree
 responseListTables =
@@ -243,7 +243,7 @@ responseListTables =
     "ListTablesResponse"
     "fixture/ListTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTables)
+    (Proxy.Proxy :: Proxy.Proxy ListTables)
 
 responseGetScreenData :: GetScreenDataResponse -> TestTree
 responseGetScreenData =
@@ -251,7 +251,7 @@ responseGetScreenData =
     "GetScreenDataResponse"
     "fixture/GetScreenDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetScreenData)
+    (Proxy.Proxy :: Proxy.Proxy GetScreenData)
 
 responseQueryTableRows :: QueryTableRowsResponse -> TestTree
 responseQueryTableRows =
@@ -259,7 +259,7 @@ responseQueryTableRows =
     "QueryTableRowsResponse"
     "fixture/QueryTableRowsResponse.proto"
     defaultService
-    (Proxy :: Proxy QueryTableRows)
+    (Proxy.Proxy :: Proxy.Proxy QueryTableRows)
 
 responseBatchUpsertTableRows :: BatchUpsertTableRowsResponse -> TestTree
 responseBatchUpsertTableRows =
@@ -267,7 +267,7 @@ responseBatchUpsertTableRows =
     "BatchUpsertTableRowsResponse"
     "fixture/BatchUpsertTableRowsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpsertTableRows)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpsertTableRows)
 
 responseListTableColumns :: ListTableColumnsResponse -> TestTree
 responseListTableColumns =
@@ -275,4 +275,4 @@ responseListTableColumns =
     "ListTableColumnsResponse"
     "fixture/ListTableColumnsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTableColumns)
+    (Proxy.Proxy :: Proxy.Proxy ListTableColumns)

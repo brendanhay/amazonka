@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudHSMV2 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudHSMV2
 import Test.AWS.CloudHSMV2.Internal
 import Test.AWS.Fixture
@@ -223,7 +223,7 @@ responseDescribeClusters =
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
 responseDeleteBackup =
@@ -231,7 +231,7 @@ responseDeleteBackup =
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackup)
 
 responseInitializeCluster :: InitializeClusterResponse -> TestTree
 responseInitializeCluster =
@@ -239,7 +239,7 @@ responseInitializeCluster =
     "InitializeClusterResponse"
     "fixture/InitializeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy InitializeCluster)
+    (Proxy.Proxy :: Proxy.Proxy InitializeCluster)
 
 responseCreateHsm :: CreateHsmResponse -> TestTree
 responseCreateHsm =
@@ -247,7 +247,7 @@ responseCreateHsm =
     "CreateHsmResponse"
     "fixture/CreateHsmResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHsm)
+    (Proxy.Proxy :: Proxy.Proxy CreateHsm)
 
 responseDescribeBackups :: DescribeBackupsResponse -> TestTree
 responseDescribeBackups =
@@ -255,7 +255,7 @@ responseDescribeBackups =
     "DescribeBackupsResponse"
     "fixture/DescribeBackupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackups)
 
 responseCopyBackupToRegion :: CopyBackupToRegionResponse -> TestTree
 responseCopyBackupToRegion =
@@ -263,7 +263,7 @@ responseCopyBackupToRegion =
     "CopyBackupToRegionResponse"
     "fixture/CopyBackupToRegionResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyBackupToRegion)
+    (Proxy.Proxy :: Proxy.Proxy CopyBackupToRegion)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -271,7 +271,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -279,7 +279,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseRestoreBackup :: RestoreBackupResponse -> TestTree
 responseRestoreBackup =
@@ -287,7 +287,7 @@ responseRestoreBackup =
     "RestoreBackupResponse"
     "fixture/RestoreBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreBackup)
+    (Proxy.Proxy :: Proxy.Proxy RestoreBackup)
 
 responseDeleteHsm :: DeleteHsmResponse -> TestTree
 responseDeleteHsm =
@@ -295,7 +295,7 @@ responseDeleteHsm =
     "DeleteHsmResponse"
     "fixture/DeleteHsmResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHsm)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHsm)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
 responseModifyCluster =
@@ -303,7 +303,7 @@ responseModifyCluster =
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCluster)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCluster)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -311,7 +311,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -319,7 +319,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -327,7 +327,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseModifyBackupAttributes :: ModifyBackupAttributesResponse -> TestTree
 responseModifyBackupAttributes =
@@ -335,4 +335,4 @@ responseModifyBackupAttributes =
     "ModifyBackupAttributesResponse"
     "fixture/ModifyBackupAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyBackupAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ModifyBackupAttributes)

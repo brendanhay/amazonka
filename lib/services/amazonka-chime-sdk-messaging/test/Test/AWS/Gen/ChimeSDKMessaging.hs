@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ChimeSDKMessaging where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ChimeSDKMessaging
 import Test.AWS.ChimeSDKMessaging.Internal
 import Test.AWS.Fixture
@@ -559,7 +559,7 @@ responseDescribeChannelMembership =
     "DescribeChannelMembershipResponse"
     "fixture/DescribeChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembership)
 
 responseDescribeChannelFlow :: DescribeChannelFlowResponse -> TestTree
 responseDescribeChannelFlow =
@@ -567,7 +567,7 @@ responseDescribeChannelFlow =
     "DescribeChannelFlowResponse"
     "fixture/DescribeChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelFlow)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -575,7 +575,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -583,7 +583,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -591,7 +591,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -599,7 +599,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseAssociateChannelFlow :: AssociateChannelFlowResponse -> TestTree
 responseAssociateChannelFlow =
@@ -607,7 +607,7 @@ responseAssociateChannelFlow =
     "AssociateChannelFlowResponse"
     "fixture/AssociateChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy AssociateChannelFlow)
 
 responseGetMessagingSessionEndpoint :: GetMessagingSessionEndpointResponse -> TestTree
 responseGetMessagingSessionEndpoint =
@@ -615,7 +615,7 @@ responseGetMessagingSessionEndpoint =
     "GetMessagingSessionEndpointResponse"
     "fixture/GetMessagingSessionEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMessagingSessionEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetMessagingSessionEndpoint)
 
 responseListChannelsModeratedByAppInstanceUser :: ListChannelsModeratedByAppInstanceUserResponse -> TestTree
 responseListChannelsModeratedByAppInstanceUser =
@@ -623,7 +623,7 @@ responseListChannelsModeratedByAppInstanceUser =
     "ListChannelsModeratedByAppInstanceUserResponse"
     "fixture/ListChannelsModeratedByAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelsModeratedByAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelsModeratedByAppInstanceUser)
 
 responseRedactChannelMessage :: RedactChannelMessageResponse -> TestTree
 responseRedactChannelMessage =
@@ -631,7 +631,7 @@ responseRedactChannelMessage =
     "RedactChannelMessageResponse"
     "fixture/RedactChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy RedactChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy RedactChannelMessage)
 
 responseListChannelFlows :: ListChannelFlowsResponse -> TestTree
 responseListChannelFlows =
@@ -639,7 +639,7 @@ responseListChannelFlows =
     "ListChannelFlowsResponse"
     "fixture/ListChannelFlowsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelFlows)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelFlows)
 
 responseDeleteChannelFlow :: DeleteChannelFlowResponse -> TestTree
 responseDeleteChannelFlow =
@@ -647,7 +647,7 @@ responseDeleteChannelFlow =
     "DeleteChannelFlowResponse"
     "fixture/DeleteChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelFlow)
 
 responseUpdateChannelFlow :: UpdateChannelFlowResponse -> TestTree
 responseUpdateChannelFlow =
@@ -655,7 +655,7 @@ responseUpdateChannelFlow =
     "UpdateChannelFlowResponse"
     "fixture/UpdateChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelFlow)
 
 responseDeleteChannelMembership :: DeleteChannelMembershipResponse -> TestTree
 responseDeleteChannelMembership =
@@ -663,7 +663,7 @@ responseDeleteChannelMembership =
     "DeleteChannelMembershipResponse"
     "fixture/DeleteChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMembership)
 
 responseListChannelMemberships :: ListChannelMembershipsResponse -> TestTree
 responseListChannelMemberships =
@@ -671,7 +671,7 @@ responseListChannelMemberships =
     "ListChannelMembershipsResponse"
     "fixture/ListChannelMembershipsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelMemberships)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMemberships)
 
 responseDisassociateChannelFlow :: DisassociateChannelFlowResponse -> TestTree
 responseDisassociateChannelFlow =
@@ -679,7 +679,7 @@ responseDisassociateChannelFlow =
     "DisassociateChannelFlowResponse"
     "fixture/DisassociateChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateChannelFlow)
 
 responseGetChannelMessage :: GetChannelMessageResponse -> TestTree
 responseGetChannelMessage =
@@ -687,7 +687,7 @@ responseGetChannelMessage =
     "GetChannelMessageResponse"
     "fixture/GetChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy GetChannelMessage)
 
 responseDescribeChannelMembershipForAppInstanceUser :: DescribeChannelMembershipForAppInstanceUserResponse -> TestTree
 responseDescribeChannelMembershipForAppInstanceUser =
@@ -695,7 +695,7 @@ responseDescribeChannelMembershipForAppInstanceUser =
     "DescribeChannelMembershipForAppInstanceUserResponse"
     "fixture/DescribeChannelMembershipForAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelMembershipForAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembershipForAppInstanceUser)
 
 responseCreateChannelModerator :: CreateChannelModeratorResponse -> TestTree
 responseCreateChannelModerator =
@@ -703,7 +703,7 @@ responseCreateChannelModerator =
     "CreateChannelModeratorResponse"
     "fixture/CreateChannelModeratorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelModerator)
 
 responseDescribeChannelModeratedByAppInstanceUser :: DescribeChannelModeratedByAppInstanceUserResponse -> TestTree
 responseDescribeChannelModeratedByAppInstanceUser =
@@ -711,7 +711,7 @@ responseDescribeChannelModeratedByAppInstanceUser =
     "DescribeChannelModeratedByAppInstanceUserResponse"
     "fixture/DescribeChannelModeratedByAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelModeratedByAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModeratedByAppInstanceUser)
 
 responseSendChannelMessage :: SendChannelMessageResponse -> TestTree
 responseSendChannelMessage =
@@ -719,7 +719,7 @@ responseSendChannelMessage =
     "SendChannelMessageResponse"
     "fixture/SendChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy SendChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy SendChannelMessage)
 
 responseDeleteChannelBan :: DeleteChannelBanResponse -> TestTree
 responseDeleteChannelBan =
@@ -727,7 +727,7 @@ responseDeleteChannelBan =
     "DeleteChannelBanResponse"
     "fixture/DeleteChannelBanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelBan)
 
 responseListChannelBans :: ListChannelBansResponse -> TestTree
 responseListChannelBans =
@@ -735,7 +735,7 @@ responseListChannelBans =
     "ListChannelBansResponse"
     "fixture/ListChannelBansResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelBans)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelBans)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -743,7 +743,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
 
 responseDescribeChannelModerator :: DescribeChannelModeratorResponse -> TestTree
 responseDescribeChannelModerator =
@@ -751,7 +751,7 @@ responseDescribeChannelModerator =
     "DescribeChannelModeratorResponse"
     "fixture/DescribeChannelModeratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModerator)
 
 responseCreateChannelBan :: CreateChannelBanResponse -> TestTree
 responseCreateChannelBan =
@@ -759,7 +759,7 @@ responseCreateChannelBan =
     "CreateChannelBanResponse"
     "fixture/CreateChannelBanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelBan)
 
 responseListChannelMembershipsForAppInstanceUser :: ListChannelMembershipsForAppInstanceUserResponse -> TestTree
 responseListChannelMembershipsForAppInstanceUser =
@@ -767,7 +767,7 @@ responseListChannelMembershipsForAppInstanceUser =
     "ListChannelMembershipsForAppInstanceUserResponse"
     "fixture/ListChannelMembershipsForAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelMembershipsForAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMembershipsForAppInstanceUser)
 
 responseUpdateChannelReadMarker :: UpdateChannelReadMarkerResponse -> TestTree
 responseUpdateChannelReadMarker =
@@ -775,7 +775,7 @@ responseUpdateChannelReadMarker =
     "UpdateChannelReadMarkerResponse"
     "fixture/UpdateChannelReadMarkerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannelReadMarker)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelReadMarker)
 
 responseGetChannelMessageStatus :: GetChannelMessageStatusResponse -> TestTree
 responseGetChannelMessageStatus =
@@ -783,7 +783,7 @@ responseGetChannelMessageStatus =
     "GetChannelMessageStatusResponse"
     "fixture/GetChannelMessageStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannelMessageStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetChannelMessageStatus)
 
 responseCreateChannelFlow :: CreateChannelFlowResponse -> TestTree
 responseCreateChannelFlow =
@@ -791,7 +791,7 @@ responseCreateChannelFlow =
     "CreateChannelFlowResponse"
     "fixture/CreateChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelFlow)
 
 responseCreateChannelMembership :: CreateChannelMembershipResponse -> TestTree
 responseCreateChannelMembership =
@@ -799,7 +799,7 @@ responseCreateChannelMembership =
     "CreateChannelMembershipResponse"
     "fixture/CreateChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelMembership)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -807,7 +807,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseChannelFlowCallback :: ChannelFlowCallbackResponse -> TestTree
 responseChannelFlowCallback =
@@ -815,7 +815,7 @@ responseChannelFlowCallback =
     "ChannelFlowCallbackResponse"
     "fixture/ChannelFlowCallbackResponse.proto"
     defaultService
-    (Proxy :: Proxy ChannelFlowCallback)
+    (Proxy.Proxy :: Proxy.Proxy ChannelFlowCallback)
 
 responseDeleteChannelModerator :: DeleteChannelModeratorResponse -> TestTree
 responseDeleteChannelModerator =
@@ -823,7 +823,7 @@ responseDeleteChannelModerator =
     "DeleteChannelModeratorResponse"
     "fixture/DeleteChannelModeratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelModerator)
 
 responseDescribeChannelBan :: DescribeChannelBanResponse -> TestTree
 responseDescribeChannelBan =
@@ -831,7 +831,7 @@ responseDescribeChannelBan =
     "DescribeChannelBanResponse"
     "fixture/DescribeChannelBanResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelBan)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -839,7 +839,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListChannelModerators :: ListChannelModeratorsResponse -> TestTree
 responseListChannelModerators =
@@ -847,7 +847,7 @@ responseListChannelModerators =
     "ListChannelModeratorsResponse"
     "fixture/ListChannelModeratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelModerators)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelModerators)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
@@ -855,7 +855,7 @@ responseDescribeChannel =
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
 
 responseDeleteChannelMessage :: DeleteChannelMessageResponse -> TestTree
 responseDeleteChannelMessage =
@@ -863,7 +863,7 @@ responseDeleteChannelMessage =
     "DeleteChannelMessageResponse"
     "fixture/DeleteChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMessage)
 
 responseUpdateChannelMessage :: UpdateChannelMessageResponse -> TestTree
 responseUpdateChannelMessage =
@@ -871,7 +871,7 @@ responseUpdateChannelMessage =
     "UpdateChannelMessageResponse"
     "fixture/UpdateChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelMessage)
 
 responseListChannelMessages :: ListChannelMessagesResponse -> TestTree
 responseListChannelMessages =
@@ -879,7 +879,7 @@ responseListChannelMessages =
     "ListChannelMessagesResponse"
     "fixture/ListChannelMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelMessages)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMessages)
 
 responseListChannelsAssociatedWithChannelFlow :: ListChannelsAssociatedWithChannelFlowResponse -> TestTree
 responseListChannelsAssociatedWithChannelFlow =
@@ -887,7 +887,7 @@ responseListChannelsAssociatedWithChannelFlow =
     "ListChannelsAssociatedWithChannelFlowResponse"
     "fixture/ListChannelsAssociatedWithChannelFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelsAssociatedWithChannelFlow)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelsAssociatedWithChannelFlow)
 
 responseBatchCreateChannelMembership :: BatchCreateChannelMembershipResponse -> TestTree
 responseBatchCreateChannelMembership =
@@ -895,4 +895,4 @@ responseBatchCreateChannelMembership =
     "BatchCreateChannelMembershipResponse"
     "fixture/BatchCreateChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateChannelMembership)

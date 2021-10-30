@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApiGatewayV2 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ApiGatewayV2
 import Test.AWS.ApiGatewayV2.Internal
 import Test.AWS.Fixture
@@ -907,7 +907,7 @@ responseCreateApi =
     "CreateApiResponse"
     "fixture/CreateApiResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApi)
+    (Proxy.Proxy :: Proxy.Proxy CreateApi)
 
 responseGetDeployments :: GetDeploymentsResponse -> TestTree
 responseGetDeployments =
@@ -915,7 +915,7 @@ responseGetDeployments =
     "GetDeploymentsResponse"
     "fixture/GetDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeployments)
+    (Proxy.Proxy :: Proxy.Proxy GetDeployments)
 
 responseDeleteAccessLogSettings :: DeleteAccessLogSettingsResponse -> TestTree
 responseDeleteAccessLogSettings =
@@ -923,7 +923,7 @@ responseDeleteAccessLogSettings =
     "DeleteAccessLogSettingsResponse"
     "fixture/DeleteAccessLogSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccessLogSettings)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessLogSettings)
 
 responseGetRouteResponses :: GetRouteResponsesResponse -> TestTree
 responseGetRouteResponses =
@@ -931,7 +931,7 @@ responseGetRouteResponses =
     "GetRouteResponsesResponse"
     "fixture/GetRouteResponsesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRouteResponses)
+    (Proxy.Proxy :: Proxy.Proxy GetRouteResponses)
 
 responseGetDeployment :: GetDeploymentResponse -> TestTree
 responseGetDeployment =
@@ -939,7 +939,7 @@ responseGetDeployment =
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeployment)
+    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
 
 responseGetTags :: GetTagsResponse -> TestTree
 responseGetTags =
@@ -947,7 +947,7 @@ responseGetTags =
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTags)
+    (Proxy.Proxy :: Proxy.Proxy GetTags)
 
 responseGetDomainNames :: GetDomainNamesResponse -> TestTree
 responseGetDomainNames =
@@ -955,7 +955,7 @@ responseGetDomainNames =
     "GetDomainNamesResponse"
     "fixture/GetDomainNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainNames)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainNames)
 
 responseReimportApi :: ReimportApiResponse -> TestTree
 responseReimportApi =
@@ -963,7 +963,7 @@ responseReimportApi =
     "ReimportApiResponse"
     "fixture/ReimportApiResponse.proto"
     defaultService
-    (Proxy :: Proxy ReimportApi)
+    (Proxy.Proxy :: Proxy.Proxy ReimportApi)
 
 responseGetModels :: GetModelsResponse -> TestTree
 responseGetModels =
@@ -971,7 +971,7 @@ responseGetModels =
     "GetModelsResponse"
     "fixture/GetModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetModels)
+    (Proxy.Proxy :: Proxy.Proxy GetModels)
 
 responseCreateIntegration :: CreateIntegrationResponse' -> TestTree
 responseCreateIntegration =
@@ -979,7 +979,7 @@ responseCreateIntegration =
     "CreateIntegrationResponse"
     "fixture/CreateIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIntegration)
+    (Proxy.Proxy :: Proxy.Proxy CreateIntegration)
 
 responseDeleteStage :: DeleteStageResponse -> TestTree
 responseDeleteStage =
@@ -987,7 +987,7 @@ responseDeleteStage =
     "DeleteStageResponse"
     "fixture/DeleteStageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStage)
 
 responseUpdateStage :: UpdateStageResponse -> TestTree
 responseUpdateStage =
@@ -995,7 +995,7 @@ responseUpdateStage =
     "UpdateStageResponse"
     "fixture/UpdateStageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStage)
 
 responseDeleteRouteSettings :: DeleteRouteSettingsResponse -> TestTree
 responseDeleteRouteSettings =
@@ -1003,7 +1003,7 @@ responseDeleteRouteSettings =
     "DeleteRouteSettingsResponse"
     "fixture/DeleteRouteSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRouteSettings)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteSettings)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
 responseCreateDeployment =
@@ -1011,7 +1011,7 @@ responseCreateDeployment =
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseDeleteRoute :: DeleteRouteResponse' -> TestTree
 responseDeleteRoute =
@@ -1019,7 +1019,7 @@ responseDeleteRoute =
     "DeleteRouteResponse"
     "fixture/DeleteRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
 
 responseUpdateRoute :: UpdateRouteResponse' -> TestTree
 responseUpdateRoute =
@@ -1027,7 +1027,7 @@ responseUpdateRoute =
     "UpdateRouteResponse"
     "fixture/UpdateRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoute)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoute)
 
 responseGetVpcLinks :: GetVpcLinksResponse -> TestTree
 responseGetVpcLinks =
@@ -1035,7 +1035,7 @@ responseGetVpcLinks =
     "GetVpcLinksResponse"
     "fixture/GetVpcLinksResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVpcLinks)
+    (Proxy.Proxy :: Proxy.Proxy GetVpcLinks)
 
 responseGetIntegrationResponses :: GetIntegrationResponsesResponse -> TestTree
 responseGetIntegrationResponses =
@@ -1043,7 +1043,7 @@ responseGetIntegrationResponses =
     "GetIntegrationResponsesResponse"
     "fixture/GetIntegrationResponsesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntegrationResponses)
+    (Proxy.Proxy :: Proxy.Proxy GetIntegrationResponses)
 
 responseGetIntegration :: GetIntegrationResponse' -> TestTree
 responseGetIntegration =
@@ -1051,7 +1051,7 @@ responseGetIntegration =
     "GetIntegrationResponse"
     "fixture/GetIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntegration)
+    (Proxy.Proxy :: Proxy.Proxy GetIntegration)
 
 responseDeleteDeployment :: DeleteDeploymentResponse -> TestTree
 responseDeleteDeployment =
@@ -1059,7 +1059,7 @@ responseDeleteDeployment =
     "DeleteDeploymentResponse"
     "fixture/DeleteDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeployment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeployment)
 
 responseUpdateDeployment :: UpdateDeploymentResponse -> TestTree
 responseUpdateDeployment =
@@ -1067,7 +1067,7 @@ responseUpdateDeployment =
     "UpdateDeploymentResponse"
     "fixture/UpdateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeployment)
 
 responseDeleteRouteResponse :: DeleteRouteResponseResponse -> TestTree
 responseDeleteRouteResponse =
@@ -1075,7 +1075,7 @@ responseDeleteRouteResponse =
     "DeleteRouteResponseResponse"
     "fixture/DeleteRouteResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRouteResponse)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteResponse)
 
 responseUpdateRouteResponse :: UpdateRouteResponseResponse -> TestTree
 responseUpdateRouteResponse =
@@ -1083,7 +1083,7 @@ responseUpdateRouteResponse =
     "UpdateRouteResponseResponse"
     "fixture/UpdateRouteResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRouteResponse)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRouteResponse)
 
 responseGetVpcLink :: GetVpcLinkResponse -> TestTree
 responseGetVpcLink =
@@ -1091,7 +1091,7 @@ responseGetVpcLink =
     "GetVpcLinkResponse"
     "fixture/GetVpcLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVpcLink)
+    (Proxy.Proxy :: Proxy.Proxy GetVpcLink)
 
 responseResetAuthorizersCache :: ResetAuthorizersCacheResponse -> TestTree
 responseResetAuthorizersCache =
@@ -1099,7 +1099,7 @@ responseResetAuthorizersCache =
     "ResetAuthorizersCacheResponse"
     "fixture/ResetAuthorizersCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetAuthorizersCache)
+    (Proxy.Proxy :: Proxy.Proxy ResetAuthorizersCache)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -1107,7 +1107,7 @@ responseCreateModel =
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
 
 responseGetIntegrationResponse :: GetIntegrationResponseResponse -> TestTree
 responseGetIntegrationResponse =
@@ -1115,7 +1115,7 @@ responseGetIntegrationResponse =
     "GetIntegrationResponseResponse"
     "fixture/GetIntegrationResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntegrationResponse)
+    (Proxy.Proxy :: Proxy.Proxy GetIntegrationResponse)
 
 responseCreateDomainName :: CreateDomainNameResponse -> TestTree
 responseCreateDomainName =
@@ -1123,7 +1123,7 @@ responseCreateDomainName =
     "CreateDomainNameResponse"
     "fixture/CreateDomainNameResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomainName)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomainName)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -1131,7 +1131,7 @@ responseDeleteModel =
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
 
 responseUpdateModel :: UpdateModelResponse -> TestTree
 responseUpdateModel =
@@ -1139,7 +1139,7 @@ responseUpdateModel =
     "UpdateModelResponse"
     "fixture/UpdateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateModel)
 
 responseCreateRouteResponse :: CreateRouteResponseResponse -> TestTree
 responseCreateRouteResponse =
@@ -1147,7 +1147,7 @@ responseCreateRouteResponse =
     "CreateRouteResponseResponse"
     "fixture/CreateRouteResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRouteResponse)
+    (Proxy.Proxy :: Proxy.Proxy CreateRouteResponse)
 
 responseGetStages :: GetStagesResponse -> TestTree
 responseGetStages =
@@ -1155,7 +1155,7 @@ responseGetStages =
     "GetStagesResponse"
     "fixture/GetStagesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStages)
+    (Proxy.Proxy :: Proxy.Proxy GetStages)
 
 responseGetModel :: GetModelResponse -> TestTree
 responseGetModel =
@@ -1163,7 +1163,7 @@ responseGetModel =
     "GetModelResponse"
     "fixture/GetModelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetModel)
+    (Proxy.Proxy :: Proxy.Proxy GetModel)
 
 responseGetApiMappings :: GetApiMappingsResponse -> TestTree
 responseGetApiMappings =
@@ -1171,7 +1171,7 @@ responseGetApiMappings =
     "GetApiMappingsResponse"
     "fixture/GetApiMappingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApiMappings)
+    (Proxy.Proxy :: Proxy.Proxy GetApiMappings)
 
 responseCreateIntegrationResponse :: CreateIntegrationResponseResponse -> TestTree
 responseCreateIntegrationResponse =
@@ -1179,7 +1179,7 @@ responseCreateIntegrationResponse =
     "CreateIntegrationResponseResponse"
     "fixture/CreateIntegrationResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIntegrationResponse)
+    (Proxy.Proxy :: Proxy.Proxy CreateIntegrationResponse)
 
 responseGetDomainName :: GetDomainNameResponse -> TestTree
 responseGetDomainName =
@@ -1187,7 +1187,7 @@ responseGetDomainName =
     "GetDomainNameResponse"
     "fixture/GetDomainNameResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainName)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainName)
 
 responseCreateVpcLink :: CreateVpcLinkResponse -> TestTree
 responseCreateVpcLink =
@@ -1195,7 +1195,7 @@ responseCreateVpcLink =
     "CreateVpcLinkResponse"
     "fixture/CreateVpcLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcLink)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcLink)
 
 responseGetAuthorizers :: GetAuthorizersResponse -> TestTree
 responseGetAuthorizers =
@@ -1203,7 +1203,7 @@ responseGetAuthorizers =
     "GetAuthorizersResponse"
     "fixture/GetAuthorizersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAuthorizers)
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizers)
 
 responseGetRouteResponse :: GetRouteResponseResponse -> TestTree
 responseGetRouteResponse =
@@ -1211,7 +1211,7 @@ responseGetRouteResponse =
     "GetRouteResponseResponse"
     "fixture/GetRouteResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRouteResponse)
+    (Proxy.Proxy :: Proxy.Proxy GetRouteResponse)
 
 responseExportApi :: ExportApiResponse -> TestTree
 responseExportApi =
@@ -1219,7 +1219,7 @@ responseExportApi =
     "ExportApiResponse"
     "fixture/ExportApiResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportApi)
+    (Proxy.Proxy :: Proxy.Proxy ExportApi)
 
 responseGetRoutes :: GetRoutesResponse -> TestTree
 responseGetRoutes =
@@ -1227,7 +1227,7 @@ responseGetRoutes =
     "GetRoutesResponse"
     "fixture/GetRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoutes)
+    (Proxy.Proxy :: Proxy.Proxy GetRoutes)
 
 responseDeleteCorsConfiguration :: DeleteCorsConfigurationResponse -> TestTree
 responseDeleteCorsConfiguration =
@@ -1235,7 +1235,7 @@ responseDeleteCorsConfiguration =
     "DeleteCorsConfigurationResponse"
     "fixture/DeleteCorsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCorsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCorsConfiguration)
 
 responseDeleteVpcLink :: DeleteVpcLinkResponse -> TestTree
 responseDeleteVpcLink =
@@ -1243,7 +1243,7 @@ responseDeleteVpcLink =
     "DeleteVpcLinkResponse"
     "fixture/DeleteVpcLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcLink)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcLink)
 
 responseUpdateVpcLink :: UpdateVpcLinkResponse -> TestTree
 responseUpdateVpcLink =
@@ -1251,7 +1251,7 @@ responseUpdateVpcLink =
     "UpdateVpcLinkResponse"
     "fixture/UpdateVpcLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVpcLink)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVpcLink)
 
 responseDeleteIntegrationResponse :: DeleteIntegrationResponseResponse -> TestTree
 responseDeleteIntegrationResponse =
@@ -1259,7 +1259,7 @@ responseDeleteIntegrationResponse =
     "DeleteIntegrationResponseResponse"
     "fixture/DeleteIntegrationResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIntegrationResponse)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntegrationResponse)
 
 responseUpdateIntegrationResponse :: UpdateIntegrationResponseResponse -> TestTree
 responseUpdateIntegrationResponse =
@@ -1267,7 +1267,7 @@ responseUpdateIntegrationResponse =
     "UpdateIntegrationResponseResponse"
     "fixture/UpdateIntegrationResponseResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIntegrationResponse)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIntegrationResponse)
 
 responseDeleteIntegration :: DeleteIntegrationResponse' -> TestTree
 responseDeleteIntegration =
@@ -1275,7 +1275,7 @@ responseDeleteIntegration =
     "DeleteIntegrationResponse"
     "fixture/DeleteIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIntegration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntegration)
 
 responseUpdateIntegration :: UpdateIntegrationResponse' -> TestTree
 responseUpdateIntegration =
@@ -1283,7 +1283,7 @@ responseUpdateIntegration =
     "UpdateIntegrationResponse"
     "fixture/UpdateIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIntegration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIntegration)
 
 responseGetRoute :: GetRouteResponse' -> TestTree
 responseGetRoute =
@@ -1291,7 +1291,7 @@ responseGetRoute =
     "GetRouteResponse"
     "fixture/GetRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoute)
+    (Proxy.Proxy :: Proxy.Proxy GetRoute)
 
 responseGetAuthorizer :: GetAuthorizerResponse -> TestTree
 responseGetAuthorizer =
@@ -1299,7 +1299,7 @@ responseGetAuthorizer =
     "GetAuthorizerResponse"
     "fixture/GetAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAuthorizer)
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizer)
 
 responseGetStage :: GetStageResponse -> TestTree
 responseGetStage =
@@ -1307,7 +1307,7 @@ responseGetStage =
     "GetStageResponse"
     "fixture/GetStageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStage)
+    (Proxy.Proxy :: Proxy.Proxy GetStage)
 
 responseGetApiMapping :: GetApiMappingResponse -> TestTree
 responseGetApiMapping =
@@ -1315,7 +1315,7 @@ responseGetApiMapping =
     "GetApiMappingResponse"
     "fixture/GetApiMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApiMapping)
+    (Proxy.Proxy :: Proxy.Proxy GetApiMapping)
 
 responseImportApi :: ImportApiResponse -> TestTree
 responseImportApi =
@@ -1323,7 +1323,7 @@ responseImportApi =
     "ImportApiResponse"
     "fixture/ImportApiResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportApi)
+    (Proxy.Proxy :: Proxy.Proxy ImportApi)
 
 responseGetApis :: GetApisResponse -> TestTree
 responseGetApis =
@@ -1331,7 +1331,7 @@ responseGetApis =
     "GetApisResponse"
     "fixture/GetApisResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApis)
+    (Proxy.Proxy :: Proxy.Proxy GetApis)
 
 responseUpdateApiMapping :: UpdateApiMappingResponse -> TestTree
 responseUpdateApiMapping =
@@ -1339,7 +1339,7 @@ responseUpdateApiMapping =
     "UpdateApiMappingResponse"
     "fixture/UpdateApiMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApiMapping)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApiMapping)
 
 responseDeleteApiMapping :: DeleteApiMappingResponse -> TestTree
 responseDeleteApiMapping =
@@ -1347,7 +1347,7 @@ responseDeleteApiMapping =
     "DeleteApiMappingResponse"
     "fixture/DeleteApiMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApiMapping)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApiMapping)
 
 responseCreateRoute :: CreateRouteResponse' -> TestTree
 responseCreateRoute =
@@ -1355,7 +1355,7 @@ responseCreateRoute =
     "CreateRouteResponse"
     "fixture/CreateRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
 
 responseCreateAuthorizer :: CreateAuthorizerResponse -> TestTree
 responseCreateAuthorizer =
@@ -1363,7 +1363,7 @@ responseCreateAuthorizer =
     "CreateAuthorizerResponse"
     "fixture/CreateAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAuthorizer)
+    (Proxy.Proxy :: Proxy.Proxy CreateAuthorizer)
 
 responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
 responseUpdateAuthorizer =
@@ -1371,7 +1371,7 @@ responseUpdateAuthorizer =
     "UpdateAuthorizerResponse"
     "fixture/UpdateAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAuthorizer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAuthorizer)
 
 responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
 responseDeleteAuthorizer =
@@ -1379,7 +1379,7 @@ responseDeleteAuthorizer =
     "DeleteAuthorizerResponse"
     "fixture/DeleteAuthorizerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAuthorizer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAuthorizer)
 
 responseCreateApiMapping :: CreateApiMappingResponse -> TestTree
 responseCreateApiMapping =
@@ -1387,7 +1387,7 @@ responseCreateApiMapping =
     "CreateApiMappingResponse"
     "fixture/CreateApiMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApiMapping)
+    (Proxy.Proxy :: Proxy.Proxy CreateApiMapping)
 
 responseDeleteRouteRequestParameter :: DeleteRouteRequestParameterResponse -> TestTree
 responseDeleteRouteRequestParameter =
@@ -1395,7 +1395,7 @@ responseDeleteRouteRequestParameter =
     "DeleteRouteRequestParameterResponse"
     "fixture/DeleteRouteRequestParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRouteRequestParameter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteRequestParameter)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1403,7 +1403,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateStage :: CreateStageResponse -> TestTree
 responseCreateStage =
@@ -1411,7 +1411,7 @@ responseCreateStage =
     "CreateStageResponse"
     "fixture/CreateStageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStage)
+    (Proxy.Proxy :: Proxy.Proxy CreateStage)
 
 responseGetIntegrations :: GetIntegrationsResponse -> TestTree
 responseGetIntegrations =
@@ -1419,7 +1419,7 @@ responseGetIntegrations =
     "GetIntegrationsResponse"
     "fixture/GetIntegrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntegrations)
+    (Proxy.Proxy :: Proxy.Proxy GetIntegrations)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1427,7 +1427,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateDomainName :: UpdateDomainNameResponse -> TestTree
 responseUpdateDomainName =
@@ -1435,7 +1435,7 @@ responseUpdateDomainName =
     "UpdateDomainNameResponse"
     "fixture/UpdateDomainNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainName)
 
 responseDeleteDomainName :: DeleteDomainNameResponse -> TestTree
 responseDeleteDomainName =
@@ -1443,7 +1443,7 @@ responseDeleteDomainName =
     "DeleteDomainNameResponse"
     "fixture/DeleteDomainNameResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomainName)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainName)
 
 responseGetApi :: GetApiResponse -> TestTree
 responseGetApi =
@@ -1451,7 +1451,7 @@ responseGetApi =
     "GetApiResponse"
     "fixture/GetApiResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApi)
+    (Proxy.Proxy :: Proxy.Proxy GetApi)
 
 responseDeleteApi :: DeleteApiResponse -> TestTree
 responseDeleteApi =
@@ -1459,7 +1459,7 @@ responseDeleteApi =
     "DeleteApiResponse"
     "fixture/DeleteApiResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApi)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApi)
 
 responseUpdateApi :: UpdateApiResponse -> TestTree
 responseUpdateApi =
@@ -1467,7 +1467,7 @@ responseUpdateApi =
     "UpdateApiResponse"
     "fixture/UpdateApiResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApi)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApi)
 
 responseGetModelTemplate :: GetModelTemplateResponse -> TestTree
 responseGetModelTemplate =
@@ -1475,4 +1475,4 @@ responseGetModelTemplate =
     "GetModelTemplateResponse"
     "fixture/GetModelTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetModelTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetModelTemplate)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeStarNotifications where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeStarNotifications
 import Test.AWS.CodeStarNotifications.Internal
 import Test.AWS.Fixture
@@ -199,7 +199,7 @@ responseCreateNotificationRule =
     "CreateNotificationRuleResponse"
     "fixture/CreateNotificationRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNotificationRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateNotificationRule)
 
 responseUpdateNotificationRule :: UpdateNotificationRuleResponse -> TestTree
 responseUpdateNotificationRule =
@@ -207,7 +207,7 @@ responseUpdateNotificationRule =
     "UpdateNotificationRuleResponse"
     "fixture/UpdateNotificationRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNotificationRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotificationRule)
 
 responseDeleteNotificationRule :: DeleteNotificationRuleResponse -> TestTree
 responseDeleteNotificationRule =
@@ -215,7 +215,7 @@ responseDeleteNotificationRule =
     "DeleteNotificationRuleResponse"
     "fixture/DeleteNotificationRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotificationRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotificationRule)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -223,7 +223,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListEventTypes :: ListEventTypesResponse -> TestTree
 responseListEventTypes =
@@ -231,7 +231,7 @@ responseListEventTypes =
     "ListEventTypesResponse"
     "fixture/ListEventTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListEventTypes)
 
 responseDeleteTarget :: DeleteTargetResponse -> TestTree
 responseDeleteTarget =
@@ -239,7 +239,7 @@ responseDeleteTarget =
     "DeleteTargetResponse"
     "fixture/DeleteTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTarget)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTarget)
 
 responseListNotificationRules :: ListNotificationRulesResponse -> TestTree
 responseListNotificationRules =
@@ -247,7 +247,7 @@ responseListNotificationRules =
     "ListNotificationRulesResponse"
     "fixture/ListNotificationRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotificationRules)
+    (Proxy.Proxy :: Proxy.Proxy ListNotificationRules)
 
 responseListTargets :: ListTargetsResponse -> TestTree
 responseListTargets =
@@ -255,7 +255,7 @@ responseListTargets =
     "ListTargetsResponse"
     "fixture/ListTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTargets)
+    (Proxy.Proxy :: Proxy.Proxy ListTargets)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -263,7 +263,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseSubscribe :: SubscribeResponse -> TestTree
 responseSubscribe =
@@ -271,7 +271,7 @@ responseSubscribe =
     "SubscribeResponse"
     "fixture/SubscribeResponse.proto"
     defaultService
-    (Proxy :: Proxy Subscribe)
+    (Proxy.Proxy :: Proxy.Proxy Subscribe)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -279,7 +279,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
 responseUnsubscribe =
@@ -287,7 +287,7 @@ responseUnsubscribe =
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse.proto"
     defaultService
-    (Proxy :: Proxy Unsubscribe)
+    (Proxy.Proxy :: Proxy.Proxy Unsubscribe)
 
 responseDescribeNotificationRule :: DescribeNotificationRuleResponse -> TestTree
 responseDescribeNotificationRule =
@@ -295,4 +295,4 @@ responseDescribeNotificationRule =
     "DescribeNotificationRuleResponse"
     "fixture/DescribeNotificationRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotificationRule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotificationRule)

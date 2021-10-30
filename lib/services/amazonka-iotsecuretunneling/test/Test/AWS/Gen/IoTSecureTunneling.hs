@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTSecureTunneling where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTSecureTunneling
 import Test.AWS.Fixture
 import Test.AWS.IoTSecureTunneling.Internal
@@ -127,7 +127,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCloseTunnel :: CloseTunnelResponse -> TestTree
 responseCloseTunnel =
@@ -135,7 +135,7 @@ responseCloseTunnel =
     "CloseTunnelResponse"
     "fixture/CloseTunnelResponse.proto"
     defaultService
-    (Proxy :: Proxy CloseTunnel)
+    (Proxy.Proxy :: Proxy.Proxy CloseTunnel)
 
 responseOpenTunnel :: OpenTunnelResponse -> TestTree
 responseOpenTunnel =
@@ -143,7 +143,7 @@ responseOpenTunnel =
     "OpenTunnelResponse"
     "fixture/OpenTunnelResponse.proto"
     defaultService
-    (Proxy :: Proxy OpenTunnel)
+    (Proxy.Proxy :: Proxy.Proxy OpenTunnel)
 
 responseDescribeTunnel :: DescribeTunnelResponse -> TestTree
 responseDescribeTunnel =
@@ -151,7 +151,7 @@ responseDescribeTunnel =
     "DescribeTunnelResponse"
     "fixture/DescribeTunnelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTunnel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTunnel)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -159,7 +159,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -167,7 +167,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListTunnels :: ListTunnelsResponse -> TestTree
 responseListTunnels =
@@ -175,4 +175,4 @@ responseListTunnels =
     "ListTunnelsResponse"
     "fixture/ListTunnelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTunnels)
+    (Proxy.Proxy :: Proxy.Proxy ListTunnels)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.STS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.STS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -139,7 +139,7 @@ responseGetCallerIdentity =
     "GetCallerIdentityResponse"
     "fixture/GetCallerIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCallerIdentity)
+    (Proxy.Proxy :: Proxy.Proxy GetCallerIdentity)
 
 responseAssumeRole :: AssumeRoleResponse -> TestTree
 responseAssumeRole =
@@ -147,7 +147,7 @@ responseAssumeRole =
     "AssumeRoleResponse"
     "fixture/AssumeRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy AssumeRole)
+    (Proxy.Proxy :: Proxy.Proxy AssumeRole)
 
 responseGetAccessKeyInfo :: GetAccessKeyInfoResponse -> TestTree
 responseGetAccessKeyInfo =
@@ -155,7 +155,7 @@ responseGetAccessKeyInfo =
     "GetAccessKeyInfoResponse"
     "fixture/GetAccessKeyInfoResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccessKeyInfo)
+    (Proxy.Proxy :: Proxy.Proxy GetAccessKeyInfo)
 
 responseDecodeAuthorizationMessage :: DecodeAuthorizationMessageResponse -> TestTree
 responseDecodeAuthorizationMessage =
@@ -163,7 +163,7 @@ responseDecodeAuthorizationMessage =
     "DecodeAuthorizationMessageResponse"
     "fixture/DecodeAuthorizationMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy DecodeAuthorizationMessage)
+    (Proxy.Proxy :: Proxy.Proxy DecodeAuthorizationMessage)
 
 responseAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentityResponse -> TestTree
 responseAssumeRoleWithWebIdentity =
@@ -171,7 +171,7 @@ responseAssumeRoleWithWebIdentity =
     "AssumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy AssumeRoleWithWebIdentity)
+    (Proxy.Proxy :: Proxy.Proxy AssumeRoleWithWebIdentity)
 
 responseGetFederationToken :: GetFederationTokenResponse -> TestTree
 responseGetFederationToken =
@@ -179,7 +179,7 @@ responseGetFederationToken =
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFederationToken)
+    (Proxy.Proxy :: Proxy.Proxy GetFederationToken)
 
 responseGetSessionToken :: GetSessionTokenResponse -> TestTree
 responseGetSessionToken =
@@ -187,7 +187,7 @@ responseGetSessionToken =
     "GetSessionTokenResponse"
     "fixture/GetSessionTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSessionToken)
+    (Proxy.Proxy :: Proxy.Proxy GetSessionToken)
 
 responseAssumeRoleWithSAML :: AssumeRoleWithSAMLResponse -> TestTree
 responseAssumeRoleWithSAML =
@@ -195,4 +195,4 @@ responseAssumeRoleWithSAML =
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse.proto"
     defaultService
-    (Proxy :: Proxy AssumeRoleWithSAML)
+    (Proxy.Proxy :: Proxy.Proxy AssumeRoleWithSAML)

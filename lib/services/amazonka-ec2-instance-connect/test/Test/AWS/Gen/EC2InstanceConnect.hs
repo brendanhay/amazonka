@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EC2InstanceConnect where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EC2InstanceConnect
 import Test.AWS.EC2InstanceConnect.Internal
 import Test.AWS.Fixture
@@ -67,7 +67,7 @@ responseSendSSHPublicKey =
     "SendSSHPublicKeyResponse"
     "fixture/SendSSHPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy SendSSHPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy SendSSHPublicKey)
 
 responseSendSerialConsoleSSHPublicKey :: SendSerialConsoleSSHPublicKeyResponse -> TestTree
 responseSendSerialConsoleSSHPublicKey =
@@ -75,4 +75,4 @@ responseSendSerialConsoleSSHPublicKey =
     "SendSerialConsoleSSHPublicKeyResponse"
     "fixture/SendSerialConsoleSSHPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy SendSerialConsoleSSHPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy SendSerialConsoleSSHPublicKey)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MwAA where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MwAA
 import Test.AWS.Fixture
 import Test.AWS.MwAA.Internal
@@ -175,7 +175,7 @@ responseListEnvironments =
     "ListEnvironmentsResponse"
     "fixture/ListEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
 
 responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
 responseUpdateEnvironment =
@@ -183,7 +183,7 @@ responseUpdateEnvironment =
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -191,7 +191,7 @@ responseDeleteEnvironment =
     "DeleteEnvironmentResponse"
     "fixture/DeleteEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEnvironment)
 
 responseCreateWebLoginToken :: CreateWebLoginTokenResponse -> TestTree
 responseCreateWebLoginToken =
@@ -199,7 +199,7 @@ responseCreateWebLoginToken =
     "CreateWebLoginTokenResponse"
     "fixture/CreateWebLoginTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWebLoginToken)
+    (Proxy.Proxy :: Proxy.Proxy CreateWebLoginToken)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -207,7 +207,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -215,7 +215,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetEnvironment :: GetEnvironmentResponse -> TestTree
 responseGetEnvironment =
@@ -223,7 +223,7 @@ responseGetEnvironment =
     "GetEnvironmentResponse"
     "fixture/GetEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy GetEnvironment)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -231,7 +231,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responsePublishMetrics :: PublishMetricsResponse -> TestTree
 responsePublishMetrics =
@@ -239,7 +239,7 @@ responsePublishMetrics =
     "PublishMetricsResponse"
     "fixture/PublishMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishMetrics)
+    (Proxy.Proxy :: Proxy.Proxy PublishMetrics)
 
 responseCreateEnvironment :: CreateEnvironmentResponse -> TestTree
 responseCreateEnvironment =
@@ -247,7 +247,7 @@ responseCreateEnvironment =
     "CreateEnvironmentResponse"
     "fixture/CreateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy CreateEnvironment)
 
 responseCreateCliToken :: CreateCliTokenResponse -> TestTree
 responseCreateCliToken =
@@ -255,4 +255,4 @@ responseCreateCliToken =
     "CreateCliTokenResponse"
     "fixture/CreateCliTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCliToken)
+    (Proxy.Proxy :: Proxy.Proxy CreateCliToken)

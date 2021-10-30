@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeBuild where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeBuild
 import Test.AWS.CodeBuild.Internal
 import Test.AWS.Fixture
@@ -583,7 +583,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -591,7 +591,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -599,7 +599,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseDeleteSourceCredentials :: DeleteSourceCredentialsResponse -> TestTree
 responseDeleteSourceCredentials =
@@ -607,7 +607,7 @@ responseDeleteSourceCredentials =
     "DeleteSourceCredentialsResponse"
     "fixture/DeleteSourceCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSourceCredentials)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSourceCredentials)
 
 responseListBuilds :: ListBuildsResponse -> TestTree
 responseListBuilds =
@@ -615,7 +615,7 @@ responseListBuilds =
     "ListBuildsResponse"
     "fixture/ListBuildsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBuilds)
+    (Proxy.Proxy :: Proxy.Proxy ListBuilds)
 
 responseListSourceCredentials :: ListSourceCredentialsResponse -> TestTree
 responseListSourceCredentials =
@@ -623,7 +623,7 @@ responseListSourceCredentials =
     "ListSourceCredentialsResponse"
     "fixture/ListSourceCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSourceCredentials)
+    (Proxy.Proxy :: Proxy.Proxy ListSourceCredentials)
 
 responseListReports :: ListReportsResponse -> TestTree
 responseListReports =
@@ -631,7 +631,7 @@ responseListReports =
     "ListReportsResponse"
     "fixture/ListReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReports)
+    (Proxy.Proxy :: Proxy.Proxy ListReports)
 
 responseDeleteReport :: DeleteReportResponse -> TestTree
 responseDeleteReport =
@@ -639,7 +639,7 @@ responseDeleteReport =
     "DeleteReportResponse"
     "fixture/DeleteReportResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReport)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReport)
 
 responseCreateWebhook :: CreateWebhookResponse -> TestTree
 responseCreateWebhook =
@@ -647,7 +647,7 @@ responseCreateWebhook =
     "CreateWebhookResponse"
     "fixture/CreateWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWebhook)
+    (Proxy.Proxy :: Proxy.Proxy CreateWebhook)
 
 responseStopBuildBatch :: StopBuildBatchResponse -> TestTree
 responseStopBuildBatch =
@@ -655,7 +655,7 @@ responseStopBuildBatch =
     "StopBuildBatchResponse"
     "fixture/StopBuildBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy StopBuildBatch)
+    (Proxy.Proxy :: Proxy.Proxy StopBuildBatch)
 
 responseListSharedProjects :: ListSharedProjectsResponse -> TestTree
 responseListSharedProjects =
@@ -663,7 +663,7 @@ responseListSharedProjects =
     "ListSharedProjectsResponse"
     "fixture/ListSharedProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSharedProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListSharedProjects)
 
 responseCreateReportGroup :: CreateReportGroupResponse -> TestTree
 responseCreateReportGroup =
@@ -671,7 +671,7 @@ responseCreateReportGroup =
     "CreateReportGroupResponse"
     "fixture/CreateReportGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReportGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateReportGroup)
 
 responseDescribeCodeCoverages :: DescribeCodeCoveragesResponse -> TestTree
 responseDescribeCodeCoverages =
@@ -679,7 +679,7 @@ responseDescribeCodeCoverages =
     "DescribeCodeCoveragesResponse"
     "fixture/DescribeCodeCoveragesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCodeCoverages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCodeCoverages)
 
 responseImportSourceCredentials :: ImportSourceCredentialsResponse -> TestTree
 responseImportSourceCredentials =
@@ -687,7 +687,7 @@ responseImportSourceCredentials =
     "ImportSourceCredentialsResponse"
     "fixture/ImportSourceCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportSourceCredentials)
+    (Proxy.Proxy :: Proxy.Proxy ImportSourceCredentials)
 
 responseListBuildBatchesForProject :: ListBuildBatchesForProjectResponse -> TestTree
 responseListBuildBatchesForProject =
@@ -695,7 +695,7 @@ responseListBuildBatchesForProject =
     "ListBuildBatchesForProjectResponse"
     "fixture/ListBuildBatchesForProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBuildBatchesForProject)
+    (Proxy.Proxy :: Proxy.Proxy ListBuildBatchesForProject)
 
 responseBatchGetReportGroups :: BatchGetReportGroupsResponse -> TestTree
 responseBatchGetReportGroups =
@@ -703,7 +703,7 @@ responseBatchGetReportGroups =
     "BatchGetReportGroupsResponse"
     "fixture/BatchGetReportGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetReportGroups)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetReportGroups)
 
 responseDeleteBuildBatch :: DeleteBuildBatchResponse -> TestTree
 responseDeleteBuildBatch =
@@ -711,7 +711,7 @@ responseDeleteBuildBatch =
     "DeleteBuildBatchResponse"
     "fixture/DeleteBuildBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBuildBatch)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBuildBatch)
 
 responseStartBuild :: StartBuildResponse -> TestTree
 responseStartBuild =
@@ -719,7 +719,7 @@ responseStartBuild =
     "StartBuildResponse"
     "fixture/StartBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy StartBuild)
+    (Proxy.Proxy :: Proxy.Proxy StartBuild)
 
 responseBatchGetBuildBatches :: BatchGetBuildBatchesResponse -> TestTree
 responseBatchGetBuildBatches =
@@ -727,7 +727,7 @@ responseBatchGetBuildBatches =
     "BatchGetBuildBatchesResponse"
     "fixture/BatchGetBuildBatchesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetBuildBatches)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetBuildBatches)
 
 responseRetryBuild :: RetryBuildResponse -> TestTree
 responseRetryBuild =
@@ -735,7 +735,7 @@ responseRetryBuild =
     "RetryBuildResponse"
     "fixture/RetryBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy RetryBuild)
+    (Proxy.Proxy :: Proxy.Proxy RetryBuild)
 
 responseListBuildsForProject :: ListBuildsForProjectResponse -> TestTree
 responseListBuildsForProject =
@@ -743,7 +743,7 @@ responseListBuildsForProject =
     "ListBuildsForProjectResponse"
     "fixture/ListBuildsForProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBuildsForProject)
+    (Proxy.Proxy :: Proxy.Proxy ListBuildsForProject)
 
 responseDescribeTestCases :: DescribeTestCasesResponse -> TestTree
 responseDescribeTestCases =
@@ -751,7 +751,7 @@ responseDescribeTestCases =
     "DescribeTestCasesResponse"
     "fixture/DescribeTestCasesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTestCases)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTestCases)
 
 responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
 responseGetResourcePolicy =
@@ -759,7 +759,7 @@ responseGetResourcePolicy =
     "GetResourcePolicyResponse"
     "fixture/GetResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
 
 responseBatchGetProjects :: BatchGetProjectsResponse -> TestTree
 responseBatchGetProjects =
@@ -767,7 +767,7 @@ responseBatchGetProjects =
     "BatchGetProjectsResponse"
     "fixture/BatchGetProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetProjects)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetProjects)
 
 responseBatchGetBuilds :: BatchGetBuildsResponse -> TestTree
 responseBatchGetBuilds =
@@ -775,7 +775,7 @@ responseBatchGetBuilds =
     "BatchGetBuildsResponse"
     "fixture/BatchGetBuildsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetBuilds)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetBuilds)
 
 responseBatchGetReports :: BatchGetReportsResponse -> TestTree
 responseBatchGetReports =
@@ -783,7 +783,7 @@ responseBatchGetReports =
     "BatchGetReportsResponse"
     "fixture/BatchGetReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetReports)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetReports)
 
 responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
 responseUpdateWebhook =
@@ -791,7 +791,7 @@ responseUpdateWebhook =
     "UpdateWebhookResponse"
     "fixture/UpdateWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWebhook)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWebhook)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
 responseDeleteWebhook =
@@ -799,7 +799,7 @@ responseDeleteWebhook =
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWebhook)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
 
 responseStartBuildBatch :: StartBuildBatchResponse -> TestTree
 responseStartBuildBatch =
@@ -807,7 +807,7 @@ responseStartBuildBatch =
     "StartBuildBatchResponse"
     "fixture/StartBuildBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy StartBuildBatch)
+    (Proxy.Proxy :: Proxy.Proxy StartBuildBatch)
 
 responseRetryBuildBatch :: RetryBuildBatchResponse -> TestTree
 responseRetryBuildBatch =
@@ -815,7 +815,7 @@ responseRetryBuildBatch =
     "RetryBuildBatchResponse"
     "fixture/RetryBuildBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy RetryBuildBatch)
+    (Proxy.Proxy :: Proxy.Proxy RetryBuildBatch)
 
 responseUpdateProjectVisibility :: UpdateProjectVisibilityResponse -> TestTree
 responseUpdateProjectVisibility =
@@ -823,7 +823,7 @@ responseUpdateProjectVisibility =
     "UpdateProjectVisibilityResponse"
     "fixture/UpdateProjectVisibilityResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProjectVisibility)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProjectVisibility)
 
 responseListReportsForReportGroup :: ListReportsForReportGroupResponse -> TestTree
 responseListReportsForReportGroup =
@@ -831,7 +831,7 @@ responseListReportsForReportGroup =
     "ListReportsForReportGroupResponse"
     "fixture/ListReportsForReportGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReportsForReportGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListReportsForReportGroup)
 
 responseInvalidateProjectCache :: InvalidateProjectCacheResponse -> TestTree
 responseInvalidateProjectCache =
@@ -839,7 +839,7 @@ responseInvalidateProjectCache =
     "InvalidateProjectCacheResponse"
     "fixture/InvalidateProjectCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy InvalidateProjectCache)
+    (Proxy.Proxy :: Proxy.Proxy InvalidateProjectCache)
 
 responseUpdateReportGroup :: UpdateReportGroupResponse -> TestTree
 responseUpdateReportGroup =
@@ -847,7 +847,7 @@ responseUpdateReportGroup =
     "UpdateReportGroupResponse"
     "fixture/UpdateReportGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReportGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReportGroup)
 
 responseDeleteReportGroup :: DeleteReportGroupResponse -> TestTree
 responseDeleteReportGroup =
@@ -855,7 +855,7 @@ responseDeleteReportGroup =
     "DeleteReportGroupResponse"
     "fixture/DeleteReportGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReportGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReportGroup)
 
 responseBatchDeleteBuilds :: BatchDeleteBuildsResponse -> TestTree
 responseBatchDeleteBuilds =
@@ -863,7 +863,7 @@ responseBatchDeleteBuilds =
     "BatchDeleteBuildsResponse"
     "fixture/BatchDeleteBuildsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteBuilds)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteBuilds)
 
 responseListReportGroups :: ListReportGroupsResponse -> TestTree
 responseListReportGroups =
@@ -871,7 +871,7 @@ responseListReportGroups =
     "ListReportGroupsResponse"
     "fixture/ListReportGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReportGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListReportGroups)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -879,7 +879,7 @@ responsePutResourcePolicy =
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -887,7 +887,7 @@ responseDeleteResourcePolicy =
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseListCuratedEnvironmentImages :: ListCuratedEnvironmentImagesResponse -> TestTree
 responseListCuratedEnvironmentImages =
@@ -895,7 +895,7 @@ responseListCuratedEnvironmentImages =
     "ListCuratedEnvironmentImagesResponse"
     "fixture/ListCuratedEnvironmentImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCuratedEnvironmentImages)
+    (Proxy.Proxy :: Proxy.Proxy ListCuratedEnvironmentImages)
 
 responseGetReportGroupTrend :: GetReportGroupTrendResponse -> TestTree
 responseGetReportGroupTrend =
@@ -903,7 +903,7 @@ responseGetReportGroupTrend =
     "GetReportGroupTrendResponse"
     "fixture/GetReportGroupTrendResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReportGroupTrend)
+    (Proxy.Proxy :: Proxy.Proxy GetReportGroupTrend)
 
 responseStopBuild :: StopBuildResponse -> TestTree
 responseStopBuild =
@@ -911,7 +911,7 @@ responseStopBuild =
     "StopBuildResponse"
     "fixture/StopBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy StopBuild)
+    (Proxy.Proxy :: Proxy.Proxy StopBuild)
 
 responseListBuildBatches :: ListBuildBatchesResponse -> TestTree
 responseListBuildBatches =
@@ -919,7 +919,7 @@ responseListBuildBatches =
     "ListBuildBatchesResponse"
     "fixture/ListBuildBatchesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBuildBatches)
+    (Proxy.Proxy :: Proxy.Proxy ListBuildBatches)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -927,7 +927,7 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
 responseListSharedReportGroups :: ListSharedReportGroupsResponse -> TestTree
 responseListSharedReportGroups =
@@ -935,4 +935,4 @@ responseListSharedReportGroups =
     "ListSharedReportGroupsResponse"
     "fixture/ListSharedReportGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSharedReportGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListSharedReportGroups)

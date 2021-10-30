@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Outposts where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Outposts
 import Test.AWS.Fixture
 import Test.AWS.Outposts.Internal
@@ -175,7 +175,7 @@ responseDeleteOutpost =
     "DeleteOutpostResponse"
     "fixture/DeleteOutpostResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOutpost)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOutpost)
 
 responseDeleteSite :: DeleteSiteResponse -> TestTree
 responseDeleteSite =
@@ -183,7 +183,7 @@ responseDeleteSite =
     "DeleteSiteResponse"
     "fixture/DeleteSiteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSite)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSite)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -191,7 +191,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListOutposts :: ListOutpostsResponse -> TestTree
 responseListOutposts =
@@ -199,7 +199,7 @@ responseListOutposts =
     "ListOutpostsResponse"
     "fixture/ListOutpostsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOutposts)
+    (Proxy.Proxy :: Proxy.Proxy ListOutposts)
 
 responseListSites :: ListSitesResponse -> TestTree
 responseListSites =
@@ -207,7 +207,7 @@ responseListSites =
     "ListSitesResponse"
     "fixture/ListSitesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSites)
+    (Proxy.Proxy :: Proxy.Proxy ListSites)
 
 responseCreateOrder :: CreateOrderResponse -> TestTree
 responseCreateOrder =
@@ -215,7 +215,7 @@ responseCreateOrder =
     "CreateOrderResponse"
     "fixture/CreateOrderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOrder)
+    (Proxy.Proxy :: Proxy.Proxy CreateOrder)
 
 responseGetOutpostInstanceTypes :: GetOutpostInstanceTypesResponse -> TestTree
 responseGetOutpostInstanceTypes =
@@ -223,7 +223,7 @@ responseGetOutpostInstanceTypes =
     "GetOutpostInstanceTypesResponse"
     "fixture/GetOutpostInstanceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOutpostInstanceTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetOutpostInstanceTypes)
 
 responseCreateOutpost :: CreateOutpostResponse -> TestTree
 responseCreateOutpost =
@@ -231,7 +231,7 @@ responseCreateOutpost =
     "CreateOutpostResponse"
     "fixture/CreateOutpostResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOutpost)
+    (Proxy.Proxy :: Proxy.Proxy CreateOutpost)
 
 responseGetOutpost :: GetOutpostResponse -> TestTree
 responseGetOutpost =
@@ -239,7 +239,7 @@ responseGetOutpost =
     "GetOutpostResponse"
     "fixture/GetOutpostResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOutpost)
+    (Proxy.Proxy :: Proxy.Proxy GetOutpost)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -247,7 +247,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -255,4 +255,4 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

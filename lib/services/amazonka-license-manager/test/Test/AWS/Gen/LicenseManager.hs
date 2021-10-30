@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LicenseManager where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LicenseManager
 import Test.AWS.Fixture
 import Test.AWS.LicenseManager.Internal
@@ -619,7 +619,7 @@ responseListLicenseManagerReportGenerators =
     "ListLicenseManagerReportGeneratorsResponse"
     "fixture/ListLicenseManagerReportGeneratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLicenseManagerReportGenerators)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseManagerReportGenerators)
 
 responseDeleteLicenseManagerReportGenerator :: DeleteLicenseManagerReportGeneratorResponse -> TestTree
 responseDeleteLicenseManagerReportGenerator =
@@ -627,7 +627,7 @@ responseDeleteLicenseManagerReportGenerator =
     "DeleteLicenseManagerReportGeneratorResponse"
     "fixture/DeleteLicenseManagerReportGeneratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLicenseManagerReportGenerator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLicenseManagerReportGenerator)
 
 responseUpdateLicenseManagerReportGenerator :: UpdateLicenseManagerReportGeneratorResponse -> TestTree
 responseUpdateLicenseManagerReportGenerator =
@@ -635,7 +635,7 @@ responseUpdateLicenseManagerReportGenerator =
     "UpdateLicenseManagerReportGeneratorResponse"
     "fixture/UpdateLicenseManagerReportGeneratorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLicenseManagerReportGenerator)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseManagerReportGenerator)
 
 responseListUsageForLicenseConfiguration :: ListUsageForLicenseConfigurationResponse -> TestTree
 responseListUsageForLicenseConfiguration =
@@ -643,7 +643,7 @@ responseListUsageForLicenseConfiguration =
     "ListUsageForLicenseConfigurationResponse"
     "fixture/ListUsageForLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsageForLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ListUsageForLicenseConfiguration)
 
 responseCreateLicenseConfiguration :: CreateLicenseConfigurationResponse -> TestTree
 responseCreateLicenseConfiguration =
@@ -651,7 +651,7 @@ responseCreateLicenseConfiguration =
     "CreateLicenseConfigurationResponse"
     "fixture/CreateLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseConfiguration)
 
 responseCreateLicense :: CreateLicenseResponse -> TestTree
 responseCreateLicense =
@@ -659,7 +659,7 @@ responseCreateLicense =
     "CreateLicenseResponse"
     "fixture/CreateLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLicense)
+    (Proxy.Proxy :: Proxy.Proxy CreateLicense)
 
 responseListLicenseConversionTasks :: ListLicenseConversionTasksResponse -> TestTree
 responseListLicenseConversionTasks =
@@ -667,7 +667,7 @@ responseListLicenseConversionTasks =
     "ListLicenseConversionTasksResponse"
     "fixture/ListLicenseConversionTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLicenseConversionTasks)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseConversionTasks)
 
 responseListResourceInventory :: ListResourceInventoryResponse -> TestTree
 responseListResourceInventory =
@@ -675,7 +675,7 @@ responseListResourceInventory =
     "ListResourceInventoryResponse"
     "fixture/ListResourceInventoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceInventory)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceInventory)
 
 responseDeleteToken :: DeleteTokenResponse -> TestTree
 responseDeleteToken =
@@ -683,7 +683,7 @@ responseDeleteToken =
     "DeleteTokenResponse"
     "fixture/DeleteTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteToken)
+    (Proxy.Proxy :: Proxy.Proxy DeleteToken)
 
 responseDeleteLicenseConfiguration :: DeleteLicenseConfigurationResponse -> TestTree
 responseDeleteLicenseConfiguration =
@@ -691,7 +691,7 @@ responseDeleteLicenseConfiguration =
     "DeleteLicenseConfigurationResponse"
     "fixture/DeleteLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLicenseConfiguration)
 
 responseUpdateLicenseConfiguration :: UpdateLicenseConfigurationResponse -> TestTree
 responseUpdateLicenseConfiguration =
@@ -699,7 +699,7 @@ responseUpdateLicenseConfiguration =
     "UpdateLicenseConfigurationResponse"
     "fixture/UpdateLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseConfiguration)
 
 responseCheckInLicense :: CheckInLicenseResponse -> TestTree
 responseCheckInLicense =
@@ -707,7 +707,7 @@ responseCheckInLicense =
     "CheckInLicenseResponse"
     "fixture/CheckInLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckInLicense)
+    (Proxy.Proxy :: Proxy.Proxy CheckInLicense)
 
 responseListTokens :: ListTokensResponse -> TestTree
 responseListTokens =
@@ -715,7 +715,7 @@ responseListTokens =
     "ListTokensResponse"
     "fixture/ListTokensResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTokens)
+    (Proxy.Proxy :: Proxy.Proxy ListTokens)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -723,7 +723,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateGrant :: CreateGrantResponse -> TestTree
 responseCreateGrant =
@@ -731,7 +731,7 @@ responseCreateGrant =
     "CreateGrantResponse"
     "fixture/CreateGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGrant)
+    (Proxy.Proxy :: Proxy.Proxy CreateGrant)
 
 responseUpdateLicenseSpecificationsForResource :: UpdateLicenseSpecificationsForResourceResponse -> TestTree
 responseUpdateLicenseSpecificationsForResource =
@@ -739,7 +739,7 @@ responseUpdateLicenseSpecificationsForResource =
     "UpdateLicenseSpecificationsForResourceResponse"
     "fixture/UpdateLicenseSpecificationsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLicenseSpecificationsForResource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseSpecificationsForResource)
 
 responseCreateLicenseVersion :: CreateLicenseVersionResponse -> TestTree
 responseCreateLicenseVersion =
@@ -747,7 +747,7 @@ responseCreateLicenseVersion =
     "CreateLicenseVersionResponse"
     "fixture/CreateLicenseVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLicenseVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseVersion)
 
 responseGetLicense :: GetLicenseResponse -> TestTree
 responseGetLicense =
@@ -755,7 +755,7 @@ responseGetLicense =
     "GetLicenseResponse"
     "fixture/GetLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLicense)
+    (Proxy.Proxy :: Proxy.Proxy GetLicense)
 
 responseGetLicenseConfiguration :: GetLicenseConfigurationResponse -> TestTree
 responseGetLicenseConfiguration =
@@ -763,7 +763,7 @@ responseGetLicenseConfiguration =
     "GetLicenseConfigurationResponse"
     "fixture/GetLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetLicenseConfiguration)
 
 responseListReceivedGrants :: ListReceivedGrantsResponse -> TestTree
 responseListReceivedGrants =
@@ -771,7 +771,7 @@ responseListReceivedGrants =
     "ListReceivedGrantsResponse"
     "fixture/ListReceivedGrantsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReceivedGrants)
+    (Proxy.Proxy :: Proxy.Proxy ListReceivedGrants)
 
 responseGetLicenseConversionTask :: GetLicenseConversionTaskResponse -> TestTree
 responseGetLicenseConversionTask =
@@ -779,7 +779,7 @@ responseGetLicenseConversionTask =
     "GetLicenseConversionTaskResponse"
     "fixture/GetLicenseConversionTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLicenseConversionTask)
+    (Proxy.Proxy :: Proxy.Proxy GetLicenseConversionTask)
 
 responseGetLicenseUsage :: GetLicenseUsageResponse -> TestTree
 responseGetLicenseUsage =
@@ -787,7 +787,7 @@ responseGetLicenseUsage =
     "GetLicenseUsageResponse"
     "fixture/GetLicenseUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLicenseUsage)
+    (Proxy.Proxy :: Proxy.Proxy GetLicenseUsage)
 
 responseExtendLicenseConsumption :: ExtendLicenseConsumptionResponse -> TestTree
 responseExtendLicenseConsumption =
@@ -795,7 +795,7 @@ responseExtendLicenseConsumption =
     "ExtendLicenseConsumptionResponse"
     "fixture/ExtendLicenseConsumptionResponse.proto"
     defaultService
-    (Proxy :: Proxy ExtendLicenseConsumption)
+    (Proxy.Proxy :: Proxy.Proxy ExtendLicenseConsumption)
 
 responseGetGrant :: GetGrantResponse -> TestTree
 responseGetGrant =
@@ -803,7 +803,7 @@ responseGetGrant =
     "GetGrantResponse"
     "fixture/GetGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGrant)
+    (Proxy.Proxy :: Proxy.Proxy GetGrant)
 
 responseCheckoutLicense :: CheckoutLicenseResponse -> TestTree
 responseCheckoutLicense =
@@ -811,7 +811,7 @@ responseCheckoutLicense =
     "CheckoutLicenseResponse"
     "fixture/CheckoutLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckoutLicense)
+    (Proxy.Proxy :: Proxy.Proxy CheckoutLicense)
 
 responseCreateLicenseConversionTaskForResource :: CreateLicenseConversionTaskForResourceResponse -> TestTree
 responseCreateLicenseConversionTaskForResource =
@@ -819,7 +819,7 @@ responseCreateLicenseConversionTaskForResource =
     "CreateLicenseConversionTaskForResourceResponse"
     "fixture/CreateLicenseConversionTaskForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLicenseConversionTaskForResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseConversionTaskForResource)
 
 responseAcceptGrant :: AcceptGrantResponse -> TestTree
 responseAcceptGrant =
@@ -827,7 +827,7 @@ responseAcceptGrant =
     "AcceptGrantResponse"
     "fixture/AcceptGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptGrant)
+    (Proxy.Proxy :: Proxy.Proxy AcceptGrant)
 
 responseListLicenseSpecificationsForResource :: ListLicenseSpecificationsForResourceResponse -> TestTree
 responseListLicenseSpecificationsForResource =
@@ -835,7 +835,7 @@ responseListLicenseSpecificationsForResource =
     "ListLicenseSpecificationsForResourceResponse"
     "fixture/ListLicenseSpecificationsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLicenseSpecificationsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseSpecificationsForResource)
 
 responseCheckoutBorrowLicense :: CheckoutBorrowLicenseResponse -> TestTree
 responseCheckoutBorrowLicense =
@@ -843,7 +843,7 @@ responseCheckoutBorrowLicense =
     "CheckoutBorrowLicenseResponse"
     "fixture/CheckoutBorrowLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckoutBorrowLicense)
+    (Proxy.Proxy :: Proxy.Proxy CheckoutBorrowLicense)
 
 responseGetServiceSettings :: GetServiceSettingsResponse -> TestTree
 responseGetServiceSettings =
@@ -851,7 +851,7 @@ responseGetServiceSettings =
     "GetServiceSettingsResponse"
     "fixture/GetServiceSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceSettings)
 
 responseRejectGrant :: RejectGrantResponse -> TestTree
 responseRejectGrant =
@@ -859,7 +859,7 @@ responseRejectGrant =
     "RejectGrantResponse"
     "fixture/RejectGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectGrant)
+    (Proxy.Proxy :: Proxy.Proxy RejectGrant)
 
 responseUpdateServiceSettings :: UpdateServiceSettingsResponse -> TestTree
 responseUpdateServiceSettings =
@@ -867,7 +867,7 @@ responseUpdateServiceSettings =
     "UpdateServiceSettingsResponse"
     "fixture/UpdateServiceSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServiceSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSettings)
 
 responseListDistributedGrants :: ListDistributedGrantsResponse -> TestTree
 responseListDistributedGrants =
@@ -875,7 +875,7 @@ responseListDistributedGrants =
     "ListDistributedGrantsResponse"
     "fixture/ListDistributedGrantsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributedGrants)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributedGrants)
 
 responseListFailuresForLicenseConfigurationOperations :: ListFailuresForLicenseConfigurationOperationsResponse -> TestTree
 responseListFailuresForLicenseConfigurationOperations =
@@ -883,7 +883,7 @@ responseListFailuresForLicenseConfigurationOperations =
     "ListFailuresForLicenseConfigurationOperationsResponse"
     "fixture/ListFailuresForLicenseConfigurationOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFailuresForLicenseConfigurationOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListFailuresForLicenseConfigurationOperations)
 
 responseDeleteGrant :: DeleteGrantResponse -> TestTree
 responseDeleteGrant =
@@ -891,7 +891,7 @@ responseDeleteGrant =
     "DeleteGrantResponse"
     "fixture/DeleteGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGrant)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGrant)
 
 responseCreateToken :: CreateTokenResponse -> TestTree
 responseCreateToken =
@@ -899,7 +899,7 @@ responseCreateToken =
     "CreateTokenResponse"
     "fixture/CreateTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateToken)
+    (Proxy.Proxy :: Proxy.Proxy CreateToken)
 
 responseDeleteLicense :: DeleteLicenseResponse -> TestTree
 responseDeleteLicense =
@@ -907,7 +907,7 @@ responseDeleteLicense =
     "DeleteLicenseResponse"
     "fixture/DeleteLicenseResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLicense)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLicense)
 
 responseListLicenses :: ListLicensesResponse -> TestTree
 responseListLicenses =
@@ -915,7 +915,7 @@ responseListLicenses =
     "ListLicensesResponse"
     "fixture/ListLicensesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLicenses)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenses)
 
 responseListLicenseConfigurations :: ListLicenseConfigurationsResponse -> TestTree
 responseListLicenseConfigurations =
@@ -923,7 +923,7 @@ responseListLicenseConfigurations =
     "ListLicenseConfigurationsResponse"
     "fixture/ListLicenseConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLicenseConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseConfigurations)
 
 responseListReceivedLicenses :: ListReceivedLicensesResponse -> TestTree
 responseListReceivedLicenses =
@@ -931,7 +931,7 @@ responseListReceivedLicenses =
     "ListReceivedLicensesResponse"
     "fixture/ListReceivedLicensesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReceivedLicenses)
+    (Proxy.Proxy :: Proxy.Proxy ListReceivedLicenses)
 
 responseCreateGrantVersion :: CreateGrantVersionResponse -> TestTree
 responseCreateGrantVersion =
@@ -939,7 +939,7 @@ responseCreateGrantVersion =
     "CreateGrantVersionResponse"
     "fixture/CreateGrantVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGrantVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateGrantVersion)
 
 responseListAssociationsForLicenseConfiguration :: ListAssociationsForLicenseConfigurationResponse -> TestTree
 responseListAssociationsForLicenseConfiguration =
@@ -947,7 +947,7 @@ responseListAssociationsForLicenseConfiguration =
     "ListAssociationsForLicenseConfigurationResponse"
     "fixture/ListAssociationsForLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociationsForLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociationsForLicenseConfiguration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -955,7 +955,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListLicenseVersions :: ListLicenseVersionsResponse -> TestTree
 responseListLicenseVersions =
@@ -963,7 +963,7 @@ responseListLicenseVersions =
     "ListLicenseVersionsResponse"
     "fixture/ListLicenseVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLicenseVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseVersions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -971,7 +971,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetLicenseManagerReportGenerator :: GetLicenseManagerReportGeneratorResponse -> TestTree
 responseGetLicenseManagerReportGenerator =
@@ -979,7 +979,7 @@ responseGetLicenseManagerReportGenerator =
     "GetLicenseManagerReportGeneratorResponse"
     "fixture/GetLicenseManagerReportGeneratorResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLicenseManagerReportGenerator)
+    (Proxy.Proxy :: Proxy.Proxy GetLicenseManagerReportGenerator)
 
 responseGetAccessToken :: GetAccessTokenResponse -> TestTree
 responseGetAccessToken =
@@ -987,7 +987,7 @@ responseGetAccessToken =
     "GetAccessTokenResponse"
     "fixture/GetAccessTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccessToken)
+    (Proxy.Proxy :: Proxy.Proxy GetAccessToken)
 
 responseCreateLicenseManagerReportGenerator :: CreateLicenseManagerReportGeneratorResponse -> TestTree
 responseCreateLicenseManagerReportGenerator =
@@ -995,4 +995,4 @@ responseCreateLicenseManagerReportGenerator =
     "CreateLicenseManagerReportGeneratorResponse"
     "fixture/CreateLicenseManagerReportGeneratorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLicenseManagerReportGenerator)
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseManagerReportGenerator)

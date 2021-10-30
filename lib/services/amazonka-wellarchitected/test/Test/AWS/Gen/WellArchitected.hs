@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WellArchitected where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WellArchitected
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -415,7 +415,7 @@ responseListNotifications =
     "ListNotificationsResponse"
     "fixture/ListNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotifications)
+    (Proxy.Proxy :: Proxy.Proxy ListNotifications)
 
 responseGetLensVersionDifference :: GetLensVersionDifferenceResponse -> TestTree
 responseGetLensVersionDifference =
@@ -423,7 +423,7 @@ responseGetLensVersionDifference =
     "GetLensVersionDifferenceResponse"
     "fixture/GetLensVersionDifferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLensVersionDifference)
+    (Proxy.Proxy :: Proxy.Proxy GetLensVersionDifference)
 
 responseListLensReviewImprovements :: ListLensReviewImprovementsResponse -> TestTree
 responseListLensReviewImprovements =
@@ -431,7 +431,7 @@ responseListLensReviewImprovements =
     "ListLensReviewImprovementsResponse"
     "fixture/ListLensReviewImprovementsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLensReviewImprovements)
+    (Proxy.Proxy :: Proxy.Proxy ListLensReviewImprovements)
 
 responseListMilestones :: ListMilestonesResponse -> TestTree
 responseListMilestones =
@@ -439,7 +439,7 @@ responseListMilestones =
     "ListMilestonesResponse"
     "fixture/ListMilestonesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMilestones)
+    (Proxy.Proxy :: Proxy.Proxy ListMilestones)
 
 responseCreateMilestone :: CreateMilestoneResponse -> TestTree
 responseCreateMilestone =
@@ -447,7 +447,7 @@ responseCreateMilestone =
     "CreateMilestoneResponse"
     "fixture/CreateMilestoneResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMilestone)
+    (Proxy.Proxy :: Proxy.Proxy CreateMilestone)
 
 responseGetAnswer :: GetAnswerResponse -> TestTree
 responseGetAnswer =
@@ -455,7 +455,7 @@ responseGetAnswer =
     "GetAnswerResponse"
     "fixture/GetAnswerResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnswer)
+    (Proxy.Proxy :: Proxy.Proxy GetAnswer)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -463,7 +463,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseUpdateAnswer :: UpdateAnswerResponse -> TestTree
 responseUpdateAnswer =
@@ -471,7 +471,7 @@ responseUpdateAnswer =
     "UpdateAnswerResponse"
     "fixture/UpdateAnswerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAnswer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnswer)
 
 responseUpdateShareInvitation :: UpdateShareInvitationResponse -> TestTree
 responseUpdateShareInvitation =
@@ -479,7 +479,7 @@ responseUpdateShareInvitation =
     "UpdateShareInvitationResponse"
     "fixture/UpdateShareInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateShareInvitation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateShareInvitation)
 
 responseListAnswers :: ListAnswersResponse -> TestTree
 responseListAnswers =
@@ -487,7 +487,7 @@ responseListAnswers =
     "ListAnswersResponse"
     "fixture/ListAnswersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnswers)
+    (Proxy.Proxy :: Proxy.Proxy ListAnswers)
 
 responseDisassociateLenses :: DisassociateLensesResponse -> TestTree
 responseDisassociateLenses =
@@ -495,7 +495,7 @@ responseDisassociateLenses =
     "DisassociateLensesResponse"
     "fixture/DisassociateLensesResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateLenses)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateLenses)
 
 responseGetMilestone :: GetMilestoneResponse -> TestTree
 responseGetMilestone =
@@ -503,7 +503,7 @@ responseGetMilestone =
     "GetMilestoneResponse"
     "fixture/GetMilestoneResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMilestone)
+    (Proxy.Proxy :: Proxy.Proxy GetMilestone)
 
 responseListLenses :: ListLensesResponse -> TestTree
 responseListLenses =
@@ -511,7 +511,7 @@ responseListLenses =
     "ListLensesResponse"
     "fixture/ListLensesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLenses)
+    (Proxy.Proxy :: Proxy.Proxy ListLenses)
 
 responseListWorkloadShares :: ListWorkloadSharesResponse -> TestTree
 responseListWorkloadShares =
@@ -519,7 +519,7 @@ responseListWorkloadShares =
     "ListWorkloadSharesResponse"
     "fixture/ListWorkloadSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkloadShares)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkloadShares)
 
 responseUpdateWorkload :: UpdateWorkloadResponse -> TestTree
 responseUpdateWorkload =
@@ -527,7 +527,7 @@ responseUpdateWorkload =
     "UpdateWorkloadResponse"
     "fixture/UpdateWorkloadResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkload)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkload)
 
 responseDeleteWorkload :: DeleteWorkloadResponse -> TestTree
 responseDeleteWorkload =
@@ -535,7 +535,7 @@ responseDeleteWorkload =
     "DeleteWorkloadResponse"
     "fixture/DeleteWorkloadResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkload)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkload)
 
 responseListLensReviews :: ListLensReviewsResponse -> TestTree
 responseListLensReviews =
@@ -543,7 +543,7 @@ responseListLensReviews =
     "ListLensReviewsResponse"
     "fixture/ListLensReviewsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLensReviews)
+    (Proxy.Proxy :: Proxy.Proxy ListLensReviews)
 
 responseUpdateLensReview :: UpdateLensReviewResponse -> TestTree
 responseUpdateLensReview =
@@ -551,7 +551,7 @@ responseUpdateLensReview =
     "UpdateLensReviewResponse"
     "fixture/UpdateLensReviewResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLensReview)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLensReview)
 
 responseListShareInvitations :: ListShareInvitationsResponse -> TestTree
 responseListShareInvitations =
@@ -559,7 +559,7 @@ responseListShareInvitations =
     "ListShareInvitationsResponse"
     "fixture/ListShareInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListShareInvitations)
+    (Proxy.Proxy :: Proxy.Proxy ListShareInvitations)
 
 responseGetLensReview :: GetLensReviewResponse -> TestTree
 responseGetLensReview =
@@ -567,7 +567,7 @@ responseGetLensReview =
     "GetLensReviewResponse"
     "fixture/GetLensReviewResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLensReview)
+    (Proxy.Proxy :: Proxy.Proxy GetLensReview)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -575,7 +575,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateWorkload :: CreateWorkloadResponse -> TestTree
 responseCreateWorkload =
@@ -583,7 +583,7 @@ responseCreateWorkload =
     "CreateWorkloadResponse"
     "fixture/CreateWorkloadResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkload)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkload)
 
 responseDeleteWorkloadShare :: DeleteWorkloadShareResponse -> TestTree
 responseDeleteWorkloadShare =
@@ -591,7 +591,7 @@ responseDeleteWorkloadShare =
     "DeleteWorkloadShareResponse"
     "fixture/DeleteWorkloadShareResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkloadShare)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkloadShare)
 
 responseUpdateWorkloadShare :: UpdateWorkloadShareResponse -> TestTree
 responseUpdateWorkloadShare =
@@ -599,7 +599,7 @@ responseUpdateWorkloadShare =
     "UpdateWorkloadShareResponse"
     "fixture/UpdateWorkloadShareResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkloadShare)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkloadShare)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -607,7 +607,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseAssociateLenses :: AssociateLensesResponse -> TestTree
 responseAssociateLenses =
@@ -615,7 +615,7 @@ responseAssociateLenses =
     "AssociateLensesResponse"
     "fixture/AssociateLensesResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateLenses)
+    (Proxy.Proxy :: Proxy.Proxy AssociateLenses)
 
 responseListWorkloads :: ListWorkloadsResponse -> TestTree
 responseListWorkloads =
@@ -623,7 +623,7 @@ responseListWorkloads =
     "ListWorkloadsResponse"
     "fixture/ListWorkloadsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkloads)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkloads)
 
 responseCreateWorkloadShare :: CreateWorkloadShareResponse -> TestTree
 responseCreateWorkloadShare =
@@ -631,7 +631,7 @@ responseCreateWorkloadShare =
     "CreateWorkloadShareResponse"
     "fixture/CreateWorkloadShareResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkloadShare)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkloadShare)
 
 responseGetLensReviewReport :: GetLensReviewReportResponse -> TestTree
 responseGetLensReviewReport =
@@ -639,7 +639,7 @@ responseGetLensReviewReport =
     "GetLensReviewReportResponse"
     "fixture/GetLensReviewReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLensReviewReport)
+    (Proxy.Proxy :: Proxy.Proxy GetLensReviewReport)
 
 responseUpgradeLensReview :: UpgradeLensReviewResponse -> TestTree
 responseUpgradeLensReview =
@@ -647,7 +647,7 @@ responseUpgradeLensReview =
     "UpgradeLensReviewResponse"
     "fixture/UpgradeLensReviewResponse.proto"
     defaultService
-    (Proxy :: Proxy UpgradeLensReview)
+    (Proxy.Proxy :: Proxy.Proxy UpgradeLensReview)
 
 responseGetWorkload :: GetWorkloadResponse -> TestTree
 responseGetWorkload =
@@ -655,4 +655,4 @@ responseGetWorkload =
     "GetWorkloadResponse"
     "fixture/GetWorkloadResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorkload)
+    (Proxy.Proxy :: Proxy.Proxy GetWorkload)

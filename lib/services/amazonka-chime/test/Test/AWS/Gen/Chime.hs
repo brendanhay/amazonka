@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Chime where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Chime
 import Test.AWS.Chime.Internal
 import Test.AWS.Fixture
@@ -2323,7 +2323,7 @@ responseDescribeChannelMembership =
     "DescribeChannelMembershipResponse"
     "fixture/DescribeChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembership)
 
 responseCreateAppInstance :: CreateAppInstanceResponse -> TestTree
 responseCreateAppInstance =
@@ -2331,7 +2331,7 @@ responseCreateAppInstance =
     "CreateAppInstanceResponse"
     "fixture/CreateAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstance)
 
 responseGetVoiceConnectorGroup :: GetVoiceConnectorGroupResponse -> TestTree
 responseGetVoiceConnectorGroup =
@@ -2339,7 +2339,7 @@ responseGetVoiceConnectorGroup =
     "GetVoiceConnectorGroupResponse"
     "fixture/GetVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorGroup)
 
 responseListVoiceConnectors :: ListVoiceConnectorsResponse -> TestTree
 responseListVoiceConnectors =
@@ -2347,7 +2347,7 @@ responseListVoiceConnectors =
     "ListVoiceConnectorsResponse"
     "fixture/ListVoiceConnectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVoiceConnectors)
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectors)
 
 responseListRoomMemberships :: ListRoomMembershipsResponse -> TestTree
 responseListRoomMemberships =
@@ -2355,7 +2355,7 @@ responseListRoomMemberships =
     "ListRoomMembershipsResponse"
     "fixture/ListRoomMembershipsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoomMemberships)
+    (Proxy.Proxy :: Proxy.Proxy ListRoomMemberships)
 
 responseGetPhoneNumberSettings :: GetPhoneNumberSettingsResponse -> TestTree
 responseGetPhoneNumberSettings =
@@ -2363,7 +2363,7 @@ responseGetPhoneNumberSettings =
     "GetPhoneNumberSettingsResponse"
     "fixture/GetPhoneNumberSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPhoneNumberSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumberSettings)
 
 responseUpdateGlobalSettings :: UpdateGlobalSettingsResponse -> TestTree
 responseUpdateGlobalSettings =
@@ -2371,7 +2371,7 @@ responseUpdateGlobalSettings =
     "UpdateGlobalSettingsResponse"
     "fixture/UpdateGlobalSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGlobalSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalSettings)
 
 responseListAttendees :: ListAttendeesResponse -> TestTree
 responseListAttendees =
@@ -2379,7 +2379,7 @@ responseListAttendees =
     "ListAttendeesResponse"
     "fixture/ListAttendeesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttendees)
+    (Proxy.Proxy :: Proxy.Proxy ListAttendees)
 
 responsePutVoiceConnectorLoggingConfiguration :: PutVoiceConnectorLoggingConfigurationResponse -> TestTree
 responsePutVoiceConnectorLoggingConfiguration =
@@ -2387,7 +2387,7 @@ responsePutVoiceConnectorLoggingConfiguration =
     "PutVoiceConnectorLoggingConfigurationResponse"
     "fixture/PutVoiceConnectorLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorLoggingConfiguration)
 
 responseGetVoiceConnectorTermination :: GetVoiceConnectorTerminationResponse -> TestTree
 responseGetVoiceConnectorTermination =
@@ -2395,7 +2395,7 @@ responseGetVoiceConnectorTermination =
     "GetVoiceConnectorTerminationResponse"
     "fixture/GetVoiceConnectorTerminationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorTermination)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTermination)
 
 responseDeleteAttendee :: DeleteAttendeeResponse -> TestTree
 responseDeleteAttendee =
@@ -2403,7 +2403,7 @@ responseDeleteAttendee =
     "DeleteAttendeeResponse"
     "fixture/DeleteAttendeeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAttendee)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAttendee)
 
 responseGetVoiceConnectorProxy :: GetVoiceConnectorProxyResponse -> TestTree
 responseGetVoiceConnectorProxy =
@@ -2411,7 +2411,7 @@ responseGetVoiceConnectorProxy =
     "GetVoiceConnectorProxyResponse"
     "fixture/GetVoiceConnectorProxyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorProxy)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorProxy)
 
 responseDeleteVoiceConnectorEmergencyCallingConfiguration :: DeleteVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
 responseDeleteVoiceConnectorEmergencyCallingConfiguration =
@@ -2419,7 +2419,7 @@ responseDeleteVoiceConnectorEmergencyCallingConfiguration =
     "DeleteVoiceConnectorEmergencyCallingConfigurationResponse"
     "fixture/DeleteVoiceConnectorEmergencyCallingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorEmergencyCallingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorEmergencyCallingConfiguration)
 
 responseGetVoiceConnectorStreamingConfiguration :: GetVoiceConnectorStreamingConfigurationResponse -> TestTree
 responseGetVoiceConnectorStreamingConfiguration =
@@ -2427,7 +2427,7 @@ responseGetVoiceConnectorStreamingConfiguration =
     "GetVoiceConnectorStreamingConfigurationResponse"
     "fixture/GetVoiceConnectorStreamingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorStreamingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorStreamingConfiguration)
 
 responseUpdateSipMediaApplicationCall :: UpdateSipMediaApplicationCallResponse -> TestTree
 responseUpdateSipMediaApplicationCall =
@@ -2435,7 +2435,7 @@ responseUpdateSipMediaApplicationCall =
     "UpdateSipMediaApplicationCallResponse"
     "fixture/UpdateSipMediaApplicationCallResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSipMediaApplicationCall)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSipMediaApplicationCall)
 
 responseStopMeetingTranscription :: StopMeetingTranscriptionResponse -> TestTree
 responseStopMeetingTranscription =
@@ -2443,7 +2443,7 @@ responseStopMeetingTranscription =
     "StopMeetingTranscriptionResponse"
     "fixture/StopMeetingTranscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopMeetingTranscription)
+    (Proxy.Proxy :: Proxy.Proxy StopMeetingTranscription)
 
 responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
 responseGetAppInstanceRetentionSettings =
@@ -2451,7 +2451,7 @@ responseGetAppInstanceRetentionSettings =
     "GetAppInstanceRetentionSettingsResponse"
     "fixture/GetAppInstanceRetentionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppInstanceRetentionSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceRetentionSettings)
 
 responsePutVoiceConnectorEmergencyCallingConfiguration :: PutVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
 responsePutVoiceConnectorEmergencyCallingConfiguration =
@@ -2459,7 +2459,7 @@ responsePutVoiceConnectorEmergencyCallingConfiguration =
     "PutVoiceConnectorEmergencyCallingConfigurationResponse"
     "fixture/PutVoiceConnectorEmergencyCallingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorEmergencyCallingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorEmergencyCallingConfiguration)
 
 responseCreateMeetingWithAttendees :: CreateMeetingWithAttendeesResponse -> TestTree
 responseCreateMeetingWithAttendees =
@@ -2467,7 +2467,7 @@ responseCreateMeetingWithAttendees =
     "CreateMeetingWithAttendeesResponse"
     "fixture/CreateMeetingWithAttendeesResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMeetingWithAttendees)
+    (Proxy.Proxy :: Proxy.Proxy CreateMeetingWithAttendees)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -2475,7 +2475,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseDisassociatePhoneNumberFromUser :: DisassociatePhoneNumberFromUserResponse -> TestTree
 responseDisassociatePhoneNumberFromUser =
@@ -2483,7 +2483,7 @@ responseDisassociatePhoneNumberFromUser =
     "DisassociatePhoneNumberFromUserResponse"
     "fixture/DisassociatePhoneNumberFromUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociatePhoneNumberFromUser)
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumberFromUser)
 
 responseDisassociateSigninDelegateGroupsFromAccount :: DisassociateSigninDelegateGroupsFromAccountResponse -> TestTree
 responseDisassociateSigninDelegateGroupsFromAccount =
@@ -2491,7 +2491,7 @@ responseDisassociateSigninDelegateGroupsFromAccount =
     "DisassociateSigninDelegateGroupsFromAccountResponse"
     "fixture/DisassociateSigninDelegateGroupsFromAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSigninDelegateGroupsFromAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSigninDelegateGroupsFromAccount)
 
 responseResetPersonalPIN :: ResetPersonalPINResponse -> TestTree
 responseResetPersonalPIN =
@@ -2499,7 +2499,7 @@ responseResetPersonalPIN =
     "ResetPersonalPINResponse"
     "fixture/ResetPersonalPINResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetPersonalPIN)
+    (Proxy.Proxy :: Proxy.Proxy ResetPersonalPIN)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -2507,7 +2507,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -2515,7 +2515,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -2523,7 +2523,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseDescribeAppInstanceAdmin :: DescribeAppInstanceAdminResponse -> TestTree
 responseDescribeAppInstanceAdmin =
@@ -2531,7 +2531,7 @@ responseDescribeAppInstanceAdmin =
     "DescribeAppInstanceAdminResponse"
     "fixture/DescribeAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
 
 responseCreateAttendee :: CreateAttendeeResponse -> TestTree
 responseCreateAttendee =
@@ -2539,7 +2539,7 @@ responseCreateAttendee =
     "CreateAttendeeResponse"
     "fixture/CreateAttendeeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAttendee)
+    (Proxy.Proxy :: Proxy.Proxy CreateAttendee)
 
 responseListSupportedPhoneNumberCountries :: ListSupportedPhoneNumberCountriesResponse -> TestTree
 responseListSupportedPhoneNumberCountries =
@@ -2547,7 +2547,7 @@ responseListSupportedPhoneNumberCountries =
     "ListSupportedPhoneNumberCountriesResponse"
     "fixture/ListSupportedPhoneNumberCountriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSupportedPhoneNumberCountries)
+    (Proxy.Proxy :: Proxy.Proxy ListSupportedPhoneNumberCountries)
 
 responseDeleteSipRule :: DeleteSipRuleResponse -> TestTree
 responseDeleteSipRule =
@@ -2555,7 +2555,7 @@ responseDeleteSipRule =
     "DeleteSipRuleResponse"
     "fixture/DeleteSipRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSipRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSipRule)
 
 responseUpdateSipRule :: UpdateSipRuleResponse -> TestTree
 responseUpdateSipRule =
@@ -2563,7 +2563,7 @@ responseUpdateSipRule =
     "UpdateSipRuleResponse"
     "fixture/UpdateSipRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSipRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSipRule)
 
 responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
 responseUpdateAccountSettings =
@@ -2571,7 +2571,7 @@ responseUpdateAccountSettings =
     "UpdateAccountSettingsResponse"
     "fixture/UpdateAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
 
 responseDeleteVoiceConnectorOrigination :: DeleteVoiceConnectorOriginationResponse -> TestTree
 responseDeleteVoiceConnectorOrigination =
@@ -2579,7 +2579,7 @@ responseDeleteVoiceConnectorOrigination =
     "DeleteVoiceConnectorOriginationResponse"
     "fixture/DeleteVoiceConnectorOriginationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorOrigination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorOrigination)
 
 responseDeleteSipMediaApplication :: DeleteSipMediaApplicationResponse -> TestTree
 responseDeleteSipMediaApplication =
@@ -2587,7 +2587,7 @@ responseDeleteSipMediaApplication =
     "DeleteSipMediaApplicationResponse"
     "fixture/DeleteSipMediaApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSipMediaApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSipMediaApplication)
 
 responseUpdateSipMediaApplication :: UpdateSipMediaApplicationResponse -> TestTree
 responseUpdateSipMediaApplication =
@@ -2595,7 +2595,7 @@ responseUpdateSipMediaApplication =
     "UpdateSipMediaApplicationResponse"
     "fixture/UpdateSipMediaApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSipMediaApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSipMediaApplication)
 
 responseDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnectorResponse -> TestTree
 responseDisassociatePhoneNumbersFromVoiceConnector =
@@ -2603,7 +2603,7 @@ responseDisassociatePhoneNumbersFromVoiceConnector =
     "DisassociatePhoneNumbersFromVoiceConnectorResponse"
     "fixture/DisassociatePhoneNumbersFromVoiceConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociatePhoneNumbersFromVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumbersFromVoiceConnector)
 
 responseGetMessagingSessionEndpoint :: GetMessagingSessionEndpointResponse -> TestTree
 responseGetMessagingSessionEndpoint =
@@ -2611,7 +2611,7 @@ responseGetMessagingSessionEndpoint =
     "GetMessagingSessionEndpointResponse"
     "fixture/GetMessagingSessionEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMessagingSessionEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetMessagingSessionEndpoint)
 
 responsePutVoiceConnectorOrigination :: PutVoiceConnectorOriginationResponse -> TestTree
 responsePutVoiceConnectorOrigination =
@@ -2619,7 +2619,7 @@ responsePutVoiceConnectorOrigination =
     "PutVoiceConnectorOriginationResponse"
     "fixture/PutVoiceConnectorOriginationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorOrigination)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorOrigination)
 
 responseCreateAppInstanceUser :: CreateAppInstanceUserResponse -> TestTree
 responseCreateAppInstanceUser =
@@ -2627,7 +2627,7 @@ responseCreateAppInstanceUser =
     "CreateAppInstanceUserResponse"
     "fixture/CreateAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceUser)
 
 responseListAttendeeTags :: ListAttendeeTagsResponse -> TestTree
 responseListAttendeeTags =
@@ -2635,7 +2635,7 @@ responseListAttendeeTags =
     "ListAttendeeTagsResponse"
     "fixture/ListAttendeeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttendeeTags)
+    (Proxy.Proxy :: Proxy.Proxy ListAttendeeTags)
 
 responseListChannelsModeratedByAppInstanceUser :: ListChannelsModeratedByAppInstanceUserResponse -> TestTree
 responseListChannelsModeratedByAppInstanceUser =
@@ -2643,7 +2643,7 @@ responseListChannelsModeratedByAppInstanceUser =
     "ListChannelsModeratedByAppInstanceUserResponse"
     "fixture/ListChannelsModeratedByAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelsModeratedByAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelsModeratedByAppInstanceUser)
 
 responseRedactChannelMessage :: RedactChannelMessageResponse -> TestTree
 responseRedactChannelMessage =
@@ -2651,7 +2651,7 @@ responseRedactChannelMessage =
     "RedactChannelMessageResponse"
     "fixture/RedactChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy RedactChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy RedactChannelMessage)
 
 responsePutRetentionSettings :: PutRetentionSettingsResponse -> TestTree
 responsePutRetentionSettings =
@@ -2659,7 +2659,7 @@ responsePutRetentionSettings =
     "PutRetentionSettingsResponse"
     "fixture/PutRetentionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRetentionSettings)
+    (Proxy.Proxy :: Proxy.Proxy PutRetentionSettings)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -2667,7 +2667,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseDeleteVoiceConnectorStreamingConfiguration :: DeleteVoiceConnectorStreamingConfigurationResponse -> TestTree
 responseDeleteVoiceConnectorStreamingConfiguration =
@@ -2675,7 +2675,7 @@ responseDeleteVoiceConnectorStreamingConfiguration =
     "DeleteVoiceConnectorStreamingConfigurationResponse"
     "fixture/DeleteVoiceConnectorStreamingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorStreamingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorStreamingConfiguration)
 
 responseAssociatePhoneNumbersWithVoiceConnectorGroup :: AssociatePhoneNumbersWithVoiceConnectorGroupResponse -> TestTree
 responseAssociatePhoneNumbersWithVoiceConnectorGroup =
@@ -2683,7 +2683,7 @@ responseAssociatePhoneNumbersWithVoiceConnectorGroup =
     "AssociatePhoneNumbersWithVoiceConnectorGroupResponse"
     "fixture/AssociatePhoneNumbersWithVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociatePhoneNumbersWithVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumbersWithVoiceConnectorGroup)
 
 responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
 responsePutAppInstanceRetentionSettings =
@@ -2691,7 +2691,7 @@ responsePutAppInstanceRetentionSettings =
     "PutAppInstanceRetentionSettingsResponse"
     "fixture/PutAppInstanceRetentionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppInstanceRetentionSettings)
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
 
 responseGetVoiceConnectorLoggingConfiguration :: GetVoiceConnectorLoggingConfigurationResponse -> TestTree
 responseGetVoiceConnectorLoggingConfiguration =
@@ -2699,7 +2699,7 @@ responseGetVoiceConnectorLoggingConfiguration =
     "GetVoiceConnectorLoggingConfigurationResponse"
     "fixture/GetVoiceConnectorLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorLoggingConfiguration)
 
 responseListBots :: ListBotsResponse -> TestTree
 responseListBots =
@@ -2707,7 +2707,7 @@ responseListBots =
     "ListBotsResponse"
     "fixture/ListBotsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBots)
+    (Proxy.Proxy :: Proxy.Proxy ListBots)
 
 responseDeleteChannelMembership :: DeleteChannelMembershipResponse -> TestTree
 responseDeleteChannelMembership =
@@ -2715,7 +2715,7 @@ responseDeleteChannelMembership =
     "DeleteChannelMembershipResponse"
     "fixture/DeleteChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMembership)
 
 responsePutVoiceConnectorStreamingConfiguration :: PutVoiceConnectorStreamingConfigurationResponse -> TestTree
 responsePutVoiceConnectorStreamingConfiguration =
@@ -2723,7 +2723,7 @@ responsePutVoiceConnectorStreamingConfiguration =
     "PutVoiceConnectorStreamingConfigurationResponse"
     "fixture/PutVoiceConnectorStreamingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorStreamingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorStreamingConfiguration)
 
 responseListChannelMemberships :: ListChannelMembershipsResponse -> TestTree
 responseListChannelMemberships =
@@ -2731,7 +2731,7 @@ responseListChannelMemberships =
     "ListChannelMembershipsResponse"
     "fixture/ListChannelMembershipsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelMemberships)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMemberships)
 
 responseGetGlobalSettings :: GetGlobalSettingsResponse -> TestTree
 responseGetGlobalSettings =
@@ -2739,7 +2739,7 @@ responseGetGlobalSettings =
     "GetGlobalSettingsResponse"
     "fixture/GetGlobalSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGlobalSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetGlobalSettings)
 
 responseDeleteMeeting :: DeleteMeetingResponse -> TestTree
 responseDeleteMeeting =
@@ -2747,7 +2747,7 @@ responseDeleteMeeting =
     "DeleteMeetingResponse"
     "fixture/DeleteMeetingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMeeting)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMeeting)
 
 responseListMeetings :: ListMeetingsResponse -> TestTree
 responseListMeetings =
@@ -2755,7 +2755,7 @@ responseListMeetings =
     "ListMeetingsResponse"
     "fixture/ListMeetingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMeetings)
+    (Proxy.Proxy :: Proxy.Proxy ListMeetings)
 
 responseGetAttendee :: GetAttendeeResponse -> TestTree
 responseGetAttendee =
@@ -2763,7 +2763,7 @@ responseGetAttendee =
     "GetAttendeeResponse"
     "fixture/GetAttendeeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAttendee)
+    (Proxy.Proxy :: Proxy.Proxy GetAttendee)
 
 responseDeleteAccount :: DeleteAccountResponse -> TestTree
 responseDeleteAccount =
@@ -2771,7 +2771,7 @@ responseDeleteAccount =
     "DeleteAccountResponse"
     "fixture/DeleteAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccount)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccount)
 
 responseUpdateAccount :: UpdateAccountResponse -> TestTree
 responseUpdateAccount =
@@ -2779,7 +2779,7 @@ responseUpdateAccount =
     "UpdateAccountResponse"
     "fixture/UpdateAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccount)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccount)
 
 responseListAccounts :: ListAccountsResponse -> TestTree
 responseListAccounts =
@@ -2787,7 +2787,7 @@ responseListAccounts =
     "ListAccountsResponse"
     "fixture/ListAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListAccounts)
 
 responseUpdateBot :: UpdateBotResponse -> TestTree
 responseUpdateBot =
@@ -2795,7 +2795,7 @@ responseUpdateBot =
     "UpdateBotResponse"
     "fixture/UpdateBotResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBot)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBot)
 
 responseListPhoneNumberOrders :: ListPhoneNumberOrdersResponse -> TestTree
 responseListPhoneNumberOrders =
@@ -2803,7 +2803,7 @@ responseListPhoneNumberOrders =
     "ListPhoneNumberOrdersResponse"
     "fixture/ListPhoneNumberOrdersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPhoneNumberOrders)
+    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumberOrders)
 
 responseSearchAvailablePhoneNumbers :: SearchAvailablePhoneNumbersResponse -> TestTree
 responseSearchAvailablePhoneNumbers =
@@ -2811,7 +2811,7 @@ responseSearchAvailablePhoneNumbers =
     "SearchAvailablePhoneNumbersResponse"
     "fixture/SearchAvailablePhoneNumbersResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchAvailablePhoneNumbers)
+    (Proxy.Proxy :: Proxy.Proxy SearchAvailablePhoneNumbers)
 
 responseCreateAppInstanceAdmin :: CreateAppInstanceAdminResponse -> TestTree
 responseCreateAppInstanceAdmin =
@@ -2819,7 +2819,7 @@ responseCreateAppInstanceAdmin =
     "CreateAppInstanceAdminResponse"
     "fixture/CreateAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
 
 responseTagMeeting :: TagMeetingResponse -> TestTree
 responseTagMeeting =
@@ -2827,7 +2827,7 @@ responseTagMeeting =
     "TagMeetingResponse"
     "fixture/TagMeetingResponse.proto"
     defaultService
-    (Proxy :: Proxy TagMeeting)
+    (Proxy.Proxy :: Proxy.Proxy TagMeeting)
 
 responseListVoiceConnectorGroups :: ListVoiceConnectorGroupsResponse -> TestTree
 responseListVoiceConnectorGroups =
@@ -2835,7 +2835,7 @@ responseListVoiceConnectorGroups =
     "ListVoiceConnectorGroupsResponse"
     "fixture/ListVoiceConnectorGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVoiceConnectorGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectorGroups)
 
 responseLogoutUser :: LogoutUserResponse -> TestTree
 responseLogoutUser =
@@ -2843,7 +2843,7 @@ responseLogoutUser =
     "LogoutUserResponse"
     "fixture/LogoutUserResponse.proto"
     defaultService
-    (Proxy :: Proxy LogoutUser)
+    (Proxy.Proxy :: Proxy.Proxy LogoutUser)
 
 responseListVoiceConnectorTerminationCredentials :: ListVoiceConnectorTerminationCredentialsResponse -> TestTree
 responseListVoiceConnectorTerminationCredentials =
@@ -2851,7 +2851,7 @@ responseListVoiceConnectorTerminationCredentials =
     "ListVoiceConnectorTerminationCredentialsResponse"
     "fixture/ListVoiceConnectorTerminationCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVoiceConnectorTerminationCredentials)
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectorTerminationCredentials)
 
 responseCreateMediaCapturePipeline :: CreateMediaCapturePipelineResponse -> TestTree
 responseCreateMediaCapturePipeline =
@@ -2859,7 +2859,7 @@ responseCreateMediaCapturePipeline =
     "CreateMediaCapturePipelineResponse"
     "fixture/CreateMediaCapturePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMediaCapturePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreateMediaCapturePipeline)
 
 responseCreateProxySession :: CreateProxySessionResponse -> TestTree
 responseCreateProxySession =
@@ -2867,7 +2867,7 @@ responseCreateProxySession =
     "CreateProxySessionResponse"
     "fixture/CreateProxySessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProxySession)
+    (Proxy.Proxy :: Proxy.Proxy CreateProxySession)
 
 responseDeleteEventsConfiguration :: DeleteEventsConfigurationResponse -> TestTree
 responseDeleteEventsConfiguration =
@@ -2875,7 +2875,7 @@ responseDeleteEventsConfiguration =
     "DeleteEventsConfigurationResponse"
     "fixture/DeleteEventsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventsConfiguration)
 
 responsePutEventsConfiguration :: PutEventsConfigurationResponse -> TestTree
 responsePutEventsConfiguration =
@@ -2883,7 +2883,7 @@ responsePutEventsConfiguration =
     "PutEventsConfigurationResponse"
     "fixture/PutEventsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEventsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutEventsConfiguration)
 
 responseGetChannelMessage :: GetChannelMessageResponse -> TestTree
 responseGetChannelMessage =
@@ -2891,7 +2891,7 @@ responseGetChannelMessage =
     "GetChannelMessageResponse"
     "fixture/GetChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy GetChannelMessage)
 
 responseUpdateRoom :: UpdateRoomResponse -> TestTree
 responseUpdateRoom =
@@ -2899,7 +2899,7 @@ responseUpdateRoom =
     "UpdateRoomResponse"
     "fixture/UpdateRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoom)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoom)
 
 responseDeleteRoom :: DeleteRoomResponse -> TestTree
 responseDeleteRoom =
@@ -2907,7 +2907,7 @@ responseDeleteRoom =
     "DeleteRoomResponse"
     "fixture/DeleteRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoom)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoom)
 
 responsePutSipMediaApplicationLoggingConfiguration :: PutSipMediaApplicationLoggingConfigurationResponse -> TestTree
 responsePutSipMediaApplicationLoggingConfiguration =
@@ -2915,7 +2915,7 @@ responsePutSipMediaApplicationLoggingConfiguration =
     "PutSipMediaApplicationLoggingConfigurationResponse"
     "fixture/PutSipMediaApplicationLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSipMediaApplicationLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutSipMediaApplicationLoggingConfiguration)
 
 responseDescribeChannelMembershipForAppInstanceUser :: DescribeChannelMembershipForAppInstanceUserResponse -> TestTree
 responseDescribeChannelMembershipForAppInstanceUser =
@@ -2923,7 +2923,7 @@ responseDescribeChannelMembershipForAppInstanceUser =
     "DescribeChannelMembershipForAppInstanceUserResponse"
     "fixture/DescribeChannelMembershipForAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelMembershipForAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembershipForAppInstanceUser)
 
 responseListAppInstanceAdmins :: ListAppInstanceAdminsResponse -> TestTree
 responseListAppInstanceAdmins =
@@ -2931,7 +2931,7 @@ responseListAppInstanceAdmins =
     "ListAppInstanceAdminsResponse"
     "fixture/ListAppInstanceAdminsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppInstanceAdmins)
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
 
 responseDeletePhoneNumber :: DeletePhoneNumberResponse -> TestTree
 responseDeletePhoneNumber =
@@ -2939,7 +2939,7 @@ responseDeletePhoneNumber =
     "DeletePhoneNumberResponse"
     "fixture/DeletePhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy DeletePhoneNumber)
 
 responseUpdatePhoneNumber :: UpdatePhoneNumberResponse -> TestTree
 responseUpdatePhoneNumber =
@@ -2947,7 +2947,7 @@ responseUpdatePhoneNumber =
     "UpdatePhoneNumberResponse"
     "fixture/UpdatePhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumber)
 
 responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
 responseListPhoneNumbers =
@@ -2955,7 +2955,7 @@ responseListPhoneNumbers =
     "ListPhoneNumbersResponse"
     "fixture/ListPhoneNumbersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPhoneNumbers)
+    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumbers)
 
 responseCreateChannelModerator :: CreateChannelModeratorResponse -> TestTree
 responseCreateChannelModerator =
@@ -2963,7 +2963,7 @@ responseCreateChannelModerator =
     "CreateChannelModeratorResponse"
     "fixture/CreateChannelModeratorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelModerator)
 
 responseGetAppInstanceStreamingConfigurations :: GetAppInstanceStreamingConfigurationsResponse -> TestTree
 responseGetAppInstanceStreamingConfigurations =
@@ -2971,7 +2971,7 @@ responseGetAppInstanceStreamingConfigurations =
     "GetAppInstanceStreamingConfigurationsResponse"
     "fixture/GetAppInstanceStreamingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppInstanceStreamingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceStreamingConfigurations)
 
 responseListAppInstances :: ListAppInstancesResponse -> TestTree
 responseListAppInstances =
@@ -2979,7 +2979,7 @@ responseListAppInstances =
     "ListAppInstancesResponse"
     "fixture/ListAppInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
 
 responseDescribeChannelModeratedByAppInstanceUser :: DescribeChannelModeratedByAppInstanceUserResponse -> TestTree
 responseDescribeChannelModeratedByAppInstanceUser =
@@ -2987,7 +2987,7 @@ responseDescribeChannelModeratedByAppInstanceUser =
     "DescribeChannelModeratedByAppInstanceUserResponse"
     "fixture/DescribeChannelModeratedByAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelModeratedByAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModeratedByAppInstanceUser)
 
 responseGetPhoneNumber :: GetPhoneNumberResponse -> TestTree
 responseGetPhoneNumber =
@@ -2995,7 +2995,7 @@ responseGetPhoneNumber =
     "GetPhoneNumberResponse"
     "fixture/GetPhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumber)
 
 responseGetEventsConfiguration :: GetEventsConfigurationResponse -> TestTree
 responseGetEventsConfiguration =
@@ -3003,7 +3003,7 @@ responseGetEventsConfiguration =
     "GetEventsConfigurationResponse"
     "fixture/GetEventsConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventsConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetEventsConfiguration)
 
 responseGetSipMediaApplicationLoggingConfiguration :: GetSipMediaApplicationLoggingConfigurationResponse -> TestTree
 responseGetSipMediaApplicationLoggingConfiguration =
@@ -3011,7 +3011,7 @@ responseGetSipMediaApplicationLoggingConfiguration =
     "GetSipMediaApplicationLoggingConfigurationResponse"
     "fixture/GetSipMediaApplicationLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSipMediaApplicationLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetSipMediaApplicationLoggingConfiguration)
 
 responseBatchUpdateUser :: BatchUpdateUserResponse -> TestTree
 responseBatchUpdateUser =
@@ -3019,7 +3019,7 @@ responseBatchUpdateUser =
     "BatchUpdateUserResponse"
     "fixture/BatchUpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateUser)
 
 responseSendChannelMessage :: SendChannelMessageResponse -> TestTree
 responseSendChannelMessage =
@@ -3027,7 +3027,7 @@ responseSendChannelMessage =
     "SendChannelMessageResponse"
     "fixture/SendChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy SendChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy SendChannelMessage)
 
 responseTagAttendee :: TagAttendeeResponse -> TestTree
 responseTagAttendee =
@@ -3035,7 +3035,7 @@ responseTagAttendee =
     "TagAttendeeResponse"
     "fixture/TagAttendeeResponse.proto"
     defaultService
-    (Proxy :: Proxy TagAttendee)
+    (Proxy.Proxy :: Proxy.Proxy TagAttendee)
 
 responseUpdateVoiceConnector :: UpdateVoiceConnectorResponse -> TestTree
 responseUpdateVoiceConnector =
@@ -3043,7 +3043,7 @@ responseUpdateVoiceConnector =
     "UpdateVoiceConnectorResponse"
     "fixture/UpdateVoiceConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnector)
 
 responseDeleteVoiceConnector :: DeleteVoiceConnectorResponse -> TestTree
 responseDeleteVoiceConnector =
@@ -3051,7 +3051,7 @@ responseDeleteVoiceConnector =
     "DeleteVoiceConnectorResponse"
     "fixture/DeleteVoiceConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnector)
 
 responseGetMediaCapturePipeline :: GetMediaCapturePipelineResponse -> TestTree
 responseGetMediaCapturePipeline =
@@ -3059,7 +3059,7 @@ responseGetMediaCapturePipeline =
     "GetMediaCapturePipelineResponse"
     "fixture/GetMediaCapturePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMediaCapturePipeline)
+    (Proxy.Proxy :: Proxy.Proxy GetMediaCapturePipeline)
 
 responseUpdateRoomMembership :: UpdateRoomMembershipResponse -> TestTree
 responseUpdateRoomMembership =
@@ -3067,7 +3067,7 @@ responseUpdateRoomMembership =
     "UpdateRoomMembershipResponse"
     "fixture/UpdateRoomMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoomMembership)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoomMembership)
 
 responseGetProxySession :: GetProxySessionResponse -> TestTree
 responseGetProxySession =
@@ -3075,7 +3075,7 @@ responseGetProxySession =
     "GetProxySessionResponse"
     "fixture/GetProxySessionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProxySession)
+    (Proxy.Proxy :: Proxy.Proxy GetProxySession)
 
 responseDeleteRoomMembership :: DeleteRoomMembershipResponse -> TestTree
 responseDeleteRoomMembership =
@@ -3083,7 +3083,7 @@ responseDeleteRoomMembership =
     "DeleteRoomMembershipResponse"
     "fixture/DeleteRoomMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoomMembership)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoomMembership)
 
 responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
 responseDescribeAppInstanceUser =
@@ -3091,7 +3091,7 @@ responseDescribeAppInstanceUser =
     "DescribeAppInstanceUserResponse"
     "fixture/DescribeAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
 
 responseBatchUnsuspendUser :: BatchUnsuspendUserResponse -> TestTree
 responseBatchUnsuspendUser =
@@ -3099,7 +3099,7 @@ responseBatchUnsuspendUser =
     "BatchUnsuspendUserResponse"
     "fixture/BatchUnsuspendUserResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUnsuspendUser)
+    (Proxy.Proxy :: Proxy.Proxy BatchUnsuspendUser)
 
 responseDeleteChannelBan :: DeleteChannelBanResponse -> TestTree
 responseDeleteChannelBan =
@@ -3107,7 +3107,7 @@ responseDeleteChannelBan =
     "DeleteChannelBanResponse"
     "fixture/DeleteChannelBanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelBan)
 
 responseGetMeeting :: GetMeetingResponse -> TestTree
 responseGetMeeting =
@@ -3115,7 +3115,7 @@ responseGetMeeting =
     "GetMeetingResponse"
     "fixture/GetMeetingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMeeting)
+    (Proxy.Proxy :: Proxy.Proxy GetMeeting)
 
 responseRestorePhoneNumber :: RestorePhoneNumberResponse -> TestTree
 responseRestorePhoneNumber =
@@ -3123,7 +3123,7 @@ responseRestorePhoneNumber =
     "RestorePhoneNumberResponse"
     "fixture/RestorePhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy RestorePhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy RestorePhoneNumber)
 
 responseGetRetentionSettings :: GetRetentionSettingsResponse -> TestTree
 responseGetRetentionSettings =
@@ -3131,7 +3131,7 @@ responseGetRetentionSettings =
     "GetRetentionSettingsResponse"
     "fixture/GetRetentionSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRetentionSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetRetentionSettings)
 
 responseGetBot :: GetBotResponse -> TestTree
 responseGetBot =
@@ -3139,7 +3139,7 @@ responseGetBot =
     "GetBotResponse"
     "fixture/GetBotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBot)
+    (Proxy.Proxy :: Proxy.Proxy GetBot)
 
 responseGetUser :: GetUserResponse -> TestTree
 responseGetUser =
@@ -3147,7 +3147,7 @@ responseGetUser =
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUser)
+    (Proxy.Proxy :: Proxy.Proxy GetUser)
 
 responseUntagAttendee :: UntagAttendeeResponse -> TestTree
 responseUntagAttendee =
@@ -3155,7 +3155,7 @@ responseUntagAttendee =
     "UntagAttendeeResponse"
     "fixture/UntagAttendeeResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagAttendee)
+    (Proxy.Proxy :: Proxy.Proxy UntagAttendee)
 
 responseStartMeetingTranscription :: StartMeetingTranscriptionResponse -> TestTree
 responseStartMeetingTranscription =
@@ -3163,7 +3163,7 @@ responseStartMeetingTranscription =
     "StartMeetingTranscriptionResponse"
     "fixture/StartMeetingTranscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMeetingTranscription)
+    (Proxy.Proxy :: Proxy.Proxy StartMeetingTranscription)
 
 responseListChannelBans :: ListChannelBansResponse -> TestTree
 responseListChannelBans =
@@ -3171,7 +3171,7 @@ responseListChannelBans =
     "ListChannelBansResponse"
     "fixture/ListChannelBansResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelBans)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelBans)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -3179,7 +3179,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
 
 responseBatchSuspendUser :: BatchSuspendUserResponse -> TestTree
 responseBatchSuspendUser =
@@ -3187,7 +3187,7 @@ responseBatchSuspendUser =
     "BatchSuspendUserResponse"
     "fixture/BatchSuspendUserResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchSuspendUser)
+    (Proxy.Proxy :: Proxy.Proxy BatchSuspendUser)
 
 responseGetAccount :: GetAccountResponse -> TestTree
 responseGetAccount =
@@ -3195,7 +3195,7 @@ responseGetAccount =
     "GetAccountResponse"
     "fixture/GetAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetAccount)
 
 responseDescribeChannelModerator :: DescribeChannelModeratorResponse -> TestTree
 responseDescribeChannelModerator =
@@ -3203,7 +3203,7 @@ responseDescribeChannelModerator =
     "DescribeChannelModeratorResponse"
     "fixture/DescribeChannelModeratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModerator)
 
 responseAssociatePhoneNumbersWithVoiceConnector :: AssociatePhoneNumbersWithVoiceConnectorResponse -> TestTree
 responseAssociatePhoneNumbersWithVoiceConnector =
@@ -3211,7 +3211,7 @@ responseAssociatePhoneNumbersWithVoiceConnector =
     "AssociatePhoneNumbersWithVoiceConnectorResponse"
     "fixture/AssociatePhoneNumbersWithVoiceConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociatePhoneNumbersWithVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumbersWithVoiceConnector)
 
 responseGetPhoneNumberOrder :: GetPhoneNumberOrderResponse -> TestTree
 responseGetPhoneNumberOrder =
@@ -3219,7 +3219,7 @@ responseGetPhoneNumberOrder =
     "GetPhoneNumberOrderResponse"
     "fixture/GetPhoneNumberOrderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPhoneNumberOrder)
+    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumberOrder)
 
 responseGetSipRule :: GetSipRuleResponse -> TestTree
 responseGetSipRule =
@@ -3227,7 +3227,7 @@ responseGetSipRule =
     "GetSipRuleResponse"
     "fixture/GetSipRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSipRule)
+    (Proxy.Proxy :: Proxy.Proxy GetSipRule)
 
 responseGetUserSettings :: GetUserSettingsResponse -> TestTree
 responseGetUserSettings =
@@ -3235,7 +3235,7 @@ responseGetUserSettings =
     "GetUserSettingsResponse"
     "fixture/GetUserSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUserSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetUserSettings)
 
 responseGetSipMediaApplication :: GetSipMediaApplicationResponse -> TestTree
 responseGetSipMediaApplication =
@@ -3243,7 +3243,7 @@ responseGetSipMediaApplication =
     "GetSipMediaApplicationResponse"
     "fixture/GetSipMediaApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSipMediaApplication)
+    (Proxy.Proxy :: Proxy.Proxy GetSipMediaApplication)
 
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
 responseGetAccountSettings =
@@ -3251,7 +3251,7 @@ responseGetAccountSettings =
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
 
 responseCreateChannelBan :: CreateChannelBanResponse -> TestTree
 responseCreateChannelBan =
@@ -3259,7 +3259,7 @@ responseCreateChannelBan =
     "CreateChannelBanResponse"
     "fixture/CreateChannelBanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelBan)
 
 responseListMeetingTags :: ListMeetingTagsResponse -> TestTree
 responseListMeetingTags =
@@ -3267,7 +3267,7 @@ responseListMeetingTags =
     "ListMeetingTagsResponse"
     "fixture/ListMeetingTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMeetingTags)
+    (Proxy.Proxy :: Proxy.Proxy ListMeetingTags)
 
 responseListChannelMembershipsForAppInstanceUser :: ListChannelMembershipsForAppInstanceUserResponse -> TestTree
 responseListChannelMembershipsForAppInstanceUser =
@@ -3275,7 +3275,7 @@ responseListChannelMembershipsForAppInstanceUser =
     "ListChannelMembershipsForAppInstanceUserResponse"
     "fixture/ListChannelMembershipsForAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelMembershipsForAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMembershipsForAppInstanceUser)
 
 responseGetVoiceConnectorOrigination :: GetVoiceConnectorOriginationResponse -> TestTree
 responseGetVoiceConnectorOrigination =
@@ -3283,7 +3283,7 @@ responseGetVoiceConnectorOrigination =
     "GetVoiceConnectorOriginationResponse"
     "fixture/GetVoiceConnectorOriginationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorOrigination)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorOrigination)
 
 responseBatchUpdatePhoneNumber :: BatchUpdatePhoneNumberResponse -> TestTree
 responseBatchUpdatePhoneNumber =
@@ -3291,7 +3291,7 @@ responseBatchUpdatePhoneNumber =
     "BatchUpdatePhoneNumberResponse"
     "fixture/BatchUpdatePhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdatePhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdatePhoneNumber)
 
 responseDisassociatePhoneNumbersFromVoiceConnectorGroup :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -> TestTree
 responseDisassociatePhoneNumbersFromVoiceConnectorGroup =
@@ -3299,7 +3299,7 @@ responseDisassociatePhoneNumbersFromVoiceConnectorGroup =
     "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"
     "fixture/DisassociatePhoneNumbersFromVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociatePhoneNumbersFromVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumbersFromVoiceConnectorGroup)
 
 responseUpdateChannelReadMarker :: UpdateChannelReadMarkerResponse -> TestTree
 responseUpdateChannelReadMarker =
@@ -3307,7 +3307,7 @@ responseUpdateChannelReadMarker =
     "UpdateChannelReadMarkerResponse"
     "fixture/UpdateChannelReadMarkerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannelReadMarker)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelReadMarker)
 
 responseCreateSipMediaApplicationCall :: CreateSipMediaApplicationCallResponse -> TestTree
 responseCreateSipMediaApplicationCall =
@@ -3315,7 +3315,7 @@ responseCreateSipMediaApplicationCall =
     "CreateSipMediaApplicationCallResponse"
     "fixture/CreateSipMediaApplicationCallResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSipMediaApplicationCall)
+    (Proxy.Proxy :: Proxy.Proxy CreateSipMediaApplicationCall)
 
 responseBatchDeletePhoneNumber :: BatchDeletePhoneNumberResponse -> TestTree
 responseBatchDeletePhoneNumber =
@@ -3323,7 +3323,7 @@ responseBatchDeletePhoneNumber =
     "BatchDeletePhoneNumberResponse"
     "fixture/BatchDeletePhoneNumberResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeletePhoneNumber)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeletePhoneNumber)
 
 responseListSipMediaApplications :: ListSipMediaApplicationsResponse -> TestTree
 responseListSipMediaApplications =
@@ -3331,7 +3331,7 @@ responseListSipMediaApplications =
     "ListSipMediaApplicationsResponse"
     "fixture/ListSipMediaApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSipMediaApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListSipMediaApplications)
 
 responseCreateMeeting :: CreateMeetingResponse -> TestTree
 responseCreateMeeting =
@@ -3339,7 +3339,7 @@ responseCreateMeeting =
     "CreateMeetingResponse"
     "fixture/CreateMeetingResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMeeting)
+    (Proxy.Proxy :: Proxy.Proxy CreateMeeting)
 
 responseCreatePhoneNumberOrder :: CreatePhoneNumberOrderResponse -> TestTree
 responseCreatePhoneNumberOrder =
@@ -3347,7 +3347,7 @@ responseCreatePhoneNumberOrder =
     "CreatePhoneNumberOrderResponse"
     "fixture/CreatePhoneNumberOrderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePhoneNumberOrder)
+    (Proxy.Proxy :: Proxy.Proxy CreatePhoneNumberOrder)
 
 responseListSipRules :: ListSipRulesResponse -> TestTree
 responseListSipRules =
@@ -3355,7 +3355,7 @@ responseListSipRules =
     "ListSipRulesResponse"
     "fixture/ListSipRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSipRules)
+    (Proxy.Proxy :: Proxy.Proxy ListSipRules)
 
 responseCreateBot :: CreateBotResponse -> TestTree
 responseCreateBot =
@@ -3363,7 +3363,7 @@ responseCreateBot =
     "CreateBotResponse"
     "fixture/CreateBotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBot)
+    (Proxy.Proxy :: Proxy.Proxy CreateBot)
 
 responseUpdateUserSettings :: UpdateUserSettingsResponse -> TestTree
 responseUpdateUserSettings =
@@ -3371,7 +3371,7 @@ responseUpdateUserSettings =
     "UpdateUserSettingsResponse"
     "fixture/UpdateUserSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserSettings)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -3379,7 +3379,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseBatchCreateRoomMembership :: BatchCreateRoomMembershipResponse -> TestTree
 responseBatchCreateRoomMembership =
@@ -3387,7 +3387,7 @@ responseBatchCreateRoomMembership =
     "BatchCreateRoomMembershipResponse"
     "fixture/BatchCreateRoomMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateRoomMembership)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateRoomMembership)
 
 responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
 responseDescribeAppInstance =
@@ -3395,7 +3395,7 @@ responseDescribeAppInstance =
     "DescribeAppInstanceResponse"
     "fixture/DescribeAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstance)
 
 responseCreateAccount :: CreateAccountResponse -> TestTree
 responseCreateAccount =
@@ -3403,7 +3403,7 @@ responseCreateAccount =
     "CreateAccountResponse"
     "fixture/CreateAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccount)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccount)
 
 responseCreateChannelMembership :: CreateChannelMembershipResponse -> TestTree
 responseCreateChannelMembership =
@@ -3411,7 +3411,7 @@ responseCreateChannelMembership =
     "CreateChannelMembershipResponse"
     "fixture/CreateChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelMembership)
 
 responseDeleteVoiceConnectorTermination :: DeleteVoiceConnectorTerminationResponse -> TestTree
 responseDeleteVoiceConnectorTermination =
@@ -3419,7 +3419,7 @@ responseDeleteVoiceConnectorTermination =
     "DeleteVoiceConnectorTerminationResponse"
     "fixture/DeleteVoiceConnectorTerminationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorTermination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTermination)
 
 responseAssociatePhoneNumberWithUser :: AssociatePhoneNumberWithUserResponse -> TestTree
 responseAssociatePhoneNumberWithUser =
@@ -3427,7 +3427,7 @@ responseAssociatePhoneNumberWithUser =
     "AssociatePhoneNumberWithUserResponse"
     "fixture/AssociatePhoneNumberWithUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociatePhoneNumberWithUser)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumberWithUser)
 
 responseDeleteVoiceConnectorProxy :: DeleteVoiceConnectorProxyResponse -> TestTree
 responseDeleteVoiceConnectorProxy =
@@ -3435,7 +3435,7 @@ responseDeleteVoiceConnectorProxy =
     "DeleteVoiceConnectorProxyResponse"
     "fixture/DeleteVoiceConnectorProxyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorProxy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorProxy)
 
 responseCreateSipMediaApplication :: CreateSipMediaApplicationResponse -> TestTree
 responseCreateSipMediaApplication =
@@ -3443,7 +3443,7 @@ responseCreateSipMediaApplication =
     "CreateSipMediaApplicationResponse"
     "fixture/CreateSipMediaApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSipMediaApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateSipMediaApplication)
 
 responsePutVoiceConnectorProxy :: PutVoiceConnectorProxyResponse -> TestTree
 responsePutVoiceConnectorProxy =
@@ -3451,7 +3451,7 @@ responsePutVoiceConnectorProxy =
     "PutVoiceConnectorProxyResponse"
     "fixture/PutVoiceConnectorProxyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorProxy)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorProxy)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -3459,7 +3459,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responsePutVoiceConnectorTermination :: PutVoiceConnectorTerminationResponse -> TestTree
 responsePutVoiceConnectorTermination =
@@ -3467,7 +3467,7 @@ responsePutVoiceConnectorTermination =
     "PutVoiceConnectorTerminationResponse"
     "fixture/PutVoiceConnectorTerminationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorTermination)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorTermination)
 
 responseGetVoiceConnectorEmergencyCallingConfiguration :: GetVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
 responseGetVoiceConnectorEmergencyCallingConfiguration =
@@ -3475,7 +3475,7 @@ responseGetVoiceConnectorEmergencyCallingConfiguration =
     "GetVoiceConnectorEmergencyCallingConfigurationResponse"
     "fixture/GetVoiceConnectorEmergencyCallingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorEmergencyCallingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorEmergencyCallingConfiguration)
 
 responsePutVoiceConnectorTerminationCredentials :: PutVoiceConnectorTerminationCredentialsResponse -> TestTree
 responsePutVoiceConnectorTerminationCredentials =
@@ -3483,7 +3483,7 @@ responsePutVoiceConnectorTerminationCredentials =
     "PutVoiceConnectorTerminationCredentialsResponse"
     "fixture/PutVoiceConnectorTerminationCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutVoiceConnectorTerminationCredentials)
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorTerminationCredentials)
 
 responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
 responseListAppInstanceUsers =
@@ -3491,7 +3491,7 @@ responseListAppInstanceUsers =
     "ListAppInstanceUsersResponse"
     "fixture/ListAppInstanceUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppInstanceUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUsers)
 
 responseAssociateSigninDelegateGroupsWithAccount :: AssociateSigninDelegateGroupsWithAccountResponse -> TestTree
 responseAssociateSigninDelegateGroupsWithAccount =
@@ -3499,7 +3499,7 @@ responseAssociateSigninDelegateGroupsWithAccount =
     "AssociateSigninDelegateGroupsWithAccountResponse"
     "fixture/AssociateSigninDelegateGroupsWithAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSigninDelegateGroupsWithAccount)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSigninDelegateGroupsWithAccount)
 
 responseCreateSipRule :: CreateSipRuleResponse -> TestTree
 responseCreateSipRule =
@@ -3507,7 +3507,7 @@ responseCreateSipRule =
     "CreateSipRuleResponse"
     "fixture/CreateSipRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSipRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateSipRule)
 
 responseDeleteVoiceConnectorTerminationCredentials :: DeleteVoiceConnectorTerminationCredentialsResponse -> TestTree
 responseDeleteVoiceConnectorTerminationCredentials =
@@ -3515,7 +3515,7 @@ responseDeleteVoiceConnectorTerminationCredentials =
     "DeleteVoiceConnectorTerminationCredentialsResponse"
     "fixture/DeleteVoiceConnectorTerminationCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorTerminationCredentials)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTerminationCredentials)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -3523,7 +3523,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
 responseDeleteAppInstanceUser =
@@ -3531,7 +3531,7 @@ responseDeleteAppInstanceUser =
     "DeleteAppInstanceUserResponse"
     "fixture/DeleteAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
 
 responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
 responseUpdateAppInstanceUser =
@@ -3539,7 +3539,7 @@ responseUpdateAppInstanceUser =
     "UpdateAppInstanceUserResponse"
     "fixture/UpdateAppInstanceUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)
 
 responseUntagMeeting :: UntagMeetingResponse -> TestTree
 responseUntagMeeting =
@@ -3547,7 +3547,7 @@ responseUntagMeeting =
     "UntagMeetingResponse"
     "fixture/UntagMeetingResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagMeeting)
+    (Proxy.Proxy :: Proxy.Proxy UntagMeeting)
 
 responseUpdateVoiceConnectorGroup :: UpdateVoiceConnectorGroupResponse -> TestTree
 responseUpdateVoiceConnectorGroup =
@@ -3555,7 +3555,7 @@ responseUpdateVoiceConnectorGroup =
     "UpdateVoiceConnectorGroupResponse"
     "fixture/UpdateVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnectorGroup)
 
 responseRedactConversationMessage :: RedactConversationMessageResponse -> TestTree
 responseRedactConversationMessage =
@@ -3563,7 +3563,7 @@ responseRedactConversationMessage =
     "RedactConversationMessageResponse"
     "fixture/RedactConversationMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy RedactConversationMessage)
+    (Proxy.Proxy :: Proxy.Proxy RedactConversationMessage)
 
 responseDeleteChannelModerator :: DeleteChannelModeratorResponse -> TestTree
 responseDeleteChannelModerator =
@@ -3571,7 +3571,7 @@ responseDeleteChannelModerator =
     "DeleteChannelModeratorResponse"
     "fixture/DeleteChannelModeratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelModerator)
 
 responseDeleteVoiceConnectorGroup :: DeleteVoiceConnectorGroupResponse -> TestTree
 responseDeleteVoiceConnectorGroup =
@@ -3579,7 +3579,7 @@ responseDeleteVoiceConnectorGroup =
     "DeleteVoiceConnectorGroupResponse"
     "fixture/DeleteVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorGroup)
 
 responseDescribeChannelBan :: DescribeChannelBanResponse -> TestTree
 responseDescribeChannelBan =
@@ -3587,7 +3587,7 @@ responseDescribeChannelBan =
     "DescribeChannelBanResponse"
     "fixture/DescribeChannelBanResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelBan)
 
 responseDeleteMediaCapturePipeline :: DeleteMediaCapturePipelineResponse -> TestTree
 responseDeleteMediaCapturePipeline =
@@ -3595,7 +3595,7 @@ responseDeleteMediaCapturePipeline =
     "DeleteMediaCapturePipelineResponse"
     "fixture/DeleteMediaCapturePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMediaCapturePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMediaCapturePipeline)
 
 responseUpdateProxySession :: UpdateProxySessionResponse -> TestTree
 responseUpdateProxySession =
@@ -3603,7 +3603,7 @@ responseUpdateProxySession =
     "UpdateProxySessionResponse"
     "fixture/UpdateProxySessionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProxySession)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProxySession)
 
 responseDeleteProxySession :: DeleteProxySessionResponse -> TestTree
 responseDeleteProxySession =
@@ -3611,7 +3611,7 @@ responseDeleteProxySession =
     "DeleteProxySessionResponse"
     "fixture/DeleteProxySessionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProxySession)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProxySession)
 
 responseGetVoiceConnectorTerminationHealth :: GetVoiceConnectorTerminationHealthResponse -> TestTree
 responseGetVoiceConnectorTerminationHealth =
@@ -3619,7 +3619,7 @@ responseGetVoiceConnectorTerminationHealth =
     "GetVoiceConnectorTerminationHealthResponse"
     "fixture/GetVoiceConnectorTerminationHealthResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnectorTerminationHealth)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTerminationHealth)
 
 responseCreateMeetingDialOut :: CreateMeetingDialOutResponse -> TestTree
 responseCreateMeetingDialOut =
@@ -3627,7 +3627,7 @@ responseCreateMeetingDialOut =
     "CreateMeetingDialOutResponse"
     "fixture/CreateMeetingDialOutResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMeetingDialOut)
+    (Proxy.Proxy :: Proxy.Proxy CreateMeetingDialOut)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -3635,7 +3635,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListProxySessions :: ListProxySessionsResponse -> TestTree
 responseListProxySessions =
@@ -3643,7 +3643,7 @@ responseListProxySessions =
     "ListProxySessionsResponse"
     "fixture/ListProxySessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProxySessions)
+    (Proxy.Proxy :: Proxy.Proxy ListProxySessions)
 
 responseListMediaCapturePipelines :: ListMediaCapturePipelinesResponse -> TestTree
 responseListMediaCapturePipelines =
@@ -3651,7 +3651,7 @@ responseListMediaCapturePipelines =
     "ListMediaCapturePipelinesResponse"
     "fixture/ListMediaCapturePipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMediaCapturePipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListMediaCapturePipelines)
 
 responseUpdatePhoneNumberSettings :: UpdatePhoneNumberSettingsResponse -> TestTree
 responseUpdatePhoneNumberSettings =
@@ -3659,7 +3659,7 @@ responseUpdatePhoneNumberSettings =
     "UpdatePhoneNumberSettingsResponse"
     "fixture/UpdatePhoneNumberSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePhoneNumberSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumberSettings)
 
 responseInviteUsers :: InviteUsersResponse -> TestTree
 responseInviteUsers =
@@ -3667,7 +3667,7 @@ responseInviteUsers =
     "InviteUsersResponse"
     "fixture/InviteUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy InviteUsers)
+    (Proxy.Proxy :: Proxy.Proxy InviteUsers)
 
 responseCreateRoom :: CreateRoomResponse -> TestTree
 responseCreateRoom =
@@ -3675,7 +3675,7 @@ responseCreateRoom =
     "CreateRoomResponse"
     "fixture/CreateRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoom)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoom)
 
 responseListChannelModerators :: ListChannelModeratorsResponse -> TestTree
 responseListChannelModerators =
@@ -3683,7 +3683,7 @@ responseListChannelModerators =
     "ListChannelModeratorsResponse"
     "fixture/ListChannelModeratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelModerators)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelModerators)
 
 responseGetVoiceConnector :: GetVoiceConnectorResponse -> TestTree
 responseGetVoiceConnector =
@@ -3691,7 +3691,7 @@ responseGetVoiceConnector =
     "GetVoiceConnectorResponse"
     "fixture/GetVoiceConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnector)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
@@ -3699,7 +3699,7 @@ responseDescribeChannel =
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
 
 responseCreateVoiceConnectorGroup :: CreateVoiceConnectorGroupResponse -> TestTree
 responseCreateVoiceConnectorGroup =
@@ -3707,7 +3707,7 @@ responseCreateVoiceConnectorGroup =
     "CreateVoiceConnectorGroupResponse"
     "fixture/CreateVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateVoiceConnectorGroup)
 
 responseDeleteAppInstanceStreamingConfigurations :: DeleteAppInstanceStreamingConfigurationsResponse -> TestTree
 responseDeleteAppInstanceStreamingConfigurations =
@@ -3715,7 +3715,7 @@ responseDeleteAppInstanceStreamingConfigurations =
     "DeleteAppInstanceStreamingConfigurationsResponse"
     "fixture/DeleteAppInstanceStreamingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstanceStreamingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceStreamingConfigurations)
 
 responseListRooms :: ListRoomsResponse -> TestTree
 responseListRooms =
@@ -3723,7 +3723,7 @@ responseListRooms =
     "ListRoomsResponse"
     "fixture/ListRoomsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRooms)
+    (Proxy.Proxy :: Proxy.Proxy ListRooms)
 
 responseBatchCreateAttendee :: BatchCreateAttendeeResponse -> TestTree
 responseBatchCreateAttendee =
@@ -3731,7 +3731,7 @@ responseBatchCreateAttendee =
     "BatchCreateAttendeeResponse"
     "fixture/BatchCreateAttendeeResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateAttendee)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateAttendee)
 
 responseDeleteAppInstanceAdmin :: DeleteAppInstanceAdminResponse -> TestTree
 responseDeleteAppInstanceAdmin =
@@ -3739,7 +3739,7 @@ responseDeleteAppInstanceAdmin =
     "DeleteAppInstanceAdminResponse"
     "fixture/DeleteAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceAdmin)
 
 responsePutAppInstanceStreamingConfigurations :: PutAppInstanceStreamingConfigurationsResponse -> TestTree
 responsePutAppInstanceStreamingConfigurations =
@@ -3747,7 +3747,7 @@ responsePutAppInstanceStreamingConfigurations =
     "PutAppInstanceStreamingConfigurationsResponse"
     "fixture/PutAppInstanceStreamingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppInstanceStreamingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceStreamingConfigurations)
 
 responseRegenerateSecurityToken :: RegenerateSecurityTokenResponse -> TestTree
 responseRegenerateSecurityToken =
@@ -3755,7 +3755,7 @@ responseRegenerateSecurityToken =
     "RegenerateSecurityTokenResponse"
     "fixture/RegenerateSecurityTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy RegenerateSecurityToken)
+    (Proxy.Proxy :: Proxy.Proxy RegenerateSecurityToken)
 
 responseDeleteChannelMessage :: DeleteChannelMessageResponse -> TestTree
 responseDeleteChannelMessage =
@@ -3763,7 +3763,7 @@ responseDeleteChannelMessage =
     "DeleteChannelMessageResponse"
     "fixture/DeleteChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMessage)
 
 responseUpdateChannelMessage :: UpdateChannelMessageResponse -> TestTree
 responseUpdateChannelMessage =
@@ -3771,7 +3771,7 @@ responseUpdateChannelMessage =
     "UpdateChannelMessageResponse"
     "fixture/UpdateChannelMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannelMessage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelMessage)
 
 responseDeleteAppInstance :: DeleteAppInstanceResponse -> TestTree
 responseDeleteAppInstance =
@@ -3779,7 +3779,7 @@ responseDeleteAppInstance =
     "DeleteAppInstanceResponse"
     "fixture/DeleteAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstance)
 
 responseUpdateAppInstance :: UpdateAppInstanceResponse -> TestTree
 responseUpdateAppInstance =
@@ -3787,7 +3787,7 @@ responseUpdateAppInstance =
     "UpdateAppInstanceResponse"
     "fixture/UpdateAppInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstance)
 
 responseCreateVoiceConnector :: CreateVoiceConnectorResponse -> TestTree
 responseCreateVoiceConnector =
@@ -3795,7 +3795,7 @@ responseCreateVoiceConnector =
     "CreateVoiceConnectorResponse"
     "fixture/CreateVoiceConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy CreateVoiceConnector)
 
 responseListChannelMessages :: ListChannelMessagesResponse -> TestTree
 responseListChannelMessages =
@@ -3803,7 +3803,7 @@ responseListChannelMessages =
     "ListChannelMessagesResponse"
     "fixture/ListChannelMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannelMessages)
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMessages)
 
 responseRedactRoomMessage :: RedactRoomMessageResponse -> TestTree
 responseRedactRoomMessage =
@@ -3811,7 +3811,7 @@ responseRedactRoomMessage =
     "RedactRoomMessageResponse"
     "fixture/RedactRoomMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy RedactRoomMessage)
+    (Proxy.Proxy :: Proxy.Proxy RedactRoomMessage)
 
 responseGetRoom :: GetRoomResponse -> TestTree
 responseGetRoom =
@@ -3819,7 +3819,7 @@ responseGetRoom =
     "GetRoomResponse"
     "fixture/GetRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoom)
+    (Proxy.Proxy :: Proxy.Proxy GetRoom)
 
 responseCreateRoomMembership :: CreateRoomMembershipResponse -> TestTree
 responseCreateRoomMembership =
@@ -3827,7 +3827,7 @@ responseCreateRoomMembership =
     "CreateRoomMembershipResponse"
     "fixture/CreateRoomMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoomMembership)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoomMembership)
 
 responseBatchCreateChannelMembership :: BatchCreateChannelMembershipResponse -> TestTree
 responseBatchCreateChannelMembership =
@@ -3835,4 +3835,4 @@ responseBatchCreateChannelMembership =
     "BatchCreateChannelMembershipResponse"
     "fixture/BatchCreateChannelMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateChannelMembership)

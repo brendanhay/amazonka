@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CustomerProfiles where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CustomerProfiles
 import Test.AWS.CustomerProfiles.Internal
 import Test.AWS.Fixture
@@ -403,7 +403,7 @@ responseDeleteProfileObjectType =
     "DeleteProfileObjectTypeResponse"
     "fixture/DeleteProfileObjectTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProfileObjectType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfileObjectType)
 
 responseListIntegrations :: ListIntegrationsResponse -> TestTree
 responseListIntegrations =
@@ -411,7 +411,7 @@ responseListIntegrations =
     "ListIntegrationsResponse"
     "fixture/ListIntegrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIntegrations)
+    (Proxy.Proxy :: Proxy.Proxy ListIntegrations)
 
 responsePutProfileObjectType :: PutProfileObjectTypeResponse -> TestTree
 responsePutProfileObjectType =
@@ -419,7 +419,7 @@ responsePutProfileObjectType =
     "PutProfileObjectTypeResponse"
     "fixture/PutProfileObjectTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy PutProfileObjectType)
+    (Proxy.Proxy :: Proxy.Proxy PutProfileObjectType)
 
 responseListProfileObjects :: ListProfileObjectsResponse -> TestTree
 responseListProfileObjects =
@@ -427,7 +427,7 @@ responseListProfileObjects =
     "ListProfileObjectsResponse"
     "fixture/ListProfileObjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProfileObjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProfileObjects)
 
 responseListProfileObjectTypeTemplates :: ListProfileObjectTypeTemplatesResponse -> TestTree
 responseListProfileObjectTypeTemplates =
@@ -435,7 +435,7 @@ responseListProfileObjectTypeTemplates =
     "ListProfileObjectTypeTemplatesResponse"
     "fixture/ListProfileObjectTypeTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProfileObjectTypeTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListProfileObjectTypeTemplates)
 
 responseDeleteProfile :: DeleteProfileResponse -> TestTree
 responseDeleteProfile =
@@ -443,7 +443,7 @@ responseDeleteProfile =
     "DeleteProfileResponse"
     "fixture/DeleteProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfile)
 
 responseUpdateProfile :: UpdateProfileResponse -> TestTree
 responseUpdateProfile =
@@ -451,7 +451,7 @@ responseUpdateProfile =
     "UpdateProfileResponse"
     "fixture/UpdateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfile)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -459,7 +459,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseAddProfileKey :: AddProfileKeyResponse -> TestTree
 responseAddProfileKey =
@@ -467,7 +467,7 @@ responseAddProfileKey =
     "AddProfileKeyResponse"
     "fixture/AddProfileKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy AddProfileKey)
+    (Proxy.Proxy :: Proxy.Proxy AddProfileKey)
 
 responseGetProfileObjectTypeTemplate :: GetProfileObjectTypeTemplateResponse -> TestTree
 responseGetProfileObjectTypeTemplate =
@@ -475,7 +475,7 @@ responseGetProfileObjectTypeTemplate =
     "GetProfileObjectTypeTemplateResponse"
     "fixture/GetProfileObjectTypeTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProfileObjectTypeTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetProfileObjectTypeTemplate)
 
 responseGetIntegration :: GetIntegrationResponse -> TestTree
 responseGetIntegration =
@@ -483,7 +483,7 @@ responseGetIntegration =
     "GetIntegrationResponse"
     "fixture/GetIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntegration)
+    (Proxy.Proxy :: Proxy.Proxy GetIntegration)
 
 responseGetDomain :: GetDomainResponse -> TestTree
 responseGetDomain =
@@ -491,7 +491,7 @@ responseGetDomain =
     "GetDomainResponse"
     "fixture/GetDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomain)
+    (Proxy.Proxy :: Proxy.Proxy GetDomain)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -499,7 +499,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseDeleteIntegration :: DeleteIntegrationResponse -> TestTree
 responseDeleteIntegration =
@@ -507,7 +507,7 @@ responseDeleteIntegration =
     "DeleteIntegrationResponse"
     "fixture/DeleteIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIntegration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntegration)
 
 responseCreateProfile :: CreateProfileResponse -> TestTree
 responseCreateProfile =
@@ -515,7 +515,7 @@ responseCreateProfile =
     "CreateProfileResponse"
     "fixture/CreateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateProfile)
 
 responsePutProfileObject :: PutProfileObjectResponse -> TestTree
 responsePutProfileObject =
@@ -523,7 +523,7 @@ responsePutProfileObject =
     "PutProfileObjectResponse"
     "fixture/PutProfileObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy PutProfileObject)
+    (Proxy.Proxy :: Proxy.Proxy PutProfileObject)
 
 responsePutIntegration :: PutIntegrationResponse -> TestTree
 responsePutIntegration =
@@ -531,7 +531,7 @@ responsePutIntegration =
     "PutIntegrationResponse"
     "fixture/PutIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutIntegration)
+    (Proxy.Proxy :: Proxy.Proxy PutIntegration)
 
 responseDeleteProfileObject :: DeleteProfileObjectResponse -> TestTree
 responseDeleteProfileObject =
@@ -539,7 +539,7 @@ responseDeleteProfileObject =
     "DeleteProfileObjectResponse"
     "fixture/DeleteProfileObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProfileObject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfileObject)
 
 responseListProfileObjectTypes :: ListProfileObjectTypesResponse -> TestTree
 responseListProfileObjectTypes =
@@ -547,7 +547,7 @@ responseListProfileObjectTypes =
     "ListProfileObjectTypesResponse"
     "fixture/ListProfileObjectTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProfileObjectTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListProfileObjectTypes)
 
 responseDeleteProfileKey :: DeleteProfileKeyResponse -> TestTree
 responseDeleteProfileKey =
@@ -555,7 +555,7 @@ responseDeleteProfileKey =
     "DeleteProfileKeyResponse"
     "fixture/DeleteProfileKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProfileKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfileKey)
 
 responseGetProfileObjectType :: GetProfileObjectTypeResponse -> TestTree
 responseGetProfileObjectType =
@@ -563,7 +563,7 @@ responseGetProfileObjectType =
     "GetProfileObjectTypeResponse"
     "fixture/GetProfileObjectTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProfileObjectType)
+    (Proxy.Proxy :: Proxy.Proxy GetProfileObjectType)
 
 responseMergeProfiles :: MergeProfilesResponse -> TestTree
 responseMergeProfiles =
@@ -571,7 +571,7 @@ responseMergeProfiles =
     "MergeProfilesResponse"
     "fixture/MergeProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeProfiles)
+    (Proxy.Proxy :: Proxy.Proxy MergeProfiles)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -579,7 +579,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetMatches :: GetMatchesResponse -> TestTree
 responseGetMatches =
@@ -587,7 +587,7 @@ responseGetMatches =
     "GetMatchesResponse"
     "fixture/GetMatchesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMatches)
+    (Proxy.Proxy :: Proxy.Proxy GetMatches)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -595,7 +595,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseSearchProfiles :: SearchProfilesResponse -> TestTree
 responseSearchProfiles =
@@ -603,7 +603,7 @@ responseSearchProfiles =
     "SearchProfilesResponse"
     "fixture/SearchProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchProfiles)
+    (Proxy.Proxy :: Proxy.Proxy SearchProfiles)
 
 responseListAccountIntegrations :: ListAccountIntegrationsResponse -> TestTree
 responseListAccountIntegrations =
@@ -611,7 +611,7 @@ responseListAccountIntegrations =
     "ListAccountIntegrationsResponse"
     "fixture/ListAccountIntegrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountIntegrations)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountIntegrations)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -619,7 +619,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
 responseUpdateDomain =
@@ -627,7 +627,7 @@ responseUpdateDomain =
     "UpdateDomainResponse"
     "fixture/UpdateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -635,4 +635,4 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)

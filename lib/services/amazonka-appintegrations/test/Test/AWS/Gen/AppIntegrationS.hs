@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppIntegrationS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppIntegrationS
 import Test.AWS.AppIntegrationS.Internal
 import Test.AWS.Fixture
@@ -223,7 +223,7 @@ responseGetEventIntegration =
     "GetEventIntegrationResponse"
     "fixture/GetEventIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventIntegration)
+    (Proxy.Proxy :: Proxy.Proxy GetEventIntegration)
 
 responseListDataIntegrations :: ListDataIntegrationsResponse -> TestTree
 responseListDataIntegrations =
@@ -231,7 +231,7 @@ responseListDataIntegrations =
     "ListDataIntegrationsResponse"
     "fixture/ListDataIntegrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataIntegrations)
+    (Proxy.Proxy :: Proxy.Proxy ListDataIntegrations)
 
 responseCreateDataIntegration :: CreateDataIntegrationResponse -> TestTree
 responseCreateDataIntegration =
@@ -239,7 +239,7 @@ responseCreateDataIntegration =
     "CreateDataIntegrationResponse"
     "fixture/CreateDataIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataIntegration)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataIntegration)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -247,7 +247,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListEventIntegrationAssociations :: ListEventIntegrationAssociationsResponse -> TestTree
 responseListEventIntegrationAssociations =
@@ -255,7 +255,7 @@ responseListEventIntegrationAssociations =
     "ListEventIntegrationAssociationsResponse"
     "fixture/ListEventIntegrationAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventIntegrationAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListEventIntegrationAssociations)
 
 responseGetDataIntegration :: GetDataIntegrationResponse -> TestTree
 responseGetDataIntegration =
@@ -263,7 +263,7 @@ responseGetDataIntegration =
     "GetDataIntegrationResponse"
     "fixture/GetDataIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataIntegration)
+    (Proxy.Proxy :: Proxy.Proxy GetDataIntegration)
 
 responseListEventIntegrations :: ListEventIntegrationsResponse -> TestTree
 responseListEventIntegrations =
@@ -271,7 +271,7 @@ responseListEventIntegrations =
     "ListEventIntegrationsResponse"
     "fixture/ListEventIntegrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventIntegrations)
+    (Proxy.Proxy :: Proxy.Proxy ListEventIntegrations)
 
 responseDeleteEventIntegration :: DeleteEventIntegrationResponse -> TestTree
 responseDeleteEventIntegration =
@@ -279,7 +279,7 @@ responseDeleteEventIntegration =
     "DeleteEventIntegrationResponse"
     "fixture/DeleteEventIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventIntegration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventIntegration)
 
 responseUpdateEventIntegration :: UpdateEventIntegrationResponse -> TestTree
 responseUpdateEventIntegration =
@@ -287,7 +287,7 @@ responseUpdateEventIntegration =
     "UpdateEventIntegrationResponse"
     "fixture/UpdateEventIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEventIntegration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventIntegration)
 
 responseDeleteDataIntegration :: DeleteDataIntegrationResponse -> TestTree
 responseDeleteDataIntegration =
@@ -295,7 +295,7 @@ responseDeleteDataIntegration =
     "DeleteDataIntegrationResponse"
     "fixture/DeleteDataIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataIntegration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataIntegration)
 
 responseUpdateDataIntegration :: UpdateDataIntegrationResponse -> TestTree
 responseUpdateDataIntegration =
@@ -303,7 +303,7 @@ responseUpdateDataIntegration =
     "UpdateDataIntegrationResponse"
     "fixture/UpdateDataIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataIntegration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataIntegration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -311,7 +311,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -319,7 +319,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListDataIntegrationAssociations :: ListDataIntegrationAssociationsResponse -> TestTree
 responseListDataIntegrationAssociations =
@@ -327,7 +327,7 @@ responseListDataIntegrationAssociations =
     "ListDataIntegrationAssociationsResponse"
     "fixture/ListDataIntegrationAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataIntegrationAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListDataIntegrationAssociations)
 
 responseCreateEventIntegration :: CreateEventIntegrationResponse -> TestTree
 responseCreateEventIntegration =
@@ -335,4 +335,4 @@ responseCreateEventIntegration =
     "CreateEventIntegrationResponse"
     "fixture/CreateEventIntegrationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEventIntegration)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventIntegration)

@@ -7,7 +7,7 @@
 --
 module {{ moduleName }} where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
@@ -55,6 +55,6 @@ response{{ op.value.name }} = res
     "{{ op.value.name }}Response"
     "fixture/{{ op.value.name }}Response.proto"
     {{ serviceConfig }}
-    (Proxy :: Proxy {{ op.value.input.name }})
+    (Proxy.Proxy :: Proxy.Proxy {{ op.value.input.name }})
   {% endif %}
 {% endfor %}

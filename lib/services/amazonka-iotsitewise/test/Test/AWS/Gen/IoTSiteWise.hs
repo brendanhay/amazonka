@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTSiteWise where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTSiteWise
 import Test.AWS.Fixture
 import Test.AWS.IoTSiteWise.Internal
@@ -763,7 +763,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -771,7 +771,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -779,7 +779,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
 responsePutLoggingOptions =
@@ -787,7 +787,7 @@ responsePutLoggingOptions =
     "PutLoggingOptionsResponse"
     "fixture/PutLoggingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
 
 responseDescribeAssetModel :: DescribeAssetModelResponse -> TestTree
 responseDescribeAssetModel =
@@ -795,7 +795,7 @@ responseDescribeAssetModel =
     "DescribeAssetModelResponse"
     "fixture/DescribeAssetModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssetModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssetModel)
 
 responseDescribeAssetProperty :: DescribeAssetPropertyResponse -> TestTree
 responseDescribeAssetProperty =
@@ -803,7 +803,7 @@ responseDescribeAssetProperty =
     "DescribeAssetPropertyResponse"
     "fixture/DescribeAssetPropertyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssetProperty)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssetProperty)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -811,7 +811,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetAssetPropertyValue :: GetAssetPropertyValueResponse -> TestTree
 responseGetAssetPropertyValue =
@@ -819,7 +819,7 @@ responseGetAssetPropertyValue =
     "GetAssetPropertyValueResponse"
     "fixture/GetAssetPropertyValueResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssetPropertyValue)
+    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyValue)
 
 responseDeleteAccessPolicy :: DeleteAccessPolicyResponse -> TestTree
 responseDeleteAccessPolicy =
@@ -827,7 +827,7 @@ responseDeleteAccessPolicy =
     "DeleteAccessPolicyResponse"
     "fixture/DeleteAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessPolicy)
 
 responseUpdateAccessPolicy :: UpdateAccessPolicyResponse -> TestTree
 responseUpdateAccessPolicy =
@@ -835,7 +835,7 @@ responseUpdateAccessPolicy =
     "UpdateAccessPolicyResponse"
     "fixture/UpdateAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccessPolicy)
 
 responseDescribeGateway :: DescribeGatewayResponse -> TestTree
 responseDescribeGateway =
@@ -843,7 +843,7 @@ responseDescribeGateway =
     "DescribeGatewayResponse"
     "fixture/DescribeGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGateway)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGateway)
 
 responseDescribeAsset :: DescribeAssetResponse -> TestTree
 responseDescribeAsset =
@@ -851,7 +851,7 @@ responseDescribeAsset =
     "DescribeAssetResponse"
     "fixture/DescribeAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAsset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAsset)
 
 responseListDashboards :: ListDashboardsResponse -> TestTree
 responseListDashboards =
@@ -859,7 +859,7 @@ responseListDashboards =
     "ListDashboardsResponse"
     "fixture/ListDashboardsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDashboards)
+    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
 
 responseListAccessPolicies :: ListAccessPoliciesResponse -> TestTree
 responseListAccessPolicies =
@@ -867,7 +867,7 @@ responseListAccessPolicies =
     "ListAccessPoliciesResponse"
     "fixture/ListAccessPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccessPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListAccessPolicies)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -875,7 +875,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseGetAssetPropertyValueHistory :: GetAssetPropertyValueHistoryResponse -> TestTree
 responseGetAssetPropertyValueHistory =
@@ -883,7 +883,7 @@ responseGetAssetPropertyValueHistory =
     "GetAssetPropertyValueHistoryResponse"
     "fixture/GetAssetPropertyValueHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssetPropertyValueHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyValueHistory)
 
 responseCreateDashboard :: CreateDashboardResponse -> TestTree
 responseCreateDashboard =
@@ -891,7 +891,7 @@ responseCreateDashboard =
     "CreateDashboardResponse"
     "fixture/CreateDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDashboard)
+    (Proxy.Proxy :: Proxy.Proxy CreateDashboard)
 
 responseCreateAccessPolicy :: CreateAccessPolicyResponse -> TestTree
 responseCreateAccessPolicy =
@@ -899,7 +899,7 @@ responseCreateAccessPolicy =
     "CreateAccessPolicyResponse"
     "fixture/CreateAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccessPolicy)
 
 responseCreateAssetModel :: CreateAssetModelResponse -> TestTree
 responseCreateAssetModel =
@@ -907,7 +907,7 @@ responseCreateAssetModel =
     "CreateAssetModelResponse"
     "fixture/CreateAssetModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssetModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssetModel)
 
 responseBatchAssociateProjectAssets :: BatchAssociateProjectAssetsResponse -> TestTree
 responseBatchAssociateProjectAssets =
@@ -915,7 +915,7 @@ responseBatchAssociateProjectAssets =
     "BatchAssociateProjectAssetsResponse"
     "fixture/BatchAssociateProjectAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateProjectAssets)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateProjectAssets)
 
 responseListAssetModels :: ListAssetModelsResponse -> TestTree
 responseListAssetModels =
@@ -923,7 +923,7 @@ responseListAssetModels =
     "ListAssetModelsResponse"
     "fixture/ListAssetModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssetModels)
+    (Proxy.Proxy :: Proxy.Proxy ListAssetModels)
 
 responseListAssociatedAssets :: ListAssociatedAssetsResponse -> TestTree
 responseListAssociatedAssets =
@@ -931,7 +931,7 @@ responseListAssociatedAssets =
     "ListAssociatedAssetsResponse"
     "fixture/ListAssociatedAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedAssets)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedAssets)
 
 responseBatchPutAssetPropertyValue :: BatchPutAssetPropertyValueResponse -> TestTree
 responseBatchPutAssetPropertyValue =
@@ -939,7 +939,7 @@ responseBatchPutAssetPropertyValue =
     "BatchPutAssetPropertyValueResponse"
     "fixture/BatchPutAssetPropertyValueResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchPutAssetPropertyValue)
+    (Proxy.Proxy :: Proxy.Proxy BatchPutAssetPropertyValue)
 
 responseDeleteAsset :: DeleteAssetResponse -> TestTree
 responseDeleteAsset =
@@ -947,7 +947,7 @@ responseDeleteAsset =
     "DeleteAssetResponse"
     "fixture/DeleteAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAsset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAsset)
 
 responseUpdateAsset :: UpdateAssetResponse -> TestTree
 responseUpdateAsset =
@@ -955,7 +955,7 @@ responseUpdateAsset =
     "UpdateAssetResponse"
     "fixture/UpdateAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAsset)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAsset)
 
 responseDeleteGateway :: DeleteGatewayResponse -> TestTree
 responseDeleteGateway =
@@ -963,7 +963,7 @@ responseDeleteGateway =
     "DeleteGatewayResponse"
     "fixture/DeleteGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGateway)
 
 responseDescribeAccessPolicy :: DescribeAccessPolicyResponse -> TestTree
 responseDescribeAccessPolicy =
@@ -971,7 +971,7 @@ responseDescribeAccessPolicy =
     "DescribeAccessPolicyResponse"
     "fixture/DescribeAccessPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccessPolicy)
 
 responseUpdateGateway :: UpdateGatewayResponse -> TestTree
 responseUpdateGateway =
@@ -979,7 +979,7 @@ responseUpdateGateway =
     "UpdateGatewayResponse"
     "fixture/UpdateGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGateway)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGateway)
 
 responseListProjectAssets :: ListProjectAssetsResponse -> TestTree
 responseListProjectAssets =
@@ -987,7 +987,7 @@ responseListProjectAssets =
     "ListProjectAssetsResponse"
     "fixture/ListProjectAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjectAssets)
+    (Proxy.Proxy :: Proxy.Proxy ListProjectAssets)
 
 responseCreateGateway :: CreateGatewayResponse -> TestTree
 responseCreateGateway =
@@ -995,7 +995,7 @@ responseCreateGateway =
     "CreateGatewayResponse"
     "fixture/CreateGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateGateway)
 
 responseDescribeStorageConfiguration :: DescribeStorageConfigurationResponse -> TestTree
 responseDescribeStorageConfiguration =
@@ -1003,7 +1003,7 @@ responseDescribeStorageConfiguration =
     "DescribeStorageConfigurationResponse"
     "fixture/DescribeStorageConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStorageConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorageConfiguration)
 
 responseCreateAsset :: CreateAssetResponse -> TestTree
 responseCreateAsset =
@@ -1011,7 +1011,7 @@ responseCreateAsset =
     "CreateAssetResponse"
     "fixture/CreateAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAsset)
+    (Proxy.Proxy :: Proxy.Proxy CreateAsset)
 
 responseAssociateAssets :: AssociateAssetsResponse -> TestTree
 responseAssociateAssets =
@@ -1019,7 +1019,7 @@ responseAssociateAssets =
     "AssociateAssetsResponse"
     "fixture/AssociateAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAssets)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAssets)
 
 responseGetInterpolatedAssetPropertyValues :: GetInterpolatedAssetPropertyValuesResponse -> TestTree
 responseGetInterpolatedAssetPropertyValues =
@@ -1027,7 +1027,7 @@ responseGetInterpolatedAssetPropertyValues =
     "GetInterpolatedAssetPropertyValuesResponse"
     "fixture/GetInterpolatedAssetPropertyValuesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInterpolatedAssetPropertyValues)
+    (Proxy.Proxy :: Proxy.Proxy GetInterpolatedAssetPropertyValues)
 
 responseDescribeGatewayCapabilityConfiguration :: DescribeGatewayCapabilityConfigurationResponse -> TestTree
 responseDescribeGatewayCapabilityConfiguration =
@@ -1035,7 +1035,7 @@ responseDescribeGatewayCapabilityConfiguration =
     "DescribeGatewayCapabilityConfigurationResponse"
     "fixture/DescribeGatewayCapabilityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGatewayCapabilityConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayCapabilityConfiguration)
 
 responsePutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfigurationResponse -> TestTree
 responsePutDefaultEncryptionConfiguration =
@@ -1043,7 +1043,7 @@ responsePutDefaultEncryptionConfiguration =
     "PutDefaultEncryptionConfigurationResponse"
     "fixture/PutDefaultEncryptionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDefaultEncryptionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutDefaultEncryptionConfiguration)
 
 responseDeletePortal :: DeletePortalResponse -> TestTree
 responseDeletePortal =
@@ -1051,7 +1051,7 @@ responseDeletePortal =
     "DeletePortalResponse"
     "fixture/DeletePortalResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePortal)
+    (Proxy.Proxy :: Proxy.Proxy DeletePortal)
 
 responseListAssetRelationships :: ListAssetRelationshipsResponse -> TestTree
 responseListAssetRelationships =
@@ -1059,7 +1059,7 @@ responseListAssetRelationships =
     "ListAssetRelationshipsResponse"
     "fixture/ListAssetRelationshipsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssetRelationships)
+    (Proxy.Proxy :: Proxy.Proxy ListAssetRelationships)
 
 responseUpdatePortal :: UpdatePortalResponse -> TestTree
 responseUpdatePortal =
@@ -1067,7 +1067,7 @@ responseUpdatePortal =
     "UpdatePortalResponse"
     "fixture/UpdatePortalResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePortal)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePortal)
 
 responseListPortals :: ListPortalsResponse -> TestTree
 responseListPortals =
@@ -1075,7 +1075,7 @@ responseListPortals =
     "ListPortalsResponse"
     "fixture/ListPortalsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPortals)
+    (Proxy.Proxy :: Proxy.Proxy ListPortals)
 
 responseDeleteDashboard :: DeleteDashboardResponse -> TestTree
 responseDeleteDashboard =
@@ -1083,7 +1083,7 @@ responseDeleteDashboard =
     "DeleteDashboardResponse"
     "fixture/DeleteDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDashboard)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDashboard)
 
 responseUpdateDashboard :: UpdateDashboardResponse -> TestTree
 responseUpdateDashboard =
@@ -1091,7 +1091,7 @@ responseUpdateDashboard =
     "UpdateDashboardResponse"
     "fixture/UpdateDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDashboard)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboard)
 
 responsePutStorageConfiguration :: PutStorageConfigurationResponse -> TestTree
 responsePutStorageConfiguration =
@@ -1099,7 +1099,7 @@ responsePutStorageConfiguration =
     "PutStorageConfigurationResponse"
     "fixture/PutStorageConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutStorageConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutStorageConfiguration)
 
 responseCreatePortal :: CreatePortalResponse -> TestTree
 responseCreatePortal =
@@ -1107,7 +1107,7 @@ responseCreatePortal =
     "CreatePortalResponse"
     "fixture/CreatePortalResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePortal)
+    (Proxy.Proxy :: Proxy.Proxy CreatePortal)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1115,7 +1115,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseBatchDisassociateProjectAssets :: BatchDisassociateProjectAssetsResponse -> TestTree
 responseBatchDisassociateProjectAssets =
@@ -1123,7 +1123,7 @@ responseBatchDisassociateProjectAssets =
     "BatchDisassociateProjectAssetsResponse"
     "fixture/BatchDisassociateProjectAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateProjectAssets)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateProjectAssets)
 
 responseGetAssetPropertyAggregates :: GetAssetPropertyAggregatesResponse -> TestTree
 responseGetAssetPropertyAggregates =
@@ -1131,7 +1131,7 @@ responseGetAssetPropertyAggregates =
     "GetAssetPropertyAggregatesResponse"
     "fixture/GetAssetPropertyAggregatesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssetPropertyAggregates)
+    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyAggregates)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1139,7 +1139,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteAssetModel :: DeleteAssetModelResponse -> TestTree
 responseDeleteAssetModel =
@@ -1147,7 +1147,7 @@ responseDeleteAssetModel =
     "DeleteAssetModelResponse"
     "fixture/DeleteAssetModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssetModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssetModel)
 
 responseUpdateAssetModel :: UpdateAssetModelResponse -> TestTree
 responseUpdateAssetModel =
@@ -1155,7 +1155,7 @@ responseUpdateAssetModel =
     "UpdateAssetModelResponse"
     "fixture/UpdateAssetModelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssetModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssetModel)
 
 responseUpdateAssetProperty :: UpdateAssetPropertyResponse -> TestTree
 responseUpdateAssetProperty =
@@ -1163,7 +1163,7 @@ responseUpdateAssetProperty =
     "UpdateAssetPropertyResponse"
     "fixture/UpdateAssetPropertyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssetProperty)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssetProperty)
 
 responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
 responseDescribeLoggingOptions =
@@ -1171,7 +1171,7 @@ responseDescribeLoggingOptions =
     "DescribeLoggingOptionsResponse"
     "fixture/DescribeLoggingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)
 
 responseListGateways :: ListGatewaysResponse -> TestTree
 responseListGateways =
@@ -1179,7 +1179,7 @@ responseListGateways =
     "ListGatewaysResponse"
     "fixture/ListGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGateways)
+    (Proxy.Proxy :: Proxy.Proxy ListGateways)
 
 responseUpdateGatewayCapabilityConfiguration :: UpdateGatewayCapabilityConfigurationResponse -> TestTree
 responseUpdateGatewayCapabilityConfiguration =
@@ -1187,7 +1187,7 @@ responseUpdateGatewayCapabilityConfiguration =
     "UpdateGatewayCapabilityConfigurationResponse"
     "fixture/UpdateGatewayCapabilityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGatewayCapabilityConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayCapabilityConfiguration)
 
 responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
 responseDescribeDashboard =
@@ -1195,7 +1195,7 @@ responseDescribeDashboard =
     "DescribeDashboardResponse"
     "fixture/DescribeDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDashboard)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
 
 responseDescribePortal :: DescribePortalResponse -> TestTree
 responseDescribePortal =
@@ -1203,7 +1203,7 @@ responseDescribePortal =
     "DescribePortalResponse"
     "fixture/DescribePortalResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePortal)
+    (Proxy.Proxy :: Proxy.Proxy DescribePortal)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -1211,7 +1211,7 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
 responseDescribeDefaultEncryptionConfiguration :: DescribeDefaultEncryptionConfigurationResponse -> TestTree
 responseDescribeDefaultEncryptionConfiguration =
@@ -1219,7 +1219,7 @@ responseDescribeDefaultEncryptionConfiguration =
     "DescribeDefaultEncryptionConfigurationResponse"
     "fixture/DescribeDefaultEncryptionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDefaultEncryptionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDefaultEncryptionConfiguration)
 
 responseListAssets :: ListAssetsResponse -> TestTree
 responseListAssets =
@@ -1227,7 +1227,7 @@ responseListAssets =
     "ListAssetsResponse"
     "fixture/ListAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssets)
+    (Proxy.Proxy :: Proxy.Proxy ListAssets)
 
 responseDisassociateAssets :: DisassociateAssetsResponse -> TestTree
 responseDisassociateAssets =
@@ -1235,4 +1235,4 @@ responseDisassociateAssets =
     "DisassociateAssetsResponse"
     "fixture/DisassociateAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateAssets)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAssets)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudWatch where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudWatch
 import Test.AWS.CloudWatch.Internal
 import Test.AWS.Fixture
@@ -475,7 +475,7 @@ responseEnableAlarmActions =
     "EnableAlarmActionsResponse"
     "fixture/EnableAlarmActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAlarmActions)
+    (Proxy.Proxy :: Proxy.Proxy EnableAlarmActions)
 
 responseDisableInsightRules :: DisableInsightRulesResponse -> TestTree
 responseDisableInsightRules =
@@ -483,7 +483,7 @@ responseDisableInsightRules =
     "DisableInsightRulesResponse"
     "fixture/DisableInsightRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableInsightRules)
+    (Proxy.Proxy :: Proxy.Proxy DisableInsightRules)
 
 responsePutCompositeAlarm :: PutCompositeAlarmResponse -> TestTree
 responsePutCompositeAlarm =
@@ -491,7 +491,7 @@ responsePutCompositeAlarm =
     "PutCompositeAlarmResponse"
     "fixture/PutCompositeAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy PutCompositeAlarm)
+    (Proxy.Proxy :: Proxy.Proxy PutCompositeAlarm)
 
 responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
 responseDeleteAnomalyDetector =
@@ -499,7 +499,7 @@ responseDeleteAnomalyDetector =
     "DeleteAnomalyDetectorResponse"
     "fixture/DeleteAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnomalyDetector)
 
 responseDeleteInsightRules :: DeleteInsightRulesResponse -> TestTree
 responseDeleteInsightRules =
@@ -507,7 +507,7 @@ responseDeleteInsightRules =
     "DeleteInsightRulesResponse"
     "fixture/DeleteInsightRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInsightRules)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInsightRules)
 
 responseGetDashboard :: GetDashboardResponse -> TestTree
 responseGetDashboard =
@@ -515,7 +515,7 @@ responseGetDashboard =
     "GetDashboardResponse"
     "fixture/GetDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDashboard)
+    (Proxy.Proxy :: Proxy.Proxy GetDashboard)
 
 responsePutAnomalyDetector :: PutAnomalyDetectorResponse -> TestTree
 responsePutAnomalyDetector =
@@ -523,7 +523,7 @@ responsePutAnomalyDetector =
     "PutAnomalyDetectorResponse"
     "fixture/PutAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAnomalyDetector)
+    (Proxy.Proxy :: Proxy.Proxy PutAnomalyDetector)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -531,7 +531,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
 responseGetMetricData =
@@ -539,7 +539,7 @@ responseGetMetricData =
     "GetMetricDataResponse"
     "fixture/GetMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMetricData)
+    (Proxy.Proxy :: Proxy.Proxy GetMetricData)
 
 responsePutMetricData :: PutMetricDataResponse -> TestTree
 responsePutMetricData =
@@ -547,7 +547,7 @@ responsePutMetricData =
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMetricData)
+    (Proxy.Proxy :: Proxy.Proxy PutMetricData)
 
 responseListDashboards :: ListDashboardsResponse -> TestTree
 responseListDashboards =
@@ -555,7 +555,7 @@ responseListDashboards =
     "ListDashboardsResponse"
     "fixture/ListDashboardsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDashboards)
+    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
 
 responseDescribeAlarms :: DescribeAlarmsResponse -> TestTree
 responseDescribeAlarms =
@@ -563,7 +563,7 @@ responseDescribeAlarms =
     "DescribeAlarmsResponse"
     "fixture/DescribeAlarmsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlarms)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarms)
 
 responseListMetrics :: ListMetricsResponse -> TestTree
 responseListMetrics =
@@ -571,7 +571,7 @@ responseListMetrics =
     "ListMetricsResponse"
     "fixture/ListMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMetrics)
+    (Proxy.Proxy :: Proxy.Proxy ListMetrics)
 
 responseGetInsightRuleReport :: GetInsightRuleReportResponse -> TestTree
 responseGetInsightRuleReport =
@@ -579,7 +579,7 @@ responseGetInsightRuleReport =
     "GetInsightRuleReportResponse"
     "fixture/GetInsightRuleReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsightRuleReport)
+    (Proxy.Proxy :: Proxy.Proxy GetInsightRuleReport)
 
 responseStartMetricStreams :: StartMetricStreamsResponse -> TestTree
 responseStartMetricStreams =
@@ -587,7 +587,7 @@ responseStartMetricStreams =
     "StartMetricStreamsResponse"
     "fixture/StartMetricStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMetricStreams)
+    (Proxy.Proxy :: Proxy.Proxy StartMetricStreams)
 
 responseDeleteDashboards :: DeleteDashboardsResponse -> TestTree
 responseDeleteDashboards =
@@ -595,7 +595,7 @@ responseDeleteDashboards =
     "DeleteDashboardsResponse"
     "fixture/DeleteDashboardsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDashboards)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDashboards)
 
 responsePutInsightRule :: PutInsightRuleResponse -> TestTree
 responsePutInsightRule =
@@ -603,7 +603,7 @@ responsePutInsightRule =
     "PutInsightRuleResponse"
     "fixture/PutInsightRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInsightRule)
+    (Proxy.Proxy :: Proxy.Proxy PutInsightRule)
 
 responseListMetricStreams :: ListMetricStreamsResponse -> TestTree
 responseListMetricStreams =
@@ -611,7 +611,7 @@ responseListMetricStreams =
     "ListMetricStreamsResponse"
     "fixture/ListMetricStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMetricStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListMetricStreams)
 
 responseGetMetricWidgetImage :: GetMetricWidgetImageResponse -> TestTree
 responseGetMetricWidgetImage =
@@ -619,7 +619,7 @@ responseGetMetricWidgetImage =
     "GetMetricWidgetImageResponse"
     "fixture/GetMetricWidgetImageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMetricWidgetImage)
+    (Proxy.Proxy :: Proxy.Proxy GetMetricWidgetImage)
 
 responseDeleteMetricStream :: DeleteMetricStreamResponse -> TestTree
 responseDeleteMetricStream =
@@ -627,7 +627,7 @@ responseDeleteMetricStream =
     "DeleteMetricStreamResponse"
     "fixture/DeleteMetricStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMetricStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMetricStream)
 
 responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
 responseDeleteAlarms =
@@ -635,7 +635,7 @@ responseDeleteAlarms =
     "DeleteAlarmsResponse"
     "fixture/DeleteAlarmsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlarms)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlarms)
 
 responsePutMetricStream :: PutMetricStreamResponse -> TestTree
 responsePutMetricStream =
@@ -643,7 +643,7 @@ responsePutMetricStream =
     "PutMetricStreamResponse"
     "fixture/PutMetricStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMetricStream)
+    (Proxy.Proxy :: Proxy.Proxy PutMetricStream)
 
 responseDescribeAlarmHistory :: DescribeAlarmHistoryResponse -> TestTree
 responseDescribeAlarmHistory =
@@ -651,7 +651,7 @@ responseDescribeAlarmHistory =
     "DescribeAlarmHistoryResponse"
     "fixture/DescribeAlarmHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlarmHistory)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarmHistory)
 
 responseGetMetricStatistics :: GetMetricStatisticsResponse -> TestTree
 responseGetMetricStatistics =
@@ -659,7 +659,7 @@ responseGetMetricStatistics =
     "GetMetricStatisticsResponse"
     "fixture/GetMetricStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMetricStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetMetricStatistics)
 
 responseDescribeAlarmsForMetric :: DescribeAlarmsForMetricResponse -> TestTree
 responseDescribeAlarmsForMetric =
@@ -667,7 +667,7 @@ responseDescribeAlarmsForMetric =
     "DescribeAlarmsForMetricResponse"
     "fixture/DescribeAlarmsForMetricResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlarmsForMetric)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarmsForMetric)
 
 responseEnableInsightRules :: EnableInsightRulesResponse -> TestTree
 responseEnableInsightRules =
@@ -675,7 +675,7 @@ responseEnableInsightRules =
     "EnableInsightRulesResponse"
     "fixture/EnableInsightRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableInsightRules)
+    (Proxy.Proxy :: Proxy.Proxy EnableInsightRules)
 
 responseDisableAlarmActions :: DisableAlarmActionsResponse -> TestTree
 responseDisableAlarmActions =
@@ -683,7 +683,7 @@ responseDisableAlarmActions =
     "DisableAlarmActionsResponse"
     "fixture/DisableAlarmActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableAlarmActions)
+    (Proxy.Proxy :: Proxy.Proxy DisableAlarmActions)
 
 responseDescribeAnomalyDetectors :: DescribeAnomalyDetectorsResponse -> TestTree
 responseDescribeAnomalyDetectors =
@@ -691,7 +691,7 @@ responseDescribeAnomalyDetectors =
     "DescribeAnomalyDetectorsResponse"
     "fixture/DescribeAnomalyDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnomalyDetectors)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnomalyDetectors)
 
 responsePutDashboard :: PutDashboardResponse -> TestTree
 responsePutDashboard =
@@ -699,7 +699,7 @@ responsePutDashboard =
     "PutDashboardResponse"
     "fixture/PutDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDashboard)
+    (Proxy.Proxy :: Proxy.Proxy PutDashboard)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -707,7 +707,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseStopMetricStreams :: StopMetricStreamsResponse -> TestTree
 responseStopMetricStreams =
@@ -715,7 +715,7 @@ responseStopMetricStreams =
     "StopMetricStreamsResponse"
     "fixture/StopMetricStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy StopMetricStreams)
+    (Proxy.Proxy :: Proxy.Proxy StopMetricStreams)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -723,7 +723,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetMetricStream :: GetMetricStreamResponse -> TestTree
 responseGetMetricStream =
@@ -731,7 +731,7 @@ responseGetMetricStream =
     "GetMetricStreamResponse"
     "fixture/GetMetricStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMetricStream)
+    (Proxy.Proxy :: Proxy.Proxy GetMetricStream)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
 responsePutMetricAlarm =
@@ -739,7 +739,7 @@ responsePutMetricAlarm =
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMetricAlarm)
+    (Proxy.Proxy :: Proxy.Proxy PutMetricAlarm)
 
 responseSetAlarmState :: SetAlarmStateResponse -> TestTree
 responseSetAlarmState =
@@ -747,7 +747,7 @@ responseSetAlarmState =
     "SetAlarmStateResponse"
     "fixture/SetAlarmStateResponse.proto"
     defaultService
-    (Proxy :: Proxy SetAlarmState)
+    (Proxy.Proxy :: Proxy.Proxy SetAlarmState)
 
 responseDescribeInsightRules :: DescribeInsightRulesResponse -> TestTree
 responseDescribeInsightRules =
@@ -755,4 +755,4 @@ responseDescribeInsightRules =
     "DescribeInsightRulesResponse"
     "fixture/DescribeInsightRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInsightRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInsightRules)

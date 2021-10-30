@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PersonalizeEvents where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.PersonalizeEvents
 import Test.AWS.Fixture
 import Test.AWS.PersonalizeEvents.Internal
@@ -79,7 +79,7 @@ responsePutUsers =
     "PutUsersResponse"
     "fixture/PutUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy PutUsers)
+    (Proxy.Proxy :: Proxy.Proxy PutUsers)
 
 responsePutItems :: PutItemsResponse -> TestTree
 responsePutItems =
@@ -87,7 +87,7 @@ responsePutItems =
     "PutItemsResponse"
     "fixture/PutItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutItems)
+    (Proxy.Proxy :: Proxy.Proxy PutItems)
 
 responsePutEvents :: PutEventsResponse -> TestTree
 responsePutEvents =
@@ -95,4 +95,4 @@ responsePutEvents =
     "PutEventsResponse"
     "fixture/PutEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEvents)
+    (Proxy.Proxy :: Proxy.Proxy PutEvents)

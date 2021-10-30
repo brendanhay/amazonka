@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeArtifact where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeArtifact
 import Test.AWS.CodeArtifact.Internal
 import Test.AWS.Fixture
@@ -451,7 +451,7 @@ responseDisposePackageVersions =
     "DisposePackageVersionsResponse"
     "fixture/DisposePackageVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DisposePackageVersions)
+    (Proxy.Proxy :: Proxy.Proxy DisposePackageVersions)
 
 responseGetRepositoryEndpoint :: GetRepositoryEndpointResponse -> TestTree
 responseGetRepositoryEndpoint =
@@ -459,7 +459,7 @@ responseGetRepositoryEndpoint =
     "GetRepositoryEndpointResponse"
     "fixture/GetRepositoryEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRepositoryEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -467,7 +467,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListPackageVersionDependencies :: ListPackageVersionDependenciesResponse -> TestTree
 responseListPackageVersionDependencies =
@@ -475,7 +475,7 @@ responseListPackageVersionDependencies =
     "ListPackageVersionDependenciesResponse"
     "fixture/ListPackageVersionDependenciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackageVersionDependencies)
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersionDependencies)
 
 responseListPackages :: ListPackagesResponse -> TestTree
 responseListPackages =
@@ -483,7 +483,7 @@ responseListPackages =
     "ListPackagesResponse"
     "fixture/ListPackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackages)
+    (Proxy.Proxy :: Proxy.Proxy ListPackages)
 
 responsePutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicyResponse -> TestTree
 responsePutRepositoryPermissionsPolicy =
@@ -491,7 +491,7 @@ responsePutRepositoryPermissionsPolicy =
     "PutRepositoryPermissionsPolicyResponse"
     "fixture/PutRepositoryPermissionsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRepositoryPermissionsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutRepositoryPermissionsPolicy)
 
 responseDeleteRepositoryPermissionsPolicy :: DeleteRepositoryPermissionsPolicyResponse -> TestTree
 responseDeleteRepositoryPermissionsPolicy =
@@ -499,7 +499,7 @@ responseDeleteRepositoryPermissionsPolicy =
     "DeleteRepositoryPermissionsPolicyResponse"
     "fixture/DeleteRepositoryPermissionsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRepositoryPermissionsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepositoryPermissionsPolicy)
 
 responseGetDomainPermissionsPolicy :: GetDomainPermissionsPolicyResponse -> TestTree
 responseGetDomainPermissionsPolicy =
@@ -507,7 +507,7 @@ responseGetDomainPermissionsPolicy =
     "GetDomainPermissionsPolicyResponse"
     "fixture/GetDomainPermissionsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainPermissionsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainPermissionsPolicy)
 
 responseListRepositories :: ListRepositoriesResponse -> TestTree
 responseListRepositories =
@@ -515,7 +515,7 @@ responseListRepositories =
     "ListRepositoriesResponse"
     "fixture/ListRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRepositories)
+    (Proxy.Proxy :: Proxy.Proxy ListRepositories)
 
 responseUpdatePackageVersionsStatus :: UpdatePackageVersionsStatusResponse -> TestTree
 responseUpdatePackageVersionsStatus =
@@ -523,7 +523,7 @@ responseUpdatePackageVersionsStatus =
     "UpdatePackageVersionsStatusResponse"
     "fixture/UpdatePackageVersionsStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePackageVersionsStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackageVersionsStatus)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
 responseCreateRepository =
@@ -531,7 +531,7 @@ responseCreateRepository =
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRepository)
+    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
 
 responseListRepositoriesInDomain :: ListRepositoriesInDomainResponse -> TestTree
 responseListRepositoriesInDomain =
@@ -539,7 +539,7 @@ responseListRepositoriesInDomain =
     "ListRepositoriesInDomainResponse"
     "fixture/ListRepositoriesInDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRepositoriesInDomain)
+    (Proxy.Proxy :: Proxy.Proxy ListRepositoriesInDomain)
 
 responsePutDomainPermissionsPolicy :: PutDomainPermissionsPolicyResponse -> TestTree
 responsePutDomainPermissionsPolicy =
@@ -547,7 +547,7 @@ responsePutDomainPermissionsPolicy =
     "PutDomainPermissionsPolicyResponse"
     "fixture/PutDomainPermissionsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDomainPermissionsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutDomainPermissionsPolicy)
 
 responseDeleteDomainPermissionsPolicy :: DeleteDomainPermissionsPolicyResponse -> TestTree
 responseDeleteDomainPermissionsPolicy =
@@ -555,7 +555,7 @@ responseDeleteDomainPermissionsPolicy =
     "DeleteDomainPermissionsPolicyResponse"
     "fixture/DeleteDomainPermissionsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomainPermissionsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainPermissionsPolicy)
 
 responseGetPackageVersionReadme :: GetPackageVersionReadmeResponse -> TestTree
 responseGetPackageVersionReadme =
@@ -563,7 +563,7 @@ responseGetPackageVersionReadme =
     "GetPackageVersionReadmeResponse"
     "fixture/GetPackageVersionReadmeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPackageVersionReadme)
+    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionReadme)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -571,7 +571,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseGetRepositoryPermissionsPolicy :: GetRepositoryPermissionsPolicyResponse -> TestTree
 responseGetRepositoryPermissionsPolicy =
@@ -579,7 +579,7 @@ responseGetRepositoryPermissionsPolicy =
     "GetRepositoryPermissionsPolicyResponse"
     "fixture/GetRepositoryPermissionsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRepositoryPermissionsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryPermissionsPolicy)
 
 responseAssociateExternalConnection :: AssociateExternalConnectionResponse -> TestTree
 responseAssociateExternalConnection =
@@ -587,7 +587,7 @@ responseAssociateExternalConnection =
     "AssociateExternalConnectionResponse"
     "fixture/AssociateExternalConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateExternalConnection)
+    (Proxy.Proxy :: Proxy.Proxy AssociateExternalConnection)
 
 responseDescribeRepository :: DescribeRepositoryResponse -> TestTree
 responseDescribeRepository =
@@ -595,7 +595,7 @@ responseDescribeRepository =
     "DescribeRepositoryResponse"
     "fixture/DescribeRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRepository)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRepository)
 
 responseDeletePackageVersions :: DeletePackageVersionsResponse -> TestTree
 responseDeletePackageVersions =
@@ -603,7 +603,7 @@ responseDeletePackageVersions =
     "DeletePackageVersionsResponse"
     "fixture/DeletePackageVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePackageVersions)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackageVersions)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -611,7 +611,7 @@ responseDescribeDomain =
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
 responseDescribePackageVersion :: DescribePackageVersionResponse -> TestTree
 responseDescribePackageVersion =
@@ -619,7 +619,7 @@ responseDescribePackageVersion =
     "DescribePackageVersionResponse"
     "fixture/DescribePackageVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePackageVersion)
+    (Proxy.Proxy :: Proxy.Proxy DescribePackageVersion)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -627,7 +627,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -635,7 +635,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
 responseDeleteRepository =
@@ -643,7 +643,7 @@ responseDeleteRepository =
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRepository)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
 
 responseUpdateRepository :: UpdateRepositoryResponse -> TestTree
 responseUpdateRepository =
@@ -651,7 +651,7 @@ responseUpdateRepository =
     "UpdateRepositoryResponse"
     "fixture/UpdateRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRepository)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRepository)
 
 responseCopyPackageVersions :: CopyPackageVersionsResponse -> TestTree
 responseCopyPackageVersions =
@@ -659,7 +659,7 @@ responseCopyPackageVersions =
     "CopyPackageVersionsResponse"
     "fixture/CopyPackageVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyPackageVersions)
+    (Proxy.Proxy :: Proxy.Proxy CopyPackageVersions)
 
 responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
 responseGetAuthorizationToken =
@@ -667,7 +667,7 @@ responseGetAuthorizationToken =
     "GetAuthorizationTokenResponse"
     "fixture/GetAuthorizationTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAuthorizationToken)
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizationToken)
 
 responseDisassociateExternalConnection :: DisassociateExternalConnectionResponse -> TestTree
 responseDisassociateExternalConnection =
@@ -675,7 +675,7 @@ responseDisassociateExternalConnection =
     "DisassociateExternalConnectionResponse"
     "fixture/DisassociateExternalConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateExternalConnection)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateExternalConnection)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -683,7 +683,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -691,7 +691,7 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
 
 responseListPackageVersions :: ListPackageVersionsResponse -> TestTree
 responseListPackageVersions =
@@ -699,7 +699,7 @@ responseListPackageVersions =
     "ListPackageVersionsResponse"
     "fixture/ListPackageVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackageVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersions)
 
 responseListPackageVersionAssets :: ListPackageVersionAssetsResponse -> TestTree
 responseListPackageVersionAssets =
@@ -707,4 +707,4 @@ responseListPackageVersionAssets =
     "ListPackageVersionAssetsResponse"
     "fixture/ListPackageVersionAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackageVersionAssets)
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersionAssets)

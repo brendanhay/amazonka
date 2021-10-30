@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Personalize where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Personalize
 import Test.AWS.Fixture
 import Test.AWS.Personalize.Internal
@@ -607,7 +607,7 @@ responseListDatasetGroups =
     "ListDatasetGroupsResponse"
     "fixture/ListDatasetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetGroups)
 
 responseCreateBatchInferenceJob :: CreateBatchInferenceJobResponse -> TestTree
 responseCreateBatchInferenceJob =
@@ -615,7 +615,7 @@ responseCreateBatchInferenceJob =
     "CreateBatchInferenceJobResponse"
     "fixture/CreateBatchInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBatchInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchInferenceJob)
 
 responseCreateFilter :: CreateFilterResponse -> TestTree
 responseCreateFilter =
@@ -623,7 +623,7 @@ responseCreateFilter =
     "CreateFilterResponse"
     "fixture/CreateFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFilter)
+    (Proxy.Proxy :: Proxy.Proxy CreateFilter)
 
 responseCreateDatasetImportJob :: CreateDatasetImportJobResponse -> TestTree
 responseCreateDatasetImportJob =
@@ -631,7 +631,7 @@ responseCreateDatasetImportJob =
     "CreateDatasetImportJobResponse"
     "fixture/CreateDatasetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatasetImportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatasetImportJob)
 
 responseDescribeSolution :: DescribeSolutionResponse -> TestTree
 responseDescribeSolution =
@@ -639,7 +639,7 @@ responseDescribeSolution =
     "DescribeSolutionResponse"
     "fixture/DescribeSolutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSolution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSolution)
 
 responseDescribeDatasetExportJob :: DescribeDatasetExportJobResponse -> TestTree
 responseDescribeDatasetExportJob =
@@ -647,7 +647,7 @@ responseDescribeDatasetExportJob =
     "DescribeDatasetExportJobResponse"
     "fixture/DescribeDatasetExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDatasetExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDatasetExportJob)
 
 responseDeleteCampaign :: DeleteCampaignResponse -> TestTree
 responseDeleteCampaign =
@@ -655,7 +655,7 @@ responseDeleteCampaign =
     "DeleteCampaignResponse"
     "fixture/DeleteCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCampaign)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCampaign)
 
 responseUpdateCampaign :: UpdateCampaignResponse -> TestTree
 responseUpdateCampaign =
@@ -663,7 +663,7 @@ responseUpdateCampaign =
     "UpdateCampaignResponse"
     "fixture/UpdateCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCampaign)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCampaign)
 
 responseListCampaigns :: ListCampaignsResponse -> TestTree
 responseListCampaigns =
@@ -671,7 +671,7 @@ responseListCampaigns =
     "ListCampaignsResponse"
     "fixture/ListCampaignsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCampaigns)
+    (Proxy.Proxy :: Proxy.Proxy ListCampaigns)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
@@ -679,7 +679,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseCreateSolutionVersion :: CreateSolutionVersionResponse -> TestTree
 responseCreateSolutionVersion =
@@ -687,7 +687,7 @@ responseCreateSolutionVersion =
     "CreateSolutionVersionResponse"
     "fixture/CreateSolutionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSolutionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateSolutionVersion)
 
 responseStopSolutionVersionCreation :: StopSolutionVersionCreationResponse -> TestTree
 responseStopSolutionVersionCreation =
@@ -695,7 +695,7 @@ responseStopSolutionVersionCreation =
     "StopSolutionVersionCreationResponse"
     "fixture/StopSolutionVersionCreationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopSolutionVersionCreation)
+    (Proxy.Proxy :: Proxy.Proxy StopSolutionVersionCreation)
 
 responseCreateCampaign :: CreateCampaignResponse -> TestTree
 responseCreateCampaign =
@@ -703,7 +703,7 @@ responseCreateCampaign =
     "CreateCampaignResponse"
     "fixture/CreateCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCampaign)
+    (Proxy.Proxy :: Proxy.Proxy CreateCampaign)
 
 responseDescribeFilter :: DescribeFilterResponse -> TestTree
 responseDescribeFilter =
@@ -711,7 +711,7 @@ responseDescribeFilter =
     "DescribeFilterResponse"
     "fixture/DescribeFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFilter)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFilter)
 
 responseListEventTrackers :: ListEventTrackersResponse -> TestTree
 responseListEventTrackers =
@@ -719,7 +719,7 @@ responseListEventTrackers =
     "ListEventTrackersResponse"
     "fixture/ListEventTrackersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventTrackers)
+    (Proxy.Proxy :: Proxy.Proxy ListEventTrackers)
 
 responseCreateDatasetExportJob :: CreateDatasetExportJobResponse -> TestTree
 responseCreateDatasetExportJob =
@@ -727,7 +727,7 @@ responseCreateDatasetExportJob =
     "CreateDatasetExportJobResponse"
     "fixture/CreateDatasetExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatasetExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatasetExportJob)
 
 responseCreateSolution :: CreateSolutionResponse -> TestTree
 responseCreateSolution =
@@ -735,7 +735,7 @@ responseCreateSolution =
     "CreateSolutionResponse"
     "fixture/CreateSolutionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSolution)
+    (Proxy.Proxy :: Proxy.Proxy CreateSolution)
 
 responseDeleteEventTracker :: DeleteEventTrackerResponse -> TestTree
 responseDeleteEventTracker =
@@ -743,7 +743,7 @@ responseDeleteEventTracker =
     "DeleteEventTrackerResponse"
     "fixture/DeleteEventTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventTracker)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventTracker)
 
 responseDescribeDatasetImportJob :: DescribeDatasetImportJobResponse -> TestTree
 responseDescribeDatasetImportJob =
@@ -751,7 +751,7 @@ responseDescribeDatasetImportJob =
     "DescribeDatasetImportJobResponse"
     "fixture/DescribeDatasetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDatasetImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDatasetImportJob)
 
 responseListSchemas :: ListSchemasResponse -> TestTree
 responseListSchemas =
@@ -759,7 +759,7 @@ responseListSchemas =
     "ListSchemasResponse"
     "fixture/ListSchemasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSchemas)
+    (Proxy.Proxy :: Proxy.Proxy ListSchemas)
 
 responseCreateEventTracker :: CreateEventTrackerResponse -> TestTree
 responseCreateEventTracker =
@@ -767,7 +767,7 @@ responseCreateEventTracker =
     "CreateEventTrackerResponse"
     "fixture/CreateEventTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEventTracker)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventTracker)
 
 responseDeleteSolution :: DeleteSolutionResponse -> TestTree
 responseDeleteSolution =
@@ -775,7 +775,7 @@ responseDeleteSolution =
     "DeleteSolutionResponse"
     "fixture/DeleteSolutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSolution)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSolution)
 
 responseDescribeCampaign :: DescribeCampaignResponse -> TestTree
 responseDescribeCampaign =
@@ -783,7 +783,7 @@ responseDescribeCampaign =
     "DescribeCampaignResponse"
     "fixture/DescribeCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCampaign)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCampaign)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -791,7 +791,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
@@ -799,7 +799,7 @@ responseCreateDataset =
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseDescribeSolutionVersion :: DescribeSolutionVersionResponse -> TestTree
 responseDescribeSolutionVersion =
@@ -807,7 +807,7 @@ responseDescribeSolutionVersion =
     "DescribeSolutionVersionResponse"
     "fixture/DescribeSolutionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSolutionVersion)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSolutionVersion)
 
 responseDescribeEventTracker :: DescribeEventTrackerResponse -> TestTree
 responseDescribeEventTracker =
@@ -815,7 +815,7 @@ responseDescribeEventTracker =
     "DescribeEventTrackerResponse"
     "fixture/DescribeEventTrackerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventTracker)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventTracker)
 
 responseListDatasetImportJobs :: ListDatasetImportJobsResponse -> TestTree
 responseListDatasetImportJobs =
@@ -823,7 +823,7 @@ responseListDatasetImportJobs =
     "ListDatasetImportJobsResponse"
     "fixture/ListDatasetImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetImportJobs)
 
 responseDeleteFilter :: DeleteFilterResponse -> TestTree
 responseDeleteFilter =
@@ -831,7 +831,7 @@ responseDeleteFilter =
     "DeleteFilterResponse"
     "fixture/DeleteFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFilter)
 
 responseListBatchInferenceJobs :: ListBatchInferenceJobsResponse -> TestTree
 responseListBatchInferenceJobs =
@@ -839,7 +839,7 @@ responseListBatchInferenceJobs =
     "ListBatchInferenceJobsResponse"
     "fixture/ListBatchInferenceJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBatchInferenceJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListBatchInferenceJobs)
 
 responseListFilters :: ListFiltersResponse -> TestTree
 responseListFilters =
@@ -847,7 +847,7 @@ responseListFilters =
     "ListFiltersResponse"
     "fixture/ListFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFilters)
+    (Proxy.Proxy :: Proxy.Proxy ListFilters)
 
 responseDeleteDatasetGroup :: DeleteDatasetGroupResponse -> TestTree
 responseDeleteDatasetGroup =
@@ -855,7 +855,7 @@ responseDeleteDatasetGroup =
     "DeleteDatasetGroupResponse"
     "fixture/DeleteDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDatasetGroup)
 
 responseDescribeSchema :: DescribeSchemaResponse -> TestTree
 responseDescribeSchema =
@@ -863,7 +863,7 @@ responseDescribeSchema =
     "DescribeSchemaResponse"
     "fixture/DescribeSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSchema)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchema)
 
 responseDescribeAlgorithm :: DescribeAlgorithmResponse -> TestTree
 responseDescribeAlgorithm =
@@ -871,7 +871,7 @@ responseDescribeAlgorithm =
     "DescribeAlgorithmResponse"
     "fixture/DescribeAlgorithmResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlgorithm)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlgorithm)
 
 responseListSolutionVersions :: ListSolutionVersionsResponse -> TestTree
 responseListSolutionVersions =
@@ -879,7 +879,7 @@ responseListSolutionVersions =
     "ListSolutionVersionsResponse"
     "fixture/ListSolutionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSolutionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListSolutionVersions)
 
 responseDescribeBatchInferenceJob :: DescribeBatchInferenceJobResponse -> TestTree
 responseDescribeBatchInferenceJob =
@@ -887,7 +887,7 @@ responseDescribeBatchInferenceJob =
     "DescribeBatchInferenceJobResponse"
     "fixture/DescribeBatchInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBatchInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBatchInferenceJob)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
 responseCreateSchema =
@@ -895,7 +895,7 @@ responseCreateSchema =
     "CreateSchemaResponse"
     "fixture/CreateSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSchema)
+    (Proxy.Proxy :: Proxy.Proxy CreateSchema)
 
 responseDescribeRecipe :: DescribeRecipeResponse -> TestTree
 responseDescribeRecipe =
@@ -903,7 +903,7 @@ responseDescribeRecipe =
     "DescribeRecipeResponse"
     "fixture/DescribeRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRecipe)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecipe)
 
 responseListSolutions :: ListSolutionsResponse -> TestTree
 responseListSolutions =
@@ -911,7 +911,7 @@ responseListSolutions =
     "ListSolutionsResponse"
     "fixture/ListSolutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSolutions)
+    (Proxy.Proxy :: Proxy.Proxy ListSolutions)
 
 responseListDatasetExportJobs :: ListDatasetExportJobsResponse -> TestTree
 responseListDatasetExportJobs =
@@ -919,7 +919,7 @@ responseListDatasetExportJobs =
     "ListDatasetExportJobsResponse"
     "fixture/ListDatasetExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetExportJobs)
 
 responseDescribeDatasetGroup :: DescribeDatasetGroupResponse -> TestTree
 responseDescribeDatasetGroup =
@@ -927,7 +927,7 @@ responseDescribeDatasetGroup =
     "DescribeDatasetGroupResponse"
     "fixture/DescribeDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDatasetGroup)
 
 responseDescribeFeatureTransformation :: DescribeFeatureTransformationResponse -> TestTree
 responseDescribeFeatureTransformation =
@@ -935,7 +935,7 @@ responseDescribeFeatureTransformation =
     "DescribeFeatureTransformationResponse"
     "fixture/DescribeFeatureTransformationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFeatureTransformation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFeatureTransformation)
 
 responseGetSolutionMetrics :: GetSolutionMetricsResponse -> TestTree
 responseGetSolutionMetrics =
@@ -943,7 +943,7 @@ responseGetSolutionMetrics =
     "GetSolutionMetricsResponse"
     "fixture/GetSolutionMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSolutionMetrics)
+    (Proxy.Proxy :: Proxy.Proxy GetSolutionMetrics)
 
 responseDeleteSchema :: DeleteSchemaResponse -> TestTree
 responseDeleteSchema =
@@ -951,7 +951,7 @@ responseDeleteSchema =
     "DeleteSchemaResponse"
     "fixture/DeleteSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchema)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchema)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -959,7 +959,7 @@ responseListDatasets =
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasets)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
 responseCreateDatasetGroup :: CreateDatasetGroupResponse -> TestTree
 responseCreateDatasetGroup =
@@ -967,7 +967,7 @@ responseCreateDatasetGroup =
     "CreateDatasetGroupResponse"
     "fixture/CreateDatasetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatasetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatasetGroup)
 
 responseListRecipes :: ListRecipesResponse -> TestTree
 responseListRecipes =
@@ -975,4 +975,4 @@ responseListRecipes =
     "ListRecipesResponse"
     "fixture/ListRecipesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecipes)
+    (Proxy.Proxy :: Proxy.Proxy ListRecipes)

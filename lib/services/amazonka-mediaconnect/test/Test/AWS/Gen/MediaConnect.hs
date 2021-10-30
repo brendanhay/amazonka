@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaConnect where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaConnect
 import Test.AWS.Fixture
 import Test.AWS.MediaConnect.Internal
@@ -403,7 +403,7 @@ responseRemoveFlowVpcInterface =
     "RemoveFlowVpcInterfaceResponse"
     "fixture/RemoveFlowVpcInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveFlowVpcInterface)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowVpcInterface)
 
 responseRemoveFlowMediaStream :: RemoveFlowMediaStreamResponse -> TestTree
 responseRemoveFlowMediaStream =
@@ -411,7 +411,7 @@ responseRemoveFlowMediaStream =
     "RemoveFlowMediaStreamResponse"
     "fixture/RemoveFlowMediaStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveFlowMediaStream)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowMediaStream)
 
 responseUpdateFlowOutput :: UpdateFlowOutputResponse -> TestTree
 responseUpdateFlowOutput =
@@ -419,7 +419,7 @@ responseUpdateFlowOutput =
     "UpdateFlowOutputResponse"
     "fixture/UpdateFlowOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlowOutput)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowOutput)
 
 responseAddFlowOutputs :: AddFlowOutputsResponse -> TestTree
 responseAddFlowOutputs =
@@ -427,7 +427,7 @@ responseAddFlowOutputs =
     "AddFlowOutputsResponse"
     "fixture/AddFlowOutputsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddFlowOutputs)
+    (Proxy.Proxy :: Proxy.Proxy AddFlowOutputs)
 
 responseStartFlow :: StartFlowResponse -> TestTree
 responseStartFlow =
@@ -435,7 +435,7 @@ responseStartFlow =
     "StartFlowResponse"
     "fixture/StartFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFlow)
+    (Proxy.Proxy :: Proxy.Proxy StartFlow)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -443,7 +443,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseAddFlowSources :: AddFlowSourcesResponse -> TestTree
 responseAddFlowSources =
@@ -451,7 +451,7 @@ responseAddFlowSources =
     "AddFlowSourcesResponse"
     "fixture/AddFlowSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy AddFlowSources)
+    (Proxy.Proxy :: Proxy.Proxy AddFlowSources)
 
 responseDescribeReservation :: DescribeReservationResponse -> TestTree
 responseDescribeReservation =
@@ -459,7 +459,7 @@ responseDescribeReservation =
     "DescribeReservationResponse"
     "fixture/DescribeReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservation)
 
 responseAddFlowMediaStreams :: AddFlowMediaStreamsResponse -> TestTree
 responseAddFlowMediaStreams =
@@ -467,7 +467,7 @@ responseAddFlowMediaStreams =
     "AddFlowMediaStreamsResponse"
     "fixture/AddFlowMediaStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddFlowMediaStreams)
+    (Proxy.Proxy :: Proxy.Proxy AddFlowMediaStreams)
 
 responseRemoveFlowOutput :: RemoveFlowOutputResponse -> TestTree
 responseRemoveFlowOutput =
@@ -475,7 +475,7 @@ responseRemoveFlowOutput =
     "RemoveFlowOutputResponse"
     "fixture/RemoveFlowOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveFlowOutput)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowOutput)
 
 responseRevokeFlowEntitlement :: RevokeFlowEntitlementResponse -> TestTree
 responseRevokeFlowEntitlement =
@@ -483,7 +483,7 @@ responseRevokeFlowEntitlement =
     "RevokeFlowEntitlementResponse"
     "fixture/RevokeFlowEntitlementResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeFlowEntitlement)
+    (Proxy.Proxy :: Proxy.Proxy RevokeFlowEntitlement)
 
 responseCreateFlow :: CreateFlowResponse -> TestTree
 responseCreateFlow =
@@ -491,7 +491,7 @@ responseCreateFlow =
     "CreateFlowResponse"
     "fixture/CreateFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFlow)
+    (Proxy.Proxy :: Proxy.Proxy CreateFlow)
 
 responseRemoveFlowSource :: RemoveFlowSourceResponse -> TestTree
 responseRemoveFlowSource =
@@ -499,7 +499,7 @@ responseRemoveFlowSource =
     "RemoveFlowSourceResponse"
     "fixture/RemoveFlowSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveFlowSource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowSource)
 
 responseDescribeFlow :: DescribeFlowResponse -> TestTree
 responseDescribeFlow =
@@ -507,7 +507,7 @@ responseDescribeFlow =
     "DescribeFlowResponse"
     "fixture/DescribeFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFlow)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
 
 responseUpdateFlowEntitlement :: UpdateFlowEntitlementResponse -> TestTree
 responseUpdateFlowEntitlement =
@@ -515,7 +515,7 @@ responseUpdateFlowEntitlement =
     "UpdateFlowEntitlementResponse"
     "fixture/UpdateFlowEntitlementResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlowEntitlement)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowEntitlement)
 
 responseStopFlow :: StopFlowResponse -> TestTree
 responseStopFlow =
@@ -523,7 +523,7 @@ responseStopFlow =
     "StopFlowResponse"
     "fixture/StopFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy StopFlow)
+    (Proxy.Proxy :: Proxy.Proxy StopFlow)
 
 responseDescribeOffering :: DescribeOfferingResponse -> TestTree
 responseDescribeOffering =
@@ -531,7 +531,7 @@ responseDescribeOffering =
     "DescribeOfferingResponse"
     "fixture/DescribeOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOffering)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOffering)
 
 responseAddFlowVpcInterfaces :: AddFlowVpcInterfacesResponse -> TestTree
 responseAddFlowVpcInterfaces =
@@ -539,7 +539,7 @@ responseAddFlowVpcInterfaces =
     "AddFlowVpcInterfacesResponse"
     "fixture/AddFlowVpcInterfacesResponse.proto"
     defaultService
-    (Proxy :: Proxy AddFlowVpcInterfaces)
+    (Proxy.Proxy :: Proxy.Proxy AddFlowVpcInterfaces)
 
 responseListEntitlements :: ListEntitlementsResponse -> TestTree
 responseListEntitlements =
@@ -547,7 +547,7 @@ responseListEntitlements =
     "ListEntitlementsResponse"
     "fixture/ListEntitlementsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntitlements)
+    (Proxy.Proxy :: Proxy.Proxy ListEntitlements)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -555,7 +555,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListFlows :: ListFlowsResponse -> TestTree
 responseListFlows =
@@ -563,7 +563,7 @@ responseListFlows =
     "ListFlowsResponse"
     "fixture/ListFlowsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFlows)
+    (Proxy.Proxy :: Proxy.Proxy ListFlows)
 
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
 responsePurchaseOffering =
@@ -571,7 +571,7 @@ responsePurchaseOffering =
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseOffering)
 
 responseUpdateFlowMediaStream :: UpdateFlowMediaStreamResponse -> TestTree
 responseUpdateFlowMediaStream =
@@ -579,7 +579,7 @@ responseUpdateFlowMediaStream =
     "UpdateFlowMediaStreamResponse"
     "fixture/UpdateFlowMediaStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlowMediaStream)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowMediaStream)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -587,7 +587,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateFlow :: UpdateFlowResponse -> TestTree
 responseUpdateFlow =
@@ -595,7 +595,7 @@ responseUpdateFlow =
     "UpdateFlowResponse"
     "fixture/UpdateFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlow)
 
 responseDeleteFlow :: DeleteFlowResponse -> TestTree
 responseDeleteFlow =
@@ -603,7 +603,7 @@ responseDeleteFlow =
     "DeleteFlowResponse"
     "fixture/DeleteFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFlow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
 
 responseUpdateFlowSource :: UpdateFlowSourceResponse -> TestTree
 responseUpdateFlowSource =
@@ -611,7 +611,7 @@ responseUpdateFlowSource =
     "UpdateFlowSourceResponse"
     "fixture/UpdateFlowSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlowSource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowSource)
 
 responseGrantFlowEntitlements :: GrantFlowEntitlementsResponse -> TestTree
 responseGrantFlowEntitlements =
@@ -619,7 +619,7 @@ responseGrantFlowEntitlements =
     "GrantFlowEntitlementsResponse"
     "fixture/GrantFlowEntitlementsResponse.proto"
     defaultService
-    (Proxy :: Proxy GrantFlowEntitlements)
+    (Proxy.Proxy :: Proxy.Proxy GrantFlowEntitlements)
 
 responseListReservations :: ListReservationsResponse -> TestTree
 responseListReservations =
@@ -627,7 +627,7 @@ responseListReservations =
     "ListReservationsResponse"
     "fixture/ListReservationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReservations)
+    (Proxy.Proxy :: Proxy.Proxy ListReservations)
 
 responseListOfferings :: ListOfferingsResponse -> TestTree
 responseListOfferings =
@@ -635,4 +635,4 @@ responseListOfferings =
     "ListOfferingsResponse"
     "fixture/ListOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOfferings)
+    (Proxy.Proxy :: Proxy.Proxy ListOfferings)

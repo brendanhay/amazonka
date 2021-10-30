@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSOAdmin where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SSOAdmin
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -415,7 +415,7 @@ responseDescribePermissionSet =
     "DescribePermissionSetResponse"
     "fixture/DescribePermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribePermissionSet)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -423,7 +423,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateInstanceAccessControlAttributeConfiguration :: CreateInstanceAccessControlAttributeConfigurationResponse -> TestTree
 responseCreateInstanceAccessControlAttributeConfiguration =
@@ -431,7 +431,7 @@ responseCreateInstanceAccessControlAttributeConfiguration =
     "CreateInstanceAccessControlAttributeConfigurationResponse"
     "fixture/CreateInstanceAccessControlAttributeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstanceAccessControlAttributeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceAccessControlAttributeConfiguration)
 
 responseGetInlinePolicyForPermissionSet :: GetInlinePolicyForPermissionSetResponse -> TestTree
 responseGetInlinePolicyForPermissionSet =
@@ -439,7 +439,7 @@ responseGetInlinePolicyForPermissionSet =
     "GetInlinePolicyForPermissionSetResponse"
     "fixture/GetInlinePolicyForPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInlinePolicyForPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy GetInlinePolicyForPermissionSet)
 
 responseListPermissionSets :: ListPermissionSetsResponse -> TestTree
 responseListPermissionSets =
@@ -447,7 +447,7 @@ responseListPermissionSets =
     "ListPermissionSetsResponse"
     "fixture/ListPermissionSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissionSets)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionSets)
 
 responseDeletePermissionSet :: DeletePermissionSetResponse -> TestTree
 responseDeletePermissionSet =
@@ -455,7 +455,7 @@ responseDeletePermissionSet =
     "DeletePermissionSetResponse"
     "fixture/DeletePermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy DeletePermissionSet)
 
 responseUpdatePermissionSet :: UpdatePermissionSetResponse -> TestTree
 responseUpdatePermissionSet =
@@ -463,7 +463,7 @@ responseUpdatePermissionSet =
     "UpdatePermissionSetResponse"
     "fixture/UpdatePermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePermissionSet)
 
 responseProvisionPermissionSet :: ProvisionPermissionSetResponse -> TestTree
 responseProvisionPermissionSet =
@@ -471,7 +471,7 @@ responseProvisionPermissionSet =
     "ProvisionPermissionSetResponse"
     "fixture/ProvisionPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ProvisionPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy ProvisionPermissionSet)
 
 responseListAccountAssignments :: ListAccountAssignmentsResponse -> TestTree
 responseListAccountAssignments =
@@ -479,7 +479,7 @@ responseListAccountAssignments =
     "ListAccountAssignmentsResponse"
     "fixture/ListAccountAssignmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountAssignments)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignments)
 
 responseDescribePermissionSetProvisioningStatus :: DescribePermissionSetProvisioningStatusResponse -> TestTree
 responseDescribePermissionSetProvisioningStatus =
@@ -487,7 +487,7 @@ responseDescribePermissionSetProvisioningStatus =
     "DescribePermissionSetProvisioningStatusResponse"
     "fixture/DescribePermissionSetProvisioningStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePermissionSetProvisioningStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribePermissionSetProvisioningStatus)
 
 responseAttachManagedPolicyToPermissionSet :: AttachManagedPolicyToPermissionSetResponse -> TestTree
 responseAttachManagedPolicyToPermissionSet =
@@ -495,7 +495,7 @@ responseAttachManagedPolicyToPermissionSet =
     "AttachManagedPolicyToPermissionSetResponse"
     "fixture/AttachManagedPolicyToPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachManagedPolicyToPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy AttachManagedPolicyToPermissionSet)
 
 responseListManagedPoliciesInPermissionSet :: ListManagedPoliciesInPermissionSetResponse -> TestTree
 responseListManagedPoliciesInPermissionSet =
@@ -503,7 +503,7 @@ responseListManagedPoliciesInPermissionSet =
     "ListManagedPoliciesInPermissionSetResponse"
     "fixture/ListManagedPoliciesInPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ListManagedPoliciesInPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy ListManagedPoliciesInPermissionSet)
 
 responseDeleteInlinePolicyFromPermissionSet :: DeleteInlinePolicyFromPermissionSetResponse -> TestTree
 responseDeleteInlinePolicyFromPermissionSet =
@@ -511,7 +511,7 @@ responseDeleteInlinePolicyFromPermissionSet =
     "DeleteInlinePolicyFromPermissionSetResponse"
     "fixture/DeleteInlinePolicyFromPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInlinePolicyFromPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInlinePolicyFromPermissionSet)
 
 responseDeleteInstanceAccessControlAttributeConfiguration :: DeleteInstanceAccessControlAttributeConfigurationResponse -> TestTree
 responseDeleteInstanceAccessControlAttributeConfiguration =
@@ -519,7 +519,7 @@ responseDeleteInstanceAccessControlAttributeConfiguration =
     "DeleteInstanceAccessControlAttributeConfigurationResponse"
     "fixture/DeleteInstanceAccessControlAttributeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstanceAccessControlAttributeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstanceAccessControlAttributeConfiguration)
 
 responseUpdateInstanceAccessControlAttributeConfiguration :: UpdateInstanceAccessControlAttributeConfigurationResponse -> TestTree
 responseUpdateInstanceAccessControlAttributeConfiguration =
@@ -527,7 +527,7 @@ responseUpdateInstanceAccessControlAttributeConfiguration =
     "UpdateInstanceAccessControlAttributeConfigurationResponse"
     "fixture/UpdateInstanceAccessControlAttributeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInstanceAccessControlAttributeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceAccessControlAttributeConfiguration)
 
 responseDescribeAccountAssignmentDeletionStatus :: DescribeAccountAssignmentDeletionStatusResponse -> TestTree
 responseDescribeAccountAssignmentDeletionStatus =
@@ -535,7 +535,7 @@ responseDescribeAccountAssignmentDeletionStatus =
     "DescribeAccountAssignmentDeletionStatusResponse"
     "fixture/DescribeAccountAssignmentDeletionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAssignmentDeletionStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAssignmentDeletionStatus)
 
 responseDescribeAccountAssignmentCreationStatus :: DescribeAccountAssignmentCreationStatusResponse -> TestTree
 responseDescribeAccountAssignmentCreationStatus =
@@ -543,7 +543,7 @@ responseDescribeAccountAssignmentCreationStatus =
     "DescribeAccountAssignmentCreationStatusResponse"
     "fixture/DescribeAccountAssignmentCreationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAssignmentCreationStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAssignmentCreationStatus)
 
 responsePutInlinePolicyToPermissionSet :: PutInlinePolicyToPermissionSetResponse -> TestTree
 responsePutInlinePolicyToPermissionSet =
@@ -551,7 +551,7 @@ responsePutInlinePolicyToPermissionSet =
     "PutInlinePolicyToPermissionSetResponse"
     "fixture/PutInlinePolicyToPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInlinePolicyToPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy PutInlinePolicyToPermissionSet)
 
 responseListAccountsForProvisionedPermissionSet :: ListAccountsForProvisionedPermissionSetResponse -> TestTree
 responseListAccountsForProvisionedPermissionSet =
@@ -559,7 +559,7 @@ responseListAccountsForProvisionedPermissionSet =
     "ListAccountsForProvisionedPermissionSetResponse"
     "fixture/ListAccountsForProvisionedPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountsForProvisionedPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountsForProvisionedPermissionSet)
 
 responseListPermissionSetsProvisionedToAccount :: ListPermissionSetsProvisionedToAccountResponse -> TestTree
 responseListPermissionSetsProvisionedToAccount =
@@ -567,7 +567,7 @@ responseListPermissionSetsProvisionedToAccount =
     "ListPermissionSetsProvisionedToAccountResponse"
     "fixture/ListPermissionSetsProvisionedToAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissionSetsProvisionedToAccount)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionSetsProvisionedToAccount)
 
 responseDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSetResponse -> TestTree
 responseDetachManagedPolicyFromPermissionSet =
@@ -575,7 +575,7 @@ responseDetachManagedPolicyFromPermissionSet =
     "DetachManagedPolicyFromPermissionSetResponse"
     "fixture/DetachManagedPolicyFromPermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachManagedPolicyFromPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy DetachManagedPolicyFromPermissionSet)
 
 responseListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatusResponse -> TestTree
 responseListAccountAssignmentCreationStatus =
@@ -583,7 +583,7 @@ responseListAccountAssignmentCreationStatus =
     "ListAccountAssignmentCreationStatusResponse"
     "fixture/ListAccountAssignmentCreationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountAssignmentCreationStatus)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignmentCreationStatus)
 
 responseCreatePermissionSet :: CreatePermissionSetResponse -> TestTree
 responseCreatePermissionSet =
@@ -591,7 +591,7 @@ responseCreatePermissionSet =
     "CreatePermissionSetResponse"
     "fixture/CreatePermissionSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy CreatePermissionSet)
 
 responseListAccountAssignmentDeletionStatus :: ListAccountAssignmentDeletionStatusResponse -> TestTree
 responseListAccountAssignmentDeletionStatus =
@@ -599,7 +599,7 @@ responseListAccountAssignmentDeletionStatus =
     "ListAccountAssignmentDeletionStatusResponse"
     "fixture/ListAccountAssignmentDeletionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountAssignmentDeletionStatus)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignmentDeletionStatus)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -607,7 +607,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListInstances :: ListInstancesResponse -> TestTree
 responseListInstances =
@@ -615,7 +615,7 @@ responseListInstances =
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListInstances)
 
 responseDescribeInstanceAccessControlAttributeConfiguration :: DescribeInstanceAccessControlAttributeConfigurationResponse -> TestTree
 responseDescribeInstanceAccessControlAttributeConfiguration =
@@ -623,7 +623,7 @@ responseDescribeInstanceAccessControlAttributeConfiguration =
     "DescribeInstanceAccessControlAttributeConfigurationResponse"
     "fixture/DescribeInstanceAccessControlAttributeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceAccessControlAttributeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceAccessControlAttributeConfiguration)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -631,7 +631,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteAccountAssignment :: DeleteAccountAssignmentResponse -> TestTree
 responseDeleteAccountAssignment =
@@ -639,7 +639,7 @@ responseDeleteAccountAssignment =
     "DeleteAccountAssignmentResponse"
     "fixture/DeleteAccountAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccountAssignment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountAssignment)
 
 responseListPermissionSetProvisioningStatus :: ListPermissionSetProvisioningStatusResponse -> TestTree
 responseListPermissionSetProvisioningStatus =
@@ -647,7 +647,7 @@ responseListPermissionSetProvisioningStatus =
     "ListPermissionSetProvisioningStatusResponse"
     "fixture/ListPermissionSetProvisioningStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissionSetProvisioningStatus)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionSetProvisioningStatus)
 
 responseCreateAccountAssignment :: CreateAccountAssignmentResponse -> TestTree
 responseCreateAccountAssignment =
@@ -655,4 +655,4 @@ responseCreateAccountAssignment =
     "CreateAccountAssignmentResponse"
     "fixture/CreateAccountAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccountAssignment)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccountAssignment)

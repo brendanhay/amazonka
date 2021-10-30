@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppRunner where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppRunner
 import Test.AWS.AppRunner.Internal
 import Test.AWS.Fixture
@@ -307,7 +307,7 @@ responseListServices =
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServices)
+    (Proxy.Proxy :: Proxy.Proxy ListServices)
 
 responseResumeService :: ResumeServiceResponse -> TestTree
 responseResumeService =
@@ -315,7 +315,7 @@ responseResumeService =
     "ResumeServiceResponse"
     "fixture/ResumeServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy ResumeService)
+    (Proxy.Proxy :: Proxy.Proxy ResumeService)
 
 responseDeleteService :: DeleteServiceResponse -> TestTree
 responseDeleteService =
@@ -323,7 +323,7 @@ responseDeleteService =
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteService)
+    (Proxy.Proxy :: Proxy.Proxy DeleteService)
 
 responseUpdateService :: UpdateServiceResponse -> TestTree
 responseUpdateService =
@@ -331,7 +331,7 @@ responseUpdateService =
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateService)
+    (Proxy.Proxy :: Proxy.Proxy UpdateService)
 
 responseListOperations :: ListOperationsResponse -> TestTree
 responseListOperations =
@@ -339,7 +339,7 @@ responseListOperations =
     "ListOperationsResponse"
     "fixture/ListOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListOperations)
 
 responseAssociateCustomDomain :: AssociateCustomDomainResponse -> TestTree
 responseAssociateCustomDomain =
@@ -347,7 +347,7 @@ responseAssociateCustomDomain =
     "AssociateCustomDomainResponse"
     "fixture/AssociateCustomDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateCustomDomain)
+    (Proxy.Proxy :: Proxy.Proxy AssociateCustomDomain)
 
 responseListConnections :: ListConnectionsResponse -> TestTree
 responseListConnections =
@@ -355,7 +355,7 @@ responseListConnections =
     "ListConnectionsResponse"
     "fixture/ListConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnections)
+    (Proxy.Proxy :: Proxy.Proxy ListConnections)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
 responseDeleteConnection =
@@ -363,7 +363,7 @@ responseDeleteConnection =
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseDescribeAutoScalingConfiguration :: DescribeAutoScalingConfigurationResponse -> TestTree
 responseDescribeAutoScalingConfiguration =
@@ -371,7 +371,7 @@ responseDescribeAutoScalingConfiguration =
     "DescribeAutoScalingConfigurationResponse"
     "fixture/DescribeAutoScalingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAutoScalingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAutoScalingConfiguration)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -379,7 +379,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateConnection :: CreateConnectionResponse -> TestTree
 responseCreateConnection =
@@ -387,7 +387,7 @@ responseCreateConnection =
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
 responseDescribeCustomDomains :: DescribeCustomDomainsResponse -> TestTree
 responseDescribeCustomDomains =
@@ -395,7 +395,7 @@ responseDescribeCustomDomains =
     "DescribeCustomDomainsResponse"
     "fixture/DescribeCustomDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomDomains)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomDomains)
 
 responseDescribeService :: DescribeServiceResponse -> TestTree
 responseDescribeService =
@@ -403,7 +403,7 @@ responseDescribeService =
     "DescribeServiceResponse"
     "fixture/DescribeServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeService)
+    (Proxy.Proxy :: Proxy.Proxy DescribeService)
 
 responseDeleteAutoScalingConfiguration :: DeleteAutoScalingConfigurationResponse -> TestTree
 responseDeleteAutoScalingConfiguration =
@@ -411,7 +411,7 @@ responseDeleteAutoScalingConfiguration =
     "DeleteAutoScalingConfigurationResponse"
     "fixture/DeleteAutoScalingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAutoScalingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAutoScalingConfiguration)
 
 responseListAutoScalingConfigurations :: ListAutoScalingConfigurationsResponse -> TestTree
 responseListAutoScalingConfigurations =
@@ -419,7 +419,7 @@ responseListAutoScalingConfigurations =
     "ListAutoScalingConfigurationsResponse"
     "fixture/ListAutoScalingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAutoScalingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListAutoScalingConfigurations)
 
 responseDisassociateCustomDomain :: DisassociateCustomDomainResponse -> TestTree
 responseDisassociateCustomDomain =
@@ -427,7 +427,7 @@ responseDisassociateCustomDomain =
     "DisassociateCustomDomainResponse"
     "fixture/DisassociateCustomDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateCustomDomain)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateCustomDomain)
 
 responsePauseService :: PauseServiceResponse -> TestTree
 responsePauseService =
@@ -435,7 +435,7 @@ responsePauseService =
     "PauseServiceResponse"
     "fixture/PauseServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy PauseService)
+    (Proxy.Proxy :: Proxy.Proxy PauseService)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -443,7 +443,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -451,7 +451,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateAutoScalingConfiguration :: CreateAutoScalingConfigurationResponse -> TestTree
 responseCreateAutoScalingConfiguration =
@@ -459,7 +459,7 @@ responseCreateAutoScalingConfiguration =
     "CreateAutoScalingConfigurationResponse"
     "fixture/CreateAutoScalingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAutoScalingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateAutoScalingConfiguration)
 
 responseStartDeployment :: StartDeploymentResponse -> TestTree
 responseStartDeployment =
@@ -467,7 +467,7 @@ responseStartDeployment =
     "StartDeploymentResponse"
     "fixture/StartDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StartDeployment)
 
 responseCreateService :: CreateServiceResponse -> TestTree
 responseCreateService =
@@ -475,4 +475,4 @@ responseCreateService =
     "CreateServiceResponse"
     "fixture/CreateServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateService)
+    (Proxy.Proxy :: Proxy.Proxy CreateService)

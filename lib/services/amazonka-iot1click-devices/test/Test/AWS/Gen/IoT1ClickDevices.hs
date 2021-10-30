@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoT1ClickDevices where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoT1ClickDevices
 import Test.AWS.Fixture
 import Test.AWS.IoT1ClickDevices.Internal
@@ -199,7 +199,7 @@ responseGetDeviceMethods =
     "GetDeviceMethodsResponse"
     "fixture/GetDeviceMethodsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceMethods)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceMethods)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -207,7 +207,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseClaimDevicesByClaimCode :: ClaimDevicesByClaimCodeResponse -> TestTree
 responseClaimDevicesByClaimCode =
@@ -215,7 +215,7 @@ responseClaimDevicesByClaimCode =
     "ClaimDevicesByClaimCodeResponse"
     "fixture/ClaimDevicesByClaimCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy ClaimDevicesByClaimCode)
+    (Proxy.Proxy :: Proxy.Proxy ClaimDevicesByClaimCode)
 
 responseInitiateDeviceClaim :: InitiateDeviceClaimResponse -> TestTree
 responseInitiateDeviceClaim =
@@ -223,7 +223,7 @@ responseInitiateDeviceClaim =
     "InitiateDeviceClaimResponse"
     "fixture/InitiateDeviceClaimResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateDeviceClaim)
+    (Proxy.Proxy :: Proxy.Proxy InitiateDeviceClaim)
 
 responseInvokeDeviceMethod :: InvokeDeviceMethodResponse -> TestTree
 responseInvokeDeviceMethod =
@@ -231,7 +231,7 @@ responseInvokeDeviceMethod =
     "InvokeDeviceMethodResponse"
     "fixture/InvokeDeviceMethodResponse.proto"
     defaultService
-    (Proxy :: Proxy InvokeDeviceMethod)
+    (Proxy.Proxy :: Proxy.Proxy InvokeDeviceMethod)
 
 responseDescribeDevice :: DescribeDeviceResponse -> TestTree
 responseDescribeDevice =
@@ -239,7 +239,7 @@ responseDescribeDevice =
     "DescribeDeviceResponse"
     "fixture/DescribeDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDevice)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
 
 responseListDeviceEvents :: ListDeviceEventsResponse -> TestTree
 responseListDeviceEvents =
@@ -247,7 +247,7 @@ responseListDeviceEvents =
     "ListDeviceEventsResponse"
     "fixture/ListDeviceEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceEvents)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceEvents)
 
 responseFinalizeDeviceClaim :: FinalizeDeviceClaimResponse -> TestTree
 responseFinalizeDeviceClaim =
@@ -255,7 +255,7 @@ responseFinalizeDeviceClaim =
     "FinalizeDeviceClaimResponse"
     "fixture/FinalizeDeviceClaimResponse.proto"
     defaultService
-    (Proxy :: Proxy FinalizeDeviceClaim)
+    (Proxy.Proxy :: Proxy.Proxy FinalizeDeviceClaim)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -263,7 +263,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -271,7 +271,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateDeviceState :: UpdateDeviceStateResponse -> TestTree
 responseUpdateDeviceState =
@@ -279,7 +279,7 @@ responseUpdateDeviceState =
     "UpdateDeviceStateResponse"
     "fixture/UpdateDeviceStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeviceState)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceState)
 
 responseUnclaimDevice :: UnclaimDeviceResponse -> TestTree
 responseUnclaimDevice =
@@ -287,7 +287,7 @@ responseUnclaimDevice =
     "UnclaimDeviceResponse"
     "fixture/UnclaimDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy UnclaimDevice)
+    (Proxy.Proxy :: Proxy.Proxy UnclaimDevice)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -295,4 +295,4 @@ responseListDevices =
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)

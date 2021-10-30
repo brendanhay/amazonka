@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSO where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SSO
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -91,7 +91,7 @@ responseLogout =
     "LogoutResponse"
     "fixture/LogoutResponse.proto"
     defaultService
-    (Proxy :: Proxy Logout)
+    (Proxy.Proxy :: Proxy.Proxy Logout)
 
 responseGetRoleCredentials :: GetRoleCredentialsResponse -> TestTree
 responseGetRoleCredentials =
@@ -99,7 +99,7 @@ responseGetRoleCredentials =
     "GetRoleCredentialsResponse"
     "fixture/GetRoleCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoleCredentials)
+    (Proxy.Proxy :: Proxy.Proxy GetRoleCredentials)
 
 responseListAccounts :: ListAccountsResponse -> TestTree
 responseListAccounts =
@@ -107,7 +107,7 @@ responseListAccounts =
     "ListAccountsResponse"
     "fixture/ListAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListAccounts)
 
 responseListAccountRoles :: ListAccountRolesResponse -> TestTree
 responseListAccountRoles =
@@ -115,4 +115,4 @@ responseListAccountRoles =
     "ListAccountRolesResponse"
     "fixture/ListAccountRolesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountRoles)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountRoles)

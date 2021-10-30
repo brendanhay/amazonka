@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Support where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Support
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -211,7 +211,7 @@ responseRefreshTrustedAdvisorCheck =
     "RefreshTrustedAdvisorCheckResponse"
     "fixture/RefreshTrustedAdvisorCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy RefreshTrustedAdvisorCheck)
+    (Proxy.Proxy :: Proxy.Proxy RefreshTrustedAdvisorCheck)
 
 responseDescribeCases :: DescribeCasesResponse -> TestTree
 responseDescribeCases =
@@ -219,7 +219,7 @@ responseDescribeCases =
     "DescribeCasesResponse"
     "fixture/DescribeCasesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCases)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCases)
 
 responseDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
 responseDescribeTrustedAdvisorCheckRefreshStatuses =
@@ -227,7 +227,7 @@ responseDescribeTrustedAdvisorCheckRefreshStatuses =
     "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     "fixture/DescribeTrustedAdvisorCheckRefreshStatusesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
 
 responseDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
 responseDescribeTrustedAdvisorCheckSummaries =
@@ -235,7 +235,7 @@ responseDescribeTrustedAdvisorCheckSummaries =
     "DescribeTrustedAdvisorCheckSummariesResponse"
     "fixture/DescribeTrustedAdvisorCheckSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrustedAdvisorCheckSummaries)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckSummaries)
 
 responseCreateCase :: CreateCaseResponse -> TestTree
 responseCreateCase =
@@ -243,7 +243,7 @@ responseCreateCase =
     "CreateCaseResponse"
     "fixture/CreateCaseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCase)
+    (Proxy.Proxy :: Proxy.Proxy CreateCase)
 
 responseResolveCase :: ResolveCaseResponse -> TestTree
 responseResolveCase =
@@ -251,7 +251,7 @@ responseResolveCase =
     "ResolveCaseResponse"
     "fixture/ResolveCaseResponse.proto"
     defaultService
-    (Proxy :: Proxy ResolveCase)
+    (Proxy.Proxy :: Proxy.Proxy ResolveCase)
 
 responseDescribeSeverityLevels :: DescribeSeverityLevelsResponse -> TestTree
 responseDescribeSeverityLevels =
@@ -259,7 +259,7 @@ responseDescribeSeverityLevels =
     "DescribeSeverityLevelsResponse"
     "fixture/DescribeSeverityLevelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSeverityLevels)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSeverityLevels)
 
 responseDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecksResponse -> TestTree
 responseDescribeTrustedAdvisorChecks =
@@ -267,7 +267,7 @@ responseDescribeTrustedAdvisorChecks =
     "DescribeTrustedAdvisorChecksResponse"
     "fixture/DescribeTrustedAdvisorChecksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrustedAdvisorChecks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorChecks)
 
 responseDescribeAttachment :: DescribeAttachmentResponse -> TestTree
 responseDescribeAttachment =
@@ -275,7 +275,7 @@ responseDescribeAttachment =
     "DescribeAttachmentResponse"
     "fixture/DescribeAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAttachment)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAttachment)
 
 responseAddAttachmentsToSet :: AddAttachmentsToSetResponse -> TestTree
 responseAddAttachmentsToSet =
@@ -283,7 +283,7 @@ responseAddAttachmentsToSet =
     "AddAttachmentsToSetResponse"
     "fixture/AddAttachmentsToSetResponse.proto"
     defaultService
-    (Proxy :: Proxy AddAttachmentsToSet)
+    (Proxy.Proxy :: Proxy.Proxy AddAttachmentsToSet)
 
 responseDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
 responseDescribeTrustedAdvisorCheckResult =
@@ -291,7 +291,7 @@ responseDescribeTrustedAdvisorCheckResult =
     "DescribeTrustedAdvisorCheckResultResponse"
     "fixture/DescribeTrustedAdvisorCheckResultResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckResult)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
 responseDescribeServices =
@@ -299,7 +299,7 @@ responseDescribeServices =
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServices)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
 
 responseDescribeCommunications :: DescribeCommunicationsResponse -> TestTree
 responseDescribeCommunications =
@@ -307,7 +307,7 @@ responseDescribeCommunications =
     "DescribeCommunicationsResponse"
     "fixture/DescribeCommunicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCommunications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCommunications)
 
 responseAddCommunicationToCase :: AddCommunicationToCaseResponse -> TestTree
 responseAddCommunicationToCase =
@@ -315,4 +315,4 @@ responseAddCommunicationToCase =
     "AddCommunicationToCaseResponse"
     "fixture/AddCommunicationToCaseResponse.proto"
     defaultService
-    (Proxy :: Proxy AddCommunicationToCase)
+    (Proxy.Proxy :: Proxy.Proxy AddCommunicationToCase)

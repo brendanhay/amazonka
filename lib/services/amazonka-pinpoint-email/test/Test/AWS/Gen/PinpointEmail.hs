@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PinpointEmail where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.PinpointEmail
 import Test.AWS.Fixture
 import Test.AWS.PinpointEmail.Internal
@@ -547,7 +547,7 @@ responseGetConfigurationSet =
     "GetConfigurationSetResponse"
     "fixture/GetConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy GetConfigurationSet)
 
 responsePutConfigurationSetTrackingOptions :: PutConfigurationSetTrackingOptionsResponse -> TestTree
 responsePutConfigurationSetTrackingOptions =
@@ -555,7 +555,7 @@ responsePutConfigurationSetTrackingOptions =
     "PutConfigurationSetTrackingOptionsResponse"
     "fixture/PutConfigurationSetTrackingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationSetTrackingOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetTrackingOptions)
 
 responsePutEmailIdentityDkimAttributes :: PutEmailIdentityDkimAttributesResponse -> TestTree
 responsePutEmailIdentityDkimAttributes =
@@ -563,7 +563,7 @@ responsePutEmailIdentityDkimAttributes =
     "PutEmailIdentityDkimAttributesResponse"
     "fixture/PutEmailIdentityDkimAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEmailIdentityDkimAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutEmailIdentityDkimAttributes)
 
 responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
 responsePutConfigurationSetDeliveryOptions =
@@ -571,7 +571,7 @@ responsePutConfigurationSetDeliveryOptions =
     "PutConfigurationSetDeliveryOptionsResponse"
     "fixture/PutConfigurationSetDeliveryOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationSetDeliveryOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetDeliveryOptions)
 
 responseListDedicatedIpPools :: ListDedicatedIpPoolsResponse -> TestTree
 responseListDedicatedIpPools =
@@ -579,7 +579,7 @@ responseListDedicatedIpPools =
     "ListDedicatedIpPoolsResponse"
     "fixture/ListDedicatedIpPoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDedicatedIpPools)
+    (Proxy.Proxy :: Proxy.Proxy ListDedicatedIpPools)
 
 responseGetDomainDeliverabilityCampaign :: GetDomainDeliverabilityCampaignResponse -> TestTree
 responseGetDomainDeliverabilityCampaign =
@@ -587,7 +587,7 @@ responseGetDomainDeliverabilityCampaign =
     "GetDomainDeliverabilityCampaignResponse"
     "fixture/GetDomainDeliverabilityCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainDeliverabilityCampaign)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainDeliverabilityCampaign)
 
 responseGetDedicatedIps :: GetDedicatedIpsResponse -> TestTree
 responseGetDedicatedIps =
@@ -595,7 +595,7 @@ responseGetDedicatedIps =
     "GetDedicatedIpsResponse"
     "fixture/GetDedicatedIpsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDedicatedIps)
+    (Proxy.Proxy :: Proxy.Proxy GetDedicatedIps)
 
 responsePutConfigurationSetSendingOptions :: PutConfigurationSetSendingOptionsResponse -> TestTree
 responsePutConfigurationSetSendingOptions =
@@ -603,7 +603,7 @@ responsePutConfigurationSetSendingOptions =
     "PutConfigurationSetSendingOptionsResponse"
     "fixture/PutConfigurationSetSendingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationSetSendingOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetSendingOptions)
 
 responseCreateDedicatedIpPool :: CreateDedicatedIpPoolResponse -> TestTree
 responseCreateDedicatedIpPool =
@@ -611,7 +611,7 @@ responseCreateDedicatedIpPool =
     "CreateDedicatedIpPoolResponse"
     "fixture/CreateDedicatedIpPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDedicatedIpPool)
+    (Proxy.Proxy :: Proxy.Proxy CreateDedicatedIpPool)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -619,7 +619,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePutEmailIdentityFeedbackAttributes :: PutEmailIdentityFeedbackAttributesResponse -> TestTree
 responsePutEmailIdentityFeedbackAttributes =
@@ -627,7 +627,7 @@ responsePutEmailIdentityFeedbackAttributes =
     "PutEmailIdentityFeedbackAttributesResponse"
     "fixture/PutEmailIdentityFeedbackAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEmailIdentityFeedbackAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutEmailIdentityFeedbackAttributes)
 
 responsePutConfigurationSetReputationOptions :: PutConfigurationSetReputationOptionsResponse -> TestTree
 responsePutConfigurationSetReputationOptions =
@@ -635,7 +635,7 @@ responsePutConfigurationSetReputationOptions =
     "PutConfigurationSetReputationOptionsResponse"
     "fixture/PutConfigurationSetReputationOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationSetReputationOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetReputationOptions)
 
 responsePutDedicatedIpInPool :: PutDedicatedIpInPoolResponse -> TestTree
 responsePutDedicatedIpInPool =
@@ -643,7 +643,7 @@ responsePutDedicatedIpInPool =
     "PutDedicatedIpInPoolResponse"
     "fixture/PutDedicatedIpInPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDedicatedIpInPool)
+    (Proxy.Proxy :: Proxy.Proxy PutDedicatedIpInPool)
 
 responsePutAccountSendingAttributes :: PutAccountSendingAttributesResponse -> TestTree
 responsePutAccountSendingAttributes =
@@ -651,7 +651,7 @@ responsePutAccountSendingAttributes =
     "PutAccountSendingAttributesResponse"
     "fixture/PutAccountSendingAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccountSendingAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutAccountSendingAttributes)
 
 responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
 responseUpdateConfigurationSetEventDestination =
@@ -659,7 +659,7 @@ responseUpdateConfigurationSetEventDestination =
     "UpdateConfigurationSetEventDestinationResponse"
     "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetEventDestination)
 
 responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
 responseDeleteConfigurationSetEventDestination =
@@ -667,7 +667,7 @@ responseDeleteConfigurationSetEventDestination =
     "DeleteConfigurationSetEventDestinationResponse"
     "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSetEventDestination)
 
 responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
 responseListConfigurationSets =
@@ -675,7 +675,7 @@ responseListConfigurationSets =
     "ListConfigurationSetsResponse"
     "fixture/ListConfigurationSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationSets)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationSets)
 
 responseDeleteEmailIdentity :: DeleteEmailIdentityResponse -> TestTree
 responseDeleteEmailIdentity =
@@ -683,7 +683,7 @@ responseDeleteEmailIdentity =
     "DeleteEmailIdentityResponse"
     "fixture/DeleteEmailIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEmailIdentity)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEmailIdentity)
 
 responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
 responseDeleteConfigurationSet =
@@ -691,7 +691,7 @@ responseDeleteConfigurationSet =
     "DeleteConfigurationSetResponse"
     "fixture/DeleteConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSet)
 
 responseCreateEmailIdentity :: CreateEmailIdentityResponse -> TestTree
 responseCreateEmailIdentity =
@@ -699,7 +699,7 @@ responseCreateEmailIdentity =
     "CreateEmailIdentityResponse"
     "fixture/CreateEmailIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEmailIdentity)
+    (Proxy.Proxy :: Proxy.Proxy CreateEmailIdentity)
 
 responseGetBlacklistReports :: GetBlacklistReportsResponse -> TestTree
 responseGetBlacklistReports =
@@ -707,7 +707,7 @@ responseGetBlacklistReports =
     "GetBlacklistReportsResponse"
     "fixture/GetBlacklistReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBlacklistReports)
+    (Proxy.Proxy :: Proxy.Proxy GetBlacklistReports)
 
 responseListEmailIdentities :: ListEmailIdentitiesResponse -> TestTree
 responseListEmailIdentities =
@@ -715,7 +715,7 @@ responseListEmailIdentities =
     "ListEmailIdentitiesResponse"
     "fixture/ListEmailIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEmailIdentities)
+    (Proxy.Proxy :: Proxy.Proxy ListEmailIdentities)
 
 responseGetDedicatedIp :: GetDedicatedIpResponse -> TestTree
 responseGetDedicatedIp =
@@ -723,7 +723,7 @@ responseGetDedicatedIp =
     "GetDedicatedIpResponse"
     "fixture/GetDedicatedIpResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDedicatedIp)
+    (Proxy.Proxy :: Proxy.Proxy GetDedicatedIp)
 
 responseGetEmailIdentity :: GetEmailIdentityResponse -> TestTree
 responseGetEmailIdentity =
@@ -731,7 +731,7 @@ responseGetEmailIdentity =
     "GetEmailIdentityResponse"
     "fixture/GetEmailIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEmailIdentity)
+    (Proxy.Proxy :: Proxy.Proxy GetEmailIdentity)
 
 responseGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinationsResponse -> TestTree
 responseGetConfigurationSetEventDestinations =
@@ -739,7 +739,7 @@ responseGetConfigurationSetEventDestinations =
     "GetConfigurationSetEventDestinationsResponse"
     "fixture/GetConfigurationSetEventDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfigurationSetEventDestinations)
+    (Proxy.Proxy :: Proxy.Proxy GetConfigurationSetEventDestinations)
 
 responseGetAccount :: GetAccountResponse -> TestTree
 responseGetAccount =
@@ -747,7 +747,7 @@ responseGetAccount =
     "GetAccountResponse"
     "fixture/GetAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetAccount)
 
 responseDeleteDedicatedIpPool :: DeleteDedicatedIpPoolResponse -> TestTree
 responseDeleteDedicatedIpPool =
@@ -755,7 +755,7 @@ responseDeleteDedicatedIpPool =
     "DeleteDedicatedIpPoolResponse"
     "fixture/DeleteDedicatedIpPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDedicatedIpPool)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDedicatedIpPool)
 
 responseGetDomainStatisticsReport :: GetDomainStatisticsReportResponse -> TestTree
 responseGetDomainStatisticsReport =
@@ -763,7 +763,7 @@ responseGetDomainStatisticsReport =
     "GetDomainStatisticsReportResponse"
     "fixture/GetDomainStatisticsReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainStatisticsReport)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainStatisticsReport)
 
 responseGetDeliverabilityDashboardOptions :: GetDeliverabilityDashboardOptionsResponse -> TestTree
 responseGetDeliverabilityDashboardOptions =
@@ -771,7 +771,7 @@ responseGetDeliverabilityDashboardOptions =
     "GetDeliverabilityDashboardOptionsResponse"
     "fixture/GetDeliverabilityDashboardOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeliverabilityDashboardOptions)
+    (Proxy.Proxy :: Proxy.Proxy GetDeliverabilityDashboardOptions)
 
 responseListDomainDeliverabilityCampaigns :: ListDomainDeliverabilityCampaignsResponse -> TestTree
 responseListDomainDeliverabilityCampaigns =
@@ -779,7 +779,7 @@ responseListDomainDeliverabilityCampaigns =
     "ListDomainDeliverabilityCampaignsResponse"
     "fixture/ListDomainDeliverabilityCampaignsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainDeliverabilityCampaigns)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainDeliverabilityCampaigns)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -787,7 +787,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseSendEmail :: SendEmailResponse -> TestTree
 responseSendEmail =
@@ -795,7 +795,7 @@ responseSendEmail =
     "SendEmailResponse"
     "fixture/SendEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy SendEmail)
+    (Proxy.Proxy :: Proxy.Proxy SendEmail)
 
 responsePutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributesResponse -> TestTree
 responsePutDedicatedIpWarmupAttributes =
@@ -803,7 +803,7 @@ responsePutDedicatedIpWarmupAttributes =
     "PutDedicatedIpWarmupAttributesResponse"
     "fixture/PutDedicatedIpWarmupAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDedicatedIpWarmupAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutDedicatedIpWarmupAttributes)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -811,7 +811,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateDeliverabilityTestReport :: CreateDeliverabilityTestReportResponse -> TestTree
 responseCreateDeliverabilityTestReport =
@@ -819,7 +819,7 @@ responseCreateDeliverabilityTestReport =
     "CreateDeliverabilityTestReportResponse"
     "fixture/CreateDeliverabilityTestReportResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeliverabilityTestReport)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeliverabilityTestReport)
 
 responsePutEmailIdentityMailFromAttributes :: PutEmailIdentityMailFromAttributesResponse -> TestTree
 responsePutEmailIdentityMailFromAttributes =
@@ -827,7 +827,7 @@ responsePutEmailIdentityMailFromAttributes =
     "PutEmailIdentityMailFromAttributesResponse"
     "fixture/PutEmailIdentityMailFromAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEmailIdentityMailFromAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutEmailIdentityMailFromAttributes)
 
 responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
 responseCreateConfigurationSetEventDestination =
@@ -835,7 +835,7 @@ responseCreateConfigurationSetEventDestination =
     "CreateConfigurationSetEventDestinationResponse"
     "fixture/CreateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSetEventDestination)
 
 responseListDeliverabilityTestReports :: ListDeliverabilityTestReportsResponse -> TestTree
 responseListDeliverabilityTestReports =
@@ -843,7 +843,7 @@ responseListDeliverabilityTestReports =
     "ListDeliverabilityTestReportsResponse"
     "fixture/ListDeliverabilityTestReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeliverabilityTestReports)
+    (Proxy.Proxy :: Proxy.Proxy ListDeliverabilityTestReports)
 
 responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
 responseCreateConfigurationSet =
@@ -851,7 +851,7 @@ responseCreateConfigurationSet =
     "CreateConfigurationSetResponse"
     "fixture/CreateConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSet)
 
 responseGetDeliverabilityTestReport :: GetDeliverabilityTestReportResponse -> TestTree
 responseGetDeliverabilityTestReport =
@@ -859,7 +859,7 @@ responseGetDeliverabilityTestReport =
     "GetDeliverabilityTestReportResponse"
     "fixture/GetDeliverabilityTestReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeliverabilityTestReport)
+    (Proxy.Proxy :: Proxy.Proxy GetDeliverabilityTestReport)
 
 responsePutDeliverabilityDashboardOption :: PutDeliverabilityDashboardOptionResponse -> TestTree
 responsePutDeliverabilityDashboardOption =
@@ -867,7 +867,7 @@ responsePutDeliverabilityDashboardOption =
     "PutDeliverabilityDashboardOptionResponse"
     "fixture/PutDeliverabilityDashboardOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDeliverabilityDashboardOption)
+    (Proxy.Proxy :: Proxy.Proxy PutDeliverabilityDashboardOption)
 
 responsePutAccountDedicatedIpWarmupAttributes :: PutAccountDedicatedIpWarmupAttributesResponse -> TestTree
 responsePutAccountDedicatedIpWarmupAttributes =
@@ -875,4 +875,4 @@ responsePutAccountDedicatedIpWarmupAttributes =
     "PutAccountDedicatedIpWarmupAttributesResponse"
     "fixture/PutAccountDedicatedIpWarmupAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccountDedicatedIpWarmupAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutAccountDedicatedIpWarmupAttributes)

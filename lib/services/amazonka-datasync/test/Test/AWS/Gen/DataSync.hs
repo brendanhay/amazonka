@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataSync where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DataSync
 import Test.AWS.DataSync.Internal
 import Test.AWS.Fixture
@@ -463,7 +463,7 @@ responseUpdateTask =
     "UpdateTaskResponse"
     "fixture/UpdateTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTask)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTask)
 
 responseDescribeAgent :: DescribeAgentResponse -> TestTree
 responseDescribeAgent =
@@ -471,7 +471,7 @@ responseDescribeAgent =
     "DescribeAgentResponse"
     "fixture/DescribeAgentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAgent)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAgent)
 
 responseDeleteTask :: DeleteTaskResponse -> TestTree
 responseDeleteTask =
@@ -479,7 +479,7 @@ responseDeleteTask =
     "DeleteTaskResponse"
     "fixture/DeleteTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTask)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTask)
 
 responseDescribeLocationSmb :: DescribeLocationSmbResponse -> TestTree
 responseDescribeLocationSmb =
@@ -487,7 +487,7 @@ responseDescribeLocationSmb =
     "DescribeLocationSmbResponse"
     "fixture/DescribeLocationSmbResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocationSmb)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationSmb)
 
 responseListLocations :: ListLocationsResponse -> TestTree
 responseListLocations =
@@ -495,7 +495,7 @@ responseListLocations =
     "ListLocationsResponse"
     "fixture/ListLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLocations)
+    (Proxy.Proxy :: Proxy.Proxy ListLocations)
 
 responseCreateLocationNfs :: CreateLocationNfsResponse -> TestTree
 responseCreateLocationNfs =
@@ -503,7 +503,7 @@ responseCreateLocationNfs =
     "CreateLocationNfsResponse"
     "fixture/CreateLocationNfsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocationNfs)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationNfs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -511,7 +511,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeLocationFsxWindows :: DescribeLocationFsxWindowsResponse -> TestTree
 responseDescribeLocationFsxWindows =
@@ -519,7 +519,7 @@ responseDescribeLocationFsxWindows =
     "DescribeLocationFsxWindowsResponse"
     "fixture/DescribeLocationFsxWindowsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocationFsxWindows)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxWindows)
 
 responseCreateLocationObjectStorage :: CreateLocationObjectStorageResponse -> TestTree
 responseCreateLocationObjectStorage =
@@ -527,7 +527,7 @@ responseCreateLocationObjectStorage =
     "CreateLocationObjectStorageResponse"
     "fixture/CreateLocationObjectStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocationObjectStorage)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationObjectStorage)
 
 responseDescribeTask :: DescribeTaskResponse -> TestTree
 responseDescribeTask =
@@ -535,7 +535,7 @@ responseDescribeTask =
     "DescribeTaskResponse"
     "fixture/DescribeTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTask)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTask)
 
 responseDescribeLocationS3 :: DescribeLocationS3Response -> TestTree
 responseDescribeLocationS3 =
@@ -543,7 +543,7 @@ responseDescribeLocationS3 =
     "DescribeLocationS3Response"
     "fixture/DescribeLocationS3Response.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocationS3)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationS3)
 
 responseListAgents :: ListAgentsResponse -> TestTree
 responseListAgents =
@@ -551,7 +551,7 @@ responseListAgents =
     "ListAgentsResponse"
     "fixture/ListAgentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAgents)
+    (Proxy.Proxy :: Proxy.Proxy ListAgents)
 
 responseUpdateLocationSmb :: UpdateLocationSmbResponse -> TestTree
 responseUpdateLocationSmb =
@@ -559,7 +559,7 @@ responseUpdateLocationSmb =
     "UpdateLocationSmbResponse"
     "fixture/UpdateLocationSmbResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLocationSmb)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationSmb)
 
 responseDeleteAgent :: DeleteAgentResponse -> TestTree
 responseDeleteAgent =
@@ -567,7 +567,7 @@ responseDeleteAgent =
     "DeleteAgentResponse"
     "fixture/DeleteAgentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAgent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAgent)
 
 responseUpdateAgent :: UpdateAgentResponse -> TestTree
 responseUpdateAgent =
@@ -575,7 +575,7 @@ responseUpdateAgent =
     "UpdateAgentResponse"
     "fixture/UpdateAgentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAgent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAgent)
 
 responseCreateLocationFsxWindows :: CreateLocationFsxWindowsResponse -> TestTree
 responseCreateLocationFsxWindows =
@@ -583,7 +583,7 @@ responseCreateLocationFsxWindows =
     "CreateLocationFsxWindowsResponse"
     "fixture/CreateLocationFsxWindowsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocationFsxWindows)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxWindows)
 
 responseListTaskExecutions :: ListTaskExecutionsResponse -> TestTree
 responseListTaskExecutions =
@@ -591,7 +591,7 @@ responseListTaskExecutions =
     "ListTaskExecutionsResponse"
     "fixture/ListTaskExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTaskExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListTaskExecutions)
 
 responseUpdateTaskExecution :: UpdateTaskExecutionResponse -> TestTree
 responseUpdateTaskExecution =
@@ -599,7 +599,7 @@ responseUpdateTaskExecution =
     "UpdateTaskExecutionResponse"
     "fixture/UpdateTaskExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTaskExecution)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTaskExecution)
 
 responseCreateLocationS3 :: CreateLocationS3Response -> TestTree
 responseCreateLocationS3 =
@@ -607,7 +607,7 @@ responseCreateLocationS3 =
     "CreateLocationS3Response"
     "fixture/CreateLocationS3Response.proto"
     defaultService
-    (Proxy :: Proxy CreateLocationS3)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationS3)
 
 responseCreateTask :: CreateTaskResponse -> TestTree
 responseCreateTask =
@@ -615,7 +615,7 @@ responseCreateTask =
     "CreateTaskResponse"
     "fixture/CreateTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateTask)
 
 responseCreateLocationEfs :: CreateLocationEfsResponse -> TestTree
 responseCreateLocationEfs =
@@ -623,7 +623,7 @@ responseCreateLocationEfs =
     "CreateLocationEfsResponse"
     "fixture/CreateLocationEfsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocationEfs)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationEfs)
 
 responseDescribeLocationObjectStorage :: DescribeLocationObjectStorageResponse -> TestTree
 responseDescribeLocationObjectStorage =
@@ -631,7 +631,7 @@ responseDescribeLocationObjectStorage =
     "DescribeLocationObjectStorageResponse"
     "fixture/DescribeLocationObjectStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocationObjectStorage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationObjectStorage)
 
 responseDeleteLocation :: DeleteLocationResponse -> TestTree
 responseDeleteLocation =
@@ -639,7 +639,7 @@ responseDeleteLocation =
     "DeleteLocationResponse"
     "fixture/DeleteLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLocation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLocation)
 
 responseListTasks :: ListTasksResponse -> TestTree
 responseListTasks =
@@ -647,7 +647,7 @@ responseListTasks =
     "ListTasksResponse"
     "fixture/ListTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTasks)
+    (Proxy.Proxy :: Proxy.Proxy ListTasks)
 
 responseStartTaskExecution :: StartTaskExecutionResponse -> TestTree
 responseStartTaskExecution =
@@ -655,7 +655,7 @@ responseStartTaskExecution =
     "StartTaskExecutionResponse"
     "fixture/StartTaskExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTaskExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartTaskExecution)
 
 responseUpdateLocationNfs :: UpdateLocationNfsResponse -> TestTree
 responseUpdateLocationNfs =
@@ -663,7 +663,7 @@ responseUpdateLocationNfs =
     "UpdateLocationNfsResponse"
     "fixture/UpdateLocationNfsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLocationNfs)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationNfs)
 
 responseDescribeTaskExecution :: DescribeTaskExecutionResponse -> TestTree
 responseDescribeTaskExecution =
@@ -671,7 +671,7 @@ responseDescribeTaskExecution =
     "DescribeTaskExecutionResponse"
     "fixture/DescribeTaskExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTaskExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTaskExecution)
 
 responseCreateLocationSmb :: CreateLocationSmbResponse -> TestTree
 responseCreateLocationSmb =
@@ -679,7 +679,7 @@ responseCreateLocationSmb =
     "CreateLocationSmbResponse"
     "fixture/CreateLocationSmbResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocationSmb)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationSmb)
 
 responseCreateAgent :: CreateAgentResponse -> TestTree
 responseCreateAgent =
@@ -687,7 +687,7 @@ responseCreateAgent =
     "CreateAgentResponse"
     "fixture/CreateAgentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAgent)
+    (Proxy.Proxy :: Proxy.Proxy CreateAgent)
 
 responseUpdateLocationObjectStorage :: UpdateLocationObjectStorageResponse -> TestTree
 responseUpdateLocationObjectStorage =
@@ -695,7 +695,7 @@ responseUpdateLocationObjectStorage =
     "UpdateLocationObjectStorageResponse"
     "fixture/UpdateLocationObjectStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLocationObjectStorage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationObjectStorage)
 
 responseDescribeLocationEfs :: DescribeLocationEfsResponse -> TestTree
 responseDescribeLocationEfs =
@@ -703,7 +703,7 @@ responseDescribeLocationEfs =
     "DescribeLocationEfsResponse"
     "fixture/DescribeLocationEfsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocationEfs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationEfs)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -711,7 +711,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -719,7 +719,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeLocationNfs :: DescribeLocationNfsResponse -> TestTree
 responseDescribeLocationNfs =
@@ -727,7 +727,7 @@ responseDescribeLocationNfs =
     "DescribeLocationNfsResponse"
     "fixture/DescribeLocationNfsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocationNfs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationNfs)
 
 responseCancelTaskExecution :: CancelTaskExecutionResponse -> TestTree
 responseCancelTaskExecution =
@@ -735,4 +735,4 @@ responseCancelTaskExecution =
     "CancelTaskExecutionResponse"
     "fixture/CancelTaskExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelTaskExecution)
+    (Proxy.Proxy :: Proxy.Proxy CancelTaskExecution)

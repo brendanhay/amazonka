@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.VoiceId where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.VoiceId
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -295,7 +295,7 @@ responseDescribeFraudsterRegistrationJob =
     "DescribeFraudsterRegistrationJobResponse"
     "fixture/DescribeFraudsterRegistrationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFraudsterRegistrationJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFraudsterRegistrationJob)
 
 responseDeleteSpeaker :: DeleteSpeakerResponse -> TestTree
 responseDeleteSpeaker =
@@ -303,7 +303,7 @@ responseDeleteSpeaker =
     "DeleteSpeakerResponse"
     "fixture/DeleteSpeakerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSpeaker)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSpeaker)
 
 responseListSpeakers :: ListSpeakersResponse -> TestTree
 responseListSpeakers =
@@ -311,7 +311,7 @@ responseListSpeakers =
     "ListSpeakersResponse"
     "fixture/ListSpeakersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSpeakers)
+    (Proxy.Proxy :: Proxy.Proxy ListSpeakers)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -319,7 +319,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseEvaluateSession :: EvaluateSessionResponse -> TestTree
 responseEvaluateSession =
@@ -327,7 +327,7 @@ responseEvaluateSession =
     "EvaluateSessionResponse"
     "fixture/EvaluateSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy EvaluateSession)
+    (Proxy.Proxy :: Proxy.Proxy EvaluateSession)
 
 responseDescribeSpeakerEnrollmentJob :: DescribeSpeakerEnrollmentJobResponse -> TestTree
 responseDescribeSpeakerEnrollmentJob =
@@ -335,7 +335,7 @@ responseDescribeSpeakerEnrollmentJob =
     "DescribeSpeakerEnrollmentJobResponse"
     "fixture/DescribeSpeakerEnrollmentJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpeakerEnrollmentJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpeakerEnrollmentJob)
 
 responseDeleteFraudster :: DeleteFraudsterResponse -> TestTree
 responseDeleteFraudster =
@@ -343,7 +343,7 @@ responseDeleteFraudster =
     "DeleteFraudsterResponse"
     "fixture/DeleteFraudsterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFraudster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFraudster)
 
 responseListFraudsterRegistrationJobs :: ListFraudsterRegistrationJobsResponse -> TestTree
 responseListFraudsterRegistrationJobs =
@@ -351,7 +351,7 @@ responseListFraudsterRegistrationJobs =
     "ListFraudsterRegistrationJobsResponse"
     "fixture/ListFraudsterRegistrationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFraudsterRegistrationJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListFraudsterRegistrationJobs)
 
 responseDescribeFraudster :: DescribeFraudsterResponse -> TestTree
 responseDescribeFraudster =
@@ -359,7 +359,7 @@ responseDescribeFraudster =
     "DescribeFraudsterResponse"
     "fixture/DescribeFraudsterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFraudster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFraudster)
 
 responseListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobsResponse -> TestTree
 responseListSpeakerEnrollmentJobs =
@@ -367,7 +367,7 @@ responseListSpeakerEnrollmentJobs =
     "ListSpeakerEnrollmentJobsResponse"
     "fixture/ListSpeakerEnrollmentJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSpeakerEnrollmentJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListSpeakerEnrollmentJobs)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -375,7 +375,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseStartFraudsterRegistrationJob :: StartFraudsterRegistrationJobResponse -> TestTree
 responseStartFraudsterRegistrationJob =
@@ -383,7 +383,7 @@ responseStartFraudsterRegistrationJob =
     "StartFraudsterRegistrationJobResponse"
     "fixture/StartFraudsterRegistrationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFraudsterRegistrationJob)
+    (Proxy.Proxy :: Proxy.Proxy StartFraudsterRegistrationJob)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -391,7 +391,7 @@ responseDescribeDomain =
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -399,7 +399,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseStartSpeakerEnrollmentJob :: StartSpeakerEnrollmentJobResponse -> TestTree
 responseStartSpeakerEnrollmentJob =
@@ -407,7 +407,7 @@ responseStartSpeakerEnrollmentJob =
     "StartSpeakerEnrollmentJobResponse"
     "fixture/StartSpeakerEnrollmentJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSpeakerEnrollmentJob)
+    (Proxy.Proxy :: Proxy.Proxy StartSpeakerEnrollmentJob)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -415,7 +415,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseOptOutSpeaker :: OptOutSpeakerResponse -> TestTree
 responseOptOutSpeaker =
@@ -423,7 +423,7 @@ responseOptOutSpeaker =
     "OptOutSpeakerResponse"
     "fixture/OptOutSpeakerResponse.proto"
     defaultService
-    (Proxy :: Proxy OptOutSpeaker)
+    (Proxy.Proxy :: Proxy.Proxy OptOutSpeaker)
 
 responseDescribeSpeaker :: DescribeSpeakerResponse -> TestTree
 responseDescribeSpeaker =
@@ -431,7 +431,7 @@ responseDescribeSpeaker =
     "DescribeSpeakerResponse"
     "fixture/DescribeSpeakerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpeaker)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpeaker)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -439,7 +439,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
 responseUpdateDomain =
@@ -447,7 +447,7 @@ responseUpdateDomain =
     "UpdateDomainResponse"
     "fixture/UpdateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -455,4 +455,4 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTAnalytics where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTAnalytics
 import Test.AWS.Fixture
 import Test.AWS.IoTAnalytics.Internal
@@ -451,7 +451,7 @@ responseDescribePipeline =
     "DescribePipelineResponse"
     "fixture/DescribePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DescribePipeline)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
@@ -459,7 +459,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -467,7 +467,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseListDatasetContents :: ListDatasetContentsResponse -> TestTree
 responseListDatasetContents =
@@ -475,7 +475,7 @@ responseListDatasetContents =
     "ListDatasetContentsResponse"
     "fixture/ListDatasetContentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetContents)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetContents)
 
 responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
 responsePutLoggingOptions =
@@ -483,7 +483,7 @@ responsePutLoggingOptions =
     "PutLoggingOptionsResponse"
     "fixture/PutLoggingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -491,7 +491,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -499,7 +499,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -507,7 +507,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseSampleChannelData :: SampleChannelDataResponse -> TestTree
 responseSampleChannelData =
@@ -515,7 +515,7 @@ responseSampleChannelData =
     "SampleChannelDataResponse"
     "fixture/SampleChannelDataResponse.proto"
     defaultService
-    (Proxy :: Proxy SampleChannelData)
+    (Proxy.Proxy :: Proxy.Proxy SampleChannelData)
 
 responseCancelPipelineReprocessing :: CancelPipelineReprocessingResponse -> TestTree
 responseCancelPipelineReprocessing =
@@ -523,7 +523,7 @@ responseCancelPipelineReprocessing =
     "CancelPipelineReprocessingResponse"
     "fixture/CancelPipelineReprocessingResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelPipelineReprocessing)
+    (Proxy.Proxy :: Proxy.Proxy CancelPipelineReprocessing)
 
 responseCreateDatastore :: CreateDatastoreResponse -> TestTree
 responseCreateDatastore =
@@ -531,7 +531,7 @@ responseCreateDatastore =
     "CreateDatastoreResponse"
     "fixture/CreateDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatastore)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatastore)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline =
@@ -539,7 +539,7 @@ responseUpdatePipeline =
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
 responseDeletePipeline =
@@ -547,7 +547,7 @@ responseDeletePipeline =
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeletePipeline)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -555,7 +555,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseUpdateDataset :: UpdateDatasetResponse -> TestTree
 responseUpdateDataset =
@@ -563,7 +563,7 @@ responseUpdateDataset =
     "UpdateDatasetResponse"
     "fixture/UpdateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataset)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataset)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
 responseListPipelines =
@@ -571,7 +571,7 @@ responseListPipelines =
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelines)
 
 responseDeleteDatastore :: DeleteDatastoreResponse -> TestTree
 responseDeleteDatastore =
@@ -579,7 +579,7 @@ responseDeleteDatastore =
     "DeleteDatastoreResponse"
     "fixture/DeleteDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDatastore)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDatastore)
 
 responseUpdateDatastore :: UpdateDatastoreResponse -> TestTree
 responseUpdateDatastore =
@@ -587,7 +587,7 @@ responseUpdateDatastore =
     "UpdateDatastoreResponse"
     "fixture/UpdateDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDatastore)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDatastore)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
@@ -595,7 +595,7 @@ responseCreateDataset =
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseBatchPutMessage :: BatchPutMessageResponse -> TestTree
 responseBatchPutMessage =
@@ -603,7 +603,7 @@ responseBatchPutMessage =
     "BatchPutMessageResponse"
     "fixture/BatchPutMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchPutMessage)
+    (Proxy.Proxy :: Proxy.Proxy BatchPutMessage)
 
 responseListDatastores :: ListDatastoresResponse -> TestTree
 responseListDatastores =
@@ -611,7 +611,7 @@ responseListDatastores =
     "ListDatastoresResponse"
     "fixture/ListDatastoresResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatastores)
+    (Proxy.Proxy :: Proxy.Proxy ListDatastores)
 
 responseCreateDatasetContent :: CreateDatasetContentResponse -> TestTree
 responseCreateDatasetContent =
@@ -619,7 +619,7 @@ responseCreateDatasetContent =
     "CreateDatasetContentResponse"
     "fixture/CreateDatasetContentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatasetContent)
+    (Proxy.Proxy :: Proxy.Proxy CreateDatasetContent)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -627,7 +627,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
 
 responseDeleteDatasetContent :: DeleteDatasetContentResponse -> TestTree
 responseDeleteDatasetContent =
@@ -635,7 +635,7 @@ responseDeleteDatasetContent =
     "DeleteDatasetContentResponse"
     "fixture/DeleteDatasetContentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDatasetContent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDatasetContent)
 
 responseDescribeDatastore :: DescribeDatastoreResponse -> TestTree
 responseDescribeDatastore =
@@ -643,7 +643,7 @@ responseDescribeDatastore =
     "DescribeDatastoreResponse"
     "fixture/DescribeDatastoreResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDatastore)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDatastore)
 
 responseGetDatasetContent :: GetDatasetContentResponse -> TestTree
 responseGetDatasetContent =
@@ -651,7 +651,7 @@ responseGetDatasetContent =
     "GetDatasetContentResponse"
     "fixture/GetDatasetContentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDatasetContent)
+    (Proxy.Proxy :: Proxy.Proxy GetDatasetContent)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -659,7 +659,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -667,7 +667,7 @@ responseListDatasets =
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasets)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -675,7 +675,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseRunPipelineActivity :: RunPipelineActivityResponse -> TestTree
 responseRunPipelineActivity =
@@ -683,7 +683,7 @@ responseRunPipelineActivity =
     "RunPipelineActivityResponse"
     "fixture/RunPipelineActivityResponse.proto"
     defaultService
-    (Proxy :: Proxy RunPipelineActivity)
+    (Proxy.Proxy :: Proxy.Proxy RunPipelineActivity)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
@@ -691,7 +691,7 @@ responseDescribeChannel =
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
@@ -699,7 +699,7 @@ responseCreatePipeline =
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreatePipeline)
 
 responseStartPipelineReprocessing :: StartPipelineReprocessingResponse -> TestTree
 responseStartPipelineReprocessing =
@@ -707,7 +707,7 @@ responseStartPipelineReprocessing =
     "StartPipelineReprocessingResponse"
     "fixture/StartPipelineReprocessingResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPipelineReprocessing)
+    (Proxy.Proxy :: Proxy.Proxy StartPipelineReprocessing)
 
 responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
 responseDescribeLoggingOptions =
@@ -715,4 +715,4 @@ responseDescribeLoggingOptions =
     "DescribeLoggingOptionsResponse"
     "fixture/DescribeLoggingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)

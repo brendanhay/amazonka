@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LookoutVision where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LookoutVision
 import Test.AWS.Fixture
 import Test.AWS.LookoutVision.Internal
@@ -265,7 +265,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -273,7 +273,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
@@ -281,7 +281,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseStopModel :: StopModelResponse -> TestTree
 responseStopModel =
@@ -289,7 +289,7 @@ responseStopModel =
     "StopModelResponse"
     "fixture/StopModelResponse.proto"
     defaultService
-    (Proxy :: Proxy StopModel)
+    (Proxy.Proxy :: Proxy.Proxy StopModel)
 
 responseListDatasetEntries :: ListDatasetEntriesResponse -> TestTree
 responseListDatasetEntries =
@@ -297,7 +297,7 @@ responseListDatasetEntries =
     "ListDatasetEntriesResponse"
     "fixture/ListDatasetEntriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasetEntries)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetEntries)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -305,7 +305,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -313,7 +313,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -321,7 +321,7 @@ responseCreateModel =
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -329,7 +329,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
@@ -337,7 +337,7 @@ responseCreateDataset =
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -345,7 +345,7 @@ responseDeleteModel =
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
 
 responseListModels :: ListModelsResponse -> TestTree
 responseListModels =
@@ -353,7 +353,7 @@ responseListModels =
     "ListModelsResponse"
     "fixture/ListModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModels)
+    (Proxy.Proxy :: Proxy.Proxy ListModels)
 
 responseStartModel :: StartModelResponse -> TestTree
 responseStartModel =
@@ -361,7 +361,7 @@ responseStartModel =
     "StartModelResponse"
     "fixture/StartModelResponse.proto"
     defaultService
-    (Proxy :: Proxy StartModel)
+    (Proxy.Proxy :: Proxy.Proxy StartModel)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
 responseDescribeModel =
@@ -369,7 +369,7 @@ responseDescribeModel =
     "DescribeModelResponse"
     "fixture/DescribeModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModel)
 
 responseDetectAnomalies :: DetectAnomaliesResponse -> TestTree
 responseDetectAnomalies =
@@ -377,7 +377,7 @@ responseDetectAnomalies =
     "DetectAnomaliesResponse"
     "fixture/DetectAnomaliesResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectAnomalies)
+    (Proxy.Proxy :: Proxy.Proxy DetectAnomalies)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -385,7 +385,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -393,7 +393,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -401,7 +401,7 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
 responseUpdateDatasetEntries :: UpdateDatasetEntriesResponse -> TestTree
 responseUpdateDatasetEntries =
@@ -409,4 +409,4 @@ responseUpdateDatasetEntries =
     "UpdateDatasetEntriesResponse"
     "fixture/UpdateDatasetEntriesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDatasetEntries)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDatasetEntries)

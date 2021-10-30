@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FinSpace where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.FinSpace
 import Test.AWS.FinSpace.Internal
 import Test.AWS.Fixture
@@ -139,7 +139,7 @@ responseListEnvironments =
     "ListEnvironmentsResponse"
     "fixture/ListEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
 
 responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
 responseUpdateEnvironment =
@@ -147,7 +147,7 @@ responseUpdateEnvironment =
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -155,7 +155,7 @@ responseDeleteEnvironment =
     "DeleteEnvironmentResponse"
     "fixture/DeleteEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEnvironment)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -163,7 +163,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -171,7 +171,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetEnvironment :: GetEnvironmentResponse -> TestTree
 responseGetEnvironment =
@@ -179,7 +179,7 @@ responseGetEnvironment =
     "GetEnvironmentResponse"
     "fixture/GetEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy GetEnvironment)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -187,7 +187,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateEnvironment :: CreateEnvironmentResponse -> TestTree
 responseCreateEnvironment =
@@ -195,4 +195,4 @@ responseCreateEnvironment =
     "CreateEnvironmentResponse"
     "fixture/CreateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy CreateEnvironment)

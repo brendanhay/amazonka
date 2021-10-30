@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53RecoveryControlConfig where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53RecoveryControlConfig
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -283,7 +283,7 @@ responseDescribeControlPanel =
     "DescribeControlPanelResponse"
     "fixture/DescribeControlPanelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeControlPanel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeControlPanel)
 
 responseCreateRoutingControl :: CreateRoutingControlResponse -> TestTree
 responseCreateRoutingControl =
@@ -291,7 +291,7 @@ responseCreateRoutingControl =
     "CreateRoutingControlResponse"
     "fixture/CreateRoutingControlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoutingControl)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoutingControl)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
 responseDescribeCluster =
@@ -299,7 +299,7 @@ responseDescribeCluster =
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCluster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
 
 responseDeleteRoutingControl :: DeleteRoutingControlResponse -> TestTree
 responseDeleteRoutingControl =
@@ -307,7 +307,7 @@ responseDeleteRoutingControl =
     "DeleteRoutingControlResponse"
     "fixture/DeleteRoutingControlResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoutingControl)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoutingControl)
 
 responseUpdateRoutingControl :: UpdateRoutingControlResponse -> TestTree
 responseUpdateRoutingControl =
@@ -315,7 +315,7 @@ responseUpdateRoutingControl =
     "UpdateRoutingControlResponse"
     "fixture/UpdateRoutingControlResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingControl)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingControl)
 
 responseCreateControlPanel :: CreateControlPanelResponse -> TestTree
 responseCreateControlPanel =
@@ -323,7 +323,7 @@ responseCreateControlPanel =
     "CreateControlPanelResponse"
     "fixture/CreateControlPanelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateControlPanel)
+    (Proxy.Proxy :: Proxy.Proxy CreateControlPanel)
 
 responseUpdateControlPanel :: UpdateControlPanelResponse -> TestTree
 responseUpdateControlPanel =
@@ -331,7 +331,7 @@ responseUpdateControlPanel =
     "UpdateControlPanelResponse"
     "fixture/UpdateControlPanelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateControlPanel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateControlPanel)
 
 responseDeleteControlPanel :: DeleteControlPanelResponse -> TestTree
 responseDeleteControlPanel =
@@ -339,7 +339,7 @@ responseDeleteControlPanel =
     "DeleteControlPanelResponse"
     "fixture/DeleteControlPanelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteControlPanel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteControlPanel)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -347,7 +347,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseCreateSafetyRule :: CreateSafetyRuleResponse -> TestTree
 responseCreateSafetyRule =
@@ -355,7 +355,7 @@ responseCreateSafetyRule =
     "CreateSafetyRuleResponse"
     "fixture/CreateSafetyRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSafetyRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateSafetyRule)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -363,7 +363,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseListAssociatedRoute53HealthChecks :: ListAssociatedRoute53HealthChecksResponse -> TestTree
 responseListAssociatedRoute53HealthChecks =
@@ -371,7 +371,7 @@ responseListAssociatedRoute53HealthChecks =
     "ListAssociatedRoute53HealthChecksResponse"
     "fixture/ListAssociatedRoute53HealthChecksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedRoute53HealthChecks)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedRoute53HealthChecks)
 
 responseDescribeSafetyRule :: DescribeSafetyRuleResponse -> TestTree
 responseDescribeSafetyRule =
@@ -379,7 +379,7 @@ responseDescribeSafetyRule =
     "DescribeSafetyRuleResponse"
     "fixture/DescribeSafetyRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSafetyRule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSafetyRule)
 
 responseListRoutingControls :: ListRoutingControlsResponse -> TestTree
 responseListRoutingControls =
@@ -387,7 +387,7 @@ responseListRoutingControls =
     "ListRoutingControlsResponse"
     "fixture/ListRoutingControlsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoutingControls)
+    (Proxy.Proxy :: Proxy.Proxy ListRoutingControls)
 
 responseListControlPanels :: ListControlPanelsResponse -> TestTree
 responseListControlPanels =
@@ -395,7 +395,7 @@ responseListControlPanels =
     "ListControlPanelsResponse"
     "fixture/ListControlPanelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListControlPanels)
+    (Proxy.Proxy :: Proxy.Proxy ListControlPanels)
 
 responseUpdateSafetyRule :: UpdateSafetyRuleResponse -> TestTree
 responseUpdateSafetyRule =
@@ -403,7 +403,7 @@ responseUpdateSafetyRule =
     "UpdateSafetyRuleResponse"
     "fixture/UpdateSafetyRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSafetyRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSafetyRule)
 
 responseDeleteSafetyRule :: DeleteSafetyRuleResponse -> TestTree
 responseDeleteSafetyRule =
@@ -411,7 +411,7 @@ responseDeleteSafetyRule =
     "DeleteSafetyRuleResponse"
     "fixture/DeleteSafetyRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSafetyRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSafetyRule)
 
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
@@ -419,7 +419,7 @@ responseListClusters =
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
 
 responseListSafetyRules :: ListSafetyRulesResponse -> TestTree
 responseListSafetyRules =
@@ -427,7 +427,7 @@ responseListSafetyRules =
     "ListSafetyRulesResponse"
     "fixture/ListSafetyRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSafetyRules)
+    (Proxy.Proxy :: Proxy.Proxy ListSafetyRules)
 
 responseDescribeRoutingControl :: DescribeRoutingControlResponse -> TestTree
 responseDescribeRoutingControl =
@@ -435,4 +435,4 @@ responseDescribeRoutingControl =
     "DescribeRoutingControlResponse"
     "fixture/DescribeRoutingControlResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRoutingControl)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRoutingControl)

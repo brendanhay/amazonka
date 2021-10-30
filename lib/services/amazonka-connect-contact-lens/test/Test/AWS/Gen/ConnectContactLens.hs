@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ConnectContactLens where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ConnectContactLens
 import Test.AWS.ConnectContactLens.Internal
 import Test.AWS.Fixture
@@ -55,4 +55,4 @@ responseListRealtimeContactAnalysisSegments =
     "ListRealtimeContactAnalysisSegmentsResponse"
     "fixture/ListRealtimeContactAnalysisSegmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRealtimeContactAnalysisSegments)
+    (Proxy.Proxy :: Proxy.Proxy ListRealtimeContactAnalysisSegments)

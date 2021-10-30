@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EBS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EBS
 import Test.AWS.EBS.Internal
 import Test.AWS.Fixture
@@ -109,7 +109,7 @@ responseStartSnapshot =
     "StartSnapshotResponse"
     "fixture/StartSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy StartSnapshot)
 
 responseListSnapshotBlocks :: ListSnapshotBlocksResponse -> TestTree
 responseListSnapshotBlocks =
@@ -117,7 +117,7 @@ responseListSnapshotBlocks =
     "ListSnapshotBlocksResponse"
     "fixture/ListSnapshotBlocksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSnapshotBlocks)
+    (Proxy.Proxy :: Proxy.Proxy ListSnapshotBlocks)
 
 responsePutSnapshotBlock :: PutSnapshotBlockResponse -> TestTree
 responsePutSnapshotBlock =
@@ -125,7 +125,7 @@ responsePutSnapshotBlock =
     "PutSnapshotBlockResponse"
     "fixture/PutSnapshotBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSnapshotBlock)
+    (Proxy.Proxy :: Proxy.Proxy PutSnapshotBlock)
 
 responseListChangedBlocks :: ListChangedBlocksResponse -> TestTree
 responseListChangedBlocks =
@@ -133,7 +133,7 @@ responseListChangedBlocks =
     "ListChangedBlocksResponse"
     "fixture/ListChangedBlocksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChangedBlocks)
+    (Proxy.Proxy :: Proxy.Proxy ListChangedBlocks)
 
 responseCompleteSnapshot :: CompleteSnapshotResponse -> TestTree
 responseCompleteSnapshot =
@@ -141,4 +141,4 @@ responseCompleteSnapshot =
     "CompleteSnapshotResponse"
     "fixture/CompleteSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CompleteSnapshot)

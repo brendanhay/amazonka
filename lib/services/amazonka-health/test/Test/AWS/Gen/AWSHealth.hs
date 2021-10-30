@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AWSHealth where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AWSHealth
 import Test.AWS.AWSHealth.Internal
 import Test.AWS.Fixture
@@ -199,7 +199,7 @@ responseEnableHealthServiceAccessForOrganization =
     "EnableHealthServiceAccessForOrganizationResponse"
     "fixture/EnableHealthServiceAccessForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableHealthServiceAccessForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy EnableHealthServiceAccessForOrganization)
 
 responseDescribeEntityAggregates :: DescribeEntityAggregatesResponse -> TestTree
 responseDescribeEntityAggregates =
@@ -207,7 +207,7 @@ responseDescribeEntityAggregates =
     "DescribeEntityAggregatesResponse"
     "fixture/DescribeEntityAggregatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEntityAggregates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntityAggregates)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -215,7 +215,7 @@ responseDescribeEvents =
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
 responseDescribeEventsForOrganization :: DescribeEventsForOrganizationResponse -> TestTree
 responseDescribeEventsForOrganization =
@@ -223,7 +223,7 @@ responseDescribeEventsForOrganization =
     "DescribeEventsForOrganizationResponse"
     "fixture/DescribeEventsForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventsForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventsForOrganization)
 
 responseDescribeAffectedAccountsForOrganization :: DescribeAffectedAccountsForOrganizationResponse -> TestTree
 responseDescribeAffectedAccountsForOrganization =
@@ -231,7 +231,7 @@ responseDescribeAffectedAccountsForOrganization =
     "DescribeAffectedAccountsForOrganizationResponse"
     "fixture/DescribeAffectedAccountsForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAffectedAccountsForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAffectedAccountsForOrganization)
 
 responseDescribeEventDetails :: DescribeEventDetailsResponse -> TestTree
 responseDescribeEventDetails =
@@ -239,7 +239,7 @@ responseDescribeEventDetails =
     "DescribeEventDetailsResponse"
     "fixture/DescribeEventDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventDetails)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventDetails)
 
 responseDescribeEventAggregates :: DescribeEventAggregatesResponse -> TestTree
 responseDescribeEventAggregates =
@@ -247,7 +247,7 @@ responseDescribeEventAggregates =
     "DescribeEventAggregatesResponse"
     "fixture/DescribeEventAggregatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventAggregates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventAggregates)
 
 responseDescribeAffectedEntities :: DescribeAffectedEntitiesResponse -> TestTree
 responseDescribeAffectedEntities =
@@ -255,7 +255,7 @@ responseDescribeAffectedEntities =
     "DescribeAffectedEntitiesResponse"
     "fixture/DescribeAffectedEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAffectedEntities)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAffectedEntities)
 
 responseDescribeEventTypes :: DescribeEventTypesResponse -> TestTree
 responseDescribeEventTypes =
@@ -263,7 +263,7 @@ responseDescribeEventTypes =
     "DescribeEventTypesResponse"
     "fixture/DescribeEventTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventTypes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventTypes)
 
 responseDescribeAffectedEntitiesForOrganization :: DescribeAffectedEntitiesForOrganizationResponse -> TestTree
 responseDescribeAffectedEntitiesForOrganization =
@@ -271,7 +271,7 @@ responseDescribeAffectedEntitiesForOrganization =
     "DescribeAffectedEntitiesForOrganizationResponse"
     "fixture/DescribeAffectedEntitiesForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAffectedEntitiesForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAffectedEntitiesForOrganization)
 
 responseDescribeHealthServiceStatusForOrganization :: DescribeHealthServiceStatusForOrganizationResponse -> TestTree
 responseDescribeHealthServiceStatusForOrganization =
@@ -279,7 +279,7 @@ responseDescribeHealthServiceStatusForOrganization =
     "DescribeHealthServiceStatusForOrganizationResponse"
     "fixture/DescribeHealthServiceStatusForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHealthServiceStatusForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHealthServiceStatusForOrganization)
 
 responseDescribeEventDetailsForOrganization :: DescribeEventDetailsForOrganizationResponse -> TestTree
 responseDescribeEventDetailsForOrganization =
@@ -287,7 +287,7 @@ responseDescribeEventDetailsForOrganization =
     "DescribeEventDetailsForOrganizationResponse"
     "fixture/DescribeEventDetailsForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventDetailsForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventDetailsForOrganization)
 
 responseDisableHealthServiceAccessForOrganization :: DisableHealthServiceAccessForOrganizationResponse -> TestTree
 responseDisableHealthServiceAccessForOrganization =
@@ -295,4 +295,4 @@ responseDisableHealthServiceAccessForOrganization =
     "DisableHealthServiceAccessForOrganizationResponse"
     "fixture/DisableHealthServiceAccessForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableHealthServiceAccessForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DisableHealthServiceAccessForOrganization)

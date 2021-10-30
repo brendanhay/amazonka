@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SWF where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SWF
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -487,7 +487,7 @@ responseListOpenWorkflowExecutions =
     "ListOpenWorkflowExecutionsResponse"
     "fixture/ListOpenWorkflowExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOpenWorkflowExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListOpenWorkflowExecutions)
 
 responseRegisterActivityType :: RegisterActivityTypeResponse -> TestTree
 responseRegisterActivityType =
@@ -495,7 +495,7 @@ responseRegisterActivityType =
     "RegisterActivityTypeResponse"
     "fixture/RegisterActivityTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterActivityType)
+    (Proxy.Proxy :: Proxy.Proxy RegisterActivityType)
 
 responseListActivityTypes :: ListActivityTypesResponse -> TestTree
 responseListActivityTypes =
@@ -503,7 +503,7 @@ responseListActivityTypes =
     "ListActivityTypesResponse"
     "fixture/ListActivityTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActivityTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListActivityTypes)
 
 responseCountPendingActivityTasks :: PendingTaskCount -> TestTree
 responseCountPendingActivityTasks =
@@ -511,7 +511,7 @@ responseCountPendingActivityTasks =
     "CountPendingActivityTasksResponse"
     "fixture/CountPendingActivityTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy CountPendingActivityTasks)
+    (Proxy.Proxy :: Proxy.Proxy CountPendingActivityTasks)
 
 responseRegisterWorkflowType :: RegisterWorkflowTypeResponse -> TestTree
 responseRegisterWorkflowType =
@@ -519,7 +519,7 @@ responseRegisterWorkflowType =
     "RegisterWorkflowTypeResponse"
     "fixture/RegisterWorkflowTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterWorkflowType)
+    (Proxy.Proxy :: Proxy.Proxy RegisterWorkflowType)
 
 responseListWorkflowTypes :: ListWorkflowTypesResponse -> TestTree
 responseListWorkflowTypes =
@@ -527,7 +527,7 @@ responseListWorkflowTypes =
     "ListWorkflowTypesResponse"
     "fixture/ListWorkflowTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkflowTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkflowTypes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -535,7 +535,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRespondActivityTaskFailed :: RespondActivityTaskFailedResponse -> TestTree
 responseRespondActivityTaskFailed =
@@ -543,7 +543,7 @@ responseRespondActivityTaskFailed =
     "RespondActivityTaskFailedResponse"
     "fixture/RespondActivityTaskFailedResponse.proto"
     defaultService
-    (Proxy :: Proxy RespondActivityTaskFailed)
+    (Proxy.Proxy :: Proxy.Proxy RespondActivityTaskFailed)
 
 responseCountOpenWorkflowExecutions :: WorkflowExecutionCount -> TestTree
 responseCountOpenWorkflowExecutions =
@@ -551,7 +551,7 @@ responseCountOpenWorkflowExecutions =
     "CountOpenWorkflowExecutionsResponse"
     "fixture/CountOpenWorkflowExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CountOpenWorkflowExecutions)
+    (Proxy.Proxy :: Proxy.Proxy CountOpenWorkflowExecutions)
 
 responseUndeprecateDomain :: UndeprecateDomainResponse -> TestTree
 responseUndeprecateDomain =
@@ -559,7 +559,7 @@ responseUndeprecateDomain =
     "UndeprecateDomainResponse"
     "fixture/UndeprecateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UndeprecateDomain)
+    (Proxy.Proxy :: Proxy.Proxy UndeprecateDomain)
 
 responseDescribeWorkflowType :: DescribeWorkflowTypeResponse -> TestTree
 responseDescribeWorkflowType =
@@ -567,7 +567,7 @@ responseDescribeWorkflowType =
     "DescribeWorkflowTypeResponse"
     "fixture/DescribeWorkflowTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkflowType)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkflowType)
 
 responseDeprecateWorkflowType :: DeprecateWorkflowTypeResponse -> TestTree
 responseDeprecateWorkflowType =
@@ -575,7 +575,7 @@ responseDeprecateWorkflowType =
     "DeprecateWorkflowTypeResponse"
     "fixture/DeprecateWorkflowTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprecateWorkflowType)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateWorkflowType)
 
 responseRequestCancelWorkflowExecution :: RequestCancelWorkflowExecutionResponse -> TestTree
 responseRequestCancelWorkflowExecution =
@@ -583,7 +583,7 @@ responseRequestCancelWorkflowExecution =
     "RequestCancelWorkflowExecutionResponse"
     "fixture/RequestCancelWorkflowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy RequestCancelWorkflowExecution)
+    (Proxy.Proxy :: Proxy.Proxy RequestCancelWorkflowExecution)
 
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
 responseRegisterDomain =
@@ -591,7 +591,7 @@ responseRegisterDomain =
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDomain)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDomain)
 
 responseRespondDecisionTaskCompleted :: RespondDecisionTaskCompletedResponse -> TestTree
 responseRespondDecisionTaskCompleted =
@@ -599,7 +599,7 @@ responseRespondDecisionTaskCompleted =
     "RespondDecisionTaskCompletedResponse"
     "fixture/RespondDecisionTaskCompletedResponse.proto"
     defaultService
-    (Proxy :: Proxy RespondDecisionTaskCompleted)
+    (Proxy.Proxy :: Proxy.Proxy RespondDecisionTaskCompleted)
 
 responsePollForActivityTask :: PollForActivityTaskResponse -> TestTree
 responsePollForActivityTask =
@@ -607,7 +607,7 @@ responsePollForActivityTask =
     "PollForActivityTaskResponse"
     "fixture/PollForActivityTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy PollForActivityTask)
+    (Proxy.Proxy :: Proxy.Proxy PollForActivityTask)
 
 responseRespondActivityTaskCompleted :: RespondActivityTaskCompletedResponse -> TestTree
 responseRespondActivityTaskCompleted =
@@ -615,7 +615,7 @@ responseRespondActivityTaskCompleted =
     "RespondActivityTaskCompletedResponse"
     "fixture/RespondActivityTaskCompletedResponse.proto"
     defaultService
-    (Proxy :: Proxy RespondActivityTaskCompleted)
+    (Proxy.Proxy :: Proxy.Proxy RespondActivityTaskCompleted)
 
 responseDescribeWorkflowExecution :: DescribeWorkflowExecutionResponse -> TestTree
 responseDescribeWorkflowExecution =
@@ -623,7 +623,7 @@ responseDescribeWorkflowExecution =
     "DescribeWorkflowExecutionResponse"
     "fixture/DescribeWorkflowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkflowExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkflowExecution)
 
 responseSignalWorkflowExecution :: SignalWorkflowExecutionResponse -> TestTree
 responseSignalWorkflowExecution =
@@ -631,7 +631,7 @@ responseSignalWorkflowExecution =
     "SignalWorkflowExecutionResponse"
     "fixture/SignalWorkflowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy SignalWorkflowExecution)
+    (Proxy.Proxy :: Proxy.Proxy SignalWorkflowExecution)
 
 responseCountPendingDecisionTasks :: PendingTaskCount -> TestTree
 responseCountPendingDecisionTasks =
@@ -639,7 +639,7 @@ responseCountPendingDecisionTasks =
     "CountPendingDecisionTasksResponse"
     "fixture/CountPendingDecisionTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy CountPendingDecisionTasks)
+    (Proxy.Proxy :: Proxy.Proxy CountPendingDecisionTasks)
 
 responseListClosedWorkflowExecutions :: WorkflowExecutionInfos -> TestTree
 responseListClosedWorkflowExecutions =
@@ -647,7 +647,7 @@ responseListClosedWorkflowExecutions =
     "ListClosedWorkflowExecutionsResponse"
     "fixture/ListClosedWorkflowExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClosedWorkflowExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListClosedWorkflowExecutions)
 
 responseRecordActivityTaskHeartbeat :: RecordActivityTaskHeartbeatResponse -> TestTree
 responseRecordActivityTaskHeartbeat =
@@ -655,7 +655,7 @@ responseRecordActivityTaskHeartbeat =
     "RecordActivityTaskHeartbeatResponse"
     "fixture/RecordActivityTaskHeartbeatResponse.proto"
     defaultService
-    (Proxy :: Proxy RecordActivityTaskHeartbeat)
+    (Proxy.Proxy :: Proxy.Proxy RecordActivityTaskHeartbeat)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -663,7 +663,7 @@ responseDescribeDomain =
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
 responseGetWorkflowExecutionHistory :: GetWorkflowExecutionHistoryResponse -> TestTree
 responseGetWorkflowExecutionHistory =
@@ -671,7 +671,7 @@ responseGetWorkflowExecutionHistory =
     "GetWorkflowExecutionHistoryResponse"
     "fixture/GetWorkflowExecutionHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorkflowExecutionHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetWorkflowExecutionHistory)
 
 responseDeprecateDomain :: DeprecateDomainResponse -> TestTree
 responseDeprecateDomain =
@@ -679,7 +679,7 @@ responseDeprecateDomain =
     "DeprecateDomainResponse"
     "fixture/DeprecateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprecateDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateDomain)
 
 responseUndeprecateWorkflowType :: UndeprecateWorkflowTypeResponse -> TestTree
 responseUndeprecateWorkflowType =
@@ -687,7 +687,7 @@ responseUndeprecateWorkflowType =
     "UndeprecateWorkflowTypeResponse"
     "fixture/UndeprecateWorkflowTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UndeprecateWorkflowType)
+    (Proxy.Proxy :: Proxy.Proxy UndeprecateWorkflowType)
 
 responseTerminateWorkflowExecution :: TerminateWorkflowExecutionResponse -> TestTree
 responseTerminateWorkflowExecution =
@@ -695,7 +695,7 @@ responseTerminateWorkflowExecution =
     "TerminateWorkflowExecutionResponse"
     "fixture/TerminateWorkflowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateWorkflowExecution)
+    (Proxy.Proxy :: Proxy.Proxy TerminateWorkflowExecution)
 
 responseDescribeActivityType :: DescribeActivityTypeResponse -> TestTree
 responseDescribeActivityType =
@@ -703,7 +703,7 @@ responseDescribeActivityType =
     "DescribeActivityTypeResponse"
     "fixture/DescribeActivityTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeActivityType)
+    (Proxy.Proxy :: Proxy.Proxy DescribeActivityType)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -711,7 +711,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeprecateActivityType :: DeprecateActivityTypeResponse -> TestTree
 responseDeprecateActivityType =
@@ -719,7 +719,7 @@ responseDeprecateActivityType =
     "DeprecateActivityTypeResponse"
     "fixture/DeprecateActivityTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprecateActivityType)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateActivityType)
 
 responseUndeprecateActivityType :: UndeprecateActivityTypeResponse -> TestTree
 responseUndeprecateActivityType =
@@ -727,7 +727,7 @@ responseUndeprecateActivityType =
     "UndeprecateActivityTypeResponse"
     "fixture/UndeprecateActivityTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UndeprecateActivityType)
+    (Proxy.Proxy :: Proxy.Proxy UndeprecateActivityType)
 
 responseCountClosedWorkflowExecutions :: WorkflowExecutionCount -> TestTree
 responseCountClosedWorkflowExecutions =
@@ -735,7 +735,7 @@ responseCountClosedWorkflowExecutions =
     "CountClosedWorkflowExecutionsResponse"
     "fixture/CountClosedWorkflowExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CountClosedWorkflowExecutions)
+    (Proxy.Proxy :: Proxy.Proxy CountClosedWorkflowExecutions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -743,7 +743,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseRespondActivityTaskCanceled :: RespondActivityTaskCanceledResponse -> TestTree
 responseRespondActivityTaskCanceled =
@@ -751,7 +751,7 @@ responseRespondActivityTaskCanceled =
     "RespondActivityTaskCanceledResponse"
     "fixture/RespondActivityTaskCanceledResponse.proto"
     defaultService
-    (Proxy :: Proxy RespondActivityTaskCanceled)
+    (Proxy.Proxy :: Proxy.Proxy RespondActivityTaskCanceled)
 
 responseStartWorkflowExecution :: StartWorkflowExecutionResponse -> TestTree
 responseStartWorkflowExecution =
@@ -759,7 +759,7 @@ responseStartWorkflowExecution =
     "StartWorkflowExecutionResponse"
     "fixture/StartWorkflowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartWorkflowExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartWorkflowExecution)
 
 responsePollForDecisionTask :: PollForDecisionTaskResponse -> TestTree
 responsePollForDecisionTask =
@@ -767,7 +767,7 @@ responsePollForDecisionTask =
     "PollForDecisionTaskResponse"
     "fixture/PollForDecisionTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy PollForDecisionTask)
+    (Proxy.Proxy :: Proxy.Proxy PollForDecisionTask)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -775,4 +775,4 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)

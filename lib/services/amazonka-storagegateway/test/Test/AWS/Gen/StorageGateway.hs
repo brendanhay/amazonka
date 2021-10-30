@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.StorageGateway where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.StorageGateway
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1123,7 +1123,7 @@ responseCancelArchival =
     "CancelArchivalResponse"
     "fixture/CancelArchivalResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelArchival)
+    (Proxy.Proxy :: Proxy.Proxy CancelArchival)
 
 responseCreateStorediSCSIVolume :: CreateStorediSCSIVolumeResponse -> TestTree
 responseCreateStorediSCSIVolume =
@@ -1131,7 +1131,7 @@ responseCreateStorediSCSIVolume =
     "CreateStorediSCSIVolumeResponse"
     "fixture/CreateStorediSCSIVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStorediSCSIVolume)
+    (Proxy.Proxy :: Proxy.Proxy CreateStorediSCSIVolume)
 
 responseDescribeFileSystemAssociations :: DescribeFileSystemAssociationsResponse -> TestTree
 responseDescribeFileSystemAssociations =
@@ -1139,7 +1139,7 @@ responseDescribeFileSystemAssociations =
     "DescribeFileSystemAssociationsResponse"
     "fixture/DescribeFileSystemAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFileSystemAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystemAssociations)
 
 responseUpdateSMBLocalGroups :: UpdateSMBLocalGroupsResponse -> TestTree
 responseUpdateSMBLocalGroups =
@@ -1147,7 +1147,7 @@ responseUpdateSMBLocalGroups =
     "UpdateSMBLocalGroupsResponse"
     "fixture/UpdateSMBLocalGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSMBLocalGroups)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBLocalGroups)
 
 responseCreateNFSFileShare :: CreateNFSFileShareResponse -> TestTree
 responseCreateNFSFileShare =
@@ -1155,7 +1155,7 @@ responseCreateNFSFileShare =
     "CreateNFSFileShareResponse"
     "fixture/CreateNFSFileShareResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNFSFileShare)
+    (Proxy.Proxy :: Proxy.Proxy CreateNFSFileShare)
 
 responseAssociateFileSystem :: AssociateFileSystemResponse -> TestTree
 responseAssociateFileSystem =
@@ -1163,7 +1163,7 @@ responseAssociateFileSystem =
     "AssociateFileSystemResponse"
     "fixture/AssociateFileSystemResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateFileSystem)
+    (Proxy.Proxy :: Proxy.Proxy AssociateFileSystem)
 
 responseDetachVolume :: DetachVolumeResponse -> TestTree
 responseDetachVolume =
@@ -1171,7 +1171,7 @@ responseDetachVolume =
     "DetachVolumeResponse"
     "fixture/DetachVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachVolume)
+    (Proxy.Proxy :: Proxy.Proxy DetachVolume)
 
 responseDescribeChapCredentials :: DescribeChapCredentialsResponse -> TestTree
 responseDescribeChapCredentials =
@@ -1179,7 +1179,7 @@ responseDescribeChapCredentials =
     "DescribeChapCredentialsResponse"
     "fixture/DescribeChapCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChapCredentials)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChapCredentials)
 
 responseSetLocalConsolePassword :: SetLocalConsolePasswordResponse -> TestTree
 responseSetLocalConsolePassword =
@@ -1187,7 +1187,7 @@ responseSetLocalConsolePassword =
     "SetLocalConsolePasswordResponse"
     "fixture/SetLocalConsolePasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy SetLocalConsolePassword)
+    (Proxy.Proxy :: Proxy.Proxy SetLocalConsolePassword)
 
 responseCreateTapes :: CreateTapesResponse -> TestTree
 responseCreateTapes =
@@ -1195,7 +1195,7 @@ responseCreateTapes =
     "CreateTapesResponse"
     "fixture/CreateTapesResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTapes)
+    (Proxy.Proxy :: Proxy.Proxy CreateTapes)
 
 responseUpdateVTLDeviceType :: UpdateVTLDeviceTypeResponse -> TestTree
 responseUpdateVTLDeviceType =
@@ -1203,7 +1203,7 @@ responseUpdateVTLDeviceType =
     "UpdateVTLDeviceTypeResponse"
     "fixture/UpdateVTLDeviceTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVTLDeviceType)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVTLDeviceType)
 
 responseCreateCachediSCSIVolume :: CreateCachediSCSIVolumeResponse -> TestTree
 responseCreateCachediSCSIVolume =
@@ -1211,7 +1211,7 @@ responseCreateCachediSCSIVolume =
     "CreateCachediSCSIVolumeResponse"
     "fixture/CreateCachediSCSIVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCachediSCSIVolume)
+    (Proxy.Proxy :: Proxy.Proxy CreateCachediSCSIVolume)
 
 responseListFileShares :: ListFileSharesResponse -> TestTree
 responseListFileShares =
@@ -1219,7 +1219,7 @@ responseListFileShares =
     "ListFileSharesResponse"
     "fixture/ListFileSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFileShares)
+    (Proxy.Proxy :: Proxy.Proxy ListFileShares)
 
 responseJoinDomain :: JoinDomainResponse -> TestTree
 responseJoinDomain =
@@ -1227,7 +1227,7 @@ responseJoinDomain =
     "JoinDomainResponse"
     "fixture/JoinDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy JoinDomain)
+    (Proxy.Proxy :: Proxy.Proxy JoinDomain)
 
 responseDeleteFileShare :: DeleteFileShareResponse -> TestTree
 responseDeleteFileShare =
@@ -1235,7 +1235,7 @@ responseDeleteFileShare =
     "DeleteFileShareResponse"
     "fixture/DeleteFileShareResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFileShare)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFileShare)
 
 responseListVolumeInitiators :: ListVolumeInitiatorsResponse -> TestTree
 responseListVolumeInitiators =
@@ -1243,7 +1243,7 @@ responseListVolumeInitiators =
     "ListVolumeInitiatorsResponse"
     "fixture/ListVolumeInitiatorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVolumeInitiators)
+    (Proxy.Proxy :: Proxy.Proxy ListVolumeInitiators)
 
 responseAddUploadBuffer :: AddUploadBufferResponse -> TestTree
 responseAddUploadBuffer =
@@ -1251,7 +1251,7 @@ responseAddUploadBuffer =
     "AddUploadBufferResponse"
     "fixture/AddUploadBufferResponse.proto"
     defaultService
-    (Proxy :: Proxy AddUploadBuffer)
+    (Proxy.Proxy :: Proxy.Proxy AddUploadBuffer)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1259,7 +1259,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseNotifyWhenUploaded :: NotifyWhenUploadedResponse -> TestTree
 responseNotifyWhenUploaded =
@@ -1267,7 +1267,7 @@ responseNotifyWhenUploaded =
     "NotifyWhenUploadedResponse"
     "fixture/NotifyWhenUploadedResponse.proto"
     defaultService
-    (Proxy :: Proxy NotifyWhenUploaded)
+    (Proxy.Proxy :: Proxy.Proxy NotifyWhenUploaded)
 
 responseListTapePools :: ListTapePoolsResponse -> TestTree
 responseListTapePools =
@@ -1275,7 +1275,7 @@ responseListTapePools =
     "ListTapePoolsResponse"
     "fixture/ListTapePoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTapePools)
+    (Proxy.Proxy :: Proxy.Proxy ListTapePools)
 
 responseDeleteTapePool :: DeleteTapePoolResponse -> TestTree
 responseDeleteTapePool =
@@ -1283,7 +1283,7 @@ responseDeleteTapePool =
     "DeleteTapePoolResponse"
     "fixture/DeleteTapePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTapePool)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTapePool)
 
 responseUpdateGatewayInformation :: UpdateGatewayInformationResponse -> TestTree
 responseUpdateGatewayInformation =
@@ -1291,7 +1291,7 @@ responseUpdateGatewayInformation =
     "UpdateGatewayInformationResponse"
     "fixture/UpdateGatewayInformationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGatewayInformation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayInformation)
 
 responseDescribeMaintenanceStartTime :: DescribeMaintenanceStartTimeResponse -> TestTree
 responseDescribeMaintenanceStartTime =
@@ -1299,7 +1299,7 @@ responseDescribeMaintenanceStartTime =
     "DescribeMaintenanceStartTimeResponse"
     "fixture/DescribeMaintenanceStartTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceStartTime)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceStartTime)
 
 responseAssignTapePool :: AssignTapePoolResponse -> TestTree
 responseAssignTapePool =
@@ -1307,7 +1307,7 @@ responseAssignTapePool =
     "AssignTapePoolResponse"
     "fixture/AssignTapePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy AssignTapePool)
+    (Proxy.Proxy :: Proxy.Proxy AssignTapePool)
 
 responseDescribeWorkingStorage :: DescribeWorkingStorageResponse -> TestTree
 responseDescribeWorkingStorage =
@@ -1315,7 +1315,7 @@ responseDescribeWorkingStorage =
     "DescribeWorkingStorageResponse"
     "fixture/DescribeWorkingStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkingStorage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkingStorage)
 
 responseDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumesResponse -> TestTree
 responseDescribeCachediSCSIVolumes =
@@ -1323,7 +1323,7 @@ responseDescribeCachediSCSIVolumes =
     "DescribeCachediSCSIVolumesResponse"
     "fixture/DescribeCachediSCSIVolumesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCachediSCSIVolumes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCachediSCSIVolumes)
 
 responseAddCache :: AddCacheResponse -> TestTree
 responseAddCache =
@@ -1331,7 +1331,7 @@ responseAddCache =
     "AddCacheResponse"
     "fixture/AddCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy AddCache)
+    (Proxy.Proxy :: Proxy.Proxy AddCache)
 
 responseCreateTapePool :: CreateTapePoolResponse -> TestTree
 responseCreateTapePool =
@@ -1339,7 +1339,7 @@ responseCreateTapePool =
     "CreateTapePoolResponse"
     "fixture/CreateTapePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTapePool)
+    (Proxy.Proxy :: Proxy.Proxy CreateTapePool)
 
 responseStartGateway :: StartGatewayResponse -> TestTree
 responseStartGateway =
@@ -1347,7 +1347,7 @@ responseStartGateway =
     "StartGatewayResponse"
     "fixture/StartGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy StartGateway)
+    (Proxy.Proxy :: Proxy.Proxy StartGateway)
 
 responseShutdownGateway :: ShutdownGatewayResponse -> TestTree
 responseShutdownGateway =
@@ -1355,7 +1355,7 @@ responseShutdownGateway =
     "ShutdownGatewayResponse"
     "fixture/ShutdownGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy ShutdownGateway)
+    (Proxy.Proxy :: Proxy.Proxy ShutdownGateway)
 
 responseListAutomaticTapeCreationPolicies :: ListAutomaticTapeCreationPoliciesResponse -> TestTree
 responseListAutomaticTapeCreationPolicies =
@@ -1363,7 +1363,7 @@ responseListAutomaticTapeCreationPolicies =
     "ListAutomaticTapeCreationPoliciesResponse"
     "fixture/ListAutomaticTapeCreationPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAutomaticTapeCreationPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListAutomaticTapeCreationPolicies)
 
 responseUpdateGatewaySoftwareNow :: UpdateGatewaySoftwareNowResponse -> TestTree
 responseUpdateGatewaySoftwareNow =
@@ -1371,7 +1371,7 @@ responseUpdateGatewaySoftwareNow =
     "UpdateGatewaySoftwareNowResponse"
     "fixture/UpdateGatewaySoftwareNowResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGatewaySoftwareNow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewaySoftwareNow)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource =
@@ -1379,7 +1379,7 @@ responseRemoveTagsFromResource =
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
 responseUpdateFileSystemAssociation :: UpdateFileSystemAssociationResponse -> TestTree
 responseUpdateFileSystemAssociation =
@@ -1387,7 +1387,7 @@ responseUpdateFileSystemAssociation =
     "UpdateFileSystemAssociationResponse"
     "fixture/UpdateFileSystemAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFileSystemAssociation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFileSystemAssociation)
 
 responseCreateSMBFileShare :: CreateSMBFileShareResponse -> TestTree
 responseCreateSMBFileShare =
@@ -1395,7 +1395,7 @@ responseCreateSMBFileShare =
     "CreateSMBFileShareResponse"
     "fixture/CreateSMBFileShareResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSMBFileShare)
+    (Proxy.Proxy :: Proxy.Proxy CreateSMBFileShare)
 
 responseDeleteChapCredentials :: DeleteChapCredentialsResponse -> TestTree
 responseDeleteChapCredentials =
@@ -1403,7 +1403,7 @@ responseDeleteChapCredentials =
     "DeleteChapCredentialsResponse"
     "fixture/DeleteChapCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChapCredentials)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChapCredentials)
 
 responseUpdateChapCredentials :: UpdateChapCredentialsResponse -> TestTree
 responseUpdateChapCredentials =
@@ -1411,7 +1411,7 @@ responseUpdateChapCredentials =
     "UpdateChapCredentialsResponse"
     "fixture/UpdateChapCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChapCredentials)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChapCredentials)
 
 responseAttachVolume :: AttachVolumeResponse -> TestTree
 responseAttachVolume =
@@ -1419,7 +1419,7 @@ responseAttachVolume =
     "AttachVolumeResponse"
     "fixture/AttachVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachVolume)
+    (Proxy.Proxy :: Proxy.Proxy AttachVolume)
 
 responseDescribeAvailabilityMonitorTest :: DescribeAvailabilityMonitorTestResponse -> TestTree
 responseDescribeAvailabilityMonitorTest =
@@ -1427,7 +1427,7 @@ responseDescribeAvailabilityMonitorTest =
     "DescribeAvailabilityMonitorTestResponse"
     "fixture/DescribeAvailabilityMonitorTestResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAvailabilityMonitorTest)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAvailabilityMonitorTest)
 
 responseDescribeUploadBuffer :: DescribeUploadBufferResponse -> TestTree
 responseDescribeUploadBuffer =
@@ -1435,7 +1435,7 @@ responseDescribeUploadBuffer =
     "DescribeUploadBufferResponse"
     "fixture/DescribeUploadBufferResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUploadBuffer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUploadBuffer)
 
 responseDescribeTapes :: DescribeTapesResponse -> TestTree
 responseDescribeTapes =
@@ -1443,7 +1443,7 @@ responseDescribeTapes =
     "DescribeTapesResponse"
     "fixture/DescribeTapesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTapes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTapes)
 
 responseDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumesResponse -> TestTree
 responseDescribeStorediSCSIVolumes =
@@ -1451,7 +1451,7 @@ responseDescribeStorediSCSIVolumes =
     "DescribeStorediSCSIVolumesResponse"
     "fixture/DescribeStorediSCSIVolumesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStorediSCSIVolumes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorediSCSIVolumes)
 
 responseDisassociateFileSystem :: DisassociateFileSystemResponse -> TestTree
 responseDisassociateFileSystem =
@@ -1459,7 +1459,7 @@ responseDisassociateFileSystem =
     "DisassociateFileSystemResponse"
     "fixture/DisassociateFileSystemResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateFileSystem)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFileSystem)
 
 responseSetSMBGuestPassword :: SetSMBGuestPasswordResponse -> TestTree
 responseSetSMBGuestPassword =
@@ -1467,7 +1467,7 @@ responseSetSMBGuestPassword =
     "SetSMBGuestPasswordResponse"
     "fixture/SetSMBGuestPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy SetSMBGuestPassword)
+    (Proxy.Proxy :: Proxy.Proxy SetSMBGuestPassword)
 
 responseCreateSnapshotFromVolumeRecoveryPoint :: CreateSnapshotFromVolumeRecoveryPointResponse -> TestTree
 responseCreateSnapshotFromVolumeRecoveryPoint =
@@ -1475,7 +1475,7 @@ responseCreateSnapshotFromVolumeRecoveryPoint =
     "CreateSnapshotFromVolumeRecoveryPointResponse"
     "fixture/CreateSnapshotFromVolumeRecoveryPointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshotFromVolumeRecoveryPoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshotFromVolumeRecoveryPoint)
 
 responseRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPointResponse -> TestTree
 responseRetrieveTapeRecoveryPoint =
@@ -1483,7 +1483,7 @@ responseRetrieveTapeRecoveryPoint =
     "RetrieveTapeRecoveryPointResponse"
     "fixture/RetrieveTapeRecoveryPointResponse.proto"
     defaultService
-    (Proxy :: Proxy RetrieveTapeRecoveryPoint)
+    (Proxy.Proxy :: Proxy.Proxy RetrieveTapeRecoveryPoint)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
 responseAddTagsToResource =
@@ -1491,7 +1491,7 @@ responseAddTagsToResource =
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
 responseDeleteGateway :: DeleteGatewayResponse -> TestTree
 responseDeleteGateway =
@@ -1499,7 +1499,7 @@ responseDeleteGateway =
     "DeleteGatewayResponse"
     "fixture/DeleteGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGateway)
 
 responseUpdateMaintenanceStartTime :: UpdateMaintenanceStartTimeResponse -> TestTree
 responseUpdateMaintenanceStartTime =
@@ -1507,7 +1507,7 @@ responseUpdateMaintenanceStartTime =
     "UpdateMaintenanceStartTimeResponse"
     "fixture/UpdateMaintenanceStartTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMaintenanceStartTime)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMaintenanceStartTime)
 
 responseDescribeGatewayInformation :: DescribeGatewayInformationResponse -> TestTree
 responseDescribeGatewayInformation =
@@ -1515,7 +1515,7 @@ responseDescribeGatewayInformation =
     "DescribeGatewayInformationResponse"
     "fixture/DescribeGatewayInformationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGatewayInformation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayInformation)
 
 responseRefreshCache :: RefreshCacheResponse -> TestTree
 responseRefreshCache =
@@ -1523,7 +1523,7 @@ responseRefreshCache =
     "RefreshCacheResponse"
     "fixture/RefreshCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy RefreshCache)
+    (Proxy.Proxy :: Proxy.Proxy RefreshCache)
 
 responseUpdateNFSFileShare :: UpdateNFSFileShareResponse -> TestTree
 responseUpdateNFSFileShare =
@@ -1531,7 +1531,7 @@ responseUpdateNFSFileShare =
     "UpdateNFSFileShareResponse"
     "fixture/UpdateNFSFileShareResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNFSFileShare)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNFSFileShare)
 
 responseRetrieveTapeArchive :: RetrieveTapeArchiveResponse -> TestTree
 responseRetrieveTapeArchive =
@@ -1539,7 +1539,7 @@ responseRetrieveTapeArchive =
     "RetrieveTapeArchiveResponse"
     "fixture/RetrieveTapeArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy RetrieveTapeArchive)
+    (Proxy.Proxy :: Proxy.Proxy RetrieveTapeArchive)
 
 responseDescribeTapeArchives :: DescribeTapeArchivesResponse -> TestTree
 responseDescribeTapeArchives =
@@ -1547,7 +1547,7 @@ responseDescribeTapeArchives =
     "DescribeTapeArchivesResponse"
     "fixture/DescribeTapeArchivesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTapeArchives)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTapeArchives)
 
 responseUpdateBandwidthRateLimitSchedule :: UpdateBandwidthRateLimitScheduleResponse -> TestTree
 responseUpdateBandwidthRateLimitSchedule =
@@ -1555,7 +1555,7 @@ responseUpdateBandwidthRateLimitSchedule =
     "UpdateBandwidthRateLimitScheduleResponse"
     "fixture/UpdateBandwidthRateLimitScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBandwidthRateLimitSchedule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBandwidthRateLimitSchedule)
 
 responseDisableGateway :: DisableGatewayResponse -> TestTree
 responseDisableGateway =
@@ -1563,7 +1563,7 @@ responseDisableGateway =
     "DisableGatewayResponse"
     "fixture/DisableGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableGateway)
+    (Proxy.Proxy :: Proxy.Proxy DisableGateway)
 
 responseDescribeSMBSettings :: DescribeSMBSettingsResponse -> TestTree
 responseDescribeSMBSettings =
@@ -1571,7 +1571,7 @@ responseDescribeSMBSettings =
     "DescribeSMBSettingsResponse"
     "fixture/DescribeSMBSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSMBSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSMBSettings)
 
 responseDescribeSnapshotSchedule :: DescribeSnapshotScheduleResponse -> TestTree
 responseDescribeSnapshotSchedule =
@@ -1579,7 +1579,7 @@ responseDescribeSnapshotSchedule =
     "DescribeSnapshotScheduleResponse"
     "fixture/DescribeSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotSchedule)
 
 responseCreateTapeWithBarcode :: CreateTapeWithBarcodeResponse -> TestTree
 responseCreateTapeWithBarcode =
@@ -1587,7 +1587,7 @@ responseCreateTapeWithBarcode =
     "CreateTapeWithBarcodeResponse"
     "fixture/CreateTapeWithBarcodeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTapeWithBarcode)
+    (Proxy.Proxy :: Proxy.Proxy CreateTapeWithBarcode)
 
 responseDescribeBandwidthRateLimit :: DescribeBandwidthRateLimitResponse -> TestTree
 responseDescribeBandwidthRateLimit =
@@ -1595,7 +1595,7 @@ responseDescribeBandwidthRateLimit =
     "DescribeBandwidthRateLimitResponse"
     "fixture/DescribeBandwidthRateLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBandwidthRateLimit)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBandwidthRateLimit)
 
 responseDeleteAutomaticTapeCreationPolicy :: DeleteAutomaticTapeCreationPolicyResponse -> TestTree
 responseDeleteAutomaticTapeCreationPolicy =
@@ -1603,7 +1603,7 @@ responseDeleteAutomaticTapeCreationPolicy =
     "DeleteAutomaticTapeCreationPolicyResponse"
     "fixture/DeleteAutomaticTapeCreationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAutomaticTapeCreationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAutomaticTapeCreationPolicy)
 
 responseUpdateAutomaticTapeCreationPolicy :: UpdateAutomaticTapeCreationPolicyResponse -> TestTree
 responseUpdateAutomaticTapeCreationPolicy =
@@ -1611,7 +1611,7 @@ responseUpdateAutomaticTapeCreationPolicy =
     "UpdateAutomaticTapeCreationPolicyResponse"
     "fixture/UpdateAutomaticTapeCreationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAutomaticTapeCreationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAutomaticTapeCreationPolicy)
 
 responseUpdateSMBFileShareVisibility :: UpdateSMBFileShareVisibilityResponse -> TestTree
 responseUpdateSMBFileShareVisibility =
@@ -1619,7 +1619,7 @@ responseUpdateSMBFileShareVisibility =
     "UpdateSMBFileShareVisibilityResponse"
     "fixture/UpdateSMBFileShareVisibilityResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSMBFileShareVisibility)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBFileShareVisibility)
 
 responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
 responseDeleteSnapshotSchedule =
@@ -1627,7 +1627,7 @@ responseDeleteSnapshotSchedule =
     "DeleteSnapshotScheduleResponse"
     "fixture/DeleteSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshotSchedule)
 
 responseUpdateSnapshotSchedule :: UpdateSnapshotScheduleResponse -> TestTree
 responseUpdateSnapshotSchedule =
@@ -1635,7 +1635,7 @@ responseUpdateSnapshotSchedule =
     "UpdateSnapshotScheduleResponse"
     "fixture/UpdateSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSnapshotSchedule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSnapshotSchedule)
 
 responseDescribeBandwidthRateLimitSchedule :: DescribeBandwidthRateLimitScheduleResponse -> TestTree
 responseDescribeBandwidthRateLimitSchedule =
@@ -1643,7 +1643,7 @@ responseDescribeBandwidthRateLimitSchedule =
     "DescribeBandwidthRateLimitScheduleResponse"
     "fixture/DescribeBandwidthRateLimitScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBandwidthRateLimitSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBandwidthRateLimitSchedule)
 
 responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
 responseCreateSnapshot =
@@ -1651,7 +1651,7 @@ responseCreateSnapshot =
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseUpdateSMBSecurityStrategy :: UpdateSMBSecurityStrategyResponse -> TestTree
 responseUpdateSMBSecurityStrategy =
@@ -1659,7 +1659,7 @@ responseUpdateSMBSecurityStrategy =
     "UpdateSMBSecurityStrategyResponse"
     "fixture/UpdateSMBSecurityStrategyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSMBSecurityStrategy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBSecurityStrategy)
 
 responseCancelRetrieval :: CancelRetrievalResponse -> TestTree
 responseCancelRetrieval =
@@ -1667,7 +1667,7 @@ responseCancelRetrieval =
     "CancelRetrievalResponse"
     "fixture/CancelRetrievalResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelRetrieval)
+    (Proxy.Proxy :: Proxy.Proxy CancelRetrieval)
 
 responseDescribeVTLDevices :: DescribeVTLDevicesResponse -> TestTree
 responseDescribeVTLDevices =
@@ -1675,7 +1675,7 @@ responseDescribeVTLDevices =
     "DescribeVTLDevicesResponse"
     "fixture/DescribeVTLDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVTLDevices)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVTLDevices)
 
 responseStartAvailabilityMonitorTest :: StartAvailabilityMonitorTestResponse -> TestTree
 responseStartAvailabilityMonitorTest =
@@ -1683,7 +1683,7 @@ responseStartAvailabilityMonitorTest =
     "StartAvailabilityMonitorTestResponse"
     "fixture/StartAvailabilityMonitorTestResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAvailabilityMonitorTest)
+    (Proxy.Proxy :: Proxy.Proxy StartAvailabilityMonitorTest)
 
 responseDeleteTapeArchive :: DeleteTapeArchiveResponse -> TestTree
 responseDeleteTapeArchive =
@@ -1691,7 +1691,7 @@ responseDeleteTapeArchive =
     "DeleteTapeArchiveResponse"
     "fixture/DeleteTapeArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTapeArchive)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTapeArchive)
 
 responseListFileSystemAssociations :: ListFileSystemAssociationsResponse -> TestTree
 responseListFileSystemAssociations =
@@ -1699,7 +1699,7 @@ responseListFileSystemAssociations =
     "ListFileSystemAssociationsResponse"
     "fixture/ListFileSystemAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFileSystemAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListFileSystemAssociations)
 
 responseUpdateSMBFileShare :: UpdateSMBFileShareResponse -> TestTree
 responseUpdateSMBFileShare =
@@ -1707,7 +1707,7 @@ responseUpdateSMBFileShare =
     "UpdateSMBFileShareResponse"
     "fixture/UpdateSMBFileShareResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSMBFileShare)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBFileShare)
 
 responseDescribeNFSFileShares :: DescribeNFSFileSharesResponse -> TestTree
 responseDescribeNFSFileShares =
@@ -1715,7 +1715,7 @@ responseDescribeNFSFileShares =
     "DescribeNFSFileSharesResponse"
     "fixture/DescribeNFSFileSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNFSFileShares)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNFSFileShares)
 
 responseListVolumeRecoveryPoints :: ListVolumeRecoveryPointsResponse -> TestTree
 responseListVolumeRecoveryPoints =
@@ -1723,7 +1723,7 @@ responseListVolumeRecoveryPoints =
     "ListVolumeRecoveryPointsResponse"
     "fixture/ListVolumeRecoveryPointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVolumeRecoveryPoints)
+    (Proxy.Proxy :: Proxy.Proxy ListVolumeRecoveryPoints)
 
 responseListTapes :: ListTapesResponse -> TestTree
 responseListTapes =
@@ -1731,7 +1731,7 @@ responseListTapes =
     "ListTapesResponse"
     "fixture/ListTapesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTapes)
+    (Proxy.Proxy :: Proxy.Proxy ListTapes)
 
 responseResetCache :: ResetCacheResponse -> TestTree
 responseResetCache =
@@ -1739,7 +1739,7 @@ responseResetCache =
     "ResetCacheResponse"
     "fixture/ResetCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetCache)
+    (Proxy.Proxy :: Proxy.Proxy ResetCache)
 
 responseDescribeSMBFileShares :: DescribeSMBFileSharesResponse -> TestTree
 responseDescribeSMBFileShares =
@@ -1747,7 +1747,7 @@ responseDescribeSMBFileShares =
     "DescribeSMBFileSharesResponse"
     "fixture/DescribeSMBFileSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSMBFileShares)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSMBFileShares)
 
 responseListGateways :: ListGatewaysResponse -> TestTree
 responseListGateways =
@@ -1755,7 +1755,7 @@ responseListGateways =
     "ListGatewaysResponse"
     "fixture/ListGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGateways)
+    (Proxy.Proxy :: Proxy.Proxy ListGateways)
 
 responseDeleteTape :: DeleteTapeResponse -> TestTree
 responseDeleteTape =
@@ -1763,7 +1763,7 @@ responseDeleteTape =
     "DeleteTapeResponse"
     "fixture/DeleteTapeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTape)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTape)
 
 responseListLocalDisks :: ListLocalDisksResponse -> TestTree
 responseListLocalDisks =
@@ -1771,7 +1771,7 @@ responseListLocalDisks =
     "ListLocalDisksResponse"
     "fixture/ListLocalDisksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLocalDisks)
+    (Proxy.Proxy :: Proxy.Proxy ListLocalDisks)
 
 responseListVolumes :: ListVolumesResponse -> TestTree
 responseListVolumes =
@@ -1779,7 +1779,7 @@ responseListVolumes =
     "ListVolumesResponse"
     "fixture/ListVolumesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVolumes)
+    (Proxy.Proxy :: Proxy.Proxy ListVolumes)
 
 responseUpdateBandwidthRateLimit :: UpdateBandwidthRateLimitResponse -> TestTree
 responseUpdateBandwidthRateLimit =
@@ -1787,7 +1787,7 @@ responseUpdateBandwidthRateLimit =
     "UpdateBandwidthRateLimitResponse"
     "fixture/UpdateBandwidthRateLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBandwidthRateLimit)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBandwidthRateLimit)
 
 responseAddWorkingStorage :: AddWorkingStorageResponse -> TestTree
 responseAddWorkingStorage =
@@ -1795,7 +1795,7 @@ responseAddWorkingStorage =
     "AddWorkingStorageResponse"
     "fixture/AddWorkingStorageResponse.proto"
     defaultService
-    (Proxy :: Proxy AddWorkingStorage)
+    (Proxy.Proxy :: Proxy.Proxy AddWorkingStorage)
 
 responseDescribeTapeRecoveryPoints :: DescribeTapeRecoveryPointsResponse -> TestTree
 responseDescribeTapeRecoveryPoints =
@@ -1803,7 +1803,7 @@ responseDescribeTapeRecoveryPoints =
     "DescribeTapeRecoveryPointsResponse"
     "fixture/DescribeTapeRecoveryPointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTapeRecoveryPoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTapeRecoveryPoints)
 
 responseDeleteBandwidthRateLimit :: DeleteBandwidthRateLimitResponse -> TestTree
 responseDeleteBandwidthRateLimit =
@@ -1811,7 +1811,7 @@ responseDeleteBandwidthRateLimit =
     "DeleteBandwidthRateLimitResponse"
     "fixture/DeleteBandwidthRateLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBandwidthRateLimit)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBandwidthRateLimit)
 
 responseActivateGateway :: ActivateGatewayResponse -> TestTree
 responseActivateGateway =
@@ -1819,7 +1819,7 @@ responseActivateGateway =
     "ActivateGatewayResponse"
     "fixture/ActivateGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateGateway)
+    (Proxy.Proxy :: Proxy.Proxy ActivateGateway)
 
 responseDescribeCache :: DescribeCacheResponse -> TestTree
 responseDescribeCache =
@@ -1827,7 +1827,7 @@ responseDescribeCache =
     "DescribeCacheResponse"
     "fixture/DescribeCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCache)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCache)
 
 responseDeleteVolume :: DeleteVolumeResponse -> TestTree
 responseDeleteVolume =
@@ -1835,4 +1835,4 @@ responseDeleteVolume =
     "DeleteVolumeResponse"
     "fixture/DeleteVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVolume)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVolume)

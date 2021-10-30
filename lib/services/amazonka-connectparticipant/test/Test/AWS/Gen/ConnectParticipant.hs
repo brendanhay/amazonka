@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ConnectParticipant where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ConnectParticipant
 import Test.AWS.ConnectParticipant.Internal
 import Test.AWS.Fixture
@@ -139,7 +139,7 @@ responseSendMessage =
     "SendMessageResponse"
     "fixture/SendMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy SendMessage)
+    (Proxy.Proxy :: Proxy.Proxy SendMessage)
 
 responseDisconnectParticipant :: DisconnectParticipantResponse -> TestTree
 responseDisconnectParticipant =
@@ -147,7 +147,7 @@ responseDisconnectParticipant =
     "DisconnectParticipantResponse"
     "fixture/DisconnectParticipantResponse.proto"
     defaultService
-    (Proxy :: Proxy DisconnectParticipant)
+    (Proxy.Proxy :: Proxy.Proxy DisconnectParticipant)
 
 responseCompleteAttachmentUpload :: CompleteAttachmentUploadResponse -> TestTree
 responseCompleteAttachmentUpload =
@@ -155,7 +155,7 @@ responseCompleteAttachmentUpload =
     "CompleteAttachmentUploadResponse"
     "fixture/CompleteAttachmentUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteAttachmentUpload)
+    (Proxy.Proxy :: Proxy.Proxy CompleteAttachmentUpload)
 
 responseGetAttachment :: GetAttachmentResponse -> TestTree
 responseGetAttachment =
@@ -163,7 +163,7 @@ responseGetAttachment =
     "GetAttachmentResponse"
     "fixture/GetAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAttachment)
+    (Proxy.Proxy :: Proxy.Proxy GetAttachment)
 
 responseStartAttachmentUpload :: StartAttachmentUploadResponse -> TestTree
 responseStartAttachmentUpload =
@@ -171,7 +171,7 @@ responseStartAttachmentUpload =
     "StartAttachmentUploadResponse"
     "fixture/StartAttachmentUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAttachmentUpload)
+    (Proxy.Proxy :: Proxy.Proxy StartAttachmentUpload)
 
 responseCreateParticipantConnection :: CreateParticipantConnectionResponse -> TestTree
 responseCreateParticipantConnection =
@@ -179,7 +179,7 @@ responseCreateParticipantConnection =
     "CreateParticipantConnectionResponse"
     "fixture/CreateParticipantConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateParticipantConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateParticipantConnection)
 
 responseGetTranscript :: GetTranscriptResponse -> TestTree
 responseGetTranscript =
@@ -187,7 +187,7 @@ responseGetTranscript =
     "GetTranscriptResponse"
     "fixture/GetTranscriptResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTranscript)
+    (Proxy.Proxy :: Proxy.Proxy GetTranscript)
 
 responseSendEvent :: SendEventResponse -> TestTree
 responseSendEvent =
@@ -195,4 +195,4 @@ responseSendEvent =
     "SendEventResponse"
     "fixture/SendEventResponse.proto"
     defaultService
-    (Proxy :: Proxy SendEvent)
+    (Proxy.Proxy :: Proxy.Proxy SendEvent)

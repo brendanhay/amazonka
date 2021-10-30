@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServiceCatalogAppRegistry where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ServiceCatalogAppRegistry
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -295,7 +295,7 @@ responseAssociateAttributeGroup =
     "AssociateAttributeGroupResponse"
     "fixture/AssociateAttributeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAttributeGroup)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAttributeGroup)
 
 responseListAttributeGroups :: ListAttributeGroupsResponse -> TestTree
 responseListAttributeGroups =
@@ -303,7 +303,7 @@ responseListAttributeGroups =
     "ListAttributeGroupsResponse"
     "fixture/ListAttributeGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttributeGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListAttributeGroups)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -311,7 +311,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseSyncResource :: SyncResourceResponse -> TestTree
 responseSyncResource =
@@ -319,7 +319,7 @@ responseSyncResource =
     "SyncResourceResponse"
     "fixture/SyncResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy SyncResource)
+    (Proxy.Proxy :: Proxy.Proxy SyncResource)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -327,7 +327,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -335,7 +335,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseAssociateResource :: AssociateResourceResponse -> TestTree
 responseAssociateResource =
@@ -343,7 +343,7 @@ responseAssociateResource =
     "AssociateResourceResponse"
     "fixture/AssociateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateResource)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResource)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -351,7 +351,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseDisassociateAttributeGroup :: DisassociateAttributeGroupResponse -> TestTree
 responseDisassociateAttributeGroup =
@@ -359,7 +359,7 @@ responseDisassociateAttributeGroup =
     "DisassociateAttributeGroupResponse"
     "fixture/DisassociateAttributeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateAttributeGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAttributeGroup)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
 responseGetApplication =
@@ -367,7 +367,7 @@ responseGetApplication =
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplication)
+    (Proxy.Proxy :: Proxy.Proxy GetApplication)
 
 responseGetAssociatedResource :: GetAssociatedResourceResponse -> TestTree
 responseGetAssociatedResource =
@@ -375,7 +375,7 @@ responseGetAssociatedResource =
     "GetAssociatedResourceResponse"
     "fixture/GetAssociatedResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssociatedResource)
+    (Proxy.Proxy :: Proxy.Proxy GetAssociatedResource)
 
 responseCreateAttributeGroup :: CreateAttributeGroupResponse -> TestTree
 responseCreateAttributeGroup =
@@ -383,7 +383,7 @@ responseCreateAttributeGroup =
     "CreateAttributeGroupResponse"
     "fixture/CreateAttributeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAttributeGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateAttributeGroup)
 
 responseDeleteAttributeGroup :: DeleteAttributeGroupResponse -> TestTree
 responseDeleteAttributeGroup =
@@ -391,7 +391,7 @@ responseDeleteAttributeGroup =
     "DeleteAttributeGroupResponse"
     "fixture/DeleteAttributeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAttributeGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAttributeGroup)
 
 responseUpdateAttributeGroup :: UpdateAttributeGroupResponse -> TestTree
 responseUpdateAttributeGroup =
@@ -399,7 +399,7 @@ responseUpdateAttributeGroup =
     "UpdateAttributeGroupResponse"
     "fixture/UpdateAttributeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAttributeGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAttributeGroup)
 
 responseListAssociatedAttributeGroups :: ListAssociatedAttributeGroupsResponse -> TestTree
 responseListAssociatedAttributeGroups =
@@ -407,7 +407,7 @@ responseListAssociatedAttributeGroups =
     "ListAssociatedAttributeGroupsResponse"
     "fixture/ListAssociatedAttributeGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedAttributeGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedAttributeGroups)
 
 responseGetAttributeGroup :: GetAttributeGroupResponse -> TestTree
 responseGetAttributeGroup =
@@ -415,7 +415,7 @@ responseGetAttributeGroup =
     "GetAttributeGroupResponse"
     "fixture/GetAttributeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAttributeGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetAttributeGroup)
 
 responseDisassociateResource :: DisassociateResourceResponse -> TestTree
 responseDisassociateResource =
@@ -423,7 +423,7 @@ responseDisassociateResource =
     "DisassociateResourceResponse"
     "fixture/DisassociateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateResource)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -431,7 +431,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListAssociatedResources :: ListAssociatedResourcesResponse -> TestTree
 responseListAssociatedResources =
@@ -439,7 +439,7 @@ responseListAssociatedResources =
     "ListAssociatedResourcesResponse"
     "fixture/ListAssociatedResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedResources)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedResources)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -447,7 +447,7 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -455,4 +455,4 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

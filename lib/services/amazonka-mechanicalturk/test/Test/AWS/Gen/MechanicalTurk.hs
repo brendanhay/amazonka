@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MechanicalTurk where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MechanicalTurk
 import Test.AWS.Fixture
 import Test.AWS.MechanicalTurk.Internal
@@ -511,7 +511,7 @@ responseApproveAssignment =
     "ApproveAssignmentResponse"
     "fixture/ApproveAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy ApproveAssignment)
+    (Proxy.Proxy :: Proxy.Proxy ApproveAssignment)
 
 responseListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHITResponse -> TestTree
 responseListReviewPolicyResultsForHIT =
@@ -519,7 +519,7 @@ responseListReviewPolicyResultsForHIT =
     "ListReviewPolicyResultsForHITResponse"
     "fixture/ListReviewPolicyResultsForHITResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReviewPolicyResultsForHIT)
+    (Proxy.Proxy :: Proxy.Proxy ListReviewPolicyResultsForHIT)
 
 responseListHITs :: ListHITsResponse -> TestTree
 responseListHITs =
@@ -527,7 +527,7 @@ responseListHITs =
     "ListHITsResponse"
     "fixture/ListHITsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHITs)
+    (Proxy.Proxy :: Proxy.Proxy ListHITs)
 
 responseListWorkersWithQualificationType :: ListWorkersWithQualificationTypeResponse -> TestTree
 responseListWorkersWithQualificationType =
@@ -535,7 +535,7 @@ responseListWorkersWithQualificationType =
     "ListWorkersWithQualificationTypeResponse"
     "fixture/ListWorkersWithQualificationTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkersWithQualificationType)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkersWithQualificationType)
 
 responseDeleteHIT :: DeleteHITResponse -> TestTree
 responseDeleteHIT =
@@ -543,7 +543,7 @@ responseDeleteHIT =
     "DeleteHITResponse"
     "fixture/DeleteHITResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHIT)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHIT)
 
 responseListReviewableHITs :: ListReviewableHITsResponse -> TestTree
 responseListReviewableHITs =
@@ -551,7 +551,7 @@ responseListReviewableHITs =
     "ListReviewableHITsResponse"
     "fixture/ListReviewableHITsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReviewableHITs)
+    (Proxy.Proxy :: Proxy.Proxy ListReviewableHITs)
 
 responseGetAssignment :: GetAssignmentResponse -> TestTree
 responseGetAssignment =
@@ -559,7 +559,7 @@ responseGetAssignment =
     "GetAssignmentResponse"
     "fixture/GetAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssignment)
+    (Proxy.Proxy :: Proxy.Proxy GetAssignment)
 
 responseDeleteQualificationType :: DeleteQualificationTypeResponse -> TestTree
 responseDeleteQualificationType =
@@ -567,7 +567,7 @@ responseDeleteQualificationType =
     "DeleteQualificationTypeResponse"
     "fixture/DeleteQualificationTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQualificationType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQualificationType)
 
 responseUpdateQualificationType :: UpdateQualificationTypeResponse -> TestTree
 responseUpdateQualificationType =
@@ -575,7 +575,7 @@ responseUpdateQualificationType =
     "UpdateQualificationTypeResponse"
     "fixture/UpdateQualificationTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQualificationType)
+    (Proxy.Proxy :: Proxy.Proxy UpdateQualificationType)
 
 responseListQualificationTypes :: ListQualificationTypesResponse -> TestTree
 responseListQualificationTypes =
@@ -583,7 +583,7 @@ responseListQualificationTypes =
     "ListQualificationTypesResponse"
     "fixture/ListQualificationTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQualificationTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListQualificationTypes)
 
 responseUpdateHITTypeOfHIT :: UpdateHITTypeOfHITResponse -> TestTree
 responseUpdateHITTypeOfHIT =
@@ -591,7 +591,7 @@ responseUpdateHITTypeOfHIT =
     "UpdateHITTypeOfHITResponse"
     "fixture/UpdateHITTypeOfHITResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHITTypeOfHIT)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHITTypeOfHIT)
 
 responseDisassociateQualificationFromWorker :: DisassociateQualificationFromWorkerResponse -> TestTree
 responseDisassociateQualificationFromWorker =
@@ -599,7 +599,7 @@ responseDisassociateQualificationFromWorker =
     "DisassociateQualificationFromWorkerResponse"
     "fixture/DisassociateQualificationFromWorkerResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateQualificationFromWorker)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateQualificationFromWorker)
 
 responseSendTestEventNotification :: SendTestEventNotificationResponse -> TestTree
 responseSendTestEventNotification =
@@ -607,7 +607,7 @@ responseSendTestEventNotification =
     "SendTestEventNotificationResponse"
     "fixture/SendTestEventNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy SendTestEventNotification)
+    (Proxy.Proxy :: Proxy.Proxy SendTestEventNotification)
 
 responseNotifyWorkers :: NotifyWorkersResponse -> TestTree
 responseNotifyWorkers =
@@ -615,7 +615,7 @@ responseNotifyWorkers =
     "NotifyWorkersResponse"
     "fixture/NotifyWorkersResponse.proto"
     defaultService
-    (Proxy :: Proxy NotifyWorkers)
+    (Proxy.Proxy :: Proxy.Proxy NotifyWorkers)
 
 responseCreateHITWithHITType :: CreateHITWithHITTypeResponse -> TestTree
 responseCreateHITWithHITType =
@@ -623,7 +623,7 @@ responseCreateHITWithHITType =
     "CreateHITWithHITTypeResponse"
     "fixture/CreateHITWithHITTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHITWithHITType)
+    (Proxy.Proxy :: Proxy.Proxy CreateHITWithHITType)
 
 responseCreateHITType :: CreateHITTypeResponse -> TestTree
 responseCreateHITType =
@@ -631,7 +631,7 @@ responseCreateHITType =
     "CreateHITTypeResponse"
     "fixture/CreateHITTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHITType)
+    (Proxy.Proxy :: Proxy.Proxy CreateHITType)
 
 responseSendBonus :: SendBonusResponse -> TestTree
 responseSendBonus =
@@ -639,7 +639,7 @@ responseSendBonus =
     "SendBonusResponse"
     "fixture/SendBonusResponse.proto"
     defaultService
-    (Proxy :: Proxy SendBonus)
+    (Proxy.Proxy :: Proxy.Proxy SendBonus)
 
 responseListQualificationRequests :: ListQualificationRequestsResponse -> TestTree
 responseListQualificationRequests =
@@ -647,7 +647,7 @@ responseListQualificationRequests =
     "ListQualificationRequestsResponse"
     "fixture/ListQualificationRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQualificationRequests)
+    (Proxy.Proxy :: Proxy.Proxy ListQualificationRequests)
 
 responseUpdateExpirationForHIT :: UpdateExpirationForHITResponse -> TestTree
 responseUpdateExpirationForHIT =
@@ -655,7 +655,7 @@ responseUpdateExpirationForHIT =
     "UpdateExpirationForHITResponse"
     "fixture/UpdateExpirationForHITResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateExpirationForHIT)
+    (Proxy.Proxy :: Proxy.Proxy UpdateExpirationForHIT)
 
 responseRejectAssignment :: RejectAssignmentResponse -> TestTree
 responseRejectAssignment =
@@ -663,7 +663,7 @@ responseRejectAssignment =
     "RejectAssignmentResponse"
     "fixture/RejectAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectAssignment)
+    (Proxy.Proxy :: Proxy.Proxy RejectAssignment)
 
 responseListAssignmentsForHIT :: ListAssignmentsForHITResponse -> TestTree
 responseListAssignmentsForHIT =
@@ -671,7 +671,7 @@ responseListAssignmentsForHIT =
     "ListAssignmentsForHITResponse"
     "fixture/ListAssignmentsForHITResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssignmentsForHIT)
+    (Proxy.Proxy :: Proxy.Proxy ListAssignmentsForHIT)
 
 responseRejectQualificationRequest :: RejectQualificationRequestResponse -> TestTree
 responseRejectQualificationRequest =
@@ -679,7 +679,7 @@ responseRejectQualificationRequest =
     "RejectQualificationRequestResponse"
     "fixture/RejectQualificationRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectQualificationRequest)
+    (Proxy.Proxy :: Proxy.Proxy RejectQualificationRequest)
 
 responseGetQualificationScore :: GetQualificationScoreResponse -> TestTree
 responseGetQualificationScore =
@@ -687,7 +687,7 @@ responseGetQualificationScore =
     "GetQualificationScoreResponse"
     "fixture/GetQualificationScoreResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQualificationScore)
+    (Proxy.Proxy :: Proxy.Proxy GetQualificationScore)
 
 responseGetQualificationType :: GetQualificationTypeResponse -> TestTree
 responseGetQualificationType =
@@ -695,7 +695,7 @@ responseGetQualificationType =
     "GetQualificationTypeResponse"
     "fixture/GetQualificationTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQualificationType)
+    (Proxy.Proxy :: Proxy.Proxy GetQualificationType)
 
 responseUpdateHITReviewStatus :: UpdateHITReviewStatusResponse -> TestTree
 responseUpdateHITReviewStatus =
@@ -703,7 +703,7 @@ responseUpdateHITReviewStatus =
     "UpdateHITReviewStatusResponse"
     "fixture/UpdateHITReviewStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHITReviewStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHITReviewStatus)
 
 responseCreateQualificationType :: CreateQualificationTypeResponse -> TestTree
 responseCreateQualificationType =
@@ -711,7 +711,7 @@ responseCreateQualificationType =
     "CreateQualificationTypeResponse"
     "fixture/CreateQualificationTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQualificationType)
+    (Proxy.Proxy :: Proxy.Proxy CreateQualificationType)
 
 responseAcceptQualificationRequest :: AcceptQualificationRequestResponse -> TestTree
 responseAcceptQualificationRequest =
@@ -719,7 +719,7 @@ responseAcceptQualificationRequest =
     "AcceptQualificationRequestResponse"
     "fixture/AcceptQualificationRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptQualificationRequest)
+    (Proxy.Proxy :: Proxy.Proxy AcceptQualificationRequest)
 
 responseGetFileUploadURL :: GetFileUploadURLResponse -> TestTree
 responseGetFileUploadURL =
@@ -727,7 +727,7 @@ responseGetFileUploadURL =
     "GetFileUploadURLResponse"
     "fixture/GetFileUploadURLResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFileUploadURL)
+    (Proxy.Proxy :: Proxy.Proxy GetFileUploadURL)
 
 responseCreateAdditionalAssignmentsForHIT :: CreateAdditionalAssignmentsForHITResponse -> TestTree
 responseCreateAdditionalAssignmentsForHIT =
@@ -735,7 +735,7 @@ responseCreateAdditionalAssignmentsForHIT =
     "CreateAdditionalAssignmentsForHITResponse"
     "fixture/CreateAdditionalAssignmentsForHITResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAdditionalAssignmentsForHIT)
+    (Proxy.Proxy :: Proxy.Proxy CreateAdditionalAssignmentsForHIT)
 
 responseGetHIT :: GetHITResponse -> TestTree
 responseGetHIT =
@@ -743,7 +743,7 @@ responseGetHIT =
     "GetHITResponse"
     "fixture/GetHITResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHIT)
+    (Proxy.Proxy :: Proxy.Proxy GetHIT)
 
 responseCreateWorkerBlock :: CreateWorkerBlockResponse -> TestTree
 responseCreateWorkerBlock =
@@ -751,7 +751,7 @@ responseCreateWorkerBlock =
     "CreateWorkerBlockResponse"
     "fixture/CreateWorkerBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkerBlock)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkerBlock)
 
 responseListHITsForQualificationType :: ListHITsForQualificationTypeResponse -> TestTree
 responseListHITsForQualificationType =
@@ -759,7 +759,7 @@ responseListHITsForQualificationType =
     "ListHITsForQualificationTypeResponse"
     "fixture/ListHITsForQualificationTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHITsForQualificationType)
+    (Proxy.Proxy :: Proxy.Proxy ListHITsForQualificationType)
 
 responseListBonusPayments :: ListBonusPaymentsResponse -> TestTree
 responseListBonusPayments =
@@ -767,7 +767,7 @@ responseListBonusPayments =
     "ListBonusPaymentsResponse"
     "fixture/ListBonusPaymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBonusPayments)
+    (Proxy.Proxy :: Proxy.Proxy ListBonusPayments)
 
 responseListWorkerBlocks :: ListWorkerBlocksResponse -> TestTree
 responseListWorkerBlocks =
@@ -775,7 +775,7 @@ responseListWorkerBlocks =
     "ListWorkerBlocksResponse"
     "fixture/ListWorkerBlocksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkerBlocks)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkerBlocks)
 
 responseDeleteWorkerBlock :: DeleteWorkerBlockResponse -> TestTree
 responseDeleteWorkerBlock =
@@ -783,7 +783,7 @@ responseDeleteWorkerBlock =
     "DeleteWorkerBlockResponse"
     "fixture/DeleteWorkerBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkerBlock)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkerBlock)
 
 responseUpdateNotificationSettings :: UpdateNotificationSettingsResponse -> TestTree
 responseUpdateNotificationSettings =
@@ -791,7 +791,7 @@ responseUpdateNotificationSettings =
     "UpdateNotificationSettingsResponse"
     "fixture/UpdateNotificationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNotificationSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotificationSettings)
 
 responseAssociateQualificationWithWorker :: AssociateQualificationWithWorkerResponse -> TestTree
 responseAssociateQualificationWithWorker =
@@ -799,7 +799,7 @@ responseAssociateQualificationWithWorker =
     "AssociateQualificationWithWorkerResponse"
     "fixture/AssociateQualificationWithWorkerResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateQualificationWithWorker)
+    (Proxy.Proxy :: Proxy.Proxy AssociateQualificationWithWorker)
 
 responseCreateHIT :: CreateHITResponse -> TestTree
 responseCreateHIT =
@@ -807,7 +807,7 @@ responseCreateHIT =
     "CreateHITResponse"
     "fixture/CreateHITResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHIT)
+    (Proxy.Proxy :: Proxy.Proxy CreateHIT)
 
 responseGetAccountBalance :: GetAccountBalanceResponse -> TestTree
 responseGetAccountBalance =
@@ -815,4 +815,4 @@ responseGetAccountBalance =
     "GetAccountBalanceResponse"
     "fixture/GetAccountBalanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountBalance)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountBalance)

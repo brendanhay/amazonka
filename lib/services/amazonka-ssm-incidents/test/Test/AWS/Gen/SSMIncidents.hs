@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSMIncidents where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SSMIncidents
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -391,7 +391,7 @@ responseDeleteReplicationSet =
     "DeleteReplicationSetResponse"
     "fixture/DeleteReplicationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReplicationSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationSet)
 
 responseUpdateReplicationSet :: UpdateReplicationSetResponse -> TestTree
 responseUpdateReplicationSet =
@@ -399,7 +399,7 @@ responseUpdateReplicationSet =
     "UpdateReplicationSetResponse"
     "fixture/UpdateReplicationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReplicationSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReplicationSet)
 
 responseListReplicationSets :: ListReplicationSetsResponse -> TestTree
 responseListReplicationSets =
@@ -407,7 +407,7 @@ responseListReplicationSets =
     "ListReplicationSetsResponse"
     "fixture/ListReplicationSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReplicationSets)
+    (Proxy.Proxy :: Proxy.Proxy ListReplicationSets)
 
 responseUpdateIncidentRecord :: UpdateIncidentRecordResponse -> TestTree
 responseUpdateIncidentRecord =
@@ -415,7 +415,7 @@ responseUpdateIncidentRecord =
     "UpdateIncidentRecordResponse"
     "fixture/UpdateIncidentRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIncidentRecord)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIncidentRecord)
 
 responseDeleteIncidentRecord :: DeleteIncidentRecordResponse -> TestTree
 responseDeleteIncidentRecord =
@@ -423,7 +423,7 @@ responseDeleteIncidentRecord =
     "DeleteIncidentRecordResponse"
     "fixture/DeleteIncidentRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIncidentRecord)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIncidentRecord)
 
 responseCreateReplicationSet :: CreateReplicationSetResponse -> TestTree
 responseCreateReplicationSet =
@@ -431,7 +431,7 @@ responseCreateReplicationSet =
     "CreateReplicationSetResponse"
     "fixture/CreateReplicationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReplicationSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateReplicationSet)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -439,7 +439,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
 responseGetResourcePolicies =
@@ -447,7 +447,7 @@ responseGetResourcePolicies =
     "GetResourcePoliciesResponse"
     "fixture/GetResourcePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicies)
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
 
 responseGetIncidentRecord :: GetIncidentRecordResponse -> TestTree
 responseGetIncidentRecord =
@@ -455,7 +455,7 @@ responseGetIncidentRecord =
     "GetIncidentRecordResponse"
     "fixture/GetIncidentRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIncidentRecord)
+    (Proxy.Proxy :: Proxy.Proxy GetIncidentRecord)
 
 responseGetReplicationSet :: GetReplicationSetResponse -> TestTree
 responseGetReplicationSet =
@@ -463,7 +463,7 @@ responseGetReplicationSet =
     "GetReplicationSetResponse"
     "fixture/GetReplicationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReplicationSet)
+    (Proxy.Proxy :: Proxy.Proxy GetReplicationSet)
 
 responseListRelatedItems :: ListRelatedItemsResponse -> TestTree
 responseListRelatedItems =
@@ -471,7 +471,7 @@ responseListRelatedItems =
     "ListRelatedItemsResponse"
     "fixture/ListRelatedItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRelatedItems)
+    (Proxy.Proxy :: Proxy.Proxy ListRelatedItems)
 
 responseUpdateDeletionProtection :: UpdateDeletionProtectionResponse -> TestTree
 responseUpdateDeletionProtection =
@@ -479,7 +479,7 @@ responseUpdateDeletionProtection =
     "UpdateDeletionProtectionResponse"
     "fixture/UpdateDeletionProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeletionProtection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeletionProtection)
 
 responseGetResponsePlan :: GetResponsePlanResponse -> TestTree
 responseGetResponsePlan =
@@ -487,7 +487,7 @@ responseGetResponsePlan =
     "GetResponsePlanResponse"
     "fixture/GetResponsePlanResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResponsePlan)
+    (Proxy.Proxy :: Proxy.Proxy GetResponsePlan)
 
 responseCreateResponsePlan :: CreateResponsePlanResponse -> TestTree
 responseCreateResponsePlan =
@@ -495,7 +495,7 @@ responseCreateResponsePlan =
     "CreateResponsePlanResponse"
     "fixture/CreateResponsePlanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResponsePlan)
+    (Proxy.Proxy :: Proxy.Proxy CreateResponsePlan)
 
 responseListIncidentRecords :: ListIncidentRecordsResponse -> TestTree
 responseListIncidentRecords =
@@ -503,7 +503,7 @@ responseListIncidentRecords =
     "ListIncidentRecordsResponse"
     "fixture/ListIncidentRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIncidentRecords)
+    (Proxy.Proxy :: Proxy.Proxy ListIncidentRecords)
 
 responseUpdateRelatedItems :: UpdateRelatedItemsResponse -> TestTree
 responseUpdateRelatedItems =
@@ -511,7 +511,7 @@ responseUpdateRelatedItems =
     "UpdateRelatedItemsResponse"
     "fixture/UpdateRelatedItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRelatedItems)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRelatedItems)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -519,7 +519,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -527,7 +527,7 @@ responsePutResourcePolicy =
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -535,7 +535,7 @@ responseDeleteResourcePolicy =
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -543,7 +543,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateTimelineEvent :: CreateTimelineEventResponse -> TestTree
 responseCreateTimelineEvent =
@@ -551,7 +551,7 @@ responseCreateTimelineEvent =
     "CreateTimelineEventResponse"
     "fixture/CreateTimelineEventResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTimelineEvent)
+    (Proxy.Proxy :: Proxy.Proxy CreateTimelineEvent)
 
 responseListTimelineEvents :: ListTimelineEventsResponse -> TestTree
 responseListTimelineEvents =
@@ -559,7 +559,7 @@ responseListTimelineEvents =
     "ListTimelineEventsResponse"
     "fixture/ListTimelineEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTimelineEvents)
+    (Proxy.Proxy :: Proxy.Proxy ListTimelineEvents)
 
 responseStartIncident :: StartIncidentResponse -> TestTree
 responseStartIncident =
@@ -567,7 +567,7 @@ responseStartIncident =
     "StartIncidentResponse"
     "fixture/StartIncidentResponse.proto"
     defaultService
-    (Proxy :: Proxy StartIncident)
+    (Proxy.Proxy :: Proxy.Proxy StartIncident)
 
 responseDeleteTimelineEvent :: DeleteTimelineEventResponse -> TestTree
 responseDeleteTimelineEvent =
@@ -575,7 +575,7 @@ responseDeleteTimelineEvent =
     "DeleteTimelineEventResponse"
     "fixture/DeleteTimelineEventResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTimelineEvent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTimelineEvent)
 
 responseUpdateTimelineEvent :: UpdateTimelineEventResponse -> TestTree
 responseUpdateTimelineEvent =
@@ -583,7 +583,7 @@ responseUpdateTimelineEvent =
     "UpdateTimelineEventResponse"
     "fixture/UpdateTimelineEventResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTimelineEvent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTimelineEvent)
 
 responseListResponsePlans :: ListResponsePlansResponse -> TestTree
 responseListResponsePlans =
@@ -591,7 +591,7 @@ responseListResponsePlans =
     "ListResponsePlansResponse"
     "fixture/ListResponsePlansResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResponsePlans)
+    (Proxy.Proxy :: Proxy.Proxy ListResponsePlans)
 
 responseGetTimelineEvent :: GetTimelineEventResponse -> TestTree
 responseGetTimelineEvent =
@@ -599,7 +599,7 @@ responseGetTimelineEvent =
     "GetTimelineEventResponse"
     "fixture/GetTimelineEventResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTimelineEvent)
+    (Proxy.Proxy :: Proxy.Proxy GetTimelineEvent)
 
 responseUpdateResponsePlan :: UpdateResponsePlanResponse -> TestTree
 responseUpdateResponsePlan =
@@ -607,7 +607,7 @@ responseUpdateResponsePlan =
     "UpdateResponsePlanResponse"
     "fixture/UpdateResponsePlanResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResponsePlan)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResponsePlan)
 
 responseDeleteResponsePlan :: DeleteResponsePlanResponse -> TestTree
 responseDeleteResponsePlan =
@@ -615,4 +615,4 @@ responseDeleteResponsePlan =
     "DeleteResponsePlanResponse"
     "fixture/DeleteResponsePlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResponsePlan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResponsePlan)

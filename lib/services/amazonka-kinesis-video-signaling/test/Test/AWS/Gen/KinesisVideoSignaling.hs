@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KinesisVideoSignaling where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KinesisVideoSignaling
 import Test.AWS.Fixture
 import Test.AWS.KinesisVideoSignaling.Internal
@@ -67,7 +67,7 @@ responseSendAlexaOfferToMaster =
     "SendAlexaOfferToMasterResponse"
     "fixture/SendAlexaOfferToMasterResponse.proto"
     defaultService
-    (Proxy :: Proxy SendAlexaOfferToMaster)
+    (Proxy.Proxy :: Proxy.Proxy SendAlexaOfferToMaster)
 
 responseGetIceServerConfig :: GetIceServerConfigResponse -> TestTree
 responseGetIceServerConfig =
@@ -75,4 +75,4 @@ responseGetIceServerConfig =
     "GetIceServerConfigResponse"
     "fixture/GetIceServerConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIceServerConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetIceServerConfig)

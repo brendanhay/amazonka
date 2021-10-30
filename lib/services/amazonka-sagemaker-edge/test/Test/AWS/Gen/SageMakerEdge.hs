@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMakerEdge where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SageMakerEdge
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -67,7 +67,7 @@ responseSendHeartbeat =
     "SendHeartbeatResponse"
     "fixture/SendHeartbeatResponse.proto"
     defaultService
-    (Proxy :: Proxy SendHeartbeat)
+    (Proxy.Proxy :: Proxy.Proxy SendHeartbeat)
 
 responseGetDeviceRegistration :: GetDeviceRegistrationResponse -> TestTree
 responseGetDeviceRegistration =
@@ -75,4 +75,4 @@ responseGetDeviceRegistration =
     "GetDeviceRegistrationResponse"
     "fixture/GetDeviceRegistrationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceRegistration)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceRegistration)

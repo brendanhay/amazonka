@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppConfig where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppConfig
 import Test.AWS.AppConfig.Internal
 import Test.AWS.Fixture
@@ -439,7 +439,7 @@ responseListEnvironments =
     "ListEnvironmentsResponse"
     "fixture/ListEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
 
 responseUpdateEnvironment :: Environment -> TestTree
 responseUpdateEnvironment =
@@ -447,7 +447,7 @@ responseUpdateEnvironment =
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -455,7 +455,7 @@ responseDeleteEnvironment =
     "DeleteEnvironmentResponse"
     "fixture/DeleteEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEnvironment)
 
 responseGetDeploymentStrategy :: DeploymentStrategy -> TestTree
 responseGetDeploymentStrategy =
@@ -463,7 +463,7 @@ responseGetDeploymentStrategy =
     "GetDeploymentStrategyResponse"
     "fixture/GetDeploymentStrategyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeploymentStrategy)
+    (Proxy.Proxy :: Proxy.Proxy GetDeploymentStrategy)
 
 responseCreateConfigurationProfile :: ConfigurationProfile -> TestTree
 responseCreateConfigurationProfile =
@@ -471,7 +471,7 @@ responseCreateConfigurationProfile =
     "CreateConfigurationProfileResponse"
     "fixture/CreateConfigurationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationProfile)
 
 responseGetDeployment :: Deployment -> TestTree
 responseGetDeployment =
@@ -479,7 +479,7 @@ responseGetDeployment =
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeployment)
+    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
 
 responseUpdateConfigurationProfile :: ConfigurationProfile -> TestTree
 responseUpdateConfigurationProfile =
@@ -487,7 +487,7 @@ responseUpdateConfigurationProfile =
     "UpdateConfigurationProfileResponse"
     "fixture/UpdateConfigurationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationProfile)
 
 responseDeleteConfigurationProfile :: DeleteConfigurationProfileResponse -> TestTree
 responseDeleteConfigurationProfile =
@@ -495,7 +495,7 @@ responseDeleteConfigurationProfile =
     "DeleteConfigurationProfileResponse"
     "fixture/DeleteConfigurationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationProfile)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -503,7 +503,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListHostedConfigurationVersions :: ListHostedConfigurationVersionsResponse -> TestTree
 responseListHostedConfigurationVersions =
@@ -511,7 +511,7 @@ responseListHostedConfigurationVersions =
     "ListHostedConfigurationVersionsResponse"
     "fixture/ListHostedConfigurationVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHostedConfigurationVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListHostedConfigurationVersions)
 
 responseGetConfigurationProfile :: ConfigurationProfile -> TestTree
 responseGetConfigurationProfile =
@@ -519,7 +519,7 @@ responseGetConfigurationProfile =
     "GetConfigurationProfileResponse"
     "fixture/GetConfigurationProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfigurationProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetConfigurationProfile)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -527,7 +527,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: Application -> TestTree
 responseUpdateApplication =
@@ -535,7 +535,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseUpdateDeploymentStrategy :: DeploymentStrategy -> TestTree
 responseUpdateDeploymentStrategy =
@@ -543,7 +543,7 @@ responseUpdateDeploymentStrategy =
     "UpdateDeploymentStrategyResponse"
     "fixture/UpdateDeploymentStrategyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeploymentStrategy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeploymentStrategy)
 
 responseDeleteDeploymentStrategy :: DeleteDeploymentStrategyResponse -> TestTree
 responseDeleteDeploymentStrategy =
@@ -551,7 +551,7 @@ responseDeleteDeploymentStrategy =
     "DeleteDeploymentStrategyResponse"
     "fixture/DeleteDeploymentStrategyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeploymentStrategy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentStrategy)
 
 responseCreateApplication :: Application -> TestTree
 responseCreateApplication =
@@ -559,7 +559,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseValidateConfiguration :: ValidateConfigurationResponse -> TestTree
 responseValidateConfiguration =
@@ -567,7 +567,7 @@ responseValidateConfiguration =
     "ValidateConfigurationResponse"
     "fixture/ValidateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ValidateConfiguration)
 
 responseStopDeployment :: Deployment -> TestTree
 responseStopDeployment =
@@ -575,7 +575,7 @@ responseStopDeployment =
     "StopDeploymentResponse"
     "fixture/StopDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StopDeployment)
 
 responseGetApplication :: Application -> TestTree
 responseGetApplication =
@@ -583,7 +583,7 @@ responseGetApplication =
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplication)
+    (Proxy.Proxy :: Proxy.Proxy GetApplication)
 
 responseCreateHostedConfigurationVersion :: HostedConfigurationVersion -> TestTree
 responseCreateHostedConfigurationVersion =
@@ -591,7 +591,7 @@ responseCreateHostedConfigurationVersion =
     "CreateHostedConfigurationVersionResponse"
     "fixture/CreateHostedConfigurationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHostedConfigurationVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateHostedConfigurationVersion)
 
 responseListConfigurationProfiles :: ListConfigurationProfilesResponse -> TestTree
 responseListConfigurationProfiles =
@@ -599,7 +599,7 @@ responseListConfigurationProfiles =
     "ListConfigurationProfilesResponse"
     "fixture/ListConfigurationProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationProfiles)
 
 responseDeleteHostedConfigurationVersion :: DeleteHostedConfigurationVersionResponse -> TestTree
 responseDeleteHostedConfigurationVersion =
@@ -607,7 +607,7 @@ responseDeleteHostedConfigurationVersion =
     "DeleteHostedConfigurationVersionResponse"
     "fixture/DeleteHostedConfigurationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHostedConfigurationVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHostedConfigurationVersion)
 
 responseGetHostedConfigurationVersion :: HostedConfigurationVersion -> TestTree
 responseGetHostedConfigurationVersion =
@@ -615,7 +615,7 @@ responseGetHostedConfigurationVersion =
     "GetHostedConfigurationVersionResponse"
     "fixture/GetHostedConfigurationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHostedConfigurationVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetHostedConfigurationVersion)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
 responseListDeployments =
@@ -623,7 +623,7 @@ responseListDeployments =
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -631,7 +631,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetEnvironment :: Environment -> TestTree
 responseGetEnvironment =
@@ -639,7 +639,7 @@ responseGetEnvironment =
     "GetEnvironmentResponse"
     "fixture/GetEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy GetEnvironment)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -647,7 +647,7 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -655,7 +655,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListDeploymentStrategies :: ListDeploymentStrategiesResponse -> TestTree
 responseListDeploymentStrategies =
@@ -663,7 +663,7 @@ responseListDeploymentStrategies =
     "ListDeploymentStrategiesResponse"
     "fixture/ListDeploymentStrategiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeploymentStrategies)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentStrategies)
 
 responseGetConfiguration :: GetConfigurationResponse -> TestTree
 responseGetConfiguration =
@@ -671,7 +671,7 @@ responseGetConfiguration =
     "GetConfigurationResponse"
     "fixture/GetConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetConfiguration)
 
 responseCreateDeploymentStrategy :: DeploymentStrategy -> TestTree
 responseCreateDeploymentStrategy =
@@ -679,7 +679,7 @@ responseCreateDeploymentStrategy =
     "CreateDeploymentStrategyResponse"
     "fixture/CreateDeploymentStrategyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeploymentStrategy)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentStrategy)
 
 responseStartDeployment :: Deployment -> TestTree
 responseStartDeployment =
@@ -687,7 +687,7 @@ responseStartDeployment =
     "StartDeploymentResponse"
     "fixture/StartDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StartDeployment)
 
 responseCreateEnvironment :: Environment -> TestTree
 responseCreateEnvironment =
@@ -695,4 +695,4 @@ responseCreateEnvironment =
     "CreateEnvironmentResponse"
     "fixture/CreateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy CreateEnvironment)

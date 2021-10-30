@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ComputeOptimizer where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ComputeOptimizer
 import Test.AWS.ComputeOptimizer.Internal
 import Test.AWS.Fixture
@@ -211,7 +211,7 @@ responseExportEBSVolumeRecommendations =
     "ExportEBSVolumeRecommendationsResponse"
     "fixture/ExportEBSVolumeRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportEBSVolumeRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ExportEBSVolumeRecommendations)
 
 responseGetRecommendationSummaries :: GetRecommendationSummariesResponse -> TestTree
 responseGetRecommendationSummaries =
@@ -219,7 +219,7 @@ responseGetRecommendationSummaries =
     "GetRecommendationSummariesResponse"
     "fixture/GetRecommendationSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecommendationSummaries)
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendationSummaries)
 
 responseExportAutoScalingGroupRecommendations :: ExportAutoScalingGroupRecommendationsResponse -> TestTree
 responseExportAutoScalingGroupRecommendations =
@@ -227,7 +227,7 @@ responseExportAutoScalingGroupRecommendations =
     "ExportAutoScalingGroupRecommendationsResponse"
     "fixture/ExportAutoScalingGroupRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportAutoScalingGroupRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ExportAutoScalingGroupRecommendations)
 
 responseGetEC2InstanceRecommendations :: GetEC2InstanceRecommendationsResponse -> TestTree
 responseGetEC2InstanceRecommendations =
@@ -235,7 +235,7 @@ responseGetEC2InstanceRecommendations =
     "GetEC2InstanceRecommendationsResponse"
     "fixture/GetEC2InstanceRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEC2InstanceRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetEC2InstanceRecommendations)
 
 responseGetLambdaFunctionRecommendations :: GetLambdaFunctionRecommendationsResponse -> TestTree
 responseGetLambdaFunctionRecommendations =
@@ -243,7 +243,7 @@ responseGetLambdaFunctionRecommendations =
     "GetLambdaFunctionRecommendationsResponse"
     "fixture/GetLambdaFunctionRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLambdaFunctionRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetLambdaFunctionRecommendations)
 
 responseUpdateEnrollmentStatus :: UpdateEnrollmentStatusResponse -> TestTree
 responseUpdateEnrollmentStatus =
@@ -251,7 +251,7 @@ responseUpdateEnrollmentStatus =
     "UpdateEnrollmentStatusResponse"
     "fixture/UpdateEnrollmentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnrollmentStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnrollmentStatus)
 
 responseDescribeRecommendationExportJobs :: DescribeRecommendationExportJobsResponse -> TestTree
 responseDescribeRecommendationExportJobs =
@@ -259,7 +259,7 @@ responseDescribeRecommendationExportJobs =
     "DescribeRecommendationExportJobsResponse"
     "fixture/DescribeRecommendationExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRecommendationExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecommendationExportJobs)
 
 responseGetEC2RecommendationProjectedMetrics :: GetEC2RecommendationProjectedMetricsResponse -> TestTree
 responseGetEC2RecommendationProjectedMetrics =
@@ -267,7 +267,7 @@ responseGetEC2RecommendationProjectedMetrics =
     "GetEC2RecommendationProjectedMetricsResponse"
     "fixture/GetEC2RecommendationProjectedMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEC2RecommendationProjectedMetrics)
+    (Proxy.Proxy :: Proxy.Proxy GetEC2RecommendationProjectedMetrics)
 
 responseGetEnrollmentStatusesForOrganization :: GetEnrollmentStatusesForOrganizationResponse -> TestTree
 responseGetEnrollmentStatusesForOrganization =
@@ -275,7 +275,7 @@ responseGetEnrollmentStatusesForOrganization =
     "GetEnrollmentStatusesForOrganizationResponse"
     "fixture/GetEnrollmentStatusesForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEnrollmentStatusesForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy GetEnrollmentStatusesForOrganization)
 
 responseGetEBSVolumeRecommendations :: GetEBSVolumeRecommendationsResponse -> TestTree
 responseGetEBSVolumeRecommendations =
@@ -283,7 +283,7 @@ responseGetEBSVolumeRecommendations =
     "GetEBSVolumeRecommendationsResponse"
     "fixture/GetEBSVolumeRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEBSVolumeRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetEBSVolumeRecommendations)
 
 responseExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendationsResponse -> TestTree
 responseExportLambdaFunctionRecommendations =
@@ -291,7 +291,7 @@ responseExportLambdaFunctionRecommendations =
     "ExportLambdaFunctionRecommendationsResponse"
     "fixture/ExportLambdaFunctionRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportLambdaFunctionRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ExportLambdaFunctionRecommendations)
 
 responseExportEC2InstanceRecommendations :: ExportEC2InstanceRecommendationsResponse -> TestTree
 responseExportEC2InstanceRecommendations =
@@ -299,7 +299,7 @@ responseExportEC2InstanceRecommendations =
     "ExportEC2InstanceRecommendationsResponse"
     "fixture/ExportEC2InstanceRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportEC2InstanceRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ExportEC2InstanceRecommendations)
 
 responseGetEnrollmentStatus :: GetEnrollmentStatusResponse -> TestTree
 responseGetEnrollmentStatus =
@@ -307,7 +307,7 @@ responseGetEnrollmentStatus =
     "GetEnrollmentStatusResponse"
     "fixture/GetEnrollmentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEnrollmentStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetEnrollmentStatus)
 
 responseGetAutoScalingGroupRecommendations :: GetAutoScalingGroupRecommendationsResponse -> TestTree
 responseGetAutoScalingGroupRecommendations =
@@ -315,4 +315,4 @@ responseGetAutoScalingGroupRecommendations =
     "GetAutoScalingGroupRecommendationsResponse"
     "fixture/GetAutoScalingGroupRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAutoScalingGroupRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetAutoScalingGroupRecommendations)

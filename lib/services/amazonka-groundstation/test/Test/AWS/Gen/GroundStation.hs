@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GroundStation where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.GroundStation
 import Test.AWS.Fixture
 import Test.AWS.GroundStation.Internal
@@ -343,7 +343,7 @@ responseDeleteDataflowEndpointGroup =
     "DeleteDataflowEndpointGroupResponse"
     "fixture/DeleteDataflowEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataflowEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataflowEndpointGroup)
 
 responseListSatellites :: ListSatellitesResponse -> TestTree
 responseListSatellites =
@@ -351,7 +351,7 @@ responseListSatellites =
     "ListSatellitesResponse"
     "fixture/ListSatellitesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSatellites)
+    (Proxy.Proxy :: Proxy.Proxy ListSatellites)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -359,7 +359,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetMinuteUsage :: GetMinuteUsageResponse -> TestTree
 responseGetMinuteUsage =
@@ -367,7 +367,7 @@ responseGetMinuteUsage =
     "GetMinuteUsageResponse"
     "fixture/GetMinuteUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMinuteUsage)
+    (Proxy.Proxy :: Proxy.Proxy GetMinuteUsage)
 
 responseDescribeContact :: DescribeContactResponse -> TestTree
 responseDescribeContact =
@@ -375,7 +375,7 @@ responseDescribeContact =
     "DescribeContactResponse"
     "fixture/DescribeContactResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContact)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContact)
 
 responseReserveContact :: ContactIdResponse -> TestTree
 responseReserveContact =
@@ -383,7 +383,7 @@ responseReserveContact =
     "ReserveContactResponse"
     "fixture/ReserveContactResponse.proto"
     defaultService
-    (Proxy :: Proxy ReserveContact)
+    (Proxy.Proxy :: Proxy.Proxy ReserveContact)
 
 responseCreateMissionProfile :: MissionProfileIdResponse -> TestTree
 responseCreateMissionProfile =
@@ -391,7 +391,7 @@ responseCreateMissionProfile =
     "CreateMissionProfileResponse"
     "fixture/CreateMissionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMissionProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateMissionProfile)
 
 responseListGroundStations :: ListGroundStationsResponse -> TestTree
 responseListGroundStations =
@@ -399,7 +399,7 @@ responseListGroundStations =
     "ListGroundStationsResponse"
     "fixture/ListGroundStationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroundStations)
+    (Proxy.Proxy :: Proxy.Proxy ListGroundStations)
 
 responseCreateConfig :: ConfigIdResponse -> TestTree
 responseCreateConfig =
@@ -407,7 +407,7 @@ responseCreateConfig =
     "CreateConfigResponse"
     "fixture/CreateConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfig)
 
 responseListMissionProfiles :: ListMissionProfilesResponse -> TestTree
 responseListMissionProfiles =
@@ -415,7 +415,7 @@ responseListMissionProfiles =
     "ListMissionProfilesResponse"
     "fixture/ListMissionProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMissionProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListMissionProfiles)
 
 responseGetMissionProfile :: GetMissionProfileResponse -> TestTree
 responseGetMissionProfile =
@@ -423,7 +423,7 @@ responseGetMissionProfile =
     "GetMissionProfileResponse"
     "fixture/GetMissionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMissionProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetMissionProfile)
 
 responseGetConfig :: GetConfigResponse -> TestTree
 responseGetConfig =
@@ -431,7 +431,7 @@ responseGetConfig =
     "GetConfigResponse"
     "fixture/GetConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetConfig)
 
 responseListDataflowEndpointGroups :: ListDataflowEndpointGroupsResponse -> TestTree
 responseListDataflowEndpointGroups =
@@ -439,7 +439,7 @@ responseListDataflowEndpointGroups =
     "ListDataflowEndpointGroupsResponse"
     "fixture/ListDataflowEndpointGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataflowEndpointGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListDataflowEndpointGroups)
 
 responseCreateDataflowEndpointGroup :: DataflowEndpointGroupIdResponse -> TestTree
 responseCreateDataflowEndpointGroup =
@@ -447,7 +447,7 @@ responseCreateDataflowEndpointGroup =
     "CreateDataflowEndpointGroupResponse"
     "fixture/CreateDataflowEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataflowEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataflowEndpointGroup)
 
 responseGetSatellite :: GetSatelliteResponse -> TestTree
 responseGetSatellite =
@@ -455,7 +455,7 @@ responseGetSatellite =
     "GetSatelliteResponse"
     "fixture/GetSatelliteResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSatellite)
+    (Proxy.Proxy :: Proxy.Proxy GetSatellite)
 
 responseGetDataflowEndpointGroup :: GetDataflowEndpointGroupResponse -> TestTree
 responseGetDataflowEndpointGroup =
@@ -463,7 +463,7 @@ responseGetDataflowEndpointGroup =
     "GetDataflowEndpointGroupResponse"
     "fixture/GetDataflowEndpointGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataflowEndpointGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetDataflowEndpointGroup)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -471,7 +471,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListConfigs :: ListConfigsResponse -> TestTree
 responseListConfigs =
@@ -479,7 +479,7 @@ responseListConfigs =
     "ListConfigsResponse"
     "fixture/ListConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigs)
 
 responseUpdateConfig :: ConfigIdResponse -> TestTree
 responseUpdateConfig =
@@ -487,7 +487,7 @@ responseUpdateConfig =
     "UpdateConfigResponse"
     "fixture/UpdateConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfig)
 
 responseDeleteConfig :: ConfigIdResponse -> TestTree
 responseDeleteConfig =
@@ -495,7 +495,7 @@ responseDeleteConfig =
     "DeleteConfigResponse"
     "fixture/DeleteConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfig)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -503,7 +503,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateMissionProfile :: MissionProfileIdResponse -> TestTree
 responseUpdateMissionProfile =
@@ -511,7 +511,7 @@ responseUpdateMissionProfile =
     "UpdateMissionProfileResponse"
     "fixture/UpdateMissionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMissionProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMissionProfile)
 
 responseDeleteMissionProfile :: MissionProfileIdResponse -> TestTree
 responseDeleteMissionProfile =
@@ -519,7 +519,7 @@ responseDeleteMissionProfile =
     "DeleteMissionProfileResponse"
     "fixture/DeleteMissionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMissionProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMissionProfile)
 
 responseCancelContact :: ContactIdResponse -> TestTree
 responseCancelContact =
@@ -527,7 +527,7 @@ responseCancelContact =
     "CancelContactResponse"
     "fixture/CancelContactResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelContact)
+    (Proxy.Proxy :: Proxy.Proxy CancelContact)
 
 responseListContacts :: ListContactsResponse -> TestTree
 responseListContacts =
@@ -535,4 +535,4 @@ responseListContacts =
     "ListContactsResponse"
     "fixture/ListContactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContacts)
+    (Proxy.Proxy :: Proxy.Proxy ListContacts)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTEventsData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTEventsData
 import Test.AWS.Fixture
 import Test.AWS.IoTEventsData.Internal
@@ -175,7 +175,7 @@ responseBatchSnoozeAlarm =
     "BatchSnoozeAlarmResponse"
     "fixture/BatchSnoozeAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchSnoozeAlarm)
+    (Proxy.Proxy :: Proxy.Proxy BatchSnoozeAlarm)
 
 responseBatchDisableAlarm :: BatchDisableAlarmResponse -> TestTree
 responseBatchDisableAlarm =
@@ -183,7 +183,7 @@ responseBatchDisableAlarm =
     "BatchDisableAlarmResponse"
     "fixture/BatchDisableAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisableAlarm)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisableAlarm)
 
 responseDescribeAlarm :: DescribeAlarmResponse -> TestTree
 responseDescribeAlarm =
@@ -191,7 +191,7 @@ responseDescribeAlarm =
     "DescribeAlarmResponse"
     "fixture/DescribeAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlarm)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarm)
 
 responseBatchPutMessage :: BatchPutMessageResponse -> TestTree
 responseBatchPutMessage =
@@ -199,7 +199,7 @@ responseBatchPutMessage =
     "BatchPutMessageResponse"
     "fixture/BatchPutMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchPutMessage)
+    (Proxy.Proxy :: Proxy.Proxy BatchPutMessage)
 
 responseDescribeDetector :: DescribeDetectorResponse -> TestTree
 responseDescribeDetector =
@@ -207,7 +207,7 @@ responseDescribeDetector =
     "DescribeDetectorResponse"
     "fixture/DescribeDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDetector)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetector)
 
 responseBatchUpdateDetector :: BatchUpdateDetectorResponse -> TestTree
 responseBatchUpdateDetector =
@@ -215,7 +215,7 @@ responseBatchUpdateDetector =
     "BatchUpdateDetectorResponse"
     "fixture/BatchUpdateDetectorResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdateDetector)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateDetector)
 
 responseBatchAcknowledgeAlarm :: BatchAcknowledgeAlarmResponse -> TestTree
 responseBatchAcknowledgeAlarm =
@@ -223,7 +223,7 @@ responseBatchAcknowledgeAlarm =
     "BatchAcknowledgeAlarmResponse"
     "fixture/BatchAcknowledgeAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAcknowledgeAlarm)
+    (Proxy.Proxy :: Proxy.Proxy BatchAcknowledgeAlarm)
 
 responseListAlarms :: ListAlarmsResponse -> TestTree
 responseListAlarms =
@@ -231,7 +231,7 @@ responseListAlarms =
     "ListAlarmsResponse"
     "fixture/ListAlarmsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAlarms)
+    (Proxy.Proxy :: Proxy.Proxy ListAlarms)
 
 responseBatchResetAlarm :: BatchResetAlarmResponse -> TestTree
 responseBatchResetAlarm =
@@ -239,7 +239,7 @@ responseBatchResetAlarm =
     "BatchResetAlarmResponse"
     "fixture/BatchResetAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchResetAlarm)
+    (Proxy.Proxy :: Proxy.Proxy BatchResetAlarm)
 
 responseListDetectors :: ListDetectorsResponse -> TestTree
 responseListDetectors =
@@ -247,7 +247,7 @@ responseListDetectors =
     "ListDetectorsResponse"
     "fixture/ListDetectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDetectors)
+    (Proxy.Proxy :: Proxy.Proxy ListDetectors)
 
 responseBatchEnableAlarm :: BatchEnableAlarmResponse -> TestTree
 responseBatchEnableAlarm =
@@ -255,4 +255,4 @@ responseBatchEnableAlarm =
     "BatchEnableAlarmResponse"
     "fixture/BatchEnableAlarmResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchEnableAlarm)
+    (Proxy.Proxy :: Proxy.Proxy BatchEnableAlarm)

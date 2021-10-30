@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WAF where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WAF
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -967,7 +967,7 @@ responseListActivatedRulesInRuleGroup =
     "ListActivatedRulesInRuleGroupResponse"
     "fixture/ListActivatedRulesInRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActivatedRulesInRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListActivatedRulesInRuleGroup)
 
 responseListRateBasedRules :: ListRateBasedRulesResponse -> TestTree
 responseListRateBasedRules =
@@ -975,7 +975,7 @@ responseListRateBasedRules =
     "ListRateBasedRulesResponse"
     "fixture/ListRateBasedRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRateBasedRules)
+    (Proxy.Proxy :: Proxy.Proxy ListRateBasedRules)
 
 responseGetSizeConstraintSet :: GetSizeConstraintSetResponse -> TestTree
 responseGetSizeConstraintSet =
@@ -983,7 +983,7 @@ responseGetSizeConstraintSet =
     "GetSizeConstraintSetResponse"
     "fixture/GetSizeConstraintSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSizeConstraintSet)
+    (Proxy.Proxy :: Proxy.Proxy GetSizeConstraintSet)
 
 responseDeleteRateBasedRule :: DeleteRateBasedRuleResponse -> TestTree
 responseDeleteRateBasedRule =
@@ -991,7 +991,7 @@ responseDeleteRateBasedRule =
     "DeleteRateBasedRuleResponse"
     "fixture/DeleteRateBasedRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRateBasedRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRateBasedRule)
 
 responseUpdateRateBasedRule :: UpdateRateBasedRuleResponse -> TestTree
 responseUpdateRateBasedRule =
@@ -999,7 +999,7 @@ responseUpdateRateBasedRule =
     "UpdateRateBasedRuleResponse"
     "fixture/UpdateRateBasedRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRateBasedRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRateBasedRule)
 
 responseUpdateRule :: UpdateRuleResponse -> TestTree
 responseUpdateRule =
@@ -1007,7 +1007,7 @@ responseUpdateRule =
     "UpdateRuleResponse"
     "fixture/UpdateRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRule)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
 responseDeleteRule =
@@ -1015,7 +1015,7 @@ responseDeleteRule =
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
 
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
 responseCreateIPSet =
@@ -1023,7 +1023,7 @@ responseCreateIPSet =
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIPSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateIPSet)
 
 responseGetRuleGroup :: GetRuleGroupResponse -> TestTree
 responseGetRuleGroup =
@@ -1031,7 +1031,7 @@ responseGetRuleGroup =
     "GetRuleGroupResponse"
     "fixture/GetRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetRuleGroup)
 
 responseGetChangeTokenStatus :: GetChangeTokenStatusResponse -> TestTree
 responseGetChangeTokenStatus =
@@ -1039,7 +1039,7 @@ responseGetChangeTokenStatus =
     "GetChangeTokenStatusResponse"
     "fixture/GetChangeTokenStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChangeTokenStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetChangeTokenStatus)
 
 responseDeleteWebACL :: DeleteWebACLResponse -> TestTree
 responseDeleteWebACL =
@@ -1047,7 +1047,7 @@ responseDeleteWebACL =
     "DeleteWebACLResponse"
     "fixture/DeleteWebACLResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWebACL)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWebACL)
 
 responseUpdateWebACL :: UpdateWebACLResponse -> TestTree
 responseUpdateWebACL =
@@ -1055,7 +1055,7 @@ responseUpdateWebACL =
     "UpdateWebACLResponse"
     "fixture/UpdateWebACLResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWebACL)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWebACL)
 
 responseListWebACLs :: ListWebACLsResponse -> TestTree
 responseListWebACLs =
@@ -1063,7 +1063,7 @@ responseListWebACLs =
     "ListWebACLsResponse"
     "fixture/ListWebACLsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWebACLs)
+    (Proxy.Proxy :: Proxy.Proxy ListWebACLs)
 
 responseListRules :: ListRulesResponse -> TestTree
 responseListRules =
@@ -1071,7 +1071,7 @@ responseListRules =
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRules)
+    (Proxy.Proxy :: Proxy.Proxy ListRules)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
 responseCreateRule =
@@ -1079,7 +1079,7 @@ responseCreateRule =
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateRule)
 
 responseDeleteLoggingConfiguration :: DeleteLoggingConfigurationResponse -> TestTree
 responseDeleteLoggingConfiguration =
@@ -1087,7 +1087,7 @@ responseDeleteLoggingConfiguration =
     "DeleteLoggingConfigurationResponse"
     "fixture/DeleteLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoggingConfiguration)
 
 responseCreateWebACL :: CreateWebACLResponse -> TestTree
 responseCreateWebACL =
@@ -1095,7 +1095,7 @@ responseCreateWebACL =
     "CreateWebACLResponse"
     "fixture/CreateWebACLResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWebACL)
+    (Proxy.Proxy :: Proxy.Proxy CreateWebACL)
 
 responseGetGeoMatchSet :: GetGeoMatchSetResponse -> TestTree
 responseGetGeoMatchSet =
@@ -1103,7 +1103,7 @@ responseGetGeoMatchSet =
     "GetGeoMatchSetResponse"
     "fixture/GetGeoMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGeoMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy GetGeoMatchSet)
 
 responsePutLoggingConfiguration :: PutLoggingConfigurationResponse -> TestTree
 responsePutLoggingConfiguration =
@@ -1111,7 +1111,7 @@ responsePutLoggingConfiguration =
     "PutLoggingConfigurationResponse"
     "fixture/PutLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutLoggingConfiguration)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1119,7 +1119,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListByteMatchSets :: ListByteMatchSetsResponse -> TestTree
 responseListByteMatchSets =
@@ -1127,7 +1127,7 @@ responseListByteMatchSets =
     "ListByteMatchSetsResponse"
     "fixture/ListByteMatchSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListByteMatchSets)
+    (Proxy.Proxy :: Proxy.Proxy ListByteMatchSets)
 
 responseListGeoMatchSets :: ListGeoMatchSetsResponse -> TestTree
 responseListGeoMatchSets =
@@ -1135,7 +1135,7 @@ responseListGeoMatchSets =
     "ListGeoMatchSetsResponse"
     "fixture/ListGeoMatchSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGeoMatchSets)
+    (Proxy.Proxy :: Proxy.Proxy ListGeoMatchSets)
 
 responseGetLoggingConfiguration :: GetLoggingConfigurationResponse -> TestTree
 responseGetLoggingConfiguration =
@@ -1143,7 +1143,7 @@ responseGetLoggingConfiguration =
     "GetLoggingConfigurationResponse"
     "fixture/GetLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetLoggingConfiguration)
 
 responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
 responseCreateRuleGroup =
@@ -1151,7 +1151,7 @@ responseCreateRuleGroup =
     "CreateRuleGroupResponse"
     "fixture/CreateRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateRuleGroup)
 
 responseDeleteRegexMatchSet :: DeleteRegexMatchSetResponse -> TestTree
 responseDeleteRegexMatchSet =
@@ -1159,7 +1159,7 @@ responseDeleteRegexMatchSet =
     "DeleteRegexMatchSetResponse"
     "fixture/DeleteRegexMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRegexMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRegexMatchSet)
 
 responseUpdateRegexMatchSet :: UpdateRegexMatchSetResponse -> TestTree
 responseUpdateRegexMatchSet =
@@ -1167,7 +1167,7 @@ responseUpdateRegexMatchSet =
     "UpdateRegexMatchSetResponse"
     "fixture/UpdateRegexMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRegexMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRegexMatchSet)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
 responseGetIPSet =
@@ -1175,7 +1175,7 @@ responseGetIPSet =
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIPSet)
+    (Proxy.Proxy :: Proxy.Proxy GetIPSet)
 
 responseGetWebACL :: GetWebACLResponse -> TestTree
 responseGetWebACL =
@@ -1183,7 +1183,7 @@ responseGetWebACL =
     "GetWebACLResponse"
     "fixture/GetWebACLResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWebACL)
+    (Proxy.Proxy :: Proxy.Proxy GetWebACL)
 
 responseGetRule :: GetRuleResponse -> TestTree
 responseGetRule =
@@ -1191,7 +1191,7 @@ responseGetRule =
     "GetRuleResponse"
     "fixture/GetRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRule)
+    (Proxy.Proxy :: Proxy.Proxy GetRule)
 
 responseDeleteXssMatchSet :: DeleteXssMatchSetResponse -> TestTree
 responseDeleteXssMatchSet =
@@ -1199,7 +1199,7 @@ responseDeleteXssMatchSet =
     "DeleteXssMatchSetResponse"
     "fixture/DeleteXssMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteXssMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteXssMatchSet)
 
 responseUpdateXssMatchSet :: UpdateXssMatchSetResponse -> TestTree
 responseUpdateXssMatchSet =
@@ -1207,7 +1207,7 @@ responseUpdateXssMatchSet =
     "UpdateXssMatchSetResponse"
     "fixture/UpdateXssMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateXssMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateXssMatchSet)
 
 responseCreateWebACLMigrationStack :: CreateWebACLMigrationStackResponse -> TestTree
 responseCreateWebACLMigrationStack =
@@ -1215,7 +1215,7 @@ responseCreateWebACLMigrationStack =
     "CreateWebACLMigrationStackResponse"
     "fixture/CreateWebACLMigrationStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWebACLMigrationStack)
+    (Proxy.Proxy :: Proxy.Proxy CreateWebACLMigrationStack)
 
 responseListXssMatchSets :: ListXssMatchSetsResponse -> TestTree
 responseListXssMatchSets =
@@ -1223,7 +1223,7 @@ responseListXssMatchSets =
     "ListXssMatchSetsResponse"
     "fixture/ListXssMatchSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListXssMatchSets)
+    (Proxy.Proxy :: Proxy.Proxy ListXssMatchSets)
 
 responseCreateGeoMatchSet :: CreateGeoMatchSetResponse -> TestTree
 responseCreateGeoMatchSet =
@@ -1231,7 +1231,7 @@ responseCreateGeoMatchSet =
     "CreateGeoMatchSetResponse"
     "fixture/CreateGeoMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGeoMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateGeoMatchSet)
 
 responseGetChangeToken :: GetChangeTokenResponse -> TestTree
 responseGetChangeToken =
@@ -1239,7 +1239,7 @@ responseGetChangeToken =
     "GetChangeTokenResponse"
     "fixture/GetChangeTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChangeToken)
+    (Proxy.Proxy :: Proxy.Proxy GetChangeToken)
 
 responseListSizeConstraintSets :: ListSizeConstraintSetsResponse -> TestTree
 responseListSizeConstraintSets =
@@ -1247,7 +1247,7 @@ responseListSizeConstraintSets =
     "ListSizeConstraintSetsResponse"
     "fixture/ListSizeConstraintSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSizeConstraintSets)
+    (Proxy.Proxy :: Proxy.Proxy ListSizeConstraintSets)
 
 responseGetSampledRequests :: GetSampledRequestsResponse -> TestTree
 responseGetSampledRequests =
@@ -1255,7 +1255,7 @@ responseGetSampledRequests =
     "GetSampledRequestsResponse"
     "fixture/GetSampledRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSampledRequests)
+    (Proxy.Proxy :: Proxy.Proxy GetSampledRequests)
 
 responseGetSqlInjectionMatchSet :: GetSqlInjectionMatchSetResponse -> TestTree
 responseGetSqlInjectionMatchSet =
@@ -1263,7 +1263,7 @@ responseGetSqlInjectionMatchSet =
     "GetSqlInjectionMatchSetResponse"
     "fixture/GetSqlInjectionMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSqlInjectionMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy GetSqlInjectionMatchSet)
 
 responseListSubscribedRuleGroups :: ListSubscribedRuleGroupsResponse -> TestTree
 responseListSubscribedRuleGroups =
@@ -1271,7 +1271,7 @@ responseListSubscribedRuleGroups =
     "ListSubscribedRuleGroupsResponse"
     "fixture/ListSubscribedRuleGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscribedRuleGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListSubscribedRuleGroups)
 
 responseCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSetResponse -> TestTree
 responseCreateSqlInjectionMatchSet =
@@ -1279,7 +1279,7 @@ responseCreateSqlInjectionMatchSet =
     "CreateSqlInjectionMatchSetResponse"
     "fixture/CreateSqlInjectionMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSqlInjectionMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateSqlInjectionMatchSet)
 
 responseGetXssMatchSet :: GetXssMatchSetResponse -> TestTree
 responseGetXssMatchSet =
@@ -1287,7 +1287,7 @@ responseGetXssMatchSet =
     "GetXssMatchSetResponse"
     "fixture/GetXssMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetXssMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy GetXssMatchSet)
 
 responseCreateByteMatchSet :: CreateByteMatchSetResponse -> TestTree
 responseCreateByteMatchSet =
@@ -1295,7 +1295,7 @@ responseCreateByteMatchSet =
     "CreateByteMatchSetResponse"
     "fixture/CreateByteMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateByteMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateByteMatchSet)
 
 responseUpdateByteMatchSet :: UpdateByteMatchSetResponse -> TestTree
 responseUpdateByteMatchSet =
@@ -1303,7 +1303,7 @@ responseUpdateByteMatchSet =
     "UpdateByteMatchSetResponse"
     "fixture/UpdateByteMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateByteMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateByteMatchSet)
 
 responseDeleteByteMatchSet :: DeleteByteMatchSetResponse -> TestTree
 responseDeleteByteMatchSet =
@@ -1311,7 +1311,7 @@ responseDeleteByteMatchSet =
     "DeleteByteMatchSetResponse"
     "fixture/DeleteByteMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteByteMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteByteMatchSet)
 
 responsePutPermissionPolicy :: PutPermissionPolicyResponse -> TestTree
 responsePutPermissionPolicy =
@@ -1319,7 +1319,7 @@ responsePutPermissionPolicy =
     "PutPermissionPolicyResponse"
     "fixture/PutPermissionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPermissionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutPermissionPolicy)
 
 responseListLoggingConfigurations :: ListLoggingConfigurationsResponse -> TestTree
 responseListLoggingConfigurations =
@@ -1327,7 +1327,7 @@ responseListLoggingConfigurations =
     "ListLoggingConfigurationsResponse"
     "fixture/ListLoggingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLoggingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListLoggingConfigurations)
 
 responseGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeysResponse -> TestTree
 responseGetRateBasedRuleManagedKeys =
@@ -1335,7 +1335,7 @@ responseGetRateBasedRuleManagedKeys =
     "GetRateBasedRuleManagedKeysResponse"
     "fixture/GetRateBasedRuleManagedKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRateBasedRuleManagedKeys)
+    (Proxy.Proxy :: Proxy.Proxy GetRateBasedRuleManagedKeys)
 
 responseDeletePermissionPolicy :: DeletePermissionPolicyResponse -> TestTree
 responseDeletePermissionPolicy =
@@ -1343,7 +1343,7 @@ responseDeletePermissionPolicy =
     "DeletePermissionPolicyResponse"
     "fixture/DeletePermissionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePermissionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeletePermissionPolicy)
 
 responseGetRegexMatchSet :: GetRegexMatchSetResponse -> TestTree
 responseGetRegexMatchSet =
@@ -1351,7 +1351,7 @@ responseGetRegexMatchSet =
     "GetRegexMatchSetResponse"
     "fixture/GetRegexMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRegexMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy GetRegexMatchSet)
 
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
 responseDeleteIPSet =
@@ -1359,7 +1359,7 @@ responseDeleteIPSet =
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIPSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIPSet)
 
 responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
 responseUpdateIPSet =
@@ -1367,7 +1367,7 @@ responseUpdateIPSet =
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIPSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIPSet)
 
 responseListIPSets :: ListIPSetsResponse -> TestTree
 responseListIPSets =
@@ -1375,7 +1375,7 @@ responseListIPSets =
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIPSets)
+    (Proxy.Proxy :: Proxy.Proxy ListIPSets)
 
 responseListRegexMatchSets :: ListRegexMatchSetsResponse -> TestTree
 responseListRegexMatchSets =
@@ -1383,7 +1383,7 @@ responseListRegexMatchSets =
     "ListRegexMatchSetsResponse"
     "fixture/ListRegexMatchSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRegexMatchSets)
+    (Proxy.Proxy :: Proxy.Proxy ListRegexMatchSets)
 
 responseCreateXssMatchSet :: CreateXssMatchSetResponse -> TestTree
 responseCreateXssMatchSet =
@@ -1391,7 +1391,7 @@ responseCreateXssMatchSet =
     "CreateXssMatchSetResponse"
     "fixture/CreateXssMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateXssMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateXssMatchSet)
 
 responseDeleteGeoMatchSet :: DeleteGeoMatchSetResponse -> TestTree
 responseDeleteGeoMatchSet =
@@ -1399,7 +1399,7 @@ responseDeleteGeoMatchSet =
     "DeleteGeoMatchSetResponse"
     "fixture/DeleteGeoMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGeoMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGeoMatchSet)
 
 responseUpdateGeoMatchSet :: UpdateGeoMatchSetResponse -> TestTree
 responseUpdateGeoMatchSet =
@@ -1407,7 +1407,7 @@ responseUpdateGeoMatchSet =
     "UpdateGeoMatchSetResponse"
     "fixture/UpdateGeoMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGeoMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGeoMatchSet)
 
 responseGetByteMatchSet :: GetByteMatchSetResponse -> TestTree
 responseGetByteMatchSet =
@@ -1415,7 +1415,7 @@ responseGetByteMatchSet =
     "GetByteMatchSetResponse"
     "fixture/GetByteMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetByteMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy GetByteMatchSet)
 
 responseGetPermissionPolicy :: GetPermissionPolicyResponse -> TestTree
 responseGetPermissionPolicy =
@@ -1423,7 +1423,7 @@ responseGetPermissionPolicy =
     "GetPermissionPolicyResponse"
     "fixture/GetPermissionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPermissionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPermissionPolicy)
 
 responseListRuleGroups :: ListRuleGroupsResponse -> TestTree
 responseListRuleGroups =
@@ -1431,7 +1431,7 @@ responseListRuleGroups =
     "ListRuleGroupsResponse"
     "fixture/ListRuleGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRuleGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListRuleGroups)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1439,7 +1439,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeleteRuleGroup :: DeleteRuleGroupResponse -> TestTree
 responseDeleteRuleGroup =
@@ -1447,7 +1447,7 @@ responseDeleteRuleGroup =
     "DeleteRuleGroupResponse"
     "fixture/DeleteRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRuleGroup)
 
 responseUpdateRuleGroup :: UpdateRuleGroupResponse -> TestTree
 responseUpdateRuleGroup =
@@ -1455,7 +1455,7 @@ responseUpdateRuleGroup =
     "UpdateRuleGroupResponse"
     "fixture/UpdateRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleGroup)
 
 responseCreateRegexMatchSet :: CreateRegexMatchSetResponse -> TestTree
 responseCreateRegexMatchSet =
@@ -1463,7 +1463,7 @@ responseCreateRegexMatchSet =
     "CreateRegexMatchSetResponse"
     "fixture/CreateRegexMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRegexMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateRegexMatchSet)
 
 responseGetRateBasedRule :: GetRateBasedRuleResponse -> TestTree
 responseGetRateBasedRule =
@@ -1471,7 +1471,7 @@ responseGetRateBasedRule =
     "GetRateBasedRuleResponse"
     "fixture/GetRateBasedRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRateBasedRule)
+    (Proxy.Proxy :: Proxy.Proxy GetRateBasedRule)
 
 responseCreateRegexPatternSet :: CreateRegexPatternSetResponse -> TestTree
 responseCreateRegexPatternSet =
@@ -1479,7 +1479,7 @@ responseCreateRegexPatternSet =
     "CreateRegexPatternSetResponse"
     "fixture/CreateRegexPatternSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRegexPatternSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateRegexPatternSet)
 
 responseDeleteSizeConstraintSet :: DeleteSizeConstraintSetResponse -> TestTree
 responseDeleteSizeConstraintSet =
@@ -1487,7 +1487,7 @@ responseDeleteSizeConstraintSet =
     "DeleteSizeConstraintSetResponse"
     "fixture/DeleteSizeConstraintSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSizeConstraintSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSizeConstraintSet)
 
 responseUpdateSizeConstraintSet :: UpdateSizeConstraintSetResponse -> TestTree
 responseUpdateSizeConstraintSet =
@@ -1495,7 +1495,7 @@ responseUpdateSizeConstraintSet =
     "UpdateSizeConstraintSetResponse"
     "fixture/UpdateSizeConstraintSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSizeConstraintSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSizeConstraintSet)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1503,7 +1503,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteRegexPatternSet :: DeleteRegexPatternSetResponse -> TestTree
 responseDeleteRegexPatternSet =
@@ -1511,7 +1511,7 @@ responseDeleteRegexPatternSet =
     "DeleteRegexPatternSetResponse"
     "fixture/DeleteRegexPatternSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRegexPatternSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRegexPatternSet)
 
 responseUpdateRegexPatternSet :: UpdateRegexPatternSetResponse -> TestTree
 responseUpdateRegexPatternSet =
@@ -1519,7 +1519,7 @@ responseUpdateRegexPatternSet =
     "UpdateRegexPatternSetResponse"
     "fixture/UpdateRegexPatternSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRegexPatternSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRegexPatternSet)
 
 responseCreateSizeConstraintSet :: CreateSizeConstraintSetResponse -> TestTree
 responseCreateSizeConstraintSet =
@@ -1527,7 +1527,7 @@ responseCreateSizeConstraintSet =
     "CreateSizeConstraintSetResponse"
     "fixture/CreateSizeConstraintSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSizeConstraintSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateSizeConstraintSet)
 
 responseListRegexPatternSets :: ListRegexPatternSetsResponse -> TestTree
 responseListRegexPatternSets =
@@ -1535,7 +1535,7 @@ responseListRegexPatternSets =
     "ListRegexPatternSetsResponse"
     "fixture/ListRegexPatternSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRegexPatternSets)
+    (Proxy.Proxy :: Proxy.Proxy ListRegexPatternSets)
 
 responseListSqlInjectionMatchSets :: ListSqlInjectionMatchSetsResponse -> TestTree
 responseListSqlInjectionMatchSets =
@@ -1543,7 +1543,7 @@ responseListSqlInjectionMatchSets =
     "ListSqlInjectionMatchSetsResponse"
     "fixture/ListSqlInjectionMatchSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSqlInjectionMatchSets)
+    (Proxy.Proxy :: Proxy.Proxy ListSqlInjectionMatchSets)
 
 responseGetRegexPatternSet :: GetRegexPatternSetResponse -> TestTree
 responseGetRegexPatternSet =
@@ -1551,7 +1551,7 @@ responseGetRegexPatternSet =
     "GetRegexPatternSetResponse"
     "fixture/GetRegexPatternSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRegexPatternSet)
+    (Proxy.Proxy :: Proxy.Proxy GetRegexPatternSet)
 
 responseCreateRateBasedRule :: CreateRateBasedRuleResponse -> TestTree
 responseCreateRateBasedRule =
@@ -1559,7 +1559,7 @@ responseCreateRateBasedRule =
     "CreateRateBasedRuleResponse"
     "fixture/CreateRateBasedRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRateBasedRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateRateBasedRule)
 
 responseDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSetResponse -> TestTree
 responseDeleteSqlInjectionMatchSet =
@@ -1567,7 +1567,7 @@ responseDeleteSqlInjectionMatchSet =
     "DeleteSqlInjectionMatchSetResponse"
     "fixture/DeleteSqlInjectionMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSqlInjectionMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSqlInjectionMatchSet)
 
 responseUpdateSqlInjectionMatchSet :: UpdateSqlInjectionMatchSetResponse -> TestTree
 responseUpdateSqlInjectionMatchSet =
@@ -1575,4 +1575,4 @@ responseUpdateSqlInjectionMatchSet =
     "UpdateSqlInjectionMatchSetResponse"
     "fixture/UpdateSqlInjectionMatchSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSqlInjectionMatchSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSqlInjectionMatchSet)

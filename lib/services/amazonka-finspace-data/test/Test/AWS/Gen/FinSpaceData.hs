@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FinSpaceData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.FinSpaceData
 import Test.AWS.FinSpaceData.Internal
 import Test.AWS.Fixture
@@ -79,7 +79,7 @@ responseCreateChangeset =
     "CreateChangesetResponse"
     "fixture/CreateChangesetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChangeset)
+    (Proxy.Proxy :: Proxy.Proxy CreateChangeset)
 
 responseGetProgrammaticAccessCredentials :: GetProgrammaticAccessCredentialsResponse -> TestTree
 responseGetProgrammaticAccessCredentials =
@@ -87,7 +87,7 @@ responseGetProgrammaticAccessCredentials =
     "GetProgrammaticAccessCredentialsResponse"
     "fixture/GetProgrammaticAccessCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProgrammaticAccessCredentials)
+    (Proxy.Proxy :: Proxy.Proxy GetProgrammaticAccessCredentials)
 
 responseGetWorkingLocation :: GetWorkingLocationResponse -> TestTree
 responseGetWorkingLocation =
@@ -95,4 +95,4 @@ responseGetWorkingLocation =
     "GetWorkingLocationResponse"
     "fixture/GetWorkingLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorkingLocation)
+    (Proxy.Proxy :: Proxy.Proxy GetWorkingLocation)

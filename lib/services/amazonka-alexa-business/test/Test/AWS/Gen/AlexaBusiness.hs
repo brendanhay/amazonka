@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AlexaBusiness where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AlexaBusiness
 import Test.AWS.AlexaBusiness.Internal
 import Test.AWS.Fixture
@@ -1159,7 +1159,7 @@ responseSearchUsers =
     "SearchUsersResponse"
     "fixture/SearchUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchUsers)
+    (Proxy.Proxy :: Proxy.Proxy SearchUsers)
 
 responsePutConferencePreference :: PutConferencePreferenceResponse -> TestTree
 responsePutConferencePreference =
@@ -1167,7 +1167,7 @@ responsePutConferencePreference =
     "PutConferencePreferenceResponse"
     "fixture/PutConferencePreferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConferencePreference)
+    (Proxy.Proxy :: Proxy.Proxy PutConferencePreference)
 
 responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
 responseUpdateNetworkProfile =
@@ -1175,7 +1175,7 @@ responseUpdateNetworkProfile =
     "UpdateNetworkProfileResponse"
     "fixture/UpdateNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNetworkProfile)
 
 responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
 responseDeleteNetworkProfile =
@@ -1183,7 +1183,7 @@ responseDeleteNetworkProfile =
     "DeleteNetworkProfileResponse"
     "fixture/DeleteNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkProfile)
 
 responseUpdateBusinessReportSchedule :: UpdateBusinessReportScheduleResponse -> TestTree
 responseUpdateBusinessReportSchedule =
@@ -1191,7 +1191,7 @@ responseUpdateBusinessReportSchedule =
     "UpdateBusinessReportScheduleResponse"
     "fixture/UpdateBusinessReportScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBusinessReportSchedule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBusinessReportSchedule)
 
 responseDeleteBusinessReportSchedule :: DeleteBusinessReportScheduleResponse -> TestTree
 responseDeleteBusinessReportSchedule =
@@ -1199,7 +1199,7 @@ responseDeleteBusinessReportSchedule =
     "DeleteBusinessReportScheduleResponse"
     "fixture/DeleteBusinessReportScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBusinessReportSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBusinessReportSchedule)
 
 responseAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoomResponse -> TestTree
 responseAssociateSkillGroupWithRoom =
@@ -1207,7 +1207,7 @@ responseAssociateSkillGroupWithRoom =
     "AssociateSkillGroupWithRoomResponse"
     "fixture/AssociateSkillGroupWithRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSkillGroupWithRoom)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSkillGroupWithRoom)
 
 responseListSmartHomeAppliances :: ListSmartHomeAppliancesResponse -> TestTree
 responseListSmartHomeAppliances =
@@ -1215,7 +1215,7 @@ responseListSmartHomeAppliances =
     "ListSmartHomeAppliancesResponse"
     "fixture/ListSmartHomeAppliancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSmartHomeAppliances)
+    (Proxy.Proxy :: Proxy.Proxy ListSmartHomeAppliances)
 
 responseDeleteProfile :: DeleteProfileResponse -> TestTree
 responseDeleteProfile =
@@ -1223,7 +1223,7 @@ responseDeleteProfile =
     "DeleteProfileResponse"
     "fixture/DeleteProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfile)
 
 responseUpdateProfile :: UpdateProfileResponse -> TestTree
 responseUpdateProfile =
@@ -1231,7 +1231,7 @@ responseUpdateProfile =
     "UpdateProfileResponse"
     "fixture/UpdateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfile)
 
 responseSearchRooms :: SearchRoomsResponse -> TestTree
 responseSearchRooms =
@@ -1239,7 +1239,7 @@ responseSearchRooms =
     "SearchRoomsResponse"
     "fixture/SearchRoomsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchRooms)
+    (Proxy.Proxy :: Proxy.Proxy SearchRooms)
 
 responseAssociateSkillWithUsers :: AssociateSkillWithUsersResponse -> TestTree
 responseAssociateSkillWithUsers =
@@ -1247,7 +1247,7 @@ responseAssociateSkillWithUsers =
     "AssociateSkillWithUsersResponse"
     "fixture/AssociateSkillWithUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSkillWithUsers)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSkillWithUsers)
 
 responseRegisterAVSDevice :: RegisterAVSDeviceResponse -> TestTree
 responseRegisterAVSDevice =
@@ -1255,7 +1255,7 @@ responseRegisterAVSDevice =
     "RegisterAVSDeviceResponse"
     "fixture/RegisterAVSDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterAVSDevice)
+    (Proxy.Proxy :: Proxy.Proxy RegisterAVSDevice)
 
 responseForgetSmartHomeAppliances :: ForgetSmartHomeAppliancesResponse -> TestTree
 responseForgetSmartHomeAppliances =
@@ -1263,7 +1263,7 @@ responseForgetSmartHomeAppliances =
     "ForgetSmartHomeAppliancesResponse"
     "fixture/ForgetSmartHomeAppliancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ForgetSmartHomeAppliances)
+    (Proxy.Proxy :: Proxy.Proxy ForgetSmartHomeAppliances)
 
 responsePutInvitationConfiguration :: PutInvitationConfigurationResponse -> TestTree
 responsePutInvitationConfiguration =
@@ -1271,7 +1271,7 @@ responsePutInvitationConfiguration =
     "PutInvitationConfigurationResponse"
     "fixture/PutInvitationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInvitationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutInvitationConfiguration)
 
 responseDisassociateContactFromAddressBook :: DisassociateContactFromAddressBookResponse -> TestTree
 responseDisassociateContactFromAddressBook =
@@ -1279,7 +1279,7 @@ responseDisassociateContactFromAddressBook =
     "DisassociateContactFromAddressBookResponse"
     "fixture/DisassociateContactFromAddressBookResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateContactFromAddressBook)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateContactFromAddressBook)
 
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
 responseGetNetworkProfile =
@@ -1287,7 +1287,7 @@ responseGetNetworkProfile =
     "GetNetworkProfileResponse"
     "fixture/GetNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetNetworkProfile)
 
 responseGetConferencePreference :: GetConferencePreferenceResponse -> TestTree
 responseGetConferencePreference =
@@ -1295,7 +1295,7 @@ responseGetConferencePreference =
     "GetConferencePreferenceResponse"
     "fixture/GetConferencePreferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConferencePreference)
+    (Proxy.Proxy :: Proxy.Proxy GetConferencePreference)
 
 responseDisassociateSkillFromSkillGroup :: DisassociateSkillFromSkillGroupResponse -> TestTree
 responseDisassociateSkillFromSkillGroup =
@@ -1303,7 +1303,7 @@ responseDisassociateSkillFromSkillGroup =
     "DisassociateSkillFromSkillGroupResponse"
     "fixture/DisassociateSkillFromSkillGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSkillFromSkillGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSkillFromSkillGroup)
 
 responseCreateAddressBook :: CreateAddressBookResponse -> TestTree
 responseCreateAddressBook =
@@ -1311,7 +1311,7 @@ responseCreateAddressBook =
     "CreateAddressBookResponse"
     "fixture/CreateAddressBookResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAddressBook)
+    (Proxy.Proxy :: Proxy.Proxy CreateAddressBook)
 
 responseDeleteAddressBook :: DeleteAddressBookResponse -> TestTree
 responseDeleteAddressBook =
@@ -1319,7 +1319,7 @@ responseDeleteAddressBook =
     "DeleteAddressBookResponse"
     "fixture/DeleteAddressBookResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAddressBook)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAddressBook)
 
 responseUpdateAddressBook :: UpdateAddressBookResponse -> TestTree
 responseUpdateAddressBook =
@@ -1327,7 +1327,7 @@ responseUpdateAddressBook =
     "UpdateAddressBookResponse"
     "fixture/UpdateAddressBookResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAddressBook)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAddressBook)
 
 responseDeleteGatewayGroup :: DeleteGatewayGroupResponse -> TestTree
 responseDeleteGatewayGroup =
@@ -1335,7 +1335,7 @@ responseDeleteGatewayGroup =
     "DeleteGatewayGroupResponse"
     "fixture/DeleteGatewayGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGatewayGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGatewayGroup)
 
 responseUpdateGatewayGroup :: UpdateGatewayGroupResponse -> TestTree
 responseUpdateGatewayGroup =
@@ -1343,7 +1343,7 @@ responseUpdateGatewayGroup =
     "UpdateGatewayGroupResponse"
     "fixture/UpdateGatewayGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGatewayGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayGroup)
 
 responseUpdateRoom :: UpdateRoomResponse -> TestTree
 responseUpdateRoom =
@@ -1351,7 +1351,7 @@ responseUpdateRoom =
     "UpdateRoomResponse"
     "fixture/UpdateRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoom)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoom)
 
 responseDeleteRoom :: DeleteRoomResponse -> TestTree
 responseDeleteRoom =
@@ -1359,7 +1359,7 @@ responseDeleteRoom =
     "DeleteRoomResponse"
     "fixture/DeleteRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoom)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoom)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice =
@@ -1367,7 +1367,7 @@ responseGetDevice =
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevice)
+    (Proxy.Proxy :: Proxy.Proxy GetDevice)
 
 responseGetGateway :: GetGatewayResponse -> TestTree
 responseGetGateway =
@@ -1375,7 +1375,7 @@ responseGetGateway =
     "GetGatewayResponse"
     "fixture/GetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGateway)
+    (Proxy.Proxy :: Proxy.Proxy GetGateway)
 
 responseListSkillsStoreSkillsByCategory :: ListSkillsStoreSkillsByCategoryResponse -> TestTree
 responseListSkillsStoreSkillsByCategory =
@@ -1383,7 +1383,7 @@ responseListSkillsStoreSkillsByCategory =
     "ListSkillsStoreSkillsByCategoryResponse"
     "fixture/ListSkillsStoreSkillsByCategoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSkillsStoreSkillsByCategory)
+    (Proxy.Proxy :: Proxy.Proxy ListSkillsStoreSkillsByCategory)
 
 responseDeleteConferenceProvider :: DeleteConferenceProviderResponse -> TestTree
 responseDeleteConferenceProvider =
@@ -1391,7 +1391,7 @@ responseDeleteConferenceProvider =
     "DeleteConferenceProviderResponse"
     "fixture/DeleteConferenceProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConferenceProvider)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConferenceProvider)
 
 responseUpdateConferenceProvider :: UpdateConferenceProviderResponse -> TestTree
 responseUpdateConferenceProvider =
@@ -1399,7 +1399,7 @@ responseUpdateConferenceProvider =
     "UpdateConferenceProviderResponse"
     "fixture/UpdateConferenceProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConferenceProvider)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConferenceProvider)
 
 responseGetContact :: GetContactResponse -> TestTree
 responseGetContact =
@@ -1407,7 +1407,7 @@ responseGetContact =
     "GetContactResponse"
     "fixture/GetContactResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContact)
+    (Proxy.Proxy :: Proxy.Proxy GetContact)
 
 responseApproveSkill :: ApproveSkillResponse -> TestTree
 responseApproveSkill =
@@ -1415,7 +1415,7 @@ responseApproveSkill =
     "ApproveSkillResponse"
     "fixture/ApproveSkillResponse.proto"
     defaultService
-    (Proxy :: Proxy ApproveSkill)
+    (Proxy.Proxy :: Proxy.Proxy ApproveSkill)
 
 responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
 responseCreateNetworkProfile =
@@ -1423,7 +1423,7 @@ responseCreateNetworkProfile =
     "CreateNetworkProfileResponse"
     "fixture/CreateNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkProfile)
 
 responseAssociateDeviceWithRoom :: AssociateDeviceWithRoomResponse -> TestTree
 responseAssociateDeviceWithRoom =
@@ -1431,7 +1431,7 @@ responseAssociateDeviceWithRoom =
     "AssociateDeviceWithRoomResponse"
     "fixture/AssociateDeviceWithRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDeviceWithRoom)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDeviceWithRoom)
 
 responseGetRoomSkillParameter :: GetRoomSkillParameterResponse -> TestTree
 responseGetRoomSkillParameter =
@@ -1439,7 +1439,7 @@ responseGetRoomSkillParameter =
     "GetRoomSkillParameterResponse"
     "fixture/GetRoomSkillParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoomSkillParameter)
+    (Proxy.Proxy :: Proxy.Proxy GetRoomSkillParameter)
 
 responseUpdateGateway :: UpdateGatewayResponse -> TestTree
 responseUpdateGateway =
@@ -1447,7 +1447,7 @@ responseUpdateGateway =
     "UpdateGatewayResponse"
     "fixture/UpdateGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGateway)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGateway)
 
 responseCreateBusinessReportSchedule :: CreateBusinessReportScheduleResponse -> TestTree
 responseCreateBusinessReportSchedule =
@@ -1455,7 +1455,7 @@ responseCreateBusinessReportSchedule =
     "CreateBusinessReportScheduleResponse"
     "fixture/CreateBusinessReportScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBusinessReportSchedule)
+    (Proxy.Proxy :: Proxy.Proxy CreateBusinessReportSchedule)
 
 responseDeleteContact :: DeleteContactResponse -> TestTree
 responseDeleteContact =
@@ -1463,7 +1463,7 @@ responseDeleteContact =
     "DeleteContactResponse"
     "fixture/DeleteContactResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContact)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContact)
 
 responseUpdateContact :: UpdateContactResponse -> TestTree
 responseUpdateContact =
@@ -1471,7 +1471,7 @@ responseUpdateContact =
     "UpdateContactResponse"
     "fixture/UpdateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContact)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContact)
 
 responseGetAddressBook :: GetAddressBookResponse -> TestTree
 responseGetAddressBook =
@@ -1479,7 +1479,7 @@ responseGetAddressBook =
     "GetAddressBookResponse"
     "fixture/GetAddressBookResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAddressBook)
+    (Proxy.Proxy :: Proxy.Proxy GetAddressBook)
 
 responseListBusinessReportSchedules :: ListBusinessReportSchedulesResponse -> TestTree
 responseListBusinessReportSchedules =
@@ -1487,7 +1487,7 @@ responseListBusinessReportSchedules =
     "ListBusinessReportSchedulesResponse"
     "fixture/ListBusinessReportSchedulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBusinessReportSchedules)
+    (Proxy.Proxy :: Proxy.Proxy ListBusinessReportSchedules)
 
 responseDeleteDeviceUsageData :: DeleteDeviceUsageDataResponse -> TestTree
 responseDeleteDeviceUsageData =
@@ -1495,7 +1495,7 @@ responseDeleteDeviceUsageData =
     "DeleteDeviceUsageDataResponse"
     "fixture/DeleteDeviceUsageDataResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeviceUsageData)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeviceUsageData)
 
 responseCreateContact :: CreateContactResponse -> TestTree
 responseCreateContact =
@@ -1503,7 +1503,7 @@ responseCreateContact =
     "CreateContactResponse"
     "fixture/CreateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContact)
+    (Proxy.Proxy :: Proxy.Proxy CreateContact)
 
 responseCreateProfile :: CreateProfileResponse -> TestTree
 responseCreateProfile =
@@ -1511,7 +1511,7 @@ responseCreateProfile =
     "CreateProfileResponse"
     "fixture/CreateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateProfile)
 
 responseDeleteSkillGroup :: DeleteSkillGroupResponse -> TestTree
 responseDeleteSkillGroup =
@@ -1519,7 +1519,7 @@ responseDeleteSkillGroup =
     "DeleteSkillGroupResponse"
     "fixture/DeleteSkillGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSkillGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSkillGroup)
 
 responseUpdateSkillGroup :: UpdateSkillGroupResponse -> TestTree
 responseUpdateSkillGroup =
@@ -1527,7 +1527,7 @@ responseUpdateSkillGroup =
     "UpdateSkillGroupResponse"
     "fixture/UpdateSkillGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSkillGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSkillGroup)
 
 responseStartDeviceSync :: StartDeviceSyncResponse -> TestTree
 responseStartDeviceSync =
@@ -1535,7 +1535,7 @@ responseStartDeviceSync =
     "StartDeviceSyncResponse"
     "fixture/StartDeviceSyncResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDeviceSync)
+    (Proxy.Proxy :: Proxy.Proxy StartDeviceSync)
 
 responseGetInvitationConfiguration :: GetInvitationConfigurationResponse -> TestTree
 responseGetInvitationConfiguration =
@@ -1543,7 +1543,7 @@ responseGetInvitationConfiguration =
     "GetInvitationConfigurationResponse"
     "fixture/GetInvitationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInvitationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetInvitationConfiguration)
 
 responseDisassociateSkillFromUsers :: DisassociateSkillFromUsersResponse -> TestTree
 responseDisassociateSkillFromUsers =
@@ -1551,7 +1551,7 @@ responseDisassociateSkillFromUsers =
     "DisassociateSkillFromUsersResponse"
     "fixture/DisassociateSkillFromUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSkillFromUsers)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSkillFromUsers)
 
 responseSearchAddressBooks :: SearchAddressBooksResponse -> TestTree
 responseSearchAddressBooks =
@@ -1559,7 +1559,7 @@ responseSearchAddressBooks =
     "SearchAddressBooksResponse"
     "fixture/SearchAddressBooksResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchAddressBooks)
+    (Proxy.Proxy :: Proxy.Proxy SearchAddressBooks)
 
 responseCreateSkillGroup :: CreateSkillGroupResponse -> TestTree
 responseCreateSkillGroup =
@@ -1567,7 +1567,7 @@ responseCreateSkillGroup =
     "CreateSkillGroupResponse"
     "fixture/CreateSkillGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSkillGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateSkillGroup)
 
 responseGetProfile :: GetProfileResponse -> TestTree
 responseGetProfile =
@@ -1575,7 +1575,7 @@ responseGetProfile =
     "GetProfileResponse"
     "fixture/GetProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetProfile)
 
 responseDisassociateSkillGroupFromRoom :: DisassociateSkillGroupFromRoomResponse -> TestTree
 responseDisassociateSkillGroupFromRoom =
@@ -1583,7 +1583,7 @@ responseDisassociateSkillGroupFromRoom =
     "DisassociateSkillGroupFromRoomResponse"
     "fixture/DisassociateSkillGroupFromRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSkillGroupFromRoom)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSkillGroupFromRoom)
 
 responseSendInvitation :: SendInvitationResponse -> TestTree
 responseSendInvitation =
@@ -1591,7 +1591,7 @@ responseSendInvitation =
     "SendInvitationResponse"
     "fixture/SendInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy SendInvitation)
+    (Proxy.Proxy :: Proxy.Proxy SendInvitation)
 
 responseListDeviceEvents :: ListDeviceEventsResponse -> TestTree
 responseListDeviceEvents =
@@ -1599,7 +1599,7 @@ responseListDeviceEvents =
     "ListDeviceEventsResponse"
     "fixture/ListDeviceEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceEvents)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceEvents)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -1607,7 +1607,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseSearchDevices :: SearchDevicesResponse -> TestTree
 responseSearchDevices =
@@ -1615,7 +1615,7 @@ responseSearchDevices =
     "SearchDevicesResponse"
     "fixture/SearchDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchDevices)
+    (Proxy.Proxy :: Proxy.Proxy SearchDevices)
 
 responseSearchContacts :: SearchContactsResponse -> TestTree
 responseSearchContacts =
@@ -1623,7 +1623,7 @@ responseSearchContacts =
     "SearchContactsResponse"
     "fixture/SearchContactsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchContacts)
+    (Proxy.Proxy :: Proxy.Proxy SearchContacts)
 
 responseSendAnnouncement :: SendAnnouncementResponse -> TestTree
 responseSendAnnouncement =
@@ -1631,7 +1631,7 @@ responseSendAnnouncement =
     "SendAnnouncementResponse"
     "fixture/SendAnnouncementResponse.proto"
     defaultService
-    (Proxy :: Proxy SendAnnouncement)
+    (Proxy.Proxy :: Proxy.Proxy SendAnnouncement)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -1639,7 +1639,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseSearchNetworkProfiles :: SearchNetworkProfilesResponse -> TestTree
 responseSearchNetworkProfiles =
@@ -1647,7 +1647,7 @@ responseSearchNetworkProfiles =
     "SearchNetworkProfilesResponse"
     "fixture/SearchNetworkProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchNetworkProfiles)
+    (Proxy.Proxy :: Proxy.Proxy SearchNetworkProfiles)
 
 responseGetSkillGroup :: GetSkillGroupResponse -> TestTree
 responseGetSkillGroup =
@@ -1655,7 +1655,7 @@ responseGetSkillGroup =
     "GetSkillGroupResponse"
     "fixture/GetSkillGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSkillGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetSkillGroup)
 
 responseListSkills :: ListSkillsResponse -> TestTree
 responseListSkills =
@@ -1663,7 +1663,7 @@ responseListSkills =
     "ListSkillsResponse"
     "fixture/ListSkillsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSkills)
+    (Proxy.Proxy :: Proxy.Proxy ListSkills)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1671,7 +1671,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDisassociateDeviceFromRoom :: DisassociateDeviceFromRoomResponse -> TestTree
 responseDisassociateDeviceFromRoom =
@@ -1679,7 +1679,7 @@ responseDisassociateDeviceFromRoom =
     "DisassociateDeviceFromRoomResponse"
     "fixture/DisassociateDeviceFromRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDeviceFromRoom)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDeviceFromRoom)
 
 responseSearchSkillGroups :: SearchSkillGroupsResponse -> TestTree
 responseSearchSkillGroups =
@@ -1687,7 +1687,7 @@ responseSearchSkillGroups =
     "SearchSkillGroupsResponse"
     "fixture/SearchSkillGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchSkillGroups)
+    (Proxy.Proxy :: Proxy.Proxy SearchSkillGroups)
 
 responsePutSkillAuthorization :: PutSkillAuthorizationResponse -> TestTree
 responsePutSkillAuthorization =
@@ -1695,7 +1695,7 @@ responsePutSkillAuthorization =
     "PutSkillAuthorizationResponse"
     "fixture/PutSkillAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSkillAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy PutSkillAuthorization)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -1703,7 +1703,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseDeleteSkillAuthorization :: DeleteSkillAuthorizationResponse -> TestTree
 responseDeleteSkillAuthorization =
@@ -1711,7 +1711,7 @@ responseDeleteSkillAuthorization =
     "DeleteSkillAuthorizationResponse"
     "fixture/DeleteSkillAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSkillAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSkillAuthorization)
 
 responseAssociateDeviceWithNetworkProfile :: AssociateDeviceWithNetworkProfileResponse -> TestTree
 responseAssociateDeviceWithNetworkProfile =
@@ -1719,7 +1719,7 @@ responseAssociateDeviceWithNetworkProfile =
     "AssociateDeviceWithNetworkProfileResponse"
     "fixture/AssociateDeviceWithNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDeviceWithNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDeviceWithNetworkProfile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1727,7 +1727,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateConferenceProvider :: CreateConferenceProviderResponse -> TestTree
 responseCreateConferenceProvider =
@@ -1735,7 +1735,7 @@ responseCreateConferenceProvider =
     "CreateConferenceProviderResponse"
     "fixture/CreateConferenceProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConferenceProvider)
+    (Proxy.Proxy :: Proxy.Proxy CreateConferenceProvider)
 
 responseResolveRoom :: ResolveRoomResponse -> TestTree
 responseResolveRoom =
@@ -1743,7 +1743,7 @@ responseResolveRoom =
     "ResolveRoomResponse"
     "fixture/ResolveRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy ResolveRoom)
+    (Proxy.Proxy :: Proxy.Proxy ResolveRoom)
 
 responseCreateGatewayGroup :: CreateGatewayGroupResponse -> TestTree
 responseCreateGatewayGroup =
@@ -1751,7 +1751,7 @@ responseCreateGatewayGroup =
     "CreateGatewayGroupResponse"
     "fixture/CreateGatewayGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGatewayGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGatewayGroup)
 
 responseCreateRoom :: CreateRoomResponse -> TestTree
 responseCreateRoom =
@@ -1759,7 +1759,7 @@ responseCreateRoom =
     "CreateRoomResponse"
     "fixture/CreateRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoom)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoom)
 
 responseDeleteRoomSkillParameter :: DeleteRoomSkillParameterResponse -> TestTree
 responseDeleteRoomSkillParameter =
@@ -1767,7 +1767,7 @@ responseDeleteRoomSkillParameter =
     "DeleteRoomSkillParameterResponse"
     "fixture/DeleteRoomSkillParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoomSkillParameter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoomSkillParameter)
 
 responseListGatewayGroups :: ListGatewayGroupsResponse -> TestTree
 responseListGatewayGroups =
@@ -1775,7 +1775,7 @@ responseListGatewayGroups =
     "ListGatewayGroupsResponse"
     "fixture/ListGatewayGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGatewayGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGatewayGroups)
 
 responsePutRoomSkillParameter :: PutRoomSkillParameterResponse -> TestTree
 responsePutRoomSkillParameter =
@@ -1783,7 +1783,7 @@ responsePutRoomSkillParameter =
     "PutRoomSkillParameterResponse"
     "fixture/PutRoomSkillParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRoomSkillParameter)
+    (Proxy.Proxy :: Proxy.Proxy PutRoomSkillParameter)
 
 responseSearchProfiles :: SearchProfilesResponse -> TestTree
 responseSearchProfiles =
@@ -1791,7 +1791,7 @@ responseSearchProfiles =
     "SearchProfilesResponse"
     "fixture/SearchProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchProfiles)
+    (Proxy.Proxy :: Proxy.Proxy SearchProfiles)
 
 responseRejectSkill :: RejectSkillResponse -> TestTree
 responseRejectSkill =
@@ -1799,7 +1799,7 @@ responseRejectSkill =
     "RejectSkillResponse"
     "fixture/RejectSkillResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectSkill)
+    (Proxy.Proxy :: Proxy.Proxy RejectSkill)
 
 responseListConferenceProviders :: ListConferenceProvidersResponse -> TestTree
 responseListConferenceProviders =
@@ -1807,7 +1807,7 @@ responseListConferenceProviders =
     "ListConferenceProvidersResponse"
     "fixture/ListConferenceProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConferenceProviders)
+    (Proxy.Proxy :: Proxy.Proxy ListConferenceProviders)
 
 responseRevokeInvitation :: RevokeInvitationResponse -> TestTree
 responseRevokeInvitation =
@@ -1815,7 +1815,7 @@ responseRevokeInvitation =
     "RevokeInvitationResponse"
     "fixture/RevokeInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeInvitation)
+    (Proxy.Proxy :: Proxy.Proxy RevokeInvitation)
 
 responseListGateways :: ListGatewaysResponse -> TestTree
 responseListGateways =
@@ -1823,7 +1823,7 @@ responseListGateways =
     "ListGatewaysResponse"
     "fixture/ListGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGateways)
+    (Proxy.Proxy :: Proxy.Proxy ListGateways)
 
 responseDeleteDevice :: DeleteDeviceResponse -> TestTree
 responseDeleteDevice =
@@ -1831,7 +1831,7 @@ responseDeleteDevice =
     "DeleteDeviceResponse"
     "fixture/DeleteDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDevice)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDevice)
 
 responseUpdateDevice :: UpdateDeviceResponse -> TestTree
 responseUpdateDevice =
@@ -1839,7 +1839,7 @@ responseUpdateDevice =
     "UpdateDeviceResponse"
     "fixture/UpdateDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDevice)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDevice)
 
 responseAssociateSkillWithSkillGroup :: AssociateSkillWithSkillGroupResponse -> TestTree
 responseAssociateSkillWithSkillGroup =
@@ -1847,7 +1847,7 @@ responseAssociateSkillWithSkillGroup =
     "AssociateSkillWithSkillGroupResponse"
     "fixture/AssociateSkillWithSkillGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSkillWithSkillGroup)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSkillWithSkillGroup)
 
 responseGetConferenceProvider :: GetConferenceProviderResponse -> TestTree
 responseGetConferenceProvider =
@@ -1855,7 +1855,7 @@ responseGetConferenceProvider =
     "GetConferenceProviderResponse"
     "fixture/GetConferenceProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConferenceProvider)
+    (Proxy.Proxy :: Proxy.Proxy GetConferenceProvider)
 
 responseGetRoom :: GetRoomResponse -> TestTree
 responseGetRoom =
@@ -1863,7 +1863,7 @@ responseGetRoom =
     "GetRoomResponse"
     "fixture/GetRoomResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRoom)
+    (Proxy.Proxy :: Proxy.Proxy GetRoom)
 
 responseGetGatewayGroup :: GetGatewayGroupResponse -> TestTree
 responseGetGatewayGroup =
@@ -1871,7 +1871,7 @@ responseGetGatewayGroup =
     "GetGatewayGroupResponse"
     "fixture/GetGatewayGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGatewayGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetGatewayGroup)
 
 responseListSkillsStoreCategories :: ListSkillsStoreCategoriesResponse -> TestTree
 responseListSkillsStoreCategories =
@@ -1879,7 +1879,7 @@ responseListSkillsStoreCategories =
     "ListSkillsStoreCategoriesResponse"
     "fixture/ListSkillsStoreCategoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSkillsStoreCategories)
+    (Proxy.Proxy :: Proxy.Proxy ListSkillsStoreCategories)
 
 responseStartSmartHomeApplianceDiscovery :: StartSmartHomeApplianceDiscoveryResponse -> TestTree
 responseStartSmartHomeApplianceDiscovery =
@@ -1887,7 +1887,7 @@ responseStartSmartHomeApplianceDiscovery =
     "StartSmartHomeApplianceDiscoveryResponse"
     "fixture/StartSmartHomeApplianceDiscoveryResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSmartHomeApplianceDiscovery)
+    (Proxy.Proxy :: Proxy.Proxy StartSmartHomeApplianceDiscovery)
 
 responseAssociateContactWithAddressBook :: AssociateContactWithAddressBookResponse -> TestTree
 responseAssociateContactWithAddressBook =
@@ -1895,4 +1895,4 @@ responseAssociateContactWithAddressBook =
     "AssociateContactWithAddressBookResponse"
     "fixture/AssociateContactWithAddressBookResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateContactWithAddressBook)
+    (Proxy.Proxy :: Proxy.Proxy AssociateContactWithAddressBook)

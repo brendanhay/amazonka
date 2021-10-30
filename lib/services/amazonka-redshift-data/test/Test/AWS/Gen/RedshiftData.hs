@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RedshiftData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.RedshiftData
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -163,7 +163,7 @@ responseListStatements =
     "ListStatementsResponse"
     "fixture/ListStatementsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStatements)
+    (Proxy.Proxy :: Proxy.Proxy ListStatements)
 
 responseListDatabases :: ListDatabasesResponse -> TestTree
 responseListDatabases =
@@ -171,7 +171,7 @@ responseListDatabases =
     "ListDatabasesResponse"
     "fixture/ListDatabasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatabases)
+    (Proxy.Proxy :: Proxy.Proxy ListDatabases)
 
 responseListSchemas :: ListSchemasResponse -> TestTree
 responseListSchemas =
@@ -179,7 +179,7 @@ responseListSchemas =
     "ListSchemasResponse"
     "fixture/ListSchemasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSchemas)
+    (Proxy.Proxy :: Proxy.Proxy ListSchemas)
 
 responseDescribeStatement :: DescribeStatementResponse -> TestTree
 responseDescribeStatement =
@@ -187,7 +187,7 @@ responseDescribeStatement =
     "DescribeStatementResponse"
     "fixture/DescribeStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStatement)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStatement)
 
 responseCancelStatement :: CancelStatementResponse -> TestTree
 responseCancelStatement =
@@ -195,7 +195,7 @@ responseCancelStatement =
     "CancelStatementResponse"
     "fixture/CancelStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelStatement)
+    (Proxy.Proxy :: Proxy.Proxy CancelStatement)
 
 responseDescribeTable :: DescribeTableResponse -> TestTree
 responseDescribeTable =
@@ -203,7 +203,7 @@ responseDescribeTable =
     "DescribeTableResponse"
     "fixture/DescribeTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTable)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTable)
 
 responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
 responseBatchExecuteStatement =
@@ -211,7 +211,7 @@ responseBatchExecuteStatement =
     "BatchExecuteStatementResponse"
     "fixture/BatchExecuteStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
 
 responseListTables :: ListTablesResponse -> TestTree
 responseListTables =
@@ -219,7 +219,7 @@ responseListTables =
     "ListTablesResponse"
     "fixture/ListTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTables)
+    (Proxy.Proxy :: Proxy.Proxy ListTables)
 
 responseExecuteStatement :: ExecuteStatementResponse -> TestTree
 responseExecuteStatement =
@@ -227,7 +227,7 @@ responseExecuteStatement =
     "ExecuteStatementResponse"
     "fixture/ExecuteStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
 
 responseGetStatementResult :: GetStatementResultResponse -> TestTree
 responseGetStatementResult =
@@ -235,4 +235,4 @@ responseGetStatementResult =
     "GetStatementResultResponse"
     "fixture/GetStatementResultResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStatementResult)
+    (Proxy.Proxy :: Proxy.Proxy GetStatementResult)

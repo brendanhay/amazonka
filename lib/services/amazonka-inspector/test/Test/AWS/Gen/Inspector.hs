@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Inspector where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Inspector
 import Test.AWS.Fixture
 import Test.AWS.Inspector.Internal
@@ -487,7 +487,7 @@ responseGetTelemetryMetadata =
     "GetTelemetryMetadataResponse"
     "fixture/GetTelemetryMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTelemetryMetadata)
+    (Proxy.Proxy :: Proxy.Proxy GetTelemetryMetadata)
 
 responseListFindings :: ListFindingsResponse -> TestTree
 responseListFindings =
@@ -495,7 +495,7 @@ responseListFindings =
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFindings)
+    (Proxy.Proxy :: Proxy.Proxy ListFindings)
 
 responseListAssessmentTemplates :: ListAssessmentTemplatesResponse -> TestTree
 responseListAssessmentTemplates =
@@ -503,7 +503,7 @@ responseListAssessmentTemplates =
     "ListAssessmentTemplatesResponse"
     "fixture/ListAssessmentTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessmentTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentTemplates)
 
 responseSubscribeToEvent :: SubscribeToEventResponse -> TestTree
 responseSubscribeToEvent =
@@ -511,7 +511,7 @@ responseSubscribeToEvent =
     "SubscribeToEventResponse"
     "fixture/SubscribeToEventResponse.proto"
     defaultService
-    (Proxy :: Proxy SubscribeToEvent)
+    (Proxy.Proxy :: Proxy.Proxy SubscribeToEvent)
 
 responseListAssessmentRunAgents :: ListAssessmentRunAgentsResponse -> TestTree
 responseListAssessmentRunAgents =
@@ -519,7 +519,7 @@ responseListAssessmentRunAgents =
     "ListAssessmentRunAgentsResponse"
     "fixture/ListAssessmentRunAgentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessmentRunAgents)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentRunAgents)
 
 responseStartAssessmentRun :: StartAssessmentRunResponse -> TestTree
 responseStartAssessmentRun =
@@ -527,7 +527,7 @@ responseStartAssessmentRun =
     "StartAssessmentRunResponse"
     "fixture/StartAssessmentRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAssessmentRun)
+    (Proxy.Proxy :: Proxy.Proxy StartAssessmentRun)
 
 responseDeleteAssessmentTemplate :: DeleteAssessmentTemplateResponse -> TestTree
 responseDeleteAssessmentTemplate =
@@ -535,7 +535,7 @@ responseDeleteAssessmentTemplate =
     "DeleteAssessmentTemplateResponse"
     "fixture/DeleteAssessmentTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssessmentTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentTemplate)
 
 responseCreateAssessmentTemplate :: CreateAssessmentTemplateResponse -> TestTree
 responseCreateAssessmentTemplate =
@@ -543,7 +543,7 @@ responseCreateAssessmentTemplate =
     "CreateAssessmentTemplateResponse"
     "fixture/CreateAssessmentTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssessmentTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentTemplate)
 
 responseDescribeExclusions :: DescribeExclusionsResponse -> TestTree
 responseDescribeExclusions =
@@ -551,7 +551,7 @@ responseDescribeExclusions =
     "DescribeExclusionsResponse"
     "fixture/DescribeExclusionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExclusions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExclusions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -559,7 +559,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseSetTagsForResource :: SetTagsForResourceResponse -> TestTree
 responseSetTagsForResource =
@@ -567,7 +567,7 @@ responseSetTagsForResource =
     "SetTagsForResourceResponse"
     "fixture/SetTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy SetTagsForResource)
 
 responseDescribeCrossAccountAccessRole :: DescribeCrossAccountAccessRoleResponse -> TestTree
 responseDescribeCrossAccountAccessRole =
@@ -575,7 +575,7 @@ responseDescribeCrossAccountAccessRole =
     "DescribeCrossAccountAccessRoleResponse"
     "fixture/DescribeCrossAccountAccessRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCrossAccountAccessRole)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCrossAccountAccessRole)
 
 responseDescribeAssessmentTemplates :: DescribeAssessmentTemplatesResponse -> TestTree
 responseDescribeAssessmentTemplates =
@@ -583,7 +583,7 @@ responseDescribeAssessmentTemplates =
     "DescribeAssessmentTemplatesResponse"
     "fixture/DescribeAssessmentTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssessmentTemplates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssessmentTemplates)
 
 responseDescribeResourceGroups :: DescribeResourceGroupsResponse -> TestTree
 responseDescribeResourceGroups =
@@ -591,7 +591,7 @@ responseDescribeResourceGroups =
     "DescribeResourceGroupsResponse"
     "fixture/DescribeResourceGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResourceGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourceGroups)
 
 responseCreateAssessmentTarget :: CreateAssessmentTargetResponse -> TestTree
 responseCreateAssessmentTarget =
@@ -599,7 +599,7 @@ responseCreateAssessmentTarget =
     "CreateAssessmentTargetResponse"
     "fixture/CreateAssessmentTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssessmentTarget)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentTarget)
 
 responseGetExclusionsPreview :: GetExclusionsPreviewResponse -> TestTree
 responseGetExclusionsPreview =
@@ -607,7 +607,7 @@ responseGetExclusionsPreview =
     "GetExclusionsPreviewResponse"
     "fixture/GetExclusionsPreviewResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExclusionsPreview)
+    (Proxy.Proxy :: Proxy.Proxy GetExclusionsPreview)
 
 responseListEventSubscriptions :: ListEventSubscriptionsResponse -> TestTree
 responseListEventSubscriptions =
@@ -615,7 +615,7 @@ responseListEventSubscriptions =
     "ListEventSubscriptionsResponse"
     "fixture/ListEventSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy ListEventSubscriptions)
 
 responseRegisterCrossAccountAccessRole :: RegisterCrossAccountAccessRoleResponse -> TestTree
 responseRegisterCrossAccountAccessRole =
@@ -623,7 +623,7 @@ responseRegisterCrossAccountAccessRole =
     "RegisterCrossAccountAccessRoleResponse"
     "fixture/RegisterCrossAccountAccessRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterCrossAccountAccessRole)
+    (Proxy.Proxy :: Proxy.Proxy RegisterCrossAccountAccessRole)
 
 responseListAssessmentTargets :: ListAssessmentTargetsResponse -> TestTree
 responseListAssessmentTargets =
@@ -631,7 +631,7 @@ responseListAssessmentTargets =
     "ListAssessmentTargetsResponse"
     "fixture/ListAssessmentTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessmentTargets)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentTargets)
 
 responseCreateExclusionsPreview :: CreateExclusionsPreviewResponse -> TestTree
 responseCreateExclusionsPreview =
@@ -639,7 +639,7 @@ responseCreateExclusionsPreview =
     "CreateExclusionsPreviewResponse"
     "fixture/CreateExclusionsPreviewResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateExclusionsPreview)
+    (Proxy.Proxy :: Proxy.Proxy CreateExclusionsPreview)
 
 responseCreateResourceGroup :: CreateResourceGroupResponse -> TestTree
 responseCreateResourceGroup =
@@ -647,7 +647,7 @@ responseCreateResourceGroup =
     "CreateResourceGroupResponse"
     "fixture/CreateResourceGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceGroup)
 
 responseDescribeRulesPackages :: DescribeRulesPackagesResponse -> TestTree
 responseDescribeRulesPackages =
@@ -655,7 +655,7 @@ responseDescribeRulesPackages =
     "DescribeRulesPackagesResponse"
     "fixture/DescribeRulesPackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRulesPackages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRulesPackages)
 
 responseStopAssessmentRun :: StopAssessmentRunResponse -> TestTree
 responseStopAssessmentRun =
@@ -663,7 +663,7 @@ responseStopAssessmentRun =
     "StopAssessmentRunResponse"
     "fixture/StopAssessmentRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StopAssessmentRun)
+    (Proxy.Proxy :: Proxy.Proxy StopAssessmentRun)
 
 responseListExclusions :: ListExclusionsResponse -> TestTree
 responseListExclusions =
@@ -671,7 +671,7 @@ responseListExclusions =
     "ListExclusionsResponse"
     "fixture/ListExclusionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExclusions)
+    (Proxy.Proxy :: Proxy.Proxy ListExclusions)
 
 responsePreviewAgents :: PreviewAgentsResponse -> TestTree
 responsePreviewAgents =
@@ -679,7 +679,7 @@ responsePreviewAgents =
     "PreviewAgentsResponse"
     "fixture/PreviewAgentsResponse.proto"
     defaultService
-    (Proxy :: Proxy PreviewAgents)
+    (Proxy.Proxy :: Proxy.Proxy PreviewAgents)
 
 responseDescribeFindings :: DescribeFindingsResponse -> TestTree
 responseDescribeFindings =
@@ -687,7 +687,7 @@ responseDescribeFindings =
     "DescribeFindingsResponse"
     "fixture/DescribeFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFindings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFindings)
 
 responseAddAttributesToFindings :: AddAttributesToFindingsResponse -> TestTree
 responseAddAttributesToFindings =
@@ -695,7 +695,7 @@ responseAddAttributesToFindings =
     "AddAttributesToFindingsResponse"
     "fixture/AddAttributesToFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddAttributesToFindings)
+    (Proxy.Proxy :: Proxy.Proxy AddAttributesToFindings)
 
 responseUpdateAssessmentTarget :: UpdateAssessmentTargetResponse -> TestTree
 responseUpdateAssessmentTarget =
@@ -703,7 +703,7 @@ responseUpdateAssessmentTarget =
     "UpdateAssessmentTargetResponse"
     "fixture/UpdateAssessmentTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssessmentTarget)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentTarget)
 
 responseDeleteAssessmentTarget :: DeleteAssessmentTargetResponse -> TestTree
 responseDeleteAssessmentTarget =
@@ -711,7 +711,7 @@ responseDeleteAssessmentTarget =
     "DeleteAssessmentTargetResponse"
     "fixture/DeleteAssessmentTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssessmentTarget)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentTarget)
 
 responseDeleteAssessmentRun :: DeleteAssessmentRunResponse -> TestTree
 responseDeleteAssessmentRun =
@@ -719,7 +719,7 @@ responseDeleteAssessmentRun =
     "DeleteAssessmentRunResponse"
     "fixture/DeleteAssessmentRunResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssessmentRun)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentRun)
 
 responseListAssessmentRuns :: ListAssessmentRunsResponse -> TestTree
 responseListAssessmentRuns =
@@ -727,7 +727,7 @@ responseListAssessmentRuns =
     "ListAssessmentRunsResponse"
     "fixture/ListAssessmentRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessmentRuns)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentRuns)
 
 responseGetAssessmentReport :: GetAssessmentReportResponse -> TestTree
 responseGetAssessmentReport =
@@ -735,7 +735,7 @@ responseGetAssessmentReport =
     "GetAssessmentReportResponse"
     "fixture/GetAssessmentReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssessmentReport)
+    (Proxy.Proxy :: Proxy.Proxy GetAssessmentReport)
 
 responseListRulesPackages :: ListRulesPackagesResponse -> TestTree
 responseListRulesPackages =
@@ -743,7 +743,7 @@ responseListRulesPackages =
     "ListRulesPackagesResponse"
     "fixture/ListRulesPackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRulesPackages)
+    (Proxy.Proxy :: Proxy.Proxy ListRulesPackages)
 
 responseDescribeAssessmentRuns :: DescribeAssessmentRunsResponse -> TestTree
 responseDescribeAssessmentRuns =
@@ -751,7 +751,7 @@ responseDescribeAssessmentRuns =
     "DescribeAssessmentRunsResponse"
     "fixture/DescribeAssessmentRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssessmentRuns)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssessmentRuns)
 
 responseUnsubscribeFromEvent :: UnsubscribeFromEventResponse -> TestTree
 responseUnsubscribeFromEvent =
@@ -759,7 +759,7 @@ responseUnsubscribeFromEvent =
     "UnsubscribeFromEventResponse"
     "fixture/UnsubscribeFromEventResponse.proto"
     defaultService
-    (Proxy :: Proxy UnsubscribeFromEvent)
+    (Proxy.Proxy :: Proxy.Proxy UnsubscribeFromEvent)
 
 responseRemoveAttributesFromFindings :: RemoveAttributesFromFindingsResponse -> TestTree
 responseRemoveAttributesFromFindings =
@@ -767,7 +767,7 @@ responseRemoveAttributesFromFindings =
     "RemoveAttributesFromFindingsResponse"
     "fixture/RemoveAttributesFromFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAttributesFromFindings)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAttributesFromFindings)
 
 responseDescribeAssessmentTargets :: DescribeAssessmentTargetsResponse -> TestTree
 responseDescribeAssessmentTargets =
@@ -775,4 +775,4 @@ responseDescribeAssessmentTargets =
     "DescribeAssessmentTargetsResponse"
     "fixture/DescribeAssessmentTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssessmentTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssessmentTargets)

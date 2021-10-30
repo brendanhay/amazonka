@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CertificateManager where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CertificateManager
 import Test.AWS.CertificateManager.Internal
 import Test.AWS.Fixture
@@ -223,7 +223,7 @@ responseResendValidationEmail =
     "ResendValidationEmailResponse"
     "fixture/ResendValidationEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy ResendValidationEmail)
+    (Proxy.Proxy :: Proxy.Proxy ResendValidationEmail)
 
 responseUpdateCertificateOptions :: UpdateCertificateOptionsResponse -> TestTree
 responseUpdateCertificateOptions =
@@ -231,7 +231,7 @@ responseUpdateCertificateOptions =
     "UpdateCertificateOptionsResponse"
     "fixture/UpdateCertificateOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCertificateOptions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCertificateOptions)
 
 responseListTagsForCertificate :: ListTagsForCertificateResponse -> TestTree
 responseListTagsForCertificate =
@@ -239,7 +239,7 @@ responseListTagsForCertificate =
     "ListTagsForCertificateResponse"
     "fixture/ListTagsForCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForCertificate)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForCertificate)
 
 responseGetCertificate :: GetCertificateResponse -> TestTree
 responseGetCertificate =
@@ -247,7 +247,7 @@ responseGetCertificate =
     "GetCertificateResponse"
     "fixture/GetCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificate)
+    (Proxy.Proxy :: Proxy.Proxy GetCertificate)
 
 responseAddTagsToCertificate :: AddTagsToCertificateResponse -> TestTree
 responseAddTagsToCertificate =
@@ -255,7 +255,7 @@ responseAddTagsToCertificate =
     "AddTagsToCertificateResponse"
     "fixture/AddTagsToCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToCertificate)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToCertificate)
 
 responseRequestCertificate :: RequestCertificateResponse -> TestTree
 responseRequestCertificate =
@@ -263,7 +263,7 @@ responseRequestCertificate =
     "RequestCertificateResponse"
     "fixture/RequestCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy RequestCertificate)
+    (Proxy.Proxy :: Proxy.Proxy RequestCertificate)
 
 responseListCertificates :: ListCertificatesResponse -> TestTree
 responseListCertificates =
@@ -271,7 +271,7 @@ responseListCertificates =
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCertificates)
+    (Proxy.Proxy :: Proxy.Proxy ListCertificates)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
 responseDeleteCertificate =
@@ -279,7 +279,7 @@ responseDeleteCertificate =
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCertificate)
 
 responseRemoveTagsFromCertificate :: RemoveTagsFromCertificateResponse -> TestTree
 responseRemoveTagsFromCertificate =
@@ -287,7 +287,7 @@ responseRemoveTagsFromCertificate =
     "RemoveTagsFromCertificateResponse"
     "fixture/RemoveTagsFromCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromCertificate)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromCertificate)
 
 responseGetAccountConfiguration :: GetAccountConfigurationResponse -> TestTree
 responseGetAccountConfiguration =
@@ -295,7 +295,7 @@ responseGetAccountConfiguration =
     "GetAccountConfigurationResponse"
     "fixture/GetAccountConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountConfiguration)
 
 responseImportCertificate :: ImportCertificateResponse -> TestTree
 responseImportCertificate =
@@ -303,7 +303,7 @@ responseImportCertificate =
     "ImportCertificateResponse"
     "fixture/ImportCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportCertificate)
+    (Proxy.Proxy :: Proxy.Proxy ImportCertificate)
 
 responsePutAccountConfiguration :: PutAccountConfigurationResponse -> TestTree
 responsePutAccountConfiguration =
@@ -311,7 +311,7 @@ responsePutAccountConfiguration =
     "PutAccountConfigurationResponse"
     "fixture/PutAccountConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccountConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutAccountConfiguration)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
 responseDescribeCertificate =
@@ -319,7 +319,7 @@ responseDescribeCertificate =
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificate)
 
 responseRenewCertificate :: RenewCertificateResponse -> TestTree
 responseRenewCertificate =
@@ -327,7 +327,7 @@ responseRenewCertificate =
     "RenewCertificateResponse"
     "fixture/RenewCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy RenewCertificate)
+    (Proxy.Proxy :: Proxy.Proxy RenewCertificate)
 
 responseExportCertificate :: ExportCertificateResponse -> TestTree
 responseExportCertificate =
@@ -335,4 +335,4 @@ responseExportCertificate =
     "ExportCertificateResponse"
     "fixture/ExportCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportCertificate)
+    (Proxy.Proxy :: Proxy.Proxy ExportCertificate)

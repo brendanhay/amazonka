@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SMSVoice where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SMSVoice
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -139,7 +139,7 @@ responseUpdateConfigurationSetEventDestination =
     "UpdateConfigurationSetEventDestinationResponse"
     "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetEventDestination)
 
 responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
 responseDeleteConfigurationSetEventDestination =
@@ -147,7 +147,7 @@ responseDeleteConfigurationSetEventDestination =
     "DeleteConfigurationSetEventDestinationResponse"
     "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSetEventDestination)
 
 responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
 responseListConfigurationSets =
@@ -155,7 +155,7 @@ responseListConfigurationSets =
     "ListConfigurationSetsResponse"
     "fixture/ListConfigurationSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationSets)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationSets)
 
 responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
 responseDeleteConfigurationSet =
@@ -163,7 +163,7 @@ responseDeleteConfigurationSet =
     "DeleteConfigurationSetResponse"
     "fixture/DeleteConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSet)
 
 responseSendVoiceMessage :: SendVoiceMessageResponse -> TestTree
 responseSendVoiceMessage =
@@ -171,7 +171,7 @@ responseSendVoiceMessage =
     "SendVoiceMessageResponse"
     "fixture/SendVoiceMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy SendVoiceMessage)
+    (Proxy.Proxy :: Proxy.Proxy SendVoiceMessage)
 
 responseGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinationsResponse -> TestTree
 responseGetConfigurationSetEventDestinations =
@@ -179,7 +179,7 @@ responseGetConfigurationSetEventDestinations =
     "GetConfigurationSetEventDestinationsResponse"
     "fixture/GetConfigurationSetEventDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfigurationSetEventDestinations)
+    (Proxy.Proxy :: Proxy.Proxy GetConfigurationSetEventDestinations)
 
 responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
 responseCreateConfigurationSetEventDestination =
@@ -187,7 +187,7 @@ responseCreateConfigurationSetEventDestination =
     "CreateConfigurationSetEventDestinationResponse"
     "fixture/CreateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSetEventDestination)
 
 responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
 responseCreateConfigurationSet =
@@ -195,4 +195,4 @@ responseCreateConfigurationSet =
     "CreateConfigurationSetResponse"
     "fixture/CreateConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSet)

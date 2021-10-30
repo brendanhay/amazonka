@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataBrew where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DataBrew
 import Test.AWS.DataBrew.Internal
 import Test.AWS.Fixture
@@ -511,7 +511,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -519,7 +519,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -527,7 +527,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseListSchedules :: ListSchedulesResponse -> TestTree
 responseListSchedules =
@@ -535,7 +535,7 @@ responseListSchedules =
     "ListSchedulesResponse"
     "fixture/ListSchedulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSchedules)
+    (Proxy.Proxy :: Proxy.Proxy ListSchedules)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
 responseDescribeDataset =
@@ -543,7 +543,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -551,7 +551,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -559,7 +559,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseCreateRecipeJob :: CreateRecipeJobResponse -> TestTree
 responseCreateRecipeJob =
@@ -567,7 +567,7 @@ responseCreateRecipeJob =
     "CreateRecipeJobResponse"
     "fixture/CreateRecipeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRecipeJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecipeJob)
 
 responseListRecipeVersions :: ListRecipeVersionsResponse -> TestTree
 responseListRecipeVersions =
@@ -575,7 +575,7 @@ responseListRecipeVersions =
     "ListRecipeVersionsResponse"
     "fixture/ListRecipeVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecipeVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListRecipeVersions)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -583,7 +583,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseUpdateDataset :: UpdateDatasetResponse -> TestTree
 responseUpdateDataset =
@@ -591,7 +591,7 @@ responseUpdateDataset =
     "UpdateDatasetResponse"
     "fixture/UpdateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataset)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataset)
 
 responseStopJobRun :: StopJobRunResponse -> TestTree
 responseStopJobRun =
@@ -599,7 +599,7 @@ responseStopJobRun =
     "StopJobRunResponse"
     "fixture/StopJobRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StopJobRun)
+    (Proxy.Proxy :: Proxy.Proxy StopJobRun)
 
 responseUpdateRecipeJob :: UpdateRecipeJobResponse -> TestTree
 responseUpdateRecipeJob =
@@ -607,7 +607,7 @@ responseUpdateRecipeJob =
     "UpdateRecipeJobResponse"
     "fixture/UpdateRecipeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRecipeJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecipeJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -615,7 +615,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
 responseCreateDataset =
@@ -623,7 +623,7 @@ responseCreateDataset =
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
 responseDeleteJob =
@@ -631,7 +631,7 @@ responseDeleteJob =
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
 
 responseCreateRecipe :: CreateRecipeResponse -> TestTree
 responseCreateRecipe =
@@ -639,7 +639,7 @@ responseCreateRecipe =
     "CreateRecipeResponse"
     "fixture/CreateRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRecipe)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecipe)
 
 responseUpdateSchedule :: UpdateScheduleResponse -> TestTree
 responseUpdateSchedule =
@@ -647,7 +647,7 @@ responseUpdateSchedule =
     "UpdateScheduleResponse"
     "fixture/UpdateScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSchedule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSchedule)
 
 responseDeleteSchedule :: DeleteScheduleResponse -> TestTree
 responseDeleteSchedule =
@@ -655,7 +655,7 @@ responseDeleteSchedule =
     "DeleteScheduleResponse"
     "fixture/DeleteScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchedule)
 
 responseBatchDeleteRecipeVersion :: BatchDeleteRecipeVersionResponse -> TestTree
 responseBatchDeleteRecipeVersion =
@@ -663,7 +663,7 @@ responseBatchDeleteRecipeVersion =
     "BatchDeleteRecipeVersionResponse"
     "fixture/BatchDeleteRecipeVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteRecipeVersion)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteRecipeVersion)
 
 responseListJobRuns :: ListJobRunsResponse -> TestTree
 responseListJobRuns =
@@ -671,7 +671,7 @@ responseListJobRuns =
     "ListJobRunsResponse"
     "fixture/ListJobRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobRuns)
+    (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
 
 responseDescribeJob :: DescribeJobResponse -> TestTree
 responseDescribeJob =
@@ -679,7 +679,7 @@ responseDescribeJob =
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJob)
 
 responseUpdateProfileJob :: UpdateProfileJobResponse -> TestTree
 responseUpdateProfileJob =
@@ -687,7 +687,7 @@ responseUpdateProfileJob =
     "UpdateProfileJobResponse"
     "fixture/UpdateProfileJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProfileJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfileJob)
 
 responseDescribeRecipe :: DescribeRecipeResponse -> TestTree
 responseDescribeRecipe =
@@ -695,7 +695,7 @@ responseDescribeRecipe =
     "DescribeRecipeResponse"
     "fixture/DescribeRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRecipe)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecipe)
 
 responseCreateProfileJob :: CreateProfileJobResponse -> TestTree
 responseCreateProfileJob =
@@ -703,7 +703,7 @@ responseCreateProfileJob =
     "CreateProfileJobResponse"
     "fixture/CreateProfileJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProfileJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateProfileJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -711,7 +711,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeSchedule :: DescribeScheduleResponse -> TestTree
 responseDescribeSchedule =
@@ -719,7 +719,7 @@ responseDescribeSchedule =
     "DescribeScheduleResponse"
     "fixture/DescribeScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchedule)
 
 responseDescribeJobRun :: DescribeJobRunResponse -> TestTree
 responseDescribeJobRun =
@@ -727,7 +727,7 @@ responseDescribeJobRun =
     "DescribeJobRunResponse"
     "fixture/DescribeJobRunResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobRun)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobRun)
 
 responseStartProjectSession :: StartProjectSessionResponse -> TestTree
 responseStartProjectSession =
@@ -735,7 +735,7 @@ responseStartProjectSession =
     "StartProjectSessionResponse"
     "fixture/StartProjectSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartProjectSession)
+    (Proxy.Proxy :: Proxy.Proxy StartProjectSession)
 
 responseDeleteRecipeVersion :: DeleteRecipeVersionResponse -> TestTree
 responseDeleteRecipeVersion =
@@ -743,7 +743,7 @@ responseDeleteRecipeVersion =
     "DeleteRecipeVersionResponse"
     "fixture/DeleteRecipeVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRecipeVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecipeVersion)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -751,7 +751,7 @@ responseListDatasets =
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasets)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -759,7 +759,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseStartJobRun :: StartJobRunResponse -> TestTree
 responseStartJobRun =
@@ -767,7 +767,7 @@ responseStartJobRun =
     "StartJobRunResponse"
     "fixture/StartJobRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StartJobRun)
+    (Proxy.Proxy :: Proxy.Proxy StartJobRun)
 
 responseUpdateRecipe :: UpdateRecipeResponse -> TestTree
 responseUpdateRecipe =
@@ -775,7 +775,7 @@ responseUpdateRecipe =
     "UpdateRecipeResponse"
     "fixture/UpdateRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRecipe)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecipe)
 
 responseCreateSchedule :: CreateScheduleResponse -> TestTree
 responseCreateSchedule =
@@ -783,7 +783,7 @@ responseCreateSchedule =
     "CreateScheduleResponse"
     "fixture/CreateScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSchedule)
+    (Proxy.Proxy :: Proxy.Proxy CreateSchedule)
 
 responseListRecipes :: ListRecipesResponse -> TestTree
 responseListRecipes =
@@ -791,7 +791,7 @@ responseListRecipes =
     "ListRecipesResponse"
     "fixture/ListRecipesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecipes)
+    (Proxy.Proxy :: Proxy.Proxy ListRecipes)
 
 responsePublishRecipe :: PublishRecipeResponse -> TestTree
 responsePublishRecipe =
@@ -799,7 +799,7 @@ responsePublishRecipe =
     "PublishRecipeResponse"
     "fixture/PublishRecipeResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishRecipe)
+    (Proxy.Proxy :: Proxy.Proxy PublishRecipe)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -807,7 +807,7 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
 responseSendProjectSessionAction :: SendProjectSessionActionResponse -> TestTree
 responseSendProjectSessionAction =
@@ -815,4 +815,4 @@ responseSendProjectSessionAction =
     "SendProjectSessionActionResponse"
     "fixture/SendProjectSessionActionResponse.proto"
     defaultService
-    (Proxy :: Proxy SendProjectSessionAction)
+    (Proxy.Proxy :: Proxy.Proxy SendProjectSessionAction)

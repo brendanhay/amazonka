@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KafkaConnect where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KafkaConnect
 import Test.AWS.Fixture
 import Test.AWS.KafkaConnect.Internal
@@ -175,7 +175,7 @@ responseListWorkerConfigurations =
     "ListWorkerConfigurationsResponse"
     "fixture/ListWorkerConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkerConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkerConfigurations)
 
 responseDescribeCustomPlugin :: DescribeCustomPluginResponse -> TestTree
 responseDescribeCustomPlugin =
@@ -183,7 +183,7 @@ responseDescribeCustomPlugin =
     "DescribeCustomPluginResponse"
     "fixture/DescribeCustomPluginResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomPlugin)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomPlugin)
 
 responseDeleteConnector :: DeleteConnectorResponse -> TestTree
 responseDeleteConnector =
@@ -191,7 +191,7 @@ responseDeleteConnector =
     "DeleteConnectorResponse"
     "fixture/DeleteConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnector)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnector)
 
 responseUpdateConnector :: UpdateConnectorResponse -> TestTree
 responseUpdateConnector =
@@ -199,7 +199,7 @@ responseUpdateConnector =
     "UpdateConnectorResponse"
     "fixture/UpdateConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnector)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnector)
 
 responseCreateWorkerConfiguration :: CreateWorkerConfigurationResponse -> TestTree
 responseCreateWorkerConfiguration =
@@ -207,7 +207,7 @@ responseCreateWorkerConfiguration =
     "CreateWorkerConfigurationResponse"
     "fixture/CreateWorkerConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkerConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkerConfiguration)
 
 responseListConnectors :: ListConnectorsResponse -> TestTree
 responseListConnectors =
@@ -215,7 +215,7 @@ responseListConnectors =
     "ListConnectorsResponse"
     "fixture/ListConnectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnectors)
+    (Proxy.Proxy :: Proxy.Proxy ListConnectors)
 
 responseListCustomPlugins :: ListCustomPluginsResponse -> TestTree
 responseListCustomPlugins =
@@ -223,7 +223,7 @@ responseListCustomPlugins =
     "ListCustomPluginsResponse"
     "fixture/ListCustomPluginsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomPlugins)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomPlugins)
 
 responseCreateConnector :: CreateConnectorResponse -> TestTree
 responseCreateConnector =
@@ -231,7 +231,7 @@ responseCreateConnector =
     "CreateConnectorResponse"
     "fixture/CreateConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnector)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnector)
 
 responseDescribeWorkerConfiguration :: DescribeWorkerConfigurationResponse -> TestTree
 responseDescribeWorkerConfiguration =
@@ -239,7 +239,7 @@ responseDescribeWorkerConfiguration =
     "DescribeWorkerConfigurationResponse"
     "fixture/DescribeWorkerConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkerConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkerConfiguration)
 
 responseDescribeConnector :: DescribeConnectorResponse -> TestTree
 responseDescribeConnector =
@@ -247,7 +247,7 @@ responseDescribeConnector =
     "DescribeConnectorResponse"
     "fixture/DescribeConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnector)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnector)
 
 responseCreateCustomPlugin :: CreateCustomPluginResponse -> TestTree
 responseCreateCustomPlugin =
@@ -255,4 +255,4 @@ responseCreateCustomPlugin =
     "CreateCustomPluginResponse"
     "fixture/CreateCustomPluginResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomPlugin)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomPlugin)

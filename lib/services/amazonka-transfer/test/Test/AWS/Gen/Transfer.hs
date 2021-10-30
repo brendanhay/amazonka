@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Transfer where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Transfer
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -427,7 +427,7 @@ responseUpdateServer =
     "UpdateServerResponse"
     "fixture/UpdateServerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServer)
 
 responseDeleteServer :: DeleteServerResponse -> TestTree
 responseDeleteServer =
@@ -435,7 +435,7 @@ responseDeleteServer =
     "DeleteServerResponse"
     "fixture/DeleteServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServer)
 
 responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
 responseCreateWorkflow =
@@ -443,7 +443,7 @@ responseCreateWorkflow =
     "CreateWorkflowResponse"
     "fixture/CreateWorkflowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkflow)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkflow)
 
 responseDeleteSshPublicKey :: DeleteSshPublicKeyResponse -> TestTree
 responseDeleteSshPublicKey =
@@ -451,7 +451,7 @@ responseDeleteSshPublicKey =
     "DeleteSshPublicKeyResponse"
     "fixture/DeleteSshPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSshPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSshPublicKey)
 
 responseListSecurityPolicies :: ListSecurityPoliciesResponse -> TestTree
 responseListSecurityPolicies =
@@ -459,7 +459,7 @@ responseListSecurityPolicies =
     "ListSecurityPoliciesResponse"
     "fixture/ListSecurityPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecurityPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityPolicies)
 
 responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
 responseDeleteWorkflow =
@@ -467,7 +467,7 @@ responseDeleteWorkflow =
     "DeleteWorkflowResponse"
     "fixture/DeleteWorkflowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkflow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkflow)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -475,7 +475,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseSendWorkflowStepState :: SendWorkflowStepStateResponse -> TestTree
 responseSendWorkflowStepState =
@@ -483,7 +483,7 @@ responseSendWorkflowStepState =
     "SendWorkflowStepStateResponse"
     "fixture/SendWorkflowStepStateResponse.proto"
     defaultService
-    (Proxy :: Proxy SendWorkflowStepState)
+    (Proxy.Proxy :: Proxy.Proxy SendWorkflowStepState)
 
 responseStopServer :: StopServerResponse -> TestTree
 responseStopServer =
@@ -491,7 +491,7 @@ responseStopServer =
     "StopServerResponse"
     "fixture/StopServerResponse.proto"
     defaultService
-    (Proxy :: Proxy StopServer)
+    (Proxy.Proxy :: Proxy.Proxy StopServer)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -499,7 +499,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseDescribeServer :: DescribeServerResponse -> TestTree
 responseDescribeServer =
@@ -507,7 +507,7 @@ responseDescribeServer =
     "DescribeServerResponse"
     "fixture/DescribeServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServer)
 
 responseDescribeSecurityPolicy :: DescribeSecurityPolicyResponse -> TestTree
 responseDescribeSecurityPolicy =
@@ -515,7 +515,7 @@ responseDescribeSecurityPolicy =
     "DescribeSecurityPolicyResponse"
     "fixture/DescribeSecurityPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecurityPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityPolicy)
 
 responseImportSshPublicKey :: ImportSshPublicKeyResponse -> TestTree
 responseImportSshPublicKey =
@@ -523,7 +523,7 @@ responseImportSshPublicKey =
     "ImportSshPublicKeyResponse"
     "fixture/ImportSshPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportSshPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy ImportSshPublicKey)
 
 responseListExecutions :: ListExecutionsResponse -> TestTree
 responseListExecutions =
@@ -531,7 +531,7 @@ responseListExecutions =
     "ListExecutionsResponse"
     "fixture/ListExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListExecutions)
 
 responseCreateServer :: CreateServerResponse -> TestTree
 responseCreateServer =
@@ -539,7 +539,7 @@ responseCreateServer =
     "CreateServerResponse"
     "fixture/CreateServerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateServer)
+    (Proxy.Proxy :: Proxy.Proxy CreateServer)
 
 responseTestIdentityProvider :: TestIdentityProviderResponse -> TestTree
 responseTestIdentityProvider =
@@ -547,7 +547,7 @@ responseTestIdentityProvider =
     "TestIdentityProviderResponse"
     "fixture/TestIdentityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy TestIdentityProvider)
+    (Proxy.Proxy :: Proxy.Proxy TestIdentityProvider)
 
 responseListServers :: ListServersResponse -> TestTree
 responseListServers =
@@ -555,7 +555,7 @@ responseListServers =
     "ListServersResponse"
     "fixture/ListServersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServers)
+    (Proxy.Proxy :: Proxy.Proxy ListServers)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -563,7 +563,7 @@ responseDescribeUser =
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
 responseDescribeExecution =
@@ -571,7 +571,7 @@ responseDescribeExecution =
     "DescribeExecutionResponse"
     "fixture/DescribeExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
 
 responseListWorkflows :: ListWorkflowsResponse -> TestTree
 responseListWorkflows =
@@ -579,7 +579,7 @@ responseListWorkflows =
     "ListWorkflowsResponse"
     "fixture/ListWorkflowsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkflows)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkflows)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -587,7 +587,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseStartServer :: StartServerResponse -> TestTree
 responseStartServer =
@@ -595,7 +595,7 @@ responseStartServer =
     "StartServerResponse"
     "fixture/StartServerResponse.proto"
     defaultService
-    (Proxy :: Proxy StartServer)
+    (Proxy.Proxy :: Proxy.Proxy StartServer)
 
 responseUpdateAccess :: UpdateAccessResponse -> TestTree
 responseUpdateAccess =
@@ -603,7 +603,7 @@ responseUpdateAccess =
     "UpdateAccessResponse"
     "fixture/UpdateAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccess)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccess)
 
 responseDeleteAccess :: DeleteAccessResponse -> TestTree
 responseDeleteAccess =
@@ -611,7 +611,7 @@ responseDeleteAccess =
     "DeleteAccessResponse"
     "fixture/DeleteAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccess)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccess)
 
 responseCreateAccess :: CreateAccessResponse -> TestTree
 responseCreateAccess =
@@ -619,7 +619,7 @@ responseCreateAccess =
     "CreateAccessResponse"
     "fixture/CreateAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccess)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccess)
 
 responseListAccesses :: ListAccessesResponse -> TestTree
 responseListAccesses =
@@ -627,7 +627,7 @@ responseListAccesses =
     "ListAccessesResponse"
     "fixture/ListAccessesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccesses)
+    (Proxy.Proxy :: Proxy.Proxy ListAccesses)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -635,7 +635,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -643,7 +643,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -651,7 +651,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -659,7 +659,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeWorkflow :: DescribeWorkflowResponse -> TestTree
 responseDescribeWorkflow =
@@ -667,7 +667,7 @@ responseDescribeWorkflow =
     "DescribeWorkflowResponse"
     "fixture/DescribeWorkflowResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkflow)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkflow)
 
 responseDescribeAccess :: DescribeAccessResponse -> TestTree
 responseDescribeAccess =
@@ -675,4 +675,4 @@ responseDescribeAccess =
     "DescribeAccessResponse"
     "fixture/DescribeAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccess)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccess)

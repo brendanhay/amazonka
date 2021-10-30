@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppFlow where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppFlow
 import Test.AWS.AppFlow.Internal
 import Test.AWS.Fixture
@@ -259,7 +259,7 @@ responseListConnectorEntities =
     "ListConnectorEntitiesResponse"
     "fixture/ListConnectorEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnectorEntities)
+    (Proxy.Proxy :: Proxy.Proxy ListConnectorEntities)
 
 responseCreateConnectorProfile :: CreateConnectorProfileResponse -> TestTree
 responseCreateConnectorProfile =
@@ -267,7 +267,7 @@ responseCreateConnectorProfile =
     "CreateConnectorProfileResponse"
     "fixture/CreateConnectorProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnectorProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnectorProfile)
 
 responseStartFlow :: StartFlowResponse -> TestTree
 responseStartFlow =
@@ -275,7 +275,7 @@ responseStartFlow =
     "StartFlowResponse"
     "fixture/StartFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFlow)
+    (Proxy.Proxy :: Proxy.Proxy StartFlow)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -283,7 +283,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateFlow :: CreateFlowResponse -> TestTree
 responseCreateFlow =
@@ -291,7 +291,7 @@ responseCreateFlow =
     "CreateFlowResponse"
     "fixture/CreateFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFlow)
+    (Proxy.Proxy :: Proxy.Proxy CreateFlow)
 
 responseDeleteConnectorProfile :: DeleteConnectorProfileResponse -> TestTree
 responseDeleteConnectorProfile =
@@ -299,7 +299,7 @@ responseDeleteConnectorProfile =
     "DeleteConnectorProfileResponse"
     "fixture/DeleteConnectorProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnectorProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnectorProfile)
 
 responseUpdateConnectorProfile :: UpdateConnectorProfileResponse -> TestTree
 responseUpdateConnectorProfile =
@@ -307,7 +307,7 @@ responseUpdateConnectorProfile =
     "UpdateConnectorProfileResponse"
     "fixture/UpdateConnectorProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnectorProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectorProfile)
 
 responseDescribeFlow :: DescribeFlowResponse -> TestTree
 responseDescribeFlow =
@@ -315,7 +315,7 @@ responseDescribeFlow =
     "DescribeFlowResponse"
     "fixture/DescribeFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFlow)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
 
 responseStopFlow :: StopFlowResponse -> TestTree
 responseStopFlow =
@@ -323,7 +323,7 @@ responseStopFlow =
     "StopFlowResponse"
     "fixture/StopFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy StopFlow)
+    (Proxy.Proxy :: Proxy.Proxy StopFlow)
 
 responseDescribeConnectors :: DescribeConnectorsResponse -> TestTree
 responseDescribeConnectors =
@@ -331,7 +331,7 @@ responseDescribeConnectors =
     "DescribeConnectorsResponse"
     "fixture/DescribeConnectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnectors)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectors)
 
 responseDescribeConnectorEntity :: DescribeConnectorEntityResponse -> TestTree
 responseDescribeConnectorEntity =
@@ -339,7 +339,7 @@ responseDescribeConnectorEntity =
     "DescribeConnectorEntityResponse"
     "fixture/DescribeConnectorEntityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnectorEntity)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectorEntity)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -347,7 +347,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListFlows :: ListFlowsResponse -> TestTree
 responseListFlows =
@@ -355,7 +355,7 @@ responseListFlows =
     "ListFlowsResponse"
     "fixture/ListFlowsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFlows)
+    (Proxy.Proxy :: Proxy.Proxy ListFlows)
 
 responseDescribeFlowExecutionRecords :: DescribeFlowExecutionRecordsResponse -> TestTree
 responseDescribeFlowExecutionRecords =
@@ -363,7 +363,7 @@ responseDescribeFlowExecutionRecords =
     "DescribeFlowExecutionRecordsResponse"
     "fixture/DescribeFlowExecutionRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFlowExecutionRecords)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlowExecutionRecords)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -371,7 +371,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateFlow :: UpdateFlowResponse -> TestTree
 responseUpdateFlow =
@@ -379,7 +379,7 @@ responseUpdateFlow =
     "UpdateFlowResponse"
     "fixture/UpdateFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFlow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlow)
 
 responseDeleteFlow :: DeleteFlowResponse -> TestTree
 responseDeleteFlow =
@@ -387,7 +387,7 @@ responseDeleteFlow =
     "DeleteFlowResponse"
     "fixture/DeleteFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFlow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
 
 responseDescribeConnectorProfiles :: DescribeConnectorProfilesResponse -> TestTree
 responseDescribeConnectorProfiles =
@@ -395,4 +395,4 @@ responseDescribeConnectorProfiles =
     "DescribeConnectorProfilesResponse"
     "fixture/DescribeConnectorProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnectorProfiles)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectorProfiles)

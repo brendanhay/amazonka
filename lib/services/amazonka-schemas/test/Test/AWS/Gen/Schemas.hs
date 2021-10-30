@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Schemas where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Schemas
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -415,7 +415,7 @@ responseUpdateRegistry =
     "UpdateRegistryResponse"
     "fixture/UpdateRegistryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRegistry)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRegistry)
 
 responseDeleteRegistry :: DeleteRegistryResponse -> TestTree
 responseDeleteRegistry =
@@ -423,7 +423,7 @@ responseDeleteRegistry =
     "DeleteRegistryResponse"
     "fixture/DeleteRegistryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRegistry)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRegistry)
 
 responseSearchSchemas :: SearchSchemasResponse -> TestTree
 responseSearchSchemas =
@@ -431,7 +431,7 @@ responseSearchSchemas =
     "SearchSchemasResponse"
     "fixture/SearchSchemasResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchSchemas)
+    (Proxy.Proxy :: Proxy.Proxy SearchSchemas)
 
 responseStopDiscoverer :: StopDiscovererResponse -> TestTree
 responseStopDiscoverer =
@@ -439,7 +439,7 @@ responseStopDiscoverer =
     "StopDiscovererResponse"
     "fixture/StopDiscovererResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDiscoverer)
+    (Proxy.Proxy :: Proxy.Proxy StopDiscoverer)
 
 responseDeleteSchemaVersion :: DeleteSchemaVersionResponse -> TestTree
 responseDeleteSchemaVersion =
@@ -447,7 +447,7 @@ responseDeleteSchemaVersion =
     "DeleteSchemaVersionResponse"
     "fixture/DeleteSchemaVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchemaVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchemaVersion)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -455,7 +455,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListSchemaVersions :: ListSchemaVersionsResponse -> TestTree
 responseListSchemaVersions =
@@ -463,7 +463,7 @@ responseListSchemaVersions =
     "ListSchemaVersionsResponse"
     "fixture/ListSchemaVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSchemaVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListSchemaVersions)
 
 responseExportSchema :: ExportSchemaResponse -> TestTree
 responseExportSchema =
@@ -471,7 +471,7 @@ responseExportSchema =
     "ExportSchemaResponse"
     "fixture/ExportSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportSchema)
+    (Proxy.Proxy :: Proxy.Proxy ExportSchema)
 
 responseGetDiscoveredSchema :: GetDiscoveredSchemaResponse -> TestTree
 responseGetDiscoveredSchema =
@@ -479,7 +479,7 @@ responseGetDiscoveredSchema =
     "GetDiscoveredSchemaResponse"
     "fixture/GetDiscoveredSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDiscoveredSchema)
+    (Proxy.Proxy :: Proxy.Proxy GetDiscoveredSchema)
 
 responseDeleteDiscoverer :: DeleteDiscovererResponse -> TestTree
 responseDeleteDiscoverer =
@@ -487,7 +487,7 @@ responseDeleteDiscoverer =
     "DeleteDiscovererResponse"
     "fixture/DeleteDiscovererResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDiscoverer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDiscoverer)
 
 responseUpdateDiscoverer :: UpdateDiscovererResponse -> TestTree
 responseUpdateDiscoverer =
@@ -495,7 +495,7 @@ responseUpdateDiscoverer =
     "UpdateDiscovererResponse"
     "fixture/UpdateDiscovererResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDiscoverer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDiscoverer)
 
 responseListDiscoverers :: ListDiscoverersResponse -> TestTree
 responseListDiscoverers =
@@ -503,7 +503,7 @@ responseListDiscoverers =
     "ListDiscoverersResponse"
     "fixture/ListDiscoverersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDiscoverers)
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoverers)
 
 responseListSchemas :: ListSchemasResponse -> TestTree
 responseListSchemas =
@@ -511,7 +511,7 @@ responseListSchemas =
     "ListSchemasResponse"
     "fixture/ListSchemasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSchemas)
+    (Proxy.Proxy :: Proxy.Proxy ListSchemas)
 
 responseCreateDiscoverer :: CreateDiscovererResponse -> TestTree
 responseCreateDiscoverer =
@@ -519,7 +519,7 @@ responseCreateDiscoverer =
     "CreateDiscovererResponse"
     "fixture/CreateDiscovererResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDiscoverer)
+    (Proxy.Proxy :: Proxy.Proxy CreateDiscoverer)
 
 responseDescribeRegistry :: DescribeRegistryResponse -> TestTree
 responseDescribeRegistry =
@@ -527,7 +527,7 @@ responseDescribeRegistry =
     "DescribeRegistryResponse"
     "fixture/DescribeRegistryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRegistry)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegistry)
 
 responseCreateRegistry :: CreateRegistryResponse -> TestTree
 responseCreateRegistry =
@@ -535,7 +535,7 @@ responseCreateRegistry =
     "CreateRegistryResponse"
     "fixture/CreateRegistryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRegistry)
+    (Proxy.Proxy :: Proxy.Proxy CreateRegistry)
 
 responseListRegistries :: ListRegistriesResponse -> TestTree
 responseListRegistries =
@@ -543,7 +543,7 @@ responseListRegistries =
     "ListRegistriesResponse"
     "fixture/ListRegistriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRegistries)
+    (Proxy.Proxy :: Proxy.Proxy ListRegistries)
 
 responseDescribeDiscoverer :: DescribeDiscovererResponse -> TestTree
 responseDescribeDiscoverer =
@@ -551,7 +551,7 @@ responseDescribeDiscoverer =
     "DescribeDiscovererResponse"
     "fixture/DescribeDiscovererResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDiscoverer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDiscoverer)
 
 responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
 responseGetResourcePolicy =
@@ -559,7 +559,7 @@ responseGetResourcePolicy =
     "GetResourcePolicyResponse"
     "fixture/GetResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
 
 responseStartDiscoverer :: StartDiscovererResponse -> TestTree
 responseStartDiscoverer =
@@ -567,7 +567,7 @@ responseStartDiscoverer =
     "StartDiscovererResponse"
     "fixture/StartDiscovererResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDiscoverer)
+    (Proxy.Proxy :: Proxy.Proxy StartDiscoverer)
 
 responseDescribeSchema :: DescribeSchemaResponse -> TestTree
 responseDescribeSchema =
@@ -575,7 +575,7 @@ responseDescribeSchema =
     "DescribeSchemaResponse"
     "fixture/DescribeSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSchema)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchema)
 
 responseGetCodeBindingSource :: GetCodeBindingSourceResponse -> TestTree
 responseGetCodeBindingSource =
@@ -583,7 +583,7 @@ responseGetCodeBindingSource =
     "GetCodeBindingSourceResponse"
     "fixture/GetCodeBindingSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCodeBindingSource)
+    (Proxy.Proxy :: Proxy.Proxy GetCodeBindingSource)
 
 responsePutCodeBinding :: PutCodeBindingResponse -> TestTree
 responsePutCodeBinding =
@@ -591,7 +591,7 @@ responsePutCodeBinding =
     "PutCodeBindingResponse"
     "fixture/PutCodeBindingResponse.proto"
     defaultService
-    (Proxy :: Proxy PutCodeBinding)
+    (Proxy.Proxy :: Proxy.Proxy PutCodeBinding)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
 responseCreateSchema =
@@ -599,7 +599,7 @@ responseCreateSchema =
     "CreateSchemaResponse"
     "fixture/CreateSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSchema)
+    (Proxy.Proxy :: Proxy.Proxy CreateSchema)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -607,7 +607,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUpdateSchema :: UpdateSchemaResponse -> TestTree
 responseUpdateSchema =
@@ -615,7 +615,7 @@ responseUpdateSchema =
     "UpdateSchemaResponse"
     "fixture/UpdateSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSchema)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSchema)
 
 responseDeleteSchema :: DeleteSchemaResponse -> TestTree
 responseDeleteSchema =
@@ -623,7 +623,7 @@ responseDeleteSchema =
     "DeleteSchemaResponse"
     "fixture/DeleteSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchema)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchema)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -631,7 +631,7 @@ responsePutResourcePolicy =
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -639,7 +639,7 @@ responseDeleteResourcePolicy =
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -647,7 +647,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeCodeBinding :: DescribeCodeBindingResponse -> TestTree
 responseDescribeCodeBinding =
@@ -655,4 +655,4 @@ responseDescribeCodeBinding =
     "DescribeCodeBindingResponse"
     "fixture/DescribeCodeBindingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCodeBinding)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCodeBinding)

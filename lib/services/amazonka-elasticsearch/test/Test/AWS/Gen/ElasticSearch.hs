@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticSearch where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ElasticSearch
 import Test.AWS.ElasticSearch.Internal
 import Test.AWS.Fixture
@@ -523,7 +523,7 @@ responseCreateOutboundCrossClusterSearchConnection =
     "CreateOutboundCrossClusterSearchConnectionResponse"
     "fixture/CreateOutboundCrossClusterSearchConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOutboundCrossClusterSearchConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateOutboundCrossClusterSearchConnection)
 
 responseDescribeInboundCrossClusterSearchConnections :: DescribeInboundCrossClusterSearchConnectionsResponse -> TestTree
 responseDescribeInboundCrossClusterSearchConnections =
@@ -531,7 +531,7 @@ responseDescribeInboundCrossClusterSearchConnections =
     "DescribeInboundCrossClusterSearchConnectionsResponse"
     "fixture/DescribeInboundCrossClusterSearchConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInboundCrossClusterSearchConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInboundCrossClusterSearchConnections)
 
 responseCreateElasticsearchDomain :: CreateElasticsearchDomainResponse -> TestTree
 responseCreateElasticsearchDomain =
@@ -539,7 +539,7 @@ responseCreateElasticsearchDomain =
     "CreateElasticsearchDomainResponse"
     "fixture/CreateElasticsearchDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateElasticsearchDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateElasticsearchDomain)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -547,7 +547,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseGetCompatibleElasticsearchVersions :: GetCompatibleElasticsearchVersionsResponse -> TestTree
 responseGetCompatibleElasticsearchVersions =
@@ -555,7 +555,7 @@ responseGetCompatibleElasticsearchVersions =
     "GetCompatibleElasticsearchVersionsResponse"
     "fixture/GetCompatibleElasticsearchVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCompatibleElasticsearchVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetCompatibleElasticsearchVersions)
 
 responseDescribeElasticsearchDomains :: DescribeElasticsearchDomainsResponse -> TestTree
 responseDescribeElasticsearchDomains =
@@ -563,7 +563,7 @@ responseDescribeElasticsearchDomains =
     "DescribeElasticsearchDomainsResponse"
     "fixture/DescribeElasticsearchDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticsearchDomains)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticsearchDomains)
 
 responseListDomainsForPackage :: ListDomainsForPackageResponse -> TestTree
 responseListDomainsForPackage =
@@ -571,7 +571,7 @@ responseListDomainsForPackage =
     "ListDomainsForPackageResponse"
     "fixture/ListDomainsForPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainsForPackage)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainsForPackage)
 
 responseListPackagesForDomain :: ListPackagesForDomainResponse -> TestTree
 responseListPackagesForDomain =
@@ -579,7 +579,7 @@ responseListPackagesForDomain =
     "ListPackagesForDomainResponse"
     "fixture/ListPackagesForDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackagesForDomain)
+    (Proxy.Proxy :: Proxy.Proxy ListPackagesForDomain)
 
 responseStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdateResponse -> TestTree
 responseStartElasticsearchServiceSoftwareUpdate =
@@ -587,7 +587,7 @@ responseStartElasticsearchServiceSoftwareUpdate =
     "StartElasticsearchServiceSoftwareUpdateResponse"
     "fixture/StartElasticsearchServiceSoftwareUpdateResponse.proto"
     defaultService
-    (Proxy :: Proxy StartElasticsearchServiceSoftwareUpdate)
+    (Proxy.Proxy :: Proxy.Proxy StartElasticsearchServiceSoftwareUpdate)
 
 responseDescribeDomainAutoTunes :: DescribeDomainAutoTunesResponse -> TestTree
 responseDescribeDomainAutoTunes =
@@ -595,7 +595,7 @@ responseDescribeDomainAutoTunes =
     "DescribeDomainAutoTunesResponse"
     "fixture/DescribeDomainAutoTunesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomainAutoTunes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainAutoTunes)
 
 responseListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypesResponse -> TestTree
 responseListElasticsearchInstanceTypes =
@@ -603,7 +603,7 @@ responseListElasticsearchInstanceTypes =
     "ListElasticsearchInstanceTypesResponse"
     "fixture/ListElasticsearchInstanceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListElasticsearchInstanceTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListElasticsearchInstanceTypes)
 
 responseDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRoleResponse -> TestTree
 responseDeleteElasticsearchServiceRole =
@@ -611,7 +611,7 @@ responseDeleteElasticsearchServiceRole =
     "DeleteElasticsearchServiceRoleResponse"
     "fixture/DeleteElasticsearchServiceRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteElasticsearchServiceRole)
+    (Proxy.Proxy :: Proxy.Proxy DeleteElasticsearchServiceRole)
 
 responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
 responseDescribeElasticsearchDomain =
@@ -619,7 +619,7 @@ responseDescribeElasticsearchDomain =
     "DescribeElasticsearchDomainResponse"
     "fixture/DescribeElasticsearchDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticsearchDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticsearchDomain)
 
 responseListDomainNames :: ListDomainNamesResponse -> TestTree
 responseListDomainNames =
@@ -627,7 +627,7 @@ responseListDomainNames =
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainNames)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainNames)
 
 responseAssociatePackage :: AssociatePackageResponse -> TestTree
 responseAssociatePackage =
@@ -635,7 +635,7 @@ responseAssociatePackage =
     "AssociatePackageResponse"
     "fixture/AssociatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociatePackage)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePackage)
 
 responseDeleteOutboundCrossClusterSearchConnection :: DeleteOutboundCrossClusterSearchConnectionResponse -> TestTree
 responseDeleteOutboundCrossClusterSearchConnection =
@@ -643,7 +643,7 @@ responseDeleteOutboundCrossClusterSearchConnection =
     "DeleteOutboundCrossClusterSearchConnectionResponse"
     "fixture/DeleteOutboundCrossClusterSearchConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOutboundCrossClusterSearchConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOutboundCrossClusterSearchConnection)
 
 responseDescribeElasticsearchInstanceTypeLimits :: DescribeElasticsearchInstanceTypeLimitsResponse -> TestTree
 responseDescribeElasticsearchInstanceTypeLimits =
@@ -651,7 +651,7 @@ responseDescribeElasticsearchInstanceTypeLimits =
     "DescribeElasticsearchInstanceTypeLimitsResponse"
     "fixture/DescribeElasticsearchInstanceTypeLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticsearchInstanceTypeLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticsearchInstanceTypeLimits)
 
 responseGetPackageVersionHistory :: GetPackageVersionHistoryResponse -> TestTree
 responseGetPackageVersionHistory =
@@ -659,7 +659,7 @@ responseGetPackageVersionHistory =
     "GetPackageVersionHistoryResponse"
     "fixture/GetPackageVersionHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPackageVersionHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionHistory)
 
 responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
 responseGetUpgradeHistory =
@@ -667,7 +667,7 @@ responseGetUpgradeHistory =
     "GetUpgradeHistoryResponse"
     "fixture/GetUpgradeHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUpgradeHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetUpgradeHistory)
 
 responseDescribePackages :: DescribePackagesResponse -> TestTree
 responseDescribePackages =
@@ -675,7 +675,7 @@ responseDescribePackages =
     "DescribePackagesResponse"
     "fixture/DescribePackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePackages)
+    (Proxy.Proxy :: Proxy.Proxy DescribePackages)
 
 responseDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfigResponse -> TestTree
 responseDescribeElasticsearchDomainConfig =
@@ -683,7 +683,7 @@ responseDescribeElasticsearchDomainConfig =
     "DescribeElasticsearchDomainConfigResponse"
     "fixture/DescribeElasticsearchDomainConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticsearchDomainConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticsearchDomainConfig)
 
 responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
 responseGetUpgradeStatus =
@@ -691,7 +691,7 @@ responseGetUpgradeStatus =
     "GetUpgradeStatusResponse"
     "fixture/GetUpgradeStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUpgradeStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetUpgradeStatus)
 
 responseDeleteElasticsearchDomain :: DeleteElasticsearchDomainResponse -> TestTree
 responseDeleteElasticsearchDomain =
@@ -699,7 +699,7 @@ responseDeleteElasticsearchDomain =
     "DeleteElasticsearchDomainResponse"
     "fixture/DeleteElasticsearchDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteElasticsearchDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteElasticsearchDomain)
 
 responseDissociatePackage :: DissociatePackageResponse -> TestTree
 responseDissociatePackage =
@@ -707,7 +707,7 @@ responseDissociatePackage =
     "DissociatePackageResponse"
     "fixture/DissociatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DissociatePackage)
+    (Proxy.Proxy :: Proxy.Proxy DissociatePackage)
 
 responsePurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOfferingResponse -> TestTree
 responsePurchaseReservedElasticsearchInstanceOffering =
@@ -715,7 +715,7 @@ responsePurchaseReservedElasticsearchInstanceOffering =
     "PurchaseReservedElasticsearchInstanceOfferingResponse"
     "fixture/PurchaseReservedElasticsearchInstanceOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseReservedElasticsearchInstanceOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedElasticsearchInstanceOffering)
 
 responseDescribeReservedElasticsearchInstances :: DescribeReservedElasticsearchInstancesResponse -> TestTree
 responseDescribeReservedElasticsearchInstances =
@@ -723,7 +723,7 @@ responseDescribeReservedElasticsearchInstances =
     "DescribeReservedElasticsearchInstancesResponse"
     "fixture/DescribeReservedElasticsearchInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedElasticsearchInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedElasticsearchInstances)
 
 responseUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfigResponse -> TestTree
 responseUpdateElasticsearchDomainConfig =
@@ -731,7 +731,7 @@ responseUpdateElasticsearchDomainConfig =
     "UpdateElasticsearchDomainConfigResponse"
     "fixture/UpdateElasticsearchDomainConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateElasticsearchDomainConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateElasticsearchDomainConfig)
 
 responseListElasticsearchVersions :: ListElasticsearchVersionsResponse -> TestTree
 responseListElasticsearchVersions =
@@ -739,7 +739,7 @@ responseListElasticsearchVersions =
     "ListElasticsearchVersionsResponse"
     "fixture/ListElasticsearchVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListElasticsearchVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListElasticsearchVersions)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -747,7 +747,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseDeleteInboundCrossClusterSearchConnection :: DeleteInboundCrossClusterSearchConnectionResponse -> TestTree
 responseDeleteInboundCrossClusterSearchConnection =
@@ -755,7 +755,7 @@ responseDeleteInboundCrossClusterSearchConnection =
     "DeleteInboundCrossClusterSearchConnectionResponse"
     "fixture/DeleteInboundCrossClusterSearchConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInboundCrossClusterSearchConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInboundCrossClusterSearchConnection)
 
 responseDescribeReservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferingsResponse -> TestTree
 responseDescribeReservedElasticsearchInstanceOfferings =
@@ -763,7 +763,7 @@ responseDescribeReservedElasticsearchInstanceOfferings =
     "DescribeReservedElasticsearchInstanceOfferingsResponse"
     "fixture/DescribeReservedElasticsearchInstanceOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedElasticsearchInstanceOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedElasticsearchInstanceOfferings)
 
 responseUpgradeElasticsearchDomain :: UpgradeElasticsearchDomainResponse -> TestTree
 responseUpgradeElasticsearchDomain =
@@ -771,7 +771,7 @@ responseUpgradeElasticsearchDomain =
     "UpgradeElasticsearchDomainResponse"
     "fixture/UpgradeElasticsearchDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpgradeElasticsearchDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpgradeElasticsearchDomain)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -779,7 +779,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseDeletePackage :: DeletePackageResponse -> TestTree
 responseDeletePackage =
@@ -787,7 +787,7 @@ responseDeletePackage =
     "DeletePackageResponse"
     "fixture/DeletePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePackage)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
 
 responseUpdatePackage :: UpdatePackageResponse -> TestTree
 responseUpdatePackage =
@@ -795,7 +795,7 @@ responseUpdatePackage =
     "UpdatePackageResponse"
     "fixture/UpdatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePackage)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
 
 responseCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdateResponse -> TestTree
 responseCancelElasticsearchServiceSoftwareUpdate =
@@ -803,7 +803,7 @@ responseCancelElasticsearchServiceSoftwareUpdate =
     "CancelElasticsearchServiceSoftwareUpdateResponse"
     "fixture/CancelElasticsearchServiceSoftwareUpdateResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelElasticsearchServiceSoftwareUpdate)
+    (Proxy.Proxy :: Proxy.Proxy CancelElasticsearchServiceSoftwareUpdate)
 
 responseCreatePackage :: CreatePackageResponse -> TestTree
 responseCreatePackage =
@@ -811,7 +811,7 @@ responseCreatePackage =
     "CreatePackageResponse"
     "fixture/CreatePackageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePackage)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackage)
 
 responseRejectInboundCrossClusterSearchConnection :: RejectInboundCrossClusterSearchConnectionResponse -> TestTree
 responseRejectInboundCrossClusterSearchConnection =
@@ -819,7 +819,7 @@ responseRejectInboundCrossClusterSearchConnection =
     "RejectInboundCrossClusterSearchConnectionResponse"
     "fixture/RejectInboundCrossClusterSearchConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectInboundCrossClusterSearchConnection)
+    (Proxy.Proxy :: Proxy.Proxy RejectInboundCrossClusterSearchConnection)
 
 responseDescribeOutboundCrossClusterSearchConnections :: DescribeOutboundCrossClusterSearchConnectionsResponse -> TestTree
 responseDescribeOutboundCrossClusterSearchConnections =
@@ -827,7 +827,7 @@ responseDescribeOutboundCrossClusterSearchConnections =
     "DescribeOutboundCrossClusterSearchConnectionsResponse"
     "fixture/DescribeOutboundCrossClusterSearchConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOutboundCrossClusterSearchConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOutboundCrossClusterSearchConnections)
 
 responseAcceptInboundCrossClusterSearchConnection :: AcceptInboundCrossClusterSearchConnectionResponse -> TestTree
 responseAcceptInboundCrossClusterSearchConnection =
@@ -835,4 +835,4 @@ responseAcceptInboundCrossClusterSearchConnection =
     "AcceptInboundCrossClusterSearchConnectionResponse"
     "fixture/AcceptInboundCrossClusterSearchConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptInboundCrossClusterSearchConnection)
+    (Proxy.Proxy :: Proxy.Proxy AcceptInboundCrossClusterSearchConnection)

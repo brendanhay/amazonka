@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceMetering where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MarketplaceMetering
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceMetering.Internal
@@ -91,7 +91,7 @@ responseRegisterUsage =
     "RegisterUsageResponse"
     "fixture/RegisterUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterUsage)
+    (Proxy.Proxy :: Proxy.Proxy RegisterUsage)
 
 responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
 responseBatchMeterUsage =
@@ -99,7 +99,7 @@ responseBatchMeterUsage =
     "BatchMeterUsageResponse"
     "fixture/BatchMeterUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchMeterUsage)
+    (Proxy.Proxy :: Proxy.Proxy BatchMeterUsage)
 
 responseResolveCustomer :: ResolveCustomerResponse -> TestTree
 responseResolveCustomer =
@@ -107,7 +107,7 @@ responseResolveCustomer =
     "ResolveCustomerResponse"
     "fixture/ResolveCustomerResponse.proto"
     defaultService
-    (Proxy :: Proxy ResolveCustomer)
+    (Proxy.Proxy :: Proxy.Proxy ResolveCustomer)
 
 responseMeterUsage :: MeterUsageResponse -> TestTree
 responseMeterUsage =
@@ -115,4 +115,4 @@ responseMeterUsage =
     "MeterUsageResponse"
     "fixture/MeterUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy MeterUsage)
+    (Proxy.Proxy :: Proxy.Proxy MeterUsage)

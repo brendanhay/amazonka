@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AuditManager where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AuditManager
 import Test.AWS.AuditManager.Internal
 import Test.AWS.Fixture
@@ -655,7 +655,7 @@ responseCreateAssessmentReport =
     "CreateAssessmentReportResponse"
     "fixture/CreateAssessmentReportResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssessmentReport)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentReport)
 
 responseRegisterOrganizationAdminAccount :: RegisterOrganizationAdminAccountResponse -> TestTree
 responseRegisterOrganizationAdminAccount =
@@ -663,7 +663,7 @@ responseRegisterOrganizationAdminAccount =
     "RegisterOrganizationAdminAccountResponse"
     "fixture/RegisterOrganizationAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterOrganizationAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy RegisterOrganizationAdminAccount)
 
 responseListNotifications :: ListNotificationsResponse -> TestTree
 responseListNotifications =
@@ -671,7 +671,7 @@ responseListNotifications =
     "ListNotificationsResponse"
     "fixture/ListNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotifications)
+    (Proxy.Proxy :: Proxy.Proxy ListNotifications)
 
 responseBatchCreateDelegationByAssessment :: BatchCreateDelegationByAssessmentResponse -> TestTree
 responseBatchCreateDelegationByAssessment =
@@ -679,7 +679,7 @@ responseBatchCreateDelegationByAssessment =
     "BatchCreateDelegationByAssessmentResponse"
     "fixture/BatchCreateDelegationByAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCreateDelegationByAssessment)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateDelegationByAssessment)
 
 responseGetEvidenceFoldersByAssessmentControl :: GetEvidenceFoldersByAssessmentControlResponse -> TestTree
 responseGetEvidenceFoldersByAssessmentControl =
@@ -687,7 +687,7 @@ responseGetEvidenceFoldersByAssessmentControl =
     "GetEvidenceFoldersByAssessmentControlResponse"
     "fixture/GetEvidenceFoldersByAssessmentControlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvidenceFoldersByAssessmentControl)
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessmentControl)
 
 responseBatchDeleteDelegationByAssessment :: BatchDeleteDelegationByAssessmentResponse -> TestTree
 responseBatchDeleteDelegationByAssessment =
@@ -695,7 +695,7 @@ responseBatchDeleteDelegationByAssessment =
     "BatchDeleteDelegationByAssessmentResponse"
     "fixture/BatchDeleteDelegationByAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteDelegationByAssessment)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteDelegationByAssessment)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -703,7 +703,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetEvidence :: GetEvidenceResponse -> TestTree
 responseGetEvidence =
@@ -711,7 +711,7 @@ responseGetEvidence =
     "GetEvidenceResponse"
     "fixture/GetEvidenceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvidence)
+    (Proxy.Proxy :: Proxy.Proxy GetEvidence)
 
 responseGetServicesInScope :: GetServicesInScopeResponse -> TestTree
 responseGetServicesInScope =
@@ -719,7 +719,7 @@ responseGetServicesInScope =
     "GetServicesInScopeResponse"
     "fixture/GetServicesInScopeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServicesInScope)
+    (Proxy.Proxy :: Proxy.Proxy GetServicesInScope)
 
 responseBatchDisassociateAssessmentReportEvidence :: BatchDisassociateAssessmentReportEvidenceResponse -> TestTree
 responseBatchDisassociateAssessmentReportEvidence =
@@ -727,7 +727,7 @@ responseBatchDisassociateAssessmentReportEvidence =
     "BatchDisassociateAssessmentReportEvidenceResponse"
     "fixture/BatchDisassociateAssessmentReportEvidenceResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateAssessmentReportEvidence)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateAssessmentReportEvidence)
 
 responseDeregisterOrganizationAdminAccount :: DeregisterOrganizationAdminAccountResponse -> TestTree
 responseDeregisterOrganizationAdminAccount =
@@ -735,7 +735,7 @@ responseDeregisterOrganizationAdminAccount =
     "DeregisterOrganizationAdminAccountResponse"
     "fixture/DeregisterOrganizationAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterOrganizationAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterOrganizationAdminAccount)
 
 responseGetAssessmentReportUrl :: GetAssessmentReportUrlResponse -> TestTree
 responseGetAssessmentReportUrl =
@@ -743,7 +743,7 @@ responseGetAssessmentReportUrl =
     "GetAssessmentReportUrlResponse"
     "fixture/GetAssessmentReportUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssessmentReportUrl)
+    (Proxy.Proxy :: Proxy.Proxy GetAssessmentReportUrl)
 
 responseUpdateAssessmentControl :: UpdateAssessmentControlResponse -> TestTree
 responseUpdateAssessmentControl =
@@ -751,7 +751,7 @@ responseUpdateAssessmentControl =
     "UpdateAssessmentControlResponse"
     "fixture/UpdateAssessmentControlResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssessmentControl)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentControl)
 
 responseDeleteAssessmentFramework :: DeleteAssessmentFrameworkResponse -> TestTree
 responseDeleteAssessmentFramework =
@@ -759,7 +759,7 @@ responseDeleteAssessmentFramework =
     "DeleteAssessmentFrameworkResponse"
     "fixture/DeleteAssessmentFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssessmentFramework)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentFramework)
 
 responseUpdateAssessmentFramework :: UpdateAssessmentFrameworkResponse -> TestTree
 responseUpdateAssessmentFramework =
@@ -767,7 +767,7 @@ responseUpdateAssessmentFramework =
     "UpdateAssessmentFrameworkResponse"
     "fixture/UpdateAssessmentFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssessmentFramework)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentFramework)
 
 responseBatchAssociateAssessmentReportEvidence :: BatchAssociateAssessmentReportEvidenceResponse -> TestTree
 responseBatchAssociateAssessmentReportEvidence =
@@ -775,7 +775,7 @@ responseBatchAssociateAssessmentReportEvidence =
     "BatchAssociateAssessmentReportEvidenceResponse"
     "fixture/BatchAssociateAssessmentReportEvidenceResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateAssessmentReportEvidence)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateAssessmentReportEvidence)
 
 responseGetEvidenceByEvidenceFolder :: GetEvidenceByEvidenceFolderResponse -> TestTree
 responseGetEvidenceByEvidenceFolder =
@@ -783,7 +783,7 @@ responseGetEvidenceByEvidenceFolder =
     "GetEvidenceByEvidenceFolderResponse"
     "fixture/GetEvidenceByEvidenceFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvidenceByEvidenceFolder)
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceByEvidenceFolder)
 
 responseCreateAssessmentFramework :: CreateAssessmentFrameworkResponse -> TestTree
 responseCreateAssessmentFramework =
@@ -791,7 +791,7 @@ responseCreateAssessmentFramework =
     "CreateAssessmentFrameworkResponse"
     "fixture/CreateAssessmentFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssessmentFramework)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentFramework)
 
 responseListKeywordsForDataSource :: ListKeywordsForDataSourceResponse -> TestTree
 responseListKeywordsForDataSource =
@@ -799,7 +799,7 @@ responseListKeywordsForDataSource =
     "ListKeywordsForDataSourceResponse"
     "fixture/ListKeywordsForDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKeywordsForDataSource)
+    (Proxy.Proxy :: Proxy.Proxy ListKeywordsForDataSource)
 
 responseListAssessmentReports :: ListAssessmentReportsResponse -> TestTree
 responseListAssessmentReports =
@@ -807,7 +807,7 @@ responseListAssessmentReports =
     "ListAssessmentReportsResponse"
     "fixture/ListAssessmentReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessmentReports)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentReports)
 
 responseValidateAssessmentReportIntegrity :: ValidateAssessmentReportIntegrityResponse -> TestTree
 responseValidateAssessmentReportIntegrity =
@@ -815,7 +815,7 @@ responseValidateAssessmentReportIntegrity =
     "ValidateAssessmentReportIntegrityResponse"
     "fixture/ValidateAssessmentReportIntegrityResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidateAssessmentReportIntegrity)
+    (Proxy.Proxy :: Proxy.Proxy ValidateAssessmentReportIntegrity)
 
 responseDeregisterAccount :: DeregisterAccountResponse -> TestTree
 responseDeregisterAccount =
@@ -823,7 +823,7 @@ responseDeregisterAccount =
     "DeregisterAccountResponse"
     "fixture/DeregisterAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterAccount)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterAccount)
 
 responseDeleteAssessmentReport :: DeleteAssessmentReportResponse -> TestTree
 responseDeleteAssessmentReport =
@@ -831,7 +831,7 @@ responseDeleteAssessmentReport =
     "DeleteAssessmentReportResponse"
     "fixture/DeleteAssessmentReportResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssessmentReport)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentReport)
 
 responseUpdateSettings :: UpdateSettingsResponse -> TestTree
 responseUpdateSettings =
@@ -839,7 +839,7 @@ responseUpdateSettings =
     "UpdateSettingsResponse"
     "fixture/UpdateSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSettings)
 
 responseGetAssessmentFramework :: GetAssessmentFrameworkResponse -> TestTree
 responseGetAssessmentFramework =
@@ -847,7 +847,7 @@ responseGetAssessmentFramework =
     "GetAssessmentFrameworkResponse"
     "fixture/GetAssessmentFrameworkResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssessmentFramework)
+    (Proxy.Proxy :: Proxy.Proxy GetAssessmentFramework)
 
 responseDeleteAssessment :: DeleteAssessmentResponse -> TestTree
 responseDeleteAssessment =
@@ -855,7 +855,7 @@ responseDeleteAssessment =
     "DeleteAssessmentResponse"
     "fixture/DeleteAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssessment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessment)
 
 responseGetChangeLogs :: GetChangeLogsResponse -> TestTree
 responseGetChangeLogs =
@@ -863,7 +863,7 @@ responseGetChangeLogs =
     "GetChangeLogsResponse"
     "fixture/GetChangeLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChangeLogs)
+    (Proxy.Proxy :: Proxy.Proxy GetChangeLogs)
 
 responseUpdateAssessment :: UpdateAssessmentResponse -> TestTree
 responseUpdateAssessment =
@@ -871,7 +871,7 @@ responseUpdateAssessment =
     "UpdateAssessmentResponse"
     "fixture/UpdateAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssessment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessment)
 
 responseGetDelegations :: GetDelegationsResponse -> TestTree
 responseGetDelegations =
@@ -879,7 +879,7 @@ responseGetDelegations =
     "GetDelegationsResponse"
     "fixture/GetDelegationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDelegations)
+    (Proxy.Proxy :: Proxy.Proxy GetDelegations)
 
 responseDisassociateAssessmentReportEvidenceFolder :: DisassociateAssessmentReportEvidenceFolderResponse -> TestTree
 responseDisassociateAssessmentReportEvidenceFolder =
@@ -887,7 +887,7 @@ responseDisassociateAssessmentReportEvidenceFolder =
     "DisassociateAssessmentReportEvidenceFolderResponse"
     "fixture/DisassociateAssessmentReportEvidenceFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateAssessmentReportEvidenceFolder)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAssessmentReportEvidenceFolder)
 
 responseListAssessments :: ListAssessmentsResponse -> TestTree
 responseListAssessments =
@@ -895,7 +895,7 @@ responseListAssessments =
     "ListAssessmentsResponse"
     "fixture/ListAssessmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessments)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessments)
 
 responseCreateAssessment :: CreateAssessmentResponse -> TestTree
 responseCreateAssessment =
@@ -903,7 +903,7 @@ responseCreateAssessment =
     "CreateAssessmentResponse"
     "fixture/CreateAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssessment)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessment)
 
 responseGetEvidenceFoldersByAssessment :: GetEvidenceFoldersByAssessmentResponse -> TestTree
 responseGetEvidenceFoldersByAssessment =
@@ -911,7 +911,7 @@ responseGetEvidenceFoldersByAssessment =
     "GetEvidenceFoldersByAssessmentResponse"
     "fixture/GetEvidenceFoldersByAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvidenceFoldersByAssessment)
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessment)
 
 responseRegisterAccount :: RegisterAccountResponse -> TestTree
 responseRegisterAccount =
@@ -919,7 +919,7 @@ responseRegisterAccount =
     "RegisterAccountResponse"
     "fixture/RegisterAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterAccount)
+    (Proxy.Proxy :: Proxy.Proxy RegisterAccount)
 
 responseGetAssessment :: GetAssessmentResponse -> TestTree
 responseGetAssessment =
@@ -927,7 +927,7 @@ responseGetAssessment =
     "GetAssessmentResponse"
     "fixture/GetAssessmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssessment)
+    (Proxy.Proxy :: Proxy.Proxy GetAssessment)
 
 responseBatchImportEvidenceToAssessmentControl :: BatchImportEvidenceToAssessmentControlResponse -> TestTree
 responseBatchImportEvidenceToAssessmentControl =
@@ -935,7 +935,7 @@ responseBatchImportEvidenceToAssessmentControl =
     "BatchImportEvidenceToAssessmentControlResponse"
     "fixture/BatchImportEvidenceToAssessmentControlResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchImportEvidenceToAssessmentControl)
+    (Proxy.Proxy :: Proxy.Proxy BatchImportEvidenceToAssessmentControl)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -943,7 +943,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetEvidenceFolder :: GetEvidenceFolderResponse -> TestTree
 responseGetEvidenceFolder =
@@ -951,7 +951,7 @@ responseGetEvidenceFolder =
     "GetEvidenceFolderResponse"
     "fixture/GetEvidenceFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvidenceFolder)
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFolder)
 
 responseListAssessmentFrameworks :: ListAssessmentFrameworksResponse -> TestTree
 responseListAssessmentFrameworks =
@@ -959,7 +959,7 @@ responseListAssessmentFrameworks =
     "ListAssessmentFrameworksResponse"
     "fixture/ListAssessmentFrameworksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssessmentFrameworks)
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentFrameworks)
 
 responseCreateControl :: CreateControlResponse -> TestTree
 responseCreateControl =
@@ -967,7 +967,7 @@ responseCreateControl =
     "CreateControlResponse"
     "fixture/CreateControlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateControl)
+    (Proxy.Proxy :: Proxy.Proxy CreateControl)
 
 responseUpdateAssessmentStatus :: UpdateAssessmentStatusResponse -> TestTree
 responseUpdateAssessmentStatus =
@@ -975,7 +975,7 @@ responseUpdateAssessmentStatus =
     "UpdateAssessmentStatusResponse"
     "fixture/UpdateAssessmentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssessmentStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentStatus)
 
 responseGetAccountStatus :: GetAccountStatusResponse -> TestTree
 responseGetAccountStatus =
@@ -983,7 +983,7 @@ responseGetAccountStatus =
     "GetAccountStatusResponse"
     "fixture/GetAccountStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountStatus)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -991,7 +991,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetSettings :: GetSettingsResponse -> TestTree
 responseGetSettings =
@@ -999,7 +999,7 @@ responseGetSettings =
     "GetSettingsResponse"
     "fixture/GetSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetSettings)
 
 responseGetOrganizationAdminAccount :: GetOrganizationAdminAccountResponse -> TestTree
 responseGetOrganizationAdminAccount =
@@ -1007,7 +1007,7 @@ responseGetOrganizationAdminAccount =
     "GetOrganizationAdminAccountResponse"
     "fixture/GetOrganizationAdminAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOrganizationAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetOrganizationAdminAccount)
 
 responseDeleteControl :: DeleteControlResponse -> TestTree
 responseDeleteControl =
@@ -1015,7 +1015,7 @@ responseDeleteControl =
     "DeleteControlResponse"
     "fixture/DeleteControlResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteControl)
+    (Proxy.Proxy :: Proxy.Proxy DeleteControl)
 
 responseUpdateControl :: UpdateControlResponse -> TestTree
 responseUpdateControl =
@@ -1023,7 +1023,7 @@ responseUpdateControl =
     "UpdateControlResponse"
     "fixture/UpdateControlResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateControl)
+    (Proxy.Proxy :: Proxy.Proxy UpdateControl)
 
 responseUpdateAssessmentControlSetStatus :: UpdateAssessmentControlSetStatusResponse -> TestTree
 responseUpdateAssessmentControlSetStatus =
@@ -1031,7 +1031,7 @@ responseUpdateAssessmentControlSetStatus =
     "UpdateAssessmentControlSetStatusResponse"
     "fixture/UpdateAssessmentControlSetStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssessmentControlSetStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentControlSetStatus)
 
 responseListControls :: ListControlsResponse -> TestTree
 responseListControls =
@@ -1039,7 +1039,7 @@ responseListControls =
     "ListControlsResponse"
     "fixture/ListControlsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListControls)
+    (Proxy.Proxy :: Proxy.Proxy ListControls)
 
 responseAssociateAssessmentReportEvidenceFolder :: AssociateAssessmentReportEvidenceFolderResponse -> TestTree
 responseAssociateAssessmentReportEvidenceFolder =
@@ -1047,7 +1047,7 @@ responseAssociateAssessmentReportEvidenceFolder =
     "AssociateAssessmentReportEvidenceFolderResponse"
     "fixture/AssociateAssessmentReportEvidenceFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAssessmentReportEvidenceFolder)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAssessmentReportEvidenceFolder)
 
 responseGetControl :: GetControlResponse -> TestTree
 responseGetControl =
@@ -1055,4 +1055,4 @@ responseGetControl =
     "GetControlResponse"
     "fixture/GetControlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetControl)
+    (Proxy.Proxy :: Proxy.Proxy GetControl)

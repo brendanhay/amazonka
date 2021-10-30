@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IVS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IVS
 import Test.AWS.Fixture
 import Test.AWS.IVS.Internal
@@ -355,7 +355,7 @@ responsePutMetadata =
     "PutMetadataResponse"
     "fixture/PutMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMetadata)
+    (Proxy.Proxy :: Proxy.Proxy PutMetadata)
 
 responseListRecordingConfigurations :: ListRecordingConfigurationsResponse -> TestTree
 responseListRecordingConfigurations =
@@ -363,7 +363,7 @@ responseListRecordingConfigurations =
     "ListRecordingConfigurationsResponse"
     "fixture/ListRecordingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecordingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListRecordingConfigurations)
 
 responseCreateStreamKey :: CreateStreamKeyResponse -> TestTree
 responseCreateStreamKey =
@@ -371,7 +371,7 @@ responseCreateStreamKey =
     "CreateStreamKeyResponse"
     "fixture/CreateStreamKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamKey)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamKey)
 
 responseImportPlaybackKeyPair :: ImportPlaybackKeyPairResponse -> TestTree
 responseImportPlaybackKeyPair =
@@ -379,7 +379,7 @@ responseImportPlaybackKeyPair =
     "ImportPlaybackKeyPairResponse"
     "fixture/ImportPlaybackKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportPlaybackKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy ImportPlaybackKeyPair)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -387,7 +387,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -395,7 +395,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -403,7 +403,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -411,7 +411,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseGetStreamKey :: GetStreamKeyResponse -> TestTree
 responseGetStreamKey =
@@ -419,7 +419,7 @@ responseGetStreamKey =
     "GetStreamKeyResponse"
     "fixture/GetStreamKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStreamKey)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamKey)
 
 responseDeletePlaybackKeyPair :: DeletePlaybackKeyPairResponse -> TestTree
 responseDeletePlaybackKeyPair =
@@ -427,7 +427,7 @@ responseDeletePlaybackKeyPair =
     "DeletePlaybackKeyPairResponse"
     "fixture/DeletePlaybackKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlaybackKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy DeletePlaybackKeyPair)
 
 responseBatchGetStreamKey :: BatchGetStreamKeyResponse -> TestTree
 responseBatchGetStreamKey =
@@ -435,7 +435,7 @@ responseBatchGetStreamKey =
     "BatchGetStreamKeyResponse"
     "fixture/BatchGetStreamKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetStreamKey)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetStreamKey)
 
 responseGetPlaybackKeyPair :: GetPlaybackKeyPairResponse -> TestTree
 responseGetPlaybackKeyPair =
@@ -443,7 +443,7 @@ responseGetPlaybackKeyPair =
     "GetPlaybackKeyPairResponse"
     "fixture/GetPlaybackKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPlaybackKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy GetPlaybackKeyPair)
 
 responseDeleteRecordingConfiguration :: DeleteRecordingConfigurationResponse -> TestTree
 responseDeleteRecordingConfiguration =
@@ -451,7 +451,7 @@ responseDeleteRecordingConfiguration =
     "DeleteRecordingConfigurationResponse"
     "fixture/DeleteRecordingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRecordingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecordingConfiguration)
 
 responseStopStream :: StopStreamResponse -> TestTree
 responseStopStream =
@@ -459,7 +459,7 @@ responseStopStream =
     "StopStreamResponse"
     "fixture/StopStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy StopStream)
+    (Proxy.Proxy :: Proxy.Proxy StopStream)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -467,7 +467,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
 
 responseDeleteStreamKey :: DeleteStreamKeyResponse -> TestTree
 responseDeleteStreamKey =
@@ -475,7 +475,7 @@ responseDeleteStreamKey =
     "DeleteStreamKeyResponse"
     "fixture/DeleteStreamKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStreamKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamKey)
 
 responseGetStream :: GetStreamResponse -> TestTree
 responseGetStream =
@@ -483,7 +483,7 @@ responseGetStream =
     "GetStreamResponse"
     "fixture/GetStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStream)
+    (Proxy.Proxy :: Proxy.Proxy GetStream)
 
 responseListStreamKeys :: ListStreamKeysResponse -> TestTree
 responseListStreamKeys =
@@ -491,7 +491,7 @@ responseListStreamKeys =
     "ListStreamKeysResponse"
     "fixture/ListStreamKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreamKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListStreamKeys)
 
 responseGetChannel :: GetChannelResponse -> TestTree
 responseGetChannel =
@@ -499,7 +499,7 @@ responseGetChannel =
     "GetChannelResponse"
     "fixture/GetChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetChannel)
 
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
@@ -507,7 +507,7 @@ responseListStreams =
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListStreams)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -515,7 +515,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetRecordingConfiguration :: GetRecordingConfigurationResponse -> TestTree
 responseGetRecordingConfiguration =
@@ -523,7 +523,7 @@ responseGetRecordingConfiguration =
     "GetRecordingConfigurationResponse"
     "fixture/GetRecordingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecordingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetRecordingConfiguration)
 
 responseListPlaybackKeyPairs :: ListPlaybackKeyPairsResponse -> TestTree
 responseListPlaybackKeyPairs =
@@ -531,7 +531,7 @@ responseListPlaybackKeyPairs =
     "ListPlaybackKeyPairsResponse"
     "fixture/ListPlaybackKeyPairsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPlaybackKeyPairs)
+    (Proxy.Proxy :: Proxy.Proxy ListPlaybackKeyPairs)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -539,7 +539,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateRecordingConfiguration :: CreateRecordingConfigurationResponse -> TestTree
 responseCreateRecordingConfiguration =
@@ -547,7 +547,7 @@ responseCreateRecordingConfiguration =
     "CreateRecordingConfigurationResponse"
     "fixture/CreateRecordingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRecordingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecordingConfiguration)
 
 responseBatchGetChannel :: BatchGetChannelResponse -> TestTree
 responseBatchGetChannel =
@@ -555,4 +555,4 @@ responseBatchGetChannel =
     "BatchGetChannelResponse"
     "fixture/BatchGetChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetChannel)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetChannel)

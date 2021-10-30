@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Pi where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Pi
 import Test.AWS.Fixture
 import Test.AWS.Pi.Internal
@@ -79,7 +79,7 @@ responseGetDimensionKeyDetails =
     "GetDimensionKeyDetailsResponse"
     "fixture/GetDimensionKeyDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDimensionKeyDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetDimensionKeyDetails)
 
 responseGetResourceMetrics :: GetResourceMetricsResponse -> TestTree
 responseGetResourceMetrics =
@@ -87,7 +87,7 @@ responseGetResourceMetrics =
     "GetResourceMetricsResponse"
     "fixture/GetResourceMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceMetrics)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceMetrics)
 
 responseDescribeDimensionKeys :: DescribeDimensionKeysResponse -> TestTree
 responseDescribeDimensionKeys =
@@ -95,4 +95,4 @@ responseDescribeDimensionKeys =
     "DescribeDimensionKeysResponse"
     "fixture/DescribeDimensionKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDimensionKeys)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDimensionKeys)

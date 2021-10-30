@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaPackageVOD where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaPackageVOD
 import Test.AWS.Fixture
 import Test.AWS.MediaPackageVOD.Internal
@@ -247,7 +247,7 @@ responseCreatePackagingGroup =
     "CreatePackagingGroupResponse"
     "fixture/CreatePackagingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePackagingGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackagingGroup)
 
 responseConfigureLogs :: ConfigureLogsResponse -> TestTree
 responseConfigureLogs =
@@ -255,7 +255,7 @@ responseConfigureLogs =
     "ConfigureLogsResponse"
     "fixture/ConfigureLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfigureLogs)
+    (Proxy.Proxy :: Proxy.Proxy ConfigureLogs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -263,7 +263,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribePackagingGroup :: DescribePackagingGroupResponse -> TestTree
 responseDescribePackagingGroup =
@@ -271,7 +271,7 @@ responseDescribePackagingGroup =
     "DescribePackagingGroupResponse"
     "fixture/DescribePackagingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePackagingGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribePackagingGroup)
 
 responseDescribeAsset :: DescribeAssetResponse -> TestTree
 responseDescribeAsset =
@@ -279,7 +279,7 @@ responseDescribeAsset =
     "DescribeAssetResponse"
     "fixture/DescribeAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAsset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAsset)
 
 responseDeletePackagingConfiguration :: DeletePackagingConfigurationResponse -> TestTree
 responseDeletePackagingConfiguration =
@@ -287,7 +287,7 @@ responseDeletePackagingConfiguration =
     "DeletePackagingConfigurationResponse"
     "fixture/DeletePackagingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePackagingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackagingConfiguration)
 
 responseListPackagingGroups :: ListPackagingGroupsResponse -> TestTree
 responseListPackagingGroups =
@@ -295,7 +295,7 @@ responseListPackagingGroups =
     "ListPackagingGroupsResponse"
     "fixture/ListPackagingGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackagingGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListPackagingGroups)
 
 responseDeleteAsset :: DeleteAssetResponse -> TestTree
 responseDeleteAsset =
@@ -303,7 +303,7 @@ responseDeleteAsset =
     "DeleteAssetResponse"
     "fixture/DeleteAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAsset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAsset)
 
 responseUpdatePackagingGroup :: UpdatePackagingGroupResponse -> TestTree
 responseUpdatePackagingGroup =
@@ -311,7 +311,7 @@ responseUpdatePackagingGroup =
     "UpdatePackagingGroupResponse"
     "fixture/UpdatePackagingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePackagingGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackagingGroup)
 
 responseDeletePackagingGroup :: DeletePackagingGroupResponse -> TestTree
 responseDeletePackagingGroup =
@@ -319,7 +319,7 @@ responseDeletePackagingGroup =
     "DeletePackagingGroupResponse"
     "fixture/DeletePackagingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePackagingGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackagingGroup)
 
 responseCreateAsset :: CreateAssetResponse -> TestTree
 responseCreateAsset =
@@ -327,7 +327,7 @@ responseCreateAsset =
     "CreateAssetResponse"
     "fixture/CreateAssetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAsset)
+    (Proxy.Proxy :: Proxy.Proxy CreateAsset)
 
 responseDescribePackagingConfiguration :: DescribePackagingConfigurationResponse -> TestTree
 responseDescribePackagingConfiguration =
@@ -335,7 +335,7 @@ responseDescribePackagingConfiguration =
     "DescribePackagingConfigurationResponse"
     "fixture/DescribePackagingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePackagingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribePackagingConfiguration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -343,7 +343,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -351,7 +351,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreatePackagingConfiguration :: CreatePackagingConfigurationResponse -> TestTree
 responseCreatePackagingConfiguration =
@@ -359,7 +359,7 @@ responseCreatePackagingConfiguration =
     "CreatePackagingConfigurationResponse"
     "fixture/CreatePackagingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePackagingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackagingConfiguration)
 
 responseListPackagingConfigurations :: ListPackagingConfigurationsResponse -> TestTree
 responseListPackagingConfigurations =
@@ -367,7 +367,7 @@ responseListPackagingConfigurations =
     "ListPackagingConfigurationsResponse"
     "fixture/ListPackagingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPackagingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListPackagingConfigurations)
 
 responseListAssets :: ListAssetsResponse -> TestTree
 responseListAssets =
@@ -375,4 +375,4 @@ responseListAssets =
     "ListAssetsResponse"
     "fixture/ListAssetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssets)
+    (Proxy.Proxy :: Proxy.Proxy ListAssets)

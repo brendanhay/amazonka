@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeGuruProfiler where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeGuruProfiler
 import Test.AWS.CodeGuruProfiler.Internal
 import Test.AWS.Fixture
@@ -319,7 +319,7 @@ responseGetRecommendations =
     "GetRecommendationsResponse"
     "fixture/GetRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
 
 responseAddNotificationChannels :: AddNotificationChannelsResponse -> TestTree
 responseAddNotificationChannels =
@@ -327,7 +327,7 @@ responseAddNotificationChannels =
     "AddNotificationChannelsResponse"
     "fixture/AddNotificationChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddNotificationChannels)
+    (Proxy.Proxy :: Proxy.Proxy AddNotificationChannels)
 
 responseDescribeProfilingGroup :: DescribeProfilingGroupResponse -> TestTree
 responseDescribeProfilingGroup =
@@ -335,7 +335,7 @@ responseDescribeProfilingGroup =
     "DescribeProfilingGroupResponse"
     "fixture/DescribeProfilingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProfilingGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProfilingGroup)
 
 responsePutPermission :: PutPermissionResponse -> TestTree
 responsePutPermission =
@@ -343,7 +343,7 @@ responsePutPermission =
     "PutPermissionResponse"
     "fixture/PutPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPermission)
+    (Proxy.Proxy :: Proxy.Proxy PutPermission)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -351,7 +351,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =
@@ -359,7 +359,7 @@ responseRemovePermission =
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemovePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
 
 responseSubmitFeedback :: SubmitFeedbackResponse -> TestTree
 responseSubmitFeedback =
@@ -367,7 +367,7 @@ responseSubmitFeedback =
     "SubmitFeedbackResponse"
     "fixture/SubmitFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy SubmitFeedback)
+    (Proxy.Proxy :: Proxy.Proxy SubmitFeedback)
 
 responseCreateProfilingGroup :: CreateProfilingGroupResponse -> TestTree
 responseCreateProfilingGroup =
@@ -375,7 +375,7 @@ responseCreateProfilingGroup =
     "CreateProfilingGroupResponse"
     "fixture/CreateProfilingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProfilingGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateProfilingGroup)
 
 responseRemoveNotificationChannel :: RemoveNotificationChannelResponse -> TestTree
 responseRemoveNotificationChannel =
@@ -383,7 +383,7 @@ responseRemoveNotificationChannel =
     "RemoveNotificationChannelResponse"
     "fixture/RemoveNotificationChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveNotificationChannel)
+    (Proxy.Proxy :: Proxy.Proxy RemoveNotificationChannel)
 
 responseUpdateProfilingGroup :: UpdateProfilingGroupResponse -> TestTree
 responseUpdateProfilingGroup =
@@ -391,7 +391,7 @@ responseUpdateProfilingGroup =
     "UpdateProfilingGroupResponse"
     "fixture/UpdateProfilingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProfilingGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfilingGroup)
 
 responseDeleteProfilingGroup :: DeleteProfilingGroupResponse -> TestTree
 responseDeleteProfilingGroup =
@@ -399,7 +399,7 @@ responseDeleteProfilingGroup =
     "DeleteProfilingGroupResponse"
     "fixture/DeleteProfilingGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProfilingGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfilingGroup)
 
 responseListFindingsReports :: ListFindingsReportsResponse -> TestTree
 responseListFindingsReports =
@@ -407,7 +407,7 @@ responseListFindingsReports =
     "ListFindingsReportsResponse"
     "fixture/ListFindingsReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFindingsReports)
+    (Proxy.Proxy :: Proxy.Proxy ListFindingsReports)
 
 responseListProfileTimes :: ListProfileTimesResponse -> TestTree
 responseListProfileTimes =
@@ -415,7 +415,7 @@ responseListProfileTimes =
     "ListProfileTimesResponse"
     "fixture/ListProfileTimesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProfileTimes)
+    (Proxy.Proxy :: Proxy.Proxy ListProfileTimes)
 
 responsePostAgentProfile :: PostAgentProfileResponse -> TestTree
 responsePostAgentProfile =
@@ -423,7 +423,7 @@ responsePostAgentProfile =
     "PostAgentProfileResponse"
     "fixture/PostAgentProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy PostAgentProfile)
+    (Proxy.Proxy :: Proxy.Proxy PostAgentProfile)
 
 responseGetProfile :: GetProfileResponse -> TestTree
 responseGetProfile =
@@ -431,7 +431,7 @@ responseGetProfile =
     "GetProfileResponse"
     "fixture/GetProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetProfile)
 
 responseListProfilingGroups :: ListProfilingGroupsResponse -> TestTree
 responseListProfilingGroups =
@@ -439,7 +439,7 @@ responseListProfilingGroups =
     "ListProfilingGroupsResponse"
     "fixture/ListProfilingGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProfilingGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListProfilingGroups)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -447,7 +447,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetNotificationConfiguration :: GetNotificationConfigurationResponse -> TestTree
 responseGetNotificationConfiguration =
@@ -455,7 +455,7 @@ responseGetNotificationConfiguration =
     "GetNotificationConfigurationResponse"
     "fixture/GetNotificationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNotificationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetNotificationConfiguration)
 
 responseBatchGetFrameMetricData :: BatchGetFrameMetricDataResponse -> TestTree
 responseBatchGetFrameMetricData =
@@ -463,7 +463,7 @@ responseBatchGetFrameMetricData =
     "BatchGetFrameMetricDataResponse"
     "fixture/BatchGetFrameMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetFrameMetricData)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetFrameMetricData)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -471,7 +471,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetFindingsReportAccountSummary :: GetFindingsReportAccountSummaryResponse -> TestTree
 responseGetFindingsReportAccountSummary =
@@ -479,7 +479,7 @@ responseGetFindingsReportAccountSummary =
     "GetFindingsReportAccountSummaryResponse"
     "fixture/GetFindingsReportAccountSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFindingsReportAccountSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetFindingsReportAccountSummary)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -487,7 +487,7 @@ responseGetPolicy =
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
 
 responseConfigureAgent :: ConfigureAgentResponse -> TestTree
 responseConfigureAgent =
@@ -495,4 +495,4 @@ responseConfigureAgent =
     "ConfigureAgentResponse"
     "fixture/ConfigureAgentResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfigureAgent)
+    (Proxy.Proxy :: Proxy.Proxy ConfigureAgent)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LakeFormation where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LakeFormation
 import Test.AWS.Fixture
 import Test.AWS.LakeFormation.Internal
@@ -319,7 +319,7 @@ responseBatchRevokePermissions =
     "BatchRevokePermissionsResponse"
     "fixture/BatchRevokePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchRevokePermissions)
+    (Proxy.Proxy :: Proxy.Proxy BatchRevokePermissions)
 
 responseDescribeResource :: DescribeResourceResponse -> TestTree
 responseDescribeResource =
@@ -327,7 +327,7 @@ responseDescribeResource =
     "DescribeResourceResponse"
     "fixture/DescribeResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResource)
 
 responseBatchGrantPermissions :: BatchGrantPermissionsResponse -> TestTree
 responseBatchGrantPermissions =
@@ -335,7 +335,7 @@ responseBatchGrantPermissions =
     "BatchGrantPermissionsResponse"
     "fixture/BatchGrantPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGrantPermissions)
+    (Proxy.Proxy :: Proxy.Proxy BatchGrantPermissions)
 
 responseGetEffectivePermissionsForPath :: GetEffectivePermissionsForPathResponse -> TestTree
 responseGetEffectivePermissionsForPath =
@@ -343,7 +343,7 @@ responseGetEffectivePermissionsForPath =
     "GetEffectivePermissionsForPathResponse"
     "fixture/GetEffectivePermissionsForPathResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEffectivePermissionsForPath)
+    (Proxy.Proxy :: Proxy.Proxy GetEffectivePermissionsForPath)
 
 responseRevokePermissions :: RevokePermissionsResponse -> TestTree
 responseRevokePermissions =
@@ -351,7 +351,7 @@ responseRevokePermissions =
     "RevokePermissionsResponse"
     "fixture/RevokePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokePermissions)
+    (Proxy.Proxy :: Proxy.Proxy RevokePermissions)
 
 responseUpdateResource :: UpdateResourceResponse -> TestTree
 responseUpdateResource =
@@ -359,7 +359,7 @@ responseUpdateResource =
     "UpdateResourceResponse"
     "fixture/UpdateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResource)
 
 responseAddLFTagsToResource :: AddLFTagsToResourceResponse -> TestTree
 responseAddLFTagsToResource =
@@ -367,7 +367,7 @@ responseAddLFTagsToResource =
     "AddLFTagsToResourceResponse"
     "fixture/AddLFTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddLFTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddLFTagsToResource)
 
 responseSearchTablesByLFTags :: SearchTablesByLFTagsResponse -> TestTree
 responseSearchTablesByLFTags =
@@ -375,7 +375,7 @@ responseSearchTablesByLFTags =
     "SearchTablesByLFTagsResponse"
     "fixture/SearchTablesByLFTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchTablesByLFTags)
+    (Proxy.Proxy :: Proxy.Proxy SearchTablesByLFTags)
 
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
@@ -383,7 +383,7 @@ responseListResources =
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResources)
+    (Proxy.Proxy :: Proxy.Proxy ListResources)
 
 responseGetLFTag :: GetLFTagResponse -> TestTree
 responseGetLFTag =
@@ -391,7 +391,7 @@ responseGetLFTag =
     "GetLFTagResponse"
     "fixture/GetLFTagResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLFTag)
+    (Proxy.Proxy :: Proxy.Proxy GetLFTag)
 
 responseRemoveLFTagsFromResource :: RemoveLFTagsFromResourceResponse -> TestTree
 responseRemoveLFTagsFromResource =
@@ -399,7 +399,7 @@ responseRemoveLFTagsFromResource =
     "RemoveLFTagsFromResourceResponse"
     "fixture/RemoveLFTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveLFTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveLFTagsFromResource)
 
 responseUpdateLFTag :: UpdateLFTagResponse -> TestTree
 responseUpdateLFTag =
@@ -407,7 +407,7 @@ responseUpdateLFTag =
     "UpdateLFTagResponse"
     "fixture/UpdateLFTagResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLFTag)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLFTag)
 
 responseDeleteLFTag :: DeleteLFTagResponse -> TestTree
 responseDeleteLFTag =
@@ -415,7 +415,7 @@ responseDeleteLFTag =
     "DeleteLFTagResponse"
     "fixture/DeleteLFTagResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLFTag)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLFTag)
 
 responseCreateLFTag :: CreateLFTagResponse -> TestTree
 responseCreateLFTag =
@@ -423,7 +423,7 @@ responseCreateLFTag =
     "CreateLFTagResponse"
     "fixture/CreateLFTagResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLFTag)
+    (Proxy.Proxy :: Proxy.Proxy CreateLFTag)
 
 responseGetResourceLFTags :: GetResourceLFTagsResponse -> TestTree
 responseGetResourceLFTags =
@@ -431,7 +431,7 @@ responseGetResourceLFTags =
     "GetResourceLFTagsResponse"
     "fixture/GetResourceLFTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceLFTags)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceLFTags)
 
 responsePutDataLakeSettings :: PutDataLakeSettingsResponse -> TestTree
 responsePutDataLakeSettings =
@@ -439,7 +439,7 @@ responsePutDataLakeSettings =
     "PutDataLakeSettingsResponse"
     "fixture/PutDataLakeSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDataLakeSettings)
+    (Proxy.Proxy :: Proxy.Proxy PutDataLakeSettings)
 
 responseListPermissions :: ListPermissionsResponse -> TestTree
 responseListPermissions =
@@ -447,7 +447,7 @@ responseListPermissions =
     "ListPermissionsResponse"
     "fixture/ListPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissions)
 
 responseDeregisterResource :: DeregisterResourceResponse -> TestTree
 responseDeregisterResource =
@@ -455,7 +455,7 @@ responseDeregisterResource =
     "DeregisterResourceResponse"
     "fixture/DeregisterResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterResource)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterResource)
 
 responseGetDataLakeSettings :: GetDataLakeSettingsResponse -> TestTree
 responseGetDataLakeSettings =
@@ -463,7 +463,7 @@ responseGetDataLakeSettings =
     "GetDataLakeSettingsResponse"
     "fixture/GetDataLakeSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataLakeSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetDataLakeSettings)
 
 responseSearchDatabasesByLFTags :: SearchDatabasesByLFTagsResponse -> TestTree
 responseSearchDatabasesByLFTags =
@@ -471,7 +471,7 @@ responseSearchDatabasesByLFTags =
     "SearchDatabasesByLFTagsResponse"
     "fixture/SearchDatabasesByLFTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchDatabasesByLFTags)
+    (Proxy.Proxy :: Proxy.Proxy SearchDatabasesByLFTags)
 
 responseRegisterResource :: RegisterResourceResponse -> TestTree
 responseRegisterResource =
@@ -479,7 +479,7 @@ responseRegisterResource =
     "RegisterResourceResponse"
     "fixture/RegisterResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterResource)
+    (Proxy.Proxy :: Proxy.Proxy RegisterResource)
 
 responseGrantPermissions :: GrantPermissionsResponse -> TestTree
 responseGrantPermissions =
@@ -487,7 +487,7 @@ responseGrantPermissions =
     "GrantPermissionsResponse"
     "fixture/GrantPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GrantPermissions)
+    (Proxy.Proxy :: Proxy.Proxy GrantPermissions)
 
 responseListLFTags :: ListLFTagsResponse -> TestTree
 responseListLFTags =
@@ -495,4 +495,4 @@ responseListLFTags =
     "ListLFTagsResponse"
     "fixture/ListLFTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLFTags)
+    (Proxy.Proxy :: Proxy.Proxy ListLFTags)

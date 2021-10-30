@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.S3Outposts where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.S3Outposts
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -79,7 +79,7 @@ responseCreateEndpoint =
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpoint)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint =
@@ -87,7 +87,7 @@ responseDeleteEndpoint =
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
 
 responseListEndpoints :: ListEndpointsResponse -> TestTree
 responseListEndpoints =
@@ -95,4 +95,4 @@ responseListEndpoints =
     "ListEndpointsResponse"
     "fixture/ListEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy ListEndpoints)

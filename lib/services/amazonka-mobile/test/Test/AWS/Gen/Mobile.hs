@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Mobile where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Mobile
 import Test.AWS.Fixture
 import Test.AWS.Mobile.Internal
@@ -151,7 +151,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -159,7 +159,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -167,7 +167,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseListBundles :: ListBundlesResponse -> TestTree
 responseListBundles =
@@ -175,7 +175,7 @@ responseListBundles =
     "ListBundlesResponse"
     "fixture/ListBundlesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBundles)
+    (Proxy.Proxy :: Proxy.Proxy ListBundles)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -183,7 +183,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseExportProject :: ExportProjectResponse -> TestTree
 responseExportProject =
@@ -191,7 +191,7 @@ responseExportProject =
     "ExportProjectResponse"
     "fixture/ExportProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportProject)
+    (Proxy.Proxy :: Proxy.Proxy ExportProject)
 
 responseDescribeBundle :: DescribeBundleResponse -> TestTree
 responseDescribeBundle =
@@ -199,7 +199,7 @@ responseDescribeBundle =
     "DescribeBundleResponse"
     "fixture/DescribeBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBundle)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBundle)
 
 responseExportBundle :: ExportBundleResponse -> TestTree
 responseExportBundle =
@@ -207,7 +207,7 @@ responseExportBundle =
     "ExportBundleResponse"
     "fixture/ExportBundleResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportBundle)
+    (Proxy.Proxy :: Proxy.Proxy ExportBundle)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -215,4 +215,4 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)

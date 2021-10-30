@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.NetworkFirewall where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.NetworkFirewall
 import Test.AWS.Fixture
 import Test.AWS.NetworkFirewall.Internal
@@ -391,7 +391,7 @@ responseAssociateSubnets =
     "AssociateSubnetsResponse"
     "fixture/AssociateSubnetsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSubnets)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSubnets)
 
 responseUpdateSubnetChangeProtection :: UpdateSubnetChangeProtectionResponse -> TestTree
 responseUpdateSubnetChangeProtection =
@@ -399,7 +399,7 @@ responseUpdateSubnetChangeProtection =
     "UpdateSubnetChangeProtectionResponse"
     "fixture/UpdateSubnetChangeProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSubnetChangeProtection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubnetChangeProtection)
 
 responseUpdateFirewallPolicy :: UpdateFirewallPolicyResponse -> TestTree
 responseUpdateFirewallPolicy =
@@ -407,7 +407,7 @@ responseUpdateFirewallPolicy =
     "UpdateFirewallPolicyResponse"
     "fixture/UpdateFirewallPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallPolicy)
 
 responseDeleteFirewallPolicy :: DeleteFirewallPolicyResponse -> TestTree
 responseDeleteFirewallPolicy =
@@ -415,7 +415,7 @@ responseDeleteFirewallPolicy =
     "DeleteFirewallPolicyResponse"
     "fixture/DeleteFirewallPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFirewallPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallPolicy)
 
 responseCreateFirewallPolicy :: CreateFirewallPolicyResponse -> TestTree
 responseCreateFirewallPolicy =
@@ -423,7 +423,7 @@ responseCreateFirewallPolicy =
     "CreateFirewallPolicyResponse"
     "fixture/CreateFirewallPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFirewallPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallPolicy)
 
 responseUpdateLoggingConfiguration :: UpdateLoggingConfigurationResponse -> TestTree
 responseUpdateLoggingConfiguration =
@@ -431,7 +431,7 @@ responseUpdateLoggingConfiguration =
     "UpdateLoggingConfigurationResponse"
     "fixture/UpdateLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoggingConfiguration)
 
 responseDisassociateSubnets :: DisassociateSubnetsResponse -> TestTree
 responseDisassociateSubnets =
@@ -439,7 +439,7 @@ responseDisassociateSubnets =
     "DisassociateSubnetsResponse"
     "fixture/DisassociateSubnetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSubnets)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSubnets)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -447,7 +447,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListFirewallPolicies :: ListFirewallPoliciesResponse -> TestTree
 responseListFirewallPolicies =
@@ -455,7 +455,7 @@ responseListFirewallPolicies =
     "ListFirewallPoliciesResponse"
     "fixture/ListFirewallPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewallPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallPolicies)
 
 responseUpdateFirewallDeleteProtection :: UpdateFirewallDeleteProtectionResponse -> TestTree
 responseUpdateFirewallDeleteProtection =
@@ -463,7 +463,7 @@ responseUpdateFirewallDeleteProtection =
     "UpdateFirewallDeleteProtectionResponse"
     "fixture/UpdateFirewallDeleteProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallDeleteProtection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDeleteProtection)
 
 responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
 responseCreateRuleGroup =
@@ -471,7 +471,7 @@ responseCreateRuleGroup =
     "CreateRuleGroupResponse"
     "fixture/CreateRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateRuleGroup)
 
 responseDescribeFirewallPolicy :: DescribeFirewallPolicyResponse -> TestTree
 responseDescribeFirewallPolicy =
@@ -479,7 +479,7 @@ responseDescribeFirewallPolicy =
     "DescribeFirewallPolicyResponse"
     "fixture/DescribeFirewallPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFirewallPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFirewallPolicy)
 
 responseUpdateFirewallDescription :: UpdateFirewallDescriptionResponse -> TestTree
 responseUpdateFirewallDescription =
@@ -487,7 +487,7 @@ responseUpdateFirewallDescription =
     "UpdateFirewallDescriptionResponse"
     "fixture/UpdateFirewallDescriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallDescription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDescription)
 
 responseDescribeRuleGroup :: DescribeRuleGroupResponse -> TestTree
 responseDescribeRuleGroup =
@@ -495,7 +495,7 @@ responseDescribeRuleGroup =
     "DescribeRuleGroupResponse"
     "fixture/DescribeRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroup)
 
 responseDeleteFirewall :: DeleteFirewallResponse -> TestTree
 responseDeleteFirewall =
@@ -503,7 +503,7 @@ responseDeleteFirewall =
     "DeleteFirewallResponse"
     "fixture/DeleteFirewallResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFirewall)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewall)
 
 responseListFirewalls :: ListFirewallsResponse -> TestTree
 responseListFirewalls =
@@ -511,7 +511,7 @@ responseListFirewalls =
     "ListFirewallsResponse"
     "fixture/ListFirewallsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFirewalls)
+    (Proxy.Proxy :: Proxy.Proxy ListFirewalls)
 
 responseDescribeResourcePolicy :: DescribeResourcePolicyResponse -> TestTree
 responseDescribeResourcePolicy =
@@ -519,7 +519,7 @@ responseDescribeResourcePolicy =
     "DescribeResourcePolicyResponse"
     "fixture/DescribeResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePolicy)
 
 responseAssociateFirewallPolicy :: AssociateFirewallPolicyResponse -> TestTree
 responseAssociateFirewallPolicy =
@@ -527,7 +527,7 @@ responseAssociateFirewallPolicy =
     "AssociateFirewallPolicyResponse"
     "fixture/AssociateFirewallPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateFirewallPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AssociateFirewallPolicy)
 
 responseUpdateFirewallPolicyChangeProtection :: UpdateFirewallPolicyChangeProtectionResponse -> TestTree
 responseUpdateFirewallPolicyChangeProtection =
@@ -535,7 +535,7 @@ responseUpdateFirewallPolicyChangeProtection =
     "UpdateFirewallPolicyChangeProtectionResponse"
     "fixture/UpdateFirewallPolicyChangeProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFirewallPolicyChangeProtection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallPolicyChangeProtection)
 
 responseCreateFirewall :: CreateFirewallResponse -> TestTree
 responseCreateFirewall =
@@ -543,7 +543,7 @@ responseCreateFirewall =
     "CreateFirewallResponse"
     "fixture/CreateFirewallResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFirewall)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewall)
 
 responseListRuleGroups :: ListRuleGroupsResponse -> TestTree
 responseListRuleGroups =
@@ -551,7 +551,7 @@ responseListRuleGroups =
     "ListRuleGroupsResponse"
     "fixture/ListRuleGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRuleGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListRuleGroups)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -559,7 +559,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeleteRuleGroup :: DeleteRuleGroupResponse -> TestTree
 responseDeleteRuleGroup =
@@ -567,7 +567,7 @@ responseDeleteRuleGroup =
     "DeleteRuleGroupResponse"
     "fixture/DeleteRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRuleGroup)
 
 responseUpdateRuleGroup :: UpdateRuleGroupResponse -> TestTree
 responseUpdateRuleGroup =
@@ -575,7 +575,7 @@ responseUpdateRuleGroup =
     "UpdateRuleGroupResponse"
     "fixture/UpdateRuleGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleGroup)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -583,7 +583,7 @@ responsePutResourcePolicy =
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseDescribeFirewall :: DescribeFirewallResponse -> TestTree
 responseDescribeFirewall =
@@ -591,7 +591,7 @@ responseDescribeFirewall =
     "DescribeFirewallResponse"
     "fixture/DescribeFirewallResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFirewall)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFirewall)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -599,7 +599,7 @@ responseDeleteResourcePolicy =
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -607,7 +607,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeLoggingConfiguration :: DescribeLoggingConfigurationResponse -> TestTree
 responseDescribeLoggingConfiguration =
@@ -615,4 +615,4 @@ responseDescribeLoggingConfiguration =
     "DescribeLoggingConfigurationResponse"
     "fixture/DescribeLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoggingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingConfiguration)

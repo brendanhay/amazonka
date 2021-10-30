@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MigrationHubConfig where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MigrationHubConfig
 import Test.AWS.Fixture
 import Test.AWS.MigrationHubConfig.Internal
@@ -79,7 +79,7 @@ responseGetHomeRegion =
     "GetHomeRegionResponse"
     "fixture/GetHomeRegionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHomeRegion)
+    (Proxy.Proxy :: Proxy.Proxy GetHomeRegion)
 
 responseCreateHomeRegionControl :: CreateHomeRegionControlResponse -> TestTree
 responseCreateHomeRegionControl =
@@ -87,7 +87,7 @@ responseCreateHomeRegionControl =
     "CreateHomeRegionControlResponse"
     "fixture/CreateHomeRegionControlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHomeRegionControl)
+    (Proxy.Proxy :: Proxy.Proxy CreateHomeRegionControl)
 
 responseDescribeHomeRegionControls :: DescribeHomeRegionControlsResponse -> TestTree
 responseDescribeHomeRegionControls =
@@ -95,4 +95,4 @@ responseDescribeHomeRegionControls =
     "DescribeHomeRegionControlsResponse"
     "fixture/DescribeHomeRegionControlsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHomeRegionControls)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHomeRegionControls)

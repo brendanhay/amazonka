@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53RecoveryReadiness where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53RecoveryReadiness
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -427,7 +427,7 @@ responseCreateResourceSet =
     "CreateResourceSetResponse"
     "fixture/CreateResourceSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceSet)
 
 responseGetReadinessCheckStatus :: GetReadinessCheckStatusResponse -> TestTree
 responseGetReadinessCheckStatus =
@@ -435,7 +435,7 @@ responseGetReadinessCheckStatus =
     "GetReadinessCheckStatusResponse"
     "fixture/GetReadinessCheckStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReadinessCheckStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetReadinessCheckStatus)
 
 responseGetCellReadinessSummary :: GetCellReadinessSummaryResponse -> TestTree
 responseGetCellReadinessSummary =
@@ -443,7 +443,7 @@ responseGetCellReadinessSummary =
     "GetCellReadinessSummaryResponse"
     "fixture/GetCellReadinessSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCellReadinessSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetCellReadinessSummary)
 
 responseUpdateCell :: UpdateCellResponse -> TestTree
 responseUpdateCell =
@@ -451,7 +451,7 @@ responseUpdateCell =
     "UpdateCellResponse"
     "fixture/UpdateCellResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCell)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCell)
 
 responseDeleteCell :: DeleteCellResponse -> TestTree
 responseDeleteCell =
@@ -459,7 +459,7 @@ responseDeleteCell =
     "DeleteCellResponse"
     "fixture/DeleteCellResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCell)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCell)
 
 responseUpdateReadinessCheck :: UpdateReadinessCheckResponse -> TestTree
 responseUpdateReadinessCheck =
@@ -467,7 +467,7 @@ responseUpdateReadinessCheck =
     "UpdateReadinessCheckResponse"
     "fixture/UpdateReadinessCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReadinessCheck)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReadinessCheck)
 
 responseDeleteReadinessCheck :: DeleteReadinessCheckResponse -> TestTree
 responseDeleteReadinessCheck =
@@ -475,7 +475,7 @@ responseDeleteReadinessCheck =
     "DeleteReadinessCheckResponse"
     "fixture/DeleteReadinessCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReadinessCheck)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReadinessCheck)
 
 responseListCells :: ListCellsResponse -> TestTree
 responseListCells =
@@ -483,7 +483,7 @@ responseListCells =
     "ListCellsResponse"
     "fixture/ListCellsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCells)
+    (Proxy.Proxy :: Proxy.Proxy ListCells)
 
 responseListReadinessChecks :: ListReadinessChecksResponse -> TestTree
 responseListReadinessChecks =
@@ -491,7 +491,7 @@ responseListReadinessChecks =
     "ListReadinessChecksResponse"
     "fixture/ListReadinessChecksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReadinessChecks)
+    (Proxy.Proxy :: Proxy.Proxy ListReadinessChecks)
 
 responseListRules :: ListRulesResponse -> TestTree
 responseListRules =
@@ -499,7 +499,7 @@ responseListRules =
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRules)
+    (Proxy.Proxy :: Proxy.Proxy ListRules)
 
 responseCreateReadinessCheck :: CreateReadinessCheckResponse -> TestTree
 responseCreateReadinessCheck =
@@ -507,7 +507,7 @@ responseCreateReadinessCheck =
     "CreateReadinessCheckResponse"
     "fixture/CreateReadinessCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReadinessCheck)
+    (Proxy.Proxy :: Proxy.Proxy CreateReadinessCheck)
 
 responseCreateCell :: CreateCellResponse -> TestTree
 responseCreateCell =
@@ -515,7 +515,7 @@ responseCreateCell =
     "CreateCellResponse"
     "fixture/CreateCellResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCell)
+    (Proxy.Proxy :: Proxy.Proxy CreateCell)
 
 responseGetRecoveryGroup :: GetRecoveryGroupResponse -> TestTree
 responseGetRecoveryGroup =
@@ -523,7 +523,7 @@ responseGetRecoveryGroup =
     "GetRecoveryGroupResponse"
     "fixture/GetRecoveryGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecoveryGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetRecoveryGroup)
 
 responseListRecoveryGroups :: ListRecoveryGroupsResponse -> TestTree
 responseListRecoveryGroups =
@@ -531,7 +531,7 @@ responseListRecoveryGroups =
     "ListRecoveryGroupsResponse"
     "fixture/ListRecoveryGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecoveryGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListRecoveryGroups)
 
 responseListCrossAccountAuthorizations :: ListCrossAccountAuthorizationsResponse -> TestTree
 responseListCrossAccountAuthorizations =
@@ -539,7 +539,7 @@ responseListCrossAccountAuthorizations =
     "ListCrossAccountAuthorizationsResponse"
     "fixture/ListCrossAccountAuthorizationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCrossAccountAuthorizations)
+    (Proxy.Proxy :: Proxy.Proxy ListCrossAccountAuthorizations)
 
 responseGetCell :: GetCellResponse -> TestTree
 responseGetCell =
@@ -547,7 +547,7 @@ responseGetCell =
     "GetCellResponse"
     "fixture/GetCellResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCell)
+    (Proxy.Proxy :: Proxy.Proxy GetCell)
 
 responseCreateCrossAccountAuthorization :: CreateCrossAccountAuthorizationResponse -> TestTree
 responseCreateCrossAccountAuthorization =
@@ -555,7 +555,7 @@ responseCreateCrossAccountAuthorization =
     "CreateCrossAccountAuthorizationResponse"
     "fixture/CreateCrossAccountAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCrossAccountAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy CreateCrossAccountAuthorization)
 
 responseCreateRecoveryGroup :: CreateRecoveryGroupResponse -> TestTree
 responseCreateRecoveryGroup =
@@ -563,7 +563,7 @@ responseCreateRecoveryGroup =
     "CreateRecoveryGroupResponse"
     "fixture/CreateRecoveryGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRecoveryGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecoveryGroup)
 
 responseGetReadinessCheck :: GetReadinessCheckResponse -> TestTree
 responseGetReadinessCheck =
@@ -571,7 +571,7 @@ responseGetReadinessCheck =
     "GetReadinessCheckResponse"
     "fixture/GetReadinessCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReadinessCheck)
+    (Proxy.Proxy :: Proxy.Proxy GetReadinessCheck)
 
 responseGetReadinessCheckResourceStatus :: GetReadinessCheckResourceStatusResponse -> TestTree
 responseGetReadinessCheckResourceStatus =
@@ -579,7 +579,7 @@ responseGetReadinessCheckResourceStatus =
     "GetReadinessCheckResourceStatusResponse"
     "fixture/GetReadinessCheckResourceStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReadinessCheckResourceStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetReadinessCheckResourceStatus)
 
 responseListResourceSets :: ListResourceSetsResponse -> TestTree
 responseListResourceSets =
@@ -587,7 +587,7 @@ responseListResourceSets =
     "ListResourceSetsResponse"
     "fixture/ListResourceSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceSets)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceSets)
 
 responseGetArchitectureRecommendations :: GetArchitectureRecommendationsResponse -> TestTree
 responseGetArchitectureRecommendations =
@@ -595,7 +595,7 @@ responseGetArchitectureRecommendations =
     "GetArchitectureRecommendationsResponse"
     "fixture/GetArchitectureRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetArchitectureRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetArchitectureRecommendations)
 
 responseDeleteCrossAccountAuthorization :: DeleteCrossAccountAuthorizationResponse -> TestTree
 responseDeleteCrossAccountAuthorization =
@@ -603,7 +603,7 @@ responseDeleteCrossAccountAuthorization =
     "DeleteCrossAccountAuthorizationResponse"
     "fixture/DeleteCrossAccountAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCrossAccountAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCrossAccountAuthorization)
 
 responseDeleteRecoveryGroup :: DeleteRecoveryGroupResponse -> TestTree
 responseDeleteRecoveryGroup =
@@ -611,7 +611,7 @@ responseDeleteRecoveryGroup =
     "DeleteRecoveryGroupResponse"
     "fixture/DeleteRecoveryGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRecoveryGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecoveryGroup)
 
 responseUpdateRecoveryGroup :: UpdateRecoveryGroupResponse -> TestTree
 responseUpdateRecoveryGroup =
@@ -619,7 +619,7 @@ responseUpdateRecoveryGroup =
     "UpdateRecoveryGroupResponse"
     "fixture/UpdateRecoveryGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRecoveryGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecoveryGroup)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -627,7 +627,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -635,7 +635,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetRecoveryGroupReadinessSummary :: GetRecoveryGroupReadinessSummaryResponse -> TestTree
 responseGetRecoveryGroupReadinessSummary =
@@ -643,7 +643,7 @@ responseGetRecoveryGroupReadinessSummary =
     "GetRecoveryGroupReadinessSummaryResponse"
     "fixture/GetRecoveryGroupReadinessSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecoveryGroupReadinessSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetRecoveryGroupReadinessSummary)
 
 responseGetResourceSet :: GetResourceSetResponse -> TestTree
 responseGetResourceSet =
@@ -651,7 +651,7 @@ responseGetResourceSet =
     "GetResourceSetResponse"
     "fixture/GetResourceSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceSet)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceSet)
 
 responseListTagsForResources :: ListTagsForResourcesResponse -> TestTree
 responseListTagsForResources =
@@ -659,7 +659,7 @@ responseListTagsForResources =
     "ListTagsForResourcesResponse"
     "fixture/ListTagsForResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResources)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResources)
 
 responseUpdateResourceSet :: UpdateResourceSetResponse -> TestTree
 responseUpdateResourceSet =
@@ -667,7 +667,7 @@ responseUpdateResourceSet =
     "UpdateResourceSetResponse"
     "fixture/UpdateResourceSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResourceSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceSet)
 
 responseDeleteResourceSet :: DeleteResourceSetResponse -> TestTree
 responseDeleteResourceSet =
@@ -675,4 +675,4 @@ responseDeleteResourceSet =
     "DeleteResourceSetResponse"
     "fixture/DeleteResourceSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceSet)

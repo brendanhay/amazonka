@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SavingsPlans where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SavingsPlans
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -151,7 +151,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeSavingsPlanRates :: DescribeSavingsPlanRatesResponse -> TestTree
 responseDescribeSavingsPlanRates =
@@ -159,7 +159,7 @@ responseDescribeSavingsPlanRates =
     "DescribeSavingsPlanRatesResponse"
     "fixture/DescribeSavingsPlanRatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSavingsPlanRates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlanRates)
 
 responseDeleteQueuedSavingsPlan :: DeleteQueuedSavingsPlanResponse -> TestTree
 responseDeleteQueuedSavingsPlan =
@@ -167,7 +167,7 @@ responseDeleteQueuedSavingsPlan =
     "DeleteQueuedSavingsPlanResponse"
     "fixture/DeleteQueuedSavingsPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueuedSavingsPlan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueuedSavingsPlan)
 
 responseCreateSavingsPlan :: CreateSavingsPlanResponse -> TestTree
 responseCreateSavingsPlan =
@@ -175,7 +175,7 @@ responseCreateSavingsPlan =
     "CreateSavingsPlanResponse"
     "fixture/CreateSavingsPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSavingsPlan)
+    (Proxy.Proxy :: Proxy.Proxy CreateSavingsPlan)
 
 responseDescribeSavingsPlansOfferings :: DescribeSavingsPlansOfferingsResponse -> TestTree
 responseDescribeSavingsPlansOfferings =
@@ -183,7 +183,7 @@ responseDescribeSavingsPlansOfferings =
     "DescribeSavingsPlansOfferingsResponse"
     "fixture/DescribeSavingsPlansOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSavingsPlansOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlansOfferings)
 
 responseDescribeSavingsPlans :: DescribeSavingsPlansResponse -> TestTree
 responseDescribeSavingsPlans =
@@ -191,7 +191,7 @@ responseDescribeSavingsPlans =
     "DescribeSavingsPlansResponse"
     "fixture/DescribeSavingsPlansResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSavingsPlans)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlans)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -199,7 +199,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -207,7 +207,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeSavingsPlansOfferingRates :: DescribeSavingsPlansOfferingRatesResponse -> TestTree
 responseDescribeSavingsPlansOfferingRates =
@@ -215,4 +215,4 @@ responseDescribeSavingsPlansOfferingRates =
     "DescribeSavingsPlansOfferingRatesResponse"
     "fixture/DescribeSavingsPlansOfferingRatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSavingsPlansOfferingRates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlansOfferingRates)

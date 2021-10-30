@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Wisdom where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Wisdom
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -415,7 +415,7 @@ responseListAssistantAssociations =
     "ListAssistantAssociationsResponse"
     "fixture/ListAssistantAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssistantAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListAssistantAssociations)
 
 responseGetRecommendations :: GetRecommendationsResponse -> TestTree
 responseGetRecommendations =
@@ -423,7 +423,7 @@ responseGetRecommendations =
     "GetRecommendationsResponse"
     "fixture/GetRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
 
 responseSearchContent :: SearchContentResponse -> TestTree
 responseSearchContent =
@@ -431,7 +431,7 @@ responseSearchContent =
     "SearchContentResponse"
     "fixture/SearchContentResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchContent)
+    (Proxy.Proxy :: Proxy.Proxy SearchContent)
 
 responseRemoveKnowledgeBaseTemplateUri :: RemoveKnowledgeBaseTemplateUriResponse -> TestTree
 responseRemoveKnowledgeBaseTemplateUri =
@@ -439,7 +439,7 @@ responseRemoveKnowledgeBaseTemplateUri =
     "RemoveKnowledgeBaseTemplateUriResponse"
     "fixture/RemoveKnowledgeBaseTemplateUriResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveKnowledgeBaseTemplateUri)
+    (Proxy.Proxy :: Proxy.Proxy RemoveKnowledgeBaseTemplateUri)
 
 responseGetAssistant :: GetAssistantResponse -> TestTree
 responseGetAssistant =
@@ -447,7 +447,7 @@ responseGetAssistant =
     "GetAssistantResponse"
     "fixture/GetAssistantResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssistant)
+    (Proxy.Proxy :: Proxy.Proxy GetAssistant)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -455,7 +455,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListAssistants :: ListAssistantsResponse -> TestTree
 responseListAssistants =
@@ -463,7 +463,7 @@ responseListAssistants =
     "ListAssistantsResponse"
     "fixture/ListAssistantsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssistants)
+    (Proxy.Proxy :: Proxy.Proxy ListAssistants)
 
 responseUpdateKnowledgeBaseTemplateUri :: UpdateKnowledgeBaseTemplateUriResponse -> TestTree
 responseUpdateKnowledgeBaseTemplateUri =
@@ -471,7 +471,7 @@ responseUpdateKnowledgeBaseTemplateUri =
     "UpdateKnowledgeBaseTemplateUriResponse"
     "fixture/UpdateKnowledgeBaseTemplateUriResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateKnowledgeBaseTemplateUri)
+    (Proxy.Proxy :: Proxy.Proxy UpdateKnowledgeBaseTemplateUri)
 
 responseListContents :: ListContentsResponse -> TestTree
 responseListContents =
@@ -479,7 +479,7 @@ responseListContents =
     "ListContentsResponse"
     "fixture/ListContentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContents)
+    (Proxy.Proxy :: Proxy.Proxy ListContents)
 
 responseDeleteContent :: DeleteContentResponse -> TestTree
 responseDeleteContent =
@@ -487,7 +487,7 @@ responseDeleteContent =
     "DeleteContentResponse"
     "fixture/DeleteContentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContent)
 
 responseUpdateContent :: UpdateContentResponse -> TestTree
 responseUpdateContent =
@@ -495,7 +495,7 @@ responseUpdateContent =
     "UpdateContentResponse"
     "fixture/UpdateContentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContent)
 
 responseCreateAssistant :: CreateAssistantResponse -> TestTree
 responseCreateAssistant =
@@ -503,7 +503,7 @@ responseCreateAssistant =
     "CreateAssistantResponse"
     "fixture/CreateAssistantResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssistant)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssistant)
 
 responseGetContentSummary :: GetContentSummaryResponse -> TestTree
 responseGetContentSummary =
@@ -511,7 +511,7 @@ responseGetContentSummary =
     "GetContentSummaryResponse"
     "fixture/GetContentSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContentSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetContentSummary)
 
 responseNotifyRecommendationsReceived :: NotifyRecommendationsReceivedResponse -> TestTree
 responseNotifyRecommendationsReceived =
@@ -519,7 +519,7 @@ responseNotifyRecommendationsReceived =
     "NotifyRecommendationsReceivedResponse"
     "fixture/NotifyRecommendationsReceivedResponse.proto"
     defaultService
-    (Proxy :: Proxy NotifyRecommendationsReceived)
+    (Proxy.Proxy :: Proxy.Proxy NotifyRecommendationsReceived)
 
 responseDeleteAssistantAssociation :: DeleteAssistantAssociationResponse -> TestTree
 responseDeleteAssistantAssociation =
@@ -527,7 +527,7 @@ responseDeleteAssistantAssociation =
     "DeleteAssistantAssociationResponse"
     "fixture/DeleteAssistantAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssistantAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssistantAssociation)
 
 responseGetContent :: GetContentResponse -> TestTree
 responseGetContent =
@@ -535,7 +535,7 @@ responseGetContent =
     "GetContentResponse"
     "fixture/GetContentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContent)
+    (Proxy.Proxy :: Proxy.Proxy GetContent)
 
 responseStartContentUpload :: StartContentUploadResponse -> TestTree
 responseStartContentUpload =
@@ -543,7 +543,7 @@ responseStartContentUpload =
     "StartContentUploadResponse"
     "fixture/StartContentUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy StartContentUpload)
+    (Proxy.Proxy :: Proxy.Proxy StartContentUpload)
 
 responseCreateSession :: CreateSessionResponse -> TestTree
 responseCreateSession =
@@ -551,7 +551,7 @@ responseCreateSession =
     "CreateSessionResponse"
     "fixture/CreateSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSession)
+    (Proxy.Proxy :: Proxy.Proxy CreateSession)
 
 responseCreateContent :: CreateContentResponse -> TestTree
 responseCreateContent =
@@ -559,7 +559,7 @@ responseCreateContent =
     "CreateContentResponse"
     "fixture/CreateContentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContent)
+    (Proxy.Proxy :: Proxy.Proxy CreateContent)
 
 responseDeleteAssistant :: DeleteAssistantResponse -> TestTree
 responseDeleteAssistant =
@@ -567,7 +567,7 @@ responseDeleteAssistant =
     "DeleteAssistantResponse"
     "fixture/DeleteAssistantResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssistant)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssistant)
 
 responseGetSession :: GetSessionResponse -> TestTree
 responseGetSession =
@@ -575,7 +575,7 @@ responseGetSession =
     "GetSessionResponse"
     "fixture/GetSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSession)
+    (Proxy.Proxy :: Proxy.Proxy GetSession)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -583,7 +583,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateKnowledgeBase :: CreateKnowledgeBaseResponse -> TestTree
 responseCreateKnowledgeBase =
@@ -591,7 +591,7 @@ responseCreateKnowledgeBase =
     "CreateKnowledgeBaseResponse"
     "fixture/CreateKnowledgeBaseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKnowledgeBase)
+    (Proxy.Proxy :: Proxy.Proxy CreateKnowledgeBase)
 
 responseGetAssistantAssociation :: GetAssistantAssociationResponse -> TestTree
 responseGetAssistantAssociation =
@@ -599,7 +599,7 @@ responseGetAssistantAssociation =
     "GetAssistantAssociationResponse"
     "fixture/GetAssistantAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssistantAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetAssistantAssociation)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -607,7 +607,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseSearchSessions :: SearchSessionsResponse -> TestTree
 responseSearchSessions =
@@ -615,7 +615,7 @@ responseSearchSessions =
     "SearchSessionsResponse"
     "fixture/SearchSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchSessions)
+    (Proxy.Proxy :: Proxy.Proxy SearchSessions)
 
 responseListKnowledgeBases :: ListKnowledgeBasesResponse -> TestTree
 responseListKnowledgeBases =
@@ -623,7 +623,7 @@ responseListKnowledgeBases =
     "ListKnowledgeBasesResponse"
     "fixture/ListKnowledgeBasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKnowledgeBases)
+    (Proxy.Proxy :: Proxy.Proxy ListKnowledgeBases)
 
 responseQueryAssistant :: QueryAssistantResponse -> TestTree
 responseQueryAssistant =
@@ -631,7 +631,7 @@ responseQueryAssistant =
     "QueryAssistantResponse"
     "fixture/QueryAssistantResponse.proto"
     defaultService
-    (Proxy :: Proxy QueryAssistant)
+    (Proxy.Proxy :: Proxy.Proxy QueryAssistant)
 
 responseDeleteKnowledgeBase :: DeleteKnowledgeBaseResponse -> TestTree
 responseDeleteKnowledgeBase =
@@ -639,7 +639,7 @@ responseDeleteKnowledgeBase =
     "DeleteKnowledgeBaseResponse"
     "fixture/DeleteKnowledgeBaseResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteKnowledgeBase)
+    (Proxy.Proxy :: Proxy.Proxy DeleteKnowledgeBase)
 
 responseCreateAssistantAssociation :: CreateAssistantAssociationResponse -> TestTree
 responseCreateAssistantAssociation =
@@ -647,7 +647,7 @@ responseCreateAssistantAssociation =
     "CreateAssistantAssociationResponse"
     "fixture/CreateAssistantAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssistantAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssistantAssociation)
 
 responseGetKnowledgeBase :: GetKnowledgeBaseResponse -> TestTree
 responseGetKnowledgeBase =
@@ -655,4 +655,4 @@ responseGetKnowledgeBase =
     "GetKnowledgeBaseResponse"
     "fixture/GetKnowledgeBaseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKnowledgeBase)
+    (Proxy.Proxy :: Proxy.Proxy GetKnowledgeBase)

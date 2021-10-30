@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeStarConnections where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeStarConnections
 import Test.AWS.CodeStarConnections.Internal
 import Test.AWS.Fixture
@@ -187,7 +187,7 @@ responseCreateHost =
     "CreateHostResponse"
     "fixture/CreateHostResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHost)
+    (Proxy.Proxy :: Proxy.Proxy CreateHost)
 
 responseListConnections :: ListConnectionsResponse -> TestTree
 responseListConnections =
@@ -195,7 +195,7 @@ responseListConnections =
     "ListConnectionsResponse"
     "fixture/ListConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnections)
+    (Proxy.Proxy :: Proxy.Proxy ListConnections)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
 responseDeleteConnection =
@@ -203,7 +203,7 @@ responseDeleteConnection =
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -211,7 +211,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateConnection :: CreateConnectionResponse -> TestTree
 responseCreateConnection =
@@ -219,7 +219,7 @@ responseCreateConnection =
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
 responseGetConnection :: GetConnectionResponse -> TestTree
 responseGetConnection =
@@ -227,7 +227,7 @@ responseGetConnection =
     "GetConnectionResponse"
     "fixture/GetConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnection)
+    (Proxy.Proxy :: Proxy.Proxy GetConnection)
 
 responseDeleteHost :: DeleteHostResponse -> TestTree
 responseDeleteHost =
@@ -235,7 +235,7 @@ responseDeleteHost =
     "DeleteHostResponse"
     "fixture/DeleteHostResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHost)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHost)
 
 responseUpdateHost :: UpdateHostResponse -> TestTree
 responseUpdateHost =
@@ -243,7 +243,7 @@ responseUpdateHost =
     "UpdateHostResponse"
     "fixture/UpdateHostResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHost)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHost)
 
 responseListHosts :: ListHostsResponse -> TestTree
 responseListHosts =
@@ -251,7 +251,7 @@ responseListHosts =
     "ListHostsResponse"
     "fixture/ListHostsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHosts)
+    (Proxy.Proxy :: Proxy.Proxy ListHosts)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -259,7 +259,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -267,7 +267,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetHost :: GetHostResponse -> TestTree
 responseGetHost =
@@ -275,4 +275,4 @@ responseGetHost =
     "GetHostResponse"
     "fixture/GetHostResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHost)
+    (Proxy.Proxy :: Proxy.Proxy GetHost)

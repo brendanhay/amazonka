@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.QuickSight where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.QuickSight
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1423,7 +1423,7 @@ responseCancelIngestion =
     "CancelIngestionResponse"
     "fixture/CancelIngestionResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelIngestion)
+    (Proxy.Proxy :: Proxy.Proxy CancelIngestion)
 
 responseUpdateDataSource :: UpdateDataSourceResponse -> TestTree
 responseUpdateDataSource =
@@ -1431,7 +1431,7 @@ responseUpdateDataSource =
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
 
 responseDeleteUserByPrincipalId :: DeleteUserByPrincipalIdResponse -> TestTree
 responseDeleteUserByPrincipalId =
@@ -1439,7 +1439,7 @@ responseDeleteUserByPrincipalId =
     "DeleteUserByPrincipalIdResponse"
     "fixture/DeleteUserByPrincipalIdResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserByPrincipalId)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserByPrincipalId)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
 responseDeleteDataSource =
@@ -1447,7 +1447,7 @@ responseDeleteDataSource =
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
 
 responseCreateTemplate :: CreateTemplateResponse -> TestTree
 responseCreateTemplate =
@@ -1455,7 +1455,7 @@ responseCreateTemplate =
     "CreateTemplateResponse"
     "fixture/CreateTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateTemplate)
 
 responseDeleteGroupMembership :: DeleteGroupMembershipResponse -> TestTree
 responseDeleteGroupMembership =
@@ -1463,7 +1463,7 @@ responseDeleteGroupMembership =
     "DeleteGroupMembershipResponse"
     "fixture/DeleteGroupMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroupMembership)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroupMembership)
 
 responseDescribeThemePermissions :: DescribeThemePermissionsResponse -> TestTree
 responseDescribeThemePermissions =
@@ -1471,7 +1471,7 @@ responseDescribeThemePermissions =
     "DescribeThemePermissionsResponse"
     "fixture/DescribeThemePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeThemePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeThemePermissions)
 
 responseListGroupMemberships :: ListGroupMembershipsResponse -> TestTree
 responseListGroupMemberships =
@@ -1479,7 +1479,7 @@ responseListGroupMemberships =
     "ListGroupMembershipsResponse"
     "fixture/ListGroupMembershipsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupMemberships)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupMemberships)
 
 responseListFolders :: ListFoldersResponse -> TestTree
 responseListFolders =
@@ -1487,7 +1487,7 @@ responseListFolders =
     "ListFoldersResponse"
     "fixture/ListFoldersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFolders)
+    (Proxy.Proxy :: Proxy.Proxy ListFolders)
 
 responseDescribeDataSetPermissions :: DescribeDataSetPermissionsResponse -> TestTree
 responseDescribeDataSetPermissions =
@@ -1495,7 +1495,7 @@ responseDescribeDataSetPermissions =
     "DescribeDataSetPermissionsResponse"
     "fixture/DescribeDataSetPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSetPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSetPermissions)
 
 responseDeleteIAMPolicyAssignment :: DeleteIAMPolicyAssignmentResponse -> TestTree
 responseDeleteIAMPolicyAssignment =
@@ -1503,7 +1503,7 @@ responseDeleteIAMPolicyAssignment =
     "DeleteIAMPolicyAssignmentResponse"
     "fixture/DeleteIAMPolicyAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIAMPolicyAssignment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIAMPolicyAssignment)
 
 responseUpdateIAMPolicyAssignment :: UpdateIAMPolicyAssignmentResponse -> TestTree
 responseUpdateIAMPolicyAssignment =
@@ -1511,7 +1511,7 @@ responseUpdateIAMPolicyAssignment =
     "UpdateIAMPolicyAssignmentResponse"
     "fixture/UpdateIAMPolicyAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIAMPolicyAssignment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIAMPolicyAssignment)
 
 responseDescribeIngestion :: DescribeIngestionResponse -> TestTree
 responseDescribeIngestion =
@@ -1519,7 +1519,7 @@ responseDescribeIngestion =
     "DescribeIngestionResponse"
     "fixture/DescribeIngestionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIngestion)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIngestion)
 
 responseDeleteFolder :: DeleteFolderResponse -> TestTree
 responseDeleteFolder =
@@ -1527,7 +1527,7 @@ responseDeleteFolder =
     "DeleteFolderResponse"
     "fixture/DeleteFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFolder)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFolder)
 
 responseUpdateFolder :: UpdateFolderResponse -> TestTree
 responseUpdateFolder =
@@ -1535,7 +1535,7 @@ responseUpdateFolder =
     "UpdateFolderResponse"
     "fixture/UpdateFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFolder)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFolder)
 
 responseListUserGroups :: ListUserGroupsResponse -> TestTree
 responseListUserGroups =
@@ -1543,7 +1543,7 @@ responseListUserGroups =
     "ListUserGroupsResponse"
     "fixture/ListUserGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListUserGroups)
 
 responseUpdateDashboardPublishedVersion :: UpdateDashboardPublishedVersionResponse -> TestTree
 responseUpdateDashboardPublishedVersion =
@@ -1551,7 +1551,7 @@ responseUpdateDashboardPublishedVersion =
     "UpdateDashboardPublishedVersionResponse"
     "fixture/UpdateDashboardPublishedVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDashboardPublishedVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboardPublishedVersion)
 
 responseDescribeAnalysisPermissions :: DescribeAnalysisPermissionsResponse -> TestTree
 responseDescribeAnalysisPermissions =
@@ -1559,7 +1559,7 @@ responseDescribeAnalysisPermissions =
     "DescribeAnalysisPermissionsResponse"
     "fixture/DescribeAnalysisPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnalysisPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysisPermissions)
 
 responseDeleteTemplateAlias :: DeleteTemplateAliasResponse -> TestTree
 responseDeleteTemplateAlias =
@@ -1567,7 +1567,7 @@ responseDeleteTemplateAlias =
     "DeleteTemplateAliasResponse"
     "fixture/DeleteTemplateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTemplateAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTemplateAlias)
 
 responseUpdateTemplateAlias :: UpdateTemplateAliasResponse -> TestTree
 responseUpdateTemplateAlias =
@@ -1575,7 +1575,7 @@ responseUpdateTemplateAlias =
     "UpdateTemplateAliasResponse"
     "fixture/UpdateTemplateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTemplateAlias)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplateAlias)
 
 responseDescribeAnalysis :: DescribeAnalysisResponse -> TestTree
 responseDescribeAnalysis =
@@ -1583,7 +1583,7 @@ responseDescribeAnalysis =
     "DescribeAnalysisResponse"
     "fixture/DescribeAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysis)
 
 responseUpdateFolderPermissions :: UpdateFolderPermissionsResponse -> TestTree
 responseUpdateFolderPermissions =
@@ -1591,7 +1591,7 @@ responseUpdateFolderPermissions =
     "UpdateFolderPermissionsResponse"
     "fixture/UpdateFolderPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFolderPermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFolderPermissions)
 
 responseDescribeDataSet :: DescribeDataSetResponse -> TestTree
 responseDescribeDataSet =
@@ -1599,7 +1599,7 @@ responseDescribeDataSet =
     "DescribeDataSetResponse"
     "fixture/DescribeDataSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSet)
 
 responseListNamespaces :: ListNamespacesResponse -> TestTree
 responseListNamespaces =
@@ -1607,7 +1607,7 @@ responseListNamespaces =
     "ListNamespacesResponse"
     "fixture/ListNamespacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNamespaces)
+    (Proxy.Proxy :: Proxy.Proxy ListNamespaces)
 
 responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
 responseDeleteNamespace =
@@ -1615,7 +1615,7 @@ responseDeleteNamespace =
     "DeleteNamespaceResponse"
     "fixture/DeleteNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
 
 responseCreateFolder :: CreateFolderResponse -> TestTree
 responseCreateFolder =
@@ -1623,7 +1623,7 @@ responseCreateFolder =
     "CreateFolderResponse"
     "fixture/CreateFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFolder)
+    (Proxy.Proxy :: Proxy.Proxy CreateFolder)
 
 responseDescribeGroup :: DescribeGroupResponse -> TestTree
 responseDescribeGroup =
@@ -1631,7 +1631,7 @@ responseDescribeGroup =
     "DescribeGroupResponse"
     "fixture/DescribeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
 
 responseDescribeThemeAlias :: DescribeThemeAliasResponse -> TestTree
 responseDescribeThemeAlias =
@@ -1639,7 +1639,7 @@ responseDescribeThemeAlias =
     "DescribeThemeAliasResponse"
     "fixture/DescribeThemeAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeThemeAlias)
+    (Proxy.Proxy :: Proxy.Proxy DescribeThemeAlias)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1647,7 +1647,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
 responseUpdateAccountSettings =
@@ -1655,7 +1655,7 @@ responseUpdateAccountSettings =
     "UpdateAccountSettingsResponse"
     "fixture/UpdateAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
 
 responseDescribeTemplatePermissions :: DescribeTemplatePermissionsResponse -> TestTree
 responseDescribeTemplatePermissions =
@@ -1663,7 +1663,7 @@ responseDescribeTemplatePermissions =
     "DescribeTemplatePermissionsResponse"
     "fixture/DescribeTemplatePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTemplatePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplatePermissions)
 
 responseListDashboards :: ListDashboardsResponse -> TestTree
 responseListDashboards =
@@ -1671,7 +1671,7 @@ responseListDashboards =
     "ListDashboardsResponse"
     "fixture/ListDashboardsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDashboards)
+    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
 
 responseDescribeTemplate :: DescribeTemplateResponse -> TestTree
 responseDescribeTemplate =
@@ -1679,7 +1679,7 @@ responseDescribeTemplate =
     "DescribeTemplateResponse"
     "fixture/DescribeTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplate)
 
 responseDeleteFolderMembership :: DeleteFolderMembershipResponse -> TestTree
 responseDeleteFolderMembership =
@@ -1687,7 +1687,7 @@ responseDeleteFolderMembership =
     "DeleteFolderMembershipResponse"
     "fixture/DeleteFolderMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFolderMembership)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFolderMembership)
 
 responseCreateTheme :: CreateThemeResponse -> TestTree
 responseCreateTheme =
@@ -1695,7 +1695,7 @@ responseCreateTheme =
     "CreateThemeResponse"
     "fixture/CreateThemeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTheme)
+    (Proxy.Proxy :: Proxy.Proxy CreateTheme)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -1703,7 +1703,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseCreateFolderMembership :: CreateFolderMembershipResponse -> TestTree
 responseCreateFolderMembership =
@@ -1711,7 +1711,7 @@ responseCreateFolderMembership =
     "CreateFolderMembershipResponse"
     "fixture/CreateFolderMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFolderMembership)
+    (Proxy.Proxy :: Proxy.Proxy CreateFolderMembership)
 
 responseUpdateThemePermissions :: UpdateThemePermissionsResponse -> TestTree
 responseUpdateThemePermissions =
@@ -1719,7 +1719,7 @@ responseUpdateThemePermissions =
     "UpdateThemePermissionsResponse"
     "fixture/UpdateThemePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThemePermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateThemePermissions)
 
 responseGetSessionEmbedUrl :: GetSessionEmbedUrlResponse -> TestTree
 responseGetSessionEmbedUrl =
@@ -1727,7 +1727,7 @@ responseGetSessionEmbedUrl =
     "GetSessionEmbedUrlResponse"
     "fixture/GetSessionEmbedUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSessionEmbedUrl)
+    (Proxy.Proxy :: Proxy.Proxy GetSessionEmbedUrl)
 
 responseCreateDashboard :: CreateDashboardResponse -> TestTree
 responseCreateDashboard =
@@ -1735,7 +1735,7 @@ responseCreateDashboard =
     "CreateDashboardResponse"
     "fixture/CreateDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDashboard)
+    (Proxy.Proxy :: Proxy.Proxy CreateDashboard)
 
 responseRegisterUser :: RegisterUserResponse -> TestTree
 responseRegisterUser =
@@ -1743,7 +1743,7 @@ responseRegisterUser =
     "RegisterUserResponse"
     "fixture/RegisterUserResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterUser)
+    (Proxy.Proxy :: Proxy.Proxy RegisterUser)
 
 responseDescribeDataSource :: DescribeDataSourceResponse -> TestTree
 responseDescribeDataSource =
@@ -1751,7 +1751,7 @@ responseDescribeDataSource =
     "DescribeDataSourceResponse"
     "fixture/DescribeDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSource)
 
 responseDescribeFolderResolvedPermissions :: DescribeFolderResolvedPermissionsResponse -> TestTree
 responseDescribeFolderResolvedPermissions =
@@ -1759,7 +1759,7 @@ responseDescribeFolderResolvedPermissions =
     "DescribeFolderResolvedPermissionsResponse"
     "fixture/DescribeFolderResolvedPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFolderResolvedPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolderResolvedPermissions)
 
 responseUpdateAnalysisPermissions :: UpdateAnalysisPermissionsResponse -> TestTree
 responseUpdateAnalysisPermissions =
@@ -1767,7 +1767,7 @@ responseUpdateAnalysisPermissions =
     "UpdateAnalysisPermissionsResponse"
     "fixture/UpdateAnalysisPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAnalysisPermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnalysisPermissions)
 
 responseDeleteDataSet :: DeleteDataSetResponse -> TestTree
 responseDeleteDataSet =
@@ -1775,7 +1775,7 @@ responseDeleteDataSet =
     "DeleteDataSetResponse"
     "fixture/DeleteDataSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSet)
 
 responseUpdateDataSet :: UpdateDataSetResponse -> TestTree
 responseUpdateDataSet =
@@ -1783,7 +1783,7 @@ responseUpdateDataSet =
     "UpdateDataSetResponse"
     "fixture/UpdateDataSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSet)
 
 responseListThemeAliases :: ListThemeAliasesResponse -> TestTree
 responseListThemeAliases =
@@ -1791,7 +1791,7 @@ responseListThemeAliases =
     "ListThemeAliasesResponse"
     "fixture/ListThemeAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThemeAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListThemeAliases)
 
 responseUpdateAnalysis :: UpdateAnalysisResponse -> TestTree
 responseUpdateAnalysis =
@@ -1799,7 +1799,7 @@ responseUpdateAnalysis =
     "UpdateAnalysisResponse"
     "fixture/UpdateAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnalysis)
 
 responseDeleteAnalysis :: DeleteAnalysisResponse -> TestTree
 responseDeleteAnalysis =
@@ -1807,7 +1807,7 @@ responseDeleteAnalysis =
     "DeleteAnalysisResponse"
     "fixture/DeleteAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnalysis)
 
 responseSearchFolders :: SearchFoldersResponse -> TestTree
 responseSearchFolders =
@@ -1815,7 +1815,7 @@ responseSearchFolders =
     "SearchFoldersResponse"
     "fixture/SearchFoldersResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchFolders)
+    (Proxy.Proxy :: Proxy.Proxy SearchFolders)
 
 responseDescribeFolderPermissions :: DescribeFolderPermissionsResponse -> TestTree
 responseDescribeFolderPermissions =
@@ -1823,7 +1823,7 @@ responseDescribeFolderPermissions =
     "DescribeFolderPermissionsResponse"
     "fixture/DescribeFolderPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFolderPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolderPermissions)
 
 responseUpdateDataSetPermissions :: UpdateDataSetPermissionsResponse -> TestTree
 responseUpdateDataSetPermissions =
@@ -1831,7 +1831,7 @@ responseUpdateDataSetPermissions =
     "UpdateDataSetPermissionsResponse"
     "fixture/UpdateDataSetPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSetPermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSetPermissions)
 
 responseCreateThemeAlias :: CreateThemeAliasResponse -> TestTree
 responseCreateThemeAlias =
@@ -1839,7 +1839,7 @@ responseCreateThemeAlias =
     "CreateThemeAliasResponse"
     "fixture/CreateThemeAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateThemeAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateThemeAlias)
 
 responseDescribeFolder :: DescribeFolderResponse -> TestTree
 responseDescribeFolder =
@@ -1847,7 +1847,7 @@ responseDescribeFolder =
     "DescribeFolderResponse"
     "fixture/DescribeFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFolder)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolder)
 
 responseDescribeTemplateAlias :: DescribeTemplateAliasResponse -> TestTree
 responseDescribeTemplateAlias =
@@ -1855,7 +1855,7 @@ responseDescribeTemplateAlias =
     "DescribeTemplateAliasResponse"
     "fixture/DescribeTemplateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTemplateAlias)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplateAlias)
 
 responseDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignmentResponse -> TestTree
 responseDescribeIAMPolicyAssignment =
@@ -1863,7 +1863,7 @@ responseDescribeIAMPolicyAssignment =
     "DescribeIAMPolicyAssignmentResponse"
     "fixture/DescribeIAMPolicyAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIAMPolicyAssignment)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIAMPolicyAssignment)
 
 responseCreateIngestion :: CreateIngestionResponse -> TestTree
 responseCreateIngestion =
@@ -1871,7 +1871,7 @@ responseCreateIngestion =
     "CreateIngestionResponse"
     "fixture/CreateIngestionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIngestion)
+    (Proxy.Proxy :: Proxy.Proxy CreateIngestion)
 
 responseCreateDataSet :: CreateDataSetResponse -> TestTree
 responseCreateDataSet =
@@ -1879,7 +1879,7 @@ responseCreateDataSet =
     "CreateDataSetResponse"
     "fixture/CreateDataSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSet)
 
 responseCreateDataSource :: CreateDataSourceResponse -> TestTree
 responseCreateDataSource =
@@ -1887,7 +1887,7 @@ responseCreateDataSource =
     "CreateDataSourceResponse"
     "fixture/CreateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSource)
 
 responseListTemplates :: ListTemplatesResponse -> TestTree
 responseListTemplates =
@@ -1895,7 +1895,7 @@ responseListTemplates =
     "ListTemplatesResponse"
     "fixture/ListTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplates)
 
 responseDescribeAccountSettings :: DescribeAccountSettingsResponse -> TestTree
 responseDescribeAccountSettings =
@@ -1903,7 +1903,7 @@ responseDescribeAccountSettings =
     "DescribeAccountSettingsResponse"
     "fixture/DescribeAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountSettings)
 
 responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
 responseUpdateTemplate =
@@ -1911,7 +1911,7 @@ responseUpdateTemplate =
     "UpdateTemplateResponse"
     "fixture/UpdateTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplate)
 
 responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
 responseDeleteTemplate =
@@ -1919,7 +1919,7 @@ responseDeleteTemplate =
     "DeleteTemplateResponse"
     "fixture/DeleteTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTemplate)
 
 responseUpdateTemplatePermissions :: UpdateTemplatePermissionsResponse -> TestTree
 responseUpdateTemplatePermissions =
@@ -1927,7 +1927,7 @@ responseUpdateTemplatePermissions =
     "UpdateTemplatePermissionsResponse"
     "fixture/UpdateTemplatePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTemplatePermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplatePermissions)
 
 responseSearchDashboards :: SearchDashboardsResponse -> TestTree
 responseSearchDashboards =
@@ -1935,7 +1935,7 @@ responseSearchDashboards =
     "SearchDashboardsResponse"
     "fixture/SearchDashboardsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchDashboards)
+    (Proxy.Proxy :: Proxy.Proxy SearchDashboards)
 
 responseUpdateDataSourcePermissions :: UpdateDataSourcePermissionsResponse -> TestTree
 responseUpdateDataSourcePermissions =
@@ -1943,7 +1943,7 @@ responseUpdateDataSourcePermissions =
     "UpdateDataSourcePermissionsResponse"
     "fixture/UpdateDataSourcePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSourcePermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSourcePermissions)
 
 responseUpdateIpRestriction :: UpdateIpRestrictionResponse -> TestTree
 responseUpdateIpRestriction =
@@ -1951,7 +1951,7 @@ responseUpdateIpRestriction =
     "UpdateIpRestrictionResponse"
     "fixture/UpdateIpRestrictionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIpRestriction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIpRestriction)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -1959,7 +1959,7 @@ responseDescribeUser =
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responseDescribeTheme :: DescribeThemeResponse -> TestTree
 responseDescribeTheme =
@@ -1967,7 +1967,7 @@ responseDescribeTheme =
     "DescribeThemeResponse"
     "fixture/DescribeThemeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTheme)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTheme)
 
 responseListAnalyses :: ListAnalysesResponse -> TestTree
 responseListAnalyses =
@@ -1975,7 +1975,7 @@ responseListAnalyses =
     "ListAnalysesResponse"
     "fixture/ListAnalysesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnalyses)
+    (Proxy.Proxy :: Proxy.Proxy ListAnalyses)
 
 responseListDataSources :: ListDataSourcesResponse -> TestTree
 responseListDataSources =
@@ -1983,7 +1983,7 @@ responseListDataSources =
     "ListDataSourcesResponse"
     "fixture/ListDataSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataSources)
+    (Proxy.Proxy :: Proxy.Proxy ListDataSources)
 
 responseListFolderMembers :: ListFolderMembersResponse -> TestTree
 responseListFolderMembers =
@@ -1991,7 +1991,7 @@ responseListFolderMembers =
     "ListFolderMembersResponse"
     "fixture/ListFolderMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFolderMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListFolderMembers)
 
 responseListIAMPolicyAssignments :: ListIAMPolicyAssignmentsResponse -> TestTree
 responseListIAMPolicyAssignments =
@@ -1999,7 +1999,7 @@ responseListIAMPolicyAssignments =
     "ListIAMPolicyAssignmentsResponse"
     "fixture/ListIAMPolicyAssignmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIAMPolicyAssignments)
+    (Proxy.Proxy :: Proxy.Proxy ListIAMPolicyAssignments)
 
 responseListDashboardVersions :: ListDashboardVersionsResponse -> TestTree
 responseListDashboardVersions =
@@ -2007,7 +2007,7 @@ responseListDashboardVersions =
     "ListDashboardVersionsResponse"
     "fixture/ListDashboardVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDashboardVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListDashboardVersions)
 
 responseCreateNamespace :: CreateNamespaceResponse -> TestTree
 responseCreateNamespace =
@@ -2015,7 +2015,7 @@ responseCreateNamespace =
     "CreateNamespaceResponse"
     "fixture/CreateNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNamespace)
+    (Proxy.Proxy :: Proxy.Proxy CreateNamespace)
 
 responseCreateIAMPolicyAssignment :: CreateIAMPolicyAssignmentResponse -> TestTree
 responseCreateIAMPolicyAssignment =
@@ -2023,7 +2023,7 @@ responseCreateIAMPolicyAssignment =
     "CreateIAMPolicyAssignmentResponse"
     "fixture/CreateIAMPolicyAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIAMPolicyAssignment)
+    (Proxy.Proxy :: Proxy.Proxy CreateIAMPolicyAssignment)
 
 responseRestoreAnalysis :: RestoreAnalysisResponse -> TestTree
 responseRestoreAnalysis =
@@ -2031,7 +2031,7 @@ responseRestoreAnalysis =
     "RestoreAnalysisResponse"
     "fixture/RestoreAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy RestoreAnalysis)
 
 responseCreateTemplateAlias :: CreateTemplateAliasResponse -> TestTree
 responseCreateTemplateAlias =
@@ -2039,7 +2039,7 @@ responseCreateTemplateAlias =
     "CreateTemplateAliasResponse"
     "fixture/CreateTemplateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTemplateAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateTemplateAlias)
 
 responseListTemplateAliases :: ListTemplateAliasesResponse -> TestTree
 responseListTemplateAliases =
@@ -2047,7 +2047,7 @@ responseListTemplateAliases =
     "ListTemplateAliasesResponse"
     "fixture/ListTemplateAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTemplateAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplateAliases)
 
 responseGetDashboardEmbedUrl :: GetDashboardEmbedUrlResponse -> TestTree
 responseGetDashboardEmbedUrl =
@@ -2055,7 +2055,7 @@ responseGetDashboardEmbedUrl =
     "GetDashboardEmbedUrlResponse"
     "fixture/GetDashboardEmbedUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDashboardEmbedUrl)
+    (Proxy.Proxy :: Proxy.Proxy GetDashboardEmbedUrl)
 
 responseGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUserResponse -> TestTree
 responseGenerateEmbedUrlForAnonymousUser =
@@ -2063,7 +2063,7 @@ responseGenerateEmbedUrlForAnonymousUser =
     "GenerateEmbedUrlForAnonymousUserResponse"
     "fixture/GenerateEmbedUrlForAnonymousUserResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateEmbedUrlForAnonymousUser)
+    (Proxy.Proxy :: Proxy.Proxy GenerateEmbedUrlForAnonymousUser)
 
 responseListThemeVersions :: ListThemeVersionsResponse -> TestTree
 responseListThemeVersions =
@@ -2071,7 +2071,7 @@ responseListThemeVersions =
     "ListThemeVersionsResponse"
     "fixture/ListThemeVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThemeVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListThemeVersions)
 
 responseUpdateDashboardPermissions :: UpdateDashboardPermissionsResponse -> TestTree
 responseUpdateDashboardPermissions =
@@ -2079,7 +2079,7 @@ responseUpdateDashboardPermissions =
     "UpdateDashboardPermissionsResponse"
     "fixture/UpdateDashboardPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDashboardPermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboardPermissions)
 
 responseListIAMPolicyAssignmentsForUser :: ListIAMPolicyAssignmentsForUserResponse -> TestTree
 responseListIAMPolicyAssignmentsForUser =
@@ -2087,7 +2087,7 @@ responseListIAMPolicyAssignmentsForUser =
     "ListIAMPolicyAssignmentsForUserResponse"
     "fixture/ListIAMPolicyAssignmentsForUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIAMPolicyAssignmentsForUser)
+    (Proxy.Proxy :: Proxy.Proxy ListIAMPolicyAssignmentsForUser)
 
 responseDeleteAccountCustomization :: DeleteAccountCustomizationResponse -> TestTree
 responseDeleteAccountCustomization =
@@ -2095,7 +2095,7 @@ responseDeleteAccountCustomization =
     "DeleteAccountCustomizationResponse"
     "fixture/DeleteAccountCustomizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccountCustomization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountCustomization)
 
 responseUpdateAccountCustomization :: UpdateAccountCustomizationResponse -> TestTree
 responseUpdateAccountCustomization =
@@ -2103,7 +2103,7 @@ responseUpdateAccountCustomization =
     "UpdateAccountCustomizationResponse"
     "fixture/UpdateAccountCustomizationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccountCustomization)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountCustomization)
 
 responseDeleteDashboard :: DeleteDashboardResponse -> TestTree
 responseDeleteDashboard =
@@ -2111,7 +2111,7 @@ responseDeleteDashboard =
     "DeleteDashboardResponse"
     "fixture/DeleteDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDashboard)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDashboard)
 
 responseUpdateDashboard :: UpdateDashboardResponse -> TestTree
 responseUpdateDashboard =
@@ -2119,7 +2119,7 @@ responseUpdateDashboard =
     "UpdateDashboardResponse"
     "fixture/UpdateDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDashboard)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboard)
 
 responseDescribeDataSourcePermissions :: DescribeDataSourcePermissionsResponse -> TestTree
 responseDescribeDataSourcePermissions =
@@ -2127,7 +2127,7 @@ responseDescribeDataSourcePermissions =
     "DescribeDataSourcePermissionsResponse"
     "fixture/DescribeDataSourcePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSourcePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSourcePermissions)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -2135,7 +2135,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -2143,7 +2143,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseSearchAnalyses :: SearchAnalysesResponse -> TestTree
 responseSearchAnalyses =
@@ -2151,7 +2151,7 @@ responseSearchAnalyses =
     "SearchAnalysesResponse"
     "fixture/SearchAnalysesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchAnalyses)
+    (Proxy.Proxy :: Proxy.Proxy SearchAnalyses)
 
 responseCreateAccountCustomization :: CreateAccountCustomizationResponse -> TestTree
 responseCreateAccountCustomization =
@@ -2159,7 +2159,7 @@ responseCreateAccountCustomization =
     "CreateAccountCustomizationResponse"
     "fixture/CreateAccountCustomizationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccountCustomization)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccountCustomization)
 
 responseDescribeIpRestriction :: DescribeIpRestrictionResponse -> TestTree
 responseDescribeIpRestriction =
@@ -2167,7 +2167,7 @@ responseDescribeIpRestriction =
     "DescribeIpRestrictionResponse"
     "fixture/DescribeIpRestrictionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIpRestriction)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpRestriction)
 
 responseListThemes :: ListThemesResponse -> TestTree
 responseListThemes =
@@ -2175,7 +2175,7 @@ responseListThemes =
     "ListThemesResponse"
     "fixture/ListThemesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListThemes)
+    (Proxy.Proxy :: Proxy.Proxy ListThemes)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -2183,7 +2183,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUpdateTheme :: UpdateThemeResponse -> TestTree
 responseUpdateTheme =
@@ -2191,7 +2191,7 @@ responseUpdateTheme =
     "UpdateThemeResponse"
     "fixture/UpdateThemeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTheme)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTheme)
 
 responseDeleteTheme :: DeleteThemeResponse -> TestTree
 responseDeleteTheme =
@@ -2199,7 +2199,7 @@ responseDeleteTheme =
     "DeleteThemeResponse"
     "fixture/DeleteThemeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTheme)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTheme)
 
 responseListIngestions :: ListIngestionsResponse -> TestTree
 responseListIngestions =
@@ -2207,7 +2207,7 @@ responseListIngestions =
     "ListIngestionsResponse"
     "fixture/ListIngestionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIngestions)
+    (Proxy.Proxy :: Proxy.Proxy ListIngestions)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -2215,7 +2215,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -2223,7 +2223,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
 responseListTemplateVersions =
@@ -2231,7 +2231,7 @@ responseListTemplateVersions =
     "ListTemplateVersionsResponse"
     "fixture/ListTemplateVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTemplateVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplateVersions)
 
 responseListDataSets :: ListDataSetsResponse -> TestTree
 responseListDataSets =
@@ -2239,7 +2239,7 @@ responseListDataSets =
     "ListDataSetsResponse"
     "fixture/ListDataSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataSets)
+    (Proxy.Proxy :: Proxy.Proxy ListDataSets)
 
 responseDeleteThemeAlias :: DeleteThemeAliasResponse -> TestTree
 responseDeleteThemeAlias =
@@ -2247,7 +2247,7 @@ responseDeleteThemeAlias =
     "DeleteThemeAliasResponse"
     "fixture/DeleteThemeAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteThemeAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteThemeAlias)
 
 responseUpdateThemeAlias :: UpdateThemeAliasResponse -> TestTree
 responseUpdateThemeAlias =
@@ -2255,7 +2255,7 @@ responseUpdateThemeAlias =
     "UpdateThemeAliasResponse"
     "fixture/UpdateThemeAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThemeAlias)
+    (Proxy.Proxy :: Proxy.Proxy UpdateThemeAlias)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -2263,7 +2263,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =
@@ -2271,7 +2271,7 @@ responseUpdateGroup =
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
 
 responseDescribeNamespace :: DescribeNamespaceResponse -> TestTree
 responseDescribeNamespace =
@@ -2279,7 +2279,7 @@ responseDescribeNamespace =
     "DescribeNamespaceResponse"
     "fixture/DescribeNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -2287,7 +2287,7 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
 responseCreateAnalysis :: CreateAnalysisResponse -> TestTree
 responseCreateAnalysis =
@@ -2295,7 +2295,7 @@ responseCreateAnalysis =
     "CreateAnalysisResponse"
     "fixture/CreateAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnalysis)
 
 responseDescribeAccountCustomization :: DescribeAccountCustomizationResponse -> TestTree
 responseDescribeAccountCustomization =
@@ -2303,7 +2303,7 @@ responseDescribeAccountCustomization =
     "DescribeAccountCustomizationResponse"
     "fixture/DescribeAccountCustomizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountCustomization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountCustomization)
 
 responseGenerateEmbedUrlForRegisteredUser :: GenerateEmbedUrlForRegisteredUserResponse -> TestTree
 responseGenerateEmbedUrlForRegisteredUser =
@@ -2311,7 +2311,7 @@ responseGenerateEmbedUrlForRegisteredUser =
     "GenerateEmbedUrlForRegisteredUserResponse"
     "fixture/GenerateEmbedUrlForRegisteredUserResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateEmbedUrlForRegisteredUser)
+    (Proxy.Proxy :: Proxy.Proxy GenerateEmbedUrlForRegisteredUser)
 
 responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
 responseDescribeDashboard =
@@ -2319,7 +2319,7 @@ responseDescribeDashboard =
     "DescribeDashboardResponse"
     "fixture/DescribeDashboardResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDashboard)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
 
 responseCreateGroupMembership :: CreateGroupMembershipResponse -> TestTree
 responseCreateGroupMembership =
@@ -2327,7 +2327,7 @@ responseCreateGroupMembership =
     "CreateGroupMembershipResponse"
     "fixture/CreateGroupMembershipResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroupMembership)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroupMembership)
 
 responseDescribeDashboardPermissions :: DescribeDashboardPermissionsResponse -> TestTree
 responseDescribeDashboardPermissions =
@@ -2335,4 +2335,4 @@ responseDescribeDashboardPermissions =
     "DescribeDashboardPermissionsResponse"
     "fixture/DescribeDashboardPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDashboardPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboardPermissions)

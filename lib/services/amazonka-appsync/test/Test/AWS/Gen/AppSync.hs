@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppSync where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppSync
 import Test.AWS.AppSync.Internal
 import Test.AWS.Fixture
@@ -535,7 +535,7 @@ responseUpdateDataSource =
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
 responseDeleteDataSource =
@@ -543,7 +543,7 @@ responseDeleteDataSource =
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
 
 responseCreateType :: CreateTypeResponse -> TestTree
 responseCreateType =
@@ -551,7 +551,7 @@ responseCreateType =
     "CreateTypeResponse"
     "fixture/CreateTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateType)
+    (Proxy.Proxy :: Proxy.Proxy CreateType)
 
 responseGetGraphqlApi :: GetGraphqlApiResponse -> TestTree
 responseGetGraphqlApi =
@@ -559,7 +559,7 @@ responseGetGraphqlApi =
     "GetGraphqlApiResponse"
     "fixture/GetGraphqlApiResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGraphqlApi)
+    (Proxy.Proxy :: Proxy.Proxy GetGraphqlApi)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -567,7 +567,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateGraphqlApi :: CreateGraphqlApiResponse -> TestTree
 responseCreateGraphqlApi =
@@ -575,7 +575,7 @@ responseCreateGraphqlApi =
     "CreateGraphqlApiResponse"
     "fixture/CreateGraphqlApiResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGraphqlApi)
+    (Proxy.Proxy :: Proxy.Proxy CreateGraphqlApi)
 
 responseStartSchemaCreation :: StartSchemaCreationResponse -> TestTree
 responseStartSchemaCreation =
@@ -583,7 +583,7 @@ responseStartSchemaCreation =
     "StartSchemaCreationResponse"
     "fixture/StartSchemaCreationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSchemaCreation)
+    (Proxy.Proxy :: Proxy.Proxy StartSchemaCreation)
 
 responseFlushApiCache :: FlushApiCacheResponse -> TestTree
 responseFlushApiCache =
@@ -591,7 +591,7 @@ responseFlushApiCache =
     "FlushApiCacheResponse"
     "fixture/FlushApiCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy FlushApiCache)
+    (Proxy.Proxy :: Proxy.Proxy FlushApiCache)
 
 responseDeleteGraphqlApi :: DeleteGraphqlApiResponse -> TestTree
 responseDeleteGraphqlApi =
@@ -599,7 +599,7 @@ responseDeleteGraphqlApi =
     "DeleteGraphqlApiResponse"
     "fixture/DeleteGraphqlApiResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGraphqlApi)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGraphqlApi)
 
 responseUpdateGraphqlApi :: UpdateGraphqlApiResponse -> TestTree
 responseUpdateGraphqlApi =
@@ -607,7 +607,7 @@ responseUpdateGraphqlApi =
     "UpdateGraphqlApiResponse"
     "fixture/UpdateGraphqlApiResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGraphqlApi)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGraphqlApi)
 
 responseGetIntrospectionSchema :: GetIntrospectionSchemaResponse -> TestTree
 responseGetIntrospectionSchema =
@@ -615,7 +615,7 @@ responseGetIntrospectionSchema =
     "GetIntrospectionSchemaResponse"
     "fixture/GetIntrospectionSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntrospectionSchema)
+    (Proxy.Proxy :: Proxy.Proxy GetIntrospectionSchema)
 
 responseGetDataSource :: GetDataSourceResponse -> TestTree
 responseGetDataSource =
@@ -623,7 +623,7 @@ responseGetDataSource =
     "GetDataSourceResponse"
     "fixture/GetDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataSource)
+    (Proxy.Proxy :: Proxy.Proxy GetDataSource)
 
 responseListResolversByFunction :: ListResolversByFunctionResponse -> TestTree
 responseListResolversByFunction =
@@ -631,7 +631,7 @@ responseListResolversByFunction =
     "ListResolversByFunctionResponse"
     "fixture/ListResolversByFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolversByFunction)
+    (Proxy.Proxy :: Proxy.Proxy ListResolversByFunction)
 
 responseCreateFunction :: CreateFunctionResponse -> TestTree
 responseCreateFunction =
@@ -639,7 +639,7 @@ responseCreateFunction =
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFunction)
+    (Proxy.Proxy :: Proxy.Proxy CreateFunction)
 
 responseDeleteApiKey :: DeleteApiKeyResponse -> TestTree
 responseDeleteApiKey =
@@ -647,7 +647,7 @@ responseDeleteApiKey =
     "DeleteApiKeyResponse"
     "fixture/DeleteApiKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApiKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApiKey)
 
 responseUpdateApiKey :: UpdateApiKeyResponse -> TestTree
 responseUpdateApiKey =
@@ -655,7 +655,7 @@ responseUpdateApiKey =
     "UpdateApiKeyResponse"
     "fixture/UpdateApiKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApiKey)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApiKey)
 
 responseUpdateType :: UpdateTypeResponse -> TestTree
 responseUpdateType =
@@ -663,7 +663,7 @@ responseUpdateType =
     "UpdateTypeResponse"
     "fixture/UpdateTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateType)
+    (Proxy.Proxy :: Proxy.Proxy UpdateType)
 
 responseDeleteType :: DeleteTypeResponse -> TestTree
 responseDeleteType =
@@ -671,7 +671,7 @@ responseDeleteType =
     "DeleteTypeResponse"
     "fixture/DeleteTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteType)
 
 responseCreateDataSource :: CreateDataSourceResponse -> TestTree
 responseCreateDataSource =
@@ -679,7 +679,7 @@ responseCreateDataSource =
     "CreateDataSourceResponse"
     "fixture/CreateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSource)
 
 responseListTypes :: ListTypesResponse -> TestTree
 responseListTypes =
@@ -687,7 +687,7 @@ responseListTypes =
     "ListTypesResponse"
     "fixture/ListTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListTypes)
 
 responseGetFunction :: GetFunctionResponse -> TestTree
 responseGetFunction =
@@ -695,7 +695,7 @@ responseGetFunction =
     "GetFunctionResponse"
     "fixture/GetFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunction)
+    (Proxy.Proxy :: Proxy.Proxy GetFunction)
 
 responseListDataSources :: ListDataSourcesResponse -> TestTree
 responseListDataSources =
@@ -703,7 +703,7 @@ responseListDataSources =
     "ListDataSourcesResponse"
     "fixture/ListDataSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataSources)
+    (Proxy.Proxy :: Proxy.Proxy ListDataSources)
 
 responseUpdateResolver :: UpdateResolverResponse -> TestTree
 responseUpdateResolver =
@@ -711,7 +711,7 @@ responseUpdateResolver =
     "UpdateResolverResponse"
     "fixture/UpdateResolverResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResolver)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolver)
 
 responseDeleteResolver :: DeleteResolverResponse -> TestTree
 responseDeleteResolver =
@@ -719,7 +719,7 @@ responseDeleteResolver =
     "DeleteResolverResponse"
     "fixture/DeleteResolverResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResolver)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolver)
 
 responseListResolvers :: ListResolversResponse -> TestTree
 responseListResolvers =
@@ -727,7 +727,7 @@ responseListResolvers =
     "ListResolversResponse"
     "fixture/ListResolversResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResolvers)
+    (Proxy.Proxy :: Proxy.Proxy ListResolvers)
 
 responseCreateResolver :: CreateResolverResponse -> TestTree
 responseCreateResolver =
@@ -735,7 +735,7 @@ responseCreateResolver =
     "CreateResolverResponse"
     "fixture/CreateResolverResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResolver)
+    (Proxy.Proxy :: Proxy.Proxy CreateResolver)
 
 responseGetSchemaCreationStatus :: GetSchemaCreationStatusResponse -> TestTree
 responseGetSchemaCreationStatus =
@@ -743,7 +743,7 @@ responseGetSchemaCreationStatus =
     "GetSchemaCreationStatusResponse"
     "fixture/GetSchemaCreationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSchemaCreationStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetSchemaCreationStatus)
 
 responseGetApiCache :: GetApiCacheResponse -> TestTree
 responseGetApiCache =
@@ -751,7 +751,7 @@ responseGetApiCache =
     "GetApiCacheResponse"
     "fixture/GetApiCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApiCache)
+    (Proxy.Proxy :: Proxy.Proxy GetApiCache)
 
 responseUpdateApiCache :: UpdateApiCacheResponse -> TestTree
 responseUpdateApiCache =
@@ -759,7 +759,7 @@ responseUpdateApiCache =
     "UpdateApiCacheResponse"
     "fixture/UpdateApiCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApiCache)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApiCache)
 
 responseDeleteApiCache :: DeleteApiCacheResponse -> TestTree
 responseDeleteApiCache =
@@ -767,7 +767,7 @@ responseDeleteApiCache =
     "DeleteApiCacheResponse"
     "fixture/DeleteApiCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApiCache)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApiCache)
 
 responseListGraphqlApis :: ListGraphqlApisResponse -> TestTree
 responseListGraphqlApis =
@@ -775,7 +775,7 @@ responseListGraphqlApis =
     "ListGraphqlApisResponse"
     "fixture/ListGraphqlApisResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGraphqlApis)
+    (Proxy.Proxy :: Proxy.Proxy ListGraphqlApis)
 
 responseCreateApiCache :: CreateApiCacheResponse -> TestTree
 responseCreateApiCache =
@@ -783,7 +783,7 @@ responseCreateApiCache =
     "CreateApiCacheResponse"
     "fixture/CreateApiCacheResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApiCache)
+    (Proxy.Proxy :: Proxy.Proxy CreateApiCache)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -791,7 +791,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetResolver :: GetResolverResponse -> TestTree
 responseGetResolver =
@@ -799,7 +799,7 @@ responseGetResolver =
     "GetResolverResponse"
     "fixture/GetResolverResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResolver)
+    (Proxy.Proxy :: Proxy.Proxy GetResolver)
 
 responseUpdateFunction :: UpdateFunctionResponse -> TestTree
 responseUpdateFunction =
@@ -807,7 +807,7 @@ responseUpdateFunction =
     "UpdateFunctionResponse"
     "fixture/UpdateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFunction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunction)
 
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
 responseDeleteFunction =
@@ -815,7 +815,7 @@ responseDeleteFunction =
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunction)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -823,7 +823,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateApiKey :: CreateApiKeyResponse -> TestTree
 responseCreateApiKey =
@@ -831,7 +831,7 @@ responseCreateApiKey =
     "CreateApiKeyResponse"
     "fixture/CreateApiKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApiKey)
+    (Proxy.Proxy :: Proxy.Proxy CreateApiKey)
 
 responseListFunctions :: ListFunctionsResponse -> TestTree
 responseListFunctions =
@@ -839,7 +839,7 @@ responseListFunctions =
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctions)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctions)
 
 responseListApiKeys :: ListApiKeysResponse -> TestTree
 responseListApiKeys =
@@ -847,7 +847,7 @@ responseListApiKeys =
     "ListApiKeysResponse"
     "fixture/ListApiKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApiKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListApiKeys)
 
 responseGetType :: GetTypeResponse -> TestTree
 responseGetType =
@@ -855,4 +855,4 @@ responseGetType =
     "GetTypeResponse"
     "fixture/GetTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetType)
+    (Proxy.Proxy :: Proxy.Proxy GetType)

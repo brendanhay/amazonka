@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CostExplorer where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CostExplorer
 import Test.AWS.CostExplorer.Internal
 import Test.AWS.Fixture
@@ -403,7 +403,7 @@ responseGetReservationUtilization =
     "GetReservationUtilizationResponse"
     "fixture/GetReservationUtilizationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReservationUtilization)
+    (Proxy.Proxy :: Proxy.Proxy GetReservationUtilization)
 
 responseGetSavingsPlansCoverage :: GetSavingsPlansCoverageResponse -> TestTree
 responseGetSavingsPlansCoverage =
@@ -411,7 +411,7 @@ responseGetSavingsPlansCoverage =
     "GetSavingsPlansCoverageResponse"
     "fixture/GetSavingsPlansCoverageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSavingsPlansCoverage)
+    (Proxy.Proxy :: Proxy.Proxy GetSavingsPlansCoverage)
 
 responseGetTags :: GetTagsResponse -> TestTree
 responseGetTags =
@@ -419,7 +419,7 @@ responseGetTags =
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTags)
+    (Proxy.Proxy :: Proxy.Proxy GetTags)
 
 responseGetRightsizingRecommendation :: GetRightsizingRecommendationResponse -> TestTree
 responseGetRightsizingRecommendation =
@@ -427,7 +427,7 @@ responseGetRightsizingRecommendation =
     "GetRightsizingRecommendationResponse"
     "fixture/GetRightsizingRecommendationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRightsizingRecommendation)
+    (Proxy.Proxy :: Proxy.Proxy GetRightsizingRecommendation)
 
 responseGetCostAndUsageWithResources :: GetCostAndUsageWithResourcesResponse -> TestTree
 responseGetCostAndUsageWithResources =
@@ -435,7 +435,7 @@ responseGetCostAndUsageWithResources =
     "GetCostAndUsageWithResourcesResponse"
     "fixture/GetCostAndUsageWithResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCostAndUsageWithResources)
+    (Proxy.Proxy :: Proxy.Proxy GetCostAndUsageWithResources)
 
 responseGetUsageForecast :: GetUsageForecastResponse -> TestTree
 responseGetUsageForecast =
@@ -443,7 +443,7 @@ responseGetUsageForecast =
     "GetUsageForecastResponse"
     "fixture/GetUsageForecastResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUsageForecast)
+    (Proxy.Proxy :: Proxy.Proxy GetUsageForecast)
 
 responseGetReservationCoverage :: GetReservationCoverageResponse -> TestTree
 responseGetReservationCoverage =
@@ -451,7 +451,7 @@ responseGetReservationCoverage =
     "GetReservationCoverageResponse"
     "fixture/GetReservationCoverageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReservationCoverage)
+    (Proxy.Proxy :: Proxy.Proxy GetReservationCoverage)
 
 responseGetCostCategories :: GetCostCategoriesResponse -> TestTree
 responseGetCostCategories =
@@ -459,7 +459,7 @@ responseGetCostCategories =
     "GetCostCategoriesResponse"
     "fixture/GetCostCategoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCostCategories)
+    (Proxy.Proxy :: Proxy.Proxy GetCostCategories)
 
 responseGetCostForecast :: GetCostForecastResponse -> TestTree
 responseGetCostForecast =
@@ -467,7 +467,7 @@ responseGetCostForecast =
     "GetCostForecastResponse"
     "fixture/GetCostForecastResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCostForecast)
+    (Proxy.Proxy :: Proxy.Proxy GetCostForecast)
 
 responseGetDimensionValues :: GetDimensionValuesResponse -> TestTree
 responseGetDimensionValues =
@@ -475,7 +475,7 @@ responseGetDimensionValues =
     "GetDimensionValuesResponse"
     "fixture/GetDimensionValuesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDimensionValues)
+    (Proxy.Proxy :: Proxy.Proxy GetDimensionValues)
 
 responseGetAnomalies :: GetAnomaliesResponse -> TestTree
 responseGetAnomalies =
@@ -483,7 +483,7 @@ responseGetAnomalies =
     "GetAnomaliesResponse"
     "fixture/GetAnomaliesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnomalies)
+    (Proxy.Proxy :: Proxy.Proxy GetAnomalies)
 
 responseGetReservationPurchaseRecommendation :: GetReservationPurchaseRecommendationResponse -> TestTree
 responseGetReservationPurchaseRecommendation =
@@ -491,7 +491,7 @@ responseGetReservationPurchaseRecommendation =
     "GetReservationPurchaseRecommendationResponse"
     "fixture/GetReservationPurchaseRecommendationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReservationPurchaseRecommendation)
+    (Proxy.Proxy :: Proxy.Proxy GetReservationPurchaseRecommendation)
 
 responseDeleteAnomalyMonitor :: DeleteAnomalyMonitorResponse -> TestTree
 responseDeleteAnomalyMonitor =
@@ -499,7 +499,7 @@ responseDeleteAnomalyMonitor =
     "DeleteAnomalyMonitorResponse"
     "fixture/DeleteAnomalyMonitorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnomalyMonitor)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnomalyMonitor)
 
 responseUpdateAnomalyMonitor :: UpdateAnomalyMonitorResponse -> TestTree
 responseUpdateAnomalyMonitor =
@@ -507,7 +507,7 @@ responseUpdateAnomalyMonitor =
     "UpdateAnomalyMonitorResponse"
     "fixture/UpdateAnomalyMonitorResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAnomalyMonitor)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnomalyMonitor)
 
 responseListCostCategoryDefinitions :: ListCostCategoryDefinitionsResponse -> TestTree
 responseListCostCategoryDefinitions =
@@ -515,7 +515,7 @@ responseListCostCategoryDefinitions =
     "ListCostCategoryDefinitionsResponse"
     "fixture/ListCostCategoryDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCostCategoryDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListCostCategoryDefinitions)
 
 responseUpdateCostCategoryDefinition :: UpdateCostCategoryDefinitionResponse -> TestTree
 responseUpdateCostCategoryDefinition =
@@ -523,7 +523,7 @@ responseUpdateCostCategoryDefinition =
     "UpdateCostCategoryDefinitionResponse"
     "fixture/UpdateCostCategoryDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCostCategoryDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCostCategoryDefinition)
 
 responseDeleteCostCategoryDefinition :: DeleteCostCategoryDefinitionResponse -> TestTree
 responseDeleteCostCategoryDefinition =
@@ -531,7 +531,7 @@ responseDeleteCostCategoryDefinition =
     "DeleteCostCategoryDefinitionResponse"
     "fixture/DeleteCostCategoryDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCostCategoryDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCostCategoryDefinition)
 
 responseGetAnomalySubscriptions :: GetAnomalySubscriptionsResponse -> TestTree
 responseGetAnomalySubscriptions =
@@ -539,7 +539,7 @@ responseGetAnomalySubscriptions =
     "GetAnomalySubscriptionsResponse"
     "fixture/GetAnomalySubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnomalySubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy GetAnomalySubscriptions)
 
 responseCreateCostCategoryDefinition :: CreateCostCategoryDefinitionResponse -> TestTree
 responseCreateCostCategoryDefinition =
@@ -547,7 +547,7 @@ responseCreateCostCategoryDefinition =
     "CreateCostCategoryDefinitionResponse"
     "fixture/CreateCostCategoryDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCostCategoryDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateCostCategoryDefinition)
 
 responseGetAnomalyMonitors :: GetAnomalyMonitorsResponse -> TestTree
 responseGetAnomalyMonitors =
@@ -555,7 +555,7 @@ responseGetAnomalyMonitors =
     "GetAnomalyMonitorsResponse"
     "fixture/GetAnomalyMonitorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnomalyMonitors)
+    (Proxy.Proxy :: Proxy.Proxy GetAnomalyMonitors)
 
 responseDeleteAnomalySubscription :: DeleteAnomalySubscriptionResponse -> TestTree
 responseDeleteAnomalySubscription =
@@ -563,7 +563,7 @@ responseDeleteAnomalySubscription =
     "DeleteAnomalySubscriptionResponse"
     "fixture/DeleteAnomalySubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnomalySubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnomalySubscription)
 
 responseUpdateAnomalySubscription :: UpdateAnomalySubscriptionResponse -> TestTree
 responseUpdateAnomalySubscription =
@@ -571,7 +571,7 @@ responseUpdateAnomalySubscription =
     "UpdateAnomalySubscriptionResponse"
     "fixture/UpdateAnomalySubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAnomalySubscription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnomalySubscription)
 
 responseGetCostAndUsage :: GetCostAndUsageResponse -> TestTree
 responseGetCostAndUsage =
@@ -579,7 +579,7 @@ responseGetCostAndUsage =
     "GetCostAndUsageResponse"
     "fixture/GetCostAndUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCostAndUsage)
+    (Proxy.Proxy :: Proxy.Proxy GetCostAndUsage)
 
 responseGetSavingsPlansPurchaseRecommendation :: GetSavingsPlansPurchaseRecommendationResponse -> TestTree
 responseGetSavingsPlansPurchaseRecommendation =
@@ -587,7 +587,7 @@ responseGetSavingsPlansPurchaseRecommendation =
     "GetSavingsPlansPurchaseRecommendationResponse"
     "fixture/GetSavingsPlansPurchaseRecommendationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSavingsPlansPurchaseRecommendation)
+    (Proxy.Proxy :: Proxy.Proxy GetSavingsPlansPurchaseRecommendation)
 
 responseProvideAnomalyFeedback :: ProvideAnomalyFeedbackResponse -> TestTree
 responseProvideAnomalyFeedback =
@@ -595,7 +595,7 @@ responseProvideAnomalyFeedback =
     "ProvideAnomalyFeedbackResponse"
     "fixture/ProvideAnomalyFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy ProvideAnomalyFeedback)
+    (Proxy.Proxy :: Proxy.Proxy ProvideAnomalyFeedback)
 
 responseGetSavingsPlansUtilization :: GetSavingsPlansUtilizationResponse -> TestTree
 responseGetSavingsPlansUtilization =
@@ -603,7 +603,7 @@ responseGetSavingsPlansUtilization =
     "GetSavingsPlansUtilizationResponse"
     "fixture/GetSavingsPlansUtilizationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSavingsPlansUtilization)
+    (Proxy.Proxy :: Proxy.Proxy GetSavingsPlansUtilization)
 
 responseDescribeCostCategoryDefinition :: DescribeCostCategoryDefinitionResponse -> TestTree
 responseDescribeCostCategoryDefinition =
@@ -611,7 +611,7 @@ responseDescribeCostCategoryDefinition =
     "DescribeCostCategoryDefinitionResponse"
     "fixture/DescribeCostCategoryDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCostCategoryDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCostCategoryDefinition)
 
 responseCreateAnomalySubscription :: CreateAnomalySubscriptionResponse -> TestTree
 responseCreateAnomalySubscription =
@@ -619,7 +619,7 @@ responseCreateAnomalySubscription =
     "CreateAnomalySubscriptionResponse"
     "fixture/CreateAnomalySubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAnomalySubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnomalySubscription)
 
 responseCreateAnomalyMonitor :: CreateAnomalyMonitorResponse -> TestTree
 responseCreateAnomalyMonitor =
@@ -627,7 +627,7 @@ responseCreateAnomalyMonitor =
     "CreateAnomalyMonitorResponse"
     "fixture/CreateAnomalyMonitorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAnomalyMonitor)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnomalyMonitor)
 
 responseGetSavingsPlansUtilizationDetails :: GetSavingsPlansUtilizationDetailsResponse -> TestTree
 responseGetSavingsPlansUtilizationDetails =
@@ -635,4 +635,4 @@ responseGetSavingsPlansUtilizationDetails =
     "GetSavingsPlansUtilizationDetailsResponse"
     "fixture/GetSavingsPlansUtilizationDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSavingsPlansUtilizationDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetSavingsPlansUtilizationDetails)

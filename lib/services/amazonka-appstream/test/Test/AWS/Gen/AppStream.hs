@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppStream where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AppStream
 import Test.AWS.AppStream.Internal
 import Test.AWS.Fixture
@@ -619,7 +619,7 @@ responseCreateUsageReportSubscription =
     "CreateUsageReportSubscriptionResponse"
     "fixture/CreateUsageReportSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUsageReportSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateUsageReportSubscription)
 
 responseDisassociateFleet :: DisassociateFleetResponse -> TestTree
 responseDisassociateFleet =
@@ -627,7 +627,7 @@ responseDisassociateFleet =
     "DisassociateFleetResponse"
     "fixture/DisassociateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateFleet)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFleet)
 
 responseListAssociatedFleets :: ListAssociatedFleetsResponse -> TestTree
 responseListAssociatedFleets =
@@ -635,7 +635,7 @@ responseListAssociatedFleets =
     "ListAssociatedFleetsResponse"
     "fixture/ListAssociatedFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedFleets)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedFleets)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack =
@@ -643,7 +643,7 @@ responseDeleteStack =
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStack)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStack)
 
 responseUpdateStack :: UpdateStackResponse -> TestTree
 responseUpdateStack =
@@ -651,7 +651,7 @@ responseUpdateStack =
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStack)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStack)
 
 responseCreateDirectoryConfig :: CreateDirectoryConfigResponse -> TestTree
 responseCreateDirectoryConfig =
@@ -659,7 +659,7 @@ responseCreateDirectoryConfig =
     "CreateDirectoryConfigResponse"
     "fixture/CreateDirectoryConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectoryConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateDirectoryConfig)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
 responseDescribeUsers =
@@ -667,7 +667,7 @@ responseDescribeUsers =
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUsers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUsers)
 
 responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
 responseListAssociatedStacks =
@@ -675,7 +675,7 @@ responseListAssociatedStacks =
     "ListAssociatedStacksResponse"
     "fixture/ListAssociatedStacksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedStacks)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedStacks)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
 responseDeleteFleet =
@@ -683,7 +683,7 @@ responseDeleteFleet =
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFleet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
 
 responseUpdateFleet :: UpdateFleetResponse -> TestTree
 responseUpdateFleet =
@@ -691,7 +691,7 @@ responseUpdateFleet =
     "UpdateFleetResponse"
     "fixture/UpdateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFleet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFleet)
 
 responseDeleteImageBuilder :: DeleteImageBuilderResponse -> TestTree
 responseDeleteImageBuilder =
@@ -699,7 +699,7 @@ responseDeleteImageBuilder =
     "DeleteImageBuilderResponse"
     "fixture/DeleteImageBuilderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImageBuilder)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImageBuilder)
 
 responseAssociateFleet :: AssociateFleetResponse -> TestTree
 responseAssociateFleet =
@@ -707,7 +707,7 @@ responseAssociateFleet =
     "AssociateFleetResponse"
     "fixture/AssociateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateFleet)
+    (Proxy.Proxy :: Proxy.Proxy AssociateFleet)
 
 responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
 responseCreateImageBuilder =
@@ -715,7 +715,7 @@ responseCreateImageBuilder =
     "CreateImageBuilderResponse"
     "fixture/CreateImageBuilderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageBuilder)
+    (Proxy.Proxy :: Proxy.Proxy CreateImageBuilder)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -723,7 +723,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
 responseDescribeDirectoryConfigs =
@@ -731,7 +731,7 @@ responseDescribeDirectoryConfigs =
     "DescribeDirectoryConfigsResponse"
     "fixture/DescribeDirectoryConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectoryConfigs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDirectoryConfigs)
 
 responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
 responseCreateImageBuilderStreamingURL =
@@ -739,7 +739,7 @@ responseCreateImageBuilderStreamingURL =
     "CreateImageBuilderStreamingURLResponse"
     "fixture/CreateImageBuilderStreamingURLResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageBuilderStreamingURL)
+    (Proxy.Proxy :: Proxy.Proxy CreateImageBuilderStreamingURL)
 
 responseDescribeSessions :: DescribeSessionsResponse -> TestTree
 responseDescribeSessions =
@@ -747,7 +747,7 @@ responseDescribeSessions =
     "DescribeSessionsResponse"
     "fixture/DescribeSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSessions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSessions)
 
 responseDescribeStacks :: DescribeStacksResponse -> TestTree
 responseDescribeStacks =
@@ -755,7 +755,7 @@ responseDescribeStacks =
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStacks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStacks)
 
 responseDescribeFleets :: DescribeFleetsResponse -> TestTree
 responseDescribeFleets =
@@ -763,7 +763,7 @@ responseDescribeFleets =
     "DescribeFleetsResponse"
     "fixture/DescribeFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleets)
 
 responseDescribeImageBuilders :: DescribeImageBuildersResponse -> TestTree
 responseDescribeImageBuilders =
@@ -771,7 +771,7 @@ responseDescribeImageBuilders =
     "DescribeImageBuildersResponse"
     "fixture/DescribeImageBuildersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImageBuilders)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImageBuilders)
 
 responseEnableUser :: EnableUserResponse -> TestTree
 responseEnableUser =
@@ -779,7 +779,7 @@ responseEnableUser =
     "EnableUserResponse"
     "fixture/EnableUserResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableUser)
+    (Proxy.Proxy :: Proxy.Proxy EnableUser)
 
 responseDescribeUserStackAssociations :: DescribeUserStackAssociationsResponse -> TestTree
 responseDescribeUserStackAssociations =
@@ -787,7 +787,7 @@ responseDescribeUserStackAssociations =
     "DescribeUserStackAssociationsResponse"
     "fixture/DescribeUserStackAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserStackAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserStackAssociations)
 
 responseCreateUpdatedImage :: CreateUpdatedImageResponse -> TestTree
 responseCreateUpdatedImage =
@@ -795,7 +795,7 @@ responseCreateUpdatedImage =
     "CreateUpdatedImageResponse"
     "fixture/CreateUpdatedImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUpdatedImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateUpdatedImage)
 
 responseDescribeUsageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> TestTree
 responseDescribeUsageReportSubscriptions =
@@ -803,7 +803,7 @@ responseDescribeUsageReportSubscriptions =
     "DescribeUsageReportSubscriptionsResponse"
     "fixture/DescribeUsageReportSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUsageReportSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUsageReportSubscriptions)
 
 responseUpdateImagePermissions :: UpdateImagePermissionsResponse -> TestTree
 responseUpdateImagePermissions =
@@ -811,7 +811,7 @@ responseUpdateImagePermissions =
     "UpdateImagePermissionsResponse"
     "fixture/UpdateImagePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateImagePermissions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateImagePermissions)
 
 responseDeleteImagePermissions :: DeleteImagePermissionsResponse -> TestTree
 responseDeleteImagePermissions =
@@ -819,7 +819,7 @@ responseDeleteImagePermissions =
     "DeleteImagePermissionsResponse"
     "fixture/DeleteImagePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImagePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImagePermissions)
 
 responseStopFleet :: StopFleetResponse -> TestTree
 responseStopFleet =
@@ -827,7 +827,7 @@ responseStopFleet =
     "StopFleetResponse"
     "fixture/StopFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy StopFleet)
+    (Proxy.Proxy :: Proxy.Proxy StopFleet)
 
 responseStartImageBuilder :: StartImageBuilderResponse -> TestTree
 responseStartImageBuilder =
@@ -835,7 +835,7 @@ responseStartImageBuilder =
     "StartImageBuilderResponse"
     "fixture/StartImageBuilderResponse.proto"
     defaultService
-    (Proxy :: Proxy StartImageBuilder)
+    (Proxy.Proxy :: Proxy.Proxy StartImageBuilder)
 
 responseBatchAssociateUserStack :: BatchAssociateUserStackResponse -> TestTree
 responseBatchAssociateUserStack =
@@ -843,7 +843,7 @@ responseBatchAssociateUserStack =
     "BatchAssociateUserStackResponse"
     "fixture/BatchAssociateUserStackResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateUserStack)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateUserStack)
 
 responseDescribeImagePermissions :: DescribeImagePermissionsResponse -> TestTree
 responseDescribeImagePermissions =
@@ -851,7 +851,7 @@ responseDescribeImagePermissions =
     "DescribeImagePermissionsResponse"
     "fixture/DescribeImagePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImagePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImagePermissions)
 
 responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
 responseDeleteDirectoryConfig =
@@ -859,7 +859,7 @@ responseDeleteDirectoryConfig =
     "DeleteDirectoryConfigResponse"
     "fixture/DeleteDirectoryConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectoryConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDirectoryConfig)
 
 responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
 responseUpdateDirectoryConfig =
@@ -867,7 +867,7 @@ responseUpdateDirectoryConfig =
     "UpdateDirectoryConfigResponse"
     "fixture/UpdateDirectoryConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDirectoryConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDirectoryConfig)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -875,7 +875,7 @@ responseCreateFleet =
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateFleet)
 
 responseCreateStack :: CreateStackResponse -> TestTree
 responseCreateStack =
@@ -883,7 +883,7 @@ responseCreateStack =
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStack)
+    (Proxy.Proxy :: Proxy.Proxy CreateStack)
 
 responseCopyImage :: CopyImageResponse -> TestTree
 responseCopyImage =
@@ -891,7 +891,7 @@ responseCopyImage =
     "CopyImageResponse"
     "fixture/CopyImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyImage)
+    (Proxy.Proxy :: Proxy.Proxy CopyImage)
 
 responseExpireSession :: ExpireSessionResponse -> TestTree
 responseExpireSession =
@@ -899,7 +899,7 @@ responseExpireSession =
     "ExpireSessionResponse"
     "fixture/ExpireSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy ExpireSession)
+    (Proxy.Proxy :: Proxy.Proxy ExpireSession)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -907,7 +907,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseDisableUser :: DisableUserResponse -> TestTree
 responseDisableUser =
@@ -915,7 +915,7 @@ responseDisableUser =
     "DisableUserResponse"
     "fixture/DisableUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableUser)
+    (Proxy.Proxy :: Proxy.Proxy DisableUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -923,7 +923,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -931,7 +931,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateStreamingURL :: CreateStreamingURLResponse -> TestTree
 responseCreateStreamingURL =
@@ -939,7 +939,7 @@ responseCreateStreamingURL =
     "CreateStreamingURLResponse"
     "fixture/CreateStreamingURLResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingURL)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingURL)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -947,7 +947,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseStartFleet :: StartFleetResponse -> TestTree
 responseStartFleet =
@@ -955,7 +955,7 @@ responseStartFleet =
     "StartFleetResponse"
     "fixture/StartFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFleet)
+    (Proxy.Proxy :: Proxy.Proxy StartFleet)
 
 responseStopImageBuilder :: StopImageBuilderResponse -> TestTree
 responseStopImageBuilder =
@@ -963,7 +963,7 @@ responseStopImageBuilder =
     "StopImageBuilderResponse"
     "fixture/StopImageBuilderResponse.proto"
     defaultService
-    (Proxy :: Proxy StopImageBuilder)
+    (Proxy.Proxy :: Proxy.Proxy StopImageBuilder)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
 responseDeleteImage =
@@ -971,7 +971,7 @@ responseDeleteImage =
     "DeleteImageResponse"
     "fixture/DeleteImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImage)
 
 responseDeleteUsageReportSubscription :: DeleteUsageReportSubscriptionResponse -> TestTree
 responseDeleteUsageReportSubscription =
@@ -979,7 +979,7 @@ responseDeleteUsageReportSubscription =
     "DeleteUsageReportSubscriptionResponse"
     "fixture/DeleteUsageReportSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUsageReportSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUsageReportSubscription)
 
 responseBatchDisassociateUserStack :: BatchDisassociateUserStackResponse -> TestTree
 responseBatchDisassociateUserStack =
@@ -987,7 +987,7 @@ responseBatchDisassociateUserStack =
     "BatchDisassociateUserStackResponse"
     "fixture/BatchDisassociateUserStackResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateUserStack)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateUserStack)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
 responseDescribeImages =
@@ -995,4 +995,4 @@ responseDescribeImages =
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImages)

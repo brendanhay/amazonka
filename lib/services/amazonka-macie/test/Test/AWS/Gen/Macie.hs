@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Macie where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Macie
 import Test.AWS.Fixture
 import Test.AWS.Macie.Internal
@@ -127,7 +127,7 @@ responseAssociateS3Resources =
     "AssociateS3ResourcesResponse"
     "fixture/AssociateS3ResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateS3Resources)
+    (Proxy.Proxy :: Proxy.Proxy AssociateS3Resources)
 
 responseAssociateMemberAccount :: AssociateMemberAccountResponse -> TestTree
 responseAssociateMemberAccount =
@@ -135,7 +135,7 @@ responseAssociateMemberAccount =
     "AssociateMemberAccountResponse"
     "fixture/AssociateMemberAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateMemberAccount)
+    (Proxy.Proxy :: Proxy.Proxy AssociateMemberAccount)
 
 responseUpdateS3Resources :: UpdateS3ResourcesResponse -> TestTree
 responseUpdateS3Resources =
@@ -143,7 +143,7 @@ responseUpdateS3Resources =
     "UpdateS3ResourcesResponse"
     "fixture/UpdateS3ResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateS3Resources)
+    (Proxy.Proxy :: Proxy.Proxy UpdateS3Resources)
 
 responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
 responseListMemberAccounts =
@@ -151,7 +151,7 @@ responseListMemberAccounts =
     "ListMemberAccountsResponse"
     "fixture/ListMemberAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMemberAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListMemberAccounts)
 
 responseDisassociateMemberAccount :: DisassociateMemberAccountResponse -> TestTree
 responseDisassociateMemberAccount =
@@ -159,7 +159,7 @@ responseDisassociateMemberAccount =
     "DisassociateMemberAccountResponse"
     "fixture/DisassociateMemberAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateMemberAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMemberAccount)
 
 responseListS3Resources :: ListS3ResourcesResponse -> TestTree
 responseListS3Resources =
@@ -167,7 +167,7 @@ responseListS3Resources =
     "ListS3ResourcesResponse"
     "fixture/ListS3ResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListS3Resources)
+    (Proxy.Proxy :: Proxy.Proxy ListS3Resources)
 
 responseDisassociateS3Resources :: DisassociateS3ResourcesResponse -> TestTree
 responseDisassociateS3Resources =
@@ -175,4 +175,4 @@ responseDisassociateS3Resources =
     "DisassociateS3ResourcesResponse"
     "fixture/DisassociateS3ResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateS3Resources)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateS3Resources)

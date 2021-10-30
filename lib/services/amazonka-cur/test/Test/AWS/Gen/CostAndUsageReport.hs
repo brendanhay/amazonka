@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CostAndUsageReport where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CostAndUsageReport
 import Test.AWS.CostAndUsageReport.Internal
 import Test.AWS.Fixture
@@ -91,7 +91,7 @@ responsePutReportDefinition =
     "PutReportDefinitionResponse"
     "fixture/PutReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
 responseDeleteReportDefinition =
@@ -99,7 +99,7 @@ responseDeleteReportDefinition =
     "DeleteReportDefinitionResponse"
     "fixture/DeleteReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReportDefinition)
 
 responseModifyReportDefinition :: ModifyReportDefinitionResponse -> TestTree
 responseModifyReportDefinition =
@@ -107,7 +107,7 @@ responseModifyReportDefinition =
     "ModifyReportDefinitionResponse"
     "fixture/ModifyReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy ModifyReportDefinition)
 
 responseDescribeReportDefinitions :: DescribeReportDefinitionsResponse -> TestTree
 responseDescribeReportDefinitions =
@@ -115,4 +115,4 @@ responseDescribeReportDefinitions =
     "DescribeReportDefinitionsResponse"
     "fixture/DescribeReportDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReportDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReportDefinitions)

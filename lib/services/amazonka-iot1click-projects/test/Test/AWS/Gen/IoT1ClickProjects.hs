@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoT1ClickProjects where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoT1ClickProjects
 import Test.AWS.Fixture
 import Test.AWS.IoT1ClickProjects.Internal
@@ -235,7 +235,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -243,7 +243,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -251,7 +251,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -259,7 +259,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDisassociateDeviceFromPlacement :: DisassociateDeviceFromPlacementResponse -> TestTree
 responseDisassociateDeviceFromPlacement =
@@ -267,7 +267,7 @@ responseDisassociateDeviceFromPlacement =
     "DisassociateDeviceFromPlacementResponse"
     "fixture/DisassociateDeviceFromPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDeviceFromPlacement)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDeviceFromPlacement)
 
 responseCreatePlacement :: CreatePlacementResponse -> TestTree
 responseCreatePlacement =
@@ -275,7 +275,7 @@ responseCreatePlacement =
     "CreatePlacementResponse"
     "fixture/CreatePlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlacement)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlacement)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -283,7 +283,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseGetDevicesInPlacement :: GetDevicesInPlacementResponse -> TestTree
 responseGetDevicesInPlacement =
@@ -291,7 +291,7 @@ responseGetDevicesInPlacement =
     "GetDevicesInPlacementResponse"
     "fixture/GetDevicesInPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevicesInPlacement)
+    (Proxy.Proxy :: Proxy.Proxy GetDevicesInPlacement)
 
 responseDescribePlacement :: DescribePlacementResponse -> TestTree
 responseDescribePlacement =
@@ -299,7 +299,7 @@ responseDescribePlacement =
     "DescribePlacementResponse"
     "fixture/DescribePlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePlacement)
+    (Proxy.Proxy :: Proxy.Proxy DescribePlacement)
 
 responseAssociateDeviceWithPlacement :: AssociateDeviceWithPlacementResponse -> TestTree
 responseAssociateDeviceWithPlacement =
@@ -307,7 +307,7 @@ responseAssociateDeviceWithPlacement =
     "AssociateDeviceWithPlacementResponse"
     "fixture/AssociateDeviceWithPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDeviceWithPlacement)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDeviceWithPlacement)
 
 responseDeletePlacement :: DeletePlacementResponse -> TestTree
 responseDeletePlacement =
@@ -315,7 +315,7 @@ responseDeletePlacement =
     "DeletePlacementResponse"
     "fixture/DeletePlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlacement)
+    (Proxy.Proxy :: Proxy.Proxy DeletePlacement)
 
 responseUpdatePlacement :: UpdatePlacementResponse -> TestTree
 responseUpdatePlacement =
@@ -323,7 +323,7 @@ responseUpdatePlacement =
     "UpdatePlacementResponse"
     "fixture/UpdatePlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePlacement)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePlacement)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -331,7 +331,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListPlacements :: ListPlacementsResponse -> TestTree
 responseListPlacements =
@@ -339,7 +339,7 @@ responseListPlacements =
     "ListPlacementsResponse"
     "fixture/ListPlacementsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPlacements)
+    (Proxy.Proxy :: Proxy.Proxy ListPlacements)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -347,7 +347,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -355,4 +355,4 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)

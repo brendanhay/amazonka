@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ManagedBlockChain where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ManagedBlockChain
 import Test.AWS.Fixture
 import Test.AWS.ManagedBlockChain.Internal
@@ -319,7 +319,7 @@ responseCreateMember =
     "CreateMemberResponse"
     "fixture/CreateMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMember)
+    (Proxy.Proxy :: Proxy.Proxy CreateMember)
 
 responseListNetworks :: ListNetworksResponse -> TestTree
 responseListNetworks =
@@ -327,7 +327,7 @@ responseListNetworks =
     "ListNetworksResponse"
     "fixture/ListNetworksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNetworks)
+    (Proxy.Proxy :: Proxy.Proxy ListNetworks)
 
 responseGetProposal :: GetProposalResponse -> TestTree
 responseGetProposal =
@@ -335,7 +335,7 @@ responseGetProposal =
     "GetProposalResponse"
     "fixture/GetProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProposal)
+    (Proxy.Proxy :: Proxy.Proxy GetProposal)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -343,7 +343,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateNetwork :: CreateNetworkResponse -> TestTree
 responseCreateNetwork =
@@ -351,7 +351,7 @@ responseCreateNetwork =
     "CreateNetworkResponse"
     "fixture/CreateNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetwork)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetwork)
 
 responseListProposals :: ListProposalsResponse -> TestTree
 responseListProposals =
@@ -359,7 +359,7 @@ responseListProposals =
     "ListProposalsResponse"
     "fixture/ListProposalsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProposals)
+    (Proxy.Proxy :: Proxy.Proxy ListProposals)
 
 responseListInvitations :: ListInvitationsResponse -> TestTree
 responseListInvitations =
@@ -367,7 +367,7 @@ responseListInvitations =
     "ListInvitationsResponse"
     "fixture/ListInvitationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInvitations)
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
 
 responseCreateProposal :: CreateProposalResponse -> TestTree
 responseCreateProposal =
@@ -375,7 +375,7 @@ responseCreateProposal =
     "CreateProposalResponse"
     "fixture/CreateProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProposal)
+    (Proxy.Proxy :: Proxy.Proxy CreateProposal)
 
 responseGetNetwork :: GetNetworkResponse -> TestTree
 responseGetNetwork =
@@ -383,7 +383,7 @@ responseGetNetwork =
     "GetNetworkResponse"
     "fixture/GetNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNetwork)
+    (Proxy.Proxy :: Proxy.Proxy GetNetwork)
 
 responseGetNode :: GetNodeResponse -> TestTree
 responseGetNode =
@@ -391,7 +391,7 @@ responseGetNode =
     "GetNodeResponse"
     "fixture/GetNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNode)
+    (Proxy.Proxy :: Proxy.Proxy GetNode)
 
 responseUpdateMember :: UpdateMemberResponse -> TestTree
 responseUpdateMember =
@@ -399,7 +399,7 @@ responseUpdateMember =
     "UpdateMemberResponse"
     "fixture/UpdateMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMember)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMember)
 
 responseDeleteMember :: DeleteMemberResponse -> TestTree
 responseDeleteMember =
@@ -407,7 +407,7 @@ responseDeleteMember =
     "DeleteMemberResponse"
     "fixture/DeleteMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMember)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMember)
 
 responseListMembers :: ListMembersResponse -> TestTree
 responseListMembers =
@@ -415,7 +415,7 @@ responseListMembers =
     "ListMembersResponse"
     "fixture/ListMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListMembers)
 
 responseCreateNode :: CreateNodeResponse -> TestTree
 responseCreateNode =
@@ -423,7 +423,7 @@ responseCreateNode =
     "CreateNodeResponse"
     "fixture/CreateNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNode)
+    (Proxy.Proxy :: Proxy.Proxy CreateNode)
 
 responseListProposalVotes :: ListProposalVotesResponse -> TestTree
 responseListProposalVotes =
@@ -431,7 +431,7 @@ responseListProposalVotes =
     "ListProposalVotesResponse"
     "fixture/ListProposalVotesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProposalVotes)
+    (Proxy.Proxy :: Proxy.Proxy ListProposalVotes)
 
 responseVoteOnProposal :: VoteOnProposalResponse -> TestTree
 responseVoteOnProposal =
@@ -439,7 +439,7 @@ responseVoteOnProposal =
     "VoteOnProposalResponse"
     "fixture/VoteOnProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy VoteOnProposal)
+    (Proxy.Proxy :: Proxy.Proxy VoteOnProposal)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -447,7 +447,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -455,7 +455,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetMember :: GetMemberResponse -> TestTree
 responseGetMember =
@@ -463,7 +463,7 @@ responseGetMember =
     "GetMemberResponse"
     "fixture/GetMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMember)
+    (Proxy.Proxy :: Proxy.Proxy GetMember)
 
 responseRejectInvitation :: RejectInvitationResponse -> TestTree
 responseRejectInvitation =
@@ -471,7 +471,7 @@ responseRejectInvitation =
     "RejectInvitationResponse"
     "fixture/RejectInvitationResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectInvitation)
+    (Proxy.Proxy :: Proxy.Proxy RejectInvitation)
 
 responseUpdateNode :: UpdateNodeResponse -> TestTree
 responseUpdateNode =
@@ -479,7 +479,7 @@ responseUpdateNode =
     "UpdateNodeResponse"
     "fixture/UpdateNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNode)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNode)
 
 responseDeleteNode :: DeleteNodeResponse -> TestTree
 responseDeleteNode =
@@ -487,7 +487,7 @@ responseDeleteNode =
     "DeleteNodeResponse"
     "fixture/DeleteNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNode)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNode)
 
 responseListNodes :: ListNodesResponse -> TestTree
 responseListNodes =
@@ -495,4 +495,4 @@ responseListNodes =
     "ListNodesResponse"
     "fixture/ListNodesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNodes)
+    (Proxy.Proxy :: Proxy.Proxy ListNodes)

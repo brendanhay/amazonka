@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkMailMessageFlow where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WorkMailMessageFlow
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -67,4 +67,4 @@ responsePutRawMessageContent =
     "PutRawMessageContentResponse"
     "fixture/PutRawMessageContentResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRawMessageContent)
+    (Proxy.Proxy :: Proxy.Proxy PutRawMessageContent)

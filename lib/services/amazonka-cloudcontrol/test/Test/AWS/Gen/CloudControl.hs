@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudControl where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudControl
 import Test.AWS.CloudControl.Internal
 import Test.AWS.Fixture
@@ -139,7 +139,7 @@ responseGetResource =
     "GetResourceResponse"
     "fixture/GetResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResource)
+    (Proxy.Proxy :: Proxy.Proxy GetResource)
 
 responseListResourceRequests :: ListResourceRequestsResponse -> TestTree
 responseListResourceRequests =
@@ -147,7 +147,7 @@ responseListResourceRequests =
     "ListResourceRequestsResponse"
     "fixture/ListResourceRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceRequests)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceRequests)
 
 responseCancelResourceRequest :: CancelResourceRequestResponse -> TestTree
 responseCancelResourceRequest =
@@ -155,7 +155,7 @@ responseCancelResourceRequest =
     "CancelResourceRequestResponse"
     "fixture/CancelResourceRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelResourceRequest)
+    (Proxy.Proxy :: Proxy.Proxy CancelResourceRequest)
 
 responseDeleteResource :: DeleteResourceResponse -> TestTree
 responseDeleteResource =
@@ -163,7 +163,7 @@ responseDeleteResource =
     "DeleteResourceResponse"
     "fixture/DeleteResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResource)
 
 responseUpdateResource :: UpdateResourceResponse -> TestTree
 responseUpdateResource =
@@ -171,7 +171,7 @@ responseUpdateResource =
     "UpdateResourceResponse"
     "fixture/UpdateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResource)
 
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
@@ -179,7 +179,7 @@ responseListResources =
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResources)
+    (Proxy.Proxy :: Proxy.Proxy ListResources)
 
 responseCreateResource :: CreateResourceResponse -> TestTree
 responseCreateResource =
@@ -187,7 +187,7 @@ responseCreateResource =
     "CreateResourceResponse"
     "fixture/CreateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateResource)
 
 responseGetResourceRequestStatus :: GetResourceRequestStatusResponse -> TestTree
 responseGetResourceRequestStatus =
@@ -195,4 +195,4 @@ responseGetResourceRequestStatus =
     "GetResourceRequestStatusResponse"
     "fixture/GetResourceRequestStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceRequestStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceRequestStatus)

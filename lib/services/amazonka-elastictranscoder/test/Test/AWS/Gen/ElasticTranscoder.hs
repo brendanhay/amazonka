@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticTranscoder where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ElasticTranscoder
 import Test.AWS.ElasticTranscoder.Internal
 import Test.AWS.Fixture
@@ -235,7 +235,7 @@ responseDeletePreset =
     "DeletePresetResponse"
     "fixture/DeletePresetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePreset)
+    (Proxy.Proxy :: Proxy.Proxy DeletePreset)
 
 responseUpdatePipelineStatus :: UpdatePipelineStatusResponse -> TestTree
 responseUpdatePipelineStatus =
@@ -243,7 +243,7 @@ responseUpdatePipelineStatus =
     "UpdatePipelineStatusResponse"
     "fixture/UpdatePipelineStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipelineStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipelineStatus)
 
 responseListJobsByPipeline :: ListJobsByPipelineResponse -> TestTree
 responseListJobsByPipeline =
@@ -251,7 +251,7 @@ responseListJobsByPipeline =
     "ListJobsByPipelineResponse"
     "fixture/ListJobsByPipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobsByPipeline)
+    (Proxy.Proxy :: Proxy.Proxy ListJobsByPipeline)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline =
@@ -259,7 +259,7 @@ responseUpdatePipeline =
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
 responseDeletePipeline =
@@ -267,7 +267,7 @@ responseDeletePipeline =
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeletePipeline)
 
 responseCreateJob :: CreateJobResponse -> TestTree
 responseCreateJob =
@@ -275,7 +275,7 @@ responseCreateJob =
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
 responseListPipelines =
@@ -283,7 +283,7 @@ responseListPipelines =
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelines)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
 responseCreatePreset =
@@ -291,7 +291,7 @@ responseCreatePreset =
     "CreatePresetResponse"
     "fixture/CreatePresetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePreset)
+    (Proxy.Proxy :: Proxy.Proxy CreatePreset)
 
 responseListPresets :: ListPresetsResponse -> TestTree
 responseListPresets =
@@ -299,7 +299,7 @@ responseListPresets =
     "ListPresetsResponse"
     "fixture/ListPresetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPresets)
+    (Proxy.Proxy :: Proxy.Proxy ListPresets)
 
 responseReadPreset :: ReadPresetResponse -> TestTree
 responseReadPreset =
@@ -307,7 +307,7 @@ responseReadPreset =
     "ReadPresetResponse"
     "fixture/ReadPresetResponse.proto"
     defaultService
-    (Proxy :: Proxy ReadPreset)
+    (Proxy.Proxy :: Proxy.Proxy ReadPreset)
 
 responseReadJob :: ReadJobResponse -> TestTree
 responseReadJob =
@@ -315,7 +315,7 @@ responseReadJob =
     "ReadJobResponse"
     "fixture/ReadJobResponse.proto"
     defaultService
-    (Proxy :: Proxy ReadJob)
+    (Proxy.Proxy :: Proxy.Proxy ReadJob)
 
 responseUpdatePipelineNotifications :: UpdatePipelineNotificationsResponse -> TestTree
 responseUpdatePipelineNotifications =
@@ -323,7 +323,7 @@ responseUpdatePipelineNotifications =
     "UpdatePipelineNotificationsResponse"
     "fixture/UpdatePipelineNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipelineNotifications)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipelineNotifications)
 
 responseReadPipeline :: ReadPipelineResponse -> TestTree
 responseReadPipeline =
@@ -331,7 +331,7 @@ responseReadPipeline =
     "ReadPipelineResponse"
     "fixture/ReadPipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy ReadPipeline)
+    (Proxy.Proxy :: Proxy.Proxy ReadPipeline)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
@@ -339,7 +339,7 @@ responseCreatePipeline =
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreatePipeline)
 
 responseListJobsByStatus :: ListJobsByStatusResponse -> TestTree
 responseListJobsByStatus =
@@ -347,7 +347,7 @@ responseListJobsByStatus =
     "ListJobsByStatusResponse"
     "fixture/ListJobsByStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobsByStatus)
+    (Proxy.Proxy :: Proxy.Proxy ListJobsByStatus)
 
 responseCancelJob :: CancelJobResponse -> TestTree
 responseCancelJob =
@@ -355,4 +355,4 @@ responseCancelJob =
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)

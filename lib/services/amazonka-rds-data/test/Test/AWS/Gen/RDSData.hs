@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RDSData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.RDSData
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -103,7 +103,7 @@ responseRollbackTransaction =
     "RollbackTransactionResponse"
     "fixture/RollbackTransactionResponse.proto"
     defaultService
-    (Proxy :: Proxy RollbackTransaction)
+    (Proxy.Proxy :: Proxy.Proxy RollbackTransaction)
 
 responseBeginTransaction :: BeginTransactionResponse -> TestTree
 responseBeginTransaction =
@@ -111,7 +111,7 @@ responseBeginTransaction =
     "BeginTransactionResponse"
     "fixture/BeginTransactionResponse.proto"
     defaultService
-    (Proxy :: Proxy BeginTransaction)
+    (Proxy.Proxy :: Proxy.Proxy BeginTransaction)
 
 responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
 responseBatchExecuteStatement =
@@ -119,7 +119,7 @@ responseBatchExecuteStatement =
     "BatchExecuteStatementResponse"
     "fixture/BatchExecuteStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
 
 responseExecuteStatement :: ExecuteStatementResponse -> TestTree
 responseExecuteStatement =
@@ -127,7 +127,7 @@ responseExecuteStatement =
     "ExecuteStatementResponse"
     "fixture/ExecuteStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
 
 responseCommitTransaction :: CommitTransactionResponse -> TestTree
 responseCommitTransaction =
@@ -135,4 +135,4 @@ responseCommitTransaction =
     "CommitTransactionResponse"
     "fixture/CommitTransactionResponse.proto"
     defaultService
-    (Proxy :: Proxy CommitTransaction)
+    (Proxy.Proxy :: Proxy.Proxy CommitTransaction)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SES where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SES
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -895,7 +895,7 @@ responseCreateTemplate =
     "CreateTemplateResponse"
     "fixture/CreateTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateTemplate)
 
 responseDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptionsResponse -> TestTree
 responseDeleteConfigurationSetTrackingOptions =
@@ -903,7 +903,7 @@ responseDeleteConfigurationSetTrackingOptions =
     "DeleteConfigurationSetTrackingOptionsResponse"
     "fixture/DeleteConfigurationSetTrackingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSetTrackingOptions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSetTrackingOptions)
 
 responseUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptionsResponse -> TestTree
 responseUpdateConfigurationSetTrackingOptions =
@@ -911,7 +911,7 @@ responseUpdateConfigurationSetTrackingOptions =
     "UpdateConfigurationSetTrackingOptionsResponse"
     "fixture/UpdateConfigurationSetTrackingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationSetTrackingOptions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetTrackingOptions)
 
 responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
 responseCreateReceiptRuleSet =
@@ -919,7 +919,7 @@ responseCreateReceiptRuleSet =
     "CreateReceiptRuleSetResponse"
     "fixture/CreateReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateReceiptRuleSet)
 
 responseSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabledResponse -> TestTree
 responseSetIdentityHeadersInNotificationsEnabled =
@@ -927,7 +927,7 @@ responseSetIdentityHeadersInNotificationsEnabled =
     "SetIdentityHeadersInNotificationsEnabledResponse"
     "fixture/SetIdentityHeadersInNotificationsEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityHeadersInNotificationsEnabled)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityHeadersInNotificationsEnabled)
 
 responseGetSendQuota :: GetSendQuotaResponse -> TestTree
 responseGetSendQuota =
@@ -935,7 +935,7 @@ responseGetSendQuota =
     "GetSendQuotaResponse"
     "fixture/GetSendQuotaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSendQuota)
+    (Proxy.Proxy :: Proxy.Proxy GetSendQuota)
 
 responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
 responsePutConfigurationSetDeliveryOptions =
@@ -943,7 +943,7 @@ responsePutConfigurationSetDeliveryOptions =
     "PutConfigurationSetDeliveryOptionsResponse"
     "fixture/PutConfigurationSetDeliveryOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationSetDeliveryOptions)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationSetDeliveryOptions)
 
 responseDescribeConfigurationSet :: DescribeConfigurationSetResponse -> TestTree
 responseDescribeConfigurationSet =
@@ -951,7 +951,7 @@ responseDescribeConfigurationSet =
     "DescribeConfigurationSetResponse"
     "fixture/DescribeConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationSet)
 
 responsePutIdentityPolicy :: PutIdentityPolicyResponse -> TestTree
 responsePutIdentityPolicy =
@@ -959,7 +959,7 @@ responsePutIdentityPolicy =
     "PutIdentityPolicyResponse"
     "fixture/PutIdentityPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutIdentityPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutIdentityPolicy)
 
 responseDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplateResponse -> TestTree
 responseDeleteCustomVerificationEmailTemplate =
@@ -967,7 +967,7 @@ responseDeleteCustomVerificationEmailTemplate =
     "DeleteCustomVerificationEmailTemplateResponse"
     "fixture/DeleteCustomVerificationEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomVerificationEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomVerificationEmailTemplate)
 
 responseDeleteIdentityPolicy :: DeleteIdentityPolicyResponse -> TestTree
 responseDeleteIdentityPolicy =
@@ -975,7 +975,7 @@ responseDeleteIdentityPolicy =
     "DeleteIdentityPolicyResponse"
     "fixture/DeleteIdentityPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIdentityPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIdentityPolicy)
 
 responseUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplateResponse -> TestTree
 responseUpdateCustomVerificationEmailTemplate =
@@ -983,7 +983,7 @@ responseUpdateCustomVerificationEmailTemplate =
     "UpdateCustomVerificationEmailTemplateResponse"
     "fixture/UpdateCustomVerificationEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCustomVerificationEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCustomVerificationEmailTemplate)
 
 responseSendCustomVerificationEmail :: SendCustomVerificationEmailResponse -> TestTree
 responseSendCustomVerificationEmail =
@@ -991,7 +991,7 @@ responseSendCustomVerificationEmail =
     "SendCustomVerificationEmailResponse"
     "fixture/SendCustomVerificationEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy SendCustomVerificationEmail)
+    (Proxy.Proxy :: Proxy.Proxy SendCustomVerificationEmail)
 
 responseGetIdentityNotificationAttributes :: GetIdentityNotificationAttributesResponse -> TestTree
 responseGetIdentityNotificationAttributes =
@@ -999,7 +999,7 @@ responseGetIdentityNotificationAttributes =
     "GetIdentityNotificationAttributesResponse"
     "fixture/GetIdentityNotificationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityNotificationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityNotificationAttributes)
 
 responseUpdateConfigurationSetReputationMetricsEnabled :: UpdateConfigurationSetReputationMetricsEnabledResponse -> TestTree
 responseUpdateConfigurationSetReputationMetricsEnabled =
@@ -1007,7 +1007,7 @@ responseUpdateConfigurationSetReputationMetricsEnabled =
     "UpdateConfigurationSetReputationMetricsEnabledResponse"
     "fixture/UpdateConfigurationSetReputationMetricsEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationSetReputationMetricsEnabled)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetReputationMetricsEnabled)
 
 responseListIdentityPolicies :: ListIdentityPoliciesResponse -> TestTree
 responseListIdentityPolicies =
@@ -1015,7 +1015,7 @@ responseListIdentityPolicies =
     "ListIdentityPoliciesResponse"
     "fixture/ListIdentityPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentityPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentityPolicies)
 
 responseSetIdentityDkimEnabled :: SetIdentityDkimEnabledResponse -> TestTree
 responseSetIdentityDkimEnabled =
@@ -1023,7 +1023,7 @@ responseSetIdentityDkimEnabled =
     "SetIdentityDkimEnabledResponse"
     "fixture/SetIdentityDkimEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityDkimEnabled)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityDkimEnabled)
 
 responseListReceiptFilters :: ListReceiptFiltersResponse -> TestTree
 responseListReceiptFilters =
@@ -1031,7 +1031,7 @@ responseListReceiptFilters =
     "ListReceiptFiltersResponse"
     "fixture/ListReceiptFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReceiptFilters)
+    (Proxy.Proxy :: Proxy.Proxy ListReceiptFilters)
 
 responseDescribeReceiptRuleSet :: DescribeReceiptRuleSetResponse -> TestTree
 responseDescribeReceiptRuleSet =
@@ -1039,7 +1039,7 @@ responseDescribeReceiptRuleSet =
     "DescribeReceiptRuleSetResponse"
     "fixture/DescribeReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReceiptRuleSet)
 
 responseGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> TestTree
 responseGetIdentityMailFromDomainAttributes =
@@ -1047,7 +1047,7 @@ responseGetIdentityMailFromDomainAttributes =
     "GetIdentityMailFromDomainAttributesResponse"
     "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityMailFromDomainAttributes)
 
 responseCreateReceiptFilter :: CreateReceiptFilterResponse -> TestTree
 responseCreateReceiptFilter =
@@ -1055,7 +1055,7 @@ responseCreateReceiptFilter =
     "CreateReceiptFilterResponse"
     "fixture/CreateReceiptFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReceiptFilter)
+    (Proxy.Proxy :: Proxy.Proxy CreateReceiptFilter)
 
 responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
 responseUpdateConfigurationSetEventDestination =
@@ -1063,7 +1063,7 @@ responseUpdateConfigurationSetEventDestination =
     "UpdateConfigurationSetEventDestinationResponse"
     "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetEventDestination)
 
 responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
 responseDeleteConfigurationSetEventDestination =
@@ -1071,7 +1071,7 @@ responseDeleteConfigurationSetEventDestination =
     "DeleteConfigurationSetEventDestinationResponse"
     "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSetEventDestination)
 
 responseSetIdentityMailFromDomain :: SetIdentityMailFromDomainResponse -> TestTree
 responseSetIdentityMailFromDomain =
@@ -1079,7 +1079,7 @@ responseSetIdentityMailFromDomain =
     "SetIdentityMailFromDomainResponse"
     "fixture/SetIdentityMailFromDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityMailFromDomain)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityMailFromDomain)
 
 responseSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 responseSetIdentityFeedbackForwardingEnabled =
@@ -1087,7 +1087,7 @@ responseSetIdentityFeedbackForwardingEnabled =
     "SetIdentityFeedbackForwardingEnabledResponse"
     "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityFeedbackForwardingEnabled)
 
 responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
 responseListConfigurationSets =
@@ -1095,7 +1095,7 @@ responseListConfigurationSets =
     "ListConfigurationSetsResponse"
     "fixture/ListConfigurationSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationSets)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationSets)
 
 responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
 responseDeleteConfigurationSet =
@@ -1103,7 +1103,7 @@ responseDeleteConfigurationSet =
     "DeleteConfigurationSetResponse"
     "fixture/DeleteConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSet)
 
 responseGetIdentityVerificationAttributes :: GetIdentityVerificationAttributesResponse -> TestTree
 responseGetIdentityVerificationAttributes =
@@ -1111,7 +1111,7 @@ responseGetIdentityVerificationAttributes =
     "GetIdentityVerificationAttributesResponse"
     "fixture/GetIdentityVerificationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityVerificationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityVerificationAttributes)
 
 responseGetIdentityPolicies :: GetIdentityPoliciesResponse -> TestTree
 responseGetIdentityPolicies =
@@ -1119,7 +1119,7 @@ responseGetIdentityPolicies =
     "GetIdentityPoliciesResponse"
     "fixture/GetIdentityPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityPolicies)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityPolicies)
 
 responseListTemplates :: ListTemplatesResponse -> TestTree
 responseListTemplates =
@@ -1127,7 +1127,7 @@ responseListTemplates =
     "ListTemplatesResponse"
     "fixture/ListTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplates)
 
 responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
 responseVerifyDomainIdentity =
@@ -1135,7 +1135,7 @@ responseVerifyDomainIdentity =
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifyDomainIdentity)
+    (Proxy.Proxy :: Proxy.Proxy VerifyDomainIdentity)
 
 responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
 responseUpdateTemplate =
@@ -1143,7 +1143,7 @@ responseUpdateTemplate =
     "UpdateTemplateResponse"
     "fixture/UpdateTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplate)
 
 responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
 responseDeleteTemplate =
@@ -1151,7 +1151,7 @@ responseDeleteTemplate =
     "DeleteTemplateResponse"
     "fixture/DeleteTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTemplate)
 
 responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
 responseReorderReceiptRuleSet =
@@ -1159,7 +1159,7 @@ responseReorderReceiptRuleSet =
     "ReorderReceiptRuleSetResponse"
     "fixture/ReorderReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ReorderReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy ReorderReceiptRuleSet)
 
 responseListReceiptRuleSets :: ListReceiptRuleSetsResponse -> TestTree
 responseListReceiptRuleSets =
@@ -1167,7 +1167,7 @@ responseListReceiptRuleSets =
     "ListReceiptRuleSetsResponse"
     "fixture/ListReceiptRuleSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReceiptRuleSets)
+    (Proxy.Proxy :: Proxy.Proxy ListReceiptRuleSets)
 
 responseDeleteReceiptRuleSet :: DeleteReceiptRuleSetResponse -> TestTree
 responseDeleteReceiptRuleSet =
@@ -1175,7 +1175,7 @@ responseDeleteReceiptRuleSet =
     "DeleteReceiptRuleSetResponse"
     "fixture/DeleteReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReceiptRuleSet)
 
 responseSetReceiptRulePosition :: SetReceiptRulePositionResponse -> TestTree
 responseSetReceiptRulePosition =
@@ -1183,7 +1183,7 @@ responseSetReceiptRulePosition =
     "SetReceiptRulePositionResponse"
     "fixture/SetReceiptRulePositionResponse.proto"
     defaultService
-    (Proxy :: Proxy SetReceiptRulePosition)
+    (Proxy.Proxy :: Proxy.Proxy SetReceiptRulePosition)
 
 responseSendBounce :: SendBounceResponse -> TestTree
 responseSendBounce =
@@ -1191,7 +1191,7 @@ responseSendBounce =
     "SendBounceResponse"
     "fixture/SendBounceResponse.proto"
     defaultService
-    (Proxy :: Proxy SendBounce)
+    (Proxy.Proxy :: Proxy.Proxy SendBounce)
 
 responseGetIdentityDkimAttributes :: GetIdentityDkimAttributesResponse -> TestTree
 responseGetIdentityDkimAttributes =
@@ -1199,7 +1199,7 @@ responseGetIdentityDkimAttributes =
     "GetIdentityDkimAttributesResponse"
     "fixture/GetIdentityDkimAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityDkimAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityDkimAttributes)
 
 responseSendTemplatedEmail :: SendTemplatedEmailResponse -> TestTree
 responseSendTemplatedEmail =
@@ -1207,7 +1207,7 @@ responseSendTemplatedEmail =
     "SendTemplatedEmailResponse"
     "fixture/SendTemplatedEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy SendTemplatedEmail)
+    (Proxy.Proxy :: Proxy.Proxy SendTemplatedEmail)
 
 responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
 responseVerifyDomainDkim =
@@ -1215,7 +1215,7 @@ responseVerifyDomainDkim =
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifyDomainDkim)
+    (Proxy.Proxy :: Proxy.Proxy VerifyDomainDkim)
 
 responseTestRenderTemplate :: TestRenderTemplateResponse -> TestTree
 responseTestRenderTemplate =
@@ -1223,7 +1223,7 @@ responseTestRenderTemplate =
     "TestRenderTemplateResponse"
     "fixture/TestRenderTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy TestRenderTemplate)
+    (Proxy.Proxy :: Proxy.Proxy TestRenderTemplate)
 
 responseSendBulkTemplatedEmail :: SendBulkTemplatedEmailResponse -> TestTree
 responseSendBulkTemplatedEmail =
@@ -1231,7 +1231,7 @@ responseSendBulkTemplatedEmail =
     "SendBulkTemplatedEmailResponse"
     "fixture/SendBulkTemplatedEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy SendBulkTemplatedEmail)
+    (Proxy.Proxy :: Proxy.Proxy SendBulkTemplatedEmail)
 
 responseSendRawEmail :: SendRawEmailResponse -> TestTree
 responseSendRawEmail =
@@ -1239,7 +1239,7 @@ responseSendRawEmail =
     "SendRawEmailResponse"
     "fixture/SendRawEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy SendRawEmail)
+    (Proxy.Proxy :: Proxy.Proxy SendRawEmail)
 
 responseGetSendStatistics :: GetSendStatisticsResponse -> TestTree
 responseGetSendStatistics =
@@ -1247,7 +1247,7 @@ responseGetSendStatistics =
     "GetSendStatisticsResponse"
     "fixture/GetSendStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSendStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetSendStatistics)
 
 responseListCustomVerificationEmailTemplates :: ListCustomVerificationEmailTemplatesResponse -> TestTree
 responseListCustomVerificationEmailTemplates =
@@ -1255,7 +1255,7 @@ responseListCustomVerificationEmailTemplates =
     "ListCustomVerificationEmailTemplatesResponse"
     "fixture/ListCustomVerificationEmailTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCustomVerificationEmailTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListCustomVerificationEmailTemplates)
 
 responseDeleteIdentity :: DeleteIdentityResponse -> TestTree
 responseDeleteIdentity =
@@ -1263,7 +1263,7 @@ responseDeleteIdentity =
     "DeleteIdentityResponse"
     "fixture/DeleteIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIdentity)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIdentity)
 
 responseDescribeReceiptRule :: DescribeReceiptRuleResponse -> TestTree
 responseDescribeReceiptRule =
@@ -1271,7 +1271,7 @@ responseDescribeReceiptRule =
     "DescribeReceiptRuleResponse"
     "fixture/DescribeReceiptRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReceiptRule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReceiptRule)
 
 responseListIdentities :: ListIdentitiesResponse -> TestTree
 responseListIdentities =
@@ -1279,7 +1279,7 @@ responseListIdentities =
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentities)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentities)
 
 responseUpdateConfigurationSetSendingEnabled :: UpdateConfigurationSetSendingEnabledResponse -> TestTree
 responseUpdateConfigurationSetSendingEnabled =
@@ -1287,7 +1287,7 @@ responseUpdateConfigurationSetSendingEnabled =
     "UpdateConfigurationSetSendingEnabledResponse"
     "fixture/UpdateConfigurationSetSendingEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationSetSendingEnabled)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetSendingEnabled)
 
 responseCreateCustomVerificationEmailTemplate :: CreateCustomVerificationEmailTemplateResponse -> TestTree
 responseCreateCustomVerificationEmailTemplate =
@@ -1295,7 +1295,7 @@ responseCreateCustomVerificationEmailTemplate =
     "CreateCustomVerificationEmailTemplateResponse"
     "fixture/CreateCustomVerificationEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomVerificationEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomVerificationEmailTemplate)
 
 responseVerifyEmailIdentity :: VerifyEmailIdentityResponse -> TestTree
 responseVerifyEmailIdentity =
@@ -1303,7 +1303,7 @@ responseVerifyEmailIdentity =
     "VerifyEmailIdentityResponse"
     "fixture/VerifyEmailIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifyEmailIdentity)
+    (Proxy.Proxy :: Proxy.Proxy VerifyEmailIdentity)
 
 responseVerifyEmailAddress :: VerifyEmailAddressResponse -> TestTree
 responseVerifyEmailAddress =
@@ -1311,7 +1311,7 @@ responseVerifyEmailAddress =
     "VerifyEmailAddressResponse"
     "fixture/VerifyEmailAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifyEmailAddress)
+    (Proxy.Proxy :: Proxy.Proxy VerifyEmailAddress)
 
 responseDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddressResponse -> TestTree
 responseDeleteVerifiedEmailAddress =
@@ -1319,7 +1319,7 @@ responseDeleteVerifiedEmailAddress =
     "DeleteVerifiedEmailAddressResponse"
     "fixture/DeleteVerifiedEmailAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVerifiedEmailAddress)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVerifiedEmailAddress)
 
 responseDeleteReceiptFilter :: DeleteReceiptFilterResponse -> TestTree
 responseDeleteReceiptFilter =
@@ -1327,7 +1327,7 @@ responseDeleteReceiptFilter =
     "DeleteReceiptFilterResponse"
     "fixture/DeleteReceiptFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReceiptFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReceiptFilter)
 
 responseListVerifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> TestTree
 responseListVerifiedEmailAddresses =
@@ -1335,7 +1335,7 @@ responseListVerifiedEmailAddresses =
     "ListVerifiedEmailAddressesResponse"
     "fixture/ListVerifiedEmailAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVerifiedEmailAddresses)
+    (Proxy.Proxy :: Proxy.Proxy ListVerifiedEmailAddresses)
 
 responseGetCustomVerificationEmailTemplate :: GetCustomVerificationEmailTemplateResponse -> TestTree
 responseGetCustomVerificationEmailTemplate =
@@ -1343,7 +1343,7 @@ responseGetCustomVerificationEmailTemplate =
     "GetCustomVerificationEmailTemplateResponse"
     "fixture/GetCustomVerificationEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCustomVerificationEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetCustomVerificationEmailTemplate)
 
 responseSetIdentityNotificationTopic :: SetIdentityNotificationTopicResponse -> TestTree
 responseSetIdentityNotificationTopic =
@@ -1351,7 +1351,7 @@ responseSetIdentityNotificationTopic =
     "SetIdentityNotificationTopicResponse"
     "fixture/SetIdentityNotificationTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityNotificationTopic)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityNotificationTopic)
 
 responseSendEmail :: SendEmailResponse -> TestTree
 responseSendEmail =
@@ -1359,7 +1359,7 @@ responseSendEmail =
     "SendEmailResponse"
     "fixture/SendEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy SendEmail)
+    (Proxy.Proxy :: Proxy.Proxy SendEmail)
 
 responseDeleteReceiptRule :: DeleteReceiptRuleResponse -> TestTree
 responseDeleteReceiptRule =
@@ -1367,7 +1367,7 @@ responseDeleteReceiptRule =
     "DeleteReceiptRuleResponse"
     "fixture/DeleteReceiptRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReceiptRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReceiptRule)
 
 responseUpdateReceiptRule :: UpdateReceiptRuleResponse -> TestTree
 responseUpdateReceiptRule =
@@ -1375,7 +1375,7 @@ responseUpdateReceiptRule =
     "UpdateReceiptRuleResponse"
     "fixture/UpdateReceiptRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReceiptRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReceiptRule)
 
 responseCloneReceiptRuleSet :: CloneReceiptRuleSetResponse -> TestTree
 responseCloneReceiptRuleSet =
@@ -1383,7 +1383,7 @@ responseCloneReceiptRuleSet =
     "CloneReceiptRuleSetResponse"
     "fixture/CloneReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CloneReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy CloneReceiptRuleSet)
 
 responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
 responseCreateConfigurationSetEventDestination =
@@ -1391,7 +1391,7 @@ responseCreateConfigurationSetEventDestination =
     "CreateConfigurationSetEventDestinationResponse"
     "fixture/CreateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSetEventDestination)
 
 responseGetAccountSendingEnabled :: GetAccountSendingEnabledResponse -> TestTree
 responseGetAccountSendingEnabled =
@@ -1399,7 +1399,7 @@ responseGetAccountSendingEnabled =
     "GetAccountSendingEnabledResponse"
     "fixture/GetAccountSendingEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountSendingEnabled)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSendingEnabled)
 
 responseCreateReceiptRule :: CreateReceiptRuleResponse -> TestTree
 responseCreateReceiptRule =
@@ -1407,7 +1407,7 @@ responseCreateReceiptRule =
     "CreateReceiptRuleResponse"
     "fixture/CreateReceiptRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReceiptRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateReceiptRule)
 
 responseGetTemplate :: GetTemplateResponse -> TestTree
 responseGetTemplate =
@@ -1415,7 +1415,7 @@ responseGetTemplate =
     "GetTemplateResponse"
     "fixture/GetTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetTemplate)
 
 responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
 responseSetActiveReceiptRuleSet =
@@ -1423,7 +1423,7 @@ responseSetActiveReceiptRuleSet =
     "SetActiveReceiptRuleSetResponse"
     "fixture/SetActiveReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy SetActiveReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy SetActiveReceiptRuleSet)
 
 responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
 responseCreateConfigurationSet =
@@ -1431,7 +1431,7 @@ responseCreateConfigurationSet =
     "CreateConfigurationSetResponse"
     "fixture/CreateConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSet)
 
 responseUpdateAccountSendingEnabled :: UpdateAccountSendingEnabledResponse -> TestTree
 responseUpdateAccountSendingEnabled =
@@ -1439,7 +1439,7 @@ responseUpdateAccountSendingEnabled =
     "UpdateAccountSendingEnabledResponse"
     "fixture/UpdateAccountSendingEnabledResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccountSendingEnabled)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSendingEnabled)
 
 responseCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptionsResponse -> TestTree
 responseCreateConfigurationSetTrackingOptions =
@@ -1447,7 +1447,7 @@ responseCreateConfigurationSetTrackingOptions =
     "CreateConfigurationSetTrackingOptionsResponse"
     "fixture/CreateConfigurationSetTrackingOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSetTrackingOptions)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSetTrackingOptions)
 
 responseDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSetResponse -> TestTree
 responseDescribeActiveReceiptRuleSet =
@@ -1455,4 +1455,4 @@ responseDescribeActiveReceiptRuleSet =
     "DescribeActiveReceiptRuleSetResponse"
     "fixture/DescribeActiveReceiptRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeActiveReceiptRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeActiveReceiptRuleSet)

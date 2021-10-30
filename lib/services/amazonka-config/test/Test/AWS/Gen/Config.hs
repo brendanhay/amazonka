@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Config where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Config
 import Test.AWS.Config.Internal
 import Test.AWS.Fixture
@@ -1075,7 +1075,7 @@ responseDescribePendingAggregationRequests =
     "DescribePendingAggregationRequestsResponse"
     "fixture/DescribePendingAggregationRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePendingAggregationRequests)
+    (Proxy.Proxy :: Proxy.Proxy DescribePendingAggregationRequests)
 
 responseDescribeRemediationExecutionStatus :: DescribeRemediationExecutionStatusResponse -> TestTree
 responseDescribeRemediationExecutionStatus =
@@ -1083,7 +1083,7 @@ responseDescribeRemediationExecutionStatus =
     "DescribeRemediationExecutionStatusResponse"
     "fixture/DescribeRemediationExecutionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRemediationExecutionStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRemediationExecutionStatus)
 
 responseGetResourceConfigHistory :: GetResourceConfigHistoryResponse -> TestTree
 responseGetResourceConfigHistory =
@@ -1091,7 +1091,7 @@ responseGetResourceConfigHistory =
     "GetResourceConfigHistoryResponse"
     "fixture/GetResourceConfigHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceConfigHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceConfigHistory)
 
 responseGetStoredQuery :: GetStoredQueryResponse -> TestTree
 responseGetStoredQuery =
@@ -1099,7 +1099,7 @@ responseGetStoredQuery =
     "GetStoredQueryResponse"
     "fixture/GetStoredQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStoredQuery)
+    (Proxy.Proxy :: Proxy.Proxy GetStoredQuery)
 
 responseGetAggregateResourceConfig :: GetAggregateResourceConfigResponse -> TestTree
 responseGetAggregateResourceConfig =
@@ -1107,7 +1107,7 @@ responseGetAggregateResourceConfig =
     "GetAggregateResourceConfigResponse"
     "fixture/GetAggregateResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAggregateResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetAggregateResourceConfig)
 
 responseDescribeConfigurationAggregators :: DescribeConfigurationAggregatorsResponse -> TestTree
 responseDescribeConfigurationAggregators =
@@ -1115,7 +1115,7 @@ responseDescribeConfigurationAggregators =
     "DescribeConfigurationAggregatorsResponse"
     "fixture/DescribeConfigurationAggregatorsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationAggregators)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationAggregators)
 
 responseDescribeComplianceByConfigRule :: DescribeComplianceByConfigRuleResponse -> TestTree
 responseDescribeComplianceByConfigRule =
@@ -1123,7 +1123,7 @@ responseDescribeComplianceByConfigRule =
     "DescribeComplianceByConfigRuleResponse"
     "fixture/DescribeComplianceByConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComplianceByConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComplianceByConfigRule)
 
 responseDescribeRetentionConfigurations :: DescribeRetentionConfigurationsResponse -> TestTree
 responseDescribeRetentionConfigurations =
@@ -1131,7 +1131,7 @@ responseDescribeRetentionConfigurations =
     "DescribeRetentionConfigurationsResponse"
     "fixture/DescribeRetentionConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRetentionConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRetentionConfigurations)
 
 responseStopConfigurationRecorder :: StopConfigurationRecorderResponse -> TestTree
 responseStopConfigurationRecorder =
@@ -1139,7 +1139,7 @@ responseStopConfigurationRecorder =
     "StopConfigurationRecorderResponse"
     "fixture/StopConfigurationRecorderResponse.proto"
     defaultService
-    (Proxy :: Proxy StopConfigurationRecorder)
+    (Proxy.Proxy :: Proxy.Proxy StopConfigurationRecorder)
 
 responseGetAggregateConfigRuleComplianceSummary :: GetAggregateConfigRuleComplianceSummaryResponse -> TestTree
 responseGetAggregateConfigRuleComplianceSummary =
@@ -1147,7 +1147,7 @@ responseGetAggregateConfigRuleComplianceSummary =
     "GetAggregateConfigRuleComplianceSummaryResponse"
     "fixture/GetAggregateConfigRuleComplianceSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAggregateConfigRuleComplianceSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetAggregateConfigRuleComplianceSummary)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1155,7 +1155,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseBatchGetResourceConfig :: BatchGetResourceConfigResponse -> TestTree
 responseBatchGetResourceConfig =
@@ -1163,7 +1163,7 @@ responseBatchGetResourceConfig =
     "BatchGetResourceConfigResponse"
     "fixture/BatchGetResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetResourceConfig)
 
 responseDescribeConfigRules :: DescribeConfigRulesResponse -> TestTree
 responseDescribeConfigRules =
@@ -1171,7 +1171,7 @@ responseDescribeConfigRules =
     "DescribeConfigRulesResponse"
     "fixture/DescribeConfigRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigRules)
 
 responsePutRetentionConfiguration :: PutRetentionConfigurationResponse -> TestTree
 responsePutRetentionConfiguration =
@@ -1179,7 +1179,7 @@ responsePutRetentionConfiguration =
     "PutRetentionConfigurationResponse"
     "fixture/PutRetentionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRetentionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutRetentionConfiguration)
 
 responseDescribeAggregateComplianceByConformancePacks :: DescribeAggregateComplianceByConformancePacksResponse -> TestTree
 responseDescribeAggregateComplianceByConformancePacks =
@@ -1187,7 +1187,7 @@ responseDescribeAggregateComplianceByConformancePacks =
     "DescribeAggregateComplianceByConformancePacksResponse"
     "fixture/DescribeAggregateComplianceByConformancePacksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAggregateComplianceByConformancePacks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAggregateComplianceByConformancePacks)
 
 responseGetOrganizationConformancePackDetailedStatus :: GetOrganizationConformancePackDetailedStatusResponse -> TestTree
 responseGetOrganizationConformancePackDetailedStatus =
@@ -1195,7 +1195,7 @@ responseGetOrganizationConformancePackDetailedStatus =
     "GetOrganizationConformancePackDetailedStatusResponse"
     "fixture/GetOrganizationConformancePackDetailedStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOrganizationConformancePackDetailedStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetOrganizationConformancePackDetailedStatus)
 
 responseDescribeAggregateComplianceByConfigRules :: DescribeAggregateComplianceByConfigRulesResponse -> TestTree
 responseDescribeAggregateComplianceByConfigRules =
@@ -1203,7 +1203,7 @@ responseDescribeAggregateComplianceByConfigRules =
     "DescribeAggregateComplianceByConfigRulesResponse"
     "fixture/DescribeAggregateComplianceByConfigRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAggregateComplianceByConfigRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAggregateComplianceByConfigRules)
 
 responseDeleteEvaluationResults :: DeleteEvaluationResultsResponse -> TestTree
 responseDeleteEvaluationResults =
@@ -1211,7 +1211,7 @@ responseDeleteEvaluationResults =
     "DeleteEvaluationResultsResponse"
     "fixture/DeleteEvaluationResultsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEvaluationResults)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEvaluationResults)
 
 responsePutConfigRule :: PutConfigRuleResponse -> TestTree
 responsePutConfigRule =
@@ -1219,7 +1219,7 @@ responsePutConfigRule =
     "PutConfigRuleResponse"
     "fixture/PutConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigRule)
 
 responseGetConformancePackComplianceDetails :: GetConformancePackComplianceDetailsResponse -> TestTree
 responseGetConformancePackComplianceDetails =
@@ -1227,7 +1227,7 @@ responseGetConformancePackComplianceDetails =
     "GetConformancePackComplianceDetailsResponse"
     "fixture/GetConformancePackComplianceDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConformancePackComplianceDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetConformancePackComplianceDetails)
 
 responseDeleteConfigRule :: DeleteConfigRuleResponse -> TestTree
 responseDeleteConfigRule =
@@ -1235,7 +1235,7 @@ responseDeleteConfigRule =
     "DeleteConfigRuleResponse"
     "fixture/DeleteConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigRule)
 
 responseDeleteRetentionConfiguration :: DeleteRetentionConfigurationResponse -> TestTree
 responseDeleteRetentionConfiguration =
@@ -1243,7 +1243,7 @@ responseDeleteRetentionConfiguration =
     "DeleteRetentionConfigurationResponse"
     "fixture/DeleteRetentionConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRetentionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRetentionConfiguration)
 
 responseListStoredQueries :: ListStoredQueriesResponse -> TestTree
 responseListStoredQueries =
@@ -1251,7 +1251,7 @@ responseListStoredQueries =
     "ListStoredQueriesResponse"
     "fixture/ListStoredQueriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStoredQueries)
+    (Proxy.Proxy :: Proxy.Proxy ListStoredQueries)
 
 responseSelectResourceConfig :: SelectResourceConfigResponse -> TestTree
 responseSelectResourceConfig =
@@ -1259,7 +1259,7 @@ responseSelectResourceConfig =
     "SelectResourceConfigResponse"
     "fixture/SelectResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy SelectResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy SelectResourceConfig)
 
 responseListAggregateDiscoveredResources :: ListAggregateDiscoveredResourcesResponse -> TestTree
 responseListAggregateDiscoveredResources =
@@ -1267,7 +1267,7 @@ responseListAggregateDiscoveredResources =
     "ListAggregateDiscoveredResourcesResponse"
     "fixture/ListAggregateDiscoveredResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAggregateDiscoveredResources)
+    (Proxy.Proxy :: Proxy.Proxy ListAggregateDiscoveredResources)
 
 responseDescribeOrganizationConfigRuleStatuses :: DescribeOrganizationConfigRuleStatusesResponse -> TestTree
 responseDescribeOrganizationConfigRuleStatuses =
@@ -1275,7 +1275,7 @@ responseDescribeOrganizationConfigRuleStatuses =
     "DescribeOrganizationConfigRuleStatusesResponse"
     "fixture/DescribeOrganizationConfigRuleStatusesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganizationConfigRuleStatuses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfigRuleStatuses)
 
 responseDescribeOrganizationConformancePackStatuses :: DescribeOrganizationConformancePackStatusesResponse -> TestTree
 responseDescribeOrganizationConformancePackStatuses =
@@ -1283,7 +1283,7 @@ responseDescribeOrganizationConformancePackStatuses =
     "DescribeOrganizationConformancePackStatusesResponse"
     "fixture/DescribeOrganizationConformancePackStatusesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganizationConformancePackStatuses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConformancePackStatuses)
 
 responseGetComplianceDetailsByResource :: GetComplianceDetailsByResourceResponse -> TestTree
 responseGetComplianceDetailsByResource =
@@ -1291,7 +1291,7 @@ responseGetComplianceDetailsByResource =
     "GetComplianceDetailsByResourceResponse"
     "fixture/GetComplianceDetailsByResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComplianceDetailsByResource)
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceDetailsByResource)
 
 responseDeletePendingAggregationRequest :: DeletePendingAggregationRequestResponse -> TestTree
 responseDeletePendingAggregationRequest =
@@ -1299,7 +1299,7 @@ responseDeletePendingAggregationRequest =
     "DeletePendingAggregationRequestResponse"
     "fixture/DeletePendingAggregationRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePendingAggregationRequest)
+    (Proxy.Proxy :: Proxy.Proxy DeletePendingAggregationRequest)
 
 responseDeliverConfigSnapshot :: DeliverConfigSnapshotResponse -> TestTree
 responseDeliverConfigSnapshot =
@@ -1307,7 +1307,7 @@ responseDeliverConfigSnapshot =
     "DeliverConfigSnapshotResponse"
     "fixture/DeliverConfigSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeliverConfigSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeliverConfigSnapshot)
 
 responseBatchGetAggregateResourceConfig :: BatchGetAggregateResourceConfigResponse -> TestTree
 responseBatchGetAggregateResourceConfig =
@@ -1315,7 +1315,7 @@ responseBatchGetAggregateResourceConfig =
     "BatchGetAggregateResourceConfigResponse"
     "fixture/BatchGetAggregateResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetAggregateResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetAggregateResourceConfig)
 
 responseDescribeConfigRuleEvaluationStatus :: DescribeConfigRuleEvaluationStatusResponse -> TestTree
 responseDescribeConfigRuleEvaluationStatus =
@@ -1323,7 +1323,7 @@ responseDescribeConfigRuleEvaluationStatus =
     "DescribeConfigRuleEvaluationStatusResponse"
     "fixture/DescribeConfigRuleEvaluationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigRuleEvaluationStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigRuleEvaluationStatus)
 
 responseGetDiscoveredResourceCounts :: GetDiscoveredResourceCountsResponse -> TestTree
 responseGetDiscoveredResourceCounts =
@@ -1331,7 +1331,7 @@ responseGetDiscoveredResourceCounts =
     "GetDiscoveredResourceCountsResponse"
     "fixture/GetDiscoveredResourceCountsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDiscoveredResourceCounts)
+    (Proxy.Proxy :: Proxy.Proxy GetDiscoveredResourceCounts)
 
 responseDescribeRemediationExceptions :: DescribeRemediationExceptionsResponse -> TestTree
 responseDescribeRemediationExceptions =
@@ -1339,7 +1339,7 @@ responseDescribeRemediationExceptions =
     "DescribeRemediationExceptionsResponse"
     "fixture/DescribeRemediationExceptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRemediationExceptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRemediationExceptions)
 
 responseDeleteOrganizationConformancePack :: DeleteOrganizationConformancePackResponse -> TestTree
 responseDeleteOrganizationConformancePack =
@@ -1347,7 +1347,7 @@ responseDeleteOrganizationConformancePack =
     "DeleteOrganizationConformancePackResponse"
     "fixture/DeleteOrganizationConformancePackResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOrganizationConformancePack)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOrganizationConformancePack)
 
 responsePutOrganizationConfigRule :: PutOrganizationConfigRuleResponse -> TestTree
 responsePutOrganizationConfigRule =
@@ -1355,7 +1355,7 @@ responsePutOrganizationConfigRule =
     "PutOrganizationConfigRuleResponse"
     "fixture/PutOrganizationConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy PutOrganizationConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy PutOrganizationConfigRule)
 
 responsePutOrganizationConformancePack :: PutOrganizationConformancePackResponse -> TestTree
 responsePutOrganizationConformancePack =
@@ -1363,7 +1363,7 @@ responsePutOrganizationConformancePack =
     "PutOrganizationConformancePackResponse"
     "fixture/PutOrganizationConformancePackResponse.proto"
     defaultService
-    (Proxy :: Proxy PutOrganizationConformancePack)
+    (Proxy.Proxy :: Proxy.Proxy PutOrganizationConformancePack)
 
 responseDeleteOrganizationConfigRule :: DeleteOrganizationConfigRuleResponse -> TestTree
 responseDeleteOrganizationConfigRule =
@@ -1371,7 +1371,7 @@ responseDeleteOrganizationConfigRule =
     "DeleteOrganizationConfigRuleResponse"
     "fixture/DeleteOrganizationConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOrganizationConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOrganizationConfigRule)
 
 responsePutResourceConfig :: PutResourceConfigResponse -> TestTree
 responsePutResourceConfig =
@@ -1379,7 +1379,7 @@ responsePutResourceConfig =
     "PutResourceConfigResponse"
     "fixture/PutResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy PutResourceConfig)
 
 responseStartConfigRulesEvaluation :: StartConfigRulesEvaluationResponse -> TestTree
 responseStartConfigRulesEvaluation =
@@ -1387,7 +1387,7 @@ responseStartConfigRulesEvaluation =
     "StartConfigRulesEvaluationResponse"
     "fixture/StartConfigRulesEvaluationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartConfigRulesEvaluation)
+    (Proxy.Proxy :: Proxy.Proxy StartConfigRulesEvaluation)
 
 responseDescribeOrganizationConfigRules :: DescribeOrganizationConfigRulesResponse -> TestTree
 responseDescribeOrganizationConfigRules =
@@ -1395,7 +1395,7 @@ responseDescribeOrganizationConfigRules =
     "DescribeOrganizationConfigRulesResponse"
     "fixture/DescribeOrganizationConfigRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganizationConfigRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfigRules)
 
 responseSelectAggregateResourceConfig :: SelectAggregateResourceConfigResponse -> TestTree
 responseSelectAggregateResourceConfig =
@@ -1403,7 +1403,7 @@ responseSelectAggregateResourceConfig =
     "SelectAggregateResourceConfigResponse"
     "fixture/SelectAggregateResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy SelectAggregateResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy SelectAggregateResourceConfig)
 
 responseDescribeComplianceByResource :: DescribeComplianceByResourceResponse -> TestTree
 responseDescribeComplianceByResource =
@@ -1411,7 +1411,7 @@ responseDescribeComplianceByResource =
     "DescribeComplianceByResourceResponse"
     "fixture/DescribeComplianceByResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComplianceByResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComplianceByResource)
 
 responseDescribeOrganizationConformancePacks :: DescribeOrganizationConformancePacksResponse -> TestTree
 responseDescribeOrganizationConformancePacks =
@@ -1419,7 +1419,7 @@ responseDescribeOrganizationConformancePacks =
     "DescribeOrganizationConformancePacksResponse"
     "fixture/DescribeOrganizationConformancePacksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganizationConformancePacks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConformancePacks)
 
 responseDeleteResourceConfig :: DeleteResourceConfigResponse -> TestTree
 responseDeleteResourceConfig =
@@ -1427,7 +1427,7 @@ responseDeleteResourceConfig =
     "DeleteResourceConfigResponse"
     "fixture/DeleteResourceConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceConfig)
 
 responsePutEvaluations :: PutEvaluationsResponse -> TestTree
 responsePutEvaluations =
@@ -1435,7 +1435,7 @@ responsePutEvaluations =
     "PutEvaluationsResponse"
     "fixture/PutEvaluationsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEvaluations)
+    (Proxy.Proxy :: Proxy.Proxy PutEvaluations)
 
 responseDescribeConfigurationRecorders :: DescribeConfigurationRecordersResponse -> TestTree
 responseDescribeConfigurationRecorders =
@@ -1443,7 +1443,7 @@ responseDescribeConfigurationRecorders =
     "DescribeConfigurationRecordersResponse"
     "fixture/DescribeConfigurationRecordersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationRecorders)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRecorders)
 
 responseDescribeConformancePackCompliance :: DescribeConformancePackComplianceResponse -> TestTree
 responseDescribeConformancePackCompliance =
@@ -1451,7 +1451,7 @@ responseDescribeConformancePackCompliance =
     "DescribeConformancePackComplianceResponse"
     "fixture/DescribeConformancePackComplianceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConformancePackCompliance)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConformancePackCompliance)
 
 responseGetAggregateComplianceDetailsByConfigRule :: GetAggregateComplianceDetailsByConfigRuleResponse -> TestTree
 responseGetAggregateComplianceDetailsByConfigRule =
@@ -1459,7 +1459,7 @@ responseGetAggregateComplianceDetailsByConfigRule =
     "GetAggregateComplianceDetailsByConfigRuleResponse"
     "fixture/GetAggregateComplianceDetailsByConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAggregateComplianceDetailsByConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy GetAggregateComplianceDetailsByConfigRule)
 
 responseGetAggregateDiscoveredResourceCounts :: GetAggregateDiscoveredResourceCountsResponse -> TestTree
 responseGetAggregateDiscoveredResourceCounts =
@@ -1467,7 +1467,7 @@ responseGetAggregateDiscoveredResourceCounts =
     "GetAggregateDiscoveredResourceCountsResponse"
     "fixture/GetAggregateDiscoveredResourceCountsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAggregateDiscoveredResourceCounts)
+    (Proxy.Proxy :: Proxy.Proxy GetAggregateDiscoveredResourceCounts)
 
 responseGetAggregateConformancePackComplianceSummary :: GetAggregateConformancePackComplianceSummaryResponse -> TestTree
 responseGetAggregateConformancePackComplianceSummary =
@@ -1475,7 +1475,7 @@ responseGetAggregateConformancePackComplianceSummary =
     "GetAggregateConformancePackComplianceSummaryResponse"
     "fixture/GetAggregateConformancePackComplianceSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAggregateConformancePackComplianceSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetAggregateConformancePackComplianceSummary)
 
 responseStartConfigurationRecorder :: StartConfigurationRecorderResponse -> TestTree
 responseStartConfigurationRecorder =
@@ -1483,7 +1483,7 @@ responseStartConfigurationRecorder =
     "StartConfigurationRecorderResponse"
     "fixture/StartConfigurationRecorderResponse.proto"
     defaultService
-    (Proxy :: Proxy StartConfigurationRecorder)
+    (Proxy.Proxy :: Proxy.Proxy StartConfigurationRecorder)
 
 responseDescribeConformancePacks :: DescribeConformancePacksResponse -> TestTree
 responseDescribeConformancePacks =
@@ -1491,7 +1491,7 @@ responseDescribeConformancePacks =
     "DescribeConformancePacksResponse"
     "fixture/DescribeConformancePacksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConformancePacks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConformancePacks)
 
 responsePutExternalEvaluation :: PutExternalEvaluationResponse -> TestTree
 responsePutExternalEvaluation =
@@ -1499,7 +1499,7 @@ responsePutExternalEvaluation =
     "PutExternalEvaluationResponse"
     "fixture/PutExternalEvaluationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutExternalEvaluation)
+    (Proxy.Proxy :: Proxy.Proxy PutExternalEvaluation)
 
 responseDeleteRemediationExceptions :: DeleteRemediationExceptionsResponse -> TestTree
 responseDeleteRemediationExceptions =
@@ -1507,7 +1507,7 @@ responseDeleteRemediationExceptions =
     "DeleteRemediationExceptionsResponse"
     "fixture/DeleteRemediationExceptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRemediationExceptions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRemediationExceptions)
 
 responsePutRemediationExceptions :: PutRemediationExceptionsResponse -> TestTree
 responsePutRemediationExceptions =
@@ -1515,7 +1515,7 @@ responsePutRemediationExceptions =
     "PutRemediationExceptionsResponse"
     "fixture/PutRemediationExceptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRemediationExceptions)
+    (Proxy.Proxy :: Proxy.Proxy PutRemediationExceptions)
 
 responseGetOrganizationConfigRuleDetailedStatus :: GetOrganizationConfigRuleDetailedStatusResponse -> TestTree
 responseGetOrganizationConfigRuleDetailedStatus =
@@ -1523,7 +1523,7 @@ responseGetOrganizationConfigRuleDetailedStatus =
     "GetOrganizationConfigRuleDetailedStatusResponse"
     "fixture/GetOrganizationConfigRuleDetailedStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOrganizationConfigRuleDetailedStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetOrganizationConfigRuleDetailedStatus)
 
 responsePutRemediationConfigurations :: PutRemediationConfigurationsResponse -> TestTree
 responsePutRemediationConfigurations =
@@ -1531,7 +1531,7 @@ responsePutRemediationConfigurations =
     "PutRemediationConfigurationsResponse"
     "fixture/PutRemediationConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRemediationConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy PutRemediationConfigurations)
 
 responseDeleteConformancePack :: DeleteConformancePackResponse -> TestTree
 responseDeleteConformancePack =
@@ -1539,7 +1539,7 @@ responseDeleteConformancePack =
     "DeleteConformancePackResponse"
     "fixture/DeleteConformancePackResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConformancePack)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConformancePack)
 
 responsePutConformancePack :: PutConformancePackResponse -> TestTree
 responsePutConformancePack =
@@ -1547,7 +1547,7 @@ responsePutConformancePack =
     "PutConformancePackResponse"
     "fixture/PutConformancePackResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConformancePack)
+    (Proxy.Proxy :: Proxy.Proxy PutConformancePack)
 
 responseStartRemediationExecution :: StartRemediationExecutionResponse -> TestTree
 responseStartRemediationExecution =
@@ -1555,7 +1555,7 @@ responseStartRemediationExecution =
     "StartRemediationExecutionResponse"
     "fixture/StartRemediationExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartRemediationExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartRemediationExecution)
 
 responseDescribeConformancePackStatus :: DescribeConformancePackStatusResponse -> TestTree
 responseDescribeConformancePackStatus =
@@ -1563,7 +1563,7 @@ responseDescribeConformancePackStatus =
     "DescribeConformancePackStatusResponse"
     "fixture/DescribeConformancePackStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConformancePackStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConformancePackStatus)
 
 responseGetComplianceSummaryByConfigRule :: GetComplianceSummaryByConfigRuleResponse -> TestTree
 responseGetComplianceSummaryByConfigRule =
@@ -1571,7 +1571,7 @@ responseGetComplianceSummaryByConfigRule =
     "GetComplianceSummaryByConfigRuleResponse"
     "fixture/GetComplianceSummaryByConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComplianceSummaryByConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceSummaryByConfigRule)
 
 responsePutStoredQuery :: PutStoredQueryResponse -> TestTree
 responsePutStoredQuery =
@@ -1579,7 +1579,7 @@ responsePutStoredQuery =
     "PutStoredQueryResponse"
     "fixture/PutStoredQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy PutStoredQuery)
+    (Proxy.Proxy :: Proxy.Proxy PutStoredQuery)
 
 responsePutConfigurationAggregator :: PutConfigurationAggregatorResponse -> TestTree
 responsePutConfigurationAggregator =
@@ -1587,7 +1587,7 @@ responsePutConfigurationAggregator =
     "PutConfigurationAggregatorResponse"
     "fixture/PutConfigurationAggregatorResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationAggregator)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationAggregator)
 
 responseDeleteStoredQuery :: DeleteStoredQueryResponse -> TestTree
 responseDeleteStoredQuery =
@@ -1595,7 +1595,7 @@ responseDeleteStoredQuery =
     "DeleteStoredQueryResponse"
     "fixture/DeleteStoredQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStoredQuery)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStoredQuery)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1603,7 +1603,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeleteConfigurationAggregator :: DeleteConfigurationAggregatorResponse -> TestTree
 responseDeleteConfigurationAggregator =
@@ -1611,7 +1611,7 @@ responseDeleteConfigurationAggregator =
     "DeleteConfigurationAggregatorResponse"
     "fixture/DeleteConfigurationAggregatorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationAggregator)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationAggregator)
 
 responseDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatusResponse -> TestTree
 responseDescribeConfigurationRecorderStatus =
@@ -1619,7 +1619,7 @@ responseDescribeConfigurationRecorderStatus =
     "DescribeConfigurationRecorderStatusResponse"
     "fixture/DescribeConfigurationRecorderStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationRecorderStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRecorderStatus)
 
 responsePutConfigurationRecorder :: PutConfigurationRecorderResponse -> TestTree
 responsePutConfigurationRecorder =
@@ -1627,7 +1627,7 @@ responsePutConfigurationRecorder =
     "PutConfigurationRecorderResponse"
     "fixture/PutConfigurationRecorderResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationRecorder)
+    (Proxy.Proxy :: Proxy.Proxy PutConfigurationRecorder)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1635,7 +1635,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteConfigurationRecorder :: DeleteConfigurationRecorderResponse -> TestTree
 responseDeleteConfigurationRecorder =
@@ -1643,7 +1643,7 @@ responseDeleteConfigurationRecorder =
     "DeleteConfigurationRecorderResponse"
     "fixture/DeleteConfigurationRecorderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationRecorder)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationRecorder)
 
 responseGetConformancePackComplianceSummary :: GetConformancePackComplianceSummaryResponse -> TestTree
 responseGetConformancePackComplianceSummary =
@@ -1651,7 +1651,7 @@ responseGetConformancePackComplianceSummary =
     "GetConformancePackComplianceSummaryResponse"
     "fixture/GetConformancePackComplianceSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConformancePackComplianceSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetConformancePackComplianceSummary)
 
 responseGetComplianceSummaryByResourceType :: GetComplianceSummaryByResourceTypeResponse -> TestTree
 responseGetComplianceSummaryByResourceType =
@@ -1659,7 +1659,7 @@ responseGetComplianceSummaryByResourceType =
     "GetComplianceSummaryByResourceTypeResponse"
     "fixture/GetComplianceSummaryByResourceTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComplianceSummaryByResourceType)
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceSummaryByResourceType)
 
 responseDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatusResponse -> TestTree
 responseDescribeDeliveryChannelStatus =
@@ -1667,7 +1667,7 @@ responseDescribeDeliveryChannelStatus =
     "DescribeDeliveryChannelStatusResponse"
     "fixture/DescribeDeliveryChannelStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeliveryChannelStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeliveryChannelStatus)
 
 responsePutDeliveryChannel :: PutDeliveryChannelResponse -> TestTree
 responsePutDeliveryChannel =
@@ -1675,7 +1675,7 @@ responsePutDeliveryChannel =
     "PutDeliveryChannelResponse"
     "fixture/PutDeliveryChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDeliveryChannel)
+    (Proxy.Proxy :: Proxy.Proxy PutDeliveryChannel)
 
 responseGetComplianceDetailsByConfigRule :: GetComplianceDetailsByConfigRuleResponse -> TestTree
 responseGetComplianceDetailsByConfigRule =
@@ -1683,7 +1683,7 @@ responseGetComplianceDetailsByConfigRule =
     "GetComplianceDetailsByConfigRuleResponse"
     "fixture/GetComplianceDetailsByConfigRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComplianceDetailsByConfigRule)
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceDetailsByConfigRule)
 
 responseDeleteAggregationAuthorization :: DeleteAggregationAuthorizationResponse -> TestTree
 responseDeleteAggregationAuthorization =
@@ -1691,7 +1691,7 @@ responseDeleteAggregationAuthorization =
     "DeleteAggregationAuthorizationResponse"
     "fixture/DeleteAggregationAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAggregationAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAggregationAuthorization)
 
 responseDeleteDeliveryChannel :: DeleteDeliveryChannelResponse -> TestTree
 responseDeleteDeliveryChannel =
@@ -1699,7 +1699,7 @@ responseDeleteDeliveryChannel =
     "DeleteDeliveryChannelResponse"
     "fixture/DeleteDeliveryChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeliveryChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeliveryChannel)
 
 responseDeleteRemediationConfiguration :: DeleteRemediationConfigurationResponse -> TestTree
 responseDeleteRemediationConfiguration =
@@ -1707,7 +1707,7 @@ responseDeleteRemediationConfiguration =
     "DeleteRemediationConfigurationResponse"
     "fixture/DeleteRemediationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRemediationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRemediationConfiguration)
 
 responsePutAggregationAuthorization :: PutAggregationAuthorizationResponse -> TestTree
 responsePutAggregationAuthorization =
@@ -1715,7 +1715,7 @@ responsePutAggregationAuthorization =
     "PutAggregationAuthorizationResponse"
     "fixture/PutAggregationAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAggregationAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy PutAggregationAuthorization)
 
 responseDescribeConfigurationAggregatorSourcesStatus :: DescribeConfigurationAggregatorSourcesStatusResponse -> TestTree
 responseDescribeConfigurationAggregatorSourcesStatus =
@@ -1723,7 +1723,7 @@ responseDescribeConfigurationAggregatorSourcesStatus =
     "DescribeConfigurationAggregatorSourcesStatusResponse"
     "fixture/DescribeConfigurationAggregatorSourcesStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationAggregatorSourcesStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationAggregatorSourcesStatus)
 
 responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
 responseListDiscoveredResources =
@@ -1731,7 +1731,7 @@ responseListDiscoveredResources =
     "ListDiscoveredResourcesResponse"
     "fixture/ListDiscoveredResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDiscoveredResources)
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoveredResources)
 
 responseDescribeRemediationConfigurations :: DescribeRemediationConfigurationsResponse -> TestTree
 responseDescribeRemediationConfigurations =
@@ -1739,7 +1739,7 @@ responseDescribeRemediationConfigurations =
     "DescribeRemediationConfigurationsResponse"
     "fixture/DescribeRemediationConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRemediationConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRemediationConfigurations)
 
 responseDescribeDeliveryChannels :: DescribeDeliveryChannelsResponse -> TestTree
 responseDescribeDeliveryChannels =
@@ -1747,7 +1747,7 @@ responseDescribeDeliveryChannels =
     "DescribeDeliveryChannelsResponse"
     "fixture/DescribeDeliveryChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeliveryChannels)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeliveryChannels)
 
 responseDescribeAggregationAuthorizations :: DescribeAggregationAuthorizationsResponse -> TestTree
 responseDescribeAggregationAuthorizations =
@@ -1755,4 +1755,4 @@ responseDescribeAggregationAuthorizations =
     "DescribeAggregationAuthorizationsResponse"
     "fixture/DescribeAggregationAuthorizationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAggregationAuthorizations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAggregationAuthorizations)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ELBV2 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ELBV2
 import Test.AWS.ELBV2.Internal
 import Test.AWS.Fixture
@@ -451,7 +451,7 @@ responseDescribeLoadBalancers =
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBalancers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBalancers)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -459,7 +459,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
 responseDeleteRule =
@@ -467,7 +467,7 @@ responseDeleteRule =
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -475,7 +475,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseDeleteTargetGroup :: DeleteTargetGroupResponse -> TestTree
 responseDeleteTargetGroup =
@@ -483,7 +483,7 @@ responseDeleteTargetGroup =
     "DeleteTargetGroupResponse"
     "fixture/DeleteTargetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTargetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTargetGroup)
 
 responseSetSubnets :: SetSubnetsResponse -> TestTree
 responseSetSubnets =
@@ -491,7 +491,7 @@ responseSetSubnets =
     "SetSubnetsResponse"
     "fixture/SetSubnetsResponse.proto"
     defaultService
-    (Proxy :: Proxy SetSubnets)
+    (Proxy.Proxy :: Proxy.Proxy SetSubnets)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
 responseCreateRule =
@@ -499,7 +499,7 @@ responseCreateRule =
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateRule)
 
 responseDescribeListenerCertificates :: DescribeListenerCertificatesResponse -> TestTree
 responseDescribeListenerCertificates =
@@ -507,7 +507,7 @@ responseDescribeListenerCertificates =
     "DescribeListenerCertificatesResponse"
     "fixture/DescribeListenerCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeListenerCertificates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeListenerCertificates)
 
 responseSetSecurityGroups :: SetSecurityGroupsResponse -> TestTree
 responseSetSecurityGroups =
@@ -515,7 +515,7 @@ responseSetSecurityGroups =
     "SetSecurityGroupsResponse"
     "fixture/SetSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy SetSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy SetSecurityGroups)
 
 responseSetRulePriorities :: SetRulePrioritiesResponse -> TestTree
 responseSetRulePriorities =
@@ -523,7 +523,7 @@ responseSetRulePriorities =
     "SetRulePrioritiesResponse"
     "fixture/SetRulePrioritiesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetRulePriorities)
+    (Proxy.Proxy :: Proxy.Proxy SetRulePriorities)
 
 responseDescribeTargetGroups :: DescribeTargetGroupsResponse -> TestTree
 responseDescribeTargetGroups =
@@ -531,7 +531,7 @@ responseDescribeTargetGroups =
     "DescribeTargetGroupsResponse"
     "fixture/DescribeTargetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTargetGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTargetGroups)
 
 responseDescribeRules :: DescribeRulesResponse -> TestTree
 responseDescribeRules =
@@ -539,7 +539,7 @@ responseDescribeRules =
     "DescribeRulesResponse"
     "fixture/DescribeRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRules)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
 responseDeleteLoadBalancer =
@@ -547,7 +547,7 @@ responseDeleteLoadBalancer =
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoadBalancer)
 
 responseRegisterTargets :: RegisterTargetsResponse -> TestTree
 responseRegisterTargets =
@@ -555,7 +555,7 @@ responseRegisterTargets =
     "RegisterTargetsResponse"
     "fixture/RegisterTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTargets)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTargets)
 
 responseModifyListener :: ModifyListenerResponse -> TestTree
 responseModifyListener =
@@ -563,7 +563,7 @@ responseModifyListener =
     "ModifyListenerResponse"
     "fixture/ModifyListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyListener)
+    (Proxy.Proxy :: Proxy.Proxy ModifyListener)
 
 responseModifyTargetGroup :: ModifyTargetGroupResponse -> TestTree
 responseModifyTargetGroup =
@@ -571,7 +571,7 @@ responseModifyTargetGroup =
     "ModifyTargetGroupResponse"
     "fixture/ModifyTargetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTargetGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTargetGroup)
 
 responseModifyTargetGroupAttributes :: ModifyTargetGroupAttributesResponse -> TestTree
 responseModifyTargetGroupAttributes =
@@ -579,7 +579,7 @@ responseModifyTargetGroupAttributes =
     "ModifyTargetGroupAttributesResponse"
     "fixture/ModifyTargetGroupAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTargetGroupAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTargetGroupAttributes)
 
 responseDescribeTargetGroupAttributes :: DescribeTargetGroupAttributesResponse -> TestTree
 responseDescribeTargetGroupAttributes =
@@ -587,7 +587,7 @@ responseDescribeTargetGroupAttributes =
     "DescribeTargetGroupAttributesResponse"
     "fixture/DescribeTargetGroupAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTargetGroupAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTargetGroupAttributes)
 
 responseDeleteListener :: DeleteListenerResponse -> TestTree
 responseDeleteListener =
@@ -595,7 +595,7 @@ responseDeleteListener =
     "DeleteListenerResponse"
     "fixture/DeleteListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteListener)
+    (Proxy.Proxy :: Proxy.Proxy DeleteListener)
 
 responseDescribeSSLPolicies :: DescribeSSLPoliciesResponse -> TestTree
 responseDescribeSSLPolicies =
@@ -603,7 +603,7 @@ responseDescribeSSLPolicies =
     "DescribeSSLPoliciesResponse"
     "fixture/DescribeSSLPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSSLPolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSSLPolicies)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
 responseDescribeAccountLimits =
@@ -611,7 +611,7 @@ responseDescribeAccountLimits =
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountLimits)
 
 responseDeregisterTargets :: DeregisterTargetsResponse -> TestTree
 responseDeregisterTargets =
@@ -619,7 +619,7 @@ responseDeregisterTargets =
     "DeregisterTargetsResponse"
     "fixture/DeregisterTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTargets)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTargets)
 
 responseCreateListener :: CreateListenerResponse -> TestTree
 responseCreateListener =
@@ -627,7 +627,7 @@ responseCreateListener =
     "CreateListenerResponse"
     "fixture/CreateListenerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateListener)
+    (Proxy.Proxy :: Proxy.Proxy CreateListener)
 
 responseCreateTargetGroup :: CreateTargetGroupResponse -> TestTree
 responseCreateTargetGroup =
@@ -635,7 +635,7 @@ responseCreateTargetGroup =
     "CreateTargetGroupResponse"
     "fixture/CreateTargetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTargetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateTargetGroup)
 
 responseModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> TestTree
 responseModifyLoadBalancerAttributes =
@@ -643,7 +643,7 @@ responseModifyLoadBalancerAttributes =
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyLoadBalancerAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ModifyLoadBalancerAttributes)
 
 responseSetIpAddressType :: SetIpAddressTypeResponse -> TestTree
 responseSetIpAddressType =
@@ -651,7 +651,7 @@ responseSetIpAddressType =
     "SetIpAddressTypeResponse"
     "fixture/SetIpAddressTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIpAddressType)
+    (Proxy.Proxy :: Proxy.Proxy SetIpAddressType)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -659,7 +659,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributesResponse -> TestTree
 responseDescribeLoadBalancerAttributes =
@@ -667,7 +667,7 @@ responseDescribeLoadBalancerAttributes =
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBalancerAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBalancerAttributes)
 
 responseDescribeListeners :: DescribeListenersResponse -> TestTree
 responseDescribeListeners =
@@ -675,7 +675,7 @@ responseDescribeListeners =
     "DescribeListenersResponse"
     "fixture/DescribeListenersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeListeners)
+    (Proxy.Proxy :: Proxy.Proxy DescribeListeners)
 
 responseDescribeTargetHealth :: DescribeTargetHealthResponse -> TestTree
 responseDescribeTargetHealth =
@@ -683,7 +683,7 @@ responseDescribeTargetHealth =
     "DescribeTargetHealthResponse"
     "fixture/DescribeTargetHealthResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTargetHealth)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTargetHealth)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
 responseCreateLoadBalancer =
@@ -691,7 +691,7 @@ responseCreateLoadBalancer =
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoadBalancer)
 
 responseRemoveListenerCertificates :: RemoveListenerCertificatesResponse -> TestTree
 responseRemoveListenerCertificates =
@@ -699,7 +699,7 @@ responseRemoveListenerCertificates =
     "RemoveListenerCertificatesResponse"
     "fixture/RemoveListenerCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveListenerCertificates)
+    (Proxy.Proxy :: Proxy.Proxy RemoveListenerCertificates)
 
 responseModifyRule :: ModifyRuleResponse -> TestTree
 responseModifyRule =
@@ -707,7 +707,7 @@ responseModifyRule =
     "ModifyRuleResponse"
     "fixture/ModifyRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyRule)
+    (Proxy.Proxy :: Proxy.Proxy ModifyRule)
 
 responseAddListenerCertificates :: AddListenerCertificatesResponse -> TestTree
 responseAddListenerCertificates =
@@ -715,4 +715,4 @@ responseAddListenerCertificates =
     "AddListenerCertificatesResponse"
     "fixture/AddListenerCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy AddListenerCertificates)
+    (Proxy.Proxy :: Proxy.Proxy AddListenerCertificates)

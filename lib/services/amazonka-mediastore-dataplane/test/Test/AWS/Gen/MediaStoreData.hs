@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaStoreData where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaStoreData
 import Test.AWS.Fixture
 import Test.AWS.MediaStoreData.Internal
@@ -97,7 +97,7 @@ responsePutObject =
     "PutObjectResponse"
     "fixture/PutObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObject)
+    (Proxy.Proxy :: Proxy.Proxy PutObject)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
 responseDeleteObject =
@@ -105,7 +105,7 @@ responseDeleteObject =
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteObject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteObject)
 
 responseDescribeObject :: DescribeObjectResponse -> TestTree
 responseDescribeObject =
@@ -113,7 +113,7 @@ responseDescribeObject =
     "DescribeObjectResponse"
     "fixture/DescribeObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeObject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeObject)
 
 responseListItems :: ListItemsResponse -> TestTree
 responseListItems =
@@ -121,4 +121,4 @@ responseListItems =
     "ListItemsResponse"
     "fixture/ListItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListItems)
+    (Proxy.Proxy :: Proxy.Proxy ListItems)

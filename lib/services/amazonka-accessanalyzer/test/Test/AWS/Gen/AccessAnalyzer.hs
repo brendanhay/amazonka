@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AccessAnalyzer where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AccessAnalyzer
 import Test.AWS.AccessAnalyzer.Internal
 import Test.AWS.Fixture
@@ -379,7 +379,7 @@ responseListFindings =
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFindings)
+    (Proxy.Proxy :: Proxy.Proxy ListFindings)
 
 responseGetAnalyzedResource :: GetAnalyzedResourceResponse -> TestTree
 responseGetAnalyzedResource =
@@ -387,7 +387,7 @@ responseGetAnalyzedResource =
     "GetAnalyzedResourceResponse"
     "fixture/GetAnalyzedResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnalyzedResource)
+    (Proxy.Proxy :: Proxy.Proxy GetAnalyzedResource)
 
 responseListPolicyGenerations :: ListPolicyGenerationsResponse -> TestTree
 responseListPolicyGenerations =
@@ -395,7 +395,7 @@ responseListPolicyGenerations =
     "ListPolicyGenerationsResponse"
     "fixture/ListPolicyGenerationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicyGenerations)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicyGenerations)
 
 responseListAccessPreviews :: ListAccessPreviewsResponse -> TestTree
 responseListAccessPreviews =
@@ -403,7 +403,7 @@ responseListAccessPreviews =
     "ListAccessPreviewsResponse"
     "fixture/ListAccessPreviewsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccessPreviews)
+    (Proxy.Proxy :: Proxy.Proxy ListAccessPreviews)
 
 responseCreateAccessPreview :: CreateAccessPreviewResponse -> TestTree
 responseCreateAccessPreview =
@@ -411,7 +411,7 @@ responseCreateAccessPreview =
     "CreateAccessPreviewResponse"
     "fixture/CreateAccessPreviewResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccessPreview)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccessPreview)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -419,7 +419,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStartResourceScan :: StartResourceScanResponse -> TestTree
 responseStartResourceScan =
@@ -427,7 +427,7 @@ responseStartResourceScan =
     "StartResourceScanResponse"
     "fixture/StartResourceScanResponse.proto"
     defaultService
-    (Proxy :: Proxy StartResourceScan)
+    (Proxy.Proxy :: Proxy.Proxy StartResourceScan)
 
 responseDeleteArchiveRule :: DeleteArchiveRuleResponse -> TestTree
 responseDeleteArchiveRule =
@@ -435,7 +435,7 @@ responseDeleteArchiveRule =
     "DeleteArchiveRuleResponse"
     "fixture/DeleteArchiveRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteArchiveRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteArchiveRule)
 
 responseUpdateArchiveRule :: UpdateArchiveRuleResponse -> TestTree
 responseUpdateArchiveRule =
@@ -443,7 +443,7 @@ responseUpdateArchiveRule =
     "UpdateArchiveRuleResponse"
     "fixture/UpdateArchiveRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateArchiveRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateArchiveRule)
 
 responseGetAccessPreview :: GetAccessPreviewResponse -> TestTree
 responseGetAccessPreview =
@@ -451,7 +451,7 @@ responseGetAccessPreview =
     "GetAccessPreviewResponse"
     "fixture/GetAccessPreviewResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccessPreview)
+    (Proxy.Proxy :: Proxy.Proxy GetAccessPreview)
 
 responseListAnalyzedResources :: ListAnalyzedResourcesResponse -> TestTree
 responseListAnalyzedResources =
@@ -459,7 +459,7 @@ responseListAnalyzedResources =
     "ListAnalyzedResourcesResponse"
     "fixture/ListAnalyzedResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnalyzedResources)
+    (Proxy.Proxy :: Proxy.Proxy ListAnalyzedResources)
 
 responseStartPolicyGeneration :: StartPolicyGenerationResponse -> TestTree
 responseStartPolicyGeneration =
@@ -467,7 +467,7 @@ responseStartPolicyGeneration =
     "StartPolicyGenerationResponse"
     "fixture/StartPolicyGenerationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPolicyGeneration)
+    (Proxy.Proxy :: Proxy.Proxy StartPolicyGeneration)
 
 responseValidatePolicy :: ValidatePolicyResponse -> TestTree
 responseValidatePolicy =
@@ -475,7 +475,7 @@ responseValidatePolicy =
     "ValidatePolicyResponse"
     "fixture/ValidatePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidatePolicy)
+    (Proxy.Proxy :: Proxy.Proxy ValidatePolicy)
 
 responseDeleteAnalyzer :: DeleteAnalyzerResponse -> TestTree
 responseDeleteAnalyzer =
@@ -483,7 +483,7 @@ responseDeleteAnalyzer =
     "DeleteAnalyzerResponse"
     "fixture/DeleteAnalyzerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnalyzer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnalyzer)
 
 responseUpdateFindings :: UpdateFindingsResponse -> TestTree
 responseUpdateFindings =
@@ -491,7 +491,7 @@ responseUpdateFindings =
     "UpdateFindingsResponse"
     "fixture/UpdateFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFindings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFindings)
 
 responseListAnalyzers :: ListAnalyzersResponse -> TestTree
 responseListAnalyzers =
@@ -499,7 +499,7 @@ responseListAnalyzers =
     "ListAnalyzersResponse"
     "fixture/ListAnalyzersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAnalyzers)
+    (Proxy.Proxy :: Proxy.Proxy ListAnalyzers)
 
 responseListAccessPreviewFindings :: ListAccessPreviewFindingsResponse -> TestTree
 responseListAccessPreviewFindings =
@@ -507,7 +507,7 @@ responseListAccessPreviewFindings =
     "ListAccessPreviewFindingsResponse"
     "fixture/ListAccessPreviewFindingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccessPreviewFindings)
+    (Proxy.Proxy :: Proxy.Proxy ListAccessPreviewFindings)
 
 responseGetArchiveRule :: GetArchiveRuleResponse -> TestTree
 responseGetArchiveRule =
@@ -515,7 +515,7 @@ responseGetArchiveRule =
     "GetArchiveRuleResponse"
     "fixture/GetArchiveRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetArchiveRule)
+    (Proxy.Proxy :: Proxy.Proxy GetArchiveRule)
 
 responseCreateAnalyzer :: CreateAnalyzerResponse -> TestTree
 responseCreateAnalyzer =
@@ -523,7 +523,7 @@ responseCreateAnalyzer =
     "CreateAnalyzerResponse"
     "fixture/CreateAnalyzerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAnalyzer)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnalyzer)
 
 responseListArchiveRules :: ListArchiveRulesResponse -> TestTree
 responseListArchiveRules =
@@ -531,7 +531,7 @@ responseListArchiveRules =
     "ListArchiveRulesResponse"
     "fixture/ListArchiveRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListArchiveRules)
+    (Proxy.Proxy :: Proxy.Proxy ListArchiveRules)
 
 responseCreateArchiveRule :: CreateArchiveRuleResponse -> TestTree
 responseCreateArchiveRule =
@@ -539,7 +539,7 @@ responseCreateArchiveRule =
     "CreateArchiveRuleResponse"
     "fixture/CreateArchiveRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateArchiveRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateArchiveRule)
 
 responseCancelPolicyGeneration :: CancelPolicyGenerationResponse -> TestTree
 responseCancelPolicyGeneration =
@@ -547,7 +547,7 @@ responseCancelPolicyGeneration =
     "CancelPolicyGenerationResponse"
     "fixture/CancelPolicyGenerationResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelPolicyGeneration)
+    (Proxy.Proxy :: Proxy.Proxy CancelPolicyGeneration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -555,7 +555,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseApplyArchiveRule :: ApplyArchiveRuleResponse -> TestTree
 responseApplyArchiveRule =
@@ -563,7 +563,7 @@ responseApplyArchiveRule =
     "ApplyArchiveRuleResponse"
     "fixture/ApplyArchiveRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy ApplyArchiveRule)
+    (Proxy.Proxy :: Proxy.Proxy ApplyArchiveRule)
 
 responseGetAnalyzer :: GetAnalyzerResponse -> TestTree
 responseGetAnalyzer =
@@ -571,7 +571,7 @@ responseGetAnalyzer =
     "GetAnalyzerResponse"
     "fixture/GetAnalyzerResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAnalyzer)
+    (Proxy.Proxy :: Proxy.Proxy GetAnalyzer)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -579,7 +579,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetFinding :: GetFindingResponse -> TestTree
 responseGetFinding =
@@ -587,7 +587,7 @@ responseGetFinding =
     "GetFindingResponse"
     "fixture/GetFindingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFinding)
+    (Proxy.Proxy :: Proxy.Proxy GetFinding)
 
 responseGetGeneratedPolicy :: GetGeneratedPolicyResponse -> TestTree
 responseGetGeneratedPolicy =
@@ -595,4 +595,4 @@ responseGetGeneratedPolicy =
     "GetGeneratedPolicyResponse"
     "fixture/GetGeneratedPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGeneratedPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetGeneratedPolicy)

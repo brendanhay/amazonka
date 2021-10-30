@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SQS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SQS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -283,7 +283,7 @@ responseGetQueueUrl =
     "GetQueueUrlResponse"
     "fixture/GetQueueUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueueUrl)
+    (Proxy.Proxy :: Proxy.Proxy GetQueueUrl)
 
 responsePurgeQueue :: PurgeQueueResponse -> TestTree
 responsePurgeQueue =
@@ -291,7 +291,7 @@ responsePurgeQueue =
     "PurgeQueueResponse"
     "fixture/PurgeQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy PurgeQueue)
+    (Proxy.Proxy :: Proxy.Proxy PurgeQueue)
 
 responseChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatchResponse -> TestTree
 responseChangeMessageVisibilityBatch =
@@ -299,7 +299,7 @@ responseChangeMessageVisibilityBatch =
     "ChangeMessageVisibilityBatchResponse"
     "fixture/ChangeMessageVisibilityBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeMessageVisibilityBatch)
+    (Proxy.Proxy :: Proxy.Proxy ChangeMessageVisibilityBatch)
 
 responseSendMessage :: SendMessageResponse -> TestTree
 responseSendMessage =
@@ -307,7 +307,7 @@ responseSendMessage =
     "SendMessageResponse"
     "fixture/SendMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy SendMessage)
+    (Proxy.Proxy :: Proxy.Proxy SendMessage)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =
@@ -315,7 +315,7 @@ responseRemovePermission =
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemovePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
 
 responseGetQueueAttributes :: GetQueueAttributesResponse -> TestTree
 responseGetQueueAttributes =
@@ -323,7 +323,7 @@ responseGetQueueAttributes =
     "GetQueueAttributesResponse"
     "fixture/GetQueueAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueueAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetQueueAttributes)
 
 responseListQueues :: ListQueuesResponse -> TestTree
 responseListQueues =
@@ -331,7 +331,7 @@ responseListQueues =
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueues)
+    (Proxy.Proxy :: Proxy.Proxy ListQueues)
 
 responseReceiveMessage :: ReceiveMessageResponse -> TestTree
 responseReceiveMessage =
@@ -339,7 +339,7 @@ responseReceiveMessage =
     "ReceiveMessageResponse"
     "fixture/ReceiveMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy ReceiveMessage)
+    (Proxy.Proxy :: Proxy.Proxy ReceiveMessage)
 
 responseDeleteQueue :: DeleteQueueResponse -> TestTree
 responseDeleteQueue =
@@ -347,7 +347,7 @@ responseDeleteQueue =
     "DeleteQueueResponse"
     "fixture/DeleteQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueue)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueue)
 
 responseTagQueue :: TagQueueResponse -> TestTree
 responseTagQueue =
@@ -355,7 +355,7 @@ responseTagQueue =
     "TagQueueResponse"
     "fixture/TagQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy TagQueue)
+    (Proxy.Proxy :: Proxy.Proxy TagQueue)
 
 responseDeleteMessageBatch :: DeleteMessageBatchResponse -> TestTree
 responseDeleteMessageBatch =
@@ -363,7 +363,7 @@ responseDeleteMessageBatch =
     "DeleteMessageBatchResponse"
     "fixture/DeleteMessageBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMessageBatch)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMessageBatch)
 
 responseSetQueueAttributes :: SetQueueAttributesResponse -> TestTree
 responseSetQueueAttributes =
@@ -371,7 +371,7 @@ responseSetQueueAttributes =
     "SetQueueAttributesResponse"
     "fixture/SetQueueAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetQueueAttributes)
+    (Proxy.Proxy :: Proxy.Proxy SetQueueAttributes)
 
 responseListDeadLetterSourceQueues :: ListDeadLetterSourceQueuesResponse -> TestTree
 responseListDeadLetterSourceQueues =
@@ -379,7 +379,7 @@ responseListDeadLetterSourceQueues =
     "ListDeadLetterSourceQueuesResponse"
     "fixture/ListDeadLetterSourceQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeadLetterSourceQueues)
+    (Proxy.Proxy :: Proxy.Proxy ListDeadLetterSourceQueues)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
 responseAddPermission =
@@ -387,7 +387,7 @@ responseAddPermission =
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddPermission)
+    (Proxy.Proxy :: Proxy.Proxy AddPermission)
 
 responseDeleteMessage :: DeleteMessageResponse -> TestTree
 responseDeleteMessage =
@@ -395,7 +395,7 @@ responseDeleteMessage =
     "DeleteMessageResponse"
     "fixture/DeleteMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMessage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMessage)
 
 responseListQueueTags :: ListQueueTagsResponse -> TestTree
 responseListQueueTags =
@@ -403,7 +403,7 @@ responseListQueueTags =
     "ListQueueTagsResponse"
     "fixture/ListQueueTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueueTags)
+    (Proxy.Proxy :: Proxy.Proxy ListQueueTags)
 
 responseCreateQueue :: CreateQueueResponse -> TestTree
 responseCreateQueue =
@@ -411,7 +411,7 @@ responseCreateQueue =
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQueue)
+    (Proxy.Proxy :: Proxy.Proxy CreateQueue)
 
 responseUntagQueue :: UntagQueueResponse -> TestTree
 responseUntagQueue =
@@ -419,7 +419,7 @@ responseUntagQueue =
     "UntagQueueResponse"
     "fixture/UntagQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagQueue)
+    (Proxy.Proxy :: Proxy.Proxy UntagQueue)
 
 responseSendMessageBatch :: SendMessageBatchResponse -> TestTree
 responseSendMessageBatch =
@@ -427,7 +427,7 @@ responseSendMessageBatch =
     "SendMessageBatchResponse"
     "fixture/SendMessageBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy SendMessageBatch)
+    (Proxy.Proxy :: Proxy.Proxy SendMessageBatch)
 
 responseChangeMessageVisibility :: ChangeMessageVisibilityResponse -> TestTree
 responseChangeMessageVisibility =
@@ -435,4 +435,4 @@ responseChangeMessageVisibility =
     "ChangeMessageVisibilityResponse"
     "fixture/ChangeMessageVisibilityResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeMessageVisibility)
+    (Proxy.Proxy :: Proxy.Proxy ChangeMessageVisibility)

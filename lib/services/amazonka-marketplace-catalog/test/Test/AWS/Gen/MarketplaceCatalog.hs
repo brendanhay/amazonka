@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceCatalog where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MarketplaceCatalog
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceCatalog.Internal
@@ -115,7 +115,7 @@ responseListEntities =
     "ListEntitiesResponse"
     "fixture/ListEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntities)
+    (Proxy.Proxy :: Proxy.Proxy ListEntities)
 
 responseListChangeSets :: ListChangeSetsResponse -> TestTree
 responseListChangeSets =
@@ -123,7 +123,7 @@ responseListChangeSets =
     "ListChangeSetsResponse"
     "fixture/ListChangeSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChangeSets)
+    (Proxy.Proxy :: Proxy.Proxy ListChangeSets)
 
 responseStartChangeSet :: StartChangeSetResponse -> TestTree
 responseStartChangeSet =
@@ -131,7 +131,7 @@ responseStartChangeSet =
     "StartChangeSetResponse"
     "fixture/StartChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy StartChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy StartChangeSet)
 
 responseCancelChangeSet :: CancelChangeSetResponse -> TestTree
 responseCancelChangeSet =
@@ -139,7 +139,7 @@ responseCancelChangeSet =
     "CancelChangeSetResponse"
     "fixture/CancelChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy CancelChangeSet)
 
 responseDescribeEntity :: DescribeEntityResponse -> TestTree
 responseDescribeEntity =
@@ -147,7 +147,7 @@ responseDescribeEntity =
     "DescribeEntityResponse"
     "fixture/DescribeEntityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEntity)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntity)
 
 responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
 responseDescribeChangeSet =
@@ -155,4 +155,4 @@ responseDescribeChangeSet =
     "DescribeChangeSetResponse"
     "fixture/DescribeChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChangeSet)

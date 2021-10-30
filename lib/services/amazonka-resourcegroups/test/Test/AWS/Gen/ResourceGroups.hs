@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ResourceGroups where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ResourceGroups
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -235,7 +235,7 @@ responseSearchResources =
     "SearchResourcesResponse"
     "fixture/SearchResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchResources)
+    (Proxy.Proxy :: Proxy.Proxy SearchResources)
 
 responseGetTags :: GetTagsResponse -> TestTree
 responseGetTags =
@@ -243,7 +243,7 @@ responseGetTags =
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTags)
+    (Proxy.Proxy :: Proxy.Proxy GetTags)
 
 responseTag :: TagResponse -> TestTree
 responseTag =
@@ -251,7 +251,7 @@ responseTag =
     "TagResponse"
     "fixture/TagResponse.proto"
     defaultService
-    (Proxy :: Proxy Tag)
+    (Proxy.Proxy :: Proxy.Proxy Tag)
 
 responseUngroupResources :: UngroupResourcesResponse -> TestTree
 responseUngroupResources =
@@ -259,7 +259,7 @@ responseUngroupResources =
     "UngroupResourcesResponse"
     "fixture/UngroupResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy UngroupResources)
+    (Proxy.Proxy :: Proxy.Proxy UngroupResources)
 
 responseGroupResources :: GroupResourcesResponse -> TestTree
 responseGroupResources =
@@ -267,7 +267,7 @@ responseGroupResources =
     "GroupResourcesResponse"
     "fixture/GroupResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy GroupResources)
+    (Proxy.Proxy :: Proxy.Proxy GroupResources)
 
 responsePutGroupConfiguration :: PutGroupConfigurationResponse -> TestTree
 responsePutGroupConfiguration =
@@ -275,7 +275,7 @@ responsePutGroupConfiguration =
     "PutGroupConfigurationResponse"
     "fixture/PutGroupConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutGroupConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutGroupConfiguration)
 
 responseUntag :: UntagResponse -> TestTree
 responseUntag =
@@ -283,7 +283,7 @@ responseUntag =
     "UntagResponse"
     "fixture/UntagResponse.proto"
     defaultService
-    (Proxy :: Proxy Untag)
+    (Proxy.Proxy :: Proxy.Proxy Untag)
 
 responseUpdateGroupQuery :: UpdateGroupQueryResponse -> TestTree
 responseUpdateGroupQuery =
@@ -291,7 +291,7 @@ responseUpdateGroupQuery =
     "UpdateGroupQueryResponse"
     "fixture/UpdateGroupQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroupQuery)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroupQuery)
 
 responseListGroupResources :: ListGroupResourcesResponse -> TestTree
 responseListGroupResources =
@@ -299,7 +299,7 @@ responseListGroupResources =
     "ListGroupResourcesResponse"
     "fixture/ListGroupResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupResources)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupResources)
 
 responseGetGroupQuery :: GetGroupQueryResponse -> TestTree
 responseGetGroupQuery =
@@ -307,7 +307,7 @@ responseGetGroupQuery =
     "GetGroupQueryResponse"
     "fixture/GetGroupQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupQuery)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupQuery)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -315,7 +315,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -323,7 +323,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =
@@ -331,7 +331,7 @@ responseUpdateGroup =
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -339,7 +339,7 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
 responseGetGroup :: GetGroupResponse -> TestTree
 responseGetGroup =
@@ -347,7 +347,7 @@ responseGetGroup =
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetGroup)
 
 responseGetGroupConfiguration :: GetGroupConfigurationResponse -> TestTree
 responseGetGroupConfiguration =
@@ -355,4 +355,4 @@ responseGetGroupConfiguration =
     "GetGroupConfigurationResponse"
     "fixture/GetGroupConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupConfiguration)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.OpsWorks where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.OpsWorks
 import Test.AWS.Fixture
 import Test.AWS.OpsWorks.Internal
@@ -931,7 +931,7 @@ responseDescribeRdsDbInstances =
     "DescribeRdsDbInstancesResponse"
     "fixture/DescribeRdsDbInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRdsDbInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRdsDbInstances)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack =
@@ -939,7 +939,7 @@ responseDeleteStack =
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStack)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStack)
 
 responseUpdateStack :: UpdateStackResponse -> TestTree
 responseUpdateStack =
@@ -947,7 +947,7 @@ responseUpdateStack =
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStack)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStack)
 
 responseCreateLayer :: CreateLayerResponse -> TestTree
 responseCreateLayer =
@@ -955,7 +955,7 @@ responseCreateLayer =
     "CreateLayerResponse"
     "fixture/CreateLayerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLayer)
+    (Proxy.Proxy :: Proxy.Proxy CreateLayer)
 
 responseSetLoadBasedAutoScaling :: SetLoadBasedAutoScalingResponse -> TestTree
 responseSetLoadBasedAutoScaling =
@@ -963,7 +963,7 @@ responseSetLoadBasedAutoScaling =
     "SetLoadBasedAutoScalingResponse"
     "fixture/SetLoadBasedAutoScalingResponse.proto"
     defaultService
-    (Proxy :: Proxy SetLoadBasedAutoScaling)
+    (Proxy.Proxy :: Proxy.Proxy SetLoadBasedAutoScaling)
 
 responseDeregisterRdsDbInstance :: DeregisterRdsDbInstanceResponse -> TestTree
 responseDeregisterRdsDbInstance =
@@ -971,7 +971,7 @@ responseDeregisterRdsDbInstance =
     "DeregisterRdsDbInstanceResponse"
     "fixture/DeregisterRdsDbInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterRdsDbInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterRdsDbInstance)
 
 responseUnassignVolume :: UnassignVolumeResponse -> TestTree
 responseUnassignVolume =
@@ -979,7 +979,7 @@ responseUnassignVolume =
     "UnassignVolumeResponse"
     "fixture/UnassignVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy UnassignVolume)
+    (Proxy.Proxy :: Proxy.Proxy UnassignVolume)
 
 responseCreateInstance :: CreateInstanceResponse -> TestTree
 responseCreateInstance =
@@ -987,7 +987,7 @@ responseCreateInstance =
     "CreateInstanceResponse"
     "fixture/CreateInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstance)
 
 responseDescribeLayers :: DescribeLayersResponse -> TestTree
 responseDescribeLayers =
@@ -995,7 +995,7 @@ responseDescribeLayers =
     "DescribeLayersResponse"
     "fixture/DescribeLayersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLayers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLayers)
 
 responseRegisterElasticIp :: RegisterElasticIpResponse -> TestTree
 responseRegisterElasticIp =
@@ -1003,7 +1003,7 @@ responseRegisterElasticIp =
     "RegisterElasticIpResponse"
     "fixture/RegisterElasticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterElasticIp)
+    (Proxy.Proxy :: Proxy.Proxy RegisterElasticIp)
 
 responseDescribeAgentVersions :: DescribeAgentVersionsResponse -> TestTree
 responseDescribeAgentVersions =
@@ -1011,7 +1011,7 @@ responseDescribeAgentVersions =
     "DescribeAgentVersionsResponse"
     "fixture/DescribeAgentVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAgentVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAgentVersions)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
 responseCreateDeployment =
@@ -1019,7 +1019,7 @@ responseCreateDeployment =
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseAssignInstance :: AssignInstanceResponse -> TestTree
 responseAssignInstance =
@@ -1027,7 +1027,7 @@ responseAssignInstance =
     "AssignInstanceResponse"
     "fixture/AssignInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssignInstance)
+    (Proxy.Proxy :: Proxy.Proxy AssignInstance)
 
 responseDescribeStacks :: DescribeStacksResponse -> TestTree
 responseDescribeStacks =
@@ -1035,7 +1035,7 @@ responseDescribeStacks =
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStacks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStacks)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
 responseDeleteInstance =
@@ -1043,7 +1043,7 @@ responseDeleteInstance =
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstance)
 
 responseUpdateInstance :: UpdateInstanceResponse -> TestTree
 responseUpdateInstance =
@@ -1051,7 +1051,7 @@ responseUpdateInstance =
     "UpdateInstanceResponse"
     "fixture/UpdateInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstance)
 
 responseDeregisterVolume :: DeregisterVolumeResponse -> TestTree
 responseDeregisterVolume =
@@ -1059,7 +1059,7 @@ responseDeregisterVolume =
     "DeregisterVolumeResponse"
     "fixture/DeregisterVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterVolume)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterVolume)
 
 responseRebootInstance :: RebootInstanceResponse -> TestTree
 responseRebootInstance =
@@ -1067,7 +1067,7 @@ responseRebootInstance =
     "RebootInstanceResponse"
     "fixture/RebootInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootInstance)
+    (Proxy.Proxy :: Proxy.Proxy RebootInstance)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp =
@@ -1075,7 +1075,7 @@ responseDeleteApp =
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApp)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
 
 responseUpdateApp :: UpdateAppResponse -> TestTree
 responseUpdateApp =
@@ -1083,7 +1083,7 @@ responseUpdateApp =
     "UpdateAppResponse"
     "fixture/UpdateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApp)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApp)
 
 responseUpdateRdsDbInstance :: UpdateRdsDbInstanceResponse -> TestTree
 responseUpdateRdsDbInstance =
@@ -1091,7 +1091,7 @@ responseUpdateRdsDbInstance =
     "UpdateRdsDbInstanceResponse"
     "fixture/UpdateRdsDbInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRdsDbInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRdsDbInstance)
 
 responseDescribeTimeBasedAutoScaling :: DescribeTimeBasedAutoScalingResponse -> TestTree
 responseDescribeTimeBasedAutoScaling =
@@ -1099,7 +1099,7 @@ responseDescribeTimeBasedAutoScaling =
     "DescribeTimeBasedAutoScalingResponse"
     "fixture/DescribeTimeBasedAutoScalingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTimeBasedAutoScaling)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTimeBasedAutoScaling)
 
 responseStopStack :: StopStackResponse -> TestTree
 responseStopStack =
@@ -1107,7 +1107,7 @@ responseStopStack =
     "StopStackResponse"
     "fixture/StopStackResponse.proto"
     defaultService
-    (Proxy :: Proxy StopStack)
+    (Proxy.Proxy :: Proxy.Proxy StopStack)
 
 responseDescribeVolumes :: DescribeVolumesResponse -> TestTree
 responseDescribeVolumes =
@@ -1115,7 +1115,7 @@ responseDescribeVolumes =
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVolumes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVolumes)
 
 responseDisassociateElasticIp :: DisassociateElasticIpResponse -> TestTree
 responseDisassociateElasticIp =
@@ -1123,7 +1123,7 @@ responseDisassociateElasticIp =
     "DisassociateElasticIpResponse"
     "fixture/DisassociateElasticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateElasticIp)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateElasticIp)
 
 responseRegisterEcsCluster :: RegisterEcsClusterResponse -> TestTree
 responseRegisterEcsCluster =
@@ -1131,7 +1131,7 @@ responseRegisterEcsCluster =
     "RegisterEcsClusterResponse"
     "fixture/RegisterEcsClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterEcsCluster)
+    (Proxy.Proxy :: Proxy.Proxy RegisterEcsCluster)
 
 responseStopInstance :: StopInstanceResponse -> TestTree
 responseStopInstance =
@@ -1139,7 +1139,7 @@ responseStopInstance =
     "StopInstanceResponse"
     "fixture/StopInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StopInstance)
+    (Proxy.Proxy :: Proxy.Proxy StopInstance)
 
 responseRegisterVolume :: RegisterVolumeResponse -> TestTree
 responseRegisterVolume =
@@ -1147,7 +1147,7 @@ responseRegisterVolume =
     "RegisterVolumeResponse"
     "fixture/RegisterVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterVolume)
+    (Proxy.Proxy :: Proxy.Proxy RegisterVolume)
 
 responseSetTimeBasedAutoScaling :: SetTimeBasedAutoScalingResponse -> TestTree
 responseSetTimeBasedAutoScaling =
@@ -1155,7 +1155,7 @@ responseSetTimeBasedAutoScaling =
     "SetTimeBasedAutoScalingResponse"
     "fixture/SetTimeBasedAutoScalingResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTimeBasedAutoScaling)
+    (Proxy.Proxy :: Proxy.Proxy SetTimeBasedAutoScaling)
 
 responseDescribeUserProfiles :: DescribeUserProfilesResponse -> TestTree
 responseDescribeUserProfiles =
@@ -1163,7 +1163,7 @@ responseDescribeUserProfiles =
     "DescribeUserProfilesResponse"
     "fixture/DescribeUserProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserProfiles)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserProfiles)
 
 responseAttachElasticLoadBalancer :: AttachElasticLoadBalancerResponse -> TestTree
 responseAttachElasticLoadBalancer =
@@ -1171,7 +1171,7 @@ responseAttachElasticLoadBalancer =
     "AttachElasticLoadBalancerResponse"
     "fixture/AttachElasticLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachElasticLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy AttachElasticLoadBalancer)
 
 responseDeregisterElasticIp :: DeregisterElasticIpResponse -> TestTree
 responseDeregisterElasticIp =
@@ -1179,7 +1179,7 @@ responseDeregisterElasticIp =
     "DeregisterElasticIpResponse"
     "fixture/DeregisterElasticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterElasticIp)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterElasticIp)
 
 responseDeregisterEcsCluster :: DeregisterEcsClusterResponse -> TestTree
 responseDeregisterEcsCluster =
@@ -1187,7 +1187,7 @@ responseDeregisterEcsCluster =
     "DeregisterEcsClusterResponse"
     "fixture/DeregisterEcsClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterEcsCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterEcsCluster)
 
 responseDescribeApps :: DescribeAppsResponse -> TestTree
 responseDescribeApps =
@@ -1195,7 +1195,7 @@ responseDescribeApps =
     "DescribeAppsResponse"
     "fixture/DescribeAppsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApps)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApps)
 
 responseUpdateMyUserProfile :: UpdateMyUserProfileResponse -> TestTree
 responseUpdateMyUserProfile =
@@ -1203,7 +1203,7 @@ responseUpdateMyUserProfile =
     "UpdateMyUserProfileResponse"
     "fixture/UpdateMyUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMyUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMyUserProfile)
 
 responseDescribeStackSummary :: DescribeStackSummaryResponse -> TestTree
 responseDescribeStackSummary =
@@ -1211,7 +1211,7 @@ responseDescribeStackSummary =
     "DescribeStackSummaryResponse"
     "fixture/DescribeStackSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackSummary)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackSummary)
 
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
 responseDescribeInstances =
@@ -1219,7 +1219,7 @@ responseDescribeInstances =
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstances)
 
 responseDescribeDeployments :: DescribeDeploymentsResponse -> TestTree
 responseDescribeDeployments =
@@ -1227,7 +1227,7 @@ responseDescribeDeployments =
     "DescribeDeploymentsResponse"
     "fixture/DescribeDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeployments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeployments)
 
 responseDescribeElasticIps :: DescribeElasticIpsResponse -> TestTree
 responseDescribeElasticIps =
@@ -1235,7 +1235,7 @@ responseDescribeElasticIps =
     "DescribeElasticIpsResponse"
     "fixture/DescribeElasticIpsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticIps)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticIps)
 
 responseGrantAccess :: GrantAccessResponse -> TestTree
 responseGrantAccess =
@@ -1243,7 +1243,7 @@ responseGrantAccess =
     "GrantAccessResponse"
     "fixture/GrantAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy GrantAccess)
+    (Proxy.Proxy :: Proxy.Proxy GrantAccess)
 
 responseDeleteLayer :: DeleteLayerResponse -> TestTree
 responseDeleteLayer =
@@ -1251,7 +1251,7 @@ responseDeleteLayer =
     "DeleteLayerResponse"
     "fixture/DeleteLayerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLayer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLayer)
 
 responseUpdateLayer :: UpdateLayerResponse -> TestTree
 responseUpdateLayer =
@@ -1259,7 +1259,7 @@ responseUpdateLayer =
     "UpdateLayerResponse"
     "fixture/UpdateLayerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLayer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLayer)
 
 responseCreateStack :: CreateStackResponse -> TestTree
 responseCreateStack =
@@ -1267,7 +1267,7 @@ responseCreateStack =
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStack)
+    (Proxy.Proxy :: Proxy.Proxy CreateStack)
 
 responseUpdateElasticIp :: UpdateElasticIpResponse -> TestTree
 responseUpdateElasticIp =
@@ -1275,7 +1275,7 @@ responseUpdateElasticIp =
     "UpdateElasticIpResponse"
     "fixture/UpdateElasticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateElasticIp)
+    (Proxy.Proxy :: Proxy.Proxy UpdateElasticIp)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
@@ -1283,7 +1283,7 @@ responseCreateApp =
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApp)
+    (Proxy.Proxy :: Proxy.Proxy CreateApp)
 
 responseGetHostnameSuggestion :: GetHostnameSuggestionResponse -> TestTree
 responseGetHostnameSuggestion =
@@ -1291,7 +1291,7 @@ responseGetHostnameSuggestion =
     "GetHostnameSuggestionResponse"
     "fixture/GetHostnameSuggestionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHostnameSuggestion)
+    (Proxy.Proxy :: Proxy.Proxy GetHostnameSuggestion)
 
 responseCloneStack :: CloneStackResponse -> TestTree
 responseCloneStack =
@@ -1299,7 +1299,7 @@ responseCloneStack =
     "CloneStackResponse"
     "fixture/CloneStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CloneStack)
+    (Proxy.Proxy :: Proxy.Proxy CloneStack)
 
 responseDescribePermissions :: DescribePermissionsResponse -> TestTree
 responseDescribePermissions =
@@ -1307,7 +1307,7 @@ responseDescribePermissions =
     "DescribePermissionsResponse"
     "fixture/DescribePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribePermissions)
 
 responseDetachElasticLoadBalancer :: DetachElasticLoadBalancerResponse -> TestTree
 responseDetachElasticLoadBalancer =
@@ -1315,7 +1315,7 @@ responseDetachElasticLoadBalancer =
     "DetachElasticLoadBalancerResponse"
     "fixture/DetachElasticLoadBalancerResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachElasticLoadBalancer)
+    (Proxy.Proxy :: Proxy.Proxy DetachElasticLoadBalancer)
 
 responseRegisterInstance :: RegisterInstanceResponse -> TestTree
 responseRegisterInstance =
@@ -1323,7 +1323,7 @@ responseRegisterInstance =
     "RegisterInstanceResponse"
     "fixture/RegisterInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterInstance)
+    (Proxy.Proxy :: Proxy.Proxy RegisterInstance)
 
 responseAssociateElasticIp :: AssociateElasticIpResponse -> TestTree
 responseAssociateElasticIp =
@@ -1331,7 +1331,7 @@ responseAssociateElasticIp =
     "AssociateElasticIpResponse"
     "fixture/AssociateElasticIpResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateElasticIp)
+    (Proxy.Proxy :: Proxy.Proxy AssociateElasticIp)
 
 responseDescribeLoadBasedAutoScaling :: DescribeLoadBasedAutoScalingResponse -> TestTree
 responseDescribeLoadBasedAutoScaling =
@@ -1339,7 +1339,7 @@ responseDescribeLoadBasedAutoScaling =
     "DescribeLoadBasedAutoScalingResponse"
     "fixture/DescribeLoadBasedAutoScalingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoadBasedAutoScaling)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoadBasedAutoScaling)
 
 responseDescribeStackProvisioningParameters :: DescribeStackProvisioningParametersResponse -> TestTree
 responseDescribeStackProvisioningParameters =
@@ -1347,7 +1347,7 @@ responseDescribeStackProvisioningParameters =
     "DescribeStackProvisioningParametersResponse"
     "fixture/DescribeStackProvisioningParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackProvisioningParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackProvisioningParameters)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1355,7 +1355,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -1363,7 +1363,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseUnassignInstance :: UnassignInstanceResponse -> TestTree
 responseUnassignInstance =
@@ -1371,7 +1371,7 @@ responseUnassignInstance =
     "UnassignInstanceResponse"
     "fixture/UnassignInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UnassignInstance)
+    (Proxy.Proxy :: Proxy.Proxy UnassignInstance)
 
 responseDescribeMyUserProfile :: DescribeMyUserProfileResponse -> TestTree
 responseDescribeMyUserProfile =
@@ -1379,7 +1379,7 @@ responseDescribeMyUserProfile =
     "DescribeMyUserProfileResponse"
     "fixture/DescribeMyUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMyUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMyUserProfile)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
 responseDeleteUserProfile =
@@ -1387,7 +1387,7 @@ responseDeleteUserProfile =
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
 responseUpdateUserProfile =
@@ -1395,7 +1395,7 @@ responseUpdateUserProfile =
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserProfile)
 
 responseDescribeServiceErrors :: DescribeServiceErrorsResponse -> TestTree
 responseDescribeServiceErrors =
@@ -1403,7 +1403,7 @@ responseDescribeServiceErrors =
     "DescribeServiceErrorsResponse"
     "fixture/DescribeServiceErrorsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceErrors)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceErrors)
 
 responseRegisterRdsDbInstance :: RegisterRdsDbInstanceResponse -> TestTree
 responseRegisterRdsDbInstance =
@@ -1411,7 +1411,7 @@ responseRegisterRdsDbInstance =
     "RegisterRdsDbInstanceResponse"
     "fixture/RegisterRdsDbInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterRdsDbInstance)
+    (Proxy.Proxy :: Proxy.Proxy RegisterRdsDbInstance)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1419,7 +1419,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseStartStack :: StartStackResponse -> TestTree
 responseStartStack =
@@ -1427,7 +1427,7 @@ responseStartStack =
     "StartStackResponse"
     "fixture/StartStackResponse.proto"
     defaultService
-    (Proxy :: Proxy StartStack)
+    (Proxy.Proxy :: Proxy.Proxy StartStack)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
 responseCreateUserProfile =
@@ -1435,7 +1435,7 @@ responseCreateUserProfile =
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserProfile)
 
 responseDescribeOperatingSystems :: DescribeOperatingSystemsResponse -> TestTree
 responseDescribeOperatingSystems =
@@ -1443,7 +1443,7 @@ responseDescribeOperatingSystems =
     "DescribeOperatingSystemsResponse"
     "fixture/DescribeOperatingSystemsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOperatingSystems)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOperatingSystems)
 
 responseDescribeCommands :: DescribeCommandsResponse -> TestTree
 responseDescribeCommands =
@@ -1451,7 +1451,7 @@ responseDescribeCommands =
     "DescribeCommandsResponse"
     "fixture/DescribeCommandsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCommands)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCommands)
 
 responseAssignVolume :: AssignVolumeResponse -> TestTree
 responseAssignVolume =
@@ -1459,7 +1459,7 @@ responseAssignVolume =
     "AssignVolumeResponse"
     "fixture/AssignVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy AssignVolume)
+    (Proxy.Proxy :: Proxy.Proxy AssignVolume)
 
 responseDescribeElasticLoadBalancers :: DescribeElasticLoadBalancersResponse -> TestTree
 responseDescribeElasticLoadBalancers =
@@ -1467,7 +1467,7 @@ responseDescribeElasticLoadBalancers =
     "DescribeElasticLoadBalancersResponse"
     "fixture/DescribeElasticLoadBalancersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticLoadBalancers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticLoadBalancers)
 
 responseSetPermission :: SetPermissionResponse -> TestTree
 responseSetPermission =
@@ -1475,7 +1475,7 @@ responseSetPermission =
     "SetPermissionResponse"
     "fixture/SetPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy SetPermission)
+    (Proxy.Proxy :: Proxy.Proxy SetPermission)
 
 responseDeregisterInstance :: DeregisterInstanceResponse -> TestTree
 responseDeregisterInstance =
@@ -1483,7 +1483,7 @@ responseDeregisterInstance =
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterInstance)
 
 responseDescribeEcsClusters :: DescribeEcsClustersResponse -> TestTree
 responseDescribeEcsClusters =
@@ -1491,7 +1491,7 @@ responseDescribeEcsClusters =
     "DescribeEcsClustersResponse"
     "fixture/DescribeEcsClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEcsClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEcsClusters)
 
 responseDescribeRaidArrays :: DescribeRaidArraysResponse -> TestTree
 responseDescribeRaidArrays =
@@ -1499,7 +1499,7 @@ responseDescribeRaidArrays =
     "DescribeRaidArraysResponse"
     "fixture/DescribeRaidArraysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRaidArrays)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRaidArrays)
 
 responseUpdateVolume :: UpdateVolumeResponse -> TestTree
 responseUpdateVolume =
@@ -1507,7 +1507,7 @@ responseUpdateVolume =
     "UpdateVolumeResponse"
     "fixture/UpdateVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVolume)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVolume)
 
 responseStartInstance :: StartInstanceResponse -> TestTree
 responseStartInstance =
@@ -1515,4 +1515,4 @@ responseStartInstance =
     "StartInstanceResponse"
     "fixture/StartInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StartInstance)
+    (Proxy.Proxy :: Proxy.Proxy StartInstance)

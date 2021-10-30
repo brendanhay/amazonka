@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ECS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ECS
 import Test.AWS.ECS.Internal
 import Test.AWS.Fixture
@@ -667,7 +667,7 @@ responseListServices =
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServices)
+    (Proxy.Proxy :: Proxy.Proxy ListServices)
 
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
 responseDescribeClusters =
@@ -675,7 +675,7 @@ responseDescribeClusters =
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
 
 responseDeleteService :: DeleteServiceResponse -> TestTree
 responseDeleteService =
@@ -683,7 +683,7 @@ responseDeleteService =
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteService)
+    (Proxy.Proxy :: Proxy.Proxy DeleteService)
 
 responseUpdateService :: UpdateServiceResponse -> TestTree
 responseUpdateService =
@@ -691,7 +691,7 @@ responseUpdateService =
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateService)
+    (Proxy.Proxy :: Proxy.Proxy UpdateService)
 
 responseDiscoverPollEndpoint :: DiscoverPollEndpointResponse -> TestTree
 responseDiscoverPollEndpoint =
@@ -699,7 +699,7 @@ responseDiscoverPollEndpoint =
     "DiscoverPollEndpointResponse"
     "fixture/DiscoverPollEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DiscoverPollEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DiscoverPollEndpoint)
 
 responseSubmitAttachmentStateChanges :: SubmitAttachmentStateChangesResponse -> TestTree
 responseSubmitAttachmentStateChanges =
@@ -707,7 +707,7 @@ responseSubmitAttachmentStateChanges =
     "SubmitAttachmentStateChangesResponse"
     "fixture/SubmitAttachmentStateChangesResponse.proto"
     defaultService
-    (Proxy :: Proxy SubmitAttachmentStateChanges)
+    (Proxy.Proxy :: Proxy.Proxy SubmitAttachmentStateChanges)
 
 responseSubmitContainerStateChange :: SubmitContainerStateChangeResponse -> TestTree
 responseSubmitContainerStateChange =
@@ -715,7 +715,7 @@ responseSubmitContainerStateChange =
     "SubmitContainerStateChangeResponse"
     "fixture/SubmitContainerStateChangeResponse.proto"
     defaultService
-    (Proxy :: Proxy SubmitContainerStateChange)
+    (Proxy.Proxy :: Proxy.Proxy SubmitContainerStateChange)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -723,7 +723,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStopTask :: StopTaskResponse -> TestTree
 responseStopTask =
@@ -731,7 +731,7 @@ responseStopTask =
     "StopTaskResponse"
     "fixture/StopTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy StopTask)
+    (Proxy.Proxy :: Proxy.Proxy StopTask)
 
 responseDescribeTaskDefinition :: DescribeTaskDefinitionResponse -> TestTree
 responseDescribeTaskDefinition =
@@ -739,7 +739,7 @@ responseDescribeTaskDefinition =
     "DescribeTaskDefinitionResponse"
     "fixture/DescribeTaskDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTaskDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTaskDefinition)
 
 responseSubmitTaskStateChange :: SubmitTaskStateChangeResponse -> TestTree
 responseSubmitTaskStateChange =
@@ -747,7 +747,7 @@ responseSubmitTaskStateChange =
     "SubmitTaskStateChangeResponse"
     "fixture/SubmitTaskStateChangeResponse.proto"
     defaultService
-    (Proxy :: Proxy SubmitTaskStateChange)
+    (Proxy.Proxy :: Proxy.Proxy SubmitTaskStateChange)
 
 responseDescribeContainerInstances :: DescribeContainerInstancesResponse -> TestTree
 responseDescribeContainerInstances =
@@ -755,7 +755,7 @@ responseDescribeContainerInstances =
     "DescribeContainerInstancesResponse"
     "fixture/DescribeContainerInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContainerInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContainerInstances)
 
 responseDescribeCapacityProviders :: DescribeCapacityProvidersResponse -> TestTree
 responseDescribeCapacityProviders =
@@ -763,7 +763,7 @@ responseDescribeCapacityProviders =
     "DescribeCapacityProvidersResponse"
     "fixture/DescribeCapacityProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCapacityProviders)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCapacityProviders)
 
 responseUpdateContainerInstancesState :: UpdateContainerInstancesStateResponse -> TestTree
 responseUpdateContainerInstancesState =
@@ -771,7 +771,7 @@ responseUpdateContainerInstancesState =
     "UpdateContainerInstancesStateResponse"
     "fixture/UpdateContainerInstancesStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContainerInstancesState)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContainerInstancesState)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -779,7 +779,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
 responseUpdateCluster =
@@ -787,7 +787,7 @@ responseUpdateCluster =
     "UpdateClusterResponse"
     "fixture/UpdateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCluster)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -795,7 +795,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responsePutAccountSetting :: PutAccountSettingResponse -> TestTree
 responsePutAccountSetting =
@@ -803,7 +803,7 @@ responsePutAccountSetting =
     "PutAccountSettingResponse"
     "fixture/PutAccountSettingResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccountSetting)
+    (Proxy.Proxy :: Proxy.Proxy PutAccountSetting)
 
 responseDeleteAccountSetting :: DeleteAccountSettingResponse -> TestTree
 responseDeleteAccountSetting =
@@ -811,7 +811,7 @@ responseDeleteAccountSetting =
     "DeleteAccountSettingResponse"
     "fixture/DeleteAccountSettingResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccountSetting)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountSetting)
 
 responseListTaskDefinitions :: ListTaskDefinitionsResponse -> TestTree
 responseListTaskDefinitions =
@@ -819,7 +819,7 @@ responseListTaskDefinitions =
     "ListTaskDefinitionsResponse"
     "fixture/ListTaskDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTaskDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListTaskDefinitions)
 
 responseRunTask :: RunTaskResponse -> TestTree
 responseRunTask =
@@ -827,7 +827,7 @@ responseRunTask =
     "RunTaskResponse"
     "fixture/RunTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy RunTask)
+    (Proxy.Proxy :: Proxy.Proxy RunTask)
 
 responseDeleteCapacityProvider :: DeleteCapacityProviderResponse -> TestTree
 responseDeleteCapacityProvider =
@@ -835,7 +835,7 @@ responseDeleteCapacityProvider =
     "DeleteCapacityProviderResponse"
     "fixture/DeleteCapacityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCapacityProvider)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCapacityProvider)
 
 responseListTasks :: ListTasksResponse -> TestTree
 responseListTasks =
@@ -843,7 +843,7 @@ responseListTasks =
     "ListTasksResponse"
     "fixture/ListTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTasks)
+    (Proxy.Proxy :: Proxy.Proxy ListTasks)
 
 responseUpdateCapacityProvider :: UpdateCapacityProviderResponse -> TestTree
 responseUpdateCapacityProvider =
@@ -851,7 +851,7 @@ responseUpdateCapacityProvider =
     "UpdateCapacityProviderResponse"
     "fixture/UpdateCapacityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCapacityProvider)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCapacityProvider)
 
 responseRegisterContainerInstance :: RegisterContainerInstanceResponse -> TestTree
 responseRegisterContainerInstance =
@@ -859,7 +859,7 @@ responseRegisterContainerInstance =
     "RegisterContainerInstanceResponse"
     "fixture/RegisterContainerInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterContainerInstance)
+    (Proxy.Proxy :: Proxy.Proxy RegisterContainerInstance)
 
 responseUpdateContainerAgent :: UpdateContainerAgentResponse -> TestTree
 responseUpdateContainerAgent =
@@ -867,7 +867,7 @@ responseUpdateContainerAgent =
     "UpdateContainerAgentResponse"
     "fixture/UpdateContainerAgentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContainerAgent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContainerAgent)
 
 responseListContainerInstances :: ListContainerInstancesResponse -> TestTree
 responseListContainerInstances =
@@ -875,7 +875,7 @@ responseListContainerInstances =
     "ListContainerInstancesResponse"
     "fixture/ListContainerInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContainerInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListContainerInstances)
 
 responseUpdateServicePrimaryTaskSet :: UpdateServicePrimaryTaskSetResponse -> TestTree
 responseUpdateServicePrimaryTaskSet =
@@ -883,7 +883,7 @@ responseUpdateServicePrimaryTaskSet =
     "UpdateServicePrimaryTaskSetResponse"
     "fixture/UpdateServicePrimaryTaskSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServicePrimaryTaskSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServicePrimaryTaskSet)
 
 responseListTaskDefinitionFamilies :: ListTaskDefinitionFamiliesResponse -> TestTree
 responseListTaskDefinitionFamilies =
@@ -891,7 +891,7 @@ responseListTaskDefinitionFamilies =
     "ListTaskDefinitionFamiliesResponse"
     "fixture/ListTaskDefinitionFamiliesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTaskDefinitionFamilies)
+    (Proxy.Proxy :: Proxy.Proxy ListTaskDefinitionFamilies)
 
 responseStartTask :: StartTaskResponse -> TestTree
 responseStartTask =
@@ -899,7 +899,7 @@ responseStartTask =
     "StartTaskResponse"
     "fixture/StartTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTask)
+    (Proxy.Proxy :: Proxy.Proxy StartTask)
 
 responsePutClusterCapacityProviders :: PutClusterCapacityProvidersResponse -> TestTree
 responsePutClusterCapacityProviders =
@@ -907,7 +907,7 @@ responsePutClusterCapacityProviders =
     "PutClusterCapacityProvidersResponse"
     "fixture/PutClusterCapacityProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy PutClusterCapacityProviders)
+    (Proxy.Proxy :: Proxy.Proxy PutClusterCapacityProviders)
 
 responsePutAccountSettingDefault :: PutAccountSettingDefaultResponse -> TestTree
 responsePutAccountSettingDefault =
@@ -915,7 +915,7 @@ responsePutAccountSettingDefault =
     "PutAccountSettingDefaultResponse"
     "fixture/PutAccountSettingDefaultResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccountSettingDefault)
+    (Proxy.Proxy :: Proxy.Proxy PutAccountSettingDefault)
 
 responseListAttributes :: ListAttributesResponse -> TestTree
 responseListAttributes =
@@ -923,7 +923,7 @@ responseListAttributes =
     "ListAttributesResponse"
     "fixture/ListAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ListAttributes)
 
 responseExecuteCommand :: ExecuteCommandResponse -> TestTree
 responseExecuteCommand =
@@ -931,7 +931,7 @@ responseExecuteCommand =
     "ExecuteCommandResponse"
     "fixture/ExecuteCommandResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteCommand)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteCommand)
 
 responseDeregisterTaskDefinition :: DeregisterTaskDefinitionResponse -> TestTree
 responseDeregisterTaskDefinition =
@@ -939,7 +939,7 @@ responseDeregisterTaskDefinition =
     "DeregisterTaskDefinitionResponse"
     "fixture/DeregisterTaskDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTaskDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTaskDefinition)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -947,7 +947,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateTaskSet :: CreateTaskSetResponse -> TestTree
 responseCreateTaskSet =
@@ -955,7 +955,7 @@ responseCreateTaskSet =
     "CreateTaskSetResponse"
     "fixture/CreateTaskSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTaskSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateTaskSet)
 
 responseDescribeTasks :: DescribeTasksResponse -> TestTree
 responseDescribeTasks =
@@ -963,7 +963,7 @@ responseDescribeTasks =
     "DescribeTasksResponse"
     "fixture/DescribeTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTasks)
 
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
@@ -971,7 +971,7 @@ responseListClusters =
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -979,7 +979,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
 responseDescribeServices =
@@ -987,7 +987,7 @@ responseDescribeServices =
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServices)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
 
 responseDeregisterContainerInstance :: DeregisterContainerInstanceResponse -> TestTree
 responseDeregisterContainerInstance =
@@ -995,7 +995,7 @@ responseDeregisterContainerInstance =
     "DeregisterContainerInstanceResponse"
     "fixture/DeregisterContainerInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterContainerInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterContainerInstance)
 
 responseUpdateClusterSettings :: UpdateClusterSettingsResponse -> TestTree
 responseUpdateClusterSettings =
@@ -1003,7 +1003,7 @@ responseUpdateClusterSettings =
     "UpdateClusterSettingsResponse"
     "fixture/UpdateClusterSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateClusterSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterSettings)
 
 responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
 responseDeleteAttributes =
@@ -1011,7 +1011,7 @@ responseDeleteAttributes =
     "DeleteAttributesResponse"
     "fixture/DeleteAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAttributes)
 
 responsePutAttributes :: PutAttributesResponse -> TestTree
 responsePutAttributes =
@@ -1019,7 +1019,7 @@ responsePutAttributes =
     "PutAttributesResponse"
     "fixture/PutAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutAttributes)
 
 responseListAccountSettings :: ListAccountSettingsResponse -> TestTree
 responseListAccountSettings =
@@ -1027,7 +1027,7 @@ responseListAccountSettings =
     "ListAccountSettingsResponse"
     "fixture/ListAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountSettings)
 
 responseDeleteTaskSet :: DeleteTaskSetResponse -> TestTree
 responseDeleteTaskSet =
@@ -1035,7 +1035,7 @@ responseDeleteTaskSet =
     "DeleteTaskSetResponse"
     "fixture/DeleteTaskSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTaskSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTaskSet)
 
 responseUpdateTaskSet :: UpdateTaskSetResponse -> TestTree
 responseUpdateTaskSet =
@@ -1043,7 +1043,7 @@ responseUpdateTaskSet =
     "UpdateTaskSetResponse"
     "fixture/UpdateTaskSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTaskSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTaskSet)
 
 responseCreateCapacityProvider :: CreateCapacityProviderResponse -> TestTree
 responseCreateCapacityProvider =
@@ -1051,7 +1051,7 @@ responseCreateCapacityProvider =
     "CreateCapacityProviderResponse"
     "fixture/CreateCapacityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCapacityProvider)
+    (Proxy.Proxy :: Proxy.Proxy CreateCapacityProvider)
 
 responseDescribeTaskSets :: DescribeTaskSetsResponse -> TestTree
 responseDescribeTaskSets =
@@ -1059,7 +1059,7 @@ responseDescribeTaskSets =
     "DescribeTaskSetsResponse"
     "fixture/DescribeTaskSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTaskSets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTaskSets)
 
 responseRegisterTaskDefinition :: RegisterTaskDefinitionResponse -> TestTree
 responseRegisterTaskDefinition =
@@ -1067,7 +1067,7 @@ responseRegisterTaskDefinition =
     "RegisterTaskDefinitionResponse"
     "fixture/RegisterTaskDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTaskDefinition)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTaskDefinition)
 
 responseCreateService :: CreateServiceResponse -> TestTree
 responseCreateService =
@@ -1075,4 +1075,4 @@ responseCreateService =
     "CreateServiceResponse"
     "fixture/CreateServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateService)
+    (Proxy.Proxy :: Proxy.Proxy CreateService)

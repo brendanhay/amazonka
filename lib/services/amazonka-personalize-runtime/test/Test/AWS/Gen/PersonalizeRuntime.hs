@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PersonalizeRuntime where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.PersonalizeRuntime
 import Test.AWS.Fixture
 import Test.AWS.PersonalizeRuntime.Internal
@@ -67,7 +67,7 @@ responseGetRecommendations =
     "GetRecommendationsResponse"
     "fixture/GetRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
 
 responseGetPersonalizedRanking :: GetPersonalizedRankingResponse -> TestTree
 responseGetPersonalizedRanking =
@@ -75,4 +75,4 @@ responseGetPersonalizedRanking =
     "GetPersonalizedRankingResponse"
     "fixture/GetPersonalizedRankingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPersonalizedRanking)
+    (Proxy.Proxy :: Proxy.Proxy GetPersonalizedRanking)

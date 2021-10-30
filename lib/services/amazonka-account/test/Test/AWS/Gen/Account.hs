@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Account where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Account
 import Test.AWS.Account.Internal
 import Test.AWS.Fixture
@@ -79,7 +79,7 @@ responseDeleteAlternateContact =
     "DeleteAlternateContactResponse"
     "fixture/DeleteAlternateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlternateContact)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlternateContact)
 
 responsePutAlternateContact :: PutAlternateContactResponse -> TestTree
 responsePutAlternateContact =
@@ -87,7 +87,7 @@ responsePutAlternateContact =
     "PutAlternateContactResponse"
     "fixture/PutAlternateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAlternateContact)
+    (Proxy.Proxy :: Proxy.Proxy PutAlternateContact)
 
 responseGetAlternateContact :: GetAlternateContactResponse -> TestTree
 responseGetAlternateContact =
@@ -95,4 +95,4 @@ responseGetAlternateContact =
     "GetAlternateContactResponse"
     "fixture/GetAlternateContactResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAlternateContact)
+    (Proxy.Proxy :: Proxy.Proxy GetAlternateContact)

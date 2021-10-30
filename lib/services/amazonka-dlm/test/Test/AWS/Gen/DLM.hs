@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DLM where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DLM
 import Test.AWS.DLM.Internal
 import Test.AWS.Fixture
@@ -139,7 +139,7 @@ responseDeleteLifecyclePolicy =
     "DeleteLifecyclePolicyResponse"
     "fixture/DeleteLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLifecyclePolicy)
 
 responseUpdateLifecyclePolicy :: UpdateLifecyclePolicyResponse -> TestTree
 responseUpdateLifecyclePolicy =
@@ -147,7 +147,7 @@ responseUpdateLifecyclePolicy =
     "UpdateLifecyclePolicyResponse"
     "fixture/UpdateLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLifecyclePolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -155,7 +155,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateLifecyclePolicy :: CreateLifecyclePolicyResponse -> TestTree
 responseCreateLifecyclePolicy =
@@ -163,7 +163,7 @@ responseCreateLifecyclePolicy =
     "CreateLifecyclePolicyResponse"
     "fixture/CreateLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateLifecyclePolicy)
 
 responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
 responseGetLifecyclePolicy =
@@ -171,7 +171,7 @@ responseGetLifecyclePolicy =
     "GetLifecyclePolicyResponse"
     "fixture/GetLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetLifecyclePolicy)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -179,7 +179,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -187,7 +187,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetLifecyclePolicies :: GetLifecyclePoliciesResponse -> TestTree
 responseGetLifecyclePolicies =
@@ -195,4 +195,4 @@ responseGetLifecyclePolicies =
     "GetLifecyclePoliciesResponse"
     "fixture/GetLifecyclePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLifecyclePolicies)
+    (Proxy.Proxy :: Proxy.Proxy GetLifecyclePolicies)

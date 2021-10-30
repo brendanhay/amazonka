@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Amplify where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Amplify
 import Test.AWS.Amplify.Internal
 import Test.AWS.Fixture
@@ -487,7 +487,7 @@ responseGetDomainAssociation =
     "GetDomainAssociationResponse"
     "fixture/GetDomainAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainAssociation)
 
 responseListArtifacts :: ListArtifactsResponse -> TestTree
 responseListArtifacts =
@@ -495,7 +495,7 @@ responseListArtifacts =
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListArtifacts)
+    (Proxy.Proxy :: Proxy.Proxy ListArtifacts)
 
 responseStopJob :: StopJobResponse -> TestTree
 responseStopJob =
@@ -503,7 +503,7 @@ responseStopJob =
     "StopJobResponse"
     "fixture/StopJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopJob)
+    (Proxy.Proxy :: Proxy.Proxy StopJob)
 
 responseGetBackendEnvironment :: GetBackendEnvironmentResponse -> TestTree
 responseGetBackendEnvironment =
@@ -511,7 +511,7 @@ responseGetBackendEnvironment =
     "GetBackendEnvironmentResponse"
     "fixture/GetBackendEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackendEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy GetBackendEnvironment)
 
 responseCreateWebhook :: CreateWebhookResponse -> TestTree
 responseCreateWebhook =
@@ -519,7 +519,7 @@ responseCreateWebhook =
     "CreateWebhookResponse"
     "fixture/CreateWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWebhook)
+    (Proxy.Proxy :: Proxy.Proxy CreateWebhook)
 
 responseGetBranch :: GetBranchResponse -> TestTree
 responseGetBranch =
@@ -527,7 +527,7 @@ responseGetBranch =
     "GetBranchResponse"
     "fixture/GetBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBranch)
+    (Proxy.Proxy :: Proxy.Proxy GetBranch)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -535,7 +535,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateDomainAssociation :: CreateDomainAssociationResponse -> TestTree
 responseCreateDomainAssociation =
@@ -543,7 +543,7 @@ responseCreateDomainAssociation =
     "CreateDomainAssociationResponse"
     "fixture/CreateDomainAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomainAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomainAssociation)
 
 responseGetWebhook :: GetWebhookResponse -> TestTree
 responseGetWebhook =
@@ -551,7 +551,7 @@ responseGetWebhook =
     "GetWebhookResponse"
     "fixture/GetWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWebhook)
+    (Proxy.Proxy :: Proxy.Proxy GetWebhook)
 
 responseDeleteBranch :: DeleteBranchResponse -> TestTree
 responseDeleteBranch =
@@ -559,7 +559,7 @@ responseDeleteBranch =
     "DeleteBranchResponse"
     "fixture/DeleteBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBranch)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBranch)
 
 responseUpdateBranch :: UpdateBranchResponse -> TestTree
 responseUpdateBranch =
@@ -567,7 +567,7 @@ responseUpdateBranch =
     "UpdateBranchResponse"
     "fixture/UpdateBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBranch)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBranch)
 
 responseCreateBackendEnvironment :: CreateBackendEnvironmentResponse -> TestTree
 responseCreateBackendEnvironment =
@@ -575,7 +575,7 @@ responseCreateBackendEnvironment =
     "CreateBackendEnvironmentResponse"
     "fixture/CreateBackendEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackendEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackendEnvironment)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
 responseCreateDeployment =
@@ -583,7 +583,7 @@ responseCreateDeployment =
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseCreateBranch :: CreateBranchResponse -> TestTree
 responseCreateBranch =
@@ -591,7 +591,7 @@ responseCreateBranch =
     "CreateBranchResponse"
     "fixture/CreateBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBranch)
+    (Proxy.Proxy :: Proxy.Proxy CreateBranch)
 
 responseGenerateAccessLogs :: GenerateAccessLogsResponse -> TestTree
 responseGenerateAccessLogs =
@@ -599,7 +599,7 @@ responseGenerateAccessLogs =
     "GenerateAccessLogsResponse"
     "fixture/GenerateAccessLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateAccessLogs)
+    (Proxy.Proxy :: Proxy.Proxy GenerateAccessLogs)
 
 responseListApps :: ListAppsResponse -> TestTree
 responseListApps =
@@ -607,7 +607,7 @@ responseListApps =
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApps)
+    (Proxy.Proxy :: Proxy.Proxy ListApps)
 
 responseListBranches :: ListBranchesResponse -> TestTree
 responseListBranches =
@@ -615,7 +615,7 @@ responseListBranches =
     "ListBranchesResponse"
     "fixture/ListBranchesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBranches)
+    (Proxy.Proxy :: Proxy.Proxy ListBranches)
 
 responseDeleteBackendEnvironment :: DeleteBackendEnvironmentResponse -> TestTree
 responseDeleteBackendEnvironment =
@@ -623,7 +623,7 @@ responseDeleteBackendEnvironment =
     "DeleteBackendEnvironmentResponse"
     "fixture/DeleteBackendEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackendEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackendEnvironment)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp =
@@ -631,7 +631,7 @@ responseDeleteApp =
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApp)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
 
 responseUpdateApp :: UpdateAppResponse -> TestTree
 responseUpdateApp =
@@ -639,7 +639,7 @@ responseUpdateApp =
     "UpdateAppResponse"
     "fixture/UpdateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApp)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApp)
 
 responseGetArtifactUrl :: GetArtifactUrlResponse -> TestTree
 responseGetArtifactUrl =
@@ -647,7 +647,7 @@ responseGetArtifactUrl =
     "GetArtifactUrlResponse"
     "fixture/GetArtifactUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetArtifactUrl)
+    (Proxy.Proxy :: Proxy.Proxy GetArtifactUrl)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -655,7 +655,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
 responseDeleteJob =
@@ -663,7 +663,7 @@ responseDeleteJob =
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
 
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob =
@@ -671,7 +671,7 @@ responseGetJob =
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJob)
+    (Proxy.Proxy :: Proxy.Proxy GetJob)
 
 responseStartJob :: StartJobResponse -> TestTree
 responseStartJob =
@@ -679,7 +679,7 @@ responseStartJob =
     "StartJobResponse"
     "fixture/StartJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartJob)
+    (Proxy.Proxy :: Proxy.Proxy StartJob)
 
 responseGetApp :: GetAppResponse -> TestTree
 responseGetApp =
@@ -687,7 +687,7 @@ responseGetApp =
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApp)
+    (Proxy.Proxy :: Proxy.Proxy GetApp)
 
 responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
 responseUpdateWebhook =
@@ -695,7 +695,7 @@ responseUpdateWebhook =
     "UpdateWebhookResponse"
     "fixture/UpdateWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWebhook)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWebhook)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
 responseDeleteWebhook =
@@ -703,7 +703,7 @@ responseDeleteWebhook =
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWebhook)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
 
 responseListWebhooks :: ListWebhooksResponse -> TestTree
 responseListWebhooks =
@@ -711,7 +711,7 @@ responseListWebhooks =
     "ListWebhooksResponse"
     "fixture/ListWebhooksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWebhooks)
+    (Proxy.Proxy :: Proxy.Proxy ListWebhooks)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
@@ -719,7 +719,7 @@ responseCreateApp =
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApp)
+    (Proxy.Proxy :: Proxy.Proxy CreateApp)
 
 responseDeleteDomainAssociation :: DeleteDomainAssociationResponse -> TestTree
 responseDeleteDomainAssociation =
@@ -727,7 +727,7 @@ responseDeleteDomainAssociation =
     "DeleteDomainAssociationResponse"
     "fixture/DeleteDomainAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomainAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainAssociation)
 
 responseUpdateDomainAssociation :: UpdateDomainAssociationResponse -> TestTree
 responseUpdateDomainAssociation =
@@ -735,7 +735,7 @@ responseUpdateDomainAssociation =
     "UpdateDomainAssociationResponse"
     "fixture/UpdateDomainAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainAssociation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainAssociation)
 
 responseListDomainAssociations :: ListDomainAssociationsResponse -> TestTree
 responseListDomainAssociations =
@@ -743,7 +743,7 @@ responseListDomainAssociations =
     "ListDomainAssociationsResponse"
     "fixture/ListDomainAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainAssociations)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -751,7 +751,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListBackendEnvironments :: ListBackendEnvironmentsResponse -> TestTree
 responseListBackendEnvironments =
@@ -759,7 +759,7 @@ responseListBackendEnvironments =
     "ListBackendEnvironmentsResponse"
     "fixture/ListBackendEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackendEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy ListBackendEnvironments)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -767,7 +767,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseStartDeployment :: StartDeploymentResponse -> TestTree
 responseStartDeployment =
@@ -775,4 +775,4 @@ responseStartDeployment =
     "StartDeploymentResponse"
     "fixture/StartDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StartDeployment)

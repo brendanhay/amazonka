@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSOOIDC where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SSOOIDC
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -79,7 +79,7 @@ responseStartDeviceAuthorization =
     "StartDeviceAuthorizationResponse"
     "fixture/StartDeviceAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDeviceAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy StartDeviceAuthorization)
 
 responseCreateToken :: CreateTokenResponse -> TestTree
 responseCreateToken =
@@ -87,7 +87,7 @@ responseCreateToken =
     "CreateTokenResponse"
     "fixture/CreateTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateToken)
+    (Proxy.Proxy :: Proxy.Proxy CreateToken)
 
 responseRegisterClient :: RegisterClientResponse -> TestTree
 responseRegisterClient =
@@ -95,4 +95,4 @@ responseRegisterClient =
     "RegisterClientResponse"
     "fixture/RegisterClientResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterClient)
+    (Proxy.Proxy :: Proxy.Proxy RegisterClient)

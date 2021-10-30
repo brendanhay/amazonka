@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Signer where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Signer
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -247,7 +247,7 @@ responseStartSigningJob =
     "StartSigningJobResponse"
     "fixture/StartSigningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSigningJob)
+    (Proxy.Proxy :: Proxy.Proxy StartSigningJob)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -255,7 +255,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRevokeSigningProfile :: RevokeSigningProfileResponse -> TestTree
 responseRevokeSigningProfile =
@@ -263,7 +263,7 @@ responseRevokeSigningProfile =
     "RevokeSigningProfileResponse"
     "fixture/RevokeSigningProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeSigningProfile)
+    (Proxy.Proxy :: Proxy.Proxy RevokeSigningProfile)
 
 responseCancelSigningProfile :: CancelSigningProfileResponse -> TestTree
 responseCancelSigningProfile =
@@ -271,7 +271,7 @@ responseCancelSigningProfile =
     "CancelSigningProfileResponse"
     "fixture/CancelSigningProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSigningProfile)
+    (Proxy.Proxy :: Proxy.Proxy CancelSigningProfile)
 
 responsePutSigningProfile :: PutSigningProfileResponse -> TestTree
 responsePutSigningProfile =
@@ -279,7 +279,7 @@ responsePutSigningProfile =
     "PutSigningProfileResponse"
     "fixture/PutSigningProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSigningProfile)
+    (Proxy.Proxy :: Proxy.Proxy PutSigningProfile)
 
 responseAddProfilePermission :: AddProfilePermissionResponse -> TestTree
 responseAddProfilePermission =
@@ -287,7 +287,7 @@ responseAddProfilePermission =
     "AddProfilePermissionResponse"
     "fixture/AddProfilePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddProfilePermission)
+    (Proxy.Proxy :: Proxy.Proxy AddProfilePermission)
 
 responseListSigningProfiles :: ListSigningProfilesResponse -> TestTree
 responseListSigningProfiles =
@@ -295,7 +295,7 @@ responseListSigningProfiles =
     "ListSigningProfilesResponse"
     "fixture/ListSigningProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSigningProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListSigningProfiles)
 
 responseListProfilePermissions :: ListProfilePermissionsResponse -> TestTree
 responseListProfilePermissions =
@@ -303,7 +303,7 @@ responseListProfilePermissions =
     "ListProfilePermissionsResponse"
     "fixture/ListProfilePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProfilePermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListProfilePermissions)
 
 responseRevokeSignature :: RevokeSignatureResponse -> TestTree
 responseRevokeSignature =
@@ -311,7 +311,7 @@ responseRevokeSignature =
     "RevokeSignatureResponse"
     "fixture/RevokeSignatureResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeSignature)
+    (Proxy.Proxy :: Proxy.Proxy RevokeSignature)
 
 responseGetSigningPlatform :: GetSigningPlatformResponse -> TestTree
 responseGetSigningPlatform =
@@ -319,7 +319,7 @@ responseGetSigningPlatform =
     "GetSigningPlatformResponse"
     "fixture/GetSigningPlatformResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSigningPlatform)
+    (Proxy.Proxy :: Proxy.Proxy GetSigningPlatform)
 
 responseListSigningPlatforms :: ListSigningPlatformsResponse -> TestTree
 responseListSigningPlatforms =
@@ -327,7 +327,7 @@ responseListSigningPlatforms =
     "ListSigningPlatformsResponse"
     "fixture/ListSigningPlatformsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSigningPlatforms)
+    (Proxy.Proxy :: Proxy.Proxy ListSigningPlatforms)
 
 responseListSigningJobs :: ListSigningJobsResponse -> TestTree
 responseListSigningJobs =
@@ -335,7 +335,7 @@ responseListSigningJobs =
     "ListSigningJobsResponse"
     "fixture/ListSigningJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSigningJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListSigningJobs)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -343,7 +343,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -351,7 +351,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseRemoveProfilePermission :: RemoveProfilePermissionResponse -> TestTree
 responseRemoveProfilePermission =
@@ -359,7 +359,7 @@ responseRemoveProfilePermission =
     "RemoveProfilePermissionResponse"
     "fixture/RemoveProfilePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveProfilePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemoveProfilePermission)
 
 responseGetSigningProfile :: GetSigningProfileResponse -> TestTree
 responseGetSigningProfile =
@@ -367,7 +367,7 @@ responseGetSigningProfile =
     "GetSigningProfileResponse"
     "fixture/GetSigningProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSigningProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetSigningProfile)
 
 responseDescribeSigningJob :: DescribeSigningJobResponse -> TestTree
 responseDescribeSigningJob =
@@ -375,4 +375,4 @@ responseDescribeSigningJob =
     "DescribeSigningJobResponse"
     "fixture/DescribeSigningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSigningJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSigningJob)

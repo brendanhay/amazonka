@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AmplifyBackend where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.AmplifyBackend
 import Test.AWS.AmplifyBackend.Internal
 import Test.AWS.Fixture
@@ -343,7 +343,7 @@ responseCloneBackend =
     "CloneBackendResponse"
     "fixture/CloneBackendResponse.proto"
     defaultService
-    (Proxy :: Proxy CloneBackend)
+    (Proxy.Proxy :: Proxy.Proxy CloneBackend)
 
 responseDeleteToken :: DeleteTokenResponse -> TestTree
 responseDeleteToken =
@@ -351,7 +351,7 @@ responseDeleteToken =
     "DeleteTokenResponse"
     "fixture/DeleteTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteToken)
+    (Proxy.Proxy :: Proxy.Proxy DeleteToken)
 
 responseCreateBackendConfig :: CreateBackendConfigResponse -> TestTree
 responseCreateBackendConfig =
@@ -359,7 +359,7 @@ responseCreateBackendConfig =
     "CreateBackendConfigResponse"
     "fixture/CreateBackendConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackendConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackendConfig)
 
 responseListBackendJobs :: ListBackendJobsResponse -> TestTree
 responseListBackendJobs =
@@ -367,7 +367,7 @@ responseListBackendJobs =
     "ListBackendJobsResponse"
     "fixture/ListBackendJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBackendJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListBackendJobs)
 
 responseGetBackend :: GetBackendResponse -> TestTree
 responseGetBackend =
@@ -375,7 +375,7 @@ responseGetBackend =
     "GetBackendResponse"
     "fixture/GetBackendResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackend)
+    (Proxy.Proxy :: Proxy.Proxy GetBackend)
 
 responseGetBackendAuth :: GetBackendAuthResponse -> TestTree
 responseGetBackendAuth =
@@ -383,7 +383,7 @@ responseGetBackendAuth =
     "GetBackendAuthResponse"
     "fixture/GetBackendAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackendAuth)
+    (Proxy.Proxy :: Proxy.Proxy GetBackendAuth)
 
 responseCreateBackendAuth :: CreateBackendAuthResponse -> TestTree
 responseCreateBackendAuth =
@@ -391,7 +391,7 @@ responseCreateBackendAuth =
     "CreateBackendAuthResponse"
     "fixture/CreateBackendAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackendAuth)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackendAuth)
 
 responseRemoveBackendConfig :: RemoveBackendConfigResponse -> TestTree
 responseRemoveBackendConfig =
@@ -399,7 +399,7 @@ responseRemoveBackendConfig =
     "RemoveBackendConfigResponse"
     "fixture/RemoveBackendConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveBackendConfig)
+    (Proxy.Proxy :: Proxy.Proxy RemoveBackendConfig)
 
 responseCreateBackend :: CreateBackendResponse -> TestTree
 responseCreateBackend =
@@ -407,7 +407,7 @@ responseCreateBackend =
     "CreateBackendResponse"
     "fixture/CreateBackendResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackend)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackend)
 
 responseGenerateBackendAPIModels :: GenerateBackendAPIModelsResponse -> TestTree
 responseGenerateBackendAPIModels =
@@ -415,7 +415,7 @@ responseGenerateBackendAPIModels =
     "GenerateBackendAPIModelsResponse"
     "fixture/GenerateBackendAPIModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateBackendAPIModels)
+    (Proxy.Proxy :: Proxy.Proxy GenerateBackendAPIModels)
 
 responseUpdateBackendConfig :: UpdateBackendConfigResponse -> TestTree
 responseUpdateBackendConfig =
@@ -423,7 +423,7 @@ responseUpdateBackendConfig =
     "UpdateBackendConfigResponse"
     "fixture/UpdateBackendConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBackendConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBackendConfig)
 
 responseCreateToken :: CreateTokenResponse -> TestTree
 responseCreateToken =
@@ -431,7 +431,7 @@ responseCreateToken =
     "CreateTokenResponse"
     "fixture/CreateTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateToken)
+    (Proxy.Proxy :: Proxy.Proxy CreateToken)
 
 responseGetBackendAPI :: GetBackendAPIResponse -> TestTree
 responseGetBackendAPI =
@@ -439,7 +439,7 @@ responseGetBackendAPI =
     "GetBackendAPIResponse"
     "fixture/GetBackendAPIResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackendAPI)
+    (Proxy.Proxy :: Proxy.Proxy GetBackendAPI)
 
 responseUpdateBackendJob :: UpdateBackendJobResponse -> TestTree
 responseUpdateBackendJob =
@@ -447,7 +447,7 @@ responseUpdateBackendJob =
     "UpdateBackendJobResponse"
     "fixture/UpdateBackendJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBackendJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBackendJob)
 
 responseUpdateBackendAPI :: UpdateBackendAPIResponse -> TestTree
 responseUpdateBackendAPI =
@@ -455,7 +455,7 @@ responseUpdateBackendAPI =
     "UpdateBackendAPIResponse"
     "fixture/UpdateBackendAPIResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBackendAPI)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBackendAPI)
 
 responseDeleteBackendAPI :: DeleteBackendAPIResponse -> TestTree
 responseDeleteBackendAPI =
@@ -463,7 +463,7 @@ responseDeleteBackendAPI =
     "DeleteBackendAPIResponse"
     "fixture/DeleteBackendAPIResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackendAPI)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackendAPI)
 
 responseGetBackendJob :: GetBackendJobResponse -> TestTree
 responseGetBackendJob =
@@ -471,7 +471,7 @@ responseGetBackendJob =
     "GetBackendJobResponse"
     "fixture/GetBackendJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackendJob)
+    (Proxy.Proxy :: Proxy.Proxy GetBackendJob)
 
 responseDeleteBackend :: DeleteBackendResponse -> TestTree
 responseDeleteBackend =
@@ -479,7 +479,7 @@ responseDeleteBackend =
     "DeleteBackendResponse"
     "fixture/DeleteBackendResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackend)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackend)
 
 responseDeleteBackendAuth :: DeleteBackendAuthResponse -> TestTree
 responseDeleteBackendAuth =
@@ -487,7 +487,7 @@ responseDeleteBackendAuth =
     "DeleteBackendAuthResponse"
     "fixture/DeleteBackendAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackendAuth)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackendAuth)
 
 responseUpdateBackendAuth :: UpdateBackendAuthResponse -> TestTree
 responseUpdateBackendAuth =
@@ -495,7 +495,7 @@ responseUpdateBackendAuth =
     "UpdateBackendAuthResponse"
     "fixture/UpdateBackendAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBackendAuth)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBackendAuth)
 
 responseGetToken :: GetTokenResponse -> TestTree
 responseGetToken =
@@ -503,7 +503,7 @@ responseGetToken =
     "GetTokenResponse"
     "fixture/GetTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy GetToken)
+    (Proxy.Proxy :: Proxy.Proxy GetToken)
 
 responseRemoveAllBackends :: RemoveAllBackendsResponse -> TestTree
 responseRemoveAllBackends =
@@ -511,7 +511,7 @@ responseRemoveAllBackends =
     "RemoveAllBackendsResponse"
     "fixture/RemoveAllBackendsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAllBackends)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAllBackends)
 
 responseCreateBackendAPI :: CreateBackendAPIResponse -> TestTree
 responseCreateBackendAPI =
@@ -519,7 +519,7 @@ responseCreateBackendAPI =
     "CreateBackendAPIResponse"
     "fixture/CreateBackendAPIResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackendAPI)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackendAPI)
 
 responseGetBackendAPIModels :: GetBackendAPIModelsResponse -> TestTree
 responseGetBackendAPIModels =
@@ -527,7 +527,7 @@ responseGetBackendAPIModels =
     "GetBackendAPIModelsResponse"
     "fixture/GetBackendAPIModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBackendAPIModels)
+    (Proxy.Proxy :: Proxy.Proxy GetBackendAPIModels)
 
 responseImportBackendAuth :: ImportBackendAuthResponse -> TestTree
 responseImportBackendAuth =
@@ -535,4 +535,4 @@ responseImportBackendAuth =
     "ImportBackendAuthResponse"
     "fixture/ImportBackendAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportBackendAuth)
+    (Proxy.Proxy :: Proxy.Proxy ImportBackendAuth)

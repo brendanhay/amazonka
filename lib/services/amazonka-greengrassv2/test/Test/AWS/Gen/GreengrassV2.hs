@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GreengrassV2 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.GreengrassV2
 import Test.AWS.Fixture
 import Test.AWS.GreengrassV2.Internal
@@ -319,7 +319,7 @@ responseListComponentVersions =
     "ListComponentVersionsResponse"
     "fixture/ListComponentVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComponentVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListComponentVersions)
 
 responseGetDeployment :: GetDeploymentResponse -> TestTree
 responseGetDeployment =
@@ -327,7 +327,7 @@ responseGetDeployment =
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeployment)
+    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
 
 responseDescribeComponent :: DescribeComponentResponse -> TestTree
 responseDescribeComponent =
@@ -335,7 +335,7 @@ responseDescribeComponent =
     "DescribeComponentResponse"
     "fixture/DescribeComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComponent)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComponent)
 
 responseDeleteCoreDevice :: DeleteCoreDeviceResponse -> TestTree
 responseDeleteCoreDevice =
@@ -343,7 +343,7 @@ responseDeleteCoreDevice =
     "DeleteCoreDeviceResponse"
     "fixture/DeleteCoreDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCoreDevice)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCoreDevice)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -351,7 +351,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetCoreDevice :: GetCoreDeviceResponse -> TestTree
 responseGetCoreDevice =
@@ -359,7 +359,7 @@ responseGetCoreDevice =
     "GetCoreDeviceResponse"
     "fixture/GetCoreDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCoreDevice)
+    (Proxy.Proxy :: Proxy.Proxy GetCoreDevice)
 
 responseGetComponentVersionArtifact :: GetComponentVersionArtifactResponse -> TestTree
 responseGetComponentVersionArtifact =
@@ -367,7 +367,7 @@ responseGetComponentVersionArtifact =
     "GetComponentVersionArtifactResponse"
     "fixture/GetComponentVersionArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComponentVersionArtifact)
+    (Proxy.Proxy :: Proxy.Proxy GetComponentVersionArtifact)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
 responseCreateDeployment =
@@ -375,7 +375,7 @@ responseCreateDeployment =
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseBatchAssociateClientDeviceWithCoreDevice :: BatchAssociateClientDeviceWithCoreDeviceResponse -> TestTree
 responseBatchAssociateClientDeviceWithCoreDevice =
@@ -383,7 +383,7 @@ responseBatchAssociateClientDeviceWithCoreDevice =
     "BatchAssociateClientDeviceWithCoreDeviceResponse"
     "fixture/BatchAssociateClientDeviceWithCoreDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateClientDeviceWithCoreDevice)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateClientDeviceWithCoreDevice)
 
 responseListInstalledComponents :: ListInstalledComponentsResponse -> TestTree
 responseListInstalledComponents =
@@ -391,7 +391,7 @@ responseListInstalledComponents =
     "ListInstalledComponentsResponse"
     "fixture/ListInstalledComponentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstalledComponents)
+    (Proxy.Proxy :: Proxy.Proxy ListInstalledComponents)
 
 responseCancelDeployment :: CancelDeploymentResponse -> TestTree
 responseCancelDeployment =
@@ -399,7 +399,7 @@ responseCancelDeployment =
     "CancelDeploymentResponse"
     "fixture/CancelDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CancelDeployment)
 
 responseBatchDisassociateClientDeviceFromCoreDevice :: BatchDisassociateClientDeviceFromCoreDeviceResponse -> TestTree
 responseBatchDisassociateClientDeviceFromCoreDevice =
@@ -407,7 +407,7 @@ responseBatchDisassociateClientDeviceFromCoreDevice =
     "BatchDisassociateClientDeviceFromCoreDeviceResponse"
     "fixture/BatchDisassociateClientDeviceFromCoreDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateClientDeviceFromCoreDevice)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateClientDeviceFromCoreDevice)
 
 responseListCoreDevices :: ListCoreDevicesResponse -> TestTree
 responseListCoreDevices =
@@ -415,7 +415,7 @@ responseListCoreDevices =
     "ListCoreDevicesResponse"
     "fixture/ListCoreDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCoreDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListCoreDevices)
 
 responseResolveComponentCandidates :: ResolveComponentCandidatesResponse -> TestTree
 responseResolveComponentCandidates =
@@ -423,7 +423,7 @@ responseResolveComponentCandidates =
     "ResolveComponentCandidatesResponse"
     "fixture/ResolveComponentCandidatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ResolveComponentCandidates)
+    (Proxy.Proxy :: Proxy.Proxy ResolveComponentCandidates)
 
 responseListEffectiveDeployments :: ListEffectiveDeploymentsResponse -> TestTree
 responseListEffectiveDeployments =
@@ -431,7 +431,7 @@ responseListEffectiveDeployments =
     "ListEffectiveDeploymentsResponse"
     "fixture/ListEffectiveDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEffectiveDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListEffectiveDeployments)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
 responseListDeployments =
@@ -439,7 +439,7 @@ responseListDeployments =
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -447,7 +447,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -455,7 +455,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListComponents :: ListComponentsResponse -> TestTree
 responseListComponents =
@@ -463,7 +463,7 @@ responseListComponents =
     "ListComponentsResponse"
     "fixture/ListComponentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComponents)
+    (Proxy.Proxy :: Proxy.Proxy ListComponents)
 
 responseDeleteComponent :: DeleteComponentResponse -> TestTree
 responseDeleteComponent =
@@ -471,7 +471,7 @@ responseDeleteComponent =
     "DeleteComponentResponse"
     "fixture/DeleteComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteComponent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
 
 responseCreateComponentVersion :: CreateComponentVersionResponse -> TestTree
 responseCreateComponentVersion =
@@ -479,7 +479,7 @@ responseCreateComponentVersion =
     "CreateComponentVersionResponse"
     "fixture/CreateComponentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateComponentVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateComponentVersion)
 
 responseGetComponent :: GetComponentResponse -> TestTree
 responseGetComponent =
@@ -487,7 +487,7 @@ responseGetComponent =
     "GetComponentResponse"
     "fixture/GetComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComponent)
+    (Proxy.Proxy :: Proxy.Proxy GetComponent)
 
 responseListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDeviceResponse -> TestTree
 responseListClientDevicesAssociatedWithCoreDevice =
@@ -495,4 +495,4 @@ responseListClientDevicesAssociatedWithCoreDevice =
     "ListClientDevicesAssociatedWithCoreDeviceResponse"
     "fixture/ListClientDevicesAssociatedWithCoreDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClientDevicesAssociatedWithCoreDevice)
+    (Proxy.Proxy :: Proxy.Proxy ListClientDevicesAssociatedWithCoreDevice)

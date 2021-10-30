@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Greengrass where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Greengrass
 import Test.AWS.Fixture
 import Test.AWS.Greengrass.Internal
@@ -1147,7 +1147,7 @@ responseGetGroupCertificateConfiguration =
     "GetGroupCertificateConfigurationResponse"
     "fixture/GetGroupCertificateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupCertificateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupCertificateConfiguration)
 
 responseListGroupVersions :: ListGroupVersionsResponse -> TestTree
 responseListGroupVersions =
@@ -1155,7 +1155,7 @@ responseListGroupVersions =
     "ListGroupVersionsResponse"
     "fixture/ListGroupVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupVersions)
 
 responseListFunctionDefinitionVersions :: ListFunctionDefinitionVersionsResponse -> TestTree
 responseListFunctionDefinitionVersions =
@@ -1163,7 +1163,7 @@ responseListFunctionDefinitionVersions =
     "ListFunctionDefinitionVersionsResponse"
     "fixture/ListFunctionDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctionDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctionDefinitionVersions)
 
 responseListDeviceDefinitions :: ListDeviceDefinitionsResponse -> TestTree
 responseListDeviceDefinitions =
@@ -1171,7 +1171,7 @@ responseListDeviceDefinitions =
     "ListDeviceDefinitionsResponse"
     "fixture/ListDeviceDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceDefinitions)
 
 responseAssociateRoleToGroup :: AssociateRoleToGroupResponse -> TestTree
 responseAssociateRoleToGroup =
@@ -1179,7 +1179,7 @@ responseAssociateRoleToGroup =
     "AssociateRoleToGroupResponse"
     "fixture/AssociateRoleToGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateRoleToGroup)
+    (Proxy.Proxy :: Proxy.Proxy AssociateRoleToGroup)
 
 responseUpdateCoreDefinition :: UpdateCoreDefinitionResponse -> TestTree
 responseUpdateCoreDefinition =
@@ -1187,7 +1187,7 @@ responseUpdateCoreDefinition =
     "UpdateCoreDefinitionResponse"
     "fixture/UpdateCoreDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCoreDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCoreDefinition)
 
 responseDeleteCoreDefinition :: DeleteCoreDefinitionResponse -> TestTree
 responseDeleteCoreDefinition =
@@ -1195,7 +1195,7 @@ responseDeleteCoreDefinition =
     "DeleteCoreDefinitionResponse"
     "fixture/DeleteCoreDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCoreDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCoreDefinition)
 
 responseGetLoggerDefinition :: GetLoggerDefinitionResponse -> TestTree
 responseGetLoggerDefinition =
@@ -1203,7 +1203,7 @@ responseGetLoggerDefinition =
     "GetLoggerDefinitionResponse"
     "fixture/GetLoggerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoggerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetLoggerDefinition)
 
 responseListGroupCertificateAuthorities :: ListGroupCertificateAuthoritiesResponse -> TestTree
 responseListGroupCertificateAuthorities =
@@ -1211,7 +1211,7 @@ responseListGroupCertificateAuthorities =
     "ListGroupCertificateAuthoritiesResponse"
     "fixture/ListGroupCertificateAuthoritiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupCertificateAuthorities)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupCertificateAuthorities)
 
 responseDisassociateRoleFromGroup :: DisassociateRoleFromGroupResponse -> TestTree
 responseDisassociateRoleFromGroup =
@@ -1219,7 +1219,7 @@ responseDisassociateRoleFromGroup =
     "DisassociateRoleFromGroupResponse"
     "fixture/DisassociateRoleFromGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateRoleFromGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRoleFromGroup)
 
 responseUpdateSubscriptionDefinition :: UpdateSubscriptionDefinitionResponse -> TestTree
 responseUpdateSubscriptionDefinition =
@@ -1227,7 +1227,7 @@ responseUpdateSubscriptionDefinition =
     "UpdateSubscriptionDefinitionResponse"
     "fixture/UpdateSubscriptionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSubscriptionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubscriptionDefinition)
 
 responseDeleteSubscriptionDefinition :: DeleteSubscriptionDefinitionResponse -> TestTree
 responseDeleteSubscriptionDefinition =
@@ -1235,7 +1235,7 @@ responseDeleteSubscriptionDefinition =
     "DeleteSubscriptionDefinitionResponse"
     "fixture/DeleteSubscriptionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSubscriptionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubscriptionDefinition)
 
 responseListCoreDefinitions :: ListCoreDefinitionsResponse -> TestTree
 responseListCoreDefinitions =
@@ -1243,7 +1243,7 @@ responseListCoreDefinitions =
     "ListCoreDefinitionsResponse"
     "fixture/ListCoreDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCoreDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListCoreDefinitions)
 
 responseListSubscriptionDefinitions :: ListSubscriptionDefinitionsResponse -> TestTree
 responseListSubscriptionDefinitions =
@@ -1251,7 +1251,7 @@ responseListSubscriptionDefinitions =
     "ListSubscriptionDefinitionsResponse"
     "fixture/ListSubscriptionDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscriptionDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListSubscriptionDefinitions)
 
 responseCreateGroupCertificateAuthority :: CreateGroupCertificateAuthorityResponse -> TestTree
 responseCreateGroupCertificateAuthority =
@@ -1259,7 +1259,7 @@ responseCreateGroupCertificateAuthority =
     "CreateGroupCertificateAuthorityResponse"
     "fixture/CreateGroupCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroupCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroupCertificateAuthority)
 
 responseDeleteConnectorDefinition :: DeleteConnectorDefinitionResponse -> TestTree
 responseDeleteConnectorDefinition =
@@ -1267,7 +1267,7 @@ responseDeleteConnectorDefinition =
     "DeleteConnectorDefinitionResponse"
     "fixture/DeleteConnectorDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnectorDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnectorDefinition)
 
 responseUpdateConnectorDefinition :: UpdateConnectorDefinitionResponse -> TestTree
 responseUpdateConnectorDefinition =
@@ -1275,7 +1275,7 @@ responseUpdateConnectorDefinition =
     "UpdateConnectorDefinitionResponse"
     "fixture/UpdateConnectorDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnectorDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectorDefinition)
 
 responseCreateLoggerDefinitionVersion :: CreateLoggerDefinitionVersionResponse -> TestTree
 responseCreateLoggerDefinitionVersion =
@@ -1283,7 +1283,7 @@ responseCreateLoggerDefinitionVersion =
     "CreateLoggerDefinitionVersionResponse"
     "fixture/CreateLoggerDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoggerDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoggerDefinitionVersion)
 
 responseCreateCoreDefinition :: CreateCoreDefinitionResponse -> TestTree
 responseCreateCoreDefinition =
@@ -1291,7 +1291,7 @@ responseCreateCoreDefinition =
     "CreateCoreDefinitionResponse"
     "fixture/CreateCoreDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCoreDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateCoreDefinition)
 
 responseGetConnectorDefinitionVersion :: GetConnectorDefinitionVersionResponse -> TestTree
 responseGetConnectorDefinitionVersion =
@@ -1299,7 +1299,7 @@ responseGetConnectorDefinitionVersion =
     "GetConnectorDefinitionVersionResponse"
     "fixture/GetConnectorDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnectorDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetConnectorDefinitionVersion)
 
 responseUpdateConnectivityInfo :: UpdateConnectivityInfoResponse -> TestTree
 responseUpdateConnectivityInfo =
@@ -1307,7 +1307,7 @@ responseUpdateConnectivityInfo =
     "UpdateConnectivityInfoResponse"
     "fixture/UpdateConnectivityInfoResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnectivityInfo)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectivityInfo)
 
 responseCreateSubscriptionDefinition :: CreateSubscriptionDefinitionResponse -> TestTree
 responseCreateSubscriptionDefinition =
@@ -1315,7 +1315,7 @@ responseCreateSubscriptionDefinition =
     "CreateSubscriptionDefinitionResponse"
     "fixture/CreateSubscriptionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubscriptionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubscriptionDefinition)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1323,7 +1323,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetGroupCertificateAuthority :: GetGroupCertificateAuthorityResponse -> TestTree
 responseGetGroupCertificateAuthority =
@@ -1331,7 +1331,7 @@ responseGetGroupCertificateAuthority =
     "GetGroupCertificateAuthorityResponse"
     "fixture/GetGroupCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupCertificateAuthority)
 
 responseGetLoggerDefinitionVersion :: GetLoggerDefinitionVersionResponse -> TestTree
 responseGetLoggerDefinitionVersion =
@@ -1339,7 +1339,7 @@ responseGetLoggerDefinitionVersion =
     "GetLoggerDefinitionVersionResponse"
     "fixture/GetLoggerDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoggerDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetLoggerDefinitionVersion)
 
 responseGetServiceRoleForAccount :: GetServiceRoleForAccountResponse -> TestTree
 responseGetServiceRoleForAccount =
@@ -1347,7 +1347,7 @@ responseGetServiceRoleForAccount =
     "GetServiceRoleForAccountResponse"
     "fixture/GetServiceRoleForAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceRoleForAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceRoleForAccount)
 
 responseListConnectorDefinitionVersions :: ListConnectorDefinitionVersionsResponse -> TestTree
 responseListConnectorDefinitionVersions =
@@ -1355,7 +1355,7 @@ responseListConnectorDefinitionVersions =
     "ListConnectorDefinitionVersionsResponse"
     "fixture/ListConnectorDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnectorDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListConnectorDefinitionVersions)
 
 responseCreateSoftwareUpdateJob :: CreateSoftwareUpdateJobResponse -> TestTree
 responseCreateSoftwareUpdateJob =
@@ -1363,7 +1363,7 @@ responseCreateSoftwareUpdateJob =
     "CreateSoftwareUpdateJobResponse"
     "fixture/CreateSoftwareUpdateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSoftwareUpdateJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateSoftwareUpdateJob)
 
 responseCreateLoggerDefinition :: CreateLoggerDefinitionResponse -> TestTree
 responseCreateLoggerDefinition =
@@ -1371,7 +1371,7 @@ responseCreateLoggerDefinition =
     "CreateLoggerDefinitionResponse"
     "fixture/CreateLoggerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoggerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoggerDefinition)
 
 responseGetConnectivityInfo :: GetConnectivityInfoResponse -> TestTree
 responseGetConnectivityInfo =
@@ -1379,7 +1379,7 @@ responseGetConnectivityInfo =
     "GetConnectivityInfoResponse"
     "fixture/GetConnectivityInfoResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnectivityInfo)
+    (Proxy.Proxy :: Proxy.Proxy GetConnectivityInfo)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
 responseCreateDeployment =
@@ -1387,7 +1387,7 @@ responseCreateDeployment =
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseDeleteLoggerDefinition :: DeleteLoggerDefinitionResponse -> TestTree
 responseDeleteLoggerDefinition =
@@ -1395,7 +1395,7 @@ responseDeleteLoggerDefinition =
     "DeleteLoggerDefinitionResponse"
     "fixture/DeleteLoggerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoggerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoggerDefinition)
 
 responseUpdateLoggerDefinition :: UpdateLoggerDefinitionResponse -> TestTree
 responseUpdateLoggerDefinition =
@@ -1403,7 +1403,7 @@ responseUpdateLoggerDefinition =
     "UpdateLoggerDefinitionResponse"
     "fixture/UpdateLoggerDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLoggerDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoggerDefinition)
 
 responseGetSubscriptionDefinition :: GetSubscriptionDefinitionResponse -> TestTree
 responseGetSubscriptionDefinition =
@@ -1411,7 +1411,7 @@ responseGetSubscriptionDefinition =
     "GetSubscriptionDefinitionResponse"
     "fixture/GetSubscriptionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSubscriptionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetSubscriptionDefinition)
 
 responseGetCoreDefinition :: GetCoreDefinitionResponse -> TestTree
 responseGetCoreDefinition =
@@ -1419,7 +1419,7 @@ responseGetCoreDefinition =
     "GetCoreDefinitionResponse"
     "fixture/GetCoreDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCoreDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetCoreDefinition)
 
 responseCreateConnectorDefinitionVersion :: CreateConnectorDefinitionVersionResponse -> TestTree
 responseCreateConnectorDefinitionVersion =
@@ -1427,7 +1427,7 @@ responseCreateConnectorDefinitionVersion =
     "CreateConnectorDefinitionVersionResponse"
     "fixture/CreateConnectorDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnectorDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnectorDefinitionVersion)
 
 responseGetDeploymentStatus :: GetDeploymentStatusResponse -> TestTree
 responseGetDeploymentStatus =
@@ -1435,7 +1435,7 @@ responseGetDeploymentStatus =
     "GetDeploymentStatusResponse"
     "fixture/GetDeploymentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeploymentStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetDeploymentStatus)
 
 responseGetBulkDeploymentStatus :: GetBulkDeploymentStatusResponse -> TestTree
 responseGetBulkDeploymentStatus =
@@ -1443,7 +1443,7 @@ responseGetBulkDeploymentStatus =
     "GetBulkDeploymentStatusResponse"
     "fixture/GetBulkDeploymentStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBulkDeploymentStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetBulkDeploymentStatus)
 
 responseCreateResourceDefinition :: CreateResourceDefinitionResponse -> TestTree
 responseCreateResourceDefinition =
@@ -1451,7 +1451,7 @@ responseCreateResourceDefinition =
     "CreateResourceDefinitionResponse"
     "fixture/CreateResourceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceDefinition)
 
 responseGetResourceDefinitionVersion :: GetResourceDefinitionVersionResponse -> TestTree
 responseGetResourceDefinitionVersion =
@@ -1459,7 +1459,7 @@ responseGetResourceDefinitionVersion =
     "GetResourceDefinitionVersionResponse"
     "fixture/GetResourceDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceDefinitionVersion)
 
 responseUpdateFunctionDefinition :: UpdateFunctionDefinitionResponse -> TestTree
 responseUpdateFunctionDefinition =
@@ -1467,7 +1467,7 @@ responseUpdateFunctionDefinition =
     "UpdateFunctionDefinitionResponse"
     "fixture/UpdateFunctionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFunctionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunctionDefinition)
 
 responseDeleteFunctionDefinition :: DeleteFunctionDefinitionResponse -> TestTree
 responseDeleteFunctionDefinition =
@@ -1475,7 +1475,7 @@ responseDeleteFunctionDefinition =
     "DeleteFunctionDefinitionResponse"
     "fixture/DeleteFunctionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunctionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunctionDefinition)
 
 responseListResourceDefinitions :: ListResourceDefinitionsResponse -> TestTree
 responseListResourceDefinitions =
@@ -1483,7 +1483,7 @@ responseListResourceDefinitions =
     "ListResourceDefinitionsResponse"
     "fixture/ListResourceDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceDefinitions)
 
 responseStopBulkDeployment :: StopBulkDeploymentResponse -> TestTree
 responseStopBulkDeployment =
@@ -1491,7 +1491,7 @@ responseStopBulkDeployment =
     "StopBulkDeploymentResponse"
     "fixture/StopBulkDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StopBulkDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StopBulkDeployment)
 
 responseCreateResourceDefinitionVersion :: CreateResourceDefinitionVersionResponse -> TestTree
 responseCreateResourceDefinitionVersion =
@@ -1499,7 +1499,7 @@ responseCreateResourceDefinitionVersion =
     "CreateResourceDefinitionVersionResponse"
     "fixture/CreateResourceDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceDefinitionVersion)
 
 responseGetResourceDefinition :: GetResourceDefinitionResponse -> TestTree
 responseGetResourceDefinition =
@@ -1507,7 +1507,7 @@ responseGetResourceDefinition =
     "GetResourceDefinitionResponse"
     "fixture/GetResourceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceDefinition)
 
 responseListResourceDefinitionVersions :: ListResourceDefinitionVersionsResponse -> TestTree
 responseListResourceDefinitionVersions =
@@ -1515,7 +1515,7 @@ responseListResourceDefinitionVersions =
     "ListResourceDefinitionVersionsResponse"
     "fixture/ListResourceDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceDefinitionVersions)
 
 responseDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccountResponse -> TestTree
 responseDisassociateServiceRoleFromAccount =
@@ -1523,7 +1523,7 @@ responseDisassociateServiceRoleFromAccount =
     "DisassociateServiceRoleFromAccountResponse"
     "fixture/DisassociateServiceRoleFromAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateServiceRoleFromAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateServiceRoleFromAccount)
 
 responseDeleteDeviceDefinition :: DeleteDeviceDefinitionResponse -> TestTree
 responseDeleteDeviceDefinition =
@@ -1531,7 +1531,7 @@ responseDeleteDeviceDefinition =
     "DeleteDeviceDefinitionResponse"
     "fixture/DeleteDeviceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeviceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeviceDefinition)
 
 responseUpdateDeviceDefinition :: UpdateDeviceDefinitionResponse -> TestTree
 responseUpdateDeviceDefinition =
@@ -1539,7 +1539,7 @@ responseUpdateDeviceDefinition =
     "UpdateDeviceDefinitionResponse"
     "fixture/UpdateDeviceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeviceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceDefinition)
 
 responseAssociateServiceRoleToAccount :: AssociateServiceRoleToAccountResponse -> TestTree
 responseAssociateServiceRoleToAccount =
@@ -1547,7 +1547,7 @@ responseAssociateServiceRoleToAccount =
     "AssociateServiceRoleToAccountResponse"
     "fixture/AssociateServiceRoleToAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateServiceRoleToAccount)
+    (Proxy.Proxy :: Proxy.Proxy AssociateServiceRoleToAccount)
 
 responseResetDeployments :: ResetDeploymentsResponse -> TestTree
 responseResetDeployments =
@@ -1555,7 +1555,7 @@ responseResetDeployments =
     "ResetDeploymentsResponse"
     "fixture/ResetDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ResetDeployments)
 
 responseListConnectorDefinitions :: ListConnectorDefinitionsResponse -> TestTree
 responseListConnectorDefinitions =
@@ -1563,7 +1563,7 @@ responseListConnectorDefinitions =
     "ListConnectorDefinitionsResponse"
     "fixture/ListConnectorDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnectorDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListConnectorDefinitions)
 
 responseGetSubscriptionDefinitionVersion :: GetSubscriptionDefinitionVersionResponse -> TestTree
 responseGetSubscriptionDefinitionVersion =
@@ -1571,7 +1571,7 @@ responseGetSubscriptionDefinitionVersion =
     "GetSubscriptionDefinitionVersionResponse"
     "fixture/GetSubscriptionDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSubscriptionDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetSubscriptionDefinitionVersion)
 
 responseGetAssociatedRole :: GetAssociatedRoleResponse -> TestTree
 responseGetAssociatedRole =
@@ -1579,7 +1579,7 @@ responseGetAssociatedRole =
     "GetAssociatedRoleResponse"
     "fixture/GetAssociatedRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssociatedRole)
+    (Proxy.Proxy :: Proxy.Proxy GetAssociatedRole)
 
 responseListLoggerDefinitionVersions :: ListLoggerDefinitionVersionsResponse -> TestTree
 responseListLoggerDefinitionVersions =
@@ -1587,7 +1587,7 @@ responseListLoggerDefinitionVersions =
     "ListLoggerDefinitionVersionsResponse"
     "fixture/ListLoggerDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLoggerDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListLoggerDefinitionVersions)
 
 responseCreateConnectorDefinition :: CreateConnectorDefinitionResponse -> TestTree
 responseCreateConnectorDefinition =
@@ -1595,7 +1595,7 @@ responseCreateConnectorDefinition =
     "CreateConnectorDefinitionResponse"
     "fixture/CreateConnectorDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnectorDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnectorDefinition)
 
 responseGetCoreDefinitionVersion :: GetCoreDefinitionVersionResponse -> TestTree
 responseGetCoreDefinitionVersion =
@@ -1603,7 +1603,7 @@ responseGetCoreDefinitionVersion =
     "GetCoreDefinitionVersionResponse"
     "fixture/GetCoreDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCoreDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetCoreDefinitionVersion)
 
 responseListSubscriptionDefinitionVersions :: ListSubscriptionDefinitionVersionsResponse -> TestTree
 responseListSubscriptionDefinitionVersions =
@@ -1611,7 +1611,7 @@ responseListSubscriptionDefinitionVersions =
     "ListSubscriptionDefinitionVersionsResponse"
     "fixture/ListSubscriptionDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscriptionDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListSubscriptionDefinitionVersions)
 
 responseListCoreDefinitionVersions :: ListCoreDefinitionVersionsResponse -> TestTree
 responseListCoreDefinitionVersions =
@@ -1619,7 +1619,7 @@ responseListCoreDefinitionVersions =
     "ListCoreDefinitionVersionsResponse"
     "fixture/ListCoreDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCoreDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListCoreDefinitionVersions)
 
 responseCreateCoreDefinitionVersion :: CreateCoreDefinitionVersionResponse -> TestTree
 responseCreateCoreDefinitionVersion =
@@ -1627,7 +1627,7 @@ responseCreateCoreDefinitionVersion =
     "CreateCoreDefinitionVersionResponse"
     "fixture/CreateCoreDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCoreDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateCoreDefinitionVersion)
 
 responseListBulkDeployments :: ListBulkDeploymentsResponse -> TestTree
 responseListBulkDeployments =
@@ -1635,7 +1635,7 @@ responseListBulkDeployments =
     "ListBulkDeploymentsResponse"
     "fixture/ListBulkDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBulkDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListBulkDeployments)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
 responseListDeployments =
@@ -1643,7 +1643,7 @@ responseListDeployments =
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
 
 responseGetConnectorDefinition :: GetConnectorDefinitionResponse -> TestTree
 responseGetConnectorDefinition =
@@ -1651,7 +1651,7 @@ responseGetConnectorDefinition =
     "GetConnectorDefinitionResponse"
     "fixture/GetConnectorDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnectorDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetConnectorDefinition)
 
 responseListLoggerDefinitions :: ListLoggerDefinitionsResponse -> TestTree
 responseListLoggerDefinitions =
@@ -1659,7 +1659,7 @@ responseListLoggerDefinitions =
     "ListLoggerDefinitionsResponse"
     "fixture/ListLoggerDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLoggerDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListLoggerDefinitions)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1667,7 +1667,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateSubscriptionDefinitionVersion :: CreateSubscriptionDefinitionVersionResponse -> TestTree
 responseCreateSubscriptionDefinitionVersion =
@@ -1675,7 +1675,7 @@ responseCreateSubscriptionDefinitionVersion =
     "CreateSubscriptionDefinitionVersionResponse"
     "fixture/CreateSubscriptionDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubscriptionDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubscriptionDefinitionVersion)
 
 responseGetGroupVersion :: GetGroupVersionResponse -> TestTree
 responseGetGroupVersion =
@@ -1683,7 +1683,7 @@ responseGetGroupVersion =
     "GetGroupVersionResponse"
     "fixture/GetGroupVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupVersion)
 
 responseUpdateGroupCertificateConfiguration :: UpdateGroupCertificateConfigurationResponse -> TestTree
 responseUpdateGroupCertificateConfiguration =
@@ -1691,7 +1691,7 @@ responseUpdateGroupCertificateConfiguration =
     "UpdateGroupCertificateConfigurationResponse"
     "fixture/UpdateGroupCertificateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroupCertificateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroupCertificateConfiguration)
 
 responseGetFunctionDefinitionVersion :: GetFunctionDefinitionVersionResponse -> TestTree
 responseGetFunctionDefinitionVersion =
@@ -1699,7 +1699,7 @@ responseGetFunctionDefinitionVersion =
     "GetFunctionDefinitionVersionResponse"
     "fixture/GetFunctionDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunctionDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionDefinitionVersion)
 
 responseGetDeviceDefinition :: GetDeviceDefinitionResponse -> TestTree
 responseGetDeviceDefinition =
@@ -1707,7 +1707,7 @@ responseGetDeviceDefinition =
     "GetDeviceDefinitionResponse"
     "fixture/GetDeviceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceDefinition)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -1715,7 +1715,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseCreateFunctionDefinition :: CreateFunctionDefinitionResponse -> TestTree
 responseCreateFunctionDefinition =
@@ -1723,7 +1723,7 @@ responseCreateFunctionDefinition =
     "CreateFunctionDefinitionResponse"
     "fixture/CreateFunctionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFunctionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateFunctionDefinition)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1731,7 +1731,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateDeviceDefinitionVersion :: CreateDeviceDefinitionVersionResponse -> TestTree
 responseCreateDeviceDefinitionVersion =
@@ -1739,7 +1739,7 @@ responseCreateDeviceDefinitionVersion =
     "CreateDeviceDefinitionVersionResponse"
     "fixture/CreateDeviceDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeviceDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeviceDefinitionVersion)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -1747,7 +1747,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =
@@ -1755,7 +1755,7 @@ responseUpdateGroup =
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -1763,7 +1763,7 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
 responseListBulkDeploymentDetailedReports :: ListBulkDeploymentDetailedReportsResponse -> TestTree
 responseListBulkDeploymentDetailedReports =
@@ -1771,7 +1771,7 @@ responseListBulkDeploymentDetailedReports =
     "ListBulkDeploymentDetailedReportsResponse"
     "fixture/ListBulkDeploymentDetailedReportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBulkDeploymentDetailedReports)
+    (Proxy.Proxy :: Proxy.Proxy ListBulkDeploymentDetailedReports)
 
 responseGetThingRuntimeConfiguration :: GetThingRuntimeConfigurationResponse -> TestTree
 responseGetThingRuntimeConfiguration =
@@ -1779,7 +1779,7 @@ responseGetThingRuntimeConfiguration =
     "GetThingRuntimeConfigurationResponse"
     "fixture/GetThingRuntimeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetThingRuntimeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetThingRuntimeConfiguration)
 
 responseDeleteResourceDefinition :: DeleteResourceDefinitionResponse -> TestTree
 responseDeleteResourceDefinition =
@@ -1787,7 +1787,7 @@ responseDeleteResourceDefinition =
     "DeleteResourceDefinitionResponse"
     "fixture/DeleteResourceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceDefinition)
 
 responseUpdateResourceDefinition :: UpdateResourceDefinitionResponse -> TestTree
 responseUpdateResourceDefinition =
@@ -1795,7 +1795,7 @@ responseUpdateResourceDefinition =
     "UpdateResourceDefinitionResponse"
     "fixture/UpdateResourceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResourceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceDefinition)
 
 responseListDeviceDefinitionVersions :: ListDeviceDefinitionVersionsResponse -> TestTree
 responseListDeviceDefinitionVersions =
@@ -1803,7 +1803,7 @@ responseListDeviceDefinitionVersions =
     "ListDeviceDefinitionVersionsResponse"
     "fixture/ListDeviceDefinitionVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceDefinitionVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceDefinitionVersions)
 
 responseListFunctionDefinitions :: ListFunctionDefinitionsResponse -> TestTree
 responseListFunctionDefinitions =
@@ -1811,7 +1811,7 @@ responseListFunctionDefinitions =
     "ListFunctionDefinitionsResponse"
     "fixture/ListFunctionDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctionDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctionDefinitions)
 
 responseGetFunctionDefinition :: GetFunctionDefinitionResponse -> TestTree
 responseGetFunctionDefinition =
@@ -1819,7 +1819,7 @@ responseGetFunctionDefinition =
     "GetFunctionDefinitionResponse"
     "fixture/GetFunctionDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunctionDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionDefinition)
 
 responseGetGroup :: GetGroupResponse -> TestTree
 responseGetGroup =
@@ -1827,7 +1827,7 @@ responseGetGroup =
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetGroup)
 
 responseCreateDeviceDefinition :: CreateDeviceDefinitionResponse -> TestTree
 responseCreateDeviceDefinition =
@@ -1835,7 +1835,7 @@ responseCreateDeviceDefinition =
     "CreateDeviceDefinitionResponse"
     "fixture/CreateDeviceDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeviceDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeviceDefinition)
 
 responseCreateGroupVersion :: CreateGroupVersionResponse -> TestTree
 responseCreateGroupVersion =
@@ -1843,7 +1843,7 @@ responseCreateGroupVersion =
     "CreateGroupVersionResponse"
     "fixture/CreateGroupVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroupVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroupVersion)
 
 responseCreateFunctionDefinitionVersion :: CreateFunctionDefinitionVersionResponse -> TestTree
 responseCreateFunctionDefinitionVersion =
@@ -1851,7 +1851,7 @@ responseCreateFunctionDefinitionVersion =
     "CreateFunctionDefinitionVersionResponse"
     "fixture/CreateFunctionDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFunctionDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateFunctionDefinitionVersion)
 
 responseStartBulkDeployment :: StartBulkDeploymentResponse -> TestTree
 responseStartBulkDeployment =
@@ -1859,7 +1859,7 @@ responseStartBulkDeployment =
     "StartBulkDeploymentResponse"
     "fixture/StartBulkDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StartBulkDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StartBulkDeployment)
 
 responseUpdateThingRuntimeConfiguration :: UpdateThingRuntimeConfigurationResponse -> TestTree
 responseUpdateThingRuntimeConfiguration =
@@ -1867,7 +1867,7 @@ responseUpdateThingRuntimeConfiguration =
     "UpdateThingRuntimeConfigurationResponse"
     "fixture/UpdateThingRuntimeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateThingRuntimeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateThingRuntimeConfiguration)
 
 responseGetDeviceDefinitionVersion :: GetDeviceDefinitionVersionResponse -> TestTree
 responseGetDeviceDefinitionVersion =
@@ -1875,4 +1875,4 @@ responseGetDeviceDefinitionVersion =
     "GetDeviceDefinitionVersionResponse"
     "fixture/GetDeviceDefinitionVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceDefinitionVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceDefinitionVersion)

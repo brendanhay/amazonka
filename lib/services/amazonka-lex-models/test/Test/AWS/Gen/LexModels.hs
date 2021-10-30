@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LexModels where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LexModels
 import Test.AWS.Fixture
 import Test.AWS.LexModels.Internal
@@ -547,7 +547,7 @@ responseStartMigration =
     "StartMigrationResponse"
     "fixture/StartMigrationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMigration)
+    (Proxy.Proxy :: Proxy.Proxy StartMigration)
 
 responseDeleteIntentVersion :: DeleteIntentVersionResponse -> TestTree
 responseDeleteIntentVersion =
@@ -555,7 +555,7 @@ responseDeleteIntentVersion =
     "DeleteIntentVersionResponse"
     "fixture/DeleteIntentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIntentVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntentVersion)
 
 responseGetBotAliases :: GetBotAliasesResponse -> TestTree
 responseGetBotAliases =
@@ -563,7 +563,7 @@ responseGetBotAliases =
     "GetBotAliasesResponse"
     "fixture/GetBotAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBotAliases)
+    (Proxy.Proxy :: Proxy.Proxy GetBotAliases)
 
 responseDeleteBotChannelAssociation :: DeleteBotChannelAssociationResponse -> TestTree
 responseDeleteBotChannelAssociation =
@@ -571,7 +571,7 @@ responseDeleteBotChannelAssociation =
     "DeleteBotChannelAssociationResponse"
     "fixture/DeleteBotChannelAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBotChannelAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBotChannelAssociation)
 
 responseCreateSlotTypeVersion :: CreateSlotTypeVersionResponse -> TestTree
 responseCreateSlotTypeVersion =
@@ -579,7 +579,7 @@ responseCreateSlotTypeVersion =
     "CreateSlotTypeVersionResponse"
     "fixture/CreateSlotTypeVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSlotTypeVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateSlotTypeVersion)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -587,7 +587,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetIntent :: GetIntentResponse -> TestTree
 responseGetIntent =
@@ -595,7 +595,7 @@ responseGetIntent =
     "GetIntentResponse"
     "fixture/GetIntentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntent)
+    (Proxy.Proxy :: Proxy.Proxy GetIntent)
 
 responsePutIntent :: PutIntentResponse -> TestTree
 responsePutIntent =
@@ -603,7 +603,7 @@ responsePutIntent =
     "PutIntentResponse"
     "fixture/PutIntentResponse.proto"
     defaultService
-    (Proxy :: Proxy PutIntent)
+    (Proxy.Proxy :: Proxy.Proxy PutIntent)
 
 responseDeleteIntent :: DeleteIntentResponse -> TestTree
 responseDeleteIntent =
@@ -611,7 +611,7 @@ responseDeleteIntent =
     "DeleteIntentResponse"
     "fixture/DeleteIntentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIntent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntent)
 
 responseGetBuiltinIntents :: GetBuiltinIntentsResponse -> TestTree
 responseGetBuiltinIntents =
@@ -619,7 +619,7 @@ responseGetBuiltinIntents =
     "GetBuiltinIntentsResponse"
     "fixture/GetBuiltinIntentsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBuiltinIntents)
+    (Proxy.Proxy :: Proxy.Proxy GetBuiltinIntents)
 
 responsePutBot :: PutBotResponse -> TestTree
 responsePutBot =
@@ -627,7 +627,7 @@ responsePutBot =
     "PutBotResponse"
     "fixture/PutBotResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBot)
+    (Proxy.Proxy :: Proxy.Proxy PutBot)
 
 responseDeleteBot :: DeleteBotResponse -> TestTree
 responseDeleteBot =
@@ -635,7 +635,7 @@ responseDeleteBot =
     "DeleteBotResponse"
     "fixture/DeleteBotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBot)
 
 responseGetImport :: GetImportResponse -> TestTree
 responseGetImport =
@@ -643,7 +643,7 @@ responseGetImport =
     "GetImportResponse"
     "fixture/GetImportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImport)
+    (Proxy.Proxy :: Proxy.Proxy GetImport)
 
 responseGetIntentVersions :: GetIntentVersionsResponse -> TestTree
 responseGetIntentVersions =
@@ -651,7 +651,7 @@ responseGetIntentVersions =
     "GetIntentVersionsResponse"
     "fixture/GetIntentVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntentVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetIntentVersions)
 
 responseGetBuiltinIntent :: GetBuiltinIntentResponse -> TestTree
 responseGetBuiltinIntent =
@@ -659,7 +659,7 @@ responseGetBuiltinIntent =
     "GetBuiltinIntentResponse"
     "fixture/GetBuiltinIntentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBuiltinIntent)
+    (Proxy.Proxy :: Proxy.Proxy GetBuiltinIntent)
 
 responsePutBotAlias :: PutBotAliasResponse -> TestTree
 responsePutBotAlias =
@@ -667,7 +667,7 @@ responsePutBotAlias =
     "PutBotAliasResponse"
     "fixture/PutBotAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBotAlias)
+    (Proxy.Proxy :: Proxy.Proxy PutBotAlias)
 
 responseGetBotVersions :: GetBotVersionsResponse -> TestTree
 responseGetBotVersions =
@@ -675,7 +675,7 @@ responseGetBotVersions =
     "GetBotVersionsResponse"
     "fixture/GetBotVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBotVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetBotVersions)
 
 responseGetBotChannelAssociations :: GetBotChannelAssociationsResponse -> TestTree
 responseGetBotChannelAssociations =
@@ -683,7 +683,7 @@ responseGetBotChannelAssociations =
     "GetBotChannelAssociationsResponse"
     "fixture/GetBotChannelAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBotChannelAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetBotChannelAssociations)
 
 responseDeleteBotAlias :: DeleteBotAliasResponse -> TestTree
 responseDeleteBotAlias =
@@ -691,7 +691,7 @@ responseDeleteBotAlias =
     "DeleteBotAliasResponse"
     "fixture/DeleteBotAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBotAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBotAlias)
 
 responseGetSlotTypes :: GetSlotTypesResponse -> TestTree
 responseGetSlotTypes =
@@ -699,7 +699,7 @@ responseGetSlotTypes =
     "GetSlotTypesResponse"
     "fixture/GetSlotTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSlotTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetSlotTypes)
 
 responseGetMigrations :: GetMigrationsResponse -> TestTree
 responseGetMigrations =
@@ -707,7 +707,7 @@ responseGetMigrations =
     "GetMigrationsResponse"
     "fixture/GetMigrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMigrations)
+    (Proxy.Proxy :: Proxy.Proxy GetMigrations)
 
 responseDeleteUtterances :: DeleteUtterancesResponse -> TestTree
 responseDeleteUtterances =
@@ -715,7 +715,7 @@ responseDeleteUtterances =
     "DeleteUtterancesResponse"
     "fixture/DeleteUtterancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUtterances)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUtterances)
 
 responseGetBots :: GetBotsResponse -> TestTree
 responseGetBots =
@@ -723,7 +723,7 @@ responseGetBots =
     "GetBotsResponse"
     "fixture/GetBotsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBots)
+    (Proxy.Proxy :: Proxy.Proxy GetBots)
 
 responseGetBot :: GetBotResponse -> TestTree
 responseGetBot =
@@ -731,7 +731,7 @@ responseGetBot =
     "GetBotResponse"
     "fixture/GetBotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBot)
+    (Proxy.Proxy :: Proxy.Proxy GetBot)
 
 responseCreateBotVersion :: CreateBotVersionResponse -> TestTree
 responseCreateBotVersion =
@@ -739,7 +739,7 @@ responseCreateBotVersion =
     "CreateBotVersionResponse"
     "fixture/CreateBotVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBotVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateBotVersion)
 
 responseDeleteSlotTypeVersion :: DeleteSlotTypeVersionResponse -> TestTree
 responseDeleteSlotTypeVersion =
@@ -747,7 +747,7 @@ responseDeleteSlotTypeVersion =
     "DeleteSlotTypeVersionResponse"
     "fixture/DeleteSlotTypeVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSlotTypeVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSlotTypeVersion)
 
 responseDeleteBotVersion :: DeleteBotVersionResponse -> TestTree
 responseDeleteBotVersion =
@@ -755,7 +755,7 @@ responseDeleteBotVersion =
     "DeleteBotVersionResponse"
     "fixture/DeleteBotVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBotVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBotVersion)
 
 responseGetSlotType :: GetSlotTypeResponse -> TestTree
 responseGetSlotType =
@@ -763,7 +763,7 @@ responseGetSlotType =
     "GetSlotTypeResponse"
     "fixture/GetSlotTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSlotType)
+    (Proxy.Proxy :: Proxy.Proxy GetSlotType)
 
 responseGetExport :: GetExportResponse -> TestTree
 responseGetExport =
@@ -771,7 +771,7 @@ responseGetExport =
     "GetExportResponse"
     "fixture/GetExportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExport)
+    (Proxy.Proxy :: Proxy.Proxy GetExport)
 
 responseGetMigration :: GetMigrationResponse -> TestTree
 responseGetMigration =
@@ -779,7 +779,7 @@ responseGetMigration =
     "GetMigrationResponse"
     "fixture/GetMigrationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMigration)
+    (Proxy.Proxy :: Proxy.Proxy GetMigration)
 
 responseCreateIntentVersion :: CreateIntentVersionResponse -> TestTree
 responseCreateIntentVersion =
@@ -787,7 +787,7 @@ responseCreateIntentVersion =
     "CreateIntentVersionResponse"
     "fixture/CreateIntentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIntentVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateIntentVersion)
 
 responseDeleteSlotType :: DeleteSlotTypeResponse -> TestTree
 responseDeleteSlotType =
@@ -795,7 +795,7 @@ responseDeleteSlotType =
     "DeleteSlotTypeResponse"
     "fixture/DeleteSlotTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSlotType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSlotType)
 
 responseStartImport :: StartImportResponse -> TestTree
 responseStartImport =
@@ -803,7 +803,7 @@ responseStartImport =
     "StartImportResponse"
     "fixture/StartImportResponse.proto"
     defaultService
-    (Proxy :: Proxy StartImport)
+    (Proxy.Proxy :: Proxy.Proxy StartImport)
 
 responseGetBotChannelAssociation :: GetBotChannelAssociationResponse -> TestTree
 responseGetBotChannelAssociation =
@@ -811,7 +811,7 @@ responseGetBotChannelAssociation =
     "GetBotChannelAssociationResponse"
     "fixture/GetBotChannelAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBotChannelAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetBotChannelAssociation)
 
 responsePutSlotType :: PutSlotTypeResponse -> TestTree
 responsePutSlotType =
@@ -819,7 +819,7 @@ responsePutSlotType =
     "PutSlotTypeResponse"
     "fixture/PutSlotTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSlotType)
+    (Proxy.Proxy :: Proxy.Proxy PutSlotType)
 
 responseGetBuiltinSlotTypes :: GetBuiltinSlotTypesResponse -> TestTree
 responseGetBuiltinSlotTypes =
@@ -827,7 +827,7 @@ responseGetBuiltinSlotTypes =
     "GetBuiltinSlotTypesResponse"
     "fixture/GetBuiltinSlotTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBuiltinSlotTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetBuiltinSlotTypes)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -835,7 +835,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetUtterancesView :: GetUtterancesViewResponse -> TestTree
 responseGetUtterancesView =
@@ -843,7 +843,7 @@ responseGetUtterancesView =
     "GetUtterancesViewResponse"
     "fixture/GetUtterancesViewResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUtterancesView)
+    (Proxy.Proxy :: Proxy.Proxy GetUtterancesView)
 
 responseGetSlotTypeVersions :: GetSlotTypeVersionsResponse -> TestTree
 responseGetSlotTypeVersions =
@@ -851,7 +851,7 @@ responseGetSlotTypeVersions =
     "GetSlotTypeVersionsResponse"
     "fixture/GetSlotTypeVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSlotTypeVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetSlotTypeVersions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -859,7 +859,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetIntents :: GetIntentsResponse -> TestTree
 responseGetIntents =
@@ -867,7 +867,7 @@ responseGetIntents =
     "GetIntentsResponse"
     "fixture/GetIntentsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIntents)
+    (Proxy.Proxy :: Proxy.Proxy GetIntents)
 
 responseGetBotAlias :: GetBotAliasResponse -> TestTree
 responseGetBotAlias =
@@ -875,4 +875,4 @@ responseGetBotAlias =
     "GetBotAliasResponse"
     "fixture/GetBotAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBotAlias)
+    (Proxy.Proxy :: Proxy.Proxy GetBotAlias)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTWireless where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTWireless
 import Test.AWS.Fixture
 import Test.AWS.IoTWireless.Internal
@@ -727,7 +727,7 @@ responseCreateWirelessGatewayTaskDefinition =
     "CreateWirelessGatewayTaskDefinitionResponse"
     "fixture/CreateWirelessGatewayTaskDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWirelessGatewayTaskDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateWirelessGatewayTaskDefinition)
 
 responseResetAllResourceLogLevels :: ResetAllResourceLogLevelsResponse -> TestTree
 responseResetAllResourceLogLevels =
@@ -735,7 +735,7 @@ responseResetAllResourceLogLevels =
     "ResetAllResourceLogLevelsResponse"
     "fixture/ResetAllResourceLogLevelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetAllResourceLogLevels)
+    (Proxy.Proxy :: Proxy.Proxy ResetAllResourceLogLevels)
 
 responseListServiceProfiles :: ListServiceProfilesResponse -> TestTree
 responseListServiceProfiles =
@@ -743,7 +743,7 @@ responseListServiceProfiles =
     "ListServiceProfilesResponse"
     "fixture/ListServiceProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServiceProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListServiceProfiles)
 
 responseDeleteServiceProfile :: DeleteServiceProfileResponse -> TestTree
 responseDeleteServiceProfile =
@@ -751,7 +751,7 @@ responseDeleteServiceProfile =
     "DeleteServiceProfileResponse"
     "fixture/DeleteServiceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServiceProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceProfile)
 
 responseListDeviceProfiles :: ListDeviceProfilesResponse -> TestTree
 responseListDeviceProfiles =
@@ -759,7 +759,7 @@ responseListDeviceProfiles =
     "ListDeviceProfilesResponse"
     "fixture/ListDeviceProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceProfiles)
 
 responseAssociateWirelessGatewayWithThing :: AssociateWirelessGatewayWithThingResponse -> TestTree
 responseAssociateWirelessGatewayWithThing =
@@ -767,7 +767,7 @@ responseAssociateWirelessGatewayWithThing =
     "AssociateWirelessGatewayWithThingResponse"
     "fixture/AssociateWirelessGatewayWithThingResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateWirelessGatewayWithThing)
+    (Proxy.Proxy :: Proxy.Proxy AssociateWirelessGatewayWithThing)
 
 responseDeleteDeviceProfile :: DeleteDeviceProfileResponse -> TestTree
 responseDeleteDeviceProfile =
@@ -775,7 +775,7 @@ responseDeleteDeviceProfile =
     "DeleteDeviceProfileResponse"
     "fixture/DeleteDeviceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeviceProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeviceProfile)
 
 responseAssociateWirelessDeviceWithThing :: AssociateWirelessDeviceWithThingResponse -> TestTree
 responseAssociateWirelessDeviceWithThing =
@@ -783,7 +783,7 @@ responseAssociateWirelessDeviceWithThing =
     "AssociateWirelessDeviceWithThingResponse"
     "fixture/AssociateWirelessDeviceWithThingResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateWirelessDeviceWithThing)
+    (Proxy.Proxy :: Proxy.Proxy AssociateWirelessDeviceWithThing)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -791,7 +791,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateServiceProfile :: CreateServiceProfileResponse -> TestTree
 responseCreateServiceProfile =
@@ -799,7 +799,7 @@ responseCreateServiceProfile =
     "CreateServiceProfileResponse"
     "fixture/CreateServiceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateServiceProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateServiceProfile)
 
 responseAssociateAwsAccountWithPartnerAccount :: AssociateAwsAccountWithPartnerAccountResponse -> TestTree
 responseAssociateAwsAccountWithPartnerAccount =
@@ -807,7 +807,7 @@ responseAssociateAwsAccountWithPartnerAccount =
     "AssociateAwsAccountWithPartnerAccountResponse"
     "fixture/AssociateAwsAccountWithPartnerAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAwsAccountWithPartnerAccount)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAwsAccountWithPartnerAccount)
 
 responseResetResourceLogLevel :: ResetResourceLogLevelResponse -> TestTree
 responseResetResourceLogLevel =
@@ -815,7 +815,7 @@ responseResetResourceLogLevel =
     "ResetResourceLogLevelResponse"
     "fixture/ResetResourceLogLevelResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetResourceLogLevel)
+    (Proxy.Proxy :: Proxy.Proxy ResetResourceLogLevel)
 
 responseDeleteDestination :: DeleteDestinationResponse -> TestTree
 responseDeleteDestination =
@@ -823,7 +823,7 @@ responseDeleteDestination =
     "DeleteDestinationResponse"
     "fixture/DeleteDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDestination)
 
 responseUpdateDestination :: UpdateDestinationResponse -> TestTree
 responseUpdateDestination =
@@ -831,7 +831,7 @@ responseUpdateDestination =
     "UpdateDestinationResponse"
     "fixture/UpdateDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDestination)
 
 responseGetServiceEndpoint :: GetServiceEndpointResponse -> TestTree
 responseGetServiceEndpoint =
@@ -839,7 +839,7 @@ responseGetServiceEndpoint =
     "GetServiceEndpointResponse"
     "fixture/GetServiceEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceEndpoint)
 
 responseGetServiceProfile :: GetServiceProfileResponse -> TestTree
 responseGetServiceProfile =
@@ -847,7 +847,7 @@ responseGetServiceProfile =
     "GetServiceProfileResponse"
     "fixture/GetServiceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceProfile)
 
 responseGetWirelessDeviceStatistics :: GetWirelessDeviceStatisticsResponse -> TestTree
 responseGetWirelessDeviceStatistics =
@@ -855,7 +855,7 @@ responseGetWirelessDeviceStatistics =
     "GetWirelessDeviceStatisticsResponse"
     "fixture/GetWirelessDeviceStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessDeviceStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessDeviceStatistics)
 
 responseGetWirelessGatewayStatistics :: GetWirelessGatewayStatisticsResponse -> TestTree
 responseGetWirelessGatewayStatistics =
@@ -863,7 +863,7 @@ responseGetWirelessGatewayStatistics =
     "GetWirelessGatewayStatisticsResponse"
     "fixture/GetWirelessGatewayStatisticsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessGatewayStatistics)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessGatewayStatistics)
 
 responseGetWirelessGatewayCertificate :: GetWirelessGatewayCertificateResponse -> TestTree
 responseGetWirelessGatewayCertificate =
@@ -871,7 +871,7 @@ responseGetWirelessGatewayCertificate =
     "GetWirelessGatewayCertificateResponse"
     "fixture/GetWirelessGatewayCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessGatewayCertificate)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessGatewayCertificate)
 
 responseGetWirelessGatewayTask :: GetWirelessGatewayTaskResponse -> TestTree
 responseGetWirelessGatewayTask =
@@ -879,7 +879,7 @@ responseGetWirelessGatewayTask =
     "GetWirelessGatewayTaskResponse"
     "fixture/GetWirelessGatewayTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessGatewayTask)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessGatewayTask)
 
 responseGetWirelessGatewayFirmwareInformation :: GetWirelessGatewayFirmwareInformationResponse -> TestTree
 responseGetWirelessGatewayFirmwareInformation =
@@ -887,7 +887,7 @@ responseGetWirelessGatewayFirmwareInformation =
     "GetWirelessGatewayFirmwareInformationResponse"
     "fixture/GetWirelessGatewayFirmwareInformationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessGatewayFirmwareInformation)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessGatewayFirmwareInformation)
 
 responseListPartnerAccounts :: ListPartnerAccountsResponse -> TestTree
 responseListPartnerAccounts =
@@ -895,7 +895,7 @@ responseListPartnerAccounts =
     "ListPartnerAccountsResponse"
     "fixture/ListPartnerAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPartnerAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListPartnerAccounts)
 
 responseTestWirelessDevice :: TestWirelessDeviceResponse -> TestTree
 responseTestWirelessDevice =
@@ -903,7 +903,7 @@ responseTestWirelessDevice =
     "TestWirelessDeviceResponse"
     "fixture/TestWirelessDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy TestWirelessDevice)
+    (Proxy.Proxy :: Proxy.Proxy TestWirelessDevice)
 
 responseGetWirelessDevice :: GetWirelessDeviceResponse -> TestTree
 responseGetWirelessDevice =
@@ -911,7 +911,7 @@ responseGetWirelessDevice =
     "GetWirelessDeviceResponse"
     "fixture/GetWirelessDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessDevice)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessDevice)
 
 responseGetWirelessGateway :: GetWirelessGatewayResponse -> TestTree
 responseGetWirelessGateway =
@@ -919,7 +919,7 @@ responseGetWirelessGateway =
     "GetWirelessGatewayResponse"
     "fixture/GetWirelessGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessGateway)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessGateway)
 
 responseGetPartnerAccount :: GetPartnerAccountResponse -> TestTree
 responseGetPartnerAccount =
@@ -927,7 +927,7 @@ responseGetPartnerAccount =
     "GetPartnerAccountResponse"
     "fixture/GetPartnerAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPartnerAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetPartnerAccount)
 
 responseCreateWirelessGatewayTask :: CreateWirelessGatewayTaskResponse -> TestTree
 responseCreateWirelessGatewayTask =
@@ -935,7 +935,7 @@ responseCreateWirelessGatewayTask =
     "CreateWirelessGatewayTaskResponse"
     "fixture/CreateWirelessGatewayTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWirelessGatewayTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateWirelessGatewayTask)
 
 responseDeleteWirelessGateway :: DeleteWirelessGatewayResponse -> TestTree
 responseDeleteWirelessGateway =
@@ -943,7 +943,7 @@ responseDeleteWirelessGateway =
     "DeleteWirelessGatewayResponse"
     "fixture/DeleteWirelessGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWirelessGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWirelessGateway)
 
 responseUpdateWirelessGateway :: UpdateWirelessGatewayResponse -> TestTree
 responseUpdateWirelessGateway =
@@ -951,7 +951,7 @@ responseUpdateWirelessGateway =
     "UpdateWirelessGatewayResponse"
     "fixture/UpdateWirelessGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWirelessGateway)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWirelessGateway)
 
 responseDisassociateWirelessGatewayFromCertificate :: DisassociateWirelessGatewayFromCertificateResponse -> TestTree
 responseDisassociateWirelessGatewayFromCertificate =
@@ -959,7 +959,7 @@ responseDisassociateWirelessGatewayFromCertificate =
     "DisassociateWirelessGatewayFromCertificateResponse"
     "fixture/DisassociateWirelessGatewayFromCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateWirelessGatewayFromCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWirelessGatewayFromCertificate)
 
 responseListWirelessGatewayTaskDefinitions :: ListWirelessGatewayTaskDefinitionsResponse -> TestTree
 responseListWirelessGatewayTaskDefinitions =
@@ -967,7 +967,7 @@ responseListWirelessGatewayTaskDefinitions =
     "ListWirelessGatewayTaskDefinitionsResponse"
     "fixture/ListWirelessGatewayTaskDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWirelessGatewayTaskDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListWirelessGatewayTaskDefinitions)
 
 responsePutResourceLogLevel :: PutResourceLogLevelResponse -> TestTree
 responsePutResourceLogLevel =
@@ -975,7 +975,7 @@ responsePutResourceLogLevel =
     "PutResourceLogLevelResponse"
     "fixture/PutResourceLogLevelResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourceLogLevel)
+    (Proxy.Proxy :: Proxy.Proxy PutResourceLogLevel)
 
 responseCreateWirelessGateway :: CreateWirelessGatewayResponse -> TestTree
 responseCreateWirelessGateway =
@@ -983,7 +983,7 @@ responseCreateWirelessGateway =
     "CreateWirelessGatewayResponse"
     "fixture/CreateWirelessGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWirelessGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateWirelessGateway)
 
 responseDeleteWirelessGatewayTask :: DeleteWirelessGatewayTaskResponse -> TestTree
 responseDeleteWirelessGatewayTask =
@@ -991,7 +991,7 @@ responseDeleteWirelessGatewayTask =
     "DeleteWirelessGatewayTaskResponse"
     "fixture/DeleteWirelessGatewayTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWirelessGatewayTask)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWirelessGatewayTask)
 
 responseCreateWirelessDevice :: CreateWirelessDeviceResponse -> TestTree
 responseCreateWirelessDevice =
@@ -999,7 +999,7 @@ responseCreateWirelessDevice =
     "CreateWirelessDeviceResponse"
     "fixture/CreateWirelessDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWirelessDevice)
+    (Proxy.Proxy :: Proxy.Proxy CreateWirelessDevice)
 
 responseSendDataToWirelessDevice :: SendDataToWirelessDeviceResponse -> TestTree
 responseSendDataToWirelessDevice =
@@ -1007,7 +1007,7 @@ responseSendDataToWirelessDevice =
     "SendDataToWirelessDeviceResponse"
     "fixture/SendDataToWirelessDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy SendDataToWirelessDevice)
+    (Proxy.Proxy :: Proxy.Proxy SendDataToWirelessDevice)
 
 responseCreateDeviceProfile :: CreateDeviceProfileResponse -> TestTree
 responseCreateDeviceProfile =
@@ -1015,7 +1015,7 @@ responseCreateDeviceProfile =
     "CreateDeviceProfileResponse"
     "fixture/CreateDeviceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeviceProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeviceProfile)
 
 responseDisassociateAwsAccountFromPartnerAccount :: DisassociateAwsAccountFromPartnerAccountResponse -> TestTree
 responseDisassociateAwsAccountFromPartnerAccount =
@@ -1023,7 +1023,7 @@ responseDisassociateAwsAccountFromPartnerAccount =
     "DisassociateAwsAccountFromPartnerAccountResponse"
     "fixture/DisassociateAwsAccountFromPartnerAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateAwsAccountFromPartnerAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAwsAccountFromPartnerAccount)
 
 responseUpdateLogLevelsByResourceTypes :: UpdateLogLevelsByResourceTypesResponse -> TestTree
 responseUpdateLogLevelsByResourceTypes =
@@ -1031,7 +1031,7 @@ responseUpdateLogLevelsByResourceTypes =
     "UpdateLogLevelsByResourceTypesResponse"
     "fixture/UpdateLogLevelsByResourceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLogLevelsByResourceTypes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLogLevelsByResourceTypes)
 
 responseGetDestination :: GetDestinationResponse -> TestTree
 responseGetDestination =
@@ -1039,7 +1039,7 @@ responseGetDestination =
     "GetDestinationResponse"
     "fixture/GetDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDestination)
+    (Proxy.Proxy :: Proxy.Proxy GetDestination)
 
 responseGetLogLevelsByResourceTypes :: GetLogLevelsByResourceTypesResponse -> TestTree
 responseGetLogLevelsByResourceTypes =
@@ -1047,7 +1047,7 @@ responseGetLogLevelsByResourceTypes =
     "GetLogLevelsByResourceTypesResponse"
     "fixture/GetLogLevelsByResourceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLogLevelsByResourceTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetLogLevelsByResourceTypes)
 
 responseListDestinations :: ListDestinationsResponse -> TestTree
 responseListDestinations =
@@ -1055,7 +1055,7 @@ responseListDestinations =
     "ListDestinationsResponse"
     "fixture/ListDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDestinations)
+    (Proxy.Proxy :: Proxy.Proxy ListDestinations)
 
 responseGetDeviceProfile :: GetDeviceProfileResponse -> TestTree
 responseGetDeviceProfile =
@@ -1063,7 +1063,7 @@ responseGetDeviceProfile =
     "GetDeviceProfileResponse"
     "fixture/GetDeviceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceProfile)
 
 responseDisassociateWirelessDeviceFromThing :: DisassociateWirelessDeviceFromThingResponse -> TestTree
 responseDisassociateWirelessDeviceFromThing =
@@ -1071,7 +1071,7 @@ responseDisassociateWirelessDeviceFromThing =
     "DisassociateWirelessDeviceFromThingResponse"
     "fixture/DisassociateWirelessDeviceFromThingResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateWirelessDeviceFromThing)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWirelessDeviceFromThing)
 
 responseDisassociateWirelessGatewayFromThing :: DisassociateWirelessGatewayFromThingResponse -> TestTree
 responseDisassociateWirelessGatewayFromThing =
@@ -1079,7 +1079,7 @@ responseDisassociateWirelessGatewayFromThing =
     "DisassociateWirelessGatewayFromThingResponse"
     "fixture/DisassociateWirelessGatewayFromThingResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateWirelessGatewayFromThing)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWirelessGatewayFromThing)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1087,7 +1087,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateDestination :: CreateDestinationResponse -> TestTree
 responseCreateDestination =
@@ -1095,7 +1095,7 @@ responseCreateDestination =
     "CreateDestinationResponse"
     "fixture/CreateDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDestination)
+    (Proxy.Proxy :: Proxy.Proxy CreateDestination)
 
 responseAssociateWirelessGatewayWithCertificate :: AssociateWirelessGatewayWithCertificateResponse -> TestTree
 responseAssociateWirelessGatewayWithCertificate =
@@ -1103,7 +1103,7 @@ responseAssociateWirelessGatewayWithCertificate =
     "AssociateWirelessGatewayWithCertificateResponse"
     "fixture/AssociateWirelessGatewayWithCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateWirelessGatewayWithCertificate)
+    (Proxy.Proxy :: Proxy.Proxy AssociateWirelessGatewayWithCertificate)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1111,7 +1111,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdatePartnerAccount :: UpdatePartnerAccountResponse -> TestTree
 responseUpdatePartnerAccount =
@@ -1119,7 +1119,7 @@ responseUpdatePartnerAccount =
     "UpdatePartnerAccountResponse"
     "fixture/UpdatePartnerAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePartnerAccount)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePartnerAccount)
 
 responseGetWirelessGatewayTaskDefinition :: GetWirelessGatewayTaskDefinitionResponse -> TestTree
 responseGetWirelessGatewayTaskDefinition =
@@ -1127,7 +1127,7 @@ responseGetWirelessGatewayTaskDefinition =
     "GetWirelessGatewayTaskDefinitionResponse"
     "fixture/GetWirelessGatewayTaskDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWirelessGatewayTaskDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessGatewayTaskDefinition)
 
 responseGetResourceLogLevel :: GetResourceLogLevelResponse -> TestTree
 responseGetResourceLogLevel =
@@ -1135,7 +1135,7 @@ responseGetResourceLogLevel =
     "GetResourceLogLevelResponse"
     "fixture/GetResourceLogLevelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourceLogLevel)
+    (Proxy.Proxy :: Proxy.Proxy GetResourceLogLevel)
 
 responseDeleteWirelessDevice :: DeleteWirelessDeviceResponse -> TestTree
 responseDeleteWirelessDevice =
@@ -1143,7 +1143,7 @@ responseDeleteWirelessDevice =
     "DeleteWirelessDeviceResponse"
     "fixture/DeleteWirelessDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWirelessDevice)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWirelessDevice)
 
 responseUpdateWirelessDevice :: UpdateWirelessDeviceResponse -> TestTree
 responseUpdateWirelessDevice =
@@ -1151,7 +1151,7 @@ responseUpdateWirelessDevice =
     "UpdateWirelessDeviceResponse"
     "fixture/UpdateWirelessDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWirelessDevice)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWirelessDevice)
 
 responseListWirelessGateways :: ListWirelessGatewaysResponse -> TestTree
 responseListWirelessGateways =
@@ -1159,7 +1159,7 @@ responseListWirelessGateways =
     "ListWirelessGatewaysResponse"
     "fixture/ListWirelessGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWirelessGateways)
+    (Proxy.Proxy :: Proxy.Proxy ListWirelessGateways)
 
 responseDeleteWirelessGatewayTaskDefinition :: DeleteWirelessGatewayTaskDefinitionResponse -> TestTree
 responseDeleteWirelessGatewayTaskDefinition =
@@ -1167,7 +1167,7 @@ responseDeleteWirelessGatewayTaskDefinition =
     "DeleteWirelessGatewayTaskDefinitionResponse"
     "fixture/DeleteWirelessGatewayTaskDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWirelessGatewayTaskDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWirelessGatewayTaskDefinition)
 
 responseListWirelessDevices :: ListWirelessDevicesResponse -> TestTree
 responseListWirelessDevices =
@@ -1175,4 +1175,4 @@ responseListWirelessDevices =
     "ListWirelessDevicesResponse"
     "fixture/ListWirelessDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWirelessDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListWirelessDevices)

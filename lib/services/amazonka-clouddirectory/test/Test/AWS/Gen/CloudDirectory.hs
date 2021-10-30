@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudDirectory where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudDirectory
 import Test.AWS.CloudDirectory.Internal
 import Test.AWS.Fixture
@@ -835,7 +835,7 @@ responseListTypedLinkFacetAttributes =
     "ListTypedLinkFacetAttributesResponse"
     "fixture/ListTypedLinkFacetAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypedLinkFacetAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ListTypedLinkFacetAttributes)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
 responseDeleteObject =
@@ -843,7 +843,7 @@ responseDeleteObject =
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteObject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteObject)
 
 responseListIndex :: ListIndexResponse -> TestTree
 responseListIndex =
@@ -851,7 +851,7 @@ responseListIndex =
     "ListIndexResponse"
     "fixture/ListIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIndex)
+    (Proxy.Proxy :: Proxy.Proxy ListIndex)
 
 responseUpgradeAppliedSchema :: UpgradeAppliedSchemaResponse -> TestTree
 responseUpgradeAppliedSchema =
@@ -859,7 +859,7 @@ responseUpgradeAppliedSchema =
     "UpgradeAppliedSchemaResponse"
     "fixture/UpgradeAppliedSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy UpgradeAppliedSchema)
+    (Proxy.Proxy :: Proxy.Proxy UpgradeAppliedSchema)
 
 responseGetDirectory :: GetDirectoryResponse -> TestTree
 responseGetDirectory =
@@ -867,7 +867,7 @@ responseGetDirectory =
     "GetDirectoryResponse"
     "fixture/GetDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDirectory)
+    (Proxy.Proxy :: Proxy.Proxy GetDirectory)
 
 responseGetObjectInformation :: GetObjectInformationResponse -> TestTree
 responseGetObjectInformation =
@@ -875,7 +875,7 @@ responseGetObjectInformation =
     "GetObjectInformationResponse"
     "fixture/GetObjectInformationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectInformation)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectInformation)
 
 responseListAttachedIndices :: ListAttachedIndicesResponse -> TestTree
 responseListAttachedIndices =
@@ -883,7 +883,7 @@ responseListAttachedIndices =
     "ListAttachedIndicesResponse"
     "fixture/ListAttachedIndicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttachedIndices)
+    (Proxy.Proxy :: Proxy.Proxy ListAttachedIndices)
 
 responseDetachFromIndex :: DetachFromIndexResponse -> TestTree
 responseDetachFromIndex =
@@ -891,7 +891,7 @@ responseDetachFromIndex =
     "DetachFromIndexResponse"
     "fixture/DetachFromIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachFromIndex)
+    (Proxy.Proxy :: Proxy.Proxy DetachFromIndex)
 
 responseLookupPolicy :: LookupPolicyResponse -> TestTree
 responseLookupPolicy =
@@ -899,7 +899,7 @@ responseLookupPolicy =
     "LookupPolicyResponse"
     "fixture/LookupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy LookupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy LookupPolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -907,7 +907,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListPublishedSchemaArns :: ListPublishedSchemaArnsResponse -> TestTree
 responseListPublishedSchemaArns =
@@ -915,7 +915,7 @@ responseListPublishedSchemaArns =
     "ListPublishedSchemaArnsResponse"
     "fixture/ListPublishedSchemaArnsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPublishedSchemaArns)
+    (Proxy.Proxy :: Proxy.Proxy ListPublishedSchemaArns)
 
 responseListDirectories :: ListDirectoriesResponse -> TestTree
 responseListDirectories =
@@ -923,7 +923,7 @@ responseListDirectories =
     "ListDirectoriesResponse"
     "fixture/ListDirectoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDirectories)
+    (Proxy.Proxy :: Proxy.Proxy ListDirectories)
 
 responseCreateTypedLinkFacet :: CreateTypedLinkFacetResponse -> TestTree
 responseCreateTypedLinkFacet =
@@ -931,7 +931,7 @@ responseCreateTypedLinkFacet =
     "CreateTypedLinkFacetResponse"
     "fixture/CreateTypedLinkFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTypedLinkFacet)
+    (Proxy.Proxy :: Proxy.Proxy CreateTypedLinkFacet)
 
 responseListObjectParentPaths :: ListObjectParentPathsResponse -> TestTree
 responseListObjectParentPaths =
@@ -939,7 +939,7 @@ responseListObjectParentPaths =
     "ListObjectParentPathsResponse"
     "fixture/ListObjectParentPathsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjectParentPaths)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectParentPaths)
 
 responseDisableDirectory :: DisableDirectoryResponse -> TestTree
 responseDisableDirectory =
@@ -947,7 +947,7 @@ responseDisableDirectory =
     "DisableDirectoryResponse"
     "fixture/DisableDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableDirectory)
+    (Proxy.Proxy :: Proxy.Proxy DisableDirectory)
 
 responseCreateDirectory :: CreateDirectoryResponse -> TestTree
 responseCreateDirectory =
@@ -955,7 +955,7 @@ responseCreateDirectory =
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectory)
+    (Proxy.Proxy :: Proxy.Proxy CreateDirectory)
 
 responseListFacetAttributes :: ListFacetAttributesResponse -> TestTree
 responseListFacetAttributes =
@@ -963,7 +963,7 @@ responseListFacetAttributes =
     "ListFacetAttributesResponse"
     "fixture/ListFacetAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFacetAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ListFacetAttributes)
 
 responseListManagedSchemaArns :: ListManagedSchemaArnsResponse -> TestTree
 responseListManagedSchemaArns =
@@ -971,7 +971,7 @@ responseListManagedSchemaArns =
     "ListManagedSchemaArnsResponse"
     "fixture/ListManagedSchemaArnsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListManagedSchemaArns)
+    (Proxy.Proxy :: Proxy.Proxy ListManagedSchemaArns)
 
 responseUpdateTypedLinkFacet :: UpdateTypedLinkFacetResponse -> TestTree
 responseUpdateTypedLinkFacet =
@@ -979,7 +979,7 @@ responseUpdateTypedLinkFacet =
     "UpdateTypedLinkFacetResponse"
     "fixture/UpdateTypedLinkFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTypedLinkFacet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTypedLinkFacet)
 
 responseDeleteTypedLinkFacet :: DeleteTypedLinkFacetResponse -> TestTree
 responseDeleteTypedLinkFacet =
@@ -987,7 +987,7 @@ responseDeleteTypedLinkFacet =
     "DeleteTypedLinkFacetResponse"
     "fixture/DeleteTypedLinkFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTypedLinkFacet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTypedLinkFacet)
 
 responseGetAppliedSchemaVersion :: GetAppliedSchemaVersionResponse -> TestTree
 responseGetAppliedSchemaVersion =
@@ -995,7 +995,7 @@ responseGetAppliedSchemaVersion =
     "GetAppliedSchemaVersionResponse"
     "fixture/GetAppliedSchemaVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppliedSchemaVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetAppliedSchemaVersion)
 
 responseRemoveFacetFromObject :: RemoveFacetFromObjectResponse -> TestTree
 responseRemoveFacetFromObject =
@@ -1003,7 +1003,7 @@ responseRemoveFacetFromObject =
     "RemoveFacetFromObjectResponse"
     "fixture/RemoveFacetFromObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveFacetFromObject)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFacetFromObject)
 
 responseEnableDirectory :: EnableDirectoryResponse -> TestTree
 responseEnableDirectory =
@@ -1011,7 +1011,7 @@ responseEnableDirectory =
     "EnableDirectoryResponse"
     "fixture/EnableDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableDirectory)
+    (Proxy.Proxy :: Proxy.Proxy EnableDirectory)
 
 responseListObjectAttributes :: ListObjectAttributesResponse -> TestTree
 responseListObjectAttributes =
@@ -1019,7 +1019,7 @@ responseListObjectAttributes =
     "ListObjectAttributesResponse"
     "fixture/ListObjectAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjectAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectAttributes)
 
 responseListAppliedSchemaArns :: ListAppliedSchemaArnsResponse -> TestTree
 responseListAppliedSchemaArns =
@@ -1027,7 +1027,7 @@ responseListAppliedSchemaArns =
     "ListAppliedSchemaArnsResponse"
     "fixture/ListAppliedSchemaArnsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppliedSchemaArns)
+    (Proxy.Proxy :: Proxy.Proxy ListAppliedSchemaArns)
 
 responseListIncomingTypedLinks :: ListIncomingTypedLinksResponse -> TestTree
 responseListIncomingTypedLinks =
@@ -1035,7 +1035,7 @@ responseListIncomingTypedLinks =
     "ListIncomingTypedLinksResponse"
     "fixture/ListIncomingTypedLinksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIncomingTypedLinks)
+    (Proxy.Proxy :: Proxy.Proxy ListIncomingTypedLinks)
 
 responseGetFacet :: GetFacetResponse -> TestTree
 responseGetFacet =
@@ -1043,7 +1043,7 @@ responseGetFacet =
     "GetFacetResponse"
     "fixture/GetFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFacet)
+    (Proxy.Proxy :: Proxy.Proxy GetFacet)
 
 responseGetTypedLinkFacetInformation :: GetTypedLinkFacetInformationResponse -> TestTree
 responseGetTypedLinkFacetInformation =
@@ -1051,7 +1051,7 @@ responseGetTypedLinkFacetInformation =
     "GetTypedLinkFacetInformationResponse"
     "fixture/GetTypedLinkFacetInformationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTypedLinkFacetInformation)
+    (Proxy.Proxy :: Proxy.Proxy GetTypedLinkFacetInformation)
 
 responseListDevelopmentSchemaArns :: ListDevelopmentSchemaArnsResponse -> TestTree
 responseListDevelopmentSchemaArns =
@@ -1059,7 +1059,7 @@ responseListDevelopmentSchemaArns =
     "ListDevelopmentSchemaArnsResponse"
     "fixture/ListDevelopmentSchemaArnsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevelopmentSchemaArns)
+    (Proxy.Proxy :: Proxy.Proxy ListDevelopmentSchemaArns)
 
 responseAttachObject :: AttachObjectResponse -> TestTree
 responseAttachObject =
@@ -1067,7 +1067,7 @@ responseAttachObject =
     "AttachObjectResponse"
     "fixture/AttachObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachObject)
+    (Proxy.Proxy :: Proxy.Proxy AttachObject)
 
 responseBatchWrite :: BatchWriteResponse -> TestTree
 responseBatchWrite =
@@ -1075,7 +1075,7 @@ responseBatchWrite =
     "BatchWriteResponse"
     "fixture/BatchWriteResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchWrite)
+    (Proxy.Proxy :: Proxy.Proxy BatchWrite)
 
 responseCreateObject :: CreateObjectResponse -> TestTree
 responseCreateObject =
@@ -1083,7 +1083,7 @@ responseCreateObject =
     "CreateObjectResponse"
     "fixture/CreateObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateObject)
+    (Proxy.Proxy :: Proxy.Proxy CreateObject)
 
 responseUpgradePublishedSchema :: UpgradePublishedSchemaResponse -> TestTree
 responseUpgradePublishedSchema =
@@ -1091,7 +1091,7 @@ responseUpgradePublishedSchema =
     "UpgradePublishedSchemaResponse"
     "fixture/UpgradePublishedSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy UpgradePublishedSchema)
+    (Proxy.Proxy :: Proxy.Proxy UpgradePublishedSchema)
 
 responseCreateFacet :: CreateFacetResponse -> TestTree
 responseCreateFacet =
@@ -1099,7 +1099,7 @@ responseCreateFacet =
     "CreateFacetResponse"
     "fixture/CreateFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFacet)
+    (Proxy.Proxy :: Proxy.Proxy CreateFacet)
 
 responseGetLinkAttributes :: GetLinkAttributesResponse -> TestTree
 responseGetLinkAttributes =
@@ -1107,7 +1107,7 @@ responseGetLinkAttributes =
     "GetLinkAttributesResponse"
     "fixture/GetLinkAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLinkAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetLinkAttributes)
 
 responseGetObjectAttributes :: GetObjectAttributesResponse -> TestTree
 responseGetObjectAttributes =
@@ -1115,7 +1115,7 @@ responseGetObjectAttributes =
     "GetObjectAttributesResponse"
     "fixture/GetObjectAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetObjectAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetObjectAttributes)
 
 responseDeleteFacet :: DeleteFacetResponse -> TestTree
 responseDeleteFacet =
@@ -1123,7 +1123,7 @@ responseDeleteFacet =
     "DeleteFacetResponse"
     "fixture/DeleteFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFacet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFacet)
 
 responseUpdateFacet :: UpdateFacetResponse -> TestTree
 responseUpdateFacet =
@@ -1131,7 +1131,7 @@ responseUpdateFacet =
     "UpdateFacetResponse"
     "fixture/UpdateFacetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFacet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFacet)
 
 responseListObjectChildren :: ListObjectChildrenResponse -> TestTree
 responseListObjectChildren =
@@ -1139,7 +1139,7 @@ responseListObjectChildren =
     "ListObjectChildrenResponse"
     "fixture/ListObjectChildrenResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjectChildren)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectChildren)
 
 responseListTypedLinkFacetNames :: ListTypedLinkFacetNamesResponse -> TestTree
 responseListTypedLinkFacetNames =
@@ -1147,7 +1147,7 @@ responseListTypedLinkFacetNames =
     "ListTypedLinkFacetNamesResponse"
     "fixture/ListTypedLinkFacetNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypedLinkFacetNames)
+    (Proxy.Proxy :: Proxy.Proxy ListTypedLinkFacetNames)
 
 responseAttachTypedLink :: AttachTypedLinkResponse -> TestTree
 responseAttachTypedLink =
@@ -1155,7 +1155,7 @@ responseAttachTypedLink =
     "AttachTypedLinkResponse"
     "fixture/AttachTypedLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachTypedLink)
+    (Proxy.Proxy :: Proxy.Proxy AttachTypedLink)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
 responseDetachPolicy =
@@ -1163,7 +1163,7 @@ responseDetachPolicy =
     "DetachPolicyResponse"
     "fixture/DetachPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DetachPolicy)
 
 responseCreateIndex :: CreateIndexResponse -> TestTree
 responseCreateIndex =
@@ -1171,7 +1171,7 @@ responseCreateIndex =
     "CreateIndexResponse"
     "fixture/CreateIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIndex)
+    (Proxy.Proxy :: Proxy.Proxy CreateIndex)
 
 responseDetachObject :: DetachObjectResponse -> TestTree
 responseDetachObject =
@@ -1179,7 +1179,7 @@ responseDetachObject =
     "DetachObjectResponse"
     "fixture/DetachObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachObject)
+    (Proxy.Proxy :: Proxy.Proxy DetachObject)
 
 responseAddFacetToObject :: AddFacetToObjectResponse -> TestTree
 responseAddFacetToObject =
@@ -1187,7 +1187,7 @@ responseAddFacetToObject =
     "AddFacetToObjectResponse"
     "fixture/AddFacetToObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy AddFacetToObject)
+    (Proxy.Proxy :: Proxy.Proxy AddFacetToObject)
 
 responseApplySchema :: ApplySchemaResponse -> TestTree
 responseApplySchema =
@@ -1195,7 +1195,7 @@ responseApplySchema =
     "ApplySchemaResponse"
     "fixture/ApplySchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy ApplySchema)
+    (Proxy.Proxy :: Proxy.Proxy ApplySchema)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
 responseCreateSchema =
@@ -1203,7 +1203,7 @@ responseCreateSchema =
     "CreateSchemaResponse"
     "fixture/CreateSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSchema)
+    (Proxy.Proxy :: Proxy.Proxy CreateSchema)
 
 responseGetSchemaAsJson :: GetSchemaAsJsonResponse -> TestTree
 responseGetSchemaAsJson =
@@ -1211,7 +1211,7 @@ responseGetSchemaAsJson =
     "GetSchemaAsJsonResponse"
     "fixture/GetSchemaAsJsonResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSchemaAsJson)
+    (Proxy.Proxy :: Proxy.Proxy GetSchemaAsJson)
 
 responsePublishSchema :: PublishSchemaResponse -> TestTree
 responsePublishSchema =
@@ -1219,7 +1219,7 @@ responsePublishSchema =
     "PublishSchemaResponse"
     "fixture/PublishSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishSchema)
+    (Proxy.Proxy :: Proxy.Proxy PublishSchema)
 
 responseDeleteDirectory :: DeleteDirectoryResponse -> TestTree
 responseDeleteDirectory =
@@ -1227,7 +1227,7 @@ responseDeleteDirectory =
     "DeleteDirectoryResponse"
     "fixture/DeleteDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectory)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDirectory)
 
 responseListObjectParents :: ListObjectParentsResponse -> TestTree
 responseListObjectParents =
@@ -1235,7 +1235,7 @@ responseListObjectParents =
     "ListObjectParentsResponse"
     "fixture/ListObjectParentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjectParents)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectParents)
 
 responseListPolicyAttachments :: ListPolicyAttachmentsResponse -> TestTree
 responseListPolicyAttachments =
@@ -1243,7 +1243,7 @@ responseListPolicyAttachments =
     "ListPolicyAttachmentsResponse"
     "fixture/ListPolicyAttachmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicyAttachments)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicyAttachments)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1251,7 +1251,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUpdateSchema :: UpdateSchemaResponse -> TestTree
 responseUpdateSchema =
@@ -1259,7 +1259,7 @@ responseUpdateSchema =
     "UpdateSchemaResponse"
     "fixture/UpdateSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSchema)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSchema)
 
 responseDeleteSchema :: DeleteSchemaResponse -> TestTree
 responseDeleteSchema =
@@ -1267,7 +1267,7 @@ responseDeleteSchema =
     "DeleteSchemaResponse"
     "fixture/DeleteSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchema)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchema)
 
 responseDetachTypedLink :: DetachTypedLinkResponse -> TestTree
 responseDetachTypedLink =
@@ -1275,7 +1275,7 @@ responseDetachTypedLink =
     "DetachTypedLinkResponse"
     "fixture/DetachTypedLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachTypedLink)
+    (Proxy.Proxy :: Proxy.Proxy DetachTypedLink)
 
 responseListFacetNames :: ListFacetNamesResponse -> TestTree
 responseListFacetNames =
@@ -1283,7 +1283,7 @@ responseListFacetNames =
     "ListFacetNamesResponse"
     "fixture/ListFacetNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFacetNames)
+    (Proxy.Proxy :: Proxy.Proxy ListFacetNames)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1291,7 +1291,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListOutgoingTypedLinks :: ListOutgoingTypedLinksResponse -> TestTree
 responseListOutgoingTypedLinks =
@@ -1299,7 +1299,7 @@ responseListOutgoingTypedLinks =
     "ListOutgoingTypedLinksResponse"
     "fixture/ListOutgoingTypedLinksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOutgoingTypedLinks)
+    (Proxy.Proxy :: Proxy.Proxy ListOutgoingTypedLinks)
 
 responseUpdateObjectAttributes :: UpdateObjectAttributesResponse -> TestTree
 responseUpdateObjectAttributes =
@@ -1307,7 +1307,7 @@ responseUpdateObjectAttributes =
     "UpdateObjectAttributesResponse"
     "fixture/UpdateObjectAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateObjectAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateObjectAttributes)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
 responseAttachPolicy =
@@ -1315,7 +1315,7 @@ responseAttachPolicy =
     "AttachPolicyResponse"
     "fixture/AttachPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AttachPolicy)
 
 responseBatchRead :: BatchReadResponse -> TestTree
 responseBatchRead =
@@ -1323,7 +1323,7 @@ responseBatchRead =
     "BatchReadResponse"
     "fixture/BatchReadResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchRead)
+    (Proxy.Proxy :: Proxy.Proxy BatchRead)
 
 responsePutSchemaFromJson :: PutSchemaFromJsonResponse -> TestTree
 responsePutSchemaFromJson =
@@ -1331,7 +1331,7 @@ responsePutSchemaFromJson =
     "PutSchemaFromJsonResponse"
     "fixture/PutSchemaFromJsonResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSchemaFromJson)
+    (Proxy.Proxy :: Proxy.Proxy PutSchemaFromJson)
 
 responseUpdateLinkAttributes :: UpdateLinkAttributesResponse -> TestTree
 responseUpdateLinkAttributes =
@@ -1339,7 +1339,7 @@ responseUpdateLinkAttributes =
     "UpdateLinkAttributesResponse"
     "fixture/UpdateLinkAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLinkAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLinkAttributes)
 
 responseAttachToIndex :: AttachToIndexResponse -> TestTree
 responseAttachToIndex =
@@ -1347,7 +1347,7 @@ responseAttachToIndex =
     "AttachToIndexResponse"
     "fixture/AttachToIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachToIndex)
+    (Proxy.Proxy :: Proxy.Proxy AttachToIndex)
 
 responseListObjectPolicies :: ListObjectPoliciesResponse -> TestTree
 responseListObjectPolicies =
@@ -1355,4 +1355,4 @@ responseListObjectPolicies =
     "ListObjectPoliciesResponse"
     "fixture/ListObjectPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListObjectPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListObjectPolicies)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ComprehendMedical where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ComprehendMedical
 import Test.AWS.ComprehendMedical.Internal
 import Test.AWS.Fixture
@@ -283,7 +283,7 @@ responseDescribeEntitiesDetectionV2Job =
     "DescribeEntitiesDetectionV2JobResponse"
     "fixture/DescribeEntitiesDetectionV2JobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEntitiesDetectionV2Job)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntitiesDetectionV2Job)
 
 responseDescribePHIDetectionJob :: DescribePHIDetectionJobResponse -> TestTree
 responseDescribePHIDetectionJob =
@@ -291,7 +291,7 @@ responseDescribePHIDetectionJob =
     "DescribePHIDetectionJobResponse"
     "fixture/DescribePHIDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePHIDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribePHIDetectionJob)
 
 responseListICD10CMInferenceJobs :: ListICD10CMInferenceJobsResponse -> TestTree
 responseListICD10CMInferenceJobs =
@@ -299,7 +299,7 @@ responseListICD10CMInferenceJobs =
     "ListICD10CMInferenceJobsResponse"
     "fixture/ListICD10CMInferenceJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListICD10CMInferenceJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListICD10CMInferenceJobs)
 
 responseInferICD10CM :: InferICD10CMResponse -> TestTree
 responseInferICD10CM =
@@ -307,7 +307,7 @@ responseInferICD10CM =
     "InferICD10CMResponse"
     "fixture/InferICD10CMResponse.proto"
     defaultService
-    (Proxy :: Proxy InferICD10CM)
+    (Proxy.Proxy :: Proxy.Proxy InferICD10CM)
 
 responseInferRxNorm :: InferRxNormResponse -> TestTree
 responseInferRxNorm =
@@ -315,7 +315,7 @@ responseInferRxNorm =
     "InferRxNormResponse"
     "fixture/InferRxNormResponse.proto"
     defaultService
-    (Proxy :: Proxy InferRxNorm)
+    (Proxy.Proxy :: Proxy.Proxy InferRxNorm)
 
 responseStartICD10CMInferenceJob :: StartICD10CMInferenceJobResponse -> TestTree
 responseStartICD10CMInferenceJob =
@@ -323,7 +323,7 @@ responseStartICD10CMInferenceJob =
     "StartICD10CMInferenceJobResponse"
     "fixture/StartICD10CMInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartICD10CMInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy StartICD10CMInferenceJob)
 
 responseStartRxNormInferenceJob :: StartRxNormInferenceJobResponse -> TestTree
 responseStartRxNormInferenceJob =
@@ -331,7 +331,7 @@ responseStartRxNormInferenceJob =
     "StartRxNormInferenceJobResponse"
     "fixture/StartRxNormInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartRxNormInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy StartRxNormInferenceJob)
 
 responseListPHIDetectionJobs :: ListPHIDetectionJobsResponse -> TestTree
 responseListPHIDetectionJobs =
@@ -339,7 +339,7 @@ responseListPHIDetectionJobs =
     "ListPHIDetectionJobsResponse"
     "fixture/ListPHIDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPHIDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListPHIDetectionJobs)
 
 responseDescribeICD10CMInferenceJob :: DescribeICD10CMInferenceJobResponse -> TestTree
 responseDescribeICD10CMInferenceJob =
@@ -347,7 +347,7 @@ responseDescribeICD10CMInferenceJob =
     "DescribeICD10CMInferenceJobResponse"
     "fixture/DescribeICD10CMInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeICD10CMInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeICD10CMInferenceJob)
 
 responseStartPHIDetectionJob :: StartPHIDetectionJobResponse -> TestTree
 responseStartPHIDetectionJob =
@@ -355,7 +355,7 @@ responseStartPHIDetectionJob =
     "StartPHIDetectionJobResponse"
     "fixture/StartPHIDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPHIDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartPHIDetectionJob)
 
 responseStopEntitiesDetectionV2Job :: StopEntitiesDetectionV2JobResponse -> TestTree
 responseStopEntitiesDetectionV2Job =
@@ -363,7 +363,7 @@ responseStopEntitiesDetectionV2Job =
     "StopEntitiesDetectionV2JobResponse"
     "fixture/StopEntitiesDetectionV2JobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopEntitiesDetectionV2Job)
+    (Proxy.Proxy :: Proxy.Proxy StopEntitiesDetectionV2Job)
 
 responseDescribeRxNormInferenceJob :: DescribeRxNormInferenceJobResponse -> TestTree
 responseDescribeRxNormInferenceJob =
@@ -371,7 +371,7 @@ responseDescribeRxNormInferenceJob =
     "DescribeRxNormInferenceJobResponse"
     "fixture/DescribeRxNormInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRxNormInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRxNormInferenceJob)
 
 responseStopICD10CMInferenceJob :: StopICD10CMInferenceJobResponse -> TestTree
 responseStopICD10CMInferenceJob =
@@ -379,7 +379,7 @@ responseStopICD10CMInferenceJob =
     "StopICD10CMInferenceJobResponse"
     "fixture/StopICD10CMInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopICD10CMInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy StopICD10CMInferenceJob)
 
 responseListEntitiesDetectionV2Jobs :: ListEntitiesDetectionV2JobsResponse -> TestTree
 responseListEntitiesDetectionV2Jobs =
@@ -387,7 +387,7 @@ responseListEntitiesDetectionV2Jobs =
     "ListEntitiesDetectionV2JobsResponse"
     "fixture/ListEntitiesDetectionV2JobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntitiesDetectionV2Jobs)
+    (Proxy.Proxy :: Proxy.Proxy ListEntitiesDetectionV2Jobs)
 
 responseStopRxNormInferenceJob :: StopRxNormInferenceJobResponse -> TestTree
 responseStopRxNormInferenceJob =
@@ -395,7 +395,7 @@ responseStopRxNormInferenceJob =
     "StopRxNormInferenceJobResponse"
     "fixture/StopRxNormInferenceJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopRxNormInferenceJob)
+    (Proxy.Proxy :: Proxy.Proxy StopRxNormInferenceJob)
 
 responseDetectPHI :: DetectPHIResponse -> TestTree
 responseDetectPHI =
@@ -403,7 +403,7 @@ responseDetectPHI =
     "DetectPHIResponse"
     "fixture/DetectPHIResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectPHI)
+    (Proxy.Proxy :: Proxy.Proxy DetectPHI)
 
 responseDetectEntitiesV2 :: DetectEntitiesV2Response -> TestTree
 responseDetectEntitiesV2 =
@@ -411,7 +411,7 @@ responseDetectEntitiesV2 =
     "DetectEntitiesV2Response"
     "fixture/DetectEntitiesV2Response.proto"
     defaultService
-    (Proxy :: Proxy DetectEntitiesV2)
+    (Proxy.Proxy :: Proxy.Proxy DetectEntitiesV2)
 
 responseStopPHIDetectionJob :: StopPHIDetectionJobResponse -> TestTree
 responseStopPHIDetectionJob =
@@ -419,7 +419,7 @@ responseStopPHIDetectionJob =
     "StopPHIDetectionJobResponse"
     "fixture/StopPHIDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopPHIDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopPHIDetectionJob)
 
 responseStartEntitiesDetectionV2Job :: StartEntitiesDetectionV2JobResponse -> TestTree
 responseStartEntitiesDetectionV2Job =
@@ -427,7 +427,7 @@ responseStartEntitiesDetectionV2Job =
     "StartEntitiesDetectionV2JobResponse"
     "fixture/StartEntitiesDetectionV2JobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartEntitiesDetectionV2Job)
+    (Proxy.Proxy :: Proxy.Proxy StartEntitiesDetectionV2Job)
 
 responseListRxNormInferenceJobs :: ListRxNormInferenceJobsResponse -> TestTree
 responseListRxNormInferenceJobs =
@@ -435,4 +435,4 @@ responseListRxNormInferenceJobs =
     "ListRxNormInferenceJobsResponse"
     "fixture/ListRxNormInferenceJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRxNormInferenceJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListRxNormInferenceJobs)

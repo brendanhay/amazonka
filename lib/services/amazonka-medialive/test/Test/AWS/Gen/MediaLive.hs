@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaLive where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaLive
 import Test.AWS.Fixture
 import Test.AWS.MediaLive.Internal
@@ -727,7 +727,7 @@ responseUpdateChannelClass =
     "UpdateChannelClassResponse"
     "fixture/UpdateChannelClassResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannelClass')
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelClass')
 
 responseListMultiplexes :: ListMultiplexesResponse -> TestTree
 responseListMultiplexes =
@@ -735,7 +735,7 @@ responseListMultiplexes =
     "ListMultiplexesResponse"
     "fixture/ListMultiplexesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMultiplexes)
+    (Proxy.Proxy :: Proxy.Proxy ListMultiplexes)
 
 responseBatchStart :: BatchStartResponse -> TestTree
 responseBatchStart =
@@ -743,7 +743,7 @@ responseBatchStart =
     "BatchStartResponse"
     "fixture/BatchStartResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchStart')
+    (Proxy.Proxy :: Proxy.Proxy BatchStart')
 
 responseCreateMultiplex :: CreateMultiplexResponse -> TestTree
 responseCreateMultiplex =
@@ -751,7 +751,7 @@ responseCreateMultiplex =
     "CreateMultiplexResponse"
     "fixture/CreateMultiplexResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMultiplex')
+    (Proxy.Proxy :: Proxy.Proxy CreateMultiplex')
 
 responseListInputDeviceTransfers :: ListInputDeviceTransfersResponse -> TestTree
 responseListInputDeviceTransfers =
@@ -759,7 +759,7 @@ responseListInputDeviceTransfers =
     "ListInputDeviceTransfersResponse"
     "fixture/ListInputDeviceTransfersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInputDeviceTransfers)
+    (Proxy.Proxy :: Proxy.Proxy ListInputDeviceTransfers)
 
 responseListInputDevices :: ListInputDevicesResponse -> TestTree
 responseListInputDevices =
@@ -767,7 +767,7 @@ responseListInputDevices =
     "ListInputDevicesResponse"
     "fixture/ListInputDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInputDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListInputDevices)
 
 responseListInputs :: ListInputsResponse -> TestTree
 responseListInputs =
@@ -775,7 +775,7 @@ responseListInputs =
     "ListInputsResponse"
     "fixture/ListInputsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInputs)
+    (Proxy.Proxy :: Proxy.Proxy ListInputs)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -783,7 +783,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseDescribeInputSecurityGroup :: DescribeInputSecurityGroupResponse -> TestTree
 responseDescribeInputSecurityGroup =
@@ -791,7 +791,7 @@ responseDescribeInputSecurityGroup =
     "DescribeInputSecurityGroupResponse"
     "fixture/DescribeInputSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInputSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInputSecurityGroup)
 
 responseCreateInput :: CreateInputResponse -> TestTree
 responseCreateInput =
@@ -799,7 +799,7 @@ responseCreateInput =
     "CreateInputResponse"
     "fixture/CreateInputResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInput')
+    (Proxy.Proxy :: Proxy.Proxy CreateInput')
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -807,7 +807,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -815,7 +815,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -823,7 +823,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel')
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel')
 
 responseAcceptInputDeviceTransfer :: AcceptInputDeviceTransferResponse -> TestTree
 responseAcceptInputDeviceTransfer =
@@ -831,7 +831,7 @@ responseAcceptInputDeviceTransfer =
     "AcceptInputDeviceTransferResponse"
     "fixture/AcceptInputDeviceTransferResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptInputDeviceTransfer)
+    (Proxy.Proxy :: Proxy.Proxy AcceptInputDeviceTransfer)
 
 responseDescribeReservation :: DescribeReservationResponse -> TestTree
 responseDescribeReservation =
@@ -839,7 +839,7 @@ responseDescribeReservation =
     "DescribeReservationResponse"
     "fixture/DescribeReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservation)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -847,7 +847,7 @@ responseCreateTags =
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateTags)
 
 responseStopMultiplex :: StopMultiplexResponse -> TestTree
 responseStopMultiplex =
@@ -855,7 +855,7 @@ responseStopMultiplex =
     "StopMultiplexResponse"
     "fixture/StopMultiplexResponse.proto"
     defaultService
-    (Proxy :: Proxy StopMultiplex)
+    (Proxy.Proxy :: Proxy.Proxy StopMultiplex)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -863,7 +863,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseCreateInputSecurityGroup :: CreateInputSecurityGroupResponse -> TestTree
 responseCreateInputSecurityGroup =
@@ -871,7 +871,7 @@ responseCreateInputSecurityGroup =
     "CreateInputSecurityGroupResponse"
     "fixture/CreateInputSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInputSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateInputSecurityGroup)
 
 responseStartChannel :: StartChannelResponse -> TestTree
 responseStartChannel =
@@ -879,7 +879,7 @@ responseStartChannel =
     "StartChannelResponse"
     "fixture/StartChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy StartChannel)
+    (Proxy.Proxy :: Proxy.Proxy StartChannel)
 
 responseCancelInputDeviceTransfer :: CancelInputDeviceTransferResponse -> TestTree
 responseCancelInputDeviceTransfer =
@@ -887,7 +887,7 @@ responseCancelInputDeviceTransfer =
     "CancelInputDeviceTransferResponse"
     "fixture/CancelInputDeviceTransferResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelInputDeviceTransfer)
+    (Proxy.Proxy :: Proxy.Proxy CancelInputDeviceTransfer)
 
 responseListInputSecurityGroups :: ListInputSecurityGroupsResponse -> TestTree
 responseListInputSecurityGroups =
@@ -895,7 +895,7 @@ responseListInputSecurityGroups =
     "ListInputSecurityGroupsResponse"
     "fixture/ListInputSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInputSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListInputSecurityGroups)
 
 responseDeleteReservation :: DeleteReservationResponse -> TestTree
 responseDeleteReservation =
@@ -903,7 +903,7 @@ responseDeleteReservation =
     "DeleteReservationResponse"
     "fixture/DeleteReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReservation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReservation)
 
 responseUpdateReservation :: UpdateReservationResponse -> TestTree
 responseUpdateReservation =
@@ -911,7 +911,7 @@ responseUpdateReservation =
     "UpdateReservationResponse"
     "fixture/UpdateReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReservation')
+    (Proxy.Proxy :: Proxy.Proxy UpdateReservation')
 
 responseBatchStop :: BatchStopResponse -> TestTree
 responseBatchStop =
@@ -919,7 +919,7 @@ responseBatchStop =
     "BatchStopResponse"
     "fixture/BatchStopResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchStop')
+    (Proxy.Proxy :: Proxy.Proxy BatchStop')
 
 responseDeleteSchedule :: DeleteScheduleResponse -> TestTree
 responseDeleteSchedule =
@@ -927,7 +927,7 @@ responseDeleteSchedule =
     "DeleteScheduleResponse"
     "fixture/DeleteScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchedule)
 
 responseCreatePartnerInput :: CreatePartnerInputResponse -> TestTree
 responseCreatePartnerInput =
@@ -935,7 +935,7 @@ responseCreatePartnerInput =
     "CreatePartnerInputResponse"
     "fixture/CreatePartnerInputResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePartnerInput')
+    (Proxy.Proxy :: Proxy.Proxy CreatePartnerInput')
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -943,7 +943,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel')
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel')
 
 responseDeleteInput :: DeleteInputResponse -> TestTree
 responseDeleteInput =
@@ -951,7 +951,7 @@ responseDeleteInput =
     "DeleteInputResponse"
     "fixture/DeleteInputResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInput)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInput)
 
 responseUpdateInput :: UpdateInputResponse -> TestTree
 responseUpdateInput =
@@ -959,7 +959,7 @@ responseUpdateInput =
     "UpdateInputResponse"
     "fixture/UpdateInputResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInput')
+    (Proxy.Proxy :: Proxy.Proxy UpdateInput')
 
 responseUpdateInputDevice :: UpdateInputDeviceResponse -> TestTree
 responseUpdateInputDevice =
@@ -967,7 +967,7 @@ responseUpdateInputDevice =
     "UpdateInputDeviceResponse"
     "fixture/UpdateInputDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInputDevice')
+    (Proxy.Proxy :: Proxy.Proxy UpdateInputDevice')
 
 responseRejectInputDeviceTransfer :: RejectInputDeviceTransferResponse -> TestTree
 responseRejectInputDeviceTransfer =
@@ -975,7 +975,7 @@ responseRejectInputDeviceTransfer =
     "RejectInputDeviceTransferResponse"
     "fixture/RejectInputDeviceTransferResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectInputDeviceTransfer)
+    (Proxy.Proxy :: Proxy.Proxy RejectInputDeviceTransfer)
 
 responseClaimDevice :: ClaimDeviceResponse -> TestTree
 responseClaimDevice =
@@ -983,7 +983,7 @@ responseClaimDevice =
     "ClaimDeviceResponse"
     "fixture/ClaimDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy ClaimDevice)
+    (Proxy.Proxy :: Proxy.Proxy ClaimDevice)
 
 responseDescribeOffering :: DescribeOfferingResponse -> TestTree
 responseDescribeOffering =
@@ -991,7 +991,7 @@ responseDescribeOffering =
     "DescribeOfferingResponse"
     "fixture/DescribeOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOffering)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOffering)
 
 responseTransferInputDevice :: TransferInputDeviceResponse -> TestTree
 responseTransferInputDevice =
@@ -999,7 +999,7 @@ responseTransferInputDevice =
     "TransferInputDeviceResponse"
     "fixture/TransferInputDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy TransferInputDevice')
+    (Proxy.Proxy :: Proxy.Proxy TransferInputDevice')
 
 responseDeleteMultiplexProgram :: DeleteMultiplexProgramResponse -> TestTree
 responseDeleteMultiplexProgram =
@@ -1007,7 +1007,7 @@ responseDeleteMultiplexProgram =
     "DeleteMultiplexProgramResponse"
     "fixture/DeleteMultiplexProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMultiplexProgram)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMultiplexProgram)
 
 responseUpdateMultiplexProgram :: UpdateMultiplexProgramResponse -> TestTree
 responseUpdateMultiplexProgram =
@@ -1015,7 +1015,7 @@ responseUpdateMultiplexProgram =
     "UpdateMultiplexProgramResponse"
     "fixture/UpdateMultiplexProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMultiplexProgram')
+    (Proxy.Proxy :: Proxy.Proxy UpdateMultiplexProgram')
 
 responseBatchDelete :: BatchDeleteResponse -> TestTree
 responseBatchDelete =
@@ -1023,7 +1023,7 @@ responseBatchDelete =
     "BatchDeleteResponse"
     "fixture/BatchDeleteResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDelete')
+    (Proxy.Proxy :: Proxy.Proxy BatchDelete')
 
 responseListMultiplexPrograms :: ListMultiplexProgramsResponse -> TestTree
 responseListMultiplexPrograms =
@@ -1031,7 +1031,7 @@ responseListMultiplexPrograms =
     "ListMultiplexProgramsResponse"
     "fixture/ListMultiplexProgramsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMultiplexPrograms)
+    (Proxy.Proxy :: Proxy.Proxy ListMultiplexPrograms)
 
 responseDescribeMultiplex :: DescribeMultiplexResponse -> TestTree
 responseDescribeMultiplex =
@@ -1039,7 +1039,7 @@ responseDescribeMultiplex =
     "DescribeMultiplexResponse"
     "fixture/DescribeMultiplexResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMultiplex)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMultiplex)
 
 responseBatchUpdateSchedule :: BatchUpdateScheduleResponse -> TestTree
 responseBatchUpdateSchedule =
@@ -1047,7 +1047,7 @@ responseBatchUpdateSchedule =
     "BatchUpdateScheduleResponse"
     "fixture/BatchUpdateScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdateSchedule)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateSchedule)
 
 responseCreateMultiplexProgram :: CreateMultiplexProgramResponse -> TestTree
 responseCreateMultiplexProgram =
@@ -1055,7 +1055,7 @@ responseCreateMultiplexProgram =
     "CreateMultiplexProgramResponse"
     "fixture/CreateMultiplexProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMultiplexProgram')
+    (Proxy.Proxy :: Proxy.Proxy CreateMultiplexProgram')
 
 responseDescribeSchedule :: DescribeScheduleResponse -> TestTree
 responseDescribeSchedule =
@@ -1063,7 +1063,7 @@ responseDescribeSchedule =
     "DescribeScheduleResponse"
     "fixture/DescribeScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchedule)
 
 responseStartMultiplex :: StartMultiplexResponse -> TestTree
 responseStartMultiplex =
@@ -1071,7 +1071,7 @@ responseStartMultiplex =
     "StartMultiplexResponse"
     "fixture/StartMultiplexResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMultiplex)
+    (Proxy.Proxy :: Proxy.Proxy StartMultiplex)
 
 responseStopChannel :: StopChannelResponse -> TestTree
 responseStopChannel =
@@ -1079,7 +1079,7 @@ responseStopChannel =
     "StopChannelResponse"
     "fixture/StopChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy StopChannel)
+    (Proxy.Proxy :: Proxy.Proxy StopChannel)
 
 responseDescribeInput :: DescribeInputResponse -> TestTree
 responseDescribeInput =
@@ -1087,7 +1087,7 @@ responseDescribeInput =
     "DescribeInputResponse"
     "fixture/DescribeInputResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInput)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInput)
 
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
 responsePurchaseOffering =
@@ -1095,7 +1095,7 @@ responsePurchaseOffering =
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseOffering')
+    (Proxy.Proxy :: Proxy.Proxy PurchaseOffering')
 
 responseDescribeInputDevice :: DescribeInputDeviceResponse -> TestTree
 responseDescribeInputDevice =
@@ -1103,7 +1103,7 @@ responseDescribeInputDevice =
     "DescribeInputDeviceResponse"
     "fixture/DescribeInputDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInputDevice)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInputDevice)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
@@ -1111,7 +1111,7 @@ responseDescribeChannel =
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
 
 responseUpdateInputSecurityGroup :: UpdateInputSecurityGroupResponse -> TestTree
 responseUpdateInputSecurityGroup =
@@ -1119,7 +1119,7 @@ responseUpdateInputSecurityGroup =
     "UpdateInputSecurityGroupResponse"
     "fixture/UpdateInputSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInputSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInputSecurityGroup)
 
 responseDeleteInputSecurityGroup :: DeleteInputSecurityGroupResponse -> TestTree
 responseDeleteInputSecurityGroup =
@@ -1127,7 +1127,7 @@ responseDeleteInputSecurityGroup =
     "DeleteInputSecurityGroupResponse"
     "fixture/DeleteInputSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInputSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInputSecurityGroup)
 
 responseListReservations :: ListReservationsResponse -> TestTree
 responseListReservations =
@@ -1135,7 +1135,7 @@ responseListReservations =
     "ListReservationsResponse"
     "fixture/ListReservationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReservations)
+    (Proxy.Proxy :: Proxy.Proxy ListReservations)
 
 responseDeleteMultiplex :: DeleteMultiplexResponse -> TestTree
 responseDeleteMultiplex =
@@ -1143,7 +1143,7 @@ responseDeleteMultiplex =
     "DeleteMultiplexResponse"
     "fixture/DeleteMultiplexResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMultiplex)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMultiplex)
 
 responseUpdateMultiplex :: UpdateMultiplexResponse -> TestTree
 responseUpdateMultiplex =
@@ -1151,7 +1151,7 @@ responseUpdateMultiplex =
     "UpdateMultiplexResponse"
     "fixture/UpdateMultiplexResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMultiplex')
+    (Proxy.Proxy :: Proxy.Proxy UpdateMultiplex')
 
 responseDescribeMultiplexProgram :: DescribeMultiplexProgramResponse -> TestTree
 responseDescribeMultiplexProgram =
@@ -1159,7 +1159,7 @@ responseDescribeMultiplexProgram =
     "DescribeMultiplexProgramResponse"
     "fixture/DescribeMultiplexProgramResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMultiplexProgram)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMultiplexProgram)
 
 responseListOfferings :: ListOfferingsResponse -> TestTree
 responseListOfferings =
@@ -1167,4 +1167,4 @@ responseListOfferings =
     "ListOfferingsResponse"
     "fixture/ListOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOfferings)
+    (Proxy.Proxy :: Proxy.Proxy ListOfferings)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FIS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.FIS
 import Test.AWS.FIS.Internal
 import Test.AWS.Fixture
@@ -211,7 +211,7 @@ responseGetExperimentTemplate =
     "GetExperimentTemplateResponse"
     "fixture/GetExperimentTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExperimentTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetExperimentTemplate)
 
 responseListActions :: ListActionsResponse -> TestTree
 responseListActions =
@@ -219,7 +219,7 @@ responseListActions =
     "ListActionsResponse"
     "fixture/ListActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActions)
+    (Proxy.Proxy :: Proxy.Proxy ListActions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -227,7 +227,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateExperimentTemplate :: CreateExperimentTemplateResponse -> TestTree
 responseCreateExperimentTemplate =
@@ -235,7 +235,7 @@ responseCreateExperimentTemplate =
     "CreateExperimentTemplateResponse"
     "fixture/CreateExperimentTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateExperimentTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateExperimentTemplate)
 
 responseListExperiments :: ListExperimentsResponse -> TestTree
 responseListExperiments =
@@ -243,7 +243,7 @@ responseListExperiments =
     "ListExperimentsResponse"
     "fixture/ListExperimentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExperiments)
+    (Proxy.Proxy :: Proxy.Proxy ListExperiments)
 
 responseUpdateExperimentTemplate :: UpdateExperimentTemplateResponse -> TestTree
 responseUpdateExperimentTemplate =
@@ -251,7 +251,7 @@ responseUpdateExperimentTemplate =
     "UpdateExperimentTemplateResponse"
     "fixture/UpdateExperimentTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateExperimentTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateExperimentTemplate)
 
 responseGetAction :: GetActionResponse -> TestTree
 responseGetAction =
@@ -259,7 +259,7 @@ responseGetAction =
     "GetActionResponse"
     "fixture/GetActionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAction)
+    (Proxy.Proxy :: Proxy.Proxy GetAction)
 
 responseDeleteExperimentTemplate :: DeleteExperimentTemplateResponse -> TestTree
 responseDeleteExperimentTemplate =
@@ -267,7 +267,7 @@ responseDeleteExperimentTemplate =
     "DeleteExperimentTemplateResponse"
     "fixture/DeleteExperimentTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteExperimentTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteExperimentTemplate)
 
 responseStartExperiment :: StartExperimentResponse -> TestTree
 responseStartExperiment =
@@ -275,7 +275,7 @@ responseStartExperiment =
     "StartExperimentResponse"
     "fixture/StartExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy StartExperiment)
+    (Proxy.Proxy :: Proxy.Proxy StartExperiment)
 
 responseGetExperiment :: GetExperimentResponse -> TestTree
 responseGetExperiment =
@@ -283,7 +283,7 @@ responseGetExperiment =
     "GetExperimentResponse"
     "fixture/GetExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExperiment)
+    (Proxy.Proxy :: Proxy.Proxy GetExperiment)
 
 responseListExperimentTemplates :: ListExperimentTemplatesResponse -> TestTree
 responseListExperimentTemplates =
@@ -291,7 +291,7 @@ responseListExperimentTemplates =
     "ListExperimentTemplatesResponse"
     "fixture/ListExperimentTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExperimentTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListExperimentTemplates)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -299,7 +299,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -307,7 +307,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseStopExperiment :: StopExperimentResponse -> TestTree
 responseStopExperiment =
@@ -315,4 +315,4 @@ responseStopExperiment =
     "StopExperimentResponse"
     "fixture/StopExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy StopExperiment)
+    (Proxy.Proxy :: Proxy.Proxy StopExperiment)

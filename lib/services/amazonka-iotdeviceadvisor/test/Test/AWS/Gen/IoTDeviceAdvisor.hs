@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTDeviceAdvisor where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IoTDeviceAdvisor
 import Test.AWS.Fixture
 import Test.AWS.IoTDeviceAdvisor.Internal
@@ -199,7 +199,7 @@ responseGetSuiteRunReport =
     "GetSuiteRunReportResponse"
     "fixture/GetSuiteRunReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSuiteRunReport)
+    (Proxy.Proxy :: Proxy.Proxy GetSuiteRunReport)
 
 responseStartSuiteRun :: StartSuiteRunResponse -> TestTree
 responseStartSuiteRun =
@@ -207,7 +207,7 @@ responseStartSuiteRun =
     "StartSuiteRunResponse"
     "fixture/StartSuiteRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSuiteRun)
+    (Proxy.Proxy :: Proxy.Proxy StartSuiteRun)
 
 responseListSuiteDefinitions :: ListSuiteDefinitionsResponse -> TestTree
 responseListSuiteDefinitions =
@@ -215,7 +215,7 @@ responseListSuiteDefinitions =
     "ListSuiteDefinitionsResponse"
     "fixture/ListSuiteDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSuiteDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListSuiteDefinitions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -223,7 +223,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteSuiteDefinition :: DeleteSuiteDefinitionResponse -> TestTree
 responseDeleteSuiteDefinition =
@@ -231,7 +231,7 @@ responseDeleteSuiteDefinition =
     "DeleteSuiteDefinitionResponse"
     "fixture/DeleteSuiteDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSuiteDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSuiteDefinition)
 
 responseUpdateSuiteDefinition :: UpdateSuiteDefinitionResponse -> TestTree
 responseUpdateSuiteDefinition =
@@ -239,7 +239,7 @@ responseUpdateSuiteDefinition =
     "UpdateSuiteDefinitionResponse"
     "fixture/UpdateSuiteDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSuiteDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSuiteDefinition)
 
 responseCreateSuiteDefinition :: CreateSuiteDefinitionResponse -> TestTree
 responseCreateSuiteDefinition =
@@ -247,7 +247,7 @@ responseCreateSuiteDefinition =
     "CreateSuiteDefinitionResponse"
     "fixture/CreateSuiteDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSuiteDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateSuiteDefinition)
 
 responseStopSuiteRun :: StopSuiteRunResponse -> TestTree
 responseStopSuiteRun =
@@ -255,7 +255,7 @@ responseStopSuiteRun =
     "StopSuiteRunResponse"
     "fixture/StopSuiteRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StopSuiteRun)
+    (Proxy.Proxy :: Proxy.Proxy StopSuiteRun)
 
 responseGetSuiteDefinition :: GetSuiteDefinitionResponse -> TestTree
 responseGetSuiteDefinition =
@@ -263,7 +263,7 @@ responseGetSuiteDefinition =
     "GetSuiteDefinitionResponse"
     "fixture/GetSuiteDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSuiteDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetSuiteDefinition)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -271,7 +271,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -279,7 +279,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListSuiteRuns :: ListSuiteRunsResponse -> TestTree
 responseListSuiteRuns =
@@ -287,7 +287,7 @@ responseListSuiteRuns =
     "ListSuiteRunsResponse"
     "fixture/ListSuiteRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSuiteRuns)
+    (Proxy.Proxy :: Proxy.Proxy ListSuiteRuns)
 
 responseGetSuiteRun :: GetSuiteRunResponse -> TestTree
 responseGetSuiteRun =
@@ -295,4 +295,4 @@ responseGetSuiteRun =
     "GetSuiteRunResponse"
     "fixture/GetSuiteRunResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSuiteRun)
+    (Proxy.Proxy :: Proxy.Proxy GetSuiteRun)

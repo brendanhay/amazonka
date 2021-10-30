@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MemoryDb where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MemoryDb
 import Test.AWS.Fixture
 import Test.AWS.MemoryDb.Internal
@@ -463,7 +463,7 @@ responseDescribeClusters =
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
 
 responseBatchUpdateCluster :: BatchUpdateClusterResponse -> TestTree
 responseBatchUpdateCluster =
@@ -471,7 +471,7 @@ responseBatchUpdateCluster =
     "BatchUpdateClusterResponse"
     "fixture/BatchUpdateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchUpdateCluster)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateCluster)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
 responseDescribeUsers =
@@ -479,7 +479,7 @@ responseDescribeUsers =
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUsers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUsers)
 
 responseDescribeParameters :: DescribeParametersResponse -> TestTree
 responseDescribeParameters =
@@ -487,7 +487,7 @@ responseDescribeParameters =
     "DescribeParametersResponse"
     "fixture/DescribeParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeParameters)
 
 responseDeleteACL :: DeleteACLResponse -> TestTree
 responseDeleteACL =
@@ -495,7 +495,7 @@ responseDeleteACL =
     "DeleteACLResponse"
     "fixture/DeleteACLResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteACL)
+    (Proxy.Proxy :: Proxy.Proxy DeleteACL)
 
 responseUpdateACL :: UpdateACLResponse -> TestTree
 responseUpdateACL =
@@ -503,7 +503,7 @@ responseUpdateACL =
     "UpdateACLResponse"
     "fixture/UpdateACLResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateACL)
+    (Proxy.Proxy :: Proxy.Proxy UpdateACL)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -511,7 +511,7 @@ responseDescribeEvents =
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
 responseDescribeEngineVersions :: DescribeEngineVersionsResponse -> TestTree
 responseDescribeEngineVersions =
@@ -519,7 +519,7 @@ responseDescribeEngineVersions =
     "DescribeEngineVersionsResponse"
     "fixture/DescribeEngineVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEngineVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEngineVersions)
 
 responseDescribeACLs :: DescribeACLsResponse -> TestTree
 responseDescribeACLs =
@@ -527,7 +527,7 @@ responseDescribeACLs =
     "DescribeACLsResponse"
     "fixture/DescribeACLsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeACLs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeACLs)
 
 responseCreateSubnetGroup :: CreateSubnetGroupResponse -> TestTree
 responseCreateSubnetGroup =
@@ -535,7 +535,7 @@ responseCreateSubnetGroup =
     "CreateSubnetGroupResponse"
     "fixture/CreateSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubnetGroup)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -543,7 +543,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
 responseUpdateCluster =
@@ -551,7 +551,7 @@ responseUpdateCluster =
     "UpdateClusterResponse"
     "fixture/UpdateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCluster)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -559,7 +559,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
 responseCopySnapshot =
@@ -567,7 +567,7 @@ responseCopySnapshot =
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopySnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopySnapshot)
 
 responseDeleteParameterGroup :: DeleteParameterGroupResponse -> TestTree
 responseDeleteParameterGroup =
@@ -575,7 +575,7 @@ responseDeleteParameterGroup =
     "DeleteParameterGroupResponse"
     "fixture/DeleteParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteParameterGroup)
 
 responseUpdateParameterGroup :: UpdateParameterGroupResponse -> TestTree
 responseUpdateParameterGroup =
@@ -583,7 +583,7 @@ responseUpdateParameterGroup =
     "UpdateParameterGroupResponse"
     "fixture/UpdateParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateParameterGroup)
 
 responseDescribeSubnetGroups :: DescribeSubnetGroupsResponse -> TestTree
 responseDescribeSubnetGroups =
@@ -591,7 +591,7 @@ responseDescribeSubnetGroups =
     "DescribeSubnetGroupsResponse"
     "fixture/DescribeSubnetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubnetGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSubnetGroups)
 
 responseDescribeServiceUpdates :: DescribeServiceUpdatesResponse -> TestTree
 responseDescribeServiceUpdates =
@@ -599,7 +599,7 @@ responseDescribeServiceUpdates =
     "DescribeServiceUpdatesResponse"
     "fixture/DescribeServiceUpdatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceUpdates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceUpdates)
 
 responseCreateParameterGroup :: CreateParameterGroupResponse -> TestTree
 responseCreateParameterGroup =
@@ -607,7 +607,7 @@ responseCreateParameterGroup =
     "CreateParameterGroupResponse"
     "fixture/CreateParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateParameterGroup)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots =
@@ -615,7 +615,7 @@ responseDescribeSnapshots =
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshots)
 
 responseCreateACL :: CreateACLResponse -> TestTree
 responseCreateACL =
@@ -623,7 +623,7 @@ responseCreateACL =
     "CreateACLResponse"
     "fixture/CreateACLResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateACL)
+    (Proxy.Proxy :: Proxy.Proxy CreateACL)
 
 responseUpdateSubnetGroup :: UpdateSubnetGroupResponse -> TestTree
 responseUpdateSubnetGroup =
@@ -631,7 +631,7 @@ responseUpdateSubnetGroup =
     "UpdateSubnetGroupResponse"
     "fixture/UpdateSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubnetGroup)
 
 responseDeleteSubnetGroup :: DeleteSubnetGroupResponse -> TestTree
 responseDeleteSubnetGroup =
@@ -639,7 +639,7 @@ responseDeleteSubnetGroup =
     "DeleteSubnetGroupResponse"
     "fixture/DeleteSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubnetGroup)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -647,7 +647,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
 responseDeleteSnapshot =
@@ -655,7 +655,7 @@ responseDeleteSnapshot =
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshot)
 
 responseFailoverShard :: FailoverShardResponse -> TestTree
 responseFailoverShard =
@@ -663,7 +663,7 @@ responseFailoverShard =
     "FailoverShardResponse"
     "fixture/FailoverShardResponse.proto"
     defaultService
-    (Proxy :: Proxy FailoverShard)
+    (Proxy.Proxy :: Proxy.Proxy FailoverShard)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -671,7 +671,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -679,7 +679,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseListAllowedNodeTypeUpdates :: ListAllowedNodeTypeUpdatesResponse -> TestTree
 responseListAllowedNodeTypeUpdates =
@@ -687,7 +687,7 @@ responseListAllowedNodeTypeUpdates =
     "ListAllowedNodeTypeUpdatesResponse"
     "fixture/ListAllowedNodeTypeUpdatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAllowedNodeTypeUpdates)
+    (Proxy.Proxy :: Proxy.Proxy ListAllowedNodeTypeUpdates)
 
 responseDescribeParameterGroups :: DescribeParameterGroupsResponse -> TestTree
 responseDescribeParameterGroups =
@@ -695,7 +695,7 @@ responseDescribeParameterGroups =
     "DescribeParameterGroupsResponse"
     "fixture/DescribeParameterGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeParameterGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeParameterGroups)
 
 responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
 responseCreateSnapshot =
@@ -703,7 +703,7 @@ responseCreateSnapshot =
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -711,7 +711,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -719,7 +719,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseResetParameterGroup :: ResetParameterGroupResponse -> TestTree
 responseResetParameterGroup =
@@ -727,7 +727,7 @@ responseResetParameterGroup =
     "ResetParameterGroupResponse"
     "fixture/ResetParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ResetParameterGroup)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -735,4 +735,4 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

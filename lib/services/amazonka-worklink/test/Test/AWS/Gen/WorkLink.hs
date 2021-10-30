@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkLink where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WorkLink
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -439,7 +439,7 @@ responseUpdateDomainMetadata =
     "UpdateDomainMetadataResponse"
     "fixture/UpdateDomainMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainMetadata)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainMetadata)
 
 responseSignOutUser :: SignOutUserResponse -> TestTree
 responseSignOutUser =
@@ -447,7 +447,7 @@ responseSignOutUser =
     "SignOutUserResponse"
     "fixture/SignOutUserResponse.proto"
     defaultService
-    (Proxy :: Proxy SignOutUser)
+    (Proxy.Proxy :: Proxy.Proxy SignOutUser)
 
 responseRestoreDomainAccess :: RestoreDomainAccessResponse -> TestTree
 responseRestoreDomainAccess =
@@ -455,7 +455,7 @@ responseRestoreDomainAccess =
     "RestoreDomainAccessResponse"
     "fixture/RestoreDomainAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreDomainAccess)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDomainAccess)
 
 responseAssociateDomain :: AssociateDomainResponse -> TestTree
 responseAssociateDomain =
@@ -463,7 +463,7 @@ responseAssociateDomain =
     "AssociateDomainResponse"
     "fixture/AssociateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDomain)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDomain)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
 responseDeleteFleet =
@@ -471,7 +471,7 @@ responseDeleteFleet =
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFleet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
 
 responseDisassociateDomain :: DisassociateDomainResponse -> TestTree
 responseDisassociateDomain =
@@ -479,7 +479,7 @@ responseDisassociateDomain =
     "DisassociateDomainResponse"
     "fixture/DisassociateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDomain)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDomain)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -487,7 +487,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseAssociateWebsiteAuthorizationProvider :: AssociateWebsiteAuthorizationProviderResponse -> TestTree
 responseAssociateWebsiteAuthorizationProvider =
@@ -495,7 +495,7 @@ responseAssociateWebsiteAuthorizationProvider =
     "AssociateWebsiteAuthorizationProviderResponse"
     "fixture/AssociateWebsiteAuthorizationProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateWebsiteAuthorizationProvider)
+    (Proxy.Proxy :: Proxy.Proxy AssociateWebsiteAuthorizationProvider)
 
 responseDescribeDevicePolicyConfiguration :: DescribeDevicePolicyConfigurationResponse -> TestTree
 responseDescribeDevicePolicyConfiguration =
@@ -503,7 +503,7 @@ responseDescribeDevicePolicyConfiguration =
     "DescribeDevicePolicyConfigurationResponse"
     "fixture/DescribeDevicePolicyConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDevicePolicyConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevicePolicyConfiguration)
 
 responseListWebsiteAuthorizationProviders :: ListWebsiteAuthorizationProvidersResponse -> TestTree
 responseListWebsiteAuthorizationProviders =
@@ -511,7 +511,7 @@ responseListWebsiteAuthorizationProviders =
     "ListWebsiteAuthorizationProvidersResponse"
     "fixture/ListWebsiteAuthorizationProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWebsiteAuthorizationProviders)
+    (Proxy.Proxy :: Proxy.Proxy ListWebsiteAuthorizationProviders)
 
 responseDisassociateWebsiteAuthorizationProvider :: DisassociateWebsiteAuthorizationProviderResponse -> TestTree
 responseDisassociateWebsiteAuthorizationProvider =
@@ -519,7 +519,7 @@ responseDisassociateWebsiteAuthorizationProvider =
     "DisassociateWebsiteAuthorizationProviderResponse"
     "fixture/DisassociateWebsiteAuthorizationProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateWebsiteAuthorizationProvider)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWebsiteAuthorizationProvider)
 
 responseListWebsiteCertificateAuthorities :: ListWebsiteCertificateAuthoritiesResponse -> TestTree
 responseListWebsiteCertificateAuthorities =
@@ -527,7 +527,7 @@ responseListWebsiteCertificateAuthorities =
     "ListWebsiteCertificateAuthoritiesResponse"
     "fixture/ListWebsiteCertificateAuthoritiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWebsiteCertificateAuthorities)
+    (Proxy.Proxy :: Proxy.Proxy ListWebsiteCertificateAuthorities)
 
 responseUpdateIdentityProviderConfiguration :: UpdateIdentityProviderConfigurationResponse -> TestTree
 responseUpdateIdentityProviderConfiguration =
@@ -535,7 +535,7 @@ responseUpdateIdentityProviderConfiguration =
     "UpdateIdentityProviderConfigurationResponse"
     "fixture/UpdateIdentityProviderConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIdentityProviderConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIdentityProviderConfiguration)
 
 responseDescribeFleetMetadata :: DescribeFleetMetadataResponse -> TestTree
 responseDescribeFleetMetadata =
@@ -543,7 +543,7 @@ responseDescribeFleetMetadata =
     "DescribeFleetMetadataResponse"
     "fixture/DescribeFleetMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetMetadata)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetMetadata)
 
 responseUpdateDevicePolicyConfiguration :: UpdateDevicePolicyConfigurationResponse -> TestTree
 responseUpdateDevicePolicyConfiguration =
@@ -551,7 +551,7 @@ responseUpdateDevicePolicyConfiguration =
     "UpdateDevicePolicyConfigurationResponse"
     "fixture/UpdateDevicePolicyConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDevicePolicyConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDevicePolicyConfiguration)
 
 responseDescribeCompanyNetworkConfiguration :: DescribeCompanyNetworkConfigurationResponse -> TestTree
 responseDescribeCompanyNetworkConfiguration =
@@ -559,7 +559,7 @@ responseDescribeCompanyNetworkConfiguration =
     "DescribeCompanyNetworkConfigurationResponse"
     "fixture/DescribeCompanyNetworkConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCompanyNetworkConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCompanyNetworkConfiguration)
 
 responseDescribeAuditStreamConfiguration :: DescribeAuditStreamConfigurationResponse -> TestTree
 responseDescribeAuditStreamConfiguration =
@@ -567,7 +567,7 @@ responseDescribeAuditStreamConfiguration =
     "DescribeAuditStreamConfigurationResponse"
     "fixture/DescribeAuditStreamConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAuditStreamConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAuditStreamConfiguration)
 
 responseRevokeDomainAccess :: RevokeDomainAccessResponse -> TestTree
 responseRevokeDomainAccess =
@@ -575,7 +575,7 @@ responseRevokeDomainAccess =
     "RevokeDomainAccessResponse"
     "fixture/RevokeDomainAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeDomainAccess)
+    (Proxy.Proxy :: Proxy.Proxy RevokeDomainAccess)
 
 responseListFleets :: ListFleetsResponse -> TestTree
 responseListFleets =
@@ -583,7 +583,7 @@ responseListFleets =
     "ListFleetsResponse"
     "fixture/ListFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFleets)
+    (Proxy.Proxy :: Proxy.Proxy ListFleets)
 
 responseUpdateFleetMetadata :: UpdateFleetMetadataResponse -> TestTree
 responseUpdateFleetMetadata =
@@ -591,7 +591,7 @@ responseUpdateFleetMetadata =
     "UpdateFleetMetadataResponse"
     "fixture/UpdateFleetMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFleetMetadata)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFleetMetadata)
 
 responseDescribeIdentityProviderConfiguration :: DescribeIdentityProviderConfigurationResponse -> TestTree
 responseDescribeIdentityProviderConfiguration =
@@ -599,7 +599,7 @@ responseDescribeIdentityProviderConfiguration =
     "DescribeIdentityProviderConfigurationResponse"
     "fixture/DescribeIdentityProviderConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityProviderConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityProviderConfiguration)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -607,7 +607,7 @@ responseCreateFleet =
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateFleet)
 
 responseDescribeWebsiteCertificateAuthority :: DescribeWebsiteCertificateAuthorityResponse -> TestTree
 responseDescribeWebsiteCertificateAuthority =
@@ -615,7 +615,7 @@ responseDescribeWebsiteCertificateAuthority =
     "DescribeWebsiteCertificateAuthorityResponse"
     "fixture/DescribeWebsiteCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWebsiteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWebsiteCertificateAuthority)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -623,7 +623,7 @@ responseDescribeDomain =
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
 responseDisassociateWebsiteCertificateAuthority :: DisassociateWebsiteCertificateAuthorityResponse -> TestTree
 responseDisassociateWebsiteCertificateAuthority =
@@ -631,7 +631,7 @@ responseDisassociateWebsiteCertificateAuthority =
     "DisassociateWebsiteCertificateAuthorityResponse"
     "fixture/DisassociateWebsiteCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateWebsiteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWebsiteCertificateAuthority)
 
 responseDescribeDevice :: DescribeDeviceResponse -> TestTree
 responseDescribeDevice =
@@ -639,7 +639,7 @@ responseDescribeDevice =
     "DescribeDeviceResponse"
     "fixture/DescribeDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDevice)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
 
 responseUpdateAuditStreamConfiguration :: UpdateAuditStreamConfigurationResponse -> TestTree
 responseUpdateAuditStreamConfiguration =
@@ -647,7 +647,7 @@ responseUpdateAuditStreamConfiguration =
     "UpdateAuditStreamConfigurationResponse"
     "fixture/UpdateAuditStreamConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAuditStreamConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAuditStreamConfiguration)
 
 responseUpdateCompanyNetworkConfiguration :: UpdateCompanyNetworkConfigurationResponse -> TestTree
 responseUpdateCompanyNetworkConfiguration =
@@ -655,7 +655,7 @@ responseUpdateCompanyNetworkConfiguration =
     "UpdateCompanyNetworkConfigurationResponse"
     "fixture/UpdateCompanyNetworkConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCompanyNetworkConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCompanyNetworkConfiguration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -663,7 +663,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -671,7 +671,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseAssociateWebsiteCertificateAuthority :: AssociateWebsiteCertificateAuthorityResponse -> TestTree
 responseAssociateWebsiteCertificateAuthority =
@@ -679,7 +679,7 @@ responseAssociateWebsiteCertificateAuthority =
     "AssociateWebsiteCertificateAuthorityResponse"
     "fixture/AssociateWebsiteCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateWebsiteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy AssociateWebsiteCertificateAuthority)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -687,7 +687,7 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -695,4 +695,4 @@ responseListDevices =
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMakerRuntime where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SageMakerRuntime
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -61,4 +61,4 @@ responseInvokeEndpointAsync =
     "InvokeEndpointAsyncResponse"
     "fixture/InvokeEndpointAsyncResponse.proto"
     defaultService
-    (Proxy :: Proxy InvokeEndpointAsync)
+    (Proxy.Proxy :: Proxy.Proxy InvokeEndpointAsync)

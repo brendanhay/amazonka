@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeGuruReviewer where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeGuruReviewer
 import Test.AWS.CodeGuruReviewer.Internal
 import Test.AWS.Fixture
@@ -211,7 +211,7 @@ responseListRecommendationFeedback =
     "ListRecommendationFeedbackResponse"
     "fixture/ListRecommendationFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecommendationFeedback)
+    (Proxy.Proxy :: Proxy.Proxy ListRecommendationFeedback)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -219,7 +219,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDisassociateRepository :: DisassociateRepositoryResponse -> TestTree
 responseDisassociateRepository =
@@ -227,7 +227,7 @@ responseDisassociateRepository =
     "DisassociateRepositoryResponse"
     "fixture/DisassociateRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateRepository)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRepository)
 
 responseDescribeRepositoryAssociation :: DescribeRepositoryAssociationResponse -> TestTree
 responseDescribeRepositoryAssociation =
@@ -235,7 +235,7 @@ responseDescribeRepositoryAssociation =
     "DescribeRepositoryAssociationResponse"
     "fixture/DescribeRepositoryAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRepositoryAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRepositoryAssociation)
 
 responseDescribeCodeReview :: DescribeCodeReviewResponse -> TestTree
 responseDescribeCodeReview =
@@ -243,7 +243,7 @@ responseDescribeCodeReview =
     "DescribeCodeReviewResponse"
     "fixture/DescribeCodeReviewResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCodeReview)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCodeReview)
 
 responseListRepositoryAssociations :: ListRepositoryAssociationsResponse -> TestTree
 responseListRepositoryAssociations =
@@ -251,7 +251,7 @@ responseListRepositoryAssociations =
     "ListRepositoryAssociationsResponse"
     "fixture/ListRepositoryAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRepositoryAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListRepositoryAssociations)
 
 responseDescribeRecommendationFeedback :: DescribeRecommendationFeedbackResponse -> TestTree
 responseDescribeRecommendationFeedback =
@@ -259,7 +259,7 @@ responseDescribeRecommendationFeedback =
     "DescribeRecommendationFeedbackResponse"
     "fixture/DescribeRecommendationFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRecommendationFeedback)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecommendationFeedback)
 
 responseListRecommendations :: ListRecommendationsResponse -> TestTree
 responseListRecommendations =
@@ -267,7 +267,7 @@ responseListRecommendations =
     "ListRecommendationsResponse"
     "fixture/ListRecommendationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ListRecommendations)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -275,7 +275,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateCodeReview :: CreateCodeReviewResponse -> TestTree
 responseCreateCodeReview =
@@ -283,7 +283,7 @@ responseCreateCodeReview =
     "CreateCodeReviewResponse"
     "fixture/CreateCodeReviewResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCodeReview)
+    (Proxy.Proxy :: Proxy.Proxy CreateCodeReview)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -291,7 +291,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListCodeReviews :: ListCodeReviewsResponse -> TestTree
 responseListCodeReviews =
@@ -299,7 +299,7 @@ responseListCodeReviews =
     "ListCodeReviewsResponse"
     "fixture/ListCodeReviewsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCodeReviews)
+    (Proxy.Proxy :: Proxy.Proxy ListCodeReviews)
 
 responseAssociateRepository :: AssociateRepositoryResponse -> TestTree
 responseAssociateRepository =
@@ -307,7 +307,7 @@ responseAssociateRepository =
     "AssociateRepositoryResponse"
     "fixture/AssociateRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateRepository)
+    (Proxy.Proxy :: Proxy.Proxy AssociateRepository)
 
 responsePutRecommendationFeedback :: PutRecommendationFeedbackResponse -> TestTree
 responsePutRecommendationFeedback =
@@ -315,4 +315,4 @@ responsePutRecommendationFeedback =
     "PutRecommendationFeedbackResponse"
     "fixture/PutRecommendationFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRecommendationFeedback)
+    (Proxy.Proxy :: Proxy.Proxy PutRecommendationFeedback)

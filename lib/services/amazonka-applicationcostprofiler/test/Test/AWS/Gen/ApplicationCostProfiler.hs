@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApplicationCostProfiler where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ApplicationCostProfiler
 import Test.AWS.ApplicationCostProfiler.Internal
 import Test.AWS.Fixture
@@ -115,7 +115,7 @@ responseImportApplicationUsage =
     "ImportApplicationUsageResponse"
     "fixture/ImportApplicationUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportApplicationUsage)
+    (Proxy.Proxy :: Proxy.Proxy ImportApplicationUsage)
 
 responsePutReportDefinition :: PutReportDefinitionResponse -> TestTree
 responsePutReportDefinition =
@@ -123,7 +123,7 @@ responsePutReportDefinition =
     "PutReportDefinitionResponse"
     "fixture/PutReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
 responseDeleteReportDefinition =
@@ -131,7 +131,7 @@ responseDeleteReportDefinition =
     "DeleteReportDefinitionResponse"
     "fixture/DeleteReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReportDefinition)
 
 responseUpdateReportDefinition :: UpdateReportDefinitionResponse -> TestTree
 responseUpdateReportDefinition =
@@ -139,7 +139,7 @@ responseUpdateReportDefinition =
     "UpdateReportDefinitionResponse"
     "fixture/UpdateReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReportDefinition)
 
 responseGetReportDefinition :: GetReportDefinitionResponse -> TestTree
 responseGetReportDefinition =
@@ -147,7 +147,7 @@ responseGetReportDefinition =
     "GetReportDefinitionResponse"
     "fixture/GetReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReportDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetReportDefinition)
 
 responseListReportDefinitions :: ListReportDefinitionsResponse -> TestTree
 responseListReportDefinitions =
@@ -155,4 +155,4 @@ responseListReportDefinitions =
     "ListReportDefinitionsResponse"
     "fixture/ListReportDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReportDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListReportDefinitions)

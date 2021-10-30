@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GameLift where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.GameLift
 import Test.AWS.Fixture
 import Test.AWS.GameLift.Internal
@@ -1183,7 +1183,7 @@ responseStopMatchmaking =
     "StopMatchmakingResponse"
     "fixture/StopMatchmakingResponse.proto"
     defaultService
-    (Proxy :: Proxy StopMatchmaking)
+    (Proxy.Proxy :: Proxy.Proxy StopMatchmaking)
 
 responseDescribeGameServerInstances :: DescribeGameServerInstancesResponse -> TestTree
 responseDescribeGameServerInstances =
@@ -1191,7 +1191,7 @@ responseDescribeGameServerInstances =
     "DescribeGameServerInstancesResponse"
     "fixture/DescribeGameServerInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameServerInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameServerInstances)
 
 responseCreateGameSession :: CreateGameSessionResponse -> TestTree
 responseCreateGameSession =
@@ -1199,7 +1199,7 @@ responseCreateGameSession =
     "CreateGameSessionResponse"
     "fixture/CreateGameSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGameSession)
+    (Proxy.Proxy :: Proxy.Proxy CreateGameSession)
 
 responseDeleteScalingPolicy :: DeleteScalingPolicyResponse -> TestTree
 responseDeleteScalingPolicy =
@@ -1207,7 +1207,7 @@ responseDeleteScalingPolicy =
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteScalingPolicy)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
 responsePutScalingPolicy =
@@ -1215,7 +1215,7 @@ responsePutScalingPolicy =
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutScalingPolicy)
 
 responseListBuilds :: ListBuildsResponse -> TestTree
 responseListBuilds =
@@ -1223,7 +1223,7 @@ responseListBuilds =
     "ListBuildsResponse"
     "fixture/ListBuildsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBuilds)
+    (Proxy.Proxy :: Proxy.Proxy ListBuilds)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
 responseDeleteFleet =
@@ -1231,7 +1231,7 @@ responseDeleteFleet =
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFleet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
 
 responseCreateBuild :: CreateBuildResponse -> TestTree
 responseCreateBuild =
@@ -1239,7 +1239,7 @@ responseCreateBuild =
     "CreateBuildResponse"
     "fixture/CreateBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBuild)
+    (Proxy.Proxy :: Proxy.Proxy CreateBuild)
 
 responseRequestUploadCredentials :: RequestUploadCredentialsResponse -> TestTree
 responseRequestUploadCredentials =
@@ -1247,7 +1247,7 @@ responseRequestUploadCredentials =
     "RequestUploadCredentialsResponse"
     "fixture/RequestUploadCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy RequestUploadCredentials)
+    (Proxy.Proxy :: Proxy.Proxy RequestUploadCredentials)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
 responseCreateAlias =
@@ -1255,7 +1255,7 @@ responseCreateAlias =
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlias)
 
 responseListGameServers :: ListGameServersResponse -> TestTree
 responseListGameServers =
@@ -1263,7 +1263,7 @@ responseListGameServers =
     "ListGameServersResponse"
     "fixture/ListGameServersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGameServers)
+    (Proxy.Proxy :: Proxy.Proxy ListGameServers)
 
 responseResolveAlias :: ResolveAliasResponse -> TestTree
 responseResolveAlias =
@@ -1271,7 +1271,7 @@ responseResolveAlias =
     "ResolveAliasResponse"
     "fixture/ResolveAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy ResolveAlias)
+    (Proxy.Proxy :: Proxy.Proxy ResolveAlias)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1279,7 +1279,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRegisterGameServer :: RegisterGameServerResponse -> TestTree
 responseRegisterGameServer =
@@ -1287,7 +1287,7 @@ responseRegisterGameServer =
     "RegisterGameServerResponse"
     "fixture/RegisterGameServerResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterGameServer)
+    (Proxy.Proxy :: Proxy.Proxy RegisterGameServer)
 
 responseListAliases :: ListAliasesResponse -> TestTree
 responseListAliases =
@@ -1295,7 +1295,7 @@ responseListAliases =
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListAliases)
 
 responseUpdateRuntimeConfiguration :: UpdateRuntimeConfigurationResponse -> TestTree
 responseUpdateRuntimeConfiguration =
@@ -1303,7 +1303,7 @@ responseUpdateRuntimeConfiguration =
     "UpdateRuntimeConfigurationResponse"
     "fixture/UpdateRuntimeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRuntimeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuntimeConfiguration)
 
 responseCreateVpcPeeringConnection :: CreateVpcPeeringConnectionResponse -> TestTree
 responseCreateVpcPeeringConnection =
@@ -1311,7 +1311,7 @@ responseCreateVpcPeeringConnection =
     "CreateVpcPeeringConnectionResponse"
     "fixture/CreateVpcPeeringConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcPeeringConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcPeeringConnection)
 
 responseListGameServerGroups :: ListGameServerGroupsResponse -> TestTree
 responseListGameServerGroups =
@@ -1319,7 +1319,7 @@ responseListGameServerGroups =
     "ListGameServerGroupsResponse"
     "fixture/ListGameServerGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGameServerGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGameServerGroups)
 
 responseCreateGameSessionQueue :: CreateGameSessionQueueResponse -> TestTree
 responseCreateGameSessionQueue =
@@ -1327,7 +1327,7 @@ responseCreateGameSessionQueue =
     "CreateGameSessionQueueResponse"
     "fixture/CreateGameSessionQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGameSessionQueue)
+    (Proxy.Proxy :: Proxy.Proxy CreateGameSessionQueue)
 
 responseSearchGameSessions :: SearchGameSessionsResponse -> TestTree
 responseSearchGameSessions =
@@ -1335,7 +1335,7 @@ responseSearchGameSessions =
     "SearchGameSessionsResponse"
     "fixture/SearchGameSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchGameSessions)
+    (Proxy.Proxy :: Proxy.Proxy SearchGameSessions)
 
 responseCreateVpcPeeringAuthorization :: CreateVpcPeeringAuthorizationResponse -> TestTree
 responseCreateVpcPeeringAuthorization =
@@ -1343,7 +1343,7 @@ responseCreateVpcPeeringAuthorization =
     "CreateVpcPeeringAuthorizationResponse"
     "fixture/CreateVpcPeeringAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcPeeringAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcPeeringAuthorization)
 
 responseUpdateGameSessionQueue :: UpdateGameSessionQueueResponse -> TestTree
 responseUpdateGameSessionQueue =
@@ -1351,7 +1351,7 @@ responseUpdateGameSessionQueue =
     "UpdateGameSessionQueueResponse"
     "fixture/UpdateGameSessionQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGameSessionQueue)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGameSessionQueue)
 
 responseDeleteGameSessionQueue :: DeleteGameSessionQueueResponse -> TestTree
 responseDeleteGameSessionQueue =
@@ -1359,7 +1359,7 @@ responseDeleteGameSessionQueue =
     "DeleteGameSessionQueueResponse"
     "fixture/DeleteGameSessionQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGameSessionQueue)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGameSessionQueue)
 
 responseCreateGameServerGroup :: CreateGameServerGroupResponse -> TestTree
 responseCreateGameServerGroup =
@@ -1367,7 +1367,7 @@ responseCreateGameServerGroup =
     "CreateGameServerGroupResponse"
     "fixture/CreateGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGameServerGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGameServerGroup)
 
 responseDeleteVpcPeeringConnection :: DeleteVpcPeeringConnectionResponse -> TestTree
 responseDeleteVpcPeeringConnection =
@@ -1375,7 +1375,7 @@ responseDeleteVpcPeeringConnection =
     "DeleteVpcPeeringConnectionResponse"
     "fixture/DeleteVpcPeeringConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcPeeringConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcPeeringConnection)
 
 responseStartFleetActions :: StartFleetActionsResponse -> TestTree
 responseStartFleetActions =
@@ -1383,7 +1383,7 @@ responseStartFleetActions =
     "StartFleetActionsResponse"
     "fixture/StartFleetActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFleetActions)
+    (Proxy.Proxy :: Proxy.Proxy StartFleetActions)
 
 responseDeregisterGameServer :: DeregisterGameServerResponse -> TestTree
 responseDeregisterGameServer =
@@ -1391,7 +1391,7 @@ responseDeregisterGameServer =
     "DeregisterGameServerResponse"
     "fixture/DeregisterGameServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterGameServer)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterGameServer)
 
 responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
 responseGetInstanceAccess =
@@ -1399,7 +1399,7 @@ responseGetInstanceAccess =
     "GetInstanceAccessResponse"
     "fixture/GetInstanceAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceAccess)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceAccess)
 
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
 responseDescribeScalingPolicies =
@@ -1407,7 +1407,7 @@ responseDescribeScalingPolicies =
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalingPolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalingPolicies)
 
 responseDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSetsResponse -> TestTree
 responseDescribeMatchmakingRuleSets =
@@ -1415,7 +1415,7 @@ responseDescribeMatchmakingRuleSets =
     "DescribeMatchmakingRuleSetsResponse"
     "fixture/DescribeMatchmakingRuleSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMatchmakingRuleSets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMatchmakingRuleSets)
 
 responseDescribeGameSessions :: DescribeGameSessionsResponse -> TestTree
 responseDescribeGameSessions =
@@ -1423,7 +1423,7 @@ responseDescribeGameSessions =
     "DescribeGameSessionsResponse"
     "fixture/DescribeGameSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameSessions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameSessions)
 
 responseDescribeGameServer :: DescribeGameServerResponse -> TestTree
 responseDescribeGameServer =
@@ -1431,7 +1431,7 @@ responseDescribeGameServer =
     "DescribeGameServerResponse"
     "fixture/DescribeGameServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameServer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameServer)
 
 responseUpdateScript :: UpdateScriptResponse -> TestTree
 responseUpdateScript =
@@ -1439,7 +1439,7 @@ responseUpdateScript =
     "UpdateScriptResponse"
     "fixture/UpdateScriptResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateScript)
+    (Proxy.Proxy :: Proxy.Proxy UpdateScript)
 
 responseDeleteScript :: DeleteScriptResponse -> TestTree
 responseDeleteScript =
@@ -1447,7 +1447,7 @@ responseDeleteScript =
     "DeleteScriptResponse"
     "fixture/DeleteScriptResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScript)
+    (Proxy.Proxy :: Proxy.Proxy DeleteScript)
 
 responseStartGameSessionPlacement :: StartGameSessionPlacementResponse -> TestTree
 responseStartGameSessionPlacement =
@@ -1455,7 +1455,7 @@ responseStartGameSessionPlacement =
     "StartGameSessionPlacementResponse"
     "fixture/StartGameSessionPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy StartGameSessionPlacement)
+    (Proxy.Proxy :: Proxy.Proxy StartGameSessionPlacement)
 
 responseDescribeFleetUtilization :: DescribeFleetUtilizationResponse -> TestTree
 responseDescribeFleetUtilization =
@@ -1463,7 +1463,7 @@ responseDescribeFleetUtilization =
     "DescribeFleetUtilizationResponse"
     "fixture/DescribeFleetUtilizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetUtilization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetUtilization)
 
 responseDescribeRuntimeConfiguration :: DescribeRuntimeConfigurationResponse -> TestTree
 responseDescribeRuntimeConfiguration =
@@ -1471,7 +1471,7 @@ responseDescribeRuntimeConfiguration =
     "DescribeRuntimeConfigurationResponse"
     "fixture/DescribeRuntimeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRuntimeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuntimeConfiguration)
 
 responseGetGameSessionLogUrl :: GetGameSessionLogUrlResponse -> TestTree
 responseGetGameSessionLogUrl =
@@ -1479,7 +1479,7 @@ responseGetGameSessionLogUrl =
     "GetGameSessionLogUrlResponse"
     "fixture/GetGameSessionLogUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGameSessionLogUrl)
+    (Proxy.Proxy :: Proxy.Proxy GetGameSessionLogUrl)
 
 responseDescribeFleetAttributes :: DescribeFleetAttributesResponse -> TestTree
 responseDescribeFleetAttributes =
@@ -1487,7 +1487,7 @@ responseDescribeFleetAttributes =
     "DescribeFleetAttributesResponse"
     "fixture/DescribeFleetAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetAttributes)
 
 responseDescribeGameSessionPlacement :: DescribeGameSessionPlacementResponse -> TestTree
 responseDescribeGameSessionPlacement =
@@ -1495,7 +1495,7 @@ responseDescribeGameSessionPlacement =
     "DescribeGameSessionPlacementResponse"
     "fixture/DescribeGameSessionPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameSessionPlacement)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameSessionPlacement)
 
 responseDescribeFleetEvents :: DescribeFleetEventsResponse -> TestTree
 responseDescribeFleetEvents =
@@ -1503,7 +1503,7 @@ responseDescribeFleetEvents =
     "DescribeFleetEventsResponse"
     "fixture/DescribeFleetEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetEvents)
 
 responseCreateFleetLocations :: CreateFleetLocationsResponse -> TestTree
 responseCreateFleetLocations =
@@ -1511,7 +1511,7 @@ responseCreateFleetLocations =
     "CreateFleetLocationsResponse"
     "fixture/CreateFleetLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFleetLocations)
+    (Proxy.Proxy :: Proxy.Proxy CreateFleetLocations)
 
 responseStartMatchmaking :: StartMatchmakingResponse -> TestTree
 responseStartMatchmaking =
@@ -1519,7 +1519,7 @@ responseStartMatchmaking =
     "StartMatchmakingResponse"
     "fixture/StartMatchmakingResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMatchmaking)
+    (Proxy.Proxy :: Proxy.Proxy StartMatchmaking)
 
 responseCreateMatchmakingRuleSet :: CreateMatchmakingRuleSetResponse -> TestTree
 responseCreateMatchmakingRuleSet =
@@ -1527,7 +1527,7 @@ responseCreateMatchmakingRuleSet =
     "CreateMatchmakingRuleSetResponse"
     "fixture/CreateMatchmakingRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMatchmakingRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateMatchmakingRuleSet)
 
 responseDescribeFleetLocationUtilization :: DescribeFleetLocationUtilizationResponse -> TestTree
 responseDescribeFleetLocationUtilization =
@@ -1535,7 +1535,7 @@ responseDescribeFleetLocationUtilization =
     "DescribeFleetLocationUtilizationResponse"
     "fixture/DescribeFleetLocationUtilizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetLocationUtilization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetLocationUtilization)
 
 responseDescribeFleetCapacity :: DescribeFleetCapacityResponse -> TestTree
 responseDescribeFleetCapacity =
@@ -1543,7 +1543,7 @@ responseDescribeFleetCapacity =
     "DescribeFleetCapacityResponse"
     "fixture/DescribeFleetCapacityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetCapacity)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetCapacity)
 
 responseDeleteBuild :: DeleteBuildResponse -> TestTree
 responseDeleteBuild =
@@ -1551,7 +1551,7 @@ responseDeleteBuild =
     "DeleteBuildResponse"
     "fixture/DeleteBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBuild)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBuild)
 
 responseUpdateBuild :: UpdateBuildResponse -> TestTree
 responseUpdateBuild =
@@ -1559,7 +1559,7 @@ responseUpdateBuild =
     "UpdateBuildResponse"
     "fixture/UpdateBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBuild)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBuild)
 
 responseListFleets :: ListFleetsResponse -> TestTree
 responseListFleets =
@@ -1567,7 +1567,7 @@ responseListFleets =
     "ListFleetsResponse"
     "fixture/ListFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFleets)
+    (Proxy.Proxy :: Proxy.Proxy ListFleets)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
 responseDeleteAlias =
@@ -1575,7 +1575,7 @@ responseDeleteAlias =
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlias)
 
 responseUpdateAlias :: UpdateAliasResponse -> TestTree
 responseUpdateAlias =
@@ -1583,7 +1583,7 @@ responseUpdateAlias =
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAlias)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAlias)
 
 responseStartMatchBackfill :: StartMatchBackfillResponse -> TestTree
 responseStartMatchBackfill =
@@ -1591,7 +1591,7 @@ responseStartMatchBackfill =
     "StartMatchBackfillResponse"
     "fixture/StartMatchBackfillResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMatchBackfill)
+    (Proxy.Proxy :: Proxy.Proxy StartMatchBackfill)
 
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
 responseDescribeInstances =
@@ -1599,7 +1599,7 @@ responseDescribeInstances =
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstances)
 
 responseDescribeGameSessionDetails :: DescribeGameSessionDetailsResponse -> TestTree
 responseDescribeGameSessionDetails =
@@ -1607,7 +1607,7 @@ responseDescribeGameSessionDetails =
     "DescribeGameSessionDetailsResponse"
     "fixture/DescribeGameSessionDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameSessionDetails)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameSessionDetails)
 
 responseDescribeFleetPortSettings :: DescribeFleetPortSettingsResponse -> TestTree
 responseDescribeFleetPortSettings =
@@ -1615,7 +1615,7 @@ responseDescribeFleetPortSettings =
     "DescribeFleetPortSettingsResponse"
     "fixture/DescribeFleetPortSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetPortSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetPortSettings)
 
 responseDescribeGameSessionQueues :: DescribeGameSessionQueuesResponse -> TestTree
 responseDescribeGameSessionQueues =
@@ -1623,7 +1623,7 @@ responseDescribeGameSessionQueues =
     "DescribeGameSessionQueuesResponse"
     "fixture/DescribeGameSessionQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameSessionQueues)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameSessionQueues)
 
 responseDescribeVpcPeeringConnections :: DescribeVpcPeeringConnectionsResponse -> TestTree
 responseDescribeVpcPeeringConnections =
@@ -1631,7 +1631,7 @@ responseDescribeVpcPeeringConnections =
     "DescribeVpcPeeringConnectionsResponse"
     "fixture/DescribeVpcPeeringConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcPeeringConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcPeeringConnections)
 
 responseDescribeScript :: DescribeScriptResponse -> TestTree
 responseDescribeScript =
@@ -1639,7 +1639,7 @@ responseDescribeScript =
     "DescribeScriptResponse"
     "fixture/DescribeScriptResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScript)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScript)
 
 responseCreatePlayerSessions :: CreatePlayerSessionsResponse -> TestTree
 responseCreatePlayerSessions =
@@ -1647,7 +1647,7 @@ responseCreatePlayerSessions =
     "CreatePlayerSessionsResponse"
     "fixture/CreatePlayerSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlayerSessions)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlayerSessions)
 
 responseDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurationsResponse -> TestTree
 responseDescribeMatchmakingConfigurations =
@@ -1655,7 +1655,7 @@ responseDescribeMatchmakingConfigurations =
     "DescribeMatchmakingConfigurationsResponse"
     "fixture/DescribeMatchmakingConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMatchmakingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMatchmakingConfigurations)
 
 responseDescribeVpcPeeringAuthorizations :: DescribeVpcPeeringAuthorizationsResponse -> TestTree
 responseDescribeVpcPeeringAuthorizations =
@@ -1663,7 +1663,7 @@ responseDescribeVpcPeeringAuthorizations =
     "DescribeVpcPeeringAuthorizationsResponse"
     "fixture/DescribeVpcPeeringAuthorizationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcPeeringAuthorizations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcPeeringAuthorizations)
 
 responseUpdateGameServer :: UpdateGameServerResponse -> TestTree
 responseUpdateGameServer =
@@ -1671,7 +1671,7 @@ responseUpdateGameServer =
     "UpdateGameServerResponse"
     "fixture/UpdateGameServerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGameServer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGameServer)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -1679,7 +1679,7 @@ responseCreateFleet =
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateFleet)
 
 responseDescribeFleetLocationCapacity :: DescribeFleetLocationCapacityResponse -> TestTree
 responseDescribeFleetLocationCapacity =
@@ -1687,7 +1687,7 @@ responseDescribeFleetLocationCapacity =
     "DescribeFleetLocationCapacityResponse"
     "fixture/DescribeFleetLocationCapacityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetLocationCapacity)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetLocationCapacity)
 
 responseDeleteMatchmakingConfiguration :: DeleteMatchmakingConfigurationResponse -> TestTree
 responseDeleteMatchmakingConfiguration =
@@ -1695,7 +1695,7 @@ responseDeleteMatchmakingConfiguration =
     "DeleteMatchmakingConfigurationResponse"
     "fixture/DeleteMatchmakingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMatchmakingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMatchmakingConfiguration)
 
 responseUpdateMatchmakingConfiguration :: UpdateMatchmakingConfigurationResponse -> TestTree
 responseUpdateMatchmakingConfiguration =
@@ -1703,7 +1703,7 @@ responseUpdateMatchmakingConfiguration =
     "UpdateMatchmakingConfigurationResponse"
     "fixture/UpdateMatchmakingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMatchmakingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMatchmakingConfiguration)
 
 responseDeleteGameServerGroup :: DeleteGameServerGroupResponse -> TestTree
 responseDeleteGameServerGroup =
@@ -1711,7 +1711,7 @@ responseDeleteGameServerGroup =
     "DeleteGameServerGroupResponse"
     "fixture/DeleteGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGameServerGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGameServerGroup)
 
 responseUpdateGameServerGroup :: UpdateGameServerGroupResponse -> TestTree
 responseUpdateGameServerGroup =
@@ -1719,7 +1719,7 @@ responseUpdateGameServerGroup =
     "UpdateGameServerGroupResponse"
     "fixture/UpdateGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGameServerGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGameServerGroup)
 
 responseResumeGameServerGroup :: ResumeGameServerGroupResponse -> TestTree
 responseResumeGameServerGroup =
@@ -1727,7 +1727,7 @@ responseResumeGameServerGroup =
     "ResumeGameServerGroupResponse"
     "fixture/ResumeGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ResumeGameServerGroup)
+    (Proxy.Proxy :: Proxy.Proxy ResumeGameServerGroup)
 
 responseDeleteVpcPeeringAuthorization :: DeleteVpcPeeringAuthorizationResponse -> TestTree
 responseDeleteVpcPeeringAuthorization =
@@ -1735,7 +1735,7 @@ responseDeleteVpcPeeringAuthorization =
     "DeleteVpcPeeringAuthorizationResponse"
     "fixture/DeleteVpcPeeringAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcPeeringAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcPeeringAuthorization)
 
 responseUpdateFleetAttributes :: UpdateFleetAttributesResponse -> TestTree
 responseUpdateFleetAttributes =
@@ -1743,7 +1743,7 @@ responseUpdateFleetAttributes =
     "UpdateFleetAttributesResponse"
     "fixture/UpdateFleetAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFleetAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFleetAttributes)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1751,7 +1751,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateMatchmakingConfiguration :: CreateMatchmakingConfigurationResponse -> TestTree
 responseCreateMatchmakingConfiguration =
@@ -1759,7 +1759,7 @@ responseCreateMatchmakingConfiguration =
     "CreateMatchmakingConfigurationResponse"
     "fixture/CreateMatchmakingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMatchmakingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateMatchmakingConfiguration)
 
 responseDescribePlayerSessions :: DescribePlayerSessionsResponse -> TestTree
 responseDescribePlayerSessions =
@@ -1767,7 +1767,7 @@ responseDescribePlayerSessions =
     "DescribePlayerSessionsResponse"
     "fixture/DescribePlayerSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePlayerSessions)
+    (Proxy.Proxy :: Proxy.Proxy DescribePlayerSessions)
 
 responseStopFleetActions :: StopFleetActionsResponse -> TestTree
 responseStopFleetActions =
@@ -1775,7 +1775,7 @@ responseStopFleetActions =
     "StopFleetActionsResponse"
     "fixture/StopFleetActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy StopFleetActions)
+    (Proxy.Proxy :: Proxy.Proxy StopFleetActions)
 
 responseDescribeBuild :: DescribeBuildResponse -> TestTree
 responseDescribeBuild =
@@ -1783,7 +1783,7 @@ responseDescribeBuild =
     "DescribeBuildResponse"
     "fixture/DescribeBuildResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBuild)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBuild)
 
 responseUpdateFleetPortSettings :: UpdateFleetPortSettingsResponse -> TestTree
 responseUpdateFleetPortSettings =
@@ -1791,7 +1791,7 @@ responseUpdateFleetPortSettings =
     "UpdateFleetPortSettingsResponse"
     "fixture/UpdateFleetPortSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFleetPortSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFleetPortSettings)
 
 responseUpdateFleetCapacity :: UpdateFleetCapacityResponse -> TestTree
 responseUpdateFleetCapacity =
@@ -1799,7 +1799,7 @@ responseUpdateFleetCapacity =
     "UpdateFleetCapacityResponse"
     "fixture/UpdateFleetCapacityResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFleetCapacity)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFleetCapacity)
 
 responseCreateScript :: CreateScriptResponse -> TestTree
 responseCreateScript =
@@ -1807,7 +1807,7 @@ responseCreateScript =
     "CreateScriptResponse"
     "fixture/CreateScriptResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateScript)
+    (Proxy.Proxy :: Proxy.Proxy CreateScript)
 
 responseAcceptMatch :: AcceptMatchResponse -> TestTree
 responseAcceptMatch =
@@ -1815,7 +1815,7 @@ responseAcceptMatch =
     "AcceptMatchResponse"
     "fixture/AcceptMatchResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptMatch)
+    (Proxy.Proxy :: Proxy.Proxy AcceptMatch)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1823,7 +1823,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeAlias :: DescribeAliasResponse -> TestTree
 responseDescribeAlias =
@@ -1831,7 +1831,7 @@ responseDescribeAlias =
     "DescribeAliasResponse"
     "fixture/DescribeAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlias)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlias)
 
 responseValidateMatchmakingRuleSet :: ValidateMatchmakingRuleSetResponse -> TestTree
 responseValidateMatchmakingRuleSet =
@@ -1839,7 +1839,7 @@ responseValidateMatchmakingRuleSet =
     "ValidateMatchmakingRuleSetResponse"
     "fixture/ValidateMatchmakingRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidateMatchmakingRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy ValidateMatchmakingRuleSet)
 
 responseListScripts :: ListScriptsResponse -> TestTree
 responseListScripts =
@@ -1847,7 +1847,7 @@ responseListScripts =
     "ListScriptsResponse"
     "fixture/ListScriptsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListScripts)
+    (Proxy.Proxy :: Proxy.Proxy ListScripts)
 
 responseDescribeEC2InstanceLimits :: DescribeEC2InstanceLimitsResponse -> TestTree
 responseDescribeEC2InstanceLimits =
@@ -1855,7 +1855,7 @@ responseDescribeEC2InstanceLimits =
     "DescribeEC2InstanceLimitsResponse"
     "fixture/DescribeEC2InstanceLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEC2InstanceLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEC2InstanceLimits)
 
 responseSuspendGameServerGroup :: SuspendGameServerGroupResponse -> TestTree
 responseSuspendGameServerGroup =
@@ -1863,7 +1863,7 @@ responseSuspendGameServerGroup =
     "SuspendGameServerGroupResponse"
     "fixture/SuspendGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy SuspendGameServerGroup)
+    (Proxy.Proxy :: Proxy.Proxy SuspendGameServerGroup)
 
 responseDeleteFleetLocations :: DeleteFleetLocationsResponse -> TestTree
 responseDeleteFleetLocations =
@@ -1871,7 +1871,7 @@ responseDeleteFleetLocations =
     "DeleteFleetLocationsResponse"
     "fixture/DeleteFleetLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFleetLocations)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleetLocations)
 
 responseDeleteMatchmakingRuleSet :: DeleteMatchmakingRuleSetResponse -> TestTree
 responseDeleteMatchmakingRuleSet =
@@ -1879,7 +1879,7 @@ responseDeleteMatchmakingRuleSet =
     "DeleteMatchmakingRuleSetResponse"
     "fixture/DeleteMatchmakingRuleSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMatchmakingRuleSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMatchmakingRuleSet)
 
 responseStopGameSessionPlacement :: StopGameSessionPlacementResponse -> TestTree
 responseStopGameSessionPlacement =
@@ -1887,7 +1887,7 @@ responseStopGameSessionPlacement =
     "StopGameSessionPlacementResponse"
     "fixture/StopGameSessionPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy StopGameSessionPlacement)
+    (Proxy.Proxy :: Proxy.Proxy StopGameSessionPlacement)
 
 responseClaimGameServer :: ClaimGameServerResponse -> TestTree
 responseClaimGameServer =
@@ -1895,7 +1895,7 @@ responseClaimGameServer =
     "ClaimGameServerResponse"
     "fixture/ClaimGameServerResponse.proto"
     defaultService
-    (Proxy :: Proxy ClaimGameServer)
+    (Proxy.Proxy :: Proxy.Proxy ClaimGameServer)
 
 responseUpdateGameSession :: UpdateGameSessionResponse -> TestTree
 responseUpdateGameSession =
@@ -1903,7 +1903,7 @@ responseUpdateGameSession =
     "UpdateGameSessionResponse"
     "fixture/UpdateGameSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGameSession)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGameSession)
 
 responseDescribeFleetLocationAttributes :: DescribeFleetLocationAttributesResponse -> TestTree
 responseDescribeFleetLocationAttributes =
@@ -1911,7 +1911,7 @@ responseDescribeFleetLocationAttributes =
     "DescribeFleetLocationAttributesResponse"
     "fixture/DescribeFleetLocationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetLocationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetLocationAttributes)
 
 responseDescribeMatchmaking :: DescribeMatchmakingResponse -> TestTree
 responseDescribeMatchmaking =
@@ -1919,7 +1919,7 @@ responseDescribeMatchmaking =
     "DescribeMatchmakingResponse"
     "fixture/DescribeMatchmakingResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMatchmaking)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMatchmaking)
 
 responseCreatePlayerSession :: CreatePlayerSessionResponse -> TestTree
 responseCreatePlayerSession =
@@ -1927,7 +1927,7 @@ responseCreatePlayerSession =
     "CreatePlayerSessionResponse"
     "fixture/CreatePlayerSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlayerSession)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlayerSession)
 
 responseDescribeGameServerGroup :: DescribeGameServerGroupResponse -> TestTree
 responseDescribeGameServerGroup =
@@ -1935,4 +1935,4 @@ responseDescribeGameServerGroup =
     "DescribeGameServerGroupResponse"
     "fixture/DescribeGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameServerGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGameServerGroup)

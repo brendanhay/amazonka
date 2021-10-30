@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Kinesis where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Kinesis
 import Test.AWS.Fixture
 import Test.AWS.Kinesis.Internal
@@ -379,7 +379,7 @@ responsePutRecord =
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRecord)
+    (Proxy.Proxy :: Proxy.Proxy PutRecord)
 
 responseDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriodResponse -> TestTree
 responseDecreaseStreamRetentionPeriod =
@@ -387,7 +387,7 @@ responseDecreaseStreamRetentionPeriod =
     "DecreaseStreamRetentionPeriodResponse"
     "fixture/DecreaseStreamRetentionPeriodResponse.proto"
     defaultService
-    (Proxy :: Proxy DecreaseStreamRetentionPeriod)
+    (Proxy.Proxy :: Proxy.Proxy DecreaseStreamRetentionPeriod)
 
 responseMergeShards :: MergeShardsResponse -> TestTree
 responseMergeShards =
@@ -395,7 +395,7 @@ responseMergeShards =
     "MergeShardsResponse"
     "fixture/MergeShardsResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeShards)
+    (Proxy.Proxy :: Proxy.Proxy MergeShards)
 
 responseDeregisterStreamConsumer :: DeregisterStreamConsumerResponse -> TestTree
 responseDeregisterStreamConsumer =
@@ -403,7 +403,7 @@ responseDeregisterStreamConsumer =
     "DeregisterStreamConsumerResponse"
     "fixture/DeregisterStreamConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterStreamConsumer)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterStreamConsumer)
 
 responseDescribeStreamSummary :: DescribeStreamSummaryResponse -> TestTree
 responseDescribeStreamSummary =
@@ -411,7 +411,7 @@ responseDescribeStreamSummary =
     "DescribeStreamSummaryResponse"
     "fixture/DescribeStreamSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStreamSummary)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStreamSummary)
 
 responseGetShardIterator :: GetShardIteratorResponse -> TestTree
 responseGetShardIterator =
@@ -419,7 +419,7 @@ responseGetShardIterator =
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     defaultService
-    (Proxy :: Proxy GetShardIterator)
+    (Proxy.Proxy :: Proxy.Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
 responseGetRecords =
@@ -427,7 +427,7 @@ responseGetRecords =
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecords)
+    (Proxy.Proxy :: Proxy.Proxy GetRecords)
 
 responseStopStreamEncryption :: StopStreamEncryptionResponse -> TestTree
 responseStopStreamEncryption =
@@ -435,7 +435,7 @@ responseStopStreamEncryption =
     "StopStreamEncryptionResponse"
     "fixture/StopStreamEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopStreamEncryption)
+    (Proxy.Proxy :: Proxy.Proxy StopStreamEncryption)
 
 responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseEnableEnhancedMonitoring =
@@ -443,7 +443,7 @@ responseEnableEnhancedMonitoring =
     "EnableEnhancedMonitoringResponse"
     "fixture/EnableEnhancedMonitoringResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableEnhancedMonitoring)
+    (Proxy.Proxy :: Proxy.Proxy EnableEnhancedMonitoring)
 
 responseDescribeLimits :: DescribeLimitsResponse -> TestTree
 responseDescribeLimits =
@@ -451,7 +451,7 @@ responseDescribeLimits =
     "DescribeLimitsResponse"
     "fixture/DescribeLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLimits)
 
 responseRegisterStreamConsumer :: RegisterStreamConsumerResponse -> TestTree
 responseRegisterStreamConsumer =
@@ -459,7 +459,7 @@ responseRegisterStreamConsumer =
     "RegisterStreamConsumerResponse"
     "fixture/RegisterStreamConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterStreamConsumer)
+    (Proxy.Proxy :: Proxy.Proxy RegisterStreamConsumer)
 
 responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseDisableEnhancedMonitoring =
@@ -467,7 +467,7 @@ responseDisableEnhancedMonitoring =
     "DisableEnhancedMonitoringResponse"
     "fixture/DisableEnhancedMonitoringResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableEnhancedMonitoring)
+    (Proxy.Proxy :: Proxy.Proxy DisableEnhancedMonitoring)
 
 responseUpdateShardCount :: UpdateShardCountResponse -> TestTree
 responseUpdateShardCount =
@@ -475,7 +475,7 @@ responseUpdateShardCount =
     "UpdateShardCountResponse"
     "fixture/UpdateShardCountResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateShardCount)
+    (Proxy.Proxy :: Proxy.Proxy UpdateShardCount)
 
 responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
 responseListTagsForStream =
@@ -483,7 +483,7 @@ responseListTagsForStream =
     "ListTagsForStreamResponse"
     "fixture/ListTagsForStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForStream)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForStream)
 
 responseDescribeStreamConsumer :: DescribeStreamConsumerResponse -> TestTree
 responseDescribeStreamConsumer =
@@ -491,7 +491,7 @@ responseDescribeStreamConsumer =
     "DescribeStreamConsumerResponse"
     "fixture/DescribeStreamConsumerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStreamConsumer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStreamConsumer)
 
 responseAddTagsToStream :: AddTagsToStreamResponse -> TestTree
 responseAddTagsToStream =
@@ -499,7 +499,7 @@ responseAddTagsToStream =
     "AddTagsToStreamResponse"
     "fixture/AddTagsToStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToStream)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToStream)
 
 responsePutRecords :: PutRecordsResponse -> TestTree
 responsePutRecords =
@@ -507,7 +507,7 @@ responsePutRecords =
     "PutRecordsResponse"
     "fixture/PutRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRecords)
+    (Proxy.Proxy :: Proxy.Proxy PutRecords)
 
 responseListShards :: ListShardsResponse -> TestTree
 responseListShards =
@@ -515,7 +515,7 @@ responseListShards =
     "ListShardsResponse"
     "fixture/ListShardsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListShards)
+    (Proxy.Proxy :: Proxy.Proxy ListShards)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
 responseDeleteStream =
@@ -523,7 +523,7 @@ responseDeleteStream =
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStream)
 
 responseRemoveTagsFromStream :: RemoveTagsFromStreamResponse -> TestTree
 responseRemoveTagsFromStream =
@@ -531,7 +531,7 @@ responseRemoveTagsFromStream =
     "RemoveTagsFromStreamResponse"
     "fixture/RemoveTagsFromStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromStream)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromStream)
 
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
@@ -539,7 +539,7 @@ responseListStreams =
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListStreams)
 
 responseCreateStream :: CreateStreamResponse -> TestTree
 responseCreateStream =
@@ -547,7 +547,7 @@ responseCreateStream =
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStream)
+    (Proxy.Proxy :: Proxy.Proxy CreateStream)
 
 responseStartStreamEncryption :: StartStreamEncryptionResponse -> TestTree
 responseStartStreamEncryption =
@@ -555,7 +555,7 @@ responseStartStreamEncryption =
     "StartStreamEncryptionResponse"
     "fixture/StartStreamEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartStreamEncryption)
+    (Proxy.Proxy :: Proxy.Proxy StartStreamEncryption)
 
 responseListStreamConsumers :: ListStreamConsumersResponse -> TestTree
 responseListStreamConsumers =
@@ -563,7 +563,7 @@ responseListStreamConsumers =
     "ListStreamConsumersResponse"
     "fixture/ListStreamConsumersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreamConsumers)
+    (Proxy.Proxy :: Proxy.Proxy ListStreamConsumers)
 
 responseSplitShard :: SplitShardResponse -> TestTree
 responseSplitShard =
@@ -571,7 +571,7 @@ responseSplitShard =
     "SplitShardResponse"
     "fixture/SplitShardResponse.proto"
     defaultService
-    (Proxy :: Proxy SplitShard)
+    (Proxy.Proxy :: Proxy.Proxy SplitShard)
 
 responseIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriodResponse -> TestTree
 responseIncreaseStreamRetentionPeriod =
@@ -579,7 +579,7 @@ responseIncreaseStreamRetentionPeriod =
     "IncreaseStreamRetentionPeriodResponse"
     "fixture/IncreaseStreamRetentionPeriodResponse.proto"
     defaultService
-    (Proxy :: Proxy IncreaseStreamRetentionPeriod)
+    (Proxy.Proxy :: Proxy.Proxy IncreaseStreamRetentionPeriod)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
 responseDescribeStream =
@@ -587,4 +587,4 @@ responseDescribeStream =
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStream)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStream)

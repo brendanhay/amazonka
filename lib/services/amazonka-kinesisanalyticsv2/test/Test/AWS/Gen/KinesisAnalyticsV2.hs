@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KinesisAnalyticsV2 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KinesisAnalyticsV2
 import Test.AWS.Fixture
 import Test.AWS.KinesisAnalyticsV2.Internal
@@ -415,7 +415,7 @@ responseAddApplicationOutput =
     "AddApplicationOutputResponse"
     "fixture/AddApplicationOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationOutput)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationOutput)
 
 responseDiscoverInputSchema :: DiscoverInputSchemaResponse -> TestTree
 responseDiscoverInputSchema =
@@ -423,7 +423,7 @@ responseDiscoverInputSchema =
     "DiscoverInputSchemaResponse"
     "fixture/DiscoverInputSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DiscoverInputSchema)
+    (Proxy.Proxy :: Proxy.Proxy DiscoverInputSchema)
 
 responseDescribeApplication :: DescribeApplicationResponse -> TestTree
 responseDescribeApplication =
@@ -431,7 +431,7 @@ responseDescribeApplication =
     "DescribeApplicationResponse"
     "fixture/DescribeApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
 
 responseDeleteApplicationSnapshot :: DeleteApplicationSnapshotResponse -> TestTree
 responseDeleteApplicationSnapshot =
@@ -439,7 +439,7 @@ responseDeleteApplicationSnapshot =
     "DeleteApplicationSnapshotResponse"
     "fixture/DeleteApplicationSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationSnapshot)
 
 responseStartApplication :: StartApplicationResponse -> TestTree
 responseStartApplication =
@@ -447,7 +447,7 @@ responseStartApplication =
     "StartApplicationResponse"
     "fixture/StartApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartApplication)
+    (Proxy.Proxy :: Proxy.Proxy StartApplication)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -455,7 +455,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeApplicationVersion :: DescribeApplicationVersionResponse -> TestTree
 responseDescribeApplicationVersion =
@@ -463,7 +463,7 @@ responseDescribeApplicationVersion =
     "DescribeApplicationVersionResponse"
     "fixture/DescribeApplicationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplicationVersion)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationVersion)
 
 responseDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSourceResponse -> TestTree
 responseDeleteApplicationReferenceDataSource =
@@ -471,7 +471,7 @@ responseDeleteApplicationReferenceDataSource =
     "DeleteApplicationReferenceDataSourceResponse"
     "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationReferenceDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationReferenceDataSource)
 
 responseCreateApplicationPresignedUrl :: CreateApplicationPresignedUrlResponse -> TestTree
 responseCreateApplicationPresignedUrl =
@@ -479,7 +479,7 @@ responseCreateApplicationPresignedUrl =
     "CreateApplicationPresignedUrlResponse"
     "fixture/CreateApplicationPresignedUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplicationPresignedUrl)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplicationPresignedUrl)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -487,7 +487,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -495,7 +495,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
 responseDeleteApplicationCloudWatchLoggingOption =
@@ -503,7 +503,7 @@ responseDeleteApplicationCloudWatchLoggingOption =
     "DeleteApplicationCloudWatchLoggingOptionResponse"
     "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationCloudWatchLoggingOption)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationCloudWatchLoggingOption)
 
 responseDescribeApplicationSnapshot :: DescribeApplicationSnapshotResponse -> TestTree
 responseDescribeApplicationSnapshot =
@@ -511,7 +511,7 @@ responseDescribeApplicationSnapshot =
     "DescribeApplicationSnapshotResponse"
     "fixture/DescribeApplicationSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplicationSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationSnapshot)
 
 responseDeleteApplicationVpcConfiguration :: DeleteApplicationVpcConfigurationResponse -> TestTree
 responseDeleteApplicationVpcConfiguration =
@@ -519,7 +519,7 @@ responseDeleteApplicationVpcConfiguration =
     "DeleteApplicationVpcConfigurationResponse"
     "fixture/DeleteApplicationVpcConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationVpcConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationVpcConfiguration)
 
 responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
 responseAddApplicationInputProcessingConfiguration =
@@ -527,7 +527,7 @@ responseAddApplicationInputProcessingConfiguration =
     "AddApplicationInputProcessingConfigurationResponse"
     "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationInputProcessingConfiguration)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -535,7 +535,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseListApplicationVersions :: ListApplicationVersionsResponse -> TestTree
 responseListApplicationVersions =
@@ -543,7 +543,7 @@ responseListApplicationVersions =
     "ListApplicationVersionsResponse"
     "fixture/ListApplicationVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplicationVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationVersions)
 
 responseDeleteApplicationOutput :: DeleteApplicationOutputResponse -> TestTree
 responseDeleteApplicationOutput =
@@ -551,7 +551,7 @@ responseDeleteApplicationOutput =
     "DeleteApplicationOutputResponse"
     "fixture/DeleteApplicationOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationOutput)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationOutput)
 
 responseRollbackApplication :: RollbackApplicationResponse -> TestTree
 responseRollbackApplication =
@@ -559,7 +559,7 @@ responseRollbackApplication =
     "RollbackApplicationResponse"
     "fixture/RollbackApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy RollbackApplication)
+    (Proxy.Proxy :: Proxy.Proxy RollbackApplication)
 
 responseListApplicationSnapshots :: ListApplicationSnapshotsResponse -> TestTree
 responseListApplicationSnapshots =
@@ -567,7 +567,7 @@ responseListApplicationSnapshots =
     "ListApplicationSnapshotsResponse"
     "fixture/ListApplicationSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplicationSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationSnapshots)
 
 responseStopApplication :: StopApplicationResponse -> TestTree
 responseStopApplication =
@@ -575,7 +575,7 @@ responseStopApplication =
     "StopApplicationResponse"
     "fixture/StopApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopApplication)
+    (Proxy.Proxy :: Proxy.Proxy StopApplication)
 
 responseCreateApplicationSnapshot :: CreateApplicationSnapshotResponse -> TestTree
 responseCreateApplicationSnapshot =
@@ -583,7 +583,7 @@ responseCreateApplicationSnapshot =
     "CreateApplicationSnapshotResponse"
     "fixture/CreateApplicationSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplicationSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplicationSnapshot)
 
 responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
 responseAddApplicationReferenceDataSource =
@@ -591,7 +591,7 @@ responseAddApplicationReferenceDataSource =
     "AddApplicationReferenceDataSourceResponse"
     "fixture/AddApplicationReferenceDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationReferenceDataSource)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationReferenceDataSource)
 
 responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
 responseAddApplicationInput =
@@ -599,7 +599,7 @@ responseAddApplicationInput =
     "AddApplicationInputResponse"
     "fixture/AddApplicationInputResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationInput)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationInput)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -607,7 +607,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOptionResponse -> TestTree
 responseAddApplicationCloudWatchLoggingOption =
@@ -615,7 +615,7 @@ responseAddApplicationCloudWatchLoggingOption =
     "AddApplicationCloudWatchLoggingOptionResponse"
     "fixture/AddApplicationCloudWatchLoggingOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationCloudWatchLoggingOption)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationCloudWatchLoggingOption)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -623,7 +623,7 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -631,7 +631,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
 responseDeleteApplicationInputProcessingConfiguration =
@@ -639,7 +639,7 @@ responseDeleteApplicationInputProcessingConfiguration =
     "DeleteApplicationInputProcessingConfigurationResponse"
     "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationInputProcessingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationInputProcessingConfiguration)
 
 responseAddApplicationVpcConfiguration :: AddApplicationVpcConfigurationResponse -> TestTree
 responseAddApplicationVpcConfiguration =
@@ -647,7 +647,7 @@ responseAddApplicationVpcConfiguration =
     "AddApplicationVpcConfigurationResponse"
     "fixture/AddApplicationVpcConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationVpcConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationVpcConfiguration)
 
 responseUpdateApplicationMaintenanceConfiguration :: UpdateApplicationMaintenanceConfigurationResponse -> TestTree
 responseUpdateApplicationMaintenanceConfiguration =
@@ -655,4 +655,4 @@ responseUpdateApplicationMaintenanceConfiguration =
     "UpdateApplicationMaintenanceConfigurationResponse"
     "fixture/UpdateApplicationMaintenanceConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplicationMaintenanceConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplicationMaintenanceConfiguration)

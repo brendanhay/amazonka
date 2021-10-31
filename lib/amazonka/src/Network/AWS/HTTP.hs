@@ -24,13 +24,13 @@ import qualified Data.List as List
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Time as Time
 import Network.AWS.Env
+import Network.AWS.HTTPUnsigned (retryService, retryStream)
 import Network.AWS.Lens (to, (%~), (^.), (^?), _Just)
 import Network.AWS.Logger
 import Network.AWS.Prelude
 import Network.AWS.Types
 import Network.AWS.Waiter
 import qualified Network.HTTP.Conduit as Client.Conduit
-import Network.AWS.HTTPUnsigned (retryStream, retryService)
 
 retryRequest ::
   ( MonadResource m,

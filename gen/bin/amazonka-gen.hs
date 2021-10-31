@@ -5,7 +5,7 @@
 
 module Main (main) where
 
-import Control.Lens (Lens', (^.), each, (%~))
+import Control.Lens (Lens', each, (%~), (^.))
 import qualified Control.Lens as Lens
 import Control.Monad
 import Control.Monad.Except
@@ -91,14 +91,13 @@ parser =
                   <> help "Client library version dependecy for examples."
               )
         )
-    <*>
-      ( strOption
-        ( long "operations"
-          <> metavar "CSV-OPERATIONS"
-          <> help "Generate only specific operations."
-          <> value ""
+    <*> ( strOption
+            ( long "operations"
+                <> metavar "CSV-OPERATIONS"
+                <> help "Generate only specific operations."
+                <> value ""
+            )
         )
-    )
     <*> some
       ( strArgument
           ( metavar "MODEL-PATH"
@@ -165,7 +164,7 @@ main = do
   let hoistEither = either UnliftIO.throwString pure
       formatTime = Time.formatTime Time.defaultTimeLocale "%Y-%m-%d"
       operationsFilter = filter (/= "") $ Text.splitOn "," _optionOperations
-      matchId key _val = any (key == ) (mkId <$> operationsFilter)
+      matchId key _val = any (key ==) (mkId <$> operationsFilter)
 
   retry <- JSON.required _optionRetry
 
@@ -207,8 +206,10 @@ main = do
         ++ Text.unpack (service ^. serviceFullName)
         ++ "' API definition"
 
-    let serviceFiltered = if operationsFilter == [] then service else
-          operations %~ (Map.filterWithKey matchId) $ service
+    let serviceFiltered =
+          if operationsFilter == []
+            then service
+            else operations %~ (Map.filterWithKey matchId) $ service
 
     library <- hoistEither (AST.rewrite _optionVersions config serviceFiltered)
 

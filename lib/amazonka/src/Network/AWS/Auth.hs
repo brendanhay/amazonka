@@ -68,6 +68,7 @@ import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
 import qualified Control.Exception as Exception
 import Control.Monad.Trans.Maybe (MaybeT (..))
+import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
 import qualified Data.Char as Char
@@ -82,20 +83,19 @@ import Data.UUID (toText)
 import Data.UUID.V4 (nextRandom)
 import Network.AWS.Data
 import Network.AWS.EC2.Metadata
-import Network.AWS.Lens (catching, catching_, exception, prism, throwingM, _IOException)
+import Network.AWS.HTTPUnsigned
+import Network.AWS.Lens (catching, catching_, exception, prism, throwingM, view, _IOException)
 import Network.AWS.Prelude
+import qualified Network.AWS.STS as STS
+import qualified Network.AWS.STS.AssumeRoleWithWebIdentity as STS
+  ( assumeRoleWithWebIdentityResponse_credentials,
+  )
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified System.Directory as Directory
 import qualified System.Environment as Environment
 import System.Mem.Weak (Weak)
 import qualified System.Mem.Weak as Weak
-import qualified Network.AWS.STS as STS
-import qualified Network.AWS.STS.AssumeRoleWithWebIdentity as STS
-    ( assumeRoleWithWebIdentityResponse_credentials )
-import Network.AWS.Lens (view)
-import Control.Monad.Trans.Resource (runResourceT)
-import Network.AWS.HTTPUnsigned
 
 -- | Default access key environment variable.
 envAccessKey ::
@@ -429,7 +429,7 @@ getAuth m =
         catching _MissingFileError fromFile $ \f ->
           -- proceed, missing credentials file
           catching_ _MissingEnvError (fromWebIdentity m) $
-          -- proceed, missing env keys
+            -- proceed, missing env keys
             catching_ _MissingEnvError (fromContainer m) $ do
               -- proceed, missing env key
               p <- isEC2 m
@@ -716,7 +716,7 @@ getRegion = runMaybeT $ do
     (fromText (Text.pack mr))
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
--- | Obtain temporary credentials from STS:AssumeRoleWithWebIdentity 
+-- | Obtain temporary credentials from STS:AssumeRoleWithWebIdentity
 -- Token file is taken from env variable 'envWebIdentityTokenFile' and role from 'envRole'.
 --
 -- The STS service provides an access key, secret key, session token,
@@ -729,56 +729,70 @@ getRegion = runMaybeT $ do
 --
 -- Throws 'MissingEnvError' if the 'envWebIdentityTokenFile' environment
 -- variable is not set.
-fromWebIdentity
-  :: MonadIO m
-  => Client.Manager -> m (Auth, Maybe Region)
+fromWebIdentity ::
+  MonadIO m =>
+  Client.Manager ->
+  m (Auth, Maybe Region)
 fromWebIdentity httpManager = do
-    -- Implementation modelled on the C++ SDK:
-    -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
-    tokenFile <- liftIO $ req envWebIdentityTokenFile
-    roleArn <- liftIO $ fromString <$> req envRole
+  -- Implementation modelled on the C++ SDK:
+  -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
+  tokenFile <- liftIO $ req envWebIdentityTokenFile
+  roleArn <- liftIO $ fromString <$> req envRole
 
-    sessionName <- liftIO $ opt envRoleSessionName >>= \case
-      -- If explicit session name is not set, we mimic the C++ SDK and use
-      -- random UUID.
-      Nothing -> Data.UUID.toText <$> Data.UUID.V4.nextRandom
-      Just v -> pure (fromString v)
+  sessionName <-
+    liftIO $
+      opt envRoleSessionName >>= \case
+        -- If explicit session name is not set, we mimic the C++ SDK and use
+        -- random UUID.
+        Nothing -> Data.UUID.toText <$> Data.UUID.V4.nextRandom
+        Just v -> pure (fromString v)
 
-    reg <- liftIO getRegion
+  reg <- liftIO getRegion
 
-    -- We copy the behaviour of the C++ implementation where upon credential
-    -- expiration it re-reads the token file content and ignores any
-    -- potential changes to the actual environment variable contents.
-    let getCredentials = do
-          token <- Text.readFile tokenFile
-          let assumeWeb = STS.newAssumeRoleWithWebIdentity
-                  roleArn sessionName token
-              retry = retryConnectionFailure 3
-              logger :: Logger
-              -- logger = (\_ bsb -> hPutBuilder stderr bsb)
-              logger = (\_ _ -> pure ())
-          response' <- runResourceT $ sendUnsigned httpManager logger retry
-            (fromMaybe NorthVirginia reg)  assumeWeb
-          let mcredentials = view STS.assumeRoleWithWebIdentityResponse_credentials <$> response'
-          x <- either (liftIO . Exception.throwIO) pure mcredentials
-          case x of
-            Nothing -> fail "Could not obtain credentials via web identity."
-            Just c -> pure c
+  -- We copy the behaviour of the C++ implementation where upon credential
+  -- expiration it re-reads the token file content and ignores any
+  -- potential changes to the actual environment variable contents.
+  let getCredentials = do
+        token <- Text.readFile tokenFile
+        let assumeWeb =
+              STS.newAssumeRoleWithWebIdentity
+                roleArn
+                sessionName
+                token
+            retry = retryConnectionFailure 3
+            logger :: Logger
+            -- logger = (\_ bsb -> hPutBuilder stderr bsb)
+            logger = (\_ _ -> pure ())
+        response' <-
+          runResourceT $
+            sendUnsigned
+              httpManager
+              logger
+              retry
+              (fromMaybe NorthVirginia reg)
+              assumeWeb
+        let mcredentials = view STS.assumeRoleWithWebIdentityResponse_credentials <$> response'
+        x <- either (liftIO . Exception.throwIO) pure mcredentials
+        case x of
+          Nothing -> fail "Could not obtain credentials via web identity."
+          Just c -> pure c
 
-    -- As the credentials from STS are temporary, we start a thread that is able
-    -- to fetch new ones automatically on expiry.
-    auth <- liftIO $ fetchAuthInBackground getCredentials
+  -- As the credentials from STS are temporary, we start a thread that is able
+  -- to fetch new ones automatically on expiry.
+  auth <- liftIO $ fetchAuthInBackground getCredentials
 
-    pure (auth, reg)
-    where
-      req :: Text.Text -> IO String
-      req k = opt k >>= \case
-        Nothing -> Exception.throwIO . MissingEnvError $
-          "Unable to read ENV variable: " <> k
+  pure (auth, reg)
+  where
+    req :: Text.Text -> IO String
+    req k =
+      opt k >>= \case
+        Nothing ->
+          Exception.throwIO . MissingEnvError $
+            "Unable to read ENV variable: " <> k
         Just v -> pure v
 
-      opt :: Text.Text -> IO (Maybe String)
-      opt k = (Environment.lookupEnv (Text.unpack k))
+    opt :: Text.Text -> IO (Maybe String)
+    opt k = (Environment.lookupEnv (Text.unpack k))
 
 -- | Implements the background fetching behavior used by 'fromProfileName' and
 -- 'fromContainer'. Given an 'IO' action that produces an 'AuthEnv', this spawns

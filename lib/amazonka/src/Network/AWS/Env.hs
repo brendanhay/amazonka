@@ -31,10 +31,10 @@ where
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import Network.AWS.Auth
+import Network.AWS.HTTPUnsigned (retryConnectionFailure)
 import Network.AWS.Lens ((.~), (?~))
 import Network.AWS.Logger
 import Network.AWS.Prelude
-import Network.AWS.HTTPUnsigned (retryConnectionFailure)
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit

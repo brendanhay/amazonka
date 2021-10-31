@@ -8,11 +8,10 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.HTTPUnsigned
-  ( 
-    sendUnsigned,
+  ( sendUnsigned,
     retryStream,
     retryService,
-    retryConnectionFailure
+    retryConnectionFailure,
   )
 where
 
@@ -20,14 +19,14 @@ import Control.Exception as Exception
 import Control.Monad.Trans.Resource (liftResourceT, transResourceT)
 import qualified Control.Retry as Retry
 import qualified Data.List as List
+import Network.AWS.Core (collapsePath, escapePath, toBS, toRequestBody)
 import Network.AWS.Data.Body (isStreaming)
 import Network.AWS.Lens (to, (^.), (^?), _Just)
 import Network.AWS.Logger
 import Network.AWS.Prelude
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified Network.HTTP.Client as Client
-import Network.AWS.Core ( toBS, toRequestBody, collapsePath, escapePath )
+import qualified Network.HTTP.Conduit as Client.Conduit
 
 retryRequest ::
   ( MonadResource m,
@@ -86,14 +85,15 @@ httpRequest manager logger region x =
   liftResourceT (transResourceT (`Exception.catches` handlers) go)
   where
     rq = newClientRequest (((_serviceEndpoint . _requestService) x) region) (_serviceTimeout . _requestService $ x)
-    rq2 = rq {Client.queryString = toBS $ _requestQuery x
-            , Client.requestBody = toRequestBody $ _requestBody x
-            , Client.method = toBS $ _requestMethod x
-            , Client.path = toBS $ toBS $ escapePath $  collapsePath (_requestPath x)
-            , Client.requestHeaders = _requestHeaders x
-            }
+    rq2 =
+      rq
+        { Client.queryString = toBS $ _requestQuery x,
+          Client.requestBody = toRequestBody $ _requestBody x,
+          Client.method = toBS $ _requestMethod x,
+          Client.path = toBS $ toBS $ escapePath $ collapsePath (_requestPath x),
+          Client.requestHeaders = _requestHeaders x
+        }
     go = do
-
       logDebug logger rq2 -- debug:ClientRequest
       rs <- Client.Conduit.http rq2 manager
 
@@ -128,7 +128,6 @@ retryService s =
 
     Exponential {..} = _serviceRetry s
 
-
 -- | Send a request, returning the associated response if successful.
 -- See 'send'.
 sendUnsigned ::
@@ -143,8 +142,7 @@ sendUnsigned ::
   m (Either Error (AWSResponse a))
 sendUnsigned manager logger retry region req =
   fmap (second Client.responseBody) $
-   (retryRequest manager logger retry region req)
-
+    (retryRequest manager logger retry region req)
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.

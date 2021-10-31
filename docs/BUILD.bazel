@@ -155,7 +155,6 @@ haskell_doc(
         "//lib/services/amazonka-ivs",
         "//lib/services/amazonka-kafka",
         "//lib/services/amazonka-kafkaconnect",
-        "//lib/services/amazonka-kendra",
         "//lib/services/amazonka-kinesis",
         "//lib/services/amazonka-kinesis-analytics",
         "//lib/services/amazonka-kinesis-firehose",

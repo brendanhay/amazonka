@@ -17,7 +17,6 @@ import Control.Monad (guard)
 import Data.Aeson
 import Data.Functor (($>))
 import Data.List (find, partition)
-import Data.Maybe (catMaybes)
 import Data.Text (Text)
 import qualified Data.Text as Text
 import Gen.AST.Data.Field

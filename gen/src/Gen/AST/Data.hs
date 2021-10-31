@@ -33,7 +33,6 @@ import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
-import Debug.Trace
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
@@ -242,13 +241,10 @@ prodData m s st = (,fields) <$> mk
 
     mkLens :: Field -> Either String Fun
     mkLens f =
-      if _fieldId f == mkId "AttributeFilter" then trace (show f) g else g
-      where
-        g =
-          Fun' (fieldLens f) (fieldHelp f)
-            <$> pp None (lensS m (s ^. annType) f)
-            <*> pp None (lensD n f)
-            <*> pure (LText.fromStrict (fieldAccessor f))
+      Fun' (fieldLens f) (fieldHelp f)
+        <$> pp None (lensS m (s ^. annType) f)
+        <*> pp None (lensD n f)
+        <*> pure (LText.fromStrict (fieldAccessor f))
 
     mkCtor :: Either String Fun
     mkCtor =

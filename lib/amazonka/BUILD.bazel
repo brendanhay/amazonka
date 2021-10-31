@@ -4,6 +4,13 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka",
     srcs = [
+        "gen/Network/AWS/STS.hs",
+        "gen/Network/AWS/STS/AssumeRoleWithWebIdentity.hs",
+        "gen/Network/AWS/STS/Lens.hs",
+        "gen/Network/AWS/STS/Types.hs",
+        "gen/Network/AWS/STS/Types/AssumedRoleUser.hs",
+        "gen/Network/AWS/STS/Types/PolicyDescriptorType.hs",
+        "gen/Network/AWS/STS/Waiters.hs",
         "src/Network/AWS.hs",
         "src/Network/AWS/Auth.hs",
         "src/Network/AWS/Bytes.hs",
@@ -43,13 +50,6 @@ haskell_library(
         "src/Network/AWS/Sign/V4/Chunked.hs",
         "src/Network/AWS/Types.hs",
         "src/Network/AWS/Waiter.hs",
-        "gen/Network/AWS/STS.hs",
-        "gen/Network/AWS/STS/Types/PolicyDescriptorType.hs",
-        "gen/Network/AWS/STS/Types/AssumedRoleUser.hs",
-        "gen/Network/AWS/STS/Waiters.hs",
-        "gen/Network/AWS/STS/AssumeRoleWithWebIdentity.hs",
-        "gen/Network/AWS/STS/Lens.hs",
-        "gen/Network/AWS/STS/Types.hs",
     ],
     compiler_flags = [
         "-XNoImplicitPrelude",

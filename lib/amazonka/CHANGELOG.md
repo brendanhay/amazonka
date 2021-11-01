@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0 RC2 (TODO: Linkify)
+Released: **unreleased**, Compare: [2.0 RC1](https://github.com/brendanhay/amazonka/tree/2.0-rc1)
+
+### Other Changes
+
+- Implement FromWebIdentity auth method
+[\#702](https://github.com/brendanhay/amazonka/pull/702
+
 ## [2.0 RC1](https://github.com/brendanhay/amazonka/tree/2.0-rc1)
 Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay/amazonka/compare/1.6.1...2.0-rc1)
 

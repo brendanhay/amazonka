@@ -27,6 +27,9 @@ module Network.AWS.Auth
     envAccessKey,
     envSecretKey,
     envSessionToken,
+    envWebIdentityTokenFile,
+    envRole,
+    envRoleSessionName,
 
     -- ** Configuration
     confRegion,
@@ -122,10 +125,10 @@ envProfile ::
 envProfile = "AWS_PROFILE"
 
 -- | Default region environment variable
-envRegionVar ::
+envRegion ::
   -- | AWS_REGION
   Text
-envRegionVar = "AWS_REGION"
+envRegion = "AWS_REGION"
 
 -- | Default web identity token file environment variable
 envWebIdentityTokenFile ::
@@ -276,7 +279,7 @@ data Credentials
     FromWebIdentity
   | -- | Attempt credentials discovery via the following steps:
     --
-    -- * Read the 'envAccessKey', 'envSecretKey', and 'envRegionVar' from the environment if they are set.
+    -- * Read the 'envAccessKey', 'envSecretKey', and 'envRegion' from the environment if they are set.
     --
     -- * Read the credentials file if 'credFile' exists.
     --
@@ -454,7 +457,7 @@ fromEnv =
     envAccessKey
     envSecretKey
     (Just envSessionToken)
-    (Just envRegionVar)
+    (Just envRegion)
 
 -- | Retrieve access key, secret key and a session token from specific
 -- environment variables.
@@ -659,7 +662,7 @@ fromProfileName m name =
 --
 -- The ECS container agent provides an access key, secret key, session token,
 -- and expiration time, but it does not include a region, so the region will
--- attempt to be determined from the 'envRegionVar' environment variable if it is
+-- attempt to be determined from the 'envRegion' environment variable if it is
 -- set.
 --
 -- Like 'fromProfileName', additionally starts a refresh thread that will
@@ -705,10 +708,10 @@ fromContainer m =
         . mappend "Error parsing Task Identity Document "
         . Text.pack
 
--- | Get region from ENV variable 'envRegionVar'
+-- | Get region from ENV variable 'envRegion'
 getRegion :: IO (Maybe Region)
 getRegion = runMaybeT $ do
-  mr <- MaybeT . liftIO $ Environment.lookupEnv (Text.unpack envRegionVar)
+  mr <- MaybeT . liftIO $ Environment.lookupEnv (Text.unpack envRegion)
 
   either
     (const . MaybeT $ pure Nothing)
@@ -716,12 +719,12 @@ getRegion = runMaybeT $ do
     (fromText (Text.pack mr))
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
--- | Obtain temporary credentials from STS:AssumeRoleWithWebIdentity
+-- Obtain temporary credentials from STS:AssumeRoleWithWebIdentity
 -- Token file is taken from env variable 'envWebIdentityTokenFile' and role from 'envRole'.
 --
 -- The STS service provides an access key, secret key, session token,
 -- and expiration time, but it does not include a region, so the region will
--- attempt to be determined from the 'envRegionVar' environment variable if it is
+-- attempt to be determined from the 'envRegion' environment variable if it is
 -- set.
 --
 -- Like 'fromProfileName', additionally starts a refresh thread that will

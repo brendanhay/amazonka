@@ -98,6 +98,9 @@ generator=(
 say "MODEL"
 say "${models[*]}"
 if [[ " ${models[*]} " =~ " sts " ]]; then
+  # In case if STS model if built - update it in two places:
+  # - Generate embedded variant and copy it into lib/amazonka/gen
+  # - Generate full variant into lib/services/amazonka-lib together with other models
   say "Generating embedded version of amazonka-sts into lib/amazonka/gen"
   ./bazel-bin/gen/gen +RTS -qg0 -RTS "${generator[@]}" --operations=AssumeRoleWithWebIdentity "${botocore}/sts"
   format_and_replace "$tmp"/amazonka-sts

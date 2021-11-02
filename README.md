@@ -29,7 +29,7 @@
 An Amazon Web Services SDK for Haskell with support for most public services. Parts of the code contained in this repository are auto-generated and automatically kept up to date with Amazon's latest service APIs.
 
 * You can find the latest Haddock documentation for each respective library on the [Amazonka] website.
-* A release changelog can be found in [amazonka/CHANGELOG.md](amazonka/CHANGELOG.md).
+* A release changelog can be found in [lib/amazonka/CHANGELOG.md](lib/amazonka/CHANGELOG.md).
 * For problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
 - [License](#license)

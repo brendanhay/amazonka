@@ -106,142 +106,142 @@ Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay
 - `amazonka-sesv2`: High-scale inbound and outbound cloud email service --- V2 API. [Overview](https://aws.amazon.com/ses/)
 [\#633](https://github.com/brendanhay/amazonka/pull/633)
 - `amazonka-textract`: Easily extract printed text, handwriting, and data from any document. [Overview](https://aws.amazon.com/textract/)
-- `amazonka-accessanalyzer`: 
-- `amazonka-account`: 
-- `amazonka-amp`: 
-- `amazonka-amplify`: 
-- `amazonka-amplifybackend`: 
-- `amazonka-apigatewayv2`: 
-- `amazonka-appconfig`: 
-- `amazonka-appflow`: 
-- `amazonka-appintegrations`: 
-- `amazonka-application-insights`: 
-- `amazonka-applicationcostprofiler`: 
-- `amazonka-appmesh`: 
-- `amazonka-apprunner`: 
-- `amazonka-auditmanager`: 
-- `amazonka-backup`: 
-- `amazonka-braket`: 
-- `amazonka-chime-sdk-identity`: 
-- `amazonka-chime-sdk-messaging`: 
-- `amazonka-chime`: 
-- `amazonka-cloudcontrol`: 
-- `amazonka-codeartifact`: 
-- `amazonka-codeguru-reviewer`: 
-- `amazonka-codeguruprofiler`: 
-- `amazonka-codestar-connections`: 
-- `amazonka-codestar-notifications`: 
-- `amazonka-comprehendmedical`: 
-- `amazonka-compute-optimizer`: 
-- `amazonka-connect-contact-lens`: 
-- `amazonka-connectparticipant`: 
-- `amazonka-customer-profiles`: 
-- `amazonka-databrew`: 
-- `amazonka-dataexchange`: 
-- `amazonka-datasync`: 
-- `amazonka-detective`: 
-- `amazonka-devops-guru`: 
-- `amazonka-dlm`: 
-- `amazonka-docdb`: 
-- `amazonka-ebs`: 
-- `amazonka-ec2-instance-connect`: 
-- `amazonka-ecr-public`: 
-- `amazonka-elastic-inference`: 
-- `amazonka-emr-containers`: 
-- `amazonka-finspace-data`: 
-- `amazonka-finspace`: 
-- `amazonka-fis`: 
-- `amazonka-forecast`: 
-- `amazonka-forecastquery`: 
-- `amazonka-frauddetector`: 
-- `amazonka-globalaccelerator`: 
-- `amazonka-grafana`: 
-- `amazonka-greengrassv2`: 
-- `amazonka-groundstation`: 
-- `amazonka-healthlake`: 
-- `amazonka-honeycode`: 
-- `amazonka-identitystore`: 
-- `amazonka-imagebuilder`: 
-- `amazonka-iot1click-devices`: 
-- `amazonka-iot1click-projects`: 
-- `amazonka-iotdeviceadvisor`: 
-- `amazonka-iotevents-data`: 
-- `amazonka-iotevents`: 
-- `amazonka-iotfleethub`: 
-- `amazonka-iotsecuretunneling`: 
-- `amazonka-iotsitewise`: 
-- `amazonka-iotthingsgraph`: 
-- `amazonka-iotwireless`: 
-- `amazonka-ivs`: 
-- `amazonka-kafka`: 
-- `amazonka-kafkaconnect`: 
-- `amazonka-kinesis-video-signaling`: 
-- `amazonka-kinesisanalyticsv2`: 
-- `amazonka-lakeformation`: 
-- `amazonka-license-manager`: 
-- `amazonka-location`: 
-- `amazonka-lookoutequipment`: 
-- `amazonka-lookoutmetrics`: 
-- `amazonka-lookoutvision`: 
-- `amazonka-macie`: 
-- `amazonka-macie2`: 
-- `amazonka-managedblockchain`: 
-- `amazonka-marketplace-catalog`: 
-- `amazonka-mediaconnect`: 
-- `amazonka-mediapackage-vod`: 
-- `amazonka-mediatailor`: 
-- `amazonka-memorydb`: 
-- `amazonka-mgn`: 
-- `amazonka-migrationhub-config`: 
-- `amazonka-mwaa`: 
-- `amazonka-neptune`: 
-- `amazonka-network-firewall`: 
-- `amazonka-networkmanager`: 
-- `amazonka-nimble`: 
-- `amazonka-opensearch`: 
-- `amazonka-outposts`: 
-- `amazonka-panorama`: 
-- `amazonka-personalize-events`: 
-- `amazonka-personalize-runtime`: 
-- `amazonka-personalize`: 
-- `amazonka-pi`: 
-- `amazonka-pinpoint-email`: 
-- `amazonka-pinpoint-sms-voice`: 
-- `amazonka-proton`: 
-- `amazonka-qldb-session`: 
-- `amazonka-quicksight`: 
-- `amazonka-ram`: 
-- `amazonka-rds-data`: 
-- `amazonka-redshift-data`: 
-- `amazonka-robomaker`: 
-- `amazonka-route53-recovery-cluster`: 
-- `amazonka-route53-recovery-control-config`: 
-- `amazonka-route53-recovery-readiness`: 
-- `amazonka-route53resolver`: 
-- `amazonka-s3outposts`: 
-- `amazonka-sagemaker-a2i-runtime`: 
-- `amazonka-sagemaker-edge`: 
-- `amazonka-sagemaker-featurestore-runtime`: 
-- `amazonka-savingsplans`: 
-- `amazonka-schemas`: 
-- `amazonka-securityhub`: 
-- `amazonka-service-quotas`: 
-- `amazonka-servicecatalog-appregistry`: 
-- `amazonka-signer`: 
-- `amazonka-sms-voice`: 
-- `amazonka-snow-device-management`: 
-- `amazonka-ssm-contacts`: 
-- `amazonka-ssm-incidents`: 
-- `amazonka-sso-admin`: 
-- `amazonka-sso-oidc`: 
-- `amazonka-sso`: 
-- `amazonka-synthetics`: 
-- `amazonka-transfer`: 
-- `amazonka-voice-id`: 
-- `amazonka-wellarchitected`: 
-- `amazonka-wisdom`: 
-- `amazonka-worklink`: 
-- `amazonka-workmailmessageflow`: 
+- `amazonka-accessanalyzer`: Help identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. [Overview](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html)
+- `amazonka-account`: API operations to modify an AWS account itself. [Overview](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html)
+- `amazonka-amp`: A managed Prometheus-compatible monitoring and alerting service that makes it easy to monitor containerized applications and infrastructure at scale. [Overview](https://aws.amazon.com/prometheus/)
+- `amazonka-amplify`: Purpose-built tools and services that make it quick and easy for front-end web and mobile developers build full-stack applications on AWS. [Overview](https://aws.amazon.com/amplify/)
+- `amazonka-amplifybackend`: Programmatic interface to the AWS Amplify Admin UI. [Overview](https://docs.aws.amazon.com/amplify-admin-ui/latest/APIReference/what-is-admin-ui.html)
+- `amazonka-apigatewayv2`: Version 2 of the API Gateway API, for HTTP and WebSocket APIs. [Overview](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/api-reference.html)
+- `amazonka-appconfig`: A feature of AWS Systems Manager, to make it easy to quickly and safely configure, validate, and deploy application configurations. [Overview](https://aws.amazon.com/systems-manager/features/appconfig)
+- `amazonka-appflow`: Fully managed integration service that securely transfers data between Software-as-a-Service (SaaS) applications and AWS services. [Overview](https://aws.amazon.com/appflow/)
+- `amazonka-appintegrations`: Configure and connect external applications to Amazon Connect. [Overview](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
+- `amazonka-application-insights`: Facilitates observability for applications and their underlying AWS resources. [Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.html)
+- `amazonka-applicationcostprofiler`: Track the consumption of shared AWS resources used by software applications and report granular cost breakdown across tenant base. [Overview](https://aws.amazon.com/aws-cost-management/aws-application-cost-profiler/)
+- `amazonka-appmesh`: Service mesh that provides application-level networking for services to communicate with each other across multiple types of compute infrastructure. [Overview](https://aws.amazon.com/app-mesh/)
+- `amazonka-apprunner`: Fully managed container application service. [Overview](https://aws.amazon.com/apprunner/)
+- `amazonka-auditmanager`: Continuously audit AWS usage to simplify risk assessment and compliance. [Overview](https://aws.amazon.com/audit-manager/)
+- `amazonka-backup`: Centrally manage and automate backups across AWS services. [Overview](https://aws.amazon.com/backup/)
+- `amazonka-braket`: Managed quantum computing service. [Overview](https://aws.amazon.com/braket/)
+- `amazonka-chime-sdk-identity`: Integrate identity providers with Amazon Chime SDK Messaging. [Overview](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Identity.html)
+- `amazonka-chime-sdk-messaging`: Create messaging applications that run on the Amazon Chime service. [Overview](https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html)
+- `amazonka-chime`: Communications service that lets you meet, chat, and place business calls inside and outside your organization, all using a single application. [Overview](https://aws.amazon.com/chime/)
+- `amazonka-cloudcontrol`: Create, read, update, delete, and list (CRUD-L) your cloud resources that belong to a wide range of services—both AWS and third-party. [Overview](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html)
+- `amazonka-codeartifact`: Managed artifact repository service to securely store, publish, and share software packages. [Overview](https://aws.amazon.com/codeartifact/)
+- `amazonka-codeguru-reviewer`: Program analysis and machine learning service to detect potential defects and improvements in Java and Python code. [Overview](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html)
+- `amazonka-codeguruprofiler`: Collects runtime performance data from applications, and provides recommendations to help fine-tune application performance. [Overview](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html)
+- `amazonka-codestar-connections`: Connect services like AWS CodePipeline to third-party source code providers. [Overview](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/Welcome.html)
+- `amazonka-codestar-notifications`: Subscribe to events from AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, and AWS CodePipeline. [Overview](https://docs.aws.amazon.com/codestar-notifications/latest/APIReference/Welcome.html)
+- `amazonka-comprehendmedical`: Extract information from unstructured medical text. [Overview](https://aws.amazon.com/comprehend/medical/)
+- `amazonka-compute-optimizer`: Recommends optimal AWS resources to reduce costs and improve performance. [Overview](https://aws.amazon.com/compute-optimizer/)
+- `amazonka-connect-contact-lens`: Undertand the sentiment and trends of customer conversations to identify crucial company and product feedback. [Overview](https://aws.amazon.com/connect/contact-lens/)
+- `amazonka-connectparticipant`: Amazon Connect APIs for chat participants, such as agents and customers. [Overview](https://docs.aws.amazon.com/connect-participant/latest/APIReference/Welcome.html)
+- `amazonka-customer-profiles`: Unified view of customer profiles in Amazon Connect. [Overview](https://aws.amazon.com/connect/customer-profiles/)
+- `amazonka-databrew`: Visual data preparation tool for data analysts and data scientists to clean and normalize data. [Overview](https://aws.amazon.com/glue/features/databrew/)
+- `amazonka-dataexchange`: Easily find and subscribe to third-party data in the cloud. [Overview](https://aws.amazon.com/data-exchange/)
+- `amazonka-datasync`: Connect to your storage, connect to our storage, and start copying. [Overview](https://aws.amazon.com/datasync/)
+- `amazonka-detective`: Analyze and visualize security data to get to the root cause of potential security issues. [Overview](https://aws.amazon.com/detective/)
+- `amazonka-devops-guru`: ML-powered cloud operations service to improve application availability. [Overview](https://aws.amazon.com/devops-guru/)
+- `amazonka-dlm`: Data Lifecycle Manager --- manage the lifecycle of your AWS resources. [Overview](https://docs.aws.amazon.com/dlm/latest/APIReference/Welcome.html)
+- `amazonka-docdb`: Managed document database service. [Overview](https://aws.amazon.com/documentdb/)
+- `amazonka-ebs`: High performance block storage. [Overview](https://aws.amazon.com/ebs/)
+- `amazonka-ec2-instance-connect`: Connect to Linux EC2 instances using SSH. [Overview](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html)
+- `amazonka-ecr-public`: Public, managed container image registry service. [Overview](https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/Welcome.html)
+- `amazonka-elastic-inference`: Attach low-cost GPU-powered acceleration to Amazon EC2 and Sagemaker instances or Amazon ECS tasks. [Overview](https://aws.amazon.com/machine-learning/elastic-inference/)
+- `amazonka-emr-containers`: Amazon EMR on EKS. [Overview](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/Welcome.html)
+- `amazonka-finspace-data`: Data operations for Amazon FinSpace. [Overview](https://docs.aws.amazon.com/finspace/latest/data-api/fs-api-welcome.html)
+- `amazonka-finspace`: Data management and analytics service purpose-built for the financial services industry. [Overview](https://aws.amazon.com/finspace/)
+- `amazonka-fis`: `us-east-1` as a service. [Overview](https://aws.amazon.com/fis/)
+- `amazonka-forecast`: Time-series forecasting service based on machine learning, and built for business metrics analysis. [Overview](https://aws.amazon.com/forecast/)
+- `amazonka-forecastquery`: Amazon Forecast Query Service. [Overview](https://docs.aws.amazon.com/forecast/latest/dg/API_Operations_Amazon_Forecast_Query_Service.html)
+- `amazonka-frauddetector`: Managed fraud detection service using machine learning to identify potentially fraudulent activities and catch fraud faster. [Overview](https://aws.amazon.com/fraud-detector/)
+- `amazonka-globalaccelerator`: Improve global application availability and performance using the AWS global network. [Overview](https://aws.amazon.com/global-accelerator/)
+- `amazonka-grafana`: Managed service for the Grafana analytics platform. [Overview](https://aws.amazon.com/grafana/)
+- `amazonka-greengrassv2`: [Overview](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-v2-whats-new.html)
+- `amazonka-groundstation`: Control satellites and ingest data with fully managed Ground Station as a Service. [Overview](https://aws.amazon.com/ground-station/)
+- `amazonka-healthlake`: Securely store, transform, query, and analyze health data. [Overview](https://aws.amazon.com/healthlake/)
+- `amazonka-honeycode`: Quickly build mobile and web apps for teams—without programming. [Overview](https://honeycode.aws)
+- `amazonka-identitystore`: AWS Single Sign-On (SSO) Identity Store. [Overview](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html)
+- `amazonka-imagebuilder`: AWS EC2 Image Builder --- Automate the creation, management, and deployment of customized, secure, and up-to-date server images. [Overview](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html)
+- `amazonka-iot1click-devices`:  [Overview](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/what-is-iot.html)
+- `amazonka-iot1click-projects`: [Overview](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/Welcome.html)
+- `amazonka-iotdeviceadvisor`: Managed cloud-based test capability to validate IoT devices for reliable and secure connectivity with AWS IoT Core. [Overview](https://aws.amazon.com/iot-core/device-advisor/)
+- `amazonka-iotevents-data`: Send inputs to detectors, list detectors, and view or update a detector's status. [Overview](https://docs.aws.amazon.com/iotevents/latest/apireference/Welcome.html)
+- `amazonka-iotevents`: Easily detect and respond to events from IoT sensors and applications. [Overview](https://aws.amazon.com/iot-events/)
+- `amazonka-iotfleethub`: Build standalone web applications for monitoring the health of your device fleets. [Overview](https://docs.aws.amazon.com/iot/latest/fleethubuserguide/what-is-aws-iot-monitor.html)
+- `amazonka-iotsecuretunneling`: Establish bidirectional communication to remote devices over a secure connection that is managed by AWS IoT. [Overview](https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html)
+- `amazonka-iotsitewise`: Collect, organize, and analyze data from industrial equipment at scale. [Overview](https://aws.amazon.com/iot-sitewise/)
+- `amazonka-iotthingsgraph`: Visually develop IoT applications. [Overview](https://aws.amazon.com/iot-things-graph/)
+- `amazonka-iotwireless`: Connect, manage, and secure LoRaWAN devices at scale. [Overview](https://aws.amazon.com/iot-core/lorawan/)
+- `amazonka-ivs`: Live streaming solution, ideal for creating interactive video experiences. [Overview](https://aws.amazon.com/ivs/)
+- `amazonka-kafka`: Control plane operations for Amazon Managed Streaming for Apache Kafka. [Overview](https://aws.amazon.com/msk/what-is-kafka/)
+- `amazonka-kafkaconnect`: Deploy fully managed connectors built for Kafka Connect. [Overview](https://docs.aws.amazon.com/msk/latest/developerguide/msk-connect.html)
+- `amazonka-kinesis-video-signaling`: Kinesis Video Streams with WebRTC. [Overview](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html)
+- `amazonka-kinesisanalyticsv2`: Managed service that you can use to process and analyze streaming data. [Overview](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/Welcome.html)
+- `amazonka-lakeformation`: Build a secure data lake in days. [Overview](https://aws.amazon.com/lake-formation/)
+- `amazonka-license-manager`: Set rules to manage, discover, and report software license usage. [Overview](https://aws.amazon.com/license-manager/)
+- `amazonka-location`: Securely and easily add location data to applications. [Overview](https://aws.amazon.com/location/)
+- `amazonka-lookoutequipment`: Detect abnormal equipment behavior by analyzing sensor data. [Overview](https://aws.amazon.com/lookout-for-equipment/)
+- `amazonka-lookoutmetrics`: Automatically detect anomalies in metrics and identify their root cause. [Overview](https://aws.amazon.com/lookout-for-metrics/)
+- `amazonka-lookoutvision`: Spot product defects using computer vision to automate quality inspection. [Overview](Spot product defects using computer vision to automate quality inspection)
+- `amazonka-macie`: Amazon Macie Classic. [Overview](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html)
+- `amazonka-macie2`: Discover and protect your sensitive data at scale. [Overview](https://aws.amazon.com/macie/)
+- `amazonka-managedblockchain`: Easily create and manage scalable blockchain networks. [Overview](https://aws.amazon.com/managed-blockchain/)
+- `amazonka-marketplace-catalog`: [Overview](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html)
+- `amazonka-mediaconnect`: Secure, reliable live video transport. [Overview](https://aws.amazon.com/mediaconnect/)
+- `amazonka-mediapackage-vod`: [Overview](https://docs.aws.amazon.com/mediapackage/latest/ug/vod-content.html)
+- `amazonka-mediatailor`: Linear channel assembly and personalized ad-insertion. [Overview](https://aws.amazon.com/mediatailor/)
+- `amazonka-memorydb`: Redis-compatible, durable, in-memory database service. [Overview](https://aws.amazon.com/memorydb/)
+- `amazonka-mgn`: AWS Application Migration Service. [Overview](https://aws.amazon.com/application-migration-service/)
+- `amazonka-migrationhub-config`: [Overview](https://docs.aws.amazon.com/migrationhub-home-region/latest/APIReference/Welcome.html)
+- `amazonka-mwaa`: Highly available, secure, and managed workflow orchestration for Apache Airflow. [Overview](https://aws.amazon.com/managed-workflows-for-apache-airflow/)
+- `amazonka-neptune`: Build and run graph applications with highly connected datasets. [Overview](https://aws.amazon.com/neptune/)
+- `amazonka-network-firewall`: Deploy network security across your Amazon VPCs. [Overview](https://aws.amazon.com/network-firewall/)
+- `amazonka-networkmanager`: Create a global network in which you can monitor your AWS and on-premises networks that are built around transit gateways. [Overview](https://docs.aws.amazon.com/networkmanager/latest/APIReference/Welcome.html)
+- `amazonka-nimble`: Empower creative studios to produce visual effects, animation, and interactive content entirely in the cloud. [Overview](https://aws.amazon.com/nimble-studio/)
+- `amazonka-opensearch`: Distributed, open-source search and analytics suite. (Successor to Amazon Elasticsearch Service.) [Overview](https://aws.amazon.com/opensearch-service/the-elk-stack/what-is-opensearch/)
+- `amazonka-outposts`: Run AWS infrastructure and services on premises. [Overview](https://aws.amazon.com/outposts/)
+- `amazonka-panorama`: Improve your operations with computer vision at the edge. [Overview](https://aws.amazon.com/panorama/)
+- `amazonka-personalize-events`: Event ingestion for Amazon Personalize. [Overview](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html)
+- `amazonka-personalize-runtime`: [Overview](https://docs.aws.amazon.com/personalize/latest/dg/API_Operations_Amazon_Personalize_Runtime.html)
+- `amazonka-personalize`: Create real-time personalized user experiences faster at scale. [Overview](https://aws.amazon.com/personalize/)
+- `amazonka-pi`: Analyze and tune Amazon RDS database performance. [Overview](https://aws.amazon.com/rds/performance-insights/)
+- `amazonka-pinpoint-email`: [Overview](https://docs.aws.amazon.com/pinpoint-email/latest/APIReference/Welcome.html)
+- `amazonka-pinpoint-sms-voice`: [Overview](https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html)
+- `amazonka-proton`: Automate management for container and serverless deployments. [Overview](https://aws.amazon.com/proton/)
+- `amazonka-qldb-session`: [Overview](https://docs.aws.amazon.com/qldb/latest/developerguide/API_Operations_Amazon_QLDB_Session.html)
+- `amazonka-quicksight`: Scalable, serverless, embeddable, ML-powered BI service. [Overview](https://aws.amazon.com/quicksight/)
+- `amazonka-ram`: Securely share your resources across AWS accounts, organizational units (OUs), and with IAM users and roles. [Overview](https://aws.amazon.com/ram/)
+- `amazonka-rds-data`: Run SQL statements on Amazon Aurora Serverless DB cluster. [Overview](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
+- `amazonka-redshift-data`: Access Amazon Redshift data over HTTPS. [Overview](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html)
+- `amazonka-robomaker`: Run, scale, and automate robotics simulation. [Overview](https://aws.amazon.com/robomaker/)
+- `amazonka-route53-recovery-cluster`: Simplify and automate recovery for highly available applications. [Overview](https://aws.amazon.com/route53/application-recovery-controller/)
+- `amazonka-route53-recovery-control-config`: [Overview](https://docs.aws.amazon.com/recovery-cluster/latest/api/what-is-recovery-control.html)
+- `amazonka-route53-recovery-readiness`: [Overview](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53-recovery-readiness/index.html)
+- `amazonka-route53resolver`: [Overview](https://docs.aws.amazon.com/Route53/latest/APIReference/API_Operations_Amazon_Route_53_Resolver.html)
+- `amazonka-s3outposts`: Object storage in your on-premises environments. [Overview](https://aws.amazon.com/s3/outposts/)
+- `amazonka-sagemaker-a2i-runtime`: Add human judgment to any machine learning application. [Overview](https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html)
+- `amazonka-sagemaker-edge`: Manage and monitor ML models across fleets of smart devices. [Overview](https://aws.amazon.com/sagemaker/edge-manager/)
+- `amazonka-sagemaker-featurestore-runtime`: A fully managed repository for machine learning features. [Overview](https://aws.amazon.com/sagemaker/feature-store/)
+- `amazonka-savingsplans`: Flexible pricing model for AWS Services. [Overview](https://aws.amazon.com/savingsplans/)
+- `amazonka-schemas`: Collect and organize schemas so that your schemas are in logical groups. [Overview](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-schema.html)
+- `amazonka-securityhub`: Automate AWS security checks and centralize security alerts. [Overview](https://aws.amazon.com/security-hub/)
+- `amazonka-service-quotas`: View and manage your quotas. [Overview](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/Welcome.html)
+- `amazonka-servicecatalog-appregistry`: Create a repository of your applications and associated resources. [Overview](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/appregistry.html)
+- `amazonka-signer`: Managed code-signing service to ensure the trust and integrity of your code. [Overview](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html)
+- `amazonka-sms-voice`:
+- `amazonka-snow-device-management`: [Overview](https://docs.aws.amazon.com/snowball/latest/api-reference/API_Operations_AWS_Snow_Device_Management.html)
+- `amazonka-ssm-contacts`: Systems Manager Incident Manager Contacts. [Overview](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_Operations_AWS_Systems_Manager_Incident_Manager_Contacts.html)
+- `amazonka-ssm-incidents`: Incident management console to help users mitigate and recover from incidents. [Overview](https://docs.aws.amazon.com/incident-manager/latest/userguide/what-is-incident-manager.html)
+- `amazonka-sso-admin`: [Overview](https://docs.aws.amazon.com/singlesignon/latest/APIReference/welcome.html)
+- `amazonka-sso-oidc`: AWS Single Sign-On OpenID Connect. [Overview](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html)
+- `amazonka-sso`: Single Sign-On Portal. Centrally manage access to multiple AWS accounts or applications. [Overview](https://aws.amazon.com/single-sign-on/)
+- `amazonka-synthetics`: Amazon CloudWatch Synthetics --- create canaries, configurable scripts that run on a schedule, to monitor your endpoints and APIs. [Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html)
+- `amazonka-transfer`: Simple, secure, and scalable file transfers. [Overview](https://aws.amazon.com/aws-transfer-family/)
+- `amazonka-voice-id`: Real-time caller authentication and fraud risk detection using ML-powered voice analysis. [Overview](https://aws.amazon.com/connect/voice-id/)
+- `amazonka-wellarchitected`: Programmatic access to the AWS Well-Architected Tool. [Overview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/Welcome.html)
+- `amazonka-wisdom`: Deliver agents the information they need to solve issues in real-time. [Overview](https://aws.amazon.com/connect/wisdom/)
+- `amazonka-worklink`: Provide secure mobile access to internal websites and web apps. [Overview](https://aws.amazon.com/worklink/)
+- `amazonka-workmailmessageflow`: [Overview](https://docs.aws.amazon.com/workmail/latest/APIReference/API_Operations_Amazon_WorkMail_Message_Flow.html)
 
 ## [1.6.1](https://github.com/brendanhay/amazonka/tree/1.6.1)
 Released: **03 Feb, 2019**, Compare: [1.6.0](https://github.com/brendanhay/amazonka/compare/1.6.0...1.6.1)

@@ -258,7 +258,6 @@ haskell_doc(
         "//lib/services/amazonka-shield",
         "//lib/services/amazonka-signer",
         "//lib/services/amazonka-sms",
-        "//lib/services/amazonka-sms-voice",
         "//lib/services/amazonka-snow-device-management",
         "//lib/services/amazonka-snowball",
         "//lib/services/amazonka-sns",

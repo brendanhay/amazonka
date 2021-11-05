@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.ListRepositories
+-- Module      : Amazonka.CodeArtifact.ListRepositories
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- parameters.
 --
 -- This operation returns paginated results.
-module Network.AWS.CodeArtifact.ListRepositories
+module Amazonka.CodeArtifact.ListRepositories
   ( -- * Creating a Request
     ListRepositories (..),
     newListRepositories,
@@ -48,12 +48,12 @@ module Network.AWS.CodeArtifact.ListRepositories
   )
 where
 
-import Network.AWS.CodeArtifact.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeArtifact.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRepositories' smart constructor.
 data ListRepositories = ListRepositories'

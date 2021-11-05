@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.Types.PackageVersionErrorCode
+-- Module      : Amazonka.CodeArtifact.Types.PackageVersionErrorCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeArtifact.Types.PackageVersionErrorCode
+module Amazonka.CodeArtifact.Types.PackageVersionErrorCode
   ( PackageVersionErrorCode
       ( ..,
         PackageVersionErrorCode_ALREADY_EXISTS,
@@ -30,8 +30,8 @@ module Network.AWS.CodeArtifact.Types.PackageVersionErrorCode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype PackageVersionErrorCode = PackageVersionErrorCode'
   { fromPackageVersionErrorCode ::

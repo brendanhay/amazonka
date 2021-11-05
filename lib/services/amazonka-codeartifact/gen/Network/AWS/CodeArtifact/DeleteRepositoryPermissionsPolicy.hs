@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.DeleteRepositoryPermissionsPolicy
+-- Module      : Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- Use @DeleteRepositoryPermissionsPolicy@ with caution. After a policy is
 -- deleted, AWS users, roles, and accounts lose permissions to perform the
 -- repository actions granted by the deleted policy.
-module Network.AWS.CodeArtifact.DeleteRepositoryPermissionsPolicy
+module Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
   ( -- * Creating a Request
     DeleteRepositoryPermissionsPolicy (..),
     newDeleteRepositoryPermissionsPolicy,
@@ -49,12 +49,12 @@ module Network.AWS.CodeArtifact.DeleteRepositoryPermissionsPolicy
   )
 where
 
-import Network.AWS.CodeArtifact.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeArtifact.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepositoryPermissionsPolicy' smart constructor.
 data DeleteRepositoryPermissionsPolicy = DeleteRepositoryPermissionsPolicy'

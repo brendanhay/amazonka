@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.Lens
+-- Module      : Amazonka.CodeArtifact.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeArtifact.Lens
+module Amazonka.CodeArtifact.Lens
   ( -- * Operations
 
     -- ** DisposePackageVersions
@@ -462,54 +462,54 @@ module Network.AWS.CodeArtifact.Lens
   )
 where
 
-import Network.AWS.CodeArtifact.AssociateExternalConnection
-import Network.AWS.CodeArtifact.CopyPackageVersions
-import Network.AWS.CodeArtifact.CreateDomain
-import Network.AWS.CodeArtifact.CreateRepository
-import Network.AWS.CodeArtifact.DeleteDomain
-import Network.AWS.CodeArtifact.DeleteDomainPermissionsPolicy
-import Network.AWS.CodeArtifact.DeletePackageVersions
-import Network.AWS.CodeArtifact.DeleteRepository
-import Network.AWS.CodeArtifact.DeleteRepositoryPermissionsPolicy
-import Network.AWS.CodeArtifact.DescribeDomain
-import Network.AWS.CodeArtifact.DescribePackageVersion
-import Network.AWS.CodeArtifact.DescribeRepository
-import Network.AWS.CodeArtifact.DisassociateExternalConnection
-import Network.AWS.CodeArtifact.DisposePackageVersions
-import Network.AWS.CodeArtifact.GetAuthorizationToken
-import Network.AWS.CodeArtifact.GetDomainPermissionsPolicy
-import Network.AWS.CodeArtifact.GetPackageVersionAsset
-import Network.AWS.CodeArtifact.GetPackageVersionReadme
-import Network.AWS.CodeArtifact.GetRepositoryEndpoint
-import Network.AWS.CodeArtifact.GetRepositoryPermissionsPolicy
-import Network.AWS.CodeArtifact.ListDomains
-import Network.AWS.CodeArtifact.ListPackageVersionAssets
-import Network.AWS.CodeArtifact.ListPackageVersionDependencies
-import Network.AWS.CodeArtifact.ListPackageVersions
-import Network.AWS.CodeArtifact.ListPackages
-import Network.AWS.CodeArtifact.ListRepositories
-import Network.AWS.CodeArtifact.ListRepositoriesInDomain
-import Network.AWS.CodeArtifact.ListTagsForResource
-import Network.AWS.CodeArtifact.PutDomainPermissionsPolicy
-import Network.AWS.CodeArtifact.PutRepositoryPermissionsPolicy
-import Network.AWS.CodeArtifact.TagResource
-import Network.AWS.CodeArtifact.Types.AssetSummary
-import Network.AWS.CodeArtifact.Types.DomainDescription
-import Network.AWS.CodeArtifact.Types.DomainSummary
-import Network.AWS.CodeArtifact.Types.LicenseInfo
-import Network.AWS.CodeArtifact.Types.PackageDependency
-import Network.AWS.CodeArtifact.Types.PackageSummary
-import Network.AWS.CodeArtifact.Types.PackageVersionDescription
-import Network.AWS.CodeArtifact.Types.PackageVersionError
-import Network.AWS.CodeArtifact.Types.PackageVersionSummary
-import Network.AWS.CodeArtifact.Types.RepositoryDescription
-import Network.AWS.CodeArtifact.Types.RepositoryExternalConnectionInfo
-import Network.AWS.CodeArtifact.Types.RepositorySummary
-import Network.AWS.CodeArtifact.Types.ResourcePolicy
-import Network.AWS.CodeArtifact.Types.SuccessfulPackageVersionInfo
-import Network.AWS.CodeArtifact.Types.Tag
-import Network.AWS.CodeArtifact.Types.UpstreamRepository
-import Network.AWS.CodeArtifact.Types.UpstreamRepositoryInfo
-import Network.AWS.CodeArtifact.UntagResource
-import Network.AWS.CodeArtifact.UpdatePackageVersionsStatus
-import Network.AWS.CodeArtifact.UpdateRepository
+import Amazonka.CodeArtifact.AssociateExternalConnection
+import Amazonka.CodeArtifact.CopyPackageVersions
+import Amazonka.CodeArtifact.CreateDomain
+import Amazonka.CodeArtifact.CreateRepository
+import Amazonka.CodeArtifact.DeleteDomain
+import Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
+import Amazonka.CodeArtifact.DeletePackageVersions
+import Amazonka.CodeArtifact.DeleteRepository
+import Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
+import Amazonka.CodeArtifact.DescribeDomain
+import Amazonka.CodeArtifact.DescribePackageVersion
+import Amazonka.CodeArtifact.DescribeRepository
+import Amazonka.CodeArtifact.DisassociateExternalConnection
+import Amazonka.CodeArtifact.DisposePackageVersions
+import Amazonka.CodeArtifact.GetAuthorizationToken
+import Amazonka.CodeArtifact.GetDomainPermissionsPolicy
+import Amazonka.CodeArtifact.GetPackageVersionAsset
+import Amazonka.CodeArtifact.GetPackageVersionReadme
+import Amazonka.CodeArtifact.GetRepositoryEndpoint
+import Amazonka.CodeArtifact.GetRepositoryPermissionsPolicy
+import Amazonka.CodeArtifact.ListDomains
+import Amazonka.CodeArtifact.ListPackageVersionAssets
+import Amazonka.CodeArtifact.ListPackageVersionDependencies
+import Amazonka.CodeArtifact.ListPackageVersions
+import Amazonka.CodeArtifact.ListPackages
+import Amazonka.CodeArtifact.ListRepositories
+import Amazonka.CodeArtifact.ListRepositoriesInDomain
+import Amazonka.CodeArtifact.ListTagsForResource
+import Amazonka.CodeArtifact.PutDomainPermissionsPolicy
+import Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy
+import Amazonka.CodeArtifact.TagResource
+import Amazonka.CodeArtifact.Types.AssetSummary
+import Amazonka.CodeArtifact.Types.DomainDescription
+import Amazonka.CodeArtifact.Types.DomainSummary
+import Amazonka.CodeArtifact.Types.LicenseInfo
+import Amazonka.CodeArtifact.Types.PackageDependency
+import Amazonka.CodeArtifact.Types.PackageSummary
+import Amazonka.CodeArtifact.Types.PackageVersionDescription
+import Amazonka.CodeArtifact.Types.PackageVersionError
+import Amazonka.CodeArtifact.Types.PackageVersionSummary
+import Amazonka.CodeArtifact.Types.RepositoryDescription
+import Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo
+import Amazonka.CodeArtifact.Types.RepositorySummary
+import Amazonka.CodeArtifact.Types.ResourcePolicy
+import Amazonka.CodeArtifact.Types.SuccessfulPackageVersionInfo
+import Amazonka.CodeArtifact.Types.Tag
+import Amazonka.CodeArtifact.Types.UpstreamRepository
+import Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo
+import Amazonka.CodeArtifact.UntagResource
+import Amazonka.CodeArtifact.UpdatePackageVersionsStatus
+import Amazonka.CodeArtifact.UpdateRepository

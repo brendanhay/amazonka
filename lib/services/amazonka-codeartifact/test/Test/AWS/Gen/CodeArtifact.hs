@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeArtifact where
 
+import Amazonka.CodeArtifact
 import qualified Data.Proxy as Proxy
-import Network.AWS.CodeArtifact
 import Test.AWS.CodeArtifact.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

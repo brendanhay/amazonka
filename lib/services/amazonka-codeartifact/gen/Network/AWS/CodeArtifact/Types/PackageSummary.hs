@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.Types.PackageSummary
+-- Module      : Amazonka.CodeArtifact.Types.PackageSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeArtifact.Types.PackageSummary where
+module Amazonka.CodeArtifact.Types.PackageSummary where
 
-import Network.AWS.CodeArtifact.Types.PackageFormat
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeArtifact.Types.PackageFormat
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a package, including its format, namespace, and name. The
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackages.html ListPackages>

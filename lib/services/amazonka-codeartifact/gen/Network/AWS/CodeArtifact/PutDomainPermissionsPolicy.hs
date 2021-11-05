@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.PutDomainPermissionsPolicy
+-- Module      : Amazonka.CodeArtifact.PutDomainPermissionsPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- domain is ignored when evaluting permissions. This ensures that the
 -- owner of a domain cannot lock themselves out of the domain, which would
 -- prevent them from being able to update the resource policy.
-module Network.AWS.CodeArtifact.PutDomainPermissionsPolicy
+module Amazonka.CodeArtifact.PutDomainPermissionsPolicy
   ( -- * Creating a Request
     PutDomainPermissionsPolicy (..),
     newPutDomainPermissionsPolicy,
@@ -48,12 +48,12 @@ module Network.AWS.CodeArtifact.PutDomainPermissionsPolicy
   )
 where
 
-import Network.AWS.CodeArtifact.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeArtifact.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutDomainPermissionsPolicy' smart constructor.
 data PutDomainPermissionsPolicy = PutDomainPermissionsPolicy'

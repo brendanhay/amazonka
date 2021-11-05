@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.CopyPackageVersions
+-- Module      : Amazonka.CodeArtifact.CopyPackageVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- You must specify @versions@ or @versionRevisions@. You cannot specify
 -- both.
-module Network.AWS.CodeArtifact.CopyPackageVersions
+module Amazonka.CodeArtifact.CopyPackageVersions
   ( -- * Creating a Request
     CopyPackageVersions (..),
     newCopyPackageVersions,
@@ -54,12 +54,12 @@ module Network.AWS.CodeArtifact.CopyPackageVersions
   )
 where
 
-import Network.AWS.CodeArtifact.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeArtifact.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCopyPackageVersions' smart constructor.
 data CopyPackageVersions = CopyPackageVersions'

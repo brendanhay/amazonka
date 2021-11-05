@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeArtifact
+-- Module      : Amazonka.CodeArtifact
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -196,7 +196,7 @@
 --     versions of a package.
 --
 -- -   @UpdateRepository@: Updates the properties of a repository.
-module Network.AWS.CodeArtifact
+module Amazonka.CodeArtifact
   ( -- * Service Configuration
     defaultService,
 
@@ -527,43 +527,43 @@ module Network.AWS.CodeArtifact
   )
 where
 
-import Network.AWS.CodeArtifact.AssociateExternalConnection
-import Network.AWS.CodeArtifact.CopyPackageVersions
-import Network.AWS.CodeArtifact.CreateDomain
-import Network.AWS.CodeArtifact.CreateRepository
-import Network.AWS.CodeArtifact.DeleteDomain
-import Network.AWS.CodeArtifact.DeleteDomainPermissionsPolicy
-import Network.AWS.CodeArtifact.DeletePackageVersions
-import Network.AWS.CodeArtifact.DeleteRepository
-import Network.AWS.CodeArtifact.DeleteRepositoryPermissionsPolicy
-import Network.AWS.CodeArtifact.DescribeDomain
-import Network.AWS.CodeArtifact.DescribePackageVersion
-import Network.AWS.CodeArtifact.DescribeRepository
-import Network.AWS.CodeArtifact.DisassociateExternalConnection
-import Network.AWS.CodeArtifact.DisposePackageVersions
-import Network.AWS.CodeArtifact.GetAuthorizationToken
-import Network.AWS.CodeArtifact.GetDomainPermissionsPolicy
-import Network.AWS.CodeArtifact.GetPackageVersionAsset
-import Network.AWS.CodeArtifact.GetPackageVersionReadme
-import Network.AWS.CodeArtifact.GetRepositoryEndpoint
-import Network.AWS.CodeArtifact.GetRepositoryPermissionsPolicy
-import Network.AWS.CodeArtifact.Lens
-import Network.AWS.CodeArtifact.ListDomains
-import Network.AWS.CodeArtifact.ListPackageVersionAssets
-import Network.AWS.CodeArtifact.ListPackageVersionDependencies
-import Network.AWS.CodeArtifact.ListPackageVersions
-import Network.AWS.CodeArtifact.ListPackages
-import Network.AWS.CodeArtifact.ListRepositories
-import Network.AWS.CodeArtifact.ListRepositoriesInDomain
-import Network.AWS.CodeArtifact.ListTagsForResource
-import Network.AWS.CodeArtifact.PutDomainPermissionsPolicy
-import Network.AWS.CodeArtifact.PutRepositoryPermissionsPolicy
-import Network.AWS.CodeArtifact.TagResource
-import Network.AWS.CodeArtifact.Types
-import Network.AWS.CodeArtifact.UntagResource
-import Network.AWS.CodeArtifact.UpdatePackageVersionsStatus
-import Network.AWS.CodeArtifact.UpdateRepository
-import Network.AWS.CodeArtifact.Waiters
+import Amazonka.CodeArtifact.AssociateExternalConnection
+import Amazonka.CodeArtifact.CopyPackageVersions
+import Amazonka.CodeArtifact.CreateDomain
+import Amazonka.CodeArtifact.CreateRepository
+import Amazonka.CodeArtifact.DeleteDomain
+import Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
+import Amazonka.CodeArtifact.DeletePackageVersions
+import Amazonka.CodeArtifact.DeleteRepository
+import Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
+import Amazonka.CodeArtifact.DescribeDomain
+import Amazonka.CodeArtifact.DescribePackageVersion
+import Amazonka.CodeArtifact.DescribeRepository
+import Amazonka.CodeArtifact.DisassociateExternalConnection
+import Amazonka.CodeArtifact.DisposePackageVersions
+import Amazonka.CodeArtifact.GetAuthorizationToken
+import Amazonka.CodeArtifact.GetDomainPermissionsPolicy
+import Amazonka.CodeArtifact.GetPackageVersionAsset
+import Amazonka.CodeArtifact.GetPackageVersionReadme
+import Amazonka.CodeArtifact.GetRepositoryEndpoint
+import Amazonka.CodeArtifact.GetRepositoryPermissionsPolicy
+import Amazonka.CodeArtifact.Lens
+import Amazonka.CodeArtifact.ListDomains
+import Amazonka.CodeArtifact.ListPackageVersionAssets
+import Amazonka.CodeArtifact.ListPackageVersionDependencies
+import Amazonka.CodeArtifact.ListPackageVersions
+import Amazonka.CodeArtifact.ListPackages
+import Amazonka.CodeArtifact.ListRepositories
+import Amazonka.CodeArtifact.ListRepositoriesInDomain
+import Amazonka.CodeArtifact.ListTagsForResource
+import Amazonka.CodeArtifact.PutDomainPermissionsPolicy
+import Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy
+import Amazonka.CodeArtifact.TagResource
+import Amazonka.CodeArtifact.Types
+import Amazonka.CodeArtifact.UntagResource
+import Amazonka.CodeArtifact.UpdatePackageVersionsStatus
+import Amazonka.CodeArtifact.UpdateRepository
+import Amazonka.CodeArtifact.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

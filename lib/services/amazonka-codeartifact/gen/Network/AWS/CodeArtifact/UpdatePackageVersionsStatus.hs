@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.UpdatePackageVersionsStatus
+-- Module      : Amazonka.CodeArtifact.UpdatePackageVersionsStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the status of one or more versions of a package.
-module Network.AWS.CodeArtifact.UpdatePackageVersionsStatus
+module Amazonka.CodeArtifact.UpdatePackageVersionsStatus
   ( -- * Creating a Request
     UpdatePackageVersionsStatus (..),
     newUpdatePackageVersionsStatus,
@@ -49,12 +49,12 @@ module Network.AWS.CodeArtifact.UpdatePackageVersionsStatus
   )
 where
 
-import Network.AWS.CodeArtifact.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeArtifact.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePackageVersionsStatus' smart constructor.
 data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'

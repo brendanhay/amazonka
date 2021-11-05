@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeArtifact.Types
+-- Module      : Amazonka.CodeArtifact.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeArtifact.Types
+module Amazonka.CodeArtifact.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -186,34 +186,34 @@ module Network.AWS.CodeArtifact.Types
   )
 where
 
-import Network.AWS.CodeArtifact.Types.AssetSummary
-import Network.AWS.CodeArtifact.Types.DomainDescription
-import Network.AWS.CodeArtifact.Types.DomainStatus
-import Network.AWS.CodeArtifact.Types.DomainSummary
-import Network.AWS.CodeArtifact.Types.ExternalConnectionStatus
-import Network.AWS.CodeArtifact.Types.HashAlgorithm
-import Network.AWS.CodeArtifact.Types.LicenseInfo
-import Network.AWS.CodeArtifact.Types.PackageDependency
-import Network.AWS.CodeArtifact.Types.PackageFormat
-import Network.AWS.CodeArtifact.Types.PackageSummary
-import Network.AWS.CodeArtifact.Types.PackageVersionDescription
-import Network.AWS.CodeArtifact.Types.PackageVersionError
-import Network.AWS.CodeArtifact.Types.PackageVersionErrorCode
-import Network.AWS.CodeArtifact.Types.PackageVersionSortType
-import Network.AWS.CodeArtifact.Types.PackageVersionStatus
-import Network.AWS.CodeArtifact.Types.PackageVersionSummary
-import Network.AWS.CodeArtifact.Types.RepositoryDescription
-import Network.AWS.CodeArtifact.Types.RepositoryExternalConnectionInfo
-import Network.AWS.CodeArtifact.Types.RepositorySummary
-import Network.AWS.CodeArtifact.Types.ResourcePolicy
-import Network.AWS.CodeArtifact.Types.SuccessfulPackageVersionInfo
-import Network.AWS.CodeArtifact.Types.Tag
-import Network.AWS.CodeArtifact.Types.UpstreamRepository
-import Network.AWS.CodeArtifact.Types.UpstreamRepositoryInfo
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeArtifact.Types.AssetSummary
+import Amazonka.CodeArtifact.Types.DomainDescription
+import Amazonka.CodeArtifact.Types.DomainStatus
+import Amazonka.CodeArtifact.Types.DomainSummary
+import Amazonka.CodeArtifact.Types.ExternalConnectionStatus
+import Amazonka.CodeArtifact.Types.HashAlgorithm
+import Amazonka.CodeArtifact.Types.LicenseInfo
+import Amazonka.CodeArtifact.Types.PackageDependency
+import Amazonka.CodeArtifact.Types.PackageFormat
+import Amazonka.CodeArtifact.Types.PackageSummary
+import Amazonka.CodeArtifact.Types.PackageVersionDescription
+import Amazonka.CodeArtifact.Types.PackageVersionError
+import Amazonka.CodeArtifact.Types.PackageVersionErrorCode
+import Amazonka.CodeArtifact.Types.PackageVersionSortType
+import Amazonka.CodeArtifact.Types.PackageVersionStatus
+import Amazonka.CodeArtifact.Types.PackageVersionSummary
+import Amazonka.CodeArtifact.Types.RepositoryDescription
+import Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo
+import Amazonka.CodeArtifact.Types.RepositorySummary
+import Amazonka.CodeArtifact.Types.ResourcePolicy
+import Amazonka.CodeArtifact.Types.SuccessfulPackageVersionInfo
+import Amazonka.CodeArtifact.Types.Tag
+import Amazonka.CodeArtifact.Types.UpstreamRepository
+import Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-09-22@ of the Amazon CodeArtifact SDK configuration.
 defaultService :: Core.Service

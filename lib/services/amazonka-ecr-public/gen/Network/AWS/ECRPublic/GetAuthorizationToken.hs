@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECRPublic.GetAuthorizationToken
+-- Module      : Amazonka.ECRPublic.GetAuthorizationToken
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- is valid for 12 hours. This API requires the
 -- @ecr-public:GetAuthorizationToken@ and @sts:GetServiceBearerToken@
 -- permissions.
-module Network.AWS.ECRPublic.GetAuthorizationToken
+module Amazonka.ECRPublic.GetAuthorizationToken
   ( -- * Creating a Request
     GetAuthorizationToken (..),
     newGetAuthorizationToken,
@@ -41,12 +41,12 @@ module Network.AWS.ECRPublic.GetAuthorizationToken
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECRPublic.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECRPublic.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAuthorizationToken' smart constructor.
 data GetAuthorizationToken = GetAuthorizationToken'

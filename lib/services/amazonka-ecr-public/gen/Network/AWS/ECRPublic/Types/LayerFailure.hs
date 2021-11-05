@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECRPublic.Types.LayerFailure
+-- Module      : Amazonka.ECRPublic.Types.LayerFailure
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECRPublic.Types.LayerFailure where
+module Amazonka.ECRPublic.Types.LayerFailure where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECRPublic.Types.LayerFailureCode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECRPublic.Types.LayerFailureCode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image layer failure.
 --

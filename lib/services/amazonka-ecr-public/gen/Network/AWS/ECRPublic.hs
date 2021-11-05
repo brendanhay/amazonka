@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ECRPublic
+-- Module      : Amazonka.ECRPublic
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 -- public repositories with this API. For information about the Amazon ECR
 -- API for private repositories, see
 -- <https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html Amazon Elastic Container Registry API Reference>.
-module Network.AWS.ECRPublic
+module Amazonka.ECRPublic
   ( -- * Service Configuration
     defaultService,
 
@@ -322,32 +322,32 @@ module Network.AWS.ECRPublic
   )
 where
 
-import Network.AWS.ECRPublic.BatchCheckLayerAvailability
-import Network.AWS.ECRPublic.BatchDeleteImage
-import Network.AWS.ECRPublic.CompleteLayerUpload
-import Network.AWS.ECRPublic.CreateRepository
-import Network.AWS.ECRPublic.DeleteRepository
-import Network.AWS.ECRPublic.DeleteRepositoryPolicy
-import Network.AWS.ECRPublic.DescribeImageTags
-import Network.AWS.ECRPublic.DescribeImages
-import Network.AWS.ECRPublic.DescribeRegistries
-import Network.AWS.ECRPublic.DescribeRepositories
-import Network.AWS.ECRPublic.GetAuthorizationToken
-import Network.AWS.ECRPublic.GetRegistryCatalogData
-import Network.AWS.ECRPublic.GetRepositoryCatalogData
-import Network.AWS.ECRPublic.GetRepositoryPolicy
-import Network.AWS.ECRPublic.InitiateLayerUpload
-import Network.AWS.ECRPublic.Lens
-import Network.AWS.ECRPublic.ListTagsForResource
-import Network.AWS.ECRPublic.PutImage
-import Network.AWS.ECRPublic.PutRegistryCatalogData
-import Network.AWS.ECRPublic.PutRepositoryCatalogData
-import Network.AWS.ECRPublic.SetRepositoryPolicy
-import Network.AWS.ECRPublic.TagResource
-import Network.AWS.ECRPublic.Types
-import Network.AWS.ECRPublic.UntagResource
-import Network.AWS.ECRPublic.UploadLayerPart
-import Network.AWS.ECRPublic.Waiters
+import Amazonka.ECRPublic.BatchCheckLayerAvailability
+import Amazonka.ECRPublic.BatchDeleteImage
+import Amazonka.ECRPublic.CompleteLayerUpload
+import Amazonka.ECRPublic.CreateRepository
+import Amazonka.ECRPublic.DeleteRepository
+import Amazonka.ECRPublic.DeleteRepositoryPolicy
+import Amazonka.ECRPublic.DescribeImageTags
+import Amazonka.ECRPublic.DescribeImages
+import Amazonka.ECRPublic.DescribeRegistries
+import Amazonka.ECRPublic.DescribeRepositories
+import Amazonka.ECRPublic.GetAuthorizationToken
+import Amazonka.ECRPublic.GetRegistryCatalogData
+import Amazonka.ECRPublic.GetRepositoryCatalogData
+import Amazonka.ECRPublic.GetRepositoryPolicy
+import Amazonka.ECRPublic.InitiateLayerUpload
+import Amazonka.ECRPublic.Lens
+import Amazonka.ECRPublic.ListTagsForResource
+import Amazonka.ECRPublic.PutImage
+import Amazonka.ECRPublic.PutRegistryCatalogData
+import Amazonka.ECRPublic.PutRepositoryCatalogData
+import Amazonka.ECRPublic.SetRepositoryPolicy
+import Amazonka.ECRPublic.TagResource
+import Amazonka.ECRPublic.Types
+import Amazonka.ECRPublic.UntagResource
+import Amazonka.ECRPublic.UploadLayerPart
+import Amazonka.ECRPublic.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

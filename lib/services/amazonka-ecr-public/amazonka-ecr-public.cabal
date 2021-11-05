@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ECRPublic.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ECRPublic.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ECRPublic" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ECRPublic" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,55 +45,55 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ECRPublic
-    Network.AWS.ECRPublic.BatchCheckLayerAvailability
-    Network.AWS.ECRPublic.BatchDeleteImage
-    Network.AWS.ECRPublic.CompleteLayerUpload
-    Network.AWS.ECRPublic.CreateRepository
-    Network.AWS.ECRPublic.DeleteRepository
-    Network.AWS.ECRPublic.DeleteRepositoryPolicy
-    Network.AWS.ECRPublic.DescribeImages
-    Network.AWS.ECRPublic.DescribeImageTags
-    Network.AWS.ECRPublic.DescribeRegistries
-    Network.AWS.ECRPublic.DescribeRepositories
-    Network.AWS.ECRPublic.GetAuthorizationToken
-    Network.AWS.ECRPublic.GetRegistryCatalogData
-    Network.AWS.ECRPublic.GetRepositoryCatalogData
-    Network.AWS.ECRPublic.GetRepositoryPolicy
-    Network.AWS.ECRPublic.InitiateLayerUpload
-    Network.AWS.ECRPublic.Lens
-    Network.AWS.ECRPublic.ListTagsForResource
-    Network.AWS.ECRPublic.PutImage
-    Network.AWS.ECRPublic.PutRegistryCatalogData
-    Network.AWS.ECRPublic.PutRepositoryCatalogData
-    Network.AWS.ECRPublic.SetRepositoryPolicy
-    Network.AWS.ECRPublic.TagResource
-    Network.AWS.ECRPublic.Types
-    Network.AWS.ECRPublic.Types.AuthorizationData
-    Network.AWS.ECRPublic.Types.Image
-    Network.AWS.ECRPublic.Types.ImageDetail
-    Network.AWS.ECRPublic.Types.ImageFailure
-    Network.AWS.ECRPublic.Types.ImageFailureCode
-    Network.AWS.ECRPublic.Types.ImageIdentifier
-    Network.AWS.ECRPublic.Types.ImageTagDetail
-    Network.AWS.ECRPublic.Types.Layer
-    Network.AWS.ECRPublic.Types.LayerAvailability
-    Network.AWS.ECRPublic.Types.LayerFailure
-    Network.AWS.ECRPublic.Types.LayerFailureCode
-    Network.AWS.ECRPublic.Types.ReferencedImageDetail
-    Network.AWS.ECRPublic.Types.Registry
-    Network.AWS.ECRPublic.Types.RegistryAlias
-    Network.AWS.ECRPublic.Types.RegistryAliasStatus
-    Network.AWS.ECRPublic.Types.RegistryCatalogData
-    Network.AWS.ECRPublic.Types.Repository
-    Network.AWS.ECRPublic.Types.RepositoryCatalogData
-    Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput
-    Network.AWS.ECRPublic.Types.Tag
-    Network.AWS.ECRPublic.UntagResource
-    Network.AWS.ECRPublic.UploadLayerPart
-    Network.AWS.ECRPublic.Waiters
+    Amazonka.ECRPublic
+    Amazonka.ECRPublic.BatchCheckLayerAvailability
+    Amazonka.ECRPublic.BatchDeleteImage
+    Amazonka.ECRPublic.CompleteLayerUpload
+    Amazonka.ECRPublic.CreateRepository
+    Amazonka.ECRPublic.DeleteRepository
+    Amazonka.ECRPublic.DeleteRepositoryPolicy
+    Amazonka.ECRPublic.DescribeImages
+    Amazonka.ECRPublic.DescribeImageTags
+    Amazonka.ECRPublic.DescribeRegistries
+    Amazonka.ECRPublic.DescribeRepositories
+    Amazonka.ECRPublic.GetAuthorizationToken
+    Amazonka.ECRPublic.GetRegistryCatalogData
+    Amazonka.ECRPublic.GetRepositoryCatalogData
+    Amazonka.ECRPublic.GetRepositoryPolicy
+    Amazonka.ECRPublic.InitiateLayerUpload
+    Amazonka.ECRPublic.Lens
+    Amazonka.ECRPublic.ListTagsForResource
+    Amazonka.ECRPublic.PutImage
+    Amazonka.ECRPublic.PutRegistryCatalogData
+    Amazonka.ECRPublic.PutRepositoryCatalogData
+    Amazonka.ECRPublic.SetRepositoryPolicy
+    Amazonka.ECRPublic.TagResource
+    Amazonka.ECRPublic.Types
+    Amazonka.ECRPublic.Types.AuthorizationData
+    Amazonka.ECRPublic.Types.Image
+    Amazonka.ECRPublic.Types.ImageDetail
+    Amazonka.ECRPublic.Types.ImageFailure
+    Amazonka.ECRPublic.Types.ImageFailureCode
+    Amazonka.ECRPublic.Types.ImageIdentifier
+    Amazonka.ECRPublic.Types.ImageTagDetail
+    Amazonka.ECRPublic.Types.Layer
+    Amazonka.ECRPublic.Types.LayerAvailability
+    Amazonka.ECRPublic.Types.LayerFailure
+    Amazonka.ECRPublic.Types.LayerFailureCode
+    Amazonka.ECRPublic.Types.ReferencedImageDetail
+    Amazonka.ECRPublic.Types.Registry
+    Amazonka.ECRPublic.Types.RegistryAlias
+    Amazonka.ECRPublic.Types.RegistryAliasStatus
+    Amazonka.ECRPublic.Types.RegistryCatalogData
+    Amazonka.ECRPublic.Types.Repository
+    Amazonka.ECRPublic.Types.RepositoryCatalogData
+    Amazonka.ECRPublic.Types.RepositoryCatalogDataInput
+    Amazonka.ECRPublic.Types.Tag
+    Amazonka.ECRPublic.UntagResource
+    Amazonka.ECRPublic.UploadLayerPart
+    Amazonka.ECRPublic.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

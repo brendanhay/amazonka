@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECRPublic.Types
+-- Module      : Amazonka.ECRPublic.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECRPublic.Types
+module Amazonka.ECRPublic.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -184,30 +184,30 @@ module Network.AWS.ECRPublic.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECRPublic.Types.AuthorizationData
-import Network.AWS.ECRPublic.Types.Image
-import Network.AWS.ECRPublic.Types.ImageDetail
-import Network.AWS.ECRPublic.Types.ImageFailure
-import Network.AWS.ECRPublic.Types.ImageFailureCode
-import Network.AWS.ECRPublic.Types.ImageIdentifier
-import Network.AWS.ECRPublic.Types.ImageTagDetail
-import Network.AWS.ECRPublic.Types.Layer
-import Network.AWS.ECRPublic.Types.LayerAvailability
-import Network.AWS.ECRPublic.Types.LayerFailure
-import Network.AWS.ECRPublic.Types.LayerFailureCode
-import Network.AWS.ECRPublic.Types.ReferencedImageDetail
-import Network.AWS.ECRPublic.Types.Registry
-import Network.AWS.ECRPublic.Types.RegistryAlias
-import Network.AWS.ECRPublic.Types.RegistryAliasStatus
-import Network.AWS.ECRPublic.Types.RegistryCatalogData
-import Network.AWS.ECRPublic.Types.Repository
-import Network.AWS.ECRPublic.Types.RepositoryCatalogData
-import Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput
-import Network.AWS.ECRPublic.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ECRPublic.Types.AuthorizationData
+import Amazonka.ECRPublic.Types.Image
+import Amazonka.ECRPublic.Types.ImageDetail
+import Amazonka.ECRPublic.Types.ImageFailure
+import Amazonka.ECRPublic.Types.ImageFailureCode
+import Amazonka.ECRPublic.Types.ImageIdentifier
+import Amazonka.ECRPublic.Types.ImageTagDetail
+import Amazonka.ECRPublic.Types.Layer
+import Amazonka.ECRPublic.Types.LayerAvailability
+import Amazonka.ECRPublic.Types.LayerFailure
+import Amazonka.ECRPublic.Types.LayerFailureCode
+import Amazonka.ECRPublic.Types.ReferencedImageDetail
+import Amazonka.ECRPublic.Types.Registry
+import Amazonka.ECRPublic.Types.RegistryAlias
+import Amazonka.ECRPublic.Types.RegistryAliasStatus
+import Amazonka.ECRPublic.Types.RegistryCatalogData
+import Amazonka.ECRPublic.Types.Repository
+import Amazonka.ECRPublic.Types.RepositoryCatalogData
+import Amazonka.ECRPublic.Types.RepositoryCatalogDataInput
+import Amazonka.ECRPublic.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-10-30@ of the Amazon Elastic Container Registry Public SDK configuration.
 defaultService :: Core.Service

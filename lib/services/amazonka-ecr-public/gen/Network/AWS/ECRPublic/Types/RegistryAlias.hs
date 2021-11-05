@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECRPublic.Types.RegistryAlias
+-- Module      : Amazonka.ECRPublic.Types.RegistryAlias
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECRPublic.Types.RegistryAlias where
+module Amazonka.ECRPublic.Types.RegistryAlias where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECRPublic.Types.RegistryAliasStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECRPublic.Types.RegistryAliasStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the aliases for a public registry. A public
 -- registry is given an alias upon creation but a custom alias can be set

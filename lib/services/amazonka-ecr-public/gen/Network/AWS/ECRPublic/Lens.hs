@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECRPublic.Lens
+-- Module      : Amazonka.ECRPublic.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECRPublic.Lens
+module Amazonka.ECRPublic.Lens
   ( -- * Operations
 
     -- ** GetRepositoryPolicy
@@ -289,42 +289,42 @@ module Network.AWS.ECRPublic.Lens
   )
 where
 
-import Network.AWS.ECRPublic.BatchCheckLayerAvailability
-import Network.AWS.ECRPublic.BatchDeleteImage
-import Network.AWS.ECRPublic.CompleteLayerUpload
-import Network.AWS.ECRPublic.CreateRepository
-import Network.AWS.ECRPublic.DeleteRepository
-import Network.AWS.ECRPublic.DeleteRepositoryPolicy
-import Network.AWS.ECRPublic.DescribeImageTags
-import Network.AWS.ECRPublic.DescribeImages
-import Network.AWS.ECRPublic.DescribeRegistries
-import Network.AWS.ECRPublic.DescribeRepositories
-import Network.AWS.ECRPublic.GetAuthorizationToken
-import Network.AWS.ECRPublic.GetRegistryCatalogData
-import Network.AWS.ECRPublic.GetRepositoryCatalogData
-import Network.AWS.ECRPublic.GetRepositoryPolicy
-import Network.AWS.ECRPublic.InitiateLayerUpload
-import Network.AWS.ECRPublic.ListTagsForResource
-import Network.AWS.ECRPublic.PutImage
-import Network.AWS.ECRPublic.PutRegistryCatalogData
-import Network.AWS.ECRPublic.PutRepositoryCatalogData
-import Network.AWS.ECRPublic.SetRepositoryPolicy
-import Network.AWS.ECRPublic.TagResource
-import Network.AWS.ECRPublic.Types.AuthorizationData
-import Network.AWS.ECRPublic.Types.Image
-import Network.AWS.ECRPublic.Types.ImageDetail
-import Network.AWS.ECRPublic.Types.ImageFailure
-import Network.AWS.ECRPublic.Types.ImageIdentifier
-import Network.AWS.ECRPublic.Types.ImageTagDetail
-import Network.AWS.ECRPublic.Types.Layer
-import Network.AWS.ECRPublic.Types.LayerFailure
-import Network.AWS.ECRPublic.Types.ReferencedImageDetail
-import Network.AWS.ECRPublic.Types.Registry
-import Network.AWS.ECRPublic.Types.RegistryAlias
-import Network.AWS.ECRPublic.Types.RegistryCatalogData
-import Network.AWS.ECRPublic.Types.Repository
-import Network.AWS.ECRPublic.Types.RepositoryCatalogData
-import Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput
-import Network.AWS.ECRPublic.Types.Tag
-import Network.AWS.ECRPublic.UntagResource
-import Network.AWS.ECRPublic.UploadLayerPart
+import Amazonka.ECRPublic.BatchCheckLayerAvailability
+import Amazonka.ECRPublic.BatchDeleteImage
+import Amazonka.ECRPublic.CompleteLayerUpload
+import Amazonka.ECRPublic.CreateRepository
+import Amazonka.ECRPublic.DeleteRepository
+import Amazonka.ECRPublic.DeleteRepositoryPolicy
+import Amazonka.ECRPublic.DescribeImageTags
+import Amazonka.ECRPublic.DescribeImages
+import Amazonka.ECRPublic.DescribeRegistries
+import Amazonka.ECRPublic.DescribeRepositories
+import Amazonka.ECRPublic.GetAuthorizationToken
+import Amazonka.ECRPublic.GetRegistryCatalogData
+import Amazonka.ECRPublic.GetRepositoryCatalogData
+import Amazonka.ECRPublic.GetRepositoryPolicy
+import Amazonka.ECRPublic.InitiateLayerUpload
+import Amazonka.ECRPublic.ListTagsForResource
+import Amazonka.ECRPublic.PutImage
+import Amazonka.ECRPublic.PutRegistryCatalogData
+import Amazonka.ECRPublic.PutRepositoryCatalogData
+import Amazonka.ECRPublic.SetRepositoryPolicy
+import Amazonka.ECRPublic.TagResource
+import Amazonka.ECRPublic.Types.AuthorizationData
+import Amazonka.ECRPublic.Types.Image
+import Amazonka.ECRPublic.Types.ImageDetail
+import Amazonka.ECRPublic.Types.ImageFailure
+import Amazonka.ECRPublic.Types.ImageIdentifier
+import Amazonka.ECRPublic.Types.ImageTagDetail
+import Amazonka.ECRPublic.Types.Layer
+import Amazonka.ECRPublic.Types.LayerFailure
+import Amazonka.ECRPublic.Types.ReferencedImageDetail
+import Amazonka.ECRPublic.Types.Registry
+import Amazonka.ECRPublic.Types.RegistryAlias
+import Amazonka.ECRPublic.Types.RegistryCatalogData
+import Amazonka.ECRPublic.Types.Repository
+import Amazonka.ECRPublic.Types.RepositoryCatalogData
+import Amazonka.ECRPublic.Types.RepositoryCatalogDataInput
+import Amazonka.ECRPublic.Types.Tag
+import Amazonka.ECRPublic.UntagResource
+import Amazonka.ECRPublic.UploadLayerPart

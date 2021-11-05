@@ -1,0 +1,201 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Chime.PutVoiceConnectorStreamingConfiguration
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Adds a streaming configuration for the specified Amazon Chime Voice
+-- Connector. The streaming configuration specifies whether media streaming
+-- is enabled for sending to Indonesians. It also sets the retention
+-- period, in hours, for the Amazon Kinesis data.
+module Network.AWS.Chime.PutVoiceConnectorStreamingConfiguration
+  ( -- * Creating a Request
+    PutVoiceConnectorStreamingConfiguration (..),
+    newPutVoiceConnectorStreamingConfiguration,
+
+    -- * Request Lenses
+    putVoiceConnectorStreamingConfiguration_voiceConnectorId,
+    putVoiceConnectorStreamingConfiguration_streamingConfiguration,
+
+    -- * Destructuring the Response
+    PutVoiceConnectorStreamingConfigurationResponse (..),
+    newPutVoiceConnectorStreamingConfigurationResponse,
+
+    -- * Response Lenses
+    putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration,
+    putVoiceConnectorStreamingConfigurationResponse_httpStatus,
+  )
+where
+
+import Network.AWS.Chime.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newPutVoiceConnectorStreamingConfiguration' smart constructor.
+data PutVoiceConnectorStreamingConfiguration = PutVoiceConnectorStreamingConfiguration'
+  { -- | The Amazon Chime Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The streaming configuration details to add.
+    streamingConfiguration :: StreamingConfiguration
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutVoiceConnectorStreamingConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'voiceConnectorId', 'putVoiceConnectorStreamingConfiguration_voiceConnectorId' - The Amazon Chime Voice Connector ID.
+--
+-- 'streamingConfiguration', 'putVoiceConnectorStreamingConfiguration_streamingConfiguration' - The streaming configuration details to add.
+newPutVoiceConnectorStreamingConfiguration ::
+  -- | 'voiceConnectorId'
+  Prelude.Text ->
+  -- | 'streamingConfiguration'
+  StreamingConfiguration ->
+  PutVoiceConnectorStreamingConfiguration
+newPutVoiceConnectorStreamingConfiguration
+  pVoiceConnectorId_
+  pStreamingConfiguration_ =
+    PutVoiceConnectorStreamingConfiguration'
+      { voiceConnectorId =
+          pVoiceConnectorId_,
+        streamingConfiguration =
+          pStreamingConfiguration_
+      }
+
+-- | The Amazon Chime Voice Connector ID.
+putVoiceConnectorStreamingConfiguration_voiceConnectorId :: Lens.Lens' PutVoiceConnectorStreamingConfiguration Prelude.Text
+putVoiceConnectorStreamingConfiguration_voiceConnectorId = Lens.lens (\PutVoiceConnectorStreamingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorStreamingConfiguration' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorStreamingConfiguration)
+
+-- | The streaming configuration details to add.
+putVoiceConnectorStreamingConfiguration_streamingConfiguration :: Lens.Lens' PutVoiceConnectorStreamingConfiguration StreamingConfiguration
+putVoiceConnectorStreamingConfiguration_streamingConfiguration = Lens.lens (\PutVoiceConnectorStreamingConfiguration' {streamingConfiguration} -> streamingConfiguration) (\s@PutVoiceConnectorStreamingConfiguration' {} a -> s {streamingConfiguration = a} :: PutVoiceConnectorStreamingConfiguration)
+
+instance
+  Core.AWSRequest
+    PutVoiceConnectorStreamingConfiguration
+  where
+  type
+    AWSResponse
+      PutVoiceConnectorStreamingConfiguration =
+      PutVoiceConnectorStreamingConfigurationResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutVoiceConnectorStreamingConfigurationResponse'
+            Prelude.<$> (x Core..?> "StreamingConfiguration")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    PutVoiceConnectorStreamingConfiguration
+
+instance
+  Prelude.NFData
+    PutVoiceConnectorStreamingConfiguration
+
+instance
+  Core.ToHeaders
+    PutVoiceConnectorStreamingConfiguration
+  where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance
+  Core.ToJSON
+    PutVoiceConnectorStreamingConfiguration
+  where
+  toJSON PutVoiceConnectorStreamingConfiguration' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "StreamingConfiguration"
+                  Core..= streamingConfiguration
+              )
+          ]
+      )
+
+instance
+  Core.ToPath
+    PutVoiceConnectorStreamingConfiguration
+  where
+  toPath PutVoiceConnectorStreamingConfiguration' {..} =
+    Prelude.mconcat
+      [ "/voice-connectors/",
+        Core.toBS voiceConnectorId,
+        "/streaming-configuration"
+      ]
+
+instance
+  Core.ToQuery
+    PutVoiceConnectorStreamingConfiguration
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newPutVoiceConnectorStreamingConfigurationResponse' smart constructor.
+data PutVoiceConnectorStreamingConfigurationResponse = PutVoiceConnectorStreamingConfigurationResponse'
+  { -- | The updated streaming configuration details.
+    streamingConfiguration :: Prelude.Maybe StreamingConfiguration,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutVoiceConnectorStreamingConfigurationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'streamingConfiguration', 'putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration' - The updated streaming configuration details.
+--
+-- 'httpStatus', 'putVoiceConnectorStreamingConfigurationResponse_httpStatus' - The response's http status code.
+newPutVoiceConnectorStreamingConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutVoiceConnectorStreamingConfigurationResponse
+newPutVoiceConnectorStreamingConfigurationResponse
+  pHttpStatus_ =
+    PutVoiceConnectorStreamingConfigurationResponse'
+      { streamingConfiguration =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | The updated streaming configuration details.
+putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration :: Lens.Lens' PutVoiceConnectorStreamingConfigurationResponse (Prelude.Maybe StreamingConfiguration)
+putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration = Lens.lens (\PutVoiceConnectorStreamingConfigurationResponse' {streamingConfiguration} -> streamingConfiguration) (\s@PutVoiceConnectorStreamingConfigurationResponse' {} a -> s {streamingConfiguration = a} :: PutVoiceConnectorStreamingConfigurationResponse)
+
+-- | The response's http status code.
+putVoiceConnectorStreamingConfigurationResponse_httpStatus :: Lens.Lens' PutVoiceConnectorStreamingConfigurationResponse Prelude.Int
+putVoiceConnectorStreamingConfigurationResponse_httpStatus = Lens.lens (\PutVoiceConnectorStreamingConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutVoiceConnectorStreamingConfigurationResponse' {} a -> s {httpStatus = a} :: PutVoiceConnectorStreamingConfigurationResponse)
+
+instance
+  Prelude.NFData
+    PutVoiceConnectorStreamingConfigurationResponse

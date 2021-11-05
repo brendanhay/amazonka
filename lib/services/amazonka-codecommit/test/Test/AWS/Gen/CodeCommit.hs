@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeCommit where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeCommit
 import Test.AWS.CodeCommit.Internal
 import Test.AWS.Fixture
@@ -967,7 +967,7 @@ responseMergePullRequestByFastForward =
     "MergePullRequestByFastForwardResponse"
     "fixture/MergePullRequestByFastForwardResponse.proto"
     defaultService
-    (Proxy :: Proxy MergePullRequestByFastForward)
+    (Proxy.Proxy :: Proxy.Proxy MergePullRequestByFastForward)
 
 responseUpdateRepositoryName :: UpdateRepositoryNameResponse -> TestTree
 responseUpdateRepositoryName =
@@ -975,7 +975,7 @@ responseUpdateRepositoryName =
     "UpdateRepositoryNameResponse"
     "fixture/UpdateRepositoryNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRepositoryName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRepositoryName)
 
 responsePostCommentForPullRequest :: PostCommentForPullRequestResponse -> TestTree
 responsePostCommentForPullRequest =
@@ -983,7 +983,7 @@ responsePostCommentForPullRequest =
     "PostCommentForPullRequestResponse"
     "fixture/PostCommentForPullRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy PostCommentForPullRequest)
+    (Proxy.Proxy :: Proxy.Proxy PostCommentForPullRequest)
 
 responseMergeBranchesBySquash :: MergeBranchesBySquashResponse -> TestTree
 responseMergeBranchesBySquash =
@@ -991,7 +991,7 @@ responseMergeBranchesBySquash =
     "MergeBranchesBySquashResponse"
     "fixture/MergeBranchesBySquashResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeBranchesBySquash)
+    (Proxy.Proxy :: Proxy.Proxy MergeBranchesBySquash)
 
 responseGetCommit :: GetCommitResponse -> TestTree
 responseGetCommit =
@@ -999,7 +999,7 @@ responseGetCommit =
     "GetCommitResponse"
     "fixture/GetCommitResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCommit)
+    (Proxy.Proxy :: Proxy.Proxy GetCommit)
 
 responseBatchAssociateApprovalRuleTemplateWithRepositories :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse -> TestTree
 responseBatchAssociateApprovalRuleTemplateWithRepositories =
@@ -1007,7 +1007,7 @@ responseBatchAssociateApprovalRuleTemplateWithRepositories =
     "BatchAssociateApprovalRuleTemplateWithRepositoriesResponse"
     "fixture/BatchAssociateApprovalRuleTemplateWithRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateApprovalRuleTemplateWithRepositories)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateApprovalRuleTemplateWithRepositories)
 
 responseGetCommentReactions :: GetCommentReactionsResponse -> TestTree
 responseGetCommentReactions =
@@ -1015,7 +1015,7 @@ responseGetCommentReactions =
     "GetCommentReactionsResponse"
     "fixture/GetCommentReactionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCommentReactions)
+    (Proxy.Proxy :: Proxy.Proxy GetCommentReactions)
 
 responseGetApprovalRuleTemplate :: GetApprovalRuleTemplateResponse -> TestTree
 responseGetApprovalRuleTemplate =
@@ -1023,7 +1023,7 @@ responseGetApprovalRuleTemplate =
     "GetApprovalRuleTemplateResponse"
     "fixture/GetApprovalRuleTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApprovalRuleTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetApprovalRuleTemplate)
 
 responseDisassociateApprovalRuleTemplateFromRepository :: DisassociateApprovalRuleTemplateFromRepositoryResponse -> TestTree
 responseDisassociateApprovalRuleTemplateFromRepository =
@@ -1031,7 +1031,7 @@ responseDisassociateApprovalRuleTemplateFromRepository =
     "DisassociateApprovalRuleTemplateFromRepositoryResponse"
     "fixture/DisassociateApprovalRuleTemplateFromRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateApprovalRuleTemplateFromRepository)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateApprovalRuleTemplateFromRepository)
 
 responseGetBranch :: GetBranchResponse -> TestTree
 responseGetBranch =
@@ -1039,7 +1039,7 @@ responseGetBranch =
     "GetBranchResponse"
     "fixture/GetBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBranch)
+    (Proxy.Proxy :: Proxy.Proxy GetBranch)
 
 responseGetDifferences :: GetDifferencesResponse -> TestTree
 responseGetDifferences =
@@ -1047,7 +1047,7 @@ responseGetDifferences =
     "GetDifferencesResponse"
     "fixture/GetDifferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDifferences)
+    (Proxy.Proxy :: Proxy.Proxy GetDifferences)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1055,7 +1055,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetPullRequest :: GetPullRequestResponse -> TestTree
 responseGetPullRequest =
@@ -1063,7 +1063,7 @@ responseGetPullRequest =
     "GetPullRequestResponse"
     "fixture/GetPullRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPullRequest)
+    (Proxy.Proxy :: Proxy.Proxy GetPullRequest)
 
 responseOverridePullRequestApprovalRules :: OverridePullRequestApprovalRulesResponse -> TestTree
 responseOverridePullRequestApprovalRules =
@@ -1071,7 +1071,7 @@ responseOverridePullRequestApprovalRules =
     "OverridePullRequestApprovalRulesResponse"
     "fixture/OverridePullRequestApprovalRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy OverridePullRequestApprovalRules)
+    (Proxy.Proxy :: Proxy.Proxy OverridePullRequestApprovalRules)
 
 responseListPullRequests :: ListPullRequestsResponse -> TestTree
 responseListPullRequests =
@@ -1079,7 +1079,7 @@ responseListPullRequests =
     "ListPullRequestsResponse"
     "fixture/ListPullRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPullRequests)
+    (Proxy.Proxy :: Proxy.Proxy ListPullRequests)
 
 responseCreateCommit :: CreateCommitResponse -> TestTree
 responseCreateCommit =
@@ -1087,7 +1087,7 @@ responseCreateCommit =
     "CreateCommitResponse"
     "fixture/CreateCommitResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCommit)
+    (Proxy.Proxy :: Proxy.Proxy CreateCommit)
 
 responseUpdatePullRequestApprovalState :: UpdatePullRequestApprovalStateResponse -> TestTree
 responseUpdatePullRequestApprovalState =
@@ -1095,7 +1095,7 @@ responseUpdatePullRequestApprovalState =
     "UpdatePullRequestApprovalStateResponse"
     "fixture/UpdatePullRequestApprovalStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePullRequestApprovalState)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePullRequestApprovalState)
 
 responseEvaluatePullRequestApprovalRules :: EvaluatePullRequestApprovalRulesResponse -> TestTree
 responseEvaluatePullRequestApprovalRules =
@@ -1103,7 +1103,7 @@ responseEvaluatePullRequestApprovalRules =
     "EvaluatePullRequestApprovalRulesResponse"
     "fixture/EvaluatePullRequestApprovalRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy EvaluatePullRequestApprovalRules)
+    (Proxy.Proxy :: Proxy.Proxy EvaluatePullRequestApprovalRules)
 
 responseGetComment :: GetCommentResponse -> TestTree
 responseGetComment =
@@ -1111,7 +1111,7 @@ responseGetComment =
     "GetCommentResponse"
     "fixture/GetCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetComment)
+    (Proxy.Proxy :: Proxy.Proxy GetComment)
 
 responseCreateApprovalRuleTemplate :: CreateApprovalRuleTemplateResponse -> TestTree
 responseCreateApprovalRuleTemplate =
@@ -1119,7 +1119,7 @@ responseCreateApprovalRuleTemplate =
     "CreateApprovalRuleTemplateResponse"
     "fixture/CreateApprovalRuleTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApprovalRuleTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateApprovalRuleTemplate)
 
 responseDeleteBranch :: DeleteBranchResponse -> TestTree
 responseDeleteBranch =
@@ -1127,7 +1127,7 @@ responseDeleteBranch =
     "DeleteBranchResponse"
     "fixture/DeleteBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBranch)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBranch)
 
 responseUpdateRepositoryDescription :: UpdateRepositoryDescriptionResponse -> TestTree
 responseUpdateRepositoryDescription =
@@ -1135,7 +1135,7 @@ responseUpdateRepositoryDescription =
     "UpdateRepositoryDescriptionResponse"
     "fixture/UpdateRepositoryDescriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRepositoryDescription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRepositoryDescription)
 
 responseCreateBranch :: CreateBranchResponse -> TestTree
 responseCreateBranch =
@@ -1143,7 +1143,7 @@ responseCreateBranch =
     "CreateBranchResponse"
     "fixture/CreateBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBranch)
+    (Proxy.Proxy :: Proxy.Proxy CreateBranch)
 
 responseGetFolder :: GetFolderResponse -> TestTree
 responseGetFolder =
@@ -1151,7 +1151,7 @@ responseGetFolder =
     "GetFolderResponse"
     "fixture/GetFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFolder)
+    (Proxy.Proxy :: Proxy.Proxy GetFolder)
 
 responseCreatePullRequest :: CreatePullRequestResponse -> TestTree
 responseCreatePullRequest =
@@ -1159,7 +1159,7 @@ responseCreatePullRequest =
     "CreatePullRequestResponse"
     "fixture/CreatePullRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePullRequest)
+    (Proxy.Proxy :: Proxy.Proxy CreatePullRequest)
 
 responseDeleteApprovalRuleTemplate :: DeleteApprovalRuleTemplateResponse -> TestTree
 responseDeleteApprovalRuleTemplate =
@@ -1167,7 +1167,7 @@ responseDeleteApprovalRuleTemplate =
     "DeleteApprovalRuleTemplateResponse"
     "fixture/DeleteApprovalRuleTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApprovalRuleTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApprovalRuleTemplate)
 
 responseListBranches :: ListBranchesResponse -> TestTree
 responseListBranches =
@@ -1175,7 +1175,7 @@ responseListBranches =
     "ListBranchesResponse"
     "fixture/ListBranchesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBranches)
+    (Proxy.Proxy :: Proxy.Proxy ListBranches)
 
 responseBatchGetCommits :: BatchGetCommitsResponse -> TestTree
 responseBatchGetCommits =
@@ -1183,7 +1183,7 @@ responseBatchGetCommits =
     "BatchGetCommitsResponse"
     "fixture/BatchGetCommitsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetCommits)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetCommits)
 
 responsePutCommentReaction :: PutCommentReactionResponse -> TestTree
 responsePutCommentReaction =
@@ -1191,7 +1191,7 @@ responsePutCommentReaction =
     "PutCommentReactionResponse"
     "fixture/PutCommentReactionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutCommentReaction)
+    (Proxy.Proxy :: Proxy.Proxy PutCommentReaction)
 
 responseUpdatePullRequestDescription :: UpdatePullRequestDescriptionResponse -> TestTree
 responseUpdatePullRequestDescription =
@@ -1199,7 +1199,7 @@ responseUpdatePullRequestDescription =
     "UpdatePullRequestDescriptionResponse"
     "fixture/UpdatePullRequestDescriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePullRequestDescription)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePullRequestDescription)
 
 responseListRepositories :: ListRepositoriesResponse -> TestTree
 responseListRepositories =
@@ -1207,7 +1207,7 @@ responseListRepositories =
     "ListRepositoriesResponse"
     "fixture/ListRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRepositories)
+    (Proxy.Proxy :: Proxy.Proxy ListRepositories)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
 responseCreateRepository =
@@ -1215,7 +1215,7 @@ responseCreateRepository =
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRepository)
+    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
 
 responseUpdateDefaultBranch :: UpdateDefaultBranchResponse -> TestTree
 responseUpdateDefaultBranch =
@@ -1223,7 +1223,7 @@ responseUpdateDefaultBranch =
     "UpdateDefaultBranchResponse"
     "fixture/UpdateDefaultBranchResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDefaultBranch)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDefaultBranch)
 
 responseGetMergeOptions :: GetMergeOptionsResponse -> TestTree
 responseGetMergeOptions =
@@ -1231,7 +1231,7 @@ responseGetMergeOptions =
     "GetMergeOptionsResponse"
     "fixture/GetMergeOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMergeOptions)
+    (Proxy.Proxy :: Proxy.Proxy GetMergeOptions)
 
 responseCreatePullRequestApprovalRule :: CreatePullRequestApprovalRuleResponse -> TestTree
 responseCreatePullRequestApprovalRule =
@@ -1239,7 +1239,7 @@ responseCreatePullRequestApprovalRule =
     "CreatePullRequestApprovalRuleResponse"
     "fixture/CreatePullRequestApprovalRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePullRequestApprovalRule)
+    (Proxy.Proxy :: Proxy.Proxy CreatePullRequestApprovalRule)
 
 responsePostCommentReply :: PostCommentReplyResponse -> TestTree
 responsePostCommentReply =
@@ -1247,7 +1247,7 @@ responsePostCommentReply =
     "PostCommentReplyResponse"
     "fixture/PostCommentReplyResponse.proto"
     defaultService
-    (Proxy :: Proxy PostCommentReply)
+    (Proxy.Proxy :: Proxy.Proxy PostCommentReply)
 
 responseUpdateApprovalRuleTemplateContent :: UpdateApprovalRuleTemplateContentResponse -> TestTree
 responseUpdateApprovalRuleTemplateContent =
@@ -1255,7 +1255,7 @@ responseUpdateApprovalRuleTemplateContent =
     "UpdateApprovalRuleTemplateContentResponse"
     "fixture/UpdateApprovalRuleTemplateContentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApprovalRuleTemplateContent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApprovalRuleTemplateContent)
 
 responseCreateUnreferencedMergeCommit :: CreateUnreferencedMergeCommitResponse -> TestTree
 responseCreateUnreferencedMergeCommit =
@@ -1263,7 +1263,7 @@ responseCreateUnreferencedMergeCommit =
     "CreateUnreferencedMergeCommitResponse"
     "fixture/CreateUnreferencedMergeCommitResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUnreferencedMergeCommit)
+    (Proxy.Proxy :: Proxy.Proxy CreateUnreferencedMergeCommit)
 
 responseListRepositoriesForApprovalRuleTemplate :: ListRepositoriesForApprovalRuleTemplateResponse -> TestTree
 responseListRepositoriesForApprovalRuleTemplate =
@@ -1271,7 +1271,7 @@ responseListRepositoriesForApprovalRuleTemplate =
     "ListRepositoriesForApprovalRuleTemplateResponse"
     "fixture/ListRepositoriesForApprovalRuleTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRepositoriesForApprovalRuleTemplate)
+    (Proxy.Proxy :: Proxy.Proxy ListRepositoriesForApprovalRuleTemplate)
 
 responseGetRepository :: GetRepositoryResponse -> TestTree
 responseGetRepository =
@@ -1279,7 +1279,7 @@ responseGetRepository =
     "GetRepositoryResponse"
     "fixture/GetRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRepository)
+    (Proxy.Proxy :: Proxy.Proxy GetRepository)
 
 responseBatchDescribeMergeConflicts :: BatchDescribeMergeConflictsResponse -> TestTree
 responseBatchDescribeMergeConflicts =
@@ -1287,7 +1287,7 @@ responseBatchDescribeMergeConflicts =
     "BatchDescribeMergeConflictsResponse"
     "fixture/BatchDescribeMergeConflictsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDescribeMergeConflicts)
+    (Proxy.Proxy :: Proxy.Proxy BatchDescribeMergeConflicts)
 
 responseDeletePullRequestApprovalRule :: DeletePullRequestApprovalRuleResponse -> TestTree
 responseDeletePullRequestApprovalRule =
@@ -1295,7 +1295,7 @@ responseDeletePullRequestApprovalRule =
     "DeletePullRequestApprovalRuleResponse"
     "fixture/DeletePullRequestApprovalRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePullRequestApprovalRule)
+    (Proxy.Proxy :: Proxy.Proxy DeletePullRequestApprovalRule)
 
 responseGetRepositoryTriggers :: GetRepositoryTriggersResponse -> TestTree
 responseGetRepositoryTriggers =
@@ -1303,7 +1303,7 @@ responseGetRepositoryTriggers =
     "GetRepositoryTriggersResponse"
     "fixture/GetRepositoryTriggersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRepositoryTriggers)
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryTriggers)
 
 responseUpdateApprovalRuleTemplateName :: UpdateApprovalRuleTemplateNameResponse -> TestTree
 responseUpdateApprovalRuleTemplateName =
@@ -1311,7 +1311,7 @@ responseUpdateApprovalRuleTemplateName =
     "UpdateApprovalRuleTemplateNameResponse"
     "fixture/UpdateApprovalRuleTemplateNameResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApprovalRuleTemplateName)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApprovalRuleTemplateName)
 
 responsePutFile :: PutFileResponse -> TestTree
 responsePutFile =
@@ -1319,7 +1319,7 @@ responsePutFile =
     "PutFileResponse"
     "fixture/PutFileResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFile)
+    (Proxy.Proxy :: Proxy.Proxy PutFile)
 
 responseDeleteFile :: DeleteFileResponse -> TestTree
 responseDeleteFile =
@@ -1327,7 +1327,7 @@ responseDeleteFile =
     "DeleteFileResponse"
     "fixture/DeleteFileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFile)
 
 responseGetCommentsForComparedCommit :: GetCommentsForComparedCommitResponse -> TestTree
 responseGetCommentsForComparedCommit =
@@ -1335,7 +1335,7 @@ responseGetCommentsForComparedCommit =
     "GetCommentsForComparedCommitResponse"
     "fixture/GetCommentsForComparedCommitResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCommentsForComparedCommit)
+    (Proxy.Proxy :: Proxy.Proxy GetCommentsForComparedCommit)
 
 responseGetMergeCommit :: GetMergeCommitResponse -> TestTree
 responseGetMergeCommit =
@@ -1343,7 +1343,7 @@ responseGetMergeCommit =
     "GetMergeCommitResponse"
     "fixture/GetMergeCommitResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMergeCommit)
+    (Proxy.Proxy :: Proxy.Proxy GetMergeCommit)
 
 responseTestRepositoryTriggers :: TestRepositoryTriggersResponse -> TestTree
 responseTestRepositoryTriggers =
@@ -1351,7 +1351,7 @@ responseTestRepositoryTriggers =
     "TestRepositoryTriggersResponse"
     "fixture/TestRepositoryTriggersResponse.proto"
     defaultService
-    (Proxy :: Proxy TestRepositoryTriggers)
+    (Proxy.Proxy :: Proxy.Proxy TestRepositoryTriggers)
 
 responseMergePullRequestBySquash :: MergePullRequestBySquashResponse -> TestTree
 responseMergePullRequestBySquash =
@@ -1359,7 +1359,7 @@ responseMergePullRequestBySquash =
     "MergePullRequestBySquashResponse"
     "fixture/MergePullRequestBySquashResponse.proto"
     defaultService
-    (Proxy :: Proxy MergePullRequestBySquash)
+    (Proxy.Proxy :: Proxy.Proxy MergePullRequestBySquash)
 
 responseUpdateComment :: UpdateCommentResponse -> TestTree
 responseUpdateComment =
@@ -1367,7 +1367,7 @@ responseUpdateComment =
     "UpdateCommentResponse"
     "fixture/UpdateCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateComment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateComment)
 
 responsePostCommentForComparedCommit :: PostCommentForComparedCommitResponse -> TestTree
 responsePostCommentForComparedCommit =
@@ -1375,7 +1375,7 @@ responsePostCommentForComparedCommit =
     "PostCommentForComparedCommitResponse"
     "fixture/PostCommentForComparedCommitResponse.proto"
     defaultService
-    (Proxy :: Proxy PostCommentForComparedCommit)
+    (Proxy.Proxy :: Proxy.Proxy PostCommentForComparedCommit)
 
 responseMergeBranchesByFastForward :: MergeBranchesByFastForwardResponse -> TestTree
 responseMergeBranchesByFastForward =
@@ -1383,7 +1383,7 @@ responseMergeBranchesByFastForward =
     "MergeBranchesByFastForwardResponse"
     "fixture/MergeBranchesByFastForwardResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeBranchesByFastForward)
+    (Proxy.Proxy :: Proxy.Proxy MergeBranchesByFastForward)
 
 responseUpdatePullRequestTitle :: UpdatePullRequestTitleResponse -> TestTree
 responseUpdatePullRequestTitle =
@@ -1391,7 +1391,7 @@ responseUpdatePullRequestTitle =
     "UpdatePullRequestTitleResponse"
     "fixture/UpdatePullRequestTitleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePullRequestTitle)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePullRequestTitle)
 
 responseBatchDisassociateApprovalRuleTemplateFromRepositories :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse -> TestTree
 responseBatchDisassociateApprovalRuleTemplateFromRepositories =
@@ -1399,7 +1399,7 @@ responseBatchDisassociateApprovalRuleTemplateFromRepositories =
     "BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse"
     "fixture/BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateApprovalRuleTemplateFromRepositories)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateApprovalRuleTemplateFromRepositories)
 
 responseUpdatePullRequestApprovalRuleContent :: UpdatePullRequestApprovalRuleContentResponse -> TestTree
 responseUpdatePullRequestApprovalRuleContent =
@@ -1407,7 +1407,7 @@ responseUpdatePullRequestApprovalRuleContent =
     "UpdatePullRequestApprovalRuleContentResponse"
     "fixture/UpdatePullRequestApprovalRuleContentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePullRequestApprovalRuleContent)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePullRequestApprovalRuleContent)
 
 responseGetBlob :: GetBlobResponse -> TestTree
 responseGetBlob =
@@ -1415,7 +1415,7 @@ responseGetBlob =
     "GetBlobResponse"
     "fixture/GetBlobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBlob)
+    (Proxy.Proxy :: Proxy.Proxy GetBlob)
 
 responseAssociateApprovalRuleTemplateWithRepository :: AssociateApprovalRuleTemplateWithRepositoryResponse -> TestTree
 responseAssociateApprovalRuleTemplateWithRepository =
@@ -1423,7 +1423,7 @@ responseAssociateApprovalRuleTemplateWithRepository =
     "AssociateApprovalRuleTemplateWithRepositoryResponse"
     "fixture/AssociateApprovalRuleTemplateWithRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateApprovalRuleTemplateWithRepository)
+    (Proxy.Proxy :: Proxy.Proxy AssociateApprovalRuleTemplateWithRepository)
 
 responsePutRepositoryTriggers :: PutRepositoryTriggersResponse -> TestTree
 responsePutRepositoryTriggers =
@@ -1431,7 +1431,7 @@ responsePutRepositoryTriggers =
     "PutRepositoryTriggersResponse"
     "fixture/PutRepositoryTriggersResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRepositoryTriggers)
+    (Proxy.Proxy :: Proxy.Proxy PutRepositoryTriggers)
 
 responseListApprovalRuleTemplates :: ListApprovalRuleTemplatesResponse -> TestTree
 responseListApprovalRuleTemplates =
@@ -1439,7 +1439,7 @@ responseListApprovalRuleTemplates =
     "ListApprovalRuleTemplatesResponse"
     "fixture/ListApprovalRuleTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApprovalRuleTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListApprovalRuleTemplates)
 
 responseDescribeMergeConflicts :: DescribeMergeConflictsResponse -> TestTree
 responseDescribeMergeConflicts =
@@ -1447,7 +1447,7 @@ responseDescribeMergeConflicts =
     "DescribeMergeConflictsResponse"
     "fixture/DescribeMergeConflictsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMergeConflicts)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMergeConflicts)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1455,7 +1455,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseMergeBranchesByThreeWay :: MergeBranchesByThreeWayResponse -> TestTree
 responseMergeBranchesByThreeWay =
@@ -1463,7 +1463,7 @@ responseMergeBranchesByThreeWay =
     "MergeBranchesByThreeWayResponse"
     "fixture/MergeBranchesByThreeWayResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeBranchesByThreeWay)
+    (Proxy.Proxy :: Proxy.Proxy MergeBranchesByThreeWay)
 
 responseGetFile :: GetFileResponse -> TestTree
 responseGetFile =
@@ -1471,7 +1471,7 @@ responseGetFile =
     "GetFileResponse"
     "fixture/GetFileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFile)
+    (Proxy.Proxy :: Proxy.Proxy GetFile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1479,7 +1479,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetMergeConflicts :: GetMergeConflictsResponse -> TestTree
 responseGetMergeConflicts =
@@ -1487,7 +1487,7 @@ responseGetMergeConflicts =
     "GetMergeConflictsResponse"
     "fixture/GetMergeConflictsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMergeConflicts)
+    (Proxy.Proxy :: Proxy.Proxy GetMergeConflicts)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
 responseDeleteRepository =
@@ -1495,7 +1495,7 @@ responseDeleteRepository =
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRepository)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
 
 responseDeleteCommentContent :: DeleteCommentContentResponse -> TestTree
 responseDeleteCommentContent =
@@ -1503,7 +1503,7 @@ responseDeleteCommentContent =
     "DeleteCommentContentResponse"
     "fixture/DeleteCommentContentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCommentContent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCommentContent)
 
 responseMergePullRequestByThreeWay :: MergePullRequestByThreeWayResponse -> TestTree
 responseMergePullRequestByThreeWay =
@@ -1511,7 +1511,7 @@ responseMergePullRequestByThreeWay =
     "MergePullRequestByThreeWayResponse"
     "fixture/MergePullRequestByThreeWayResponse.proto"
     defaultService
-    (Proxy :: Proxy MergePullRequestByThreeWay)
+    (Proxy.Proxy :: Proxy.Proxy MergePullRequestByThreeWay)
 
 responseDescribePullRequestEvents :: DescribePullRequestEventsResponse -> TestTree
 responseDescribePullRequestEvents =
@@ -1519,7 +1519,7 @@ responseDescribePullRequestEvents =
     "DescribePullRequestEventsResponse"
     "fixture/DescribePullRequestEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePullRequestEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribePullRequestEvents)
 
 responseBatchGetRepositories :: BatchGetRepositoriesResponse -> TestTree
 responseBatchGetRepositories =
@@ -1527,7 +1527,7 @@ responseBatchGetRepositories =
     "BatchGetRepositoriesResponse"
     "fixture/BatchGetRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetRepositories)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetRepositories)
 
 responseUpdateApprovalRuleTemplateDescription :: UpdateApprovalRuleTemplateDescriptionResponse -> TestTree
 responseUpdateApprovalRuleTemplateDescription =
@@ -1535,7 +1535,7 @@ responseUpdateApprovalRuleTemplateDescription =
     "UpdateApprovalRuleTemplateDescriptionResponse"
     "fixture/UpdateApprovalRuleTemplateDescriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApprovalRuleTemplateDescription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApprovalRuleTemplateDescription)
 
 responseGetPullRequestOverrideState :: GetPullRequestOverrideStateResponse -> TestTree
 responseGetPullRequestOverrideState =
@@ -1543,7 +1543,7 @@ responseGetPullRequestOverrideState =
     "GetPullRequestOverrideStateResponse"
     "fixture/GetPullRequestOverrideStateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPullRequestOverrideState)
+    (Proxy.Proxy :: Proxy.Proxy GetPullRequestOverrideState)
 
 responseGetPullRequestApprovalStates :: GetPullRequestApprovalStatesResponse -> TestTree
 responseGetPullRequestApprovalStates =
@@ -1551,7 +1551,7 @@ responseGetPullRequestApprovalStates =
     "GetPullRequestApprovalStatesResponse"
     "fixture/GetPullRequestApprovalStatesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPullRequestApprovalStates)
+    (Proxy.Proxy :: Proxy.Proxy GetPullRequestApprovalStates)
 
 responseGetCommentsForPullRequest :: GetCommentsForPullRequestResponse -> TestTree
 responseGetCommentsForPullRequest =
@@ -1559,7 +1559,7 @@ responseGetCommentsForPullRequest =
     "GetCommentsForPullRequestResponse"
     "fixture/GetCommentsForPullRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCommentsForPullRequest)
+    (Proxy.Proxy :: Proxy.Proxy GetCommentsForPullRequest)
 
 responseUpdatePullRequestStatus :: UpdatePullRequestStatusResponse -> TestTree
 responseUpdatePullRequestStatus =
@@ -1567,7 +1567,7 @@ responseUpdatePullRequestStatus =
     "UpdatePullRequestStatusResponse"
     "fixture/UpdatePullRequestStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePullRequestStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePullRequestStatus)
 
 responseListAssociatedApprovalRuleTemplatesForRepository :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse -> TestTree
 responseListAssociatedApprovalRuleTemplatesForRepository =
@@ -1575,4 +1575,4 @@ responseListAssociatedApprovalRuleTemplatesForRepository =
     "ListAssociatedApprovalRuleTemplatesForRepositoryResponse"
     "fixture/ListAssociatedApprovalRuleTemplatesForRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedApprovalRuleTemplatesForRepository)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedApprovalRuleTemplatesForRepository)

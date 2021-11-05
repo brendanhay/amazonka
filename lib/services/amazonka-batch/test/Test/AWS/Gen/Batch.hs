@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Batch where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Batch
 import Test.AWS.Batch.Internal
 import Test.AWS.Fixture
@@ -271,7 +271,7 @@ responseCreateComputeEnvironment =
     "CreateComputeEnvironmentResponse"
     "fixture/CreateComputeEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateComputeEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy CreateComputeEnvironment)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -279,7 +279,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRegisterJobDefinition :: RegisterJobDefinitionResponse -> TestTree
 responseRegisterJobDefinition =
@@ -287,7 +287,7 @@ responseRegisterJobDefinition =
     "RegisterJobDefinitionResponse"
     "fixture/RegisterJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy RegisterJobDefinition)
 
 responseSubmitJob :: SubmitJobResponse -> TestTree
 responseSubmitJob =
@@ -295,7 +295,7 @@ responseSubmitJob =
     "SubmitJobResponse"
     "fixture/SubmitJobResponse.proto"
     defaultService
-    (Proxy :: Proxy SubmitJob)
+    (Proxy.Proxy :: Proxy.Proxy SubmitJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -303,7 +303,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseTerminateJob :: TerminateJobResponse -> TestTree
 responseTerminateJob =
@@ -311,7 +311,7 @@ responseTerminateJob =
     "TerminateJobResponse"
     "fixture/TerminateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateJob)
+    (Proxy.Proxy :: Proxy.Proxy TerminateJob)
 
 responseDescribeJobs :: DescribeJobsResponse -> TestTree
 responseDescribeJobs =
@@ -319,7 +319,7 @@ responseDescribeJobs =
     "DescribeJobsResponse"
     "fixture/DescribeJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobs)
 
 responseDeleteComputeEnvironment :: DeleteComputeEnvironmentResponse -> TestTree
 responseDeleteComputeEnvironment =
@@ -327,7 +327,7 @@ responseDeleteComputeEnvironment =
     "DeleteComputeEnvironmentResponse"
     "fixture/DeleteComputeEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteComputeEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteComputeEnvironment)
 
 responseUpdateComputeEnvironment :: UpdateComputeEnvironmentResponse -> TestTree
 responseUpdateComputeEnvironment =
@@ -335,7 +335,7 @@ responseUpdateComputeEnvironment =
     "UpdateComputeEnvironmentResponse"
     "fixture/UpdateComputeEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateComputeEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateComputeEnvironment)
 
 responseDescribeJobDefinitions :: DescribeJobDefinitionsResponse -> TestTree
 responseDescribeJobDefinitions =
@@ -343,7 +343,7 @@ responseDescribeJobDefinitions =
     "DescribeJobDefinitionsResponse"
     "fixture/DescribeJobDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobDefinitions)
 
 responseUpdateJobQueue :: UpdateJobQueueResponse -> TestTree
 responseUpdateJobQueue =
@@ -351,7 +351,7 @@ responseUpdateJobQueue =
     "UpdateJobQueueResponse"
     "fixture/UpdateJobQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJobQueue)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJobQueue)
 
 responseDeleteJobQueue :: DeleteJobQueueResponse -> TestTree
 responseDeleteJobQueue =
@@ -359,7 +359,7 @@ responseDeleteJobQueue =
     "DeleteJobQueueResponse"
     "fixture/DeleteJobQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJobQueue)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJobQueue)
 
 responseCreateJobQueue :: CreateJobQueueResponse -> TestTree
 responseCreateJobQueue =
@@ -367,7 +367,7 @@ responseCreateJobQueue =
     "CreateJobQueueResponse"
     "fixture/CreateJobQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJobQueue)
+    (Proxy.Proxy :: Proxy.Proxy CreateJobQueue)
 
 responseDeregisterJobDefinition :: DeregisterJobDefinitionResponse -> TestTree
 responseDeregisterJobDefinition =
@@ -375,7 +375,7 @@ responseDeregisterJobDefinition =
     "DeregisterJobDefinitionResponse"
     "fixture/DeregisterJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterJobDefinition)
 
 responseDescribeJobQueues :: DescribeJobQueuesResponse -> TestTree
 responseDescribeJobQueues =
@@ -383,7 +383,7 @@ responseDescribeJobQueues =
     "DescribeJobQueuesResponse"
     "fixture/DescribeJobQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJobQueues)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobQueues)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -391,7 +391,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -399,7 +399,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeComputeEnvironments :: DescribeComputeEnvironmentsResponse -> TestTree
 responseDescribeComputeEnvironments =
@@ -407,7 +407,7 @@ responseDescribeComputeEnvironments =
     "DescribeComputeEnvironmentsResponse"
     "fixture/DescribeComputeEnvironmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComputeEnvironments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComputeEnvironments)
 
 responseCancelJob :: CancelJobResponse -> TestTree
 responseCancelJob =
@@ -415,4 +415,4 @@ responseCancelJob =
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)

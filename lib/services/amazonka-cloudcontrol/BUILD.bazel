@@ -1,0 +1,71 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-cloudcontrol/amazonka-cloudcontrol.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-cloudcontrol",
+    srcs = [
+        "gen/Network/AWS/CloudControl.hs",
+        "gen/Network/AWS/CloudControl/CancelResourceRequest.hs",
+        "gen/Network/AWS/CloudControl/CreateResource.hs",
+        "gen/Network/AWS/CloudControl/DeleteResource.hs",
+        "gen/Network/AWS/CloudControl/GetResource.hs",
+        "gen/Network/AWS/CloudControl/GetResourceRequestStatus.hs",
+        "gen/Network/AWS/CloudControl/Lens.hs",
+        "gen/Network/AWS/CloudControl/ListResourceRequests.hs",
+        "gen/Network/AWS/CloudControl/ListResources.hs",
+        "gen/Network/AWS/CloudControl/Types.hs",
+        "gen/Network/AWS/CloudControl/Types/HandlerErrorCode.hs",
+        "gen/Network/AWS/CloudControl/Types/Operation.hs",
+        "gen/Network/AWS/CloudControl/Types/OperationStatus.hs",
+        "gen/Network/AWS/CloudControl/Types/ProgressEvent.hs",
+        "gen/Network/AWS/CloudControl/Types/ResourceDescription.hs",
+        "gen/Network/AWS/CloudControl/Types/ResourceRequestStatusFilter.hs",
+        "gen/Network/AWS/CloudControl/UpdateResource.hs",
+        "gen/Network/AWS/CloudControl/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cloudcontrol=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-cloudcontrol/amazonka-cloudcontrol.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-cloudcontrol-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/CloudControl.hs",
+        "test/Test/AWS/CloudControl/Internal.hs",
+        "test/Test/AWS/Gen/CloudControl.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cloudcontrol=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-cloudcontrol",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudTrail where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudTrail
 import Test.AWS.CloudTrail.Internal
 import Test.AWS.Fixture
@@ -259,7 +259,7 @@ responseDescribeTrails =
     "DescribeTrailsResponse"
     "fixture/DescribeTrailsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrails)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrails)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
 responseListPublicKeys =
@@ -267,7 +267,7 @@ responseListPublicKeys =
     "ListPublicKeysResponse"
     "fixture/ListPublicKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPublicKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListPublicKeys)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -275,7 +275,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseLookupEvents :: LookupEventsResponse -> TestTree
 responseLookupEvents =
@@ -283,7 +283,7 @@ responseLookupEvents =
     "LookupEventsResponse"
     "fixture/LookupEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy LookupEvents)
+    (Proxy.Proxy :: Proxy.Proxy LookupEvents)
 
 responseStopLogging :: StopLoggingResponse -> TestTree
 responseStopLogging =
@@ -291,7 +291,7 @@ responseStopLogging =
     "StopLoggingResponse"
     "fixture/StopLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy StopLogging)
+    (Proxy.Proxy :: Proxy.Proxy StopLogging)
 
 responseDeleteTrail :: DeleteTrailResponse -> TestTree
 responseDeleteTrail =
@@ -299,7 +299,7 @@ responseDeleteTrail =
     "DeleteTrailResponse"
     "fixture/DeleteTrailResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrail)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrail)
 
 responseUpdateTrail :: UpdateTrailResponse -> TestTree
 responseUpdateTrail =
@@ -307,7 +307,7 @@ responseUpdateTrail =
     "UpdateTrailResponse"
     "fixture/UpdateTrailResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrail)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrail)
 
 responseCreateTrail :: CreateTrailResponse -> TestTree
 responseCreateTrail =
@@ -315,7 +315,7 @@ responseCreateTrail =
     "CreateTrailResponse"
     "fixture/CreateTrailResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrail)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrail)
 
 responsePutInsightSelectors :: PutInsightSelectorsResponse -> TestTree
 responsePutInsightSelectors =
@@ -323,7 +323,7 @@ responsePutInsightSelectors =
     "PutInsightSelectorsResponse"
     "fixture/PutInsightSelectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInsightSelectors)
+    (Proxy.Proxy :: Proxy.Proxy PutInsightSelectors)
 
 responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
 responseGetEventSelectors =
@@ -331,7 +331,7 @@ responseGetEventSelectors =
     "GetEventSelectorsResponse"
     "fixture/GetEventSelectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventSelectors)
+    (Proxy.Proxy :: Proxy.Proxy GetEventSelectors)
 
 responseGetTrail :: GetTrailResponse -> TestTree
 responseGetTrail =
@@ -339,7 +339,7 @@ responseGetTrail =
     "GetTrailResponse"
     "fixture/GetTrailResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTrail)
+    (Proxy.Proxy :: Proxy.Proxy GetTrail)
 
 responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
 responseGetTrailStatus =
@@ -347,7 +347,7 @@ responseGetTrailStatus =
     "GetTrailStatusResponse"
     "fixture/GetTrailStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTrailStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetTrailStatus)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -355,7 +355,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -363,7 +363,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
 responsePutEventSelectors =
@@ -371,7 +371,7 @@ responsePutEventSelectors =
     "PutEventSelectorsResponse"
     "fixture/PutEventSelectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEventSelectors)
+    (Proxy.Proxy :: Proxy.Proxy PutEventSelectors)
 
 responseStartLogging :: StartLoggingResponse -> TestTree
 responseStartLogging =
@@ -379,7 +379,7 @@ responseStartLogging =
     "StartLoggingResponse"
     "fixture/StartLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy StartLogging)
+    (Proxy.Proxy :: Proxy.Proxy StartLogging)
 
 responseListTrails :: ListTrailsResponse -> TestTree
 responseListTrails =
@@ -387,7 +387,7 @@ responseListTrails =
     "ListTrailsResponse"
     "fixture/ListTrailsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrails)
+    (Proxy.Proxy :: Proxy.Proxy ListTrails)
 
 responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
 responseGetInsightSelectors =
@@ -395,4 +395,4 @@ responseGetInsightSelectors =
     "GetInsightSelectorsResponse"
     "fixture/GetInsightSelectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsightSelectors)
+    (Proxy.Proxy :: Proxy.Proxy GetInsightSelectors)

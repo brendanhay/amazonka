@@ -3,11 +3,11 @@
         "serviceAbbreviation": "ECS"
     },
     "waiters": {
-       "ServicesStable": {
+        "ServicesStable": {
             "operation": "DescribeServices",
             "maxAttempts": 40,
             "delay": 15,
             "acceptors": []
-       }
+        }
     }
 }

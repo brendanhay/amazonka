@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MachineLearning where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MachineLearning
 import Test.AWS.Fixture
 import Test.AWS.MachineLearning.Internal
@@ -379,7 +379,7 @@ responseUpdateDataSource =
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
 responseDeleteDataSource =
@@ -387,7 +387,7 @@ responseDeleteDataSource =
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -395,7 +395,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
 responseCreateDataSourceFromRedshift =
@@ -403,7 +403,7 @@ responseCreateDataSourceFromRedshift =
     "CreateDataSourceFromRedshiftResponse"
     "fixture/CreateDataSourceFromRedshiftResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSourceFromRedshift)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSourceFromRedshift)
 
 responseCreateDataSourceFromS3 :: CreateDataSourceFromS3Response -> TestTree
 responseCreateDataSourceFromS3 =
@@ -411,7 +411,7 @@ responseCreateDataSourceFromS3 =
     "CreateDataSourceFromS3Response"
     "fixture/CreateDataSourceFromS3Response.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSourceFromS3)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSourceFromS3)
 
 responseCreateMLModel :: CreateMLModelResponse -> TestTree
 responseCreateMLModel =
@@ -419,7 +419,7 @@ responseCreateMLModel =
     "CreateMLModelResponse"
     "fixture/CreateMLModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMLModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateMLModel)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -427,7 +427,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
 responseDeleteBatchPrediction =
@@ -435,7 +435,7 @@ responseDeleteBatchPrediction =
     "DeleteBatchPredictionResponse"
     "fixture/DeleteBatchPredictionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBatchPrediction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBatchPrediction)
 
 responseUpdateBatchPrediction :: UpdateBatchPredictionResponse -> TestTree
 responseUpdateBatchPrediction =
@@ -443,7 +443,7 @@ responseUpdateBatchPrediction =
     "UpdateBatchPredictionResponse"
     "fixture/UpdateBatchPredictionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBatchPrediction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBatchPrediction)
 
 responseGetMLModel :: GetMLModelResponse -> TestTree
 responseGetMLModel =
@@ -451,7 +451,7 @@ responseGetMLModel =
     "GetMLModelResponse"
     "fixture/GetMLModelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMLModel)
+    (Proxy.Proxy :: Proxy.Proxy GetMLModel)
 
 responseGetDataSource :: GetDataSourceResponse -> TestTree
 responseGetDataSource =
@@ -459,7 +459,7 @@ responseGetDataSource =
     "GetDataSourceResponse"
     "fixture/GetDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataSource)
+    (Proxy.Proxy :: Proxy.Proxy GetDataSource)
 
 responseUpdateEvaluation :: UpdateEvaluationResponse -> TestTree
 responseUpdateEvaluation =
@@ -467,7 +467,7 @@ responseUpdateEvaluation =
     "UpdateEvaluationResponse"
     "fixture/UpdateEvaluationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEvaluation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEvaluation)
 
 responseDeleteEvaluation :: DeleteEvaluationResponse -> TestTree
 responseDeleteEvaluation =
@@ -475,7 +475,7 @@ responseDeleteEvaluation =
     "DeleteEvaluationResponse"
     "fixture/DeleteEvaluationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEvaluation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEvaluation)
 
 responseDeleteMLModel :: DeleteMLModelResponse -> TestTree
 responseDeleteMLModel =
@@ -483,7 +483,7 @@ responseDeleteMLModel =
     "DeleteMLModelResponse"
     "fixture/DeleteMLModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMLModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMLModel)
 
 responseUpdateMLModel :: UpdateMLModelResponse -> TestTree
 responseUpdateMLModel =
@@ -491,7 +491,7 @@ responseUpdateMLModel =
     "UpdateMLModelResponse"
     "fixture/UpdateMLModelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMLModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMLModel)
 
 responseGetBatchPrediction :: GetBatchPredictionResponse -> TestTree
 responseGetBatchPrediction =
@@ -499,7 +499,7 @@ responseGetBatchPrediction =
     "GetBatchPredictionResponse"
     "fixture/GetBatchPredictionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBatchPrediction)
+    (Proxy.Proxy :: Proxy.Proxy GetBatchPrediction)
 
 responseDescribeBatchPredictions :: DescribeBatchPredictionsResponse -> TestTree
 responseDescribeBatchPredictions =
@@ -507,7 +507,7 @@ responseDescribeBatchPredictions =
     "DescribeBatchPredictionsResponse"
     "fixture/DescribeBatchPredictionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBatchPredictions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBatchPredictions)
 
 responseCreateDataSourceFromRDS :: CreateDataSourceFromRDSResponse -> TestTree
 responseCreateDataSourceFromRDS =
@@ -515,7 +515,7 @@ responseCreateDataSourceFromRDS =
     "CreateDataSourceFromRDSResponse"
     "fixture/CreateDataSourceFromRDSResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSourceFromRDS)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataSourceFromRDS)
 
 responseCreateEvaluation :: CreateEvaluationResponse -> TestTree
 responseCreateEvaluation =
@@ -523,7 +523,7 @@ responseCreateEvaluation =
     "CreateEvaluationResponse"
     "fixture/CreateEvaluationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEvaluation)
+    (Proxy.Proxy :: Proxy.Proxy CreateEvaluation)
 
 responsePredict :: PredictResponse -> TestTree
 responsePredict =
@@ -531,7 +531,7 @@ responsePredict =
     "PredictResponse"
     "fixture/PredictResponse.proto"
     defaultService
-    (Proxy :: Proxy Predict)
+    (Proxy.Proxy :: Proxy.Proxy Predict)
 
 responseDeleteRealtimeEndpoint :: DeleteRealtimeEndpointResponse -> TestTree
 responseDeleteRealtimeEndpoint =
@@ -539,7 +539,7 @@ responseDeleteRealtimeEndpoint =
     "DeleteRealtimeEndpointResponse"
     "fixture/DeleteRealtimeEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRealtimeEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRealtimeEndpoint)
 
 responseCreateBatchPrediction :: CreateBatchPredictionResponse -> TestTree
 responseCreateBatchPrediction =
@@ -547,7 +547,7 @@ responseCreateBatchPrediction =
     "CreateBatchPredictionResponse"
     "fixture/CreateBatchPredictionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBatchPrediction)
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchPrediction)
 
 responseGetEvaluation :: GetEvaluationResponse -> TestTree
 responseGetEvaluation =
@@ -555,7 +555,7 @@ responseGetEvaluation =
     "GetEvaluationResponse"
     "fixture/GetEvaluationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEvaluation)
+    (Proxy.Proxy :: Proxy.Proxy GetEvaluation)
 
 responseDescribeEvaluations :: DescribeEvaluationsResponse -> TestTree
 responseDescribeEvaluations =
@@ -563,7 +563,7 @@ responseDescribeEvaluations =
     "DescribeEvaluationsResponse"
     "fixture/DescribeEvaluationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvaluations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvaluations)
 
 responseCreateRealtimeEndpoint :: CreateRealtimeEndpointResponse -> TestTree
 responseCreateRealtimeEndpoint =
@@ -571,7 +571,7 @@ responseCreateRealtimeEndpoint =
     "CreateRealtimeEndpointResponse"
     "fixture/CreateRealtimeEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRealtimeEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateRealtimeEndpoint)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -579,7 +579,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseDescribeMLModels :: DescribeMLModelsResponse -> TestTree
 responseDescribeMLModels =
@@ -587,7 +587,7 @@ responseDescribeMLModels =
     "DescribeMLModelsResponse"
     "fixture/DescribeMLModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMLModels)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMLModels)
 
 responseDescribeDataSources :: DescribeDataSourcesResponse -> TestTree
 responseDescribeDataSources =
@@ -595,4 +595,4 @@ responseDescribeDataSources =
     "DescribeDataSourcesResponse"
     "fixture/DescribeDataSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataSources)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSources)

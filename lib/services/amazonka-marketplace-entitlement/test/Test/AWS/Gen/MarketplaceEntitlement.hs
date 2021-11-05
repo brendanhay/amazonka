@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceEntitlement where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MarketplaceEntitlement
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceEntitlement.Internal
@@ -55,4 +55,4 @@ responseGetEntitlements =
     "GetEntitlementsResponse"
     "fixture/GetEntitlementsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEntitlements)
+    (Proxy.Proxy :: Proxy.Proxy GetEntitlements)

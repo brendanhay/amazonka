@@ -1,0 +1,195 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Chime.PutRetentionSettings
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Puts retention settings for the specified Amazon Chime Enterprise
+-- account. We recommend using AWS CloudTrail to monitor usage of this API
+-- for your account. For more information, see
+-- <https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html Logging Amazon Chime API Calls with AWS CloudTrail>
+-- in the /Amazon Chime Administration Guide/.
+--
+-- To turn off existing retention settings, remove the number of days from
+-- the corresponding __RetentionDays__ field in the __RetentionSettings__
+-- object. For more information about retention settings, see
+-- <https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html Managing Chat Retention Policies>
+-- in the /Amazon Chime Administration Guide/.
+module Network.AWS.Chime.PutRetentionSettings
+  ( -- * Creating a Request
+    PutRetentionSettings (..),
+    newPutRetentionSettings,
+
+    -- * Request Lenses
+    putRetentionSettings_accountId,
+    putRetentionSettings_retentionSettings,
+
+    -- * Destructuring the Response
+    PutRetentionSettingsResponse (..),
+    newPutRetentionSettingsResponse,
+
+    -- * Response Lenses
+    putRetentionSettingsResponse_retentionSettings,
+    putRetentionSettingsResponse_initiateDeletionTimestamp,
+    putRetentionSettingsResponse_httpStatus,
+  )
+where
+
+import Network.AWS.Chime.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newPutRetentionSettings' smart constructor.
+data PutRetentionSettings = PutRetentionSettings'
+  { -- | The Amazon Chime account ID.
+    accountId :: Prelude.Text,
+    -- | The retention settings.
+    retentionSettings :: RetentionSettings
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutRetentionSettings' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'accountId', 'putRetentionSettings_accountId' - The Amazon Chime account ID.
+--
+-- 'retentionSettings', 'putRetentionSettings_retentionSettings' - The retention settings.
+newPutRetentionSettings ::
+  -- | 'accountId'
+  Prelude.Text ->
+  -- | 'retentionSettings'
+  RetentionSettings ->
+  PutRetentionSettings
+newPutRetentionSettings
+  pAccountId_
+  pRetentionSettings_ =
+    PutRetentionSettings'
+      { accountId = pAccountId_,
+        retentionSettings = pRetentionSettings_
+      }
+
+-- | The Amazon Chime account ID.
+putRetentionSettings_accountId :: Lens.Lens' PutRetentionSettings Prelude.Text
+putRetentionSettings_accountId = Lens.lens (\PutRetentionSettings' {accountId} -> accountId) (\s@PutRetentionSettings' {} a -> s {accountId = a} :: PutRetentionSettings)
+
+-- | The retention settings.
+putRetentionSettings_retentionSettings :: Lens.Lens' PutRetentionSettings RetentionSettings
+putRetentionSettings_retentionSettings = Lens.lens (\PutRetentionSettings' {retentionSettings} -> retentionSettings) (\s@PutRetentionSettings' {} a -> s {retentionSettings = a} :: PutRetentionSettings)
+
+instance Core.AWSRequest PutRetentionSettings where
+  type
+    AWSResponse PutRetentionSettings =
+      PutRetentionSettingsResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutRetentionSettingsResponse'
+            Prelude.<$> (x Core..?> "RetentionSettings")
+            Prelude.<*> (x Core..?> "InitiateDeletionTimestamp")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable PutRetentionSettings
+
+instance Prelude.NFData PutRetentionSettings
+
+instance Core.ToHeaders PutRetentionSettings where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToJSON PutRetentionSettings where
+  toJSON PutRetentionSettings' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("RetentionSettings" Core..= retentionSettings)
+          ]
+      )
+
+instance Core.ToPath PutRetentionSettings where
+  toPath PutRetentionSettings' {..} =
+    Prelude.mconcat
+      [ "/accounts/",
+        Core.toBS accountId,
+        "/retention-settings"
+      ]
+
+instance Core.ToQuery PutRetentionSettings where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newPutRetentionSettingsResponse' smart constructor.
+data PutRetentionSettingsResponse = PutRetentionSettingsResponse'
+  { -- | The retention settings.
+    retentionSettings :: Prelude.Maybe RetentionSettings,
+    -- | The timestamp representing the time at which the specified items are
+    -- permanently deleted, in ISO 8601 format.
+    initiateDeletionTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutRetentionSettingsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'retentionSettings', 'putRetentionSettingsResponse_retentionSettings' - The retention settings.
+--
+-- 'initiateDeletionTimestamp', 'putRetentionSettingsResponse_initiateDeletionTimestamp' - The timestamp representing the time at which the specified items are
+-- permanently deleted, in ISO 8601 format.
+--
+-- 'httpStatus', 'putRetentionSettingsResponse_httpStatus' - The response's http status code.
+newPutRetentionSettingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutRetentionSettingsResponse
+newPutRetentionSettingsResponse pHttpStatus_ =
+  PutRetentionSettingsResponse'
+    { retentionSettings =
+        Prelude.Nothing,
+      initiateDeletionTimestamp = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The retention settings.
+putRetentionSettingsResponse_retentionSettings :: Lens.Lens' PutRetentionSettingsResponse (Prelude.Maybe RetentionSettings)
+putRetentionSettingsResponse_retentionSettings = Lens.lens (\PutRetentionSettingsResponse' {retentionSettings} -> retentionSettings) (\s@PutRetentionSettingsResponse' {} a -> s {retentionSettings = a} :: PutRetentionSettingsResponse)
+
+-- | The timestamp representing the time at which the specified items are
+-- permanently deleted, in ISO 8601 format.
+putRetentionSettingsResponse_initiateDeletionTimestamp :: Lens.Lens' PutRetentionSettingsResponse (Prelude.Maybe Prelude.UTCTime)
+putRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\PutRetentionSettingsResponse' {initiateDeletionTimestamp} -> initiateDeletionTimestamp) (\s@PutRetentionSettingsResponse' {} a -> s {initiateDeletionTimestamp = a} :: PutRetentionSettingsResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The response's http status code.
+putRetentionSettingsResponse_httpStatus :: Lens.Lens' PutRetentionSettingsResponse Prelude.Int
+putRetentionSettingsResponse_httpStatus = Lens.lens (\PutRetentionSettingsResponse' {httpStatus} -> httpStatus) (\s@PutRetentionSettingsResponse' {} a -> s {httpStatus = a} :: PutRetentionSettingsResponse)
+
+instance Prelude.NFData PutRetentionSettingsResponse

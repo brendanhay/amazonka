@@ -1,0 +1,77 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-connectparticipant/amazonka-connectparticipant.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-connectparticipant",
+    srcs = [
+        "gen/Network/AWS/ConnectParticipant.hs",
+        "gen/Network/AWS/ConnectParticipant/CompleteAttachmentUpload.hs",
+        "gen/Network/AWS/ConnectParticipant/CreateParticipantConnection.hs",
+        "gen/Network/AWS/ConnectParticipant/DisconnectParticipant.hs",
+        "gen/Network/AWS/ConnectParticipant/GetAttachment.hs",
+        "gen/Network/AWS/ConnectParticipant/GetTranscript.hs",
+        "gen/Network/AWS/ConnectParticipant/Lens.hs",
+        "gen/Network/AWS/ConnectParticipant/SendEvent.hs",
+        "gen/Network/AWS/ConnectParticipant/SendMessage.hs",
+        "gen/Network/AWS/ConnectParticipant/StartAttachmentUpload.hs",
+        "gen/Network/AWS/ConnectParticipant/Types.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/ArtifactStatus.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/AttachmentItem.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/ChatItemType.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/ConnectionCredentials.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/ConnectionType.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/Item.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/ParticipantRole.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/ScanDirection.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/SortKey.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/StartPosition.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/UploadMetadata.hs",
+        "gen/Network/AWS/ConnectParticipant/Types/Websocket.hs",
+        "gen/Network/AWS/ConnectParticipant/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_connectparticipant=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-connectparticipant/amazonka-connectparticipant.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-connectparticipant-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/ConnectParticipant.hs",
+        "test/Test/AWS/ConnectParticipant/Internal.hs",
+        "test/Test/AWS/Gen/ConnectParticipant.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_connectparticipant=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-connectparticipant",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RDS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.RDS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1687,7 +1687,7 @@ responseStartDBCluster =
     "StartDBClusterResponse"
     "fixture/StartDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy StartDBCluster)
 
 responseDescribeDBClusterParameterGroups :: DescribeDBClusterParameterGroupsResponse -> TestTree
 responseDescribeDBClusterParameterGroups =
@@ -1695,7 +1695,7 @@ responseDescribeDBClusterParameterGroups =
     "DescribeDBClusterParameterGroupsResponse"
     "fixture/DescribeDBClusterParameterGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusterParameterGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusterParameterGroups)
 
 responsePromoteReadReplica :: PromoteReadReplicaResponse -> TestTree
 responsePromoteReadReplica =
@@ -1703,7 +1703,7 @@ responsePromoteReadReplica =
     "PromoteReadReplicaResponse"
     "fixture/PromoteReadReplicaResponse.proto"
     defaultService
-    (Proxy :: Proxy PromoteReadReplica)
+    (Proxy.Proxy :: Proxy.Proxy PromoteReadReplica)
 
 responseDescribeDBEngineVersions :: DescribeDBEngineVersionsResponse -> TestTree
 responseDescribeDBEngineVersions =
@@ -1711,7 +1711,7 @@ responseDescribeDBEngineVersions =
     "DescribeDBEngineVersionsResponse"
     "fixture/DescribeDBEngineVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBEngineVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBEngineVersions)
 
 responseStopDBInstance :: StopDBInstanceResponse -> TestTree
 responseStopDBInstance =
@@ -1719,7 +1719,7 @@ responseStopDBInstance =
     "StopDBInstanceResponse"
     "fixture/StopDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy StopDBInstance)
 
 responseModifyDBClusterEndpoint :: DBClusterEndpoint -> TestTree
 responseModifyDBClusterEndpoint =
@@ -1727,7 +1727,7 @@ responseModifyDBClusterEndpoint =
     "ModifyDBClusterEndpointResponse"
     "fixture/ModifyDBClusterEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBClusterEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBClusterEndpoint)
 
 responseDescribeDBProxyEndpoints :: DescribeDBProxyEndpointsResponse -> TestTree
 responseDescribeDBProxyEndpoints =
@@ -1735,7 +1735,7 @@ responseDescribeDBProxyEndpoints =
     "DescribeDBProxyEndpointsResponse"
     "fixture/DescribeDBProxyEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBProxyEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBProxyEndpoints)
 
 responseCopyDBSnapshot :: CopyDBSnapshotResponse -> TestTree
 responseCopyDBSnapshot =
@@ -1743,7 +1743,7 @@ responseCopyDBSnapshot =
     "CopyDBSnapshotResponse"
     "fixture/CopyDBSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyDBSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopyDBSnapshot)
 
 responseAddSourceIdentifierToSubscription :: AddSourceIdentifierToSubscriptionResponse -> TestTree
 responseAddSourceIdentifierToSubscription =
@@ -1751,7 +1751,7 @@ responseAddSourceIdentifierToSubscription =
     "AddSourceIdentifierToSubscriptionResponse"
     "fixture/AddSourceIdentifierToSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddSourceIdentifierToSubscription)
+    (Proxy.Proxy :: Proxy.Proxy AddSourceIdentifierToSubscription)
 
 responseModifyDBInstance :: ModifyDBInstanceResponse -> TestTree
 responseModifyDBInstance =
@@ -1759,7 +1759,7 @@ responseModifyDBInstance =
     "ModifyDBInstanceResponse"
     "fixture/ModifyDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBInstance)
 
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
 responseModifyEventSubscription =
@@ -1767,7 +1767,7 @@ responseModifyEventSubscription =
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyEventSubscription)
+    (Proxy.Proxy :: Proxy.Proxy ModifyEventSubscription)
 
 responseResetDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
 responseResetDBClusterParameterGroup =
@@ -1775,7 +1775,7 @@ responseResetDBClusterParameterGroup =
     "ResetDBClusterParameterGroupResponse"
     "fixture/ResetDBClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetDBClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ResetDBClusterParameterGroup)
 
 responseDescribeCustomAvailabilityZones :: DescribeCustomAvailabilityZonesResponse -> TestTree
 responseDescribeCustomAvailabilityZones =
@@ -1783,7 +1783,7 @@ responseDescribeCustomAvailabilityZones =
     "DescribeCustomAvailabilityZonesResponse"
     "fixture/DescribeCustomAvailabilityZonesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomAvailabilityZones)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomAvailabilityZones)
 
 responseRestoreDBClusterFromS3 :: RestoreDBClusterFromS3Response -> TestTree
 responseRestoreDBClusterFromS3 =
@@ -1791,7 +1791,7 @@ responseRestoreDBClusterFromS3 =
     "RestoreDBClusterFromS3Response"
     "fixture/RestoreDBClusterFromS3Response.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBClusterFromS3)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDBClusterFromS3)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -1799,7 +1799,7 @@ responseDescribeEvents =
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
 responseDescribeEngineDefaultParameters :: DescribeEngineDefaultParametersResponse -> TestTree
 responseDescribeEngineDefaultParameters =
@@ -1807,7 +1807,7 @@ responseDescribeEngineDefaultParameters =
     "DescribeEngineDefaultParametersResponse"
     "fixture/DescribeEngineDefaultParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEngineDefaultParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEngineDefaultParameters)
 
 responseDescribeOptionGroups :: DescribeOptionGroupsResponse -> TestTree
 responseDescribeOptionGroups =
@@ -1815,7 +1815,7 @@ responseDescribeOptionGroups =
     "DescribeOptionGroupsResponse"
     "fixture/DescribeOptionGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOptionGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOptionGroups)
 
 responseDescribeDBLogFiles :: DescribeDBLogFilesResponse -> TestTree
 responseDescribeDBLogFiles =
@@ -1823,7 +1823,7 @@ responseDescribeDBLogFiles =
     "DescribeDBLogFilesResponse"
     "fixture/DescribeDBLogFilesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBLogFiles)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBLogFiles)
 
 responseDescribeDBClusters :: DescribeDBClustersResponse -> TestTree
 responseDescribeDBClusters =
@@ -1831,7 +1831,7 @@ responseDescribeDBClusters =
     "DescribeDBClustersResponse"
     "fixture/DescribeDBClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusters)
 
 responseModifyDBSubnetGroup :: ModifyDBSubnetGroupResponse -> TestTree
 responseModifyDBSubnetGroup =
@@ -1839,7 +1839,7 @@ responseModifyDBSubnetGroup =
     "ModifyDBSubnetGroupResponse"
     "fixture/ModifyDBSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBSubnetGroup)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1847,7 +1847,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteOptionGroup :: DeleteOptionGroupResponse -> TestTree
 responseDeleteOptionGroup =
@@ -1855,7 +1855,7 @@ responseDeleteOptionGroup =
     "DeleteOptionGroupResponse"
     "fixture/DeleteOptionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOptionGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOptionGroup)
 
 responseCreateDBProxyEndpoint :: CreateDBProxyEndpointResponse -> TestTree
 responseCreateDBProxyEndpoint =
@@ -1863,7 +1863,7 @@ responseCreateDBProxyEndpoint =
     "CreateDBProxyEndpointResponse"
     "fixture/CreateDBProxyEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBProxyEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBProxyEndpoint)
 
 responseDeleteDBCluster :: DeleteDBClusterResponse -> TestTree
 responseDeleteDBCluster =
@@ -1871,7 +1871,7 @@ responseDeleteDBCluster =
     "DeleteDBClusterResponse"
     "fixture/DeleteDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBCluster)
 
 responseDescribeReservedDBInstances :: DescribeReservedDBInstancesResponse -> TestTree
 responseDescribeReservedDBInstances =
@@ -1879,7 +1879,7 @@ responseDescribeReservedDBInstances =
     "DescribeReservedDBInstancesResponse"
     "fixture/DescribeReservedDBInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedDBInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedDBInstances)
 
 responseCopyDBParameterGroup :: CopyDBParameterGroupResponse -> TestTree
 responseCopyDBParameterGroup =
@@ -1887,7 +1887,7 @@ responseCopyDBParameterGroup =
     "CopyDBParameterGroupResponse"
     "fixture/CopyDBParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyDBParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CopyDBParameterGroup)
 
 responseRemoveSourceIdentifierFromSubscription :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
 responseRemoveSourceIdentifierFromSubscription =
@@ -1895,7 +1895,7 @@ responseRemoveSourceIdentifierFromSubscription =
     "RemoveSourceIdentifierFromSubscriptionResponse"
     "fixture/RemoveSourceIdentifierFromSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveSourceIdentifierFromSubscription)
+    (Proxy.Proxy :: Proxy.Proxy RemoveSourceIdentifierFromSubscription)
 
 responseDeleteCustomAvailabilityZone :: DeleteCustomAvailabilityZoneResponse -> TestTree
 responseDeleteCustomAvailabilityZone =
@@ -1903,7 +1903,7 @@ responseDeleteCustomAvailabilityZone =
     "DeleteCustomAvailabilityZoneResponse"
     "fixture/DeleteCustomAvailabilityZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomAvailabilityZone)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomAvailabilityZone)
 
 responseDescribeDBProxyTargets :: DescribeDBProxyTargetsResponse -> TestTree
 responseDescribeDBProxyTargets =
@@ -1911,7 +1911,7 @@ responseDescribeDBProxyTargets =
     "DescribeDBProxyTargetsResponse"
     "fixture/DescribeDBProxyTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBProxyTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBProxyTargets)
 
 responseStartDBInstanceAutomatedBackupsReplication :: StartDBInstanceAutomatedBackupsReplicationResponse -> TestTree
 responseStartDBInstanceAutomatedBackupsReplication =
@@ -1919,7 +1919,7 @@ responseStartDBInstanceAutomatedBackupsReplication =
     "StartDBInstanceAutomatedBackupsReplicationResponse"
     "fixture/StartDBInstanceAutomatedBackupsReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDBInstanceAutomatedBackupsReplication)
+    (Proxy.Proxy :: Proxy.Proxy StartDBInstanceAutomatedBackupsReplication)
 
 responseDescribeEngineDefaultClusterParameters :: DescribeEngineDefaultClusterParametersResponse -> TestTree
 responseDescribeEngineDefaultClusterParameters =
@@ -1927,7 +1927,7 @@ responseDescribeEngineDefaultClusterParameters =
     "DescribeEngineDefaultClusterParametersResponse"
     "fixture/DescribeEngineDefaultClusterParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEngineDefaultClusterParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEngineDefaultClusterParameters)
 
 responseDescribeDBSnapshotAttributes :: DescribeDBSnapshotAttributesResponse -> TestTree
 responseDescribeDBSnapshotAttributes =
@@ -1935,7 +1935,7 @@ responseDescribeDBSnapshotAttributes =
     "DescribeDBSnapshotAttributesResponse"
     "fixture/DescribeDBSnapshotAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBSnapshotAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBSnapshotAttributes)
 
 responseCreateCustomAvailabilityZone :: CreateCustomAvailabilityZoneResponse -> TestTree
 responseCreateCustomAvailabilityZone =
@@ -1943,7 +1943,7 @@ responseCreateCustomAvailabilityZone =
     "CreateCustomAvailabilityZoneResponse"
     "fixture/CreateCustomAvailabilityZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomAvailabilityZone)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomAvailabilityZone)
 
 responseBacktrackDBCluster :: DBClusterBacktrack -> TestTree
 responseBacktrackDBCluster =
@@ -1951,7 +1951,7 @@ responseBacktrackDBCluster =
     "BacktrackDBClusterResponse"
     "fixture/BacktrackDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy BacktrackDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy BacktrackDBCluster)
 
 responseDeleteGlobalCluster :: DeleteGlobalClusterResponse -> TestTree
 responseDeleteGlobalCluster =
@@ -1959,7 +1959,7 @@ responseDeleteGlobalCluster =
     "DeleteGlobalClusterResponse"
     "fixture/DeleteGlobalClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGlobalCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGlobalCluster)
 
 responsePromoteReadReplicaDBCluster :: PromoteReadReplicaDBClusterResponse -> TestTree
 responsePromoteReadReplicaDBCluster =
@@ -1967,7 +1967,7 @@ responsePromoteReadReplicaDBCluster =
     "PromoteReadReplicaDBClusterResponse"
     "fixture/PromoteReadReplicaDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy PromoteReadReplicaDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy PromoteReadReplicaDBCluster)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource =
@@ -1975,7 +1975,7 @@ responseRemoveTagsFromResource =
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
 responseRestoreDBInstanceFromDBSnapshot :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
 responseRestoreDBInstanceFromDBSnapshot =
@@ -1983,7 +1983,7 @@ responseRestoreDBInstanceFromDBSnapshot =
     "RestoreDBInstanceFromDBSnapshotResponse"
     "fixture/RestoreDBInstanceFromDBSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBInstanceFromDBSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDBInstanceFromDBSnapshot)
 
 responseDeleteDBProxy :: DeleteDBProxyResponse -> TestTree
 responseDeleteDBProxy =
@@ -1991,7 +1991,7 @@ responseDeleteDBProxy =
     "DeleteDBProxyResponse"
     "fixture/DeleteDBProxyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBProxy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBProxy)
 
 responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
 responseCreateEventSubscription =
@@ -1999,7 +1999,7 @@ responseCreateEventSubscription =
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEventSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventSubscription)
 
 responsePurchaseReservedDBInstancesOffering :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
 responsePurchaseReservedDBInstancesOffering =
@@ -2007,7 +2007,7 @@ responsePurchaseReservedDBInstancesOffering =
     "PurchaseReservedDBInstancesOfferingResponse"
     "fixture/PurchaseReservedDBInstancesOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseReservedDBInstancesOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedDBInstancesOffering)
 
 responseCreateDBInstance :: CreateDBInstanceResponse -> TestTree
 responseCreateDBInstance =
@@ -2015,7 +2015,7 @@ responseCreateDBInstance =
     "CreateDBInstanceResponse"
     "fixture/CreateDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBInstance)
 
 responseDeleteDBClusterParameterGroup :: DeleteDBClusterParameterGroupResponse -> TestTree
 responseDeleteDBClusterParameterGroup =
@@ -2023,7 +2023,7 @@ responseDeleteDBClusterParameterGroup =
     "DeleteDBClusterParameterGroupResponse"
     "fixture/DeleteDBClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBClusterParameterGroup)
 
 responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
 responseDescribeCertificates =
@@ -2031,7 +2031,7 @@ responseDescribeCertificates =
     "DescribeCertificatesResponse"
     "fixture/DescribeCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificates)
 
 responseAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
 responseAuthorizeDBSecurityGroupIngress =
@@ -2039,7 +2039,7 @@ responseAuthorizeDBSecurityGroupIngress =
     "AuthorizeDBSecurityGroupIngressResponse"
     "fixture/AuthorizeDBSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeDBSecurityGroupIngress)
 
 responseRemoveRoleFromDBInstance :: RemoveRoleFromDBInstanceResponse -> TestTree
 responseRemoveRoleFromDBInstance =
@@ -2047,7 +2047,7 @@ responseRemoveRoleFromDBInstance =
     "RemoveRoleFromDBInstanceResponse"
     "fixture/RemoveRoleFromDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveRoleFromDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy RemoveRoleFromDBInstance)
 
 responseDescribeSourceRegions :: DescribeSourceRegionsResponse -> TestTree
 responseDescribeSourceRegions =
@@ -2055,7 +2055,7 @@ responseDescribeSourceRegions =
     "DescribeSourceRegionsResponse"
     "fixture/DescribeSourceRegionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSourceRegions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSourceRegions)
 
 responseCreateDBClusterEndpoint :: DBClusterEndpoint -> TestTree
 responseCreateDBClusterEndpoint =
@@ -2063,7 +2063,7 @@ responseCreateDBClusterEndpoint =
     "CreateDBClusterEndpointResponse"
     "fixture/CreateDBClusterEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBClusterEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBClusterEndpoint)
 
 responseRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshotResponse -> TestTree
 responseRestoreDBClusterFromSnapshot =
@@ -2071,7 +2071,7 @@ responseRestoreDBClusterFromSnapshot =
     "RestoreDBClusterFromSnapshotResponse"
     "fixture/RestoreDBClusterFromSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBClusterFromSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDBClusterFromSnapshot)
 
 responseDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
 responseDescribeOrderableDBInstanceOptions =
@@ -2079,7 +2079,7 @@ responseDescribeOrderableDBInstanceOptions =
     "DescribeOrderableDBInstanceOptionsResponse"
     "fixture/DescribeOrderableDBInstanceOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrderableDBInstanceOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrderableDBInstanceOptions)
 
 responseDeleteDBClusterEndpoint :: DBClusterEndpoint -> TestTree
 responseDeleteDBClusterEndpoint =
@@ -2087,7 +2087,7 @@ responseDeleteDBClusterEndpoint =
     "DeleteDBClusterEndpointResponse"
     "fixture/DeleteDBClusterEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBClusterEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBClusterEndpoint)
 
 responseCreateDBProxy :: CreateDBProxyResponse -> TestTree
 responseCreateDBProxy =
@@ -2095,7 +2095,7 @@ responseCreateDBProxy =
     "CreateDBProxyResponse"
     "fixture/CreateDBProxyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBProxy)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBProxy)
 
 responseDeleteDBInstanceAutomatedBackup :: DeleteDBInstanceAutomatedBackupResponse -> TestTree
 responseDeleteDBInstanceAutomatedBackup =
@@ -2103,7 +2103,7 @@ responseDeleteDBInstanceAutomatedBackup =
     "DeleteDBInstanceAutomatedBackupResponse"
     "fixture/DeleteDBInstanceAutomatedBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBInstanceAutomatedBackup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBInstanceAutomatedBackup)
 
 responseCreateDBClusterParameterGroup :: CreateDBClusterParameterGroupResponse -> TestTree
 responseCreateDBClusterParameterGroup =
@@ -2111,7 +2111,7 @@ responseCreateDBClusterParameterGroup =
     "CreateDBClusterParameterGroupResponse"
     "fixture/CreateDBClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBClusterParameterGroup)
 
 responseCreateDBSnapshot :: CreateDBSnapshotResponse -> TestTree
 responseCreateDBSnapshot =
@@ -2119,7 +2119,7 @@ responseCreateDBSnapshot =
     "CreateDBSnapshotResponse"
     "fixture/CreateDBSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBSnapshot)
 
 responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
 responseDeleteEventSubscription =
@@ -2127,7 +2127,7 @@ responseDeleteEventSubscription =
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventSubscription)
 
 responseDescribeDBClusterBacktracks :: DescribeDBClusterBacktracksResponse -> TestTree
 responseDescribeDBClusterBacktracks =
@@ -2135,7 +2135,7 @@ responseDescribeDBClusterBacktracks =
     "DescribeDBClusterBacktracksResponse"
     "fixture/DescribeDBClusterBacktracksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusterBacktracks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusterBacktracks)
 
 responseDescribeDBParameterGroups :: DescribeDBParameterGroupsResponse -> TestTree
 responseDescribeDBParameterGroups =
@@ -2143,7 +2143,7 @@ responseDescribeDBParameterGroups =
     "DescribeDBParameterGroupsResponse"
     "fixture/DescribeDBParameterGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBParameterGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBParameterGroups)
 
 responseModifyDBSnapshotAttribute :: ModifyDBSnapshotAttributeResponse -> TestTree
 responseModifyDBSnapshotAttribute =
@@ -2151,7 +2151,7 @@ responseModifyDBSnapshotAttribute =
     "ModifyDBSnapshotAttributeResponse"
     "fixture/ModifyDBSnapshotAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBSnapshotAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBSnapshotAttribute)
 
 responseDescribeDBInstanceAutomatedBackups :: DescribeDBInstanceAutomatedBackupsResponse -> TestTree
 responseDescribeDBInstanceAutomatedBackups =
@@ -2159,7 +2159,7 @@ responseDescribeDBInstanceAutomatedBackups =
     "DescribeDBInstanceAutomatedBackupsResponse"
     "fixture/DescribeDBInstanceAutomatedBackupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBInstanceAutomatedBackups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBInstanceAutomatedBackups)
 
 responseRemoveFromGlobalCluster :: RemoveFromGlobalClusterResponse -> TestTree
 responseRemoveFromGlobalCluster =
@@ -2167,7 +2167,7 @@ responseRemoveFromGlobalCluster =
     "RemoveFromGlobalClusterResponse"
     "fixture/RemoveFromGlobalClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveFromGlobalCluster)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFromGlobalCluster)
 
 responseAddRoleToDBInstance :: AddRoleToDBInstanceResponse -> TestTree
 responseAddRoleToDBInstance =
@@ -2175,7 +2175,7 @@ responseAddRoleToDBInstance =
     "AddRoleToDBInstanceResponse"
     "fixture/AddRoleToDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddRoleToDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy AddRoleToDBInstance)
 
 responseDeleteDBClusterSnapshot :: DeleteDBClusterSnapshotResponse -> TestTree
 responseDeleteDBClusterSnapshot =
@@ -2183,7 +2183,7 @@ responseDeleteDBClusterSnapshot =
     "DeleteDBClusterSnapshotResponse"
     "fixture/DeleteDBClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBClusterSnapshot)
 
 responseModifyDBProxyEndpoint :: ModifyDBProxyEndpointResponse -> TestTree
 responseModifyDBProxyEndpoint =
@@ -2191,7 +2191,7 @@ responseModifyDBProxyEndpoint =
     "ModifyDBProxyEndpointResponse"
     "fixture/ModifyDBProxyEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBProxyEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBProxyEndpoint)
 
 responseDescribeValidDBInstanceModifications :: DescribeValidDBInstanceModificationsResponse -> TestTree
 responseDescribeValidDBInstanceModifications =
@@ -2199,7 +2199,7 @@ responseDescribeValidDBInstanceModifications =
     "DescribeValidDBInstanceModificationsResponse"
     "fixture/DescribeValidDBInstanceModificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeValidDBInstanceModifications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeValidDBInstanceModifications)
 
 responseDescribeDBClusterEndpoints :: DescribeDBClusterEndpointsResponse -> TestTree
 responseDescribeDBClusterEndpoints =
@@ -2207,7 +2207,7 @@ responseDescribeDBClusterEndpoints =
     "DescribeDBClusterEndpointsResponse"
     "fixture/DescribeDBClusterEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusterEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusterEndpoints)
 
 responseDescribeOptionGroupOptions :: DescribeOptionGroupOptionsResponse -> TestTree
 responseDescribeOptionGroupOptions =
@@ -2215,7 +2215,7 @@ responseDescribeOptionGroupOptions =
     "DescribeOptionGroupOptionsResponse"
     "fixture/DescribeOptionGroupOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOptionGroupOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOptionGroupOptions)
 
 responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
 responseDescribeEventSubscriptions =
@@ -2223,7 +2223,7 @@ responseDescribeEventSubscriptions =
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventSubscriptions)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
 responseAddTagsToResource =
@@ -2231,7 +2231,7 @@ responseAddTagsToResource =
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
 responseDescribeDBParameters :: DescribeDBParametersResponse -> TestTree
 responseDescribeDBParameters =
@@ -2239,7 +2239,7 @@ responseDescribeDBParameters =
     "DescribeDBParametersResponse"
     "fixture/DescribeDBParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBParameters)
 
 responseStopActivityStream :: StopActivityStreamResponse -> TestTree
 responseStopActivityStream =
@@ -2247,7 +2247,7 @@ responseStopActivityStream =
     "StopActivityStreamResponse"
     "fixture/StopActivityStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy StopActivityStream)
+    (Proxy.Proxy :: Proxy.Proxy StopActivityStream)
 
 responseCreateDBClusterSnapshot :: CreateDBClusterSnapshotResponse -> TestTree
 responseCreateDBClusterSnapshot =
@@ -2255,7 +2255,7 @@ responseCreateDBClusterSnapshot =
     "CreateDBClusterSnapshotResponse"
     "fixture/CreateDBClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBClusterSnapshot)
 
 responseDescribeDBSnapshots :: DescribeDBSnapshotsResponse -> TestTree
 responseDescribeDBSnapshots =
@@ -2263,7 +2263,7 @@ responseDescribeDBSnapshots =
     "DescribeDBSnapshotsResponse"
     "fixture/DescribeDBSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBSnapshots)
 
 responseModifyDBProxyTargetGroup :: ModifyDBProxyTargetGroupResponse -> TestTree
 responseModifyDBProxyTargetGroup =
@@ -2271,7 +2271,7 @@ responseModifyDBProxyTargetGroup =
     "ModifyDBProxyTargetGroupResponse"
     "fixture/ModifyDBProxyTargetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBProxyTargetGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBProxyTargetGroup)
 
 responseDescribeDBSubnetGroups :: DescribeDBSubnetGroupsResponse -> TestTree
 responseDescribeDBSubnetGroups =
@@ -2279,7 +2279,7 @@ responseDescribeDBSubnetGroups =
     "DescribeDBSubnetGroupsResponse"
     "fixture/DescribeDBSubnetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBSubnetGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBSubnetGroups)
 
 responseModifyOptionGroup :: ModifyOptionGroupResponse -> TestTree
 responseModifyOptionGroup =
@@ -2287,7 +2287,7 @@ responseModifyOptionGroup =
     "ModifyOptionGroupResponse"
     "fixture/ModifyOptionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyOptionGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyOptionGroup)
 
 responseStopDBCluster :: StopDBClusterResponse -> TestTree
 responseStopDBCluster =
@@ -2295,7 +2295,7 @@ responseStopDBCluster =
     "StopDBClusterResponse"
     "fixture/StopDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy StopDBCluster)
 
 responseCreateDBParameterGroup :: CreateDBParameterGroupResponse -> TestTree
 responseCreateDBParameterGroup =
@@ -2303,7 +2303,7 @@ responseCreateDBParameterGroup =
     "CreateDBParameterGroupResponse"
     "fixture/CreateDBParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBParameterGroup)
 
 responseModifyDBClusterSnapshotAttribute :: ModifyDBClusterSnapshotAttributeResponse -> TestTree
 responseModifyDBClusterSnapshotAttribute =
@@ -2311,7 +2311,7 @@ responseModifyDBClusterSnapshotAttribute =
     "ModifyDBClusterSnapshotAttributeResponse"
     "fixture/ModifyDBClusterSnapshotAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBClusterSnapshotAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBClusterSnapshotAttribute)
 
 responseModifyDBCluster :: ModifyDBClusterResponse -> TestTree
 responseModifyDBCluster =
@@ -2319,7 +2319,7 @@ responseModifyDBCluster =
     "ModifyDBClusterResponse"
     "fixture/ModifyDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBCluster)
 
 responseCopyDBClusterParameterGroup :: CopyDBClusterParameterGroupResponse -> TestTree
 responseCopyDBClusterParameterGroup =
@@ -2327,7 +2327,7 @@ responseCopyDBClusterParameterGroup =
     "CopyDBClusterParameterGroupResponse"
     "fixture/CopyDBClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyDBClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CopyDBClusterParameterGroup)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
 responseDescribeEventCategories =
@@ -2335,7 +2335,7 @@ responseDescribeEventCategories =
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventCategories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventCategories)
 
 responseDescribeGlobalClusters :: DescribeGlobalClustersResponse -> TestTree
 responseDescribeGlobalClusters =
@@ -2343,7 +2343,7 @@ responseDescribeGlobalClusters =
     "DescribeGlobalClustersResponse"
     "fixture/DescribeGlobalClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGlobalClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalClusters)
 
 responseStartDBInstance :: StartDBInstanceResponse -> TestTree
 responseStartDBInstance =
@@ -2351,7 +2351,7 @@ responseStartDBInstance =
     "StartDBInstanceResponse"
     "fixture/StartDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy StartDBInstance)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
 responseDescribeExportTasks =
@@ -2359,7 +2359,7 @@ responseDescribeExportTasks =
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExportTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExportTasks)
 
 responseCancelExportTask :: ExportTask -> TestTree
 responseCancelExportTask =
@@ -2367,7 +2367,7 @@ responseCancelExportTask =
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelExportTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelExportTask)
 
 responseModifyDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
 responseModifyDBClusterParameterGroup =
@@ -2375,7 +2375,7 @@ responseModifyDBClusterParameterGroup =
     "ModifyDBClusterParameterGroupResponse"
     "fixture/ModifyDBClusterParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBClusterParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBClusterParameterGroup)
 
 responseRestoreDBInstanceToPointInTime :: RestoreDBInstanceToPointInTimeResponse -> TestTree
 responseRestoreDBInstanceToPointInTime =
@@ -2383,7 +2383,7 @@ responseRestoreDBInstanceToPointInTime =
     "RestoreDBInstanceToPointInTimeResponse"
     "fixture/RestoreDBInstanceToPointInTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBInstanceToPointInTime)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDBInstanceToPointInTime)
 
 responseDescribeDBClusterSnapshotAttributes :: DescribeDBClusterSnapshotAttributesResponse -> TestTree
 responseDescribeDBClusterSnapshotAttributes =
@@ -2391,7 +2391,7 @@ responseDescribeDBClusterSnapshotAttributes =
     "DescribeDBClusterSnapshotAttributesResponse"
     "fixture/DescribeDBClusterSnapshotAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusterSnapshotAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusterSnapshotAttributes)
 
 responseModifyDBSnapshot :: ModifyDBSnapshotResponse -> TestTree
 responseModifyDBSnapshot =
@@ -2399,7 +2399,7 @@ responseModifyDBSnapshot =
     "ModifyDBSnapshotResponse"
     "fixture/ModifyDBSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBSnapshot)
 
 responseDescribeDBProxyTargetGroups :: DescribeDBProxyTargetGroupsResponse -> TestTree
 responseDescribeDBProxyTargetGroups =
@@ -2407,7 +2407,7 @@ responseDescribeDBProxyTargetGroups =
     "DescribeDBProxyTargetGroupsResponse"
     "fixture/DescribeDBProxyTargetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBProxyTargetGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBProxyTargetGroups)
 
 responseModifyDBProxy :: ModifyDBProxyResponse -> TestTree
 responseModifyDBProxy =
@@ -2415,7 +2415,7 @@ responseModifyDBProxy =
     "ModifyDBProxyResponse"
     "fixture/ModifyDBProxyResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBProxy)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBProxy)
 
 responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
 responseDescribePendingMaintenanceActions =
@@ -2423,7 +2423,7 @@ responseDescribePendingMaintenanceActions =
     "DescribePendingMaintenanceActionsResponse"
     "fixture/DescribePendingMaintenanceActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePendingMaintenanceActions)
+    (Proxy.Proxy :: Proxy.Proxy DescribePendingMaintenanceActions)
 
 responseAddRoleToDBCluster :: AddRoleToDBClusterResponse -> TestTree
 responseAddRoleToDBCluster =
@@ -2431,7 +2431,7 @@ responseAddRoleToDBCluster =
     "AddRoleToDBClusterResponse"
     "fixture/AddRoleToDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy AddRoleToDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy AddRoleToDBCluster)
 
 responseCopyDBClusterSnapshot :: CopyDBClusterSnapshotResponse -> TestTree
 responseCopyDBClusterSnapshot =
@@ -2439,7 +2439,7 @@ responseCopyDBClusterSnapshot =
     "CopyDBClusterSnapshotResponse"
     "fixture/CopyDBClusterSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyDBClusterSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopyDBClusterSnapshot)
 
 responseImportInstallationMedia :: InstallationMedia -> TestTree
 responseImportInstallationMedia =
@@ -2447,7 +2447,7 @@ responseImportInstallationMedia =
     "ImportInstallationMediaResponse"
     "fixture/ImportInstallationMediaResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportInstallationMedia)
+    (Proxy.Proxy :: Proxy.Proxy ImportInstallationMedia)
 
 responseCreateGlobalCluster :: CreateGlobalClusterResponse -> TestTree
 responseCreateGlobalCluster =
@@ -2455,7 +2455,7 @@ responseCreateGlobalCluster =
     "CreateGlobalClusterResponse"
     "fixture/CreateGlobalClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGlobalCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateGlobalCluster)
 
 responseResetDBParameterGroup :: DBParameterGroupNameMessage -> TestTree
 responseResetDBParameterGroup =
@@ -2463,7 +2463,7 @@ responseResetDBParameterGroup =
     "ResetDBParameterGroupResponse"
     "fixture/ResetDBParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetDBParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ResetDBParameterGroup)
 
 responseFailoverGlobalCluster :: FailoverGlobalClusterResponse -> TestTree
 responseFailoverGlobalCluster =
@@ -2471,7 +2471,7 @@ responseFailoverGlobalCluster =
     "FailoverGlobalClusterResponse"
     "fixture/FailoverGlobalClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy FailoverGlobalCluster)
+    (Proxy.Proxy :: Proxy.Proxy FailoverGlobalCluster)
 
 responseDescribeInstallationMedia :: DescribeInstallationMediaResponse -> TestTree
 responseDescribeInstallationMedia =
@@ -2479,7 +2479,7 @@ responseDescribeInstallationMedia =
     "DescribeInstallationMediaResponse"
     "fixture/DescribeInstallationMediaResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstallationMedia)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstallationMedia)
 
 responseDeregisterDBProxyTargets :: DeregisterDBProxyTargetsResponse -> TestTree
 responseDeregisterDBProxyTargets =
@@ -2487,7 +2487,7 @@ responseDeregisterDBProxyTargets =
     "DeregisterDBProxyTargetsResponse"
     "fixture/DeregisterDBProxyTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterDBProxyTargets)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterDBProxyTargets)
 
 responseCreateDBCluster :: CreateDBClusterResponse -> TestTree
 responseCreateDBCluster =
@@ -2495,7 +2495,7 @@ responseCreateDBCluster =
     "CreateDBClusterResponse"
     "fixture/CreateDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBCluster)
 
 responseRemoveRoleFromDBCluster :: RemoveRoleFromDBClusterResponse -> TestTree
 responseRemoveRoleFromDBCluster =
@@ -2503,7 +2503,7 @@ responseRemoveRoleFromDBCluster =
     "RemoveRoleFromDBClusterResponse"
     "fixture/RemoveRoleFromDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveRoleFromDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy RemoveRoleFromDBCluster)
 
 responseFailoverDBCluster :: FailoverDBClusterResponse -> TestTree
 responseFailoverDBCluster =
@@ -2511,7 +2511,7 @@ responseFailoverDBCluster =
     "FailoverDBClusterResponse"
     "fixture/FailoverDBClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy FailoverDBCluster)
+    (Proxy.Proxy :: Proxy.Proxy FailoverDBCluster)
 
 responseRevokeDBSecurityGroupIngress :: RevokeDBSecurityGroupIngressResponse -> TestTree
 responseRevokeDBSecurityGroupIngress =
@@ -2519,7 +2519,7 @@ responseRevokeDBSecurityGroupIngress =
     "RevokeDBSecurityGroupIngressResponse"
     "fixture/RevokeDBSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeDBSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy RevokeDBSecurityGroupIngress)
 
 responseModifyDBParameterGroup :: DBParameterGroupNameMessage -> TestTree
 responseModifyDBParameterGroup =
@@ -2527,7 +2527,7 @@ responseModifyDBParameterGroup =
     "ModifyDBParameterGroupResponse"
     "fixture/ModifyDBParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDBParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDBParameterGroup)
 
 responseApplyPendingMaintenanceAction :: ApplyPendingMaintenanceActionResponse -> TestTree
 responseApplyPendingMaintenanceAction =
@@ -2535,7 +2535,7 @@ responseApplyPendingMaintenanceAction =
     "ApplyPendingMaintenanceActionResponse"
     "fixture/ApplyPendingMaintenanceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy ApplyPendingMaintenanceAction)
+    (Proxy.Proxy :: Proxy.Proxy ApplyPendingMaintenanceAction)
 
 responseDeleteDBProxyEndpoint :: DeleteDBProxyEndpointResponse -> TestTree
 responseDeleteDBProxyEndpoint =
@@ -2543,7 +2543,7 @@ responseDeleteDBProxyEndpoint =
     "DeleteDBProxyEndpointResponse"
     "fixture/DeleteDBProxyEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBProxyEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBProxyEndpoint)
 
 responseStopDBInstanceAutomatedBackupsReplication :: StopDBInstanceAutomatedBackupsReplicationResponse -> TestTree
 responseStopDBInstanceAutomatedBackupsReplication =
@@ -2551,7 +2551,7 @@ responseStopDBInstanceAutomatedBackupsReplication =
     "StopDBInstanceAutomatedBackupsReplicationResponse"
     "fixture/StopDBInstanceAutomatedBackupsReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDBInstanceAutomatedBackupsReplication)
+    (Proxy.Proxy :: Proxy.Proxy StopDBInstanceAutomatedBackupsReplication)
 
 responseCreateOptionGroup :: CreateOptionGroupResponse -> TestTree
 responseCreateOptionGroup =
@@ -2559,7 +2559,7 @@ responseCreateOptionGroup =
     "CreateOptionGroupResponse"
     "fixture/CreateOptionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOptionGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateOptionGroup)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
 responseDescribeAccountAttributes =
@@ -2567,7 +2567,7 @@ responseDescribeAccountAttributes =
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAttributes)
 
 responseDeleteDBSnapshot :: DeleteDBSnapshotResponse -> TestTree
 responseDeleteDBSnapshot =
@@ -2575,7 +2575,7 @@ responseDeleteDBSnapshot =
     "DeleteDBSnapshotResponse"
     "fixture/DeleteDBSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBSnapshot)
 
 responseDescribeDBClusterParameters :: DescribeDBClusterParametersResponse -> TestTree
 responseDescribeDBClusterParameters =
@@ -2583,7 +2583,7 @@ responseDescribeDBClusterParameters =
     "DescribeDBClusterParametersResponse"
     "fixture/DescribeDBClusterParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusterParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusterParameters)
 
 responseDeleteDBSubnetGroup :: DeleteDBSubnetGroupResponse -> TestTree
 responseDeleteDBSubnetGroup =
@@ -2591,7 +2591,7 @@ responseDeleteDBSubnetGroup =
     "DeleteDBSubnetGroupResponse"
     "fixture/DeleteDBSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBSubnetGroup)
 
 responseCreateDBSecurityGroup :: CreateDBSecurityGroupResponse -> TestTree
 responseCreateDBSecurityGroup =
@@ -2599,7 +2599,7 @@ responseCreateDBSecurityGroup =
     "CreateDBSecurityGroupResponse"
     "fixture/CreateDBSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBSecurityGroup)
 
 responseModifyCertificates :: ModifyCertificatesResponse -> TestTree
 responseModifyCertificates =
@@ -2607,7 +2607,7 @@ responseModifyCertificates =
     "ModifyCertificatesResponse"
     "fixture/ModifyCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCertificates)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCertificates)
 
 responseDescribeDBClusterSnapshots :: DescribeDBClusterSnapshotsResponse -> TestTree
 responseDescribeDBClusterSnapshots =
@@ -2615,7 +2615,7 @@ responseDescribeDBClusterSnapshots =
     "DescribeDBClusterSnapshotsResponse"
     "fixture/DescribeDBClusterSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBClusterSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBClusterSnapshots)
 
 responseRebootDBInstance :: RebootDBInstanceResponse -> TestTree
 responseRebootDBInstance =
@@ -2623,7 +2623,7 @@ responseRebootDBInstance =
     "RebootDBInstanceResponse"
     "fixture/RebootDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy RebootDBInstance)
 
 responseCreateDBSubnetGroup :: CreateDBSubnetGroupResponse -> TestTree
 responseCreateDBSubnetGroup =
@@ -2631,7 +2631,7 @@ responseCreateDBSubnetGroup =
     "CreateDBSubnetGroupResponse"
     "fixture/CreateDBSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBSubnetGroup)
 
 responseDescribeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferingsResponse -> TestTree
 responseDescribeReservedDBInstancesOfferings =
@@ -2639,7 +2639,7 @@ responseDescribeReservedDBInstancesOfferings =
     "DescribeReservedDBInstancesOfferingsResponse"
     "fixture/DescribeReservedDBInstancesOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedDBInstancesOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedDBInstancesOfferings)
 
 responseDeleteDBSecurityGroup :: DeleteDBSecurityGroupResponse -> TestTree
 responseDeleteDBSecurityGroup =
@@ -2647,7 +2647,7 @@ responseDeleteDBSecurityGroup =
     "DeleteDBSecurityGroupResponse"
     "fixture/DeleteDBSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBSecurityGroup)
 
 responseDeleteDBInstance :: DeleteDBInstanceResponse -> TestTree
 responseDeleteDBInstance =
@@ -2655,7 +2655,7 @@ responseDeleteDBInstance =
     "DeleteDBInstanceResponse"
     "fixture/DeleteDBInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBInstance)
 
 responseStartActivityStream :: StartActivityStreamResponse -> TestTree
 responseStartActivityStream =
@@ -2663,7 +2663,7 @@ responseStartActivityStream =
     "StartActivityStreamResponse"
     "fixture/StartActivityStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy StartActivityStream)
+    (Proxy.Proxy :: Proxy.Proxy StartActivityStream)
 
 responseCreateDBInstanceReadReplica :: CreateDBInstanceReadReplicaResponse -> TestTree
 responseCreateDBInstanceReadReplica =
@@ -2671,7 +2671,7 @@ responseCreateDBInstanceReadReplica =
     "CreateDBInstanceReadReplicaResponse"
     "fixture/CreateDBInstanceReadReplicaResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDBInstanceReadReplica)
+    (Proxy.Proxy :: Proxy.Proxy CreateDBInstanceReadReplica)
 
 responseDeleteDBParameterGroup :: DeleteDBParameterGroupResponse -> TestTree
 responseDeleteDBParameterGroup =
@@ -2679,7 +2679,7 @@ responseDeleteDBParameterGroup =
     "DeleteDBParameterGroupResponse"
     "fixture/DeleteDBParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDBParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDBParameterGroup)
 
 responseModifyCurrentDBClusterCapacity :: ModifyCurrentDBClusterCapacityResponse -> TestTree
 responseModifyCurrentDBClusterCapacity =
@@ -2687,7 +2687,7 @@ responseModifyCurrentDBClusterCapacity =
     "ModifyCurrentDBClusterCapacityResponse"
     "fixture/ModifyCurrentDBClusterCapacityResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCurrentDBClusterCapacity)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCurrentDBClusterCapacity)
 
 responseModifyGlobalCluster :: ModifyGlobalClusterResponse -> TestTree
 responseModifyGlobalCluster =
@@ -2695,7 +2695,7 @@ responseModifyGlobalCluster =
     "ModifyGlobalClusterResponse"
     "fixture/ModifyGlobalClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyGlobalCluster)
+    (Proxy.Proxy :: Proxy.Proxy ModifyGlobalCluster)
 
 responseRegisterDBProxyTargets :: RegisterDBProxyTargetsResponse -> TestTree
 responseRegisterDBProxyTargets =
@@ -2703,7 +2703,7 @@ responseRegisterDBProxyTargets =
     "RegisterDBProxyTargetsResponse"
     "fixture/RegisterDBProxyTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDBProxyTargets)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDBProxyTargets)
 
 responseDescribeDBSecurityGroups :: DescribeDBSecurityGroupsResponse -> TestTree
 responseDescribeDBSecurityGroups =
@@ -2711,7 +2711,7 @@ responseDescribeDBSecurityGroups =
     "DescribeDBSecurityGroupsResponse"
     "fixture/DescribeDBSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBSecurityGroups)
 
 responseCopyOptionGroup :: CopyOptionGroupResponse -> TestTree
 responseCopyOptionGroup =
@@ -2719,7 +2719,7 @@ responseCopyOptionGroup =
     "CopyOptionGroupResponse"
     "fixture/CopyOptionGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyOptionGroup)
+    (Proxy.Proxy :: Proxy.Proxy CopyOptionGroup)
 
 responseRestoreDBClusterToPointInTime :: RestoreDBClusterToPointInTimeResponse -> TestTree
 responseRestoreDBClusterToPointInTime =
@@ -2727,7 +2727,7 @@ responseRestoreDBClusterToPointInTime =
     "RestoreDBClusterToPointInTimeResponse"
     "fixture/RestoreDBClusterToPointInTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBClusterToPointInTime)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDBClusterToPointInTime)
 
 responseDeleteInstallationMedia :: InstallationMedia -> TestTree
 responseDeleteInstallationMedia =
@@ -2735,7 +2735,7 @@ responseDeleteInstallationMedia =
     "DeleteInstallationMediaResponse"
     "fixture/DeleteInstallationMediaResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstallationMedia)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstallationMedia)
 
 responseDescribeDBInstances :: DescribeDBInstancesResponse -> TestTree
 responseDescribeDBInstances =
@@ -2743,7 +2743,7 @@ responseDescribeDBInstances =
     "DescribeDBInstancesResponse"
     "fixture/DescribeDBInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBInstances)
 
 responseRestoreDBInstanceFromS3 :: RestoreDBInstanceFromS3Response -> TestTree
 responseRestoreDBInstanceFromS3 =
@@ -2751,7 +2751,7 @@ responseRestoreDBInstanceFromS3 =
     "RestoreDBInstanceFromS3Response"
     "fixture/RestoreDBInstanceFromS3Response.proto"
     defaultService
-    (Proxy :: Proxy RestoreDBInstanceFromS3)
+    (Proxy.Proxy :: Proxy.Proxy RestoreDBInstanceFromS3)
 
 responseDownloadDBLogFilePortion :: DownloadDBLogFilePortionResponse -> TestTree
 responseDownloadDBLogFilePortion =
@@ -2759,7 +2759,7 @@ responseDownloadDBLogFilePortion =
     "DownloadDBLogFilePortionResponse"
     "fixture/DownloadDBLogFilePortionResponse.proto"
     defaultService
-    (Proxy :: Proxy DownloadDBLogFilePortion)
+    (Proxy.Proxy :: Proxy.Proxy DownloadDBLogFilePortion)
 
 responseDescribeDBProxies :: DescribeDBProxiesResponse -> TestTree
 responseDescribeDBProxies =
@@ -2767,7 +2767,7 @@ responseDescribeDBProxies =
     "DescribeDBProxiesResponse"
     "fixture/DescribeDBProxiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDBProxies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDBProxies)
 
 responseStartExportTask :: ExportTask -> TestTree
 responseStartExportTask =
@@ -2775,4 +2775,4 @@ responseStartExportTask =
     "StartExportTaskResponse"
     "fixture/StartExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy StartExportTask)
+    (Proxy.Proxy :: Proxy.Proxy StartExportTask)

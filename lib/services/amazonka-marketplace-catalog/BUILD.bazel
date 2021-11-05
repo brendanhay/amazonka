@@ -1,0 +1,74 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-marketplace-catalog/amazonka-marketplace-catalog.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-marketplace-catalog",
+    srcs = [
+        "gen/Network/AWS/MarketplaceCatalog.hs",
+        "gen/Network/AWS/MarketplaceCatalog/CancelChangeSet.hs",
+        "gen/Network/AWS/MarketplaceCatalog/DescribeChangeSet.hs",
+        "gen/Network/AWS/MarketplaceCatalog/DescribeEntity.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Lens.hs",
+        "gen/Network/AWS/MarketplaceCatalog/ListChangeSets.hs",
+        "gen/Network/AWS/MarketplaceCatalog/ListEntities.hs",
+        "gen/Network/AWS/MarketplaceCatalog/StartChangeSet.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/Change.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/ChangeSetSummaryListItem.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/ChangeStatus.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/ChangeSummary.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/Entity.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/EntitySummary.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/ErrorDetail.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/FailureCode.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/Filter.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/Sort.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Types/SortOrder.hs",
+        "gen/Network/AWS/MarketplaceCatalog/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_catalog=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-marketplace-catalog/amazonka-marketplace-catalog.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-marketplace-catalog-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/MarketplaceCatalog.hs",
+        "test/Test/AWS/MarketplaceCatalog.hs",
+        "test/Test/AWS/MarketplaceCatalog/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_catalog=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-marketplace-catalog",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -1,0 +1,191 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Proton.AcceptEnvironmentAccountConnection
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- In a management account, an environment account connection request is
+-- accepted. When the environment account connection request is accepted,
+-- AWS Proton can use the associated IAM role to provision environment
+-- infrastructure resources in the associated environment account.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
+-- in the /AWS Proton Administrator guide/.
+module Network.AWS.Proton.AcceptEnvironmentAccountConnection
+  ( -- * Creating a Request
+    AcceptEnvironmentAccountConnection (..),
+    newAcceptEnvironmentAccountConnection,
+
+    -- * Request Lenses
+    acceptEnvironmentAccountConnection_id,
+
+    -- * Destructuring the Response
+    AcceptEnvironmentAccountConnectionResponse (..),
+    newAcceptEnvironmentAccountConnectionResponse,
+
+    -- * Response Lenses
+    acceptEnvironmentAccountConnectionResponse_httpStatus,
+    acceptEnvironmentAccountConnectionResponse_environmentAccountConnection,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Proton.Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newAcceptEnvironmentAccountConnection' smart constructor.
+data AcceptEnvironmentAccountConnection = AcceptEnvironmentAccountConnection'
+  { -- | The ID of the environment account connection.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AcceptEnvironmentAccountConnection' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'id', 'acceptEnvironmentAccountConnection_id' - The ID of the environment account connection.
+newAcceptEnvironmentAccountConnection ::
+  -- | 'id'
+  Prelude.Text ->
+  AcceptEnvironmentAccountConnection
+newAcceptEnvironmentAccountConnection pId_ =
+  AcceptEnvironmentAccountConnection' {id = pId_}
+
+-- | The ID of the environment account connection.
+acceptEnvironmentAccountConnection_id :: Lens.Lens' AcceptEnvironmentAccountConnection Prelude.Text
+acceptEnvironmentAccountConnection_id = Lens.lens (\AcceptEnvironmentAccountConnection' {id} -> id) (\s@AcceptEnvironmentAccountConnection' {} a -> s {id = a} :: AcceptEnvironmentAccountConnection)
+
+instance
+  Core.AWSRequest
+    AcceptEnvironmentAccountConnection
+  where
+  type
+    AWSResponse AcceptEnvironmentAccountConnection =
+      AcceptEnvironmentAccountConnectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AcceptEnvironmentAccountConnectionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "environmentAccountConnection")
+      )
+
+instance
+  Prelude.Hashable
+    AcceptEnvironmentAccountConnection
+
+instance
+  Prelude.NFData
+    AcceptEnvironmentAccountConnection
+
+instance
+  Core.ToHeaders
+    AcceptEnvironmentAccountConnection
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AwsProton20200720.AcceptEnvironmentAccountConnection" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance
+  Core.ToJSON
+    AcceptEnvironmentAccountConnection
+  where
+  toJSON AcceptEnvironmentAccountConnection' {..} =
+    Core.object
+      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+
+instance
+  Core.ToPath
+    AcceptEnvironmentAccountConnection
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    AcceptEnvironmentAccountConnection
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newAcceptEnvironmentAccountConnectionResponse' smart constructor.
+data AcceptEnvironmentAccountConnectionResponse = AcceptEnvironmentAccountConnectionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The environment account connection data that\'s returned by AWS Proton.
+    environmentAccountConnection :: EnvironmentAccountConnection
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AcceptEnvironmentAccountConnectionResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'acceptEnvironmentAccountConnectionResponse_httpStatus' - The response's http status code.
+--
+-- 'environmentAccountConnection', 'acceptEnvironmentAccountConnectionResponse_environmentAccountConnection' - The environment account connection data that\'s returned by AWS Proton.
+newAcceptEnvironmentAccountConnectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'environmentAccountConnection'
+  EnvironmentAccountConnection ->
+  AcceptEnvironmentAccountConnectionResponse
+newAcceptEnvironmentAccountConnectionResponse
+  pHttpStatus_
+  pEnvironmentAccountConnection_ =
+    AcceptEnvironmentAccountConnectionResponse'
+      { httpStatus =
+          pHttpStatus_,
+        environmentAccountConnection =
+          pEnvironmentAccountConnection_
+      }
+
+-- | The response's http status code.
+acceptEnvironmentAccountConnectionResponse_httpStatus :: Lens.Lens' AcceptEnvironmentAccountConnectionResponse Prelude.Int
+acceptEnvironmentAccountConnectionResponse_httpStatus = Lens.lens (\AcceptEnvironmentAccountConnectionResponse' {httpStatus} -> httpStatus) (\s@AcceptEnvironmentAccountConnectionResponse' {} a -> s {httpStatus = a} :: AcceptEnvironmentAccountConnectionResponse)
+
+-- | The environment account connection data that\'s returned by AWS Proton.
+acceptEnvironmentAccountConnectionResponse_environmentAccountConnection :: Lens.Lens' AcceptEnvironmentAccountConnectionResponse EnvironmentAccountConnection
+acceptEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.lens (\AcceptEnvironmentAccountConnectionResponse' {environmentAccountConnection} -> environmentAccountConnection) (\s@AcceptEnvironmentAccountConnectionResponse' {} a -> s {environmentAccountConnection = a} :: AcceptEnvironmentAccountConnectionResponse)
+
+instance
+  Prelude.NFData
+    AcceptEnvironmentAccountConnectionResponse

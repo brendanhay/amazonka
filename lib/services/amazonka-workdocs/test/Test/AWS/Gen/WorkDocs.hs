@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkDocs where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WorkDocs
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -535,7 +535,7 @@ responseDeleteLabels =
     "DeleteLabelsResponse"
     "fixture/DeleteLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLabels)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLabels)
 
 responseAbortDocumentVersionUpload :: AbortDocumentVersionUploadResponse -> TestTree
 responseAbortDocumentVersionUpload =
@@ -543,7 +543,7 @@ responseAbortDocumentVersionUpload =
     "AbortDocumentVersionUploadResponse"
     "fixture/AbortDocumentVersionUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy AbortDocumentVersionUpload)
+    (Proxy.Proxy :: Proxy.Proxy AbortDocumentVersionUpload)
 
 responseGetDocumentPath :: GetDocumentPathResponse -> TestTree
 responseGetDocumentPath =
@@ -551,7 +551,7 @@ responseGetDocumentPath =
     "GetDocumentPathResponse"
     "fixture/GetDocumentPathResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDocumentPath)
+    (Proxy.Proxy :: Proxy.Proxy GetDocumentPath)
 
 responseCreateComment :: CreateCommentResponse -> TestTree
 responseCreateComment =
@@ -559,7 +559,7 @@ responseCreateComment =
     "CreateCommentResponse"
     "fixture/CreateCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateComment)
+    (Proxy.Proxy :: Proxy.Proxy CreateComment)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
 responseDescribeUsers =
@@ -567,7 +567,7 @@ responseDescribeUsers =
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUsers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUsers)
 
 responseDeleteFolder :: DeleteFolderResponse -> TestTree
 responseDeleteFolder =
@@ -575,7 +575,7 @@ responseDeleteFolder =
     "DeleteFolderResponse"
     "fixture/DeleteFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFolder)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFolder)
 
 responseUpdateFolder :: UpdateFolderResponse -> TestTree
 responseUpdateFolder =
@@ -583,7 +583,7 @@ responseUpdateFolder =
     "UpdateFolderResponse"
     "fixture/UpdateFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFolder)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFolder)
 
 responseDeleteCustomMetadata :: DeleteCustomMetadataResponse -> TestTree
 responseDeleteCustomMetadata =
@@ -591,7 +591,7 @@ responseDeleteCustomMetadata =
     "DeleteCustomMetadataResponse"
     "fixture/DeleteCustomMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomMetadata)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomMetadata)
 
 responseDescribeResourcePermissions :: DescribeResourcePermissionsResponse -> TestTree
 responseDescribeResourcePermissions =
@@ -599,7 +599,7 @@ responseDescribeResourcePermissions =
     "DescribeResourcePermissionsResponse"
     "fixture/DescribeResourcePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResourcePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePermissions)
 
 responseDeleteNotificationSubscription :: DeleteNotificationSubscriptionResponse -> TestTree
 responseDeleteNotificationSubscription =
@@ -607,7 +607,7 @@ responseDeleteNotificationSubscription =
     "DeleteNotificationSubscriptionResponse"
     "fixture/DeleteNotificationSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotificationSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotificationSubscription)
 
 responseCreateFolder :: CreateFolderResponse -> TestTree
 responseCreateFolder =
@@ -615,7 +615,7 @@ responseCreateFolder =
     "CreateFolderResponse"
     "fixture/CreateFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFolder)
+    (Proxy.Proxy :: Proxy.Proxy CreateFolder)
 
 responseCreateNotificationSubscription :: CreateNotificationSubscriptionResponse -> TestTree
 responseCreateNotificationSubscription =
@@ -623,7 +623,7 @@ responseCreateNotificationSubscription =
     "CreateNotificationSubscriptionResponse"
     "fixture/CreateNotificationSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNotificationSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateNotificationSubscription)
 
 responseCreateCustomMetadata :: CreateCustomMetadataResponse -> TestTree
 responseCreateCustomMetadata =
@@ -631,7 +631,7 @@ responseCreateCustomMetadata =
     "CreateCustomMetadataResponse"
     "fixture/CreateCustomMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomMetadata)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomMetadata)
 
 responseGetFolderPath :: GetFolderPathResponse -> TestTree
 responseGetFolderPath =
@@ -639,7 +639,7 @@ responseGetFolderPath =
     "GetFolderPathResponse"
     "fixture/GetFolderPathResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFolderPath)
+    (Proxy.Proxy :: Proxy.Proxy GetFolderPath)
 
 responseDescribeComments :: DescribeCommentsResponse -> TestTree
 responseDescribeComments =
@@ -647,7 +647,7 @@ responseDescribeComments =
     "DescribeCommentsResponse"
     "fixture/DescribeCommentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComments)
 
 responseDeleteFolderContents :: DeleteFolderContentsResponse -> TestTree
 responseDeleteFolderContents =
@@ -655,7 +655,7 @@ responseDeleteFolderContents =
     "DeleteFolderContentsResponse"
     "fixture/DeleteFolderContentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFolderContents)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFolderContents)
 
 responseRemoveAllResourcePermissions :: RemoveAllResourcePermissionsResponse -> TestTree
 responseRemoveAllResourcePermissions =
@@ -663,7 +663,7 @@ responseRemoveAllResourcePermissions =
     "RemoveAllResourcePermissionsResponse"
     "fixture/RemoveAllResourcePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAllResourcePermissions)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAllResourcePermissions)
 
 responseGetFolder :: GetFolderResponse -> TestTree
 responseGetFolder =
@@ -671,7 +671,7 @@ responseGetFolder =
     "GetFolderResponse"
     "fixture/GetFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFolder)
+    (Proxy.Proxy :: Proxy.Proxy GetFolder)
 
 responseDescribeNotificationSubscriptions :: DescribeNotificationSubscriptionsResponse -> TestTree
 responseDescribeNotificationSubscriptions =
@@ -679,7 +679,7 @@ responseDescribeNotificationSubscriptions =
     "DescribeNotificationSubscriptionsResponse"
     "fixture/DescribeNotificationSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotificationSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotificationSubscriptions)
 
 responseActivateUser :: ActivateUserResponse -> TestTree
 responseActivateUser =
@@ -687,7 +687,7 @@ responseActivateUser =
     "ActivateUserResponse"
     "fixture/ActivateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateUser)
+    (Proxy.Proxy :: Proxy.Proxy ActivateUser)
 
 responseDescribeDocumentVersions :: DescribeDocumentVersionsResponse -> TestTree
 responseDescribeDocumentVersions =
@@ -695,7 +695,7 @@ responseDescribeDocumentVersions =
     "DescribeDocumentVersionsResponse"
     "fixture/DescribeDocumentVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDocumentVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDocumentVersions)
 
 responseGetDocumentVersion :: GetDocumentVersionResponse -> TestTree
 responseGetDocumentVersion =
@@ -703,7 +703,7 @@ responseGetDocumentVersion =
     "GetDocumentVersionResponse"
     "fixture/GetDocumentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDocumentVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetDocumentVersion)
 
 responseDescribeActivities :: DescribeActivitiesResponse -> TestTree
 responseDescribeActivities =
@@ -711,7 +711,7 @@ responseDescribeActivities =
     "DescribeActivitiesResponse"
     "fixture/DescribeActivitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeActivities)
+    (Proxy.Proxy :: Proxy.Proxy DescribeActivities)
 
 responseDescribeRootFolders :: DescribeRootFoldersResponse -> TestTree
 responseDescribeRootFolders =
@@ -719,7 +719,7 @@ responseDescribeRootFolders =
     "DescribeRootFoldersResponse"
     "fixture/DescribeRootFoldersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRootFolders)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRootFolders)
 
 responseGetCurrentUser :: GetCurrentUserResponse -> TestTree
 responseGetCurrentUser =
@@ -727,7 +727,7 @@ responseGetCurrentUser =
     "GetCurrentUserResponse"
     "fixture/GetCurrentUserResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCurrentUser)
+    (Proxy.Proxy :: Proxy.Proxy GetCurrentUser)
 
 responseDeactivateUser :: DeactivateUserResponse -> TestTree
 responseDeactivateUser =
@@ -735,7 +735,7 @@ responseDeactivateUser =
     "DeactivateUserResponse"
     "fixture/DeactivateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateUser)
+    (Proxy.Proxy :: Proxy.Proxy DeactivateUser)
 
 responseGetDocument :: GetDocumentResponse -> TestTree
 responseGetDocument =
@@ -743,7 +743,7 @@ responseGetDocument =
     "GetDocumentResponse"
     "fixture/GetDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDocument)
+    (Proxy.Proxy :: Proxy.Proxy GetDocument)
 
 responseDescribeFolderContents :: DescribeFolderContentsResponse -> TestTree
 responseDescribeFolderContents =
@@ -751,7 +751,7 @@ responseDescribeFolderContents =
     "DescribeFolderContentsResponse"
     "fixture/DescribeFolderContentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFolderContents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolderContents)
 
 responseCreateLabels :: CreateLabelsResponse -> TestTree
 responseCreateLabels =
@@ -759,7 +759,7 @@ responseCreateLabels =
     "CreateLabelsResponse"
     "fixture/CreateLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLabels)
+    (Proxy.Proxy :: Proxy.Proxy CreateLabels)
 
 responseUpdateDocumentVersion :: UpdateDocumentVersionResponse -> TestTree
 responseUpdateDocumentVersion =
@@ -767,7 +767,7 @@ responseUpdateDocumentVersion =
     "UpdateDocumentVersionResponse"
     "fixture/UpdateDocumentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocumentVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDocumentVersion)
 
 responseRemoveResourcePermission :: RemoveResourcePermissionResponse -> TestTree
 responseRemoveResourcePermission =
@@ -775,7 +775,7 @@ responseRemoveResourcePermission =
     "RemoveResourcePermissionResponse"
     "fixture/RemoveResourcePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveResourcePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemoveResourcePermission)
 
 responseGetResources :: GetResourcesResponse -> TestTree
 responseGetResources =
@@ -783,7 +783,7 @@ responseGetResources =
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResources)
+    (Proxy.Proxy :: Proxy.Proxy GetResources)
 
 responseDeleteComment :: DeleteCommentResponse -> TestTree
 responseDeleteComment =
@@ -791,7 +791,7 @@ responseDeleteComment =
     "DeleteCommentResponse"
     "fixture/DeleteCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteComment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteComment)
 
 responseInitiateDocumentVersionUpload :: InitiateDocumentVersionUploadResponse -> TestTree
 responseInitiateDocumentVersionUpload =
@@ -799,7 +799,7 @@ responseInitiateDocumentVersionUpload =
     "InitiateDocumentVersionUploadResponse"
     "fixture/InitiateDocumentVersionUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateDocumentVersionUpload)
+    (Proxy.Proxy :: Proxy.Proxy InitiateDocumentVersionUpload)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -807,7 +807,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -815,7 +815,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -823,7 +823,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseAddResourcePermissions :: AddResourcePermissionsResponse -> TestTree
 responseAddResourcePermissions =
@@ -831,7 +831,7 @@ responseAddResourcePermissions =
     "AddResourcePermissionsResponse"
     "fixture/AddResourcePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddResourcePermissions)
+    (Proxy.Proxy :: Proxy.Proxy AddResourcePermissions)
 
 responseUpdateDocument :: UpdateDocumentResponse -> TestTree
 responseUpdateDocument =
@@ -839,7 +839,7 @@ responseUpdateDocument =
     "UpdateDocumentResponse"
     "fixture/UpdateDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocument)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDocument)
 
 responseDeleteDocument :: DeleteDocumentResponse -> TestTree
 responseDeleteDocument =
@@ -847,7 +847,7 @@ responseDeleteDocument =
     "DeleteDocumentResponse"
     "fixture/DeleteDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDocument)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDocument)
 
 responseDescribeGroups :: DescribeGroupsResponse -> TestTree
 responseDescribeGroups =
@@ -855,4 +855,4 @@ responseDescribeGroups =
     "DescribeGroupsResponse"
     "fixture/DescribeGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGroups)

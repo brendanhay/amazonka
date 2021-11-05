@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkMail where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.WorkMail
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -823,7 +823,7 @@ responseDescribeInboundDmarcSettings =
     "DescribeInboundDmarcSettingsResponse"
     "fixture/DescribeInboundDmarcSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInboundDmarcSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInboundDmarcSettings)
 
 responseGetMailDomain :: GetMailDomainResponse -> TestTree
 responseGetMailDomain =
@@ -831,7 +831,7 @@ responseGetMailDomain =
     "GetMailDomainResponse"
     "fixture/GetMailDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMailDomain)
+    (Proxy.Proxy :: Proxy.Proxy GetMailDomain)
 
 responseUpdatePrimaryEmailAddress :: UpdatePrimaryEmailAddressResponse -> TestTree
 responseUpdatePrimaryEmailAddress =
@@ -839,7 +839,7 @@ responseUpdatePrimaryEmailAddress =
     "UpdatePrimaryEmailAddressResponse"
     "fixture/UpdatePrimaryEmailAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePrimaryEmailAddress)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePrimaryEmailAddress)
 
 responseDescribeResource :: DescribeResourceResponse -> TestTree
 responseDescribeResource =
@@ -847,7 +847,7 @@ responseDescribeResource =
     "DescribeResourceResponse"
     "fixture/DescribeResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResource)
 
 responseCreateOrganization :: CreateOrganizationResponse -> TestTree
 responseCreateOrganization =
@@ -855,7 +855,7 @@ responseCreateOrganization =
     "CreateOrganizationResponse"
     "fixture/CreateOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOrganization)
+    (Proxy.Proxy :: Proxy.Proxy CreateOrganization)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
 responseCreateAlias =
@@ -863,7 +863,7 @@ responseCreateAlias =
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlias)
 
 responseDeleteOrganization :: DeleteOrganizationResponse -> TestTree
 responseDeleteOrganization =
@@ -871,7 +871,7 @@ responseDeleteOrganization =
     "DeleteOrganizationResponse"
     "fixture/DeleteOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOrganization)
 
 responseResetPassword :: ResetPasswordResponse -> TestTree
 responseResetPassword =
@@ -879,7 +879,7 @@ responseResetPassword =
     "ResetPasswordResponse"
     "fixture/ResetPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetPassword)
+    (Proxy.Proxy :: Proxy.Proxy ResetPassword)
 
 responseDescribeGroup :: DescribeGroupResponse -> TestTree
 responseDescribeGroup =
@@ -887,7 +887,7 @@ responseDescribeGroup =
     "DescribeGroupResponse"
     "fixture/DescribeGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
 
 responseDescribeMailboxExportJob :: DescribeMailboxExportJobResponse -> TestTree
 responseDescribeMailboxExportJob =
@@ -895,7 +895,7 @@ responseDescribeMailboxExportJob =
     "DescribeMailboxExportJobResponse"
     "fixture/DescribeMailboxExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMailboxExportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMailboxExportJob)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -903,7 +903,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRegisterToWorkMail :: RegisterToWorkMailResponse -> TestTree
 responseRegisterToWorkMail =
@@ -911,7 +911,7 @@ responseRegisterToWorkMail =
     "RegisterToWorkMailResponse"
     "fixture/RegisterToWorkMailResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterToWorkMail)
+    (Proxy.Proxy :: Proxy.Proxy RegisterToWorkMail)
 
 responseListAliases :: ListAliasesResponse -> TestTree
 responseListAliases =
@@ -919,7 +919,7 @@ responseListAliases =
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListAliases)
 
 responsePutMailboxPermissions :: PutMailboxPermissionsResponse -> TestTree
 responsePutMailboxPermissions =
@@ -927,7 +927,7 @@ responsePutMailboxPermissions =
     "PutMailboxPermissionsResponse"
     "fixture/PutMailboxPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMailboxPermissions)
+    (Proxy.Proxy :: Proxy.Proxy PutMailboxPermissions)
 
 responseGetMobileDeviceAccessEffect :: GetMobileDeviceAccessEffectResponse -> TestTree
 responseGetMobileDeviceAccessEffect =
@@ -935,7 +935,7 @@ responseGetMobileDeviceAccessEffect =
     "GetMobileDeviceAccessEffectResponse"
     "fixture/GetMobileDeviceAccessEffectResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMobileDeviceAccessEffect)
+    (Proxy.Proxy :: Proxy.Proxy GetMobileDeviceAccessEffect)
 
 responseDeleteMailboxPermissions :: DeleteMailboxPermissionsResponse -> TestTree
 responseDeleteMailboxPermissions =
@@ -943,7 +943,7 @@ responseDeleteMailboxPermissions =
     "DeleteMailboxPermissionsResponse"
     "fixture/DeleteMailboxPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMailboxPermissions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMailboxPermissions)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -951,7 +951,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responsePutInboundDmarcSettings :: PutInboundDmarcSettingsResponse -> TestTree
 responsePutInboundDmarcSettings =
@@ -959,7 +959,7 @@ responsePutInboundDmarcSettings =
     "PutInboundDmarcSettingsResponse"
     "fixture/PutInboundDmarcSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInboundDmarcSettings)
+    (Proxy.Proxy :: Proxy.Proxy PutInboundDmarcSettings)
 
 responseGetMailboxDetails :: GetMailboxDetailsResponse -> TestTree
 responseGetMailboxDetails =
@@ -967,7 +967,7 @@ responseGetMailboxDetails =
     "GetMailboxDetailsResponse"
     "fixture/GetMailboxDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMailboxDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetMailboxDetails)
 
 responseAssociateMemberToGroup :: AssociateMemberToGroupResponse -> TestTree
 responseAssociateMemberToGroup =
@@ -975,7 +975,7 @@ responseAssociateMemberToGroup =
     "AssociateMemberToGroupResponse"
     "fixture/AssociateMemberToGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateMemberToGroup)
+    (Proxy.Proxy :: Proxy.Proxy AssociateMemberToGroup)
 
 responseDeleteResource :: DeleteResourceResponse -> TestTree
 responseDeleteResource =
@@ -983,7 +983,7 @@ responseDeleteResource =
     "DeleteResourceResponse"
     "fixture/DeleteResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResource)
 
 responseUpdateResource :: UpdateResourceResponse -> TestTree
 responseUpdateResource =
@@ -991,7 +991,7 @@ responseUpdateResource =
     "UpdateResourceResponse"
     "fixture/UpdateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResource)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResource)
 
 responseDisassociateMemberFromGroup :: DisassociateMemberFromGroupResponse -> TestTree
 responseDisassociateMemberFromGroup =
@@ -999,7 +999,7 @@ responseDisassociateMemberFromGroup =
     "DisassociateMemberFromGroupResponse"
     "fixture/DisassociateMemberFromGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateMemberFromGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMemberFromGroup)
 
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
@@ -1007,7 +1007,7 @@ responseListResources =
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResources)
+    (Proxy.Proxy :: Proxy.Proxy ListResources)
 
 responseDeregisterFromWorkMail :: DeregisterFromWorkMailResponse -> TestTree
 responseDeregisterFromWorkMail =
@@ -1015,7 +1015,7 @@ responseDeregisterFromWorkMail =
     "DeregisterFromWorkMailResponse"
     "fixture/DeregisterFromWorkMailResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterFromWorkMail)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterFromWorkMail)
 
 responseListMailboxExportJobs :: ListMailboxExportJobsResponse -> TestTree
 responseListMailboxExportJobs =
@@ -1023,7 +1023,7 @@ responseListMailboxExportJobs =
     "ListMailboxExportJobsResponse"
     "fixture/ListMailboxExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMailboxExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListMailboxExportJobs)
 
 responseCreateMobileDeviceAccessRule :: CreateMobileDeviceAccessRuleResponse -> TestTree
 responseCreateMobileDeviceAccessRule =
@@ -1031,7 +1031,7 @@ responseCreateMobileDeviceAccessRule =
     "CreateMobileDeviceAccessRuleResponse"
     "fixture/CreateMobileDeviceAccessRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMobileDeviceAccessRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateMobileDeviceAccessRule)
 
 responseListMailboxPermissions :: ListMailboxPermissionsResponse -> TestTree
 responseListMailboxPermissions =
@@ -1039,7 +1039,7 @@ responseListMailboxPermissions =
     "ListMailboxPermissionsResponse"
     "fixture/ListMailboxPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMailboxPermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListMailboxPermissions)
 
 responseGetMobileDeviceAccessOverride :: GetMobileDeviceAccessOverrideResponse -> TestTree
 responseGetMobileDeviceAccessOverride =
@@ -1047,7 +1047,7 @@ responseGetMobileDeviceAccessOverride =
     "GetMobileDeviceAccessOverrideResponse"
     "fixture/GetMobileDeviceAccessOverrideResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMobileDeviceAccessOverride)
+    (Proxy.Proxy :: Proxy.Proxy GetMobileDeviceAccessOverride)
 
 responseListGroupMembers :: ListGroupMembersResponse -> TestTree
 responseListGroupMembers =
@@ -1055,7 +1055,7 @@ responseListGroupMembers =
     "ListGroupMembersResponse"
     "fixture/ListGroupMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupMembers)
 
 responseDisassociateDelegateFromResource :: DisassociateDelegateFromResourceResponse -> TestTree
 responseDisassociateDelegateFromResource =
@@ -1063,7 +1063,7 @@ responseDisassociateDelegateFromResource =
     "DisassociateDelegateFromResourceResponse"
     "fixture/DisassociateDelegateFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDelegateFromResource)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDelegateFromResource)
 
 responseDeleteAccessControlRule :: DeleteAccessControlRuleResponse -> TestTree
 responseDeleteAccessControlRule =
@@ -1071,7 +1071,7 @@ responseDeleteAccessControlRule =
     "DeleteAccessControlRuleResponse"
     "fixture/DeleteAccessControlRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccessControlRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessControlRule)
 
 responseListResourceDelegates :: ListResourceDelegatesResponse -> TestTree
 responseListResourceDelegates =
@@ -1079,7 +1079,7 @@ responseListResourceDelegates =
     "ListResourceDelegatesResponse"
     "fixture/ListResourceDelegatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceDelegates)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceDelegates)
 
 responseListAccessControlRules :: ListAccessControlRulesResponse -> TestTree
 responseListAccessControlRules =
@@ -1087,7 +1087,7 @@ responseListAccessControlRules =
     "ListAccessControlRulesResponse"
     "fixture/ListAccessControlRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccessControlRules)
+    (Proxy.Proxy :: Proxy.Proxy ListAccessControlRules)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -1095,7 +1095,7 @@ responseDescribeUser =
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responsePutAccessControlRule :: PutAccessControlRuleResponse -> TestTree
 responsePutAccessControlRule =
@@ -1103,7 +1103,7 @@ responsePutAccessControlRule =
     "PutAccessControlRuleResponse"
     "fixture/PutAccessControlRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccessControlRule)
+    (Proxy.Proxy :: Proxy.Proxy PutAccessControlRule)
 
 responseStartMailboxExportJob :: StartMailboxExportJobResponse -> TestTree
 responseStartMailboxExportJob =
@@ -1111,7 +1111,7 @@ responseStartMailboxExportJob =
     "StartMailboxExportJobResponse"
     "fixture/StartMailboxExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMailboxExportJob)
+    (Proxy.Proxy :: Proxy.Proxy StartMailboxExportJob)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
 responseDeleteAlias =
@@ -1119,7 +1119,7 @@ responseDeleteAlias =
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlias)
 
 responseListOrganizations :: ListOrganizationsResponse -> TestTree
 responseListOrganizations =
@@ -1127,7 +1127,7 @@ responseListOrganizations =
     "ListOrganizationsResponse"
     "fixture/ListOrganizationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOrganizations)
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizations)
 
 responseAssociateDelegateToResource :: AssociateDelegateToResourceResponse -> TestTree
 responseAssociateDelegateToResource =
@@ -1135,7 +1135,7 @@ responseAssociateDelegateToResource =
     "AssociateDelegateToResourceResponse"
     "fixture/AssociateDelegateToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDelegateToResource)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDelegateToResource)
 
 responseGetAccessControlEffect :: GetAccessControlEffectResponse -> TestTree
 responseGetAccessControlEffect =
@@ -1143,7 +1143,7 @@ responseGetAccessControlEffect =
     "GetAccessControlEffectResponse"
     "fixture/GetAccessControlEffectResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccessControlEffect)
+    (Proxy.Proxy :: Proxy.Proxy GetAccessControlEffect)
 
 responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
 responseDeleteRetentionPolicy =
@@ -1151,7 +1151,7 @@ responseDeleteRetentionPolicy =
     "DeleteRetentionPolicyResponse"
     "fixture/DeleteRetentionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRetentionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRetentionPolicy)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -1159,7 +1159,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
 responsePutRetentionPolicy =
@@ -1167,7 +1167,7 @@ responsePutRetentionPolicy =
     "PutRetentionPolicyResponse"
     "fixture/PutRetentionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRetentionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutRetentionPolicy)
 
 responseListMailDomains :: ListMailDomainsResponse -> TestTree
 responseListMailDomains =
@@ -1175,7 +1175,7 @@ responseListMailDomains =
     "ListMailDomainsResponse"
     "fixture/ListMailDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMailDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListMailDomains)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -1183,7 +1183,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1191,7 +1191,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseRegisterMailDomain :: RegisterMailDomainResponse -> TestTree
 responseRegisterMailDomain =
@@ -1199,7 +1199,7 @@ responseRegisterMailDomain =
     "RegisterMailDomainResponse"
     "fixture/RegisterMailDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterMailDomain)
+    (Proxy.Proxy :: Proxy.Proxy RegisterMailDomain)
 
 responseUpdateDefaultMailDomain :: UpdateDefaultMailDomainResponse -> TestTree
 responseUpdateDefaultMailDomain =
@@ -1207,7 +1207,7 @@ responseUpdateDefaultMailDomain =
     "UpdateDefaultMailDomainResponse"
     "fixture/UpdateDefaultMailDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDefaultMailDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDefaultMailDomain)
 
 responseUpdateMobileDeviceAccessRule :: UpdateMobileDeviceAccessRuleResponse -> TestTree
 responseUpdateMobileDeviceAccessRule =
@@ -1215,7 +1215,7 @@ responseUpdateMobileDeviceAccessRule =
     "UpdateMobileDeviceAccessRuleResponse"
     "fixture/UpdateMobileDeviceAccessRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMobileDeviceAccessRule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMobileDeviceAccessRule)
 
 responseDeleteMobileDeviceAccessRule :: DeleteMobileDeviceAccessRuleResponse -> TestTree
 responseDeleteMobileDeviceAccessRule =
@@ -1223,7 +1223,7 @@ responseDeleteMobileDeviceAccessRule =
     "DeleteMobileDeviceAccessRuleResponse"
     "fixture/DeleteMobileDeviceAccessRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMobileDeviceAccessRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMobileDeviceAccessRule)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -1231,7 +1231,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseUpdateMailboxQuota :: UpdateMailboxQuotaResponse -> TestTree
 responseUpdateMailboxQuota =
@@ -1239,7 +1239,7 @@ responseUpdateMailboxQuota =
     "UpdateMailboxQuotaResponse"
     "fixture/UpdateMailboxQuotaResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMailboxQuota)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMailboxQuota)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1247,7 +1247,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListMobileDeviceAccessRules :: ListMobileDeviceAccessRulesResponse -> TestTree
 responseListMobileDeviceAccessRules =
@@ -1255,7 +1255,7 @@ responseListMobileDeviceAccessRules =
     "ListMobileDeviceAccessRulesResponse"
     "fixture/ListMobileDeviceAccessRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMobileDeviceAccessRules)
+    (Proxy.Proxy :: Proxy.Proxy ListMobileDeviceAccessRules)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -1263,7 +1263,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -1271,7 +1271,7 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
 responseDescribeOrganization :: DescribeOrganizationResponse -> TestTree
 responseDescribeOrganization =
@@ -1279,7 +1279,7 @@ responseDescribeOrganization =
     "DescribeOrganizationResponse"
     "fixture/DescribeOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganization)
 
 responseCreateResource :: CreateResourceResponse -> TestTree
 responseCreateResource =
@@ -1287,7 +1287,7 @@ responseCreateResource =
     "CreateResourceResponse"
     "fixture/CreateResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateResource)
 
 responseGetDefaultRetentionPolicy :: GetDefaultRetentionPolicyResponse -> TestTree
 responseGetDefaultRetentionPolicy =
@@ -1295,7 +1295,7 @@ responseGetDefaultRetentionPolicy =
     "GetDefaultRetentionPolicyResponse"
     "fixture/GetDefaultRetentionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDefaultRetentionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetDefaultRetentionPolicy)
 
 responseDeregisterMailDomain :: DeregisterMailDomainResponse -> TestTree
 responseDeregisterMailDomain =
@@ -1303,7 +1303,7 @@ responseDeregisterMailDomain =
     "DeregisterMailDomainResponse"
     "fixture/DeregisterMailDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterMailDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterMailDomain)
 
 responseCancelMailboxExportJob :: CancelMailboxExportJobResponse -> TestTree
 responseCancelMailboxExportJob =
@@ -1311,7 +1311,7 @@ responseCancelMailboxExportJob =
     "CancelMailboxExportJobResponse"
     "fixture/CancelMailboxExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelMailboxExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelMailboxExportJob)
 
 responseListMobileDeviceAccessOverrides :: ListMobileDeviceAccessOverridesResponse -> TestTree
 responseListMobileDeviceAccessOverrides =
@@ -1319,7 +1319,7 @@ responseListMobileDeviceAccessOverrides =
     "ListMobileDeviceAccessOverridesResponse"
     "fixture/ListMobileDeviceAccessOverridesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMobileDeviceAccessOverrides)
+    (Proxy.Proxy :: Proxy.Proxy ListMobileDeviceAccessOverrides)
 
 responseDeleteMobileDeviceAccessOverride :: DeleteMobileDeviceAccessOverrideResponse -> TestTree
 responseDeleteMobileDeviceAccessOverride =
@@ -1327,7 +1327,7 @@ responseDeleteMobileDeviceAccessOverride =
     "DeleteMobileDeviceAccessOverrideResponse"
     "fixture/DeleteMobileDeviceAccessOverrideResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMobileDeviceAccessOverride)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMobileDeviceAccessOverride)
 
 responsePutMobileDeviceAccessOverride :: PutMobileDeviceAccessOverrideResponse -> TestTree
 responsePutMobileDeviceAccessOverride =
@@ -1335,4 +1335,4 @@ responsePutMobileDeviceAccessOverride =
     "PutMobileDeviceAccessOverrideResponse"
     "fixture/PutMobileDeviceAccessOverrideResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMobileDeviceAccessOverride)
+    (Proxy.Proxy :: Proxy.Proxy PutMobileDeviceAccessOverride)

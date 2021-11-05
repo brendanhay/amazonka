@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSM where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SSM
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1663,7 +1663,7 @@ responseGetConnectionStatus =
     "GetConnectionStatusResponse"
     "fixture/GetConnectionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnectionStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetConnectionStatus)
 
 responseDescribeInstancePatches :: DescribeInstancePatchesResponse -> TestTree
 responseDescribeInstancePatches =
@@ -1671,7 +1671,7 @@ responseDescribeInstancePatches =
     "DescribeInstancePatchesResponse"
     "fixture/DescribeInstancePatchesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstancePatches)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstancePatches)
 
 responseGetInventory :: GetInventoryResponse -> TestTree
 responseGetInventory =
@@ -1679,7 +1679,7 @@ responseGetInventory =
     "GetInventoryResponse"
     "fixture/GetInventoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInventory)
+    (Proxy.Proxy :: Proxy.Proxy GetInventory)
 
 responseGetParameters :: GetParametersResponse -> TestTree
 responseGetParameters =
@@ -1687,7 +1687,7 @@ responseGetParameters =
     "GetParametersResponse"
     "fixture/GetParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetParameters)
+    (Proxy.Proxy :: Proxy.Proxy GetParameters)
 
 responseDeletePatchBaseline :: DeletePatchBaselineResponse -> TestTree
 responseDeletePatchBaseline =
@@ -1695,7 +1695,7 @@ responseDeletePatchBaseline =
     "DeletePatchBaselineResponse"
     "fixture/DeletePatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy DeletePatchBaseline)
 
 responseUpdatePatchBaseline :: UpdatePatchBaselineResponse -> TestTree
 responseUpdatePatchBaseline =
@@ -1703,7 +1703,7 @@ responseUpdatePatchBaseline =
     "UpdatePatchBaselineResponse"
     "fixture/UpdatePatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePatchBaseline)
 
 responseListOpsItemEvents :: ListOpsItemEventsResponse -> TestTree
 responseListOpsItemEvents =
@@ -1711,7 +1711,7 @@ responseListOpsItemEvents =
     "ListOpsItemEventsResponse"
     "fixture/ListOpsItemEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOpsItemEvents)
+    (Proxy.Proxy :: Proxy.Proxy ListOpsItemEvents)
 
 responseTerminateSession :: TerminateSessionResponse -> TestTree
 responseTerminateSession =
@@ -1719,7 +1719,7 @@ responseTerminateSession =
     "TerminateSessionResponse"
     "fixture/TerminateSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateSession)
+    (Proxy.Proxy :: Proxy.Proxy TerminateSession)
 
 responseGetParameter :: GetParameterResponse -> TestTree
 responseGetParameter =
@@ -1727,7 +1727,7 @@ responseGetParameter =
     "GetParameterResponse"
     "fixture/GetParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy GetParameter)
+    (Proxy.Proxy :: Proxy.Proxy GetParameter)
 
 responseGetOpsMetadata :: GetOpsMetadataResponse -> TestTree
 responseGetOpsMetadata =
@@ -1735,7 +1735,7 @@ responseGetOpsMetadata =
     "GetOpsMetadataResponse"
     "fixture/GetOpsMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOpsMetadata)
+    (Proxy.Proxy :: Proxy.Proxy GetOpsMetadata)
 
 responseUpdateDocumentDefaultVersion :: UpdateDocumentDefaultVersionResponse -> TestTree
 responseUpdateDocumentDefaultVersion =
@@ -1743,7 +1743,7 @@ responseUpdateDocumentDefaultVersion =
     "UpdateDocumentDefaultVersionResponse"
     "fixture/UpdateDocumentDefaultVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocumentDefaultVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDocumentDefaultVersion)
 
 responseListResourceDataSync :: ListResourceDataSyncResponse -> TestTree
 responseListResourceDataSync =
@@ -1751,7 +1751,7 @@ responseListResourceDataSync =
     "ListResourceDataSyncResponse"
     "fixture/ListResourceDataSyncResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceDataSync)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceDataSync)
 
 responseGetOpsItem :: GetOpsItemResponse -> TestTree
 responseGetOpsItem =
@@ -1759,7 +1759,7 @@ responseGetOpsItem =
     "GetOpsItemResponse"
     "fixture/GetOpsItemResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOpsItem)
+    (Proxy.Proxy :: Proxy.Proxy GetOpsItem)
 
 responseResumeSession :: ResumeSessionResponse -> TestTree
 responseResumeSession =
@@ -1767,7 +1767,7 @@ responseResumeSession =
     "ResumeSessionResponse"
     "fixture/ResumeSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy ResumeSession)
+    (Proxy.Proxy :: Proxy.Proxy ResumeSession)
 
 responseGetDeployablePatchSnapshotForInstance :: GetDeployablePatchSnapshotForInstanceResponse -> TestTree
 responseGetDeployablePatchSnapshotForInstance =
@@ -1775,7 +1775,7 @@ responseGetDeployablePatchSnapshotForInstance =
     "GetDeployablePatchSnapshotForInstanceResponse"
     "fixture/GetDeployablePatchSnapshotForInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeployablePatchSnapshotForInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetDeployablePatchSnapshotForInstance)
 
 responseDescribeParameters :: DescribeParametersResponse -> TestTree
 responseDescribeParameters =
@@ -1783,7 +1783,7 @@ responseDescribeParameters =
     "DescribeParametersResponse"
     "fixture/DescribeParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeParameters)
 
 responseDescribeOpsItems :: DescribeOpsItemsResponse -> TestTree
 responseDescribeOpsItems =
@@ -1791,7 +1791,7 @@ responseDescribeOpsItems =
     "DescribeOpsItemsResponse"
     "fixture/DescribeOpsItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOpsItems)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOpsItems)
 
 responseGetParametersByPath :: GetParametersByPathResponse -> TestTree
 responseGetParametersByPath =
@@ -1799,7 +1799,7 @@ responseGetParametersByPath =
     "GetParametersByPathResponse"
     "fixture/GetParametersByPathResponse.proto"
     defaultService
-    (Proxy :: Proxy GetParametersByPath)
+    (Proxy.Proxy :: Proxy.Proxy GetParametersByPath)
 
 responsePutComplianceItems :: PutComplianceItemsResponse -> TestTree
 responsePutComplianceItems =
@@ -1807,7 +1807,7 @@ responsePutComplianceItems =
     "PutComplianceItemsResponse"
     "fixture/PutComplianceItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutComplianceItems)
+    (Proxy.Proxy :: Proxy.Proxy PutComplianceItems)
 
 responseListDocumentMetadataHistory :: ListDocumentMetadataHistoryResponse -> TestTree
 responseListDocumentMetadataHistory =
@@ -1815,7 +1815,7 @@ responseListDocumentMetadataHistory =
     "ListDocumentMetadataHistoryResponse"
     "fixture/ListDocumentMetadataHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDocumentMetadataHistory)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentMetadataHistory)
 
 responseDescribeActivations :: DescribeActivationsResponse -> TestTree
 responseDescribeActivations =
@@ -1823,7 +1823,7 @@ responseDescribeActivations =
     "DescribeActivationsResponse"
     "fixture/DescribeActivationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeActivations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeActivations)
 
 responseGetMaintenanceWindowTask :: GetMaintenanceWindowTaskResponse -> TestTree
 responseGetMaintenanceWindowTask =
@@ -1831,7 +1831,7 @@ responseGetMaintenanceWindowTask =
     "GetMaintenanceWindowTaskResponse"
     "fixture/GetMaintenanceWindowTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMaintenanceWindowTask)
+    (Proxy.Proxy :: Proxy.Proxy GetMaintenanceWindowTask)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1839,7 +1839,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeDocument :: DescribeDocumentResponse -> TestTree
 responseDescribeDocument =
@@ -1847,7 +1847,7 @@ responseDescribeDocument =
     "DescribeDocumentResponse"
     "fixture/DescribeDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDocument)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDocument)
 
 responseDescribePatchProperties :: DescribePatchPropertiesResponse -> TestTree
 responseDescribePatchProperties =
@@ -1855,7 +1855,7 @@ responseDescribePatchProperties =
     "DescribePatchPropertiesResponse"
     "fixture/DescribePatchPropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePatchProperties)
+    (Proxy.Proxy :: Proxy.Proxy DescribePatchProperties)
 
 responseCreateAssociation :: CreateAssociationResponse -> TestTree
 responseCreateAssociation =
@@ -1863,7 +1863,7 @@ responseCreateAssociation =
     "CreateAssociationResponse"
     "fixture/CreateAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssociation)
 
 responseDeleteActivation :: DeleteActivationResponse -> TestTree
 responseDeleteActivation =
@@ -1871,7 +1871,7 @@ responseDeleteActivation =
     "DeleteActivationResponse"
     "fixture/DeleteActivationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteActivation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteActivation)
 
 responseDescribeMaintenanceWindowExecutions :: DescribeMaintenanceWindowExecutionsResponse -> TestTree
 responseDescribeMaintenanceWindowExecutions =
@@ -1879,7 +1879,7 @@ responseDescribeMaintenanceWindowExecutions =
     "DescribeMaintenanceWindowExecutionsResponse"
     "fixture/DescribeMaintenanceWindowExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowExecutions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowExecutions)
 
 responseDescribeMaintenanceWindowsForTarget :: DescribeMaintenanceWindowsForTargetResponse -> TestTree
 responseDescribeMaintenanceWindowsForTarget =
@@ -1887,7 +1887,7 @@ responseDescribeMaintenanceWindowsForTarget =
     "DescribeMaintenanceWindowsForTargetResponse"
     "fixture/DescribeMaintenanceWindowsForTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowsForTarget)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowsForTarget)
 
 responseCreateOpsMetadata :: CreateOpsMetadataResponse -> TestTree
 responseCreateOpsMetadata =
@@ -1895,7 +1895,7 @@ responseCreateOpsMetadata =
     "CreateOpsMetadataResponse"
     "fixture/CreateOpsMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOpsMetadata)
+    (Proxy.Proxy :: Proxy.Proxy CreateOpsMetadata)
 
 responseStartChangeRequestExecution :: StartChangeRequestExecutionResponse -> TestTree
 responseStartChangeRequestExecution =
@@ -1903,7 +1903,7 @@ responseStartChangeRequestExecution =
     "StartChangeRequestExecutionResponse"
     "fixture/StartChangeRequestExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartChangeRequestExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartChangeRequestExecution)
 
 responseCancelMaintenanceWindowExecution :: CancelMaintenanceWindowExecutionResponse -> TestTree
 responseCancelMaintenanceWindowExecution =
@@ -1911,7 +1911,7 @@ responseCancelMaintenanceWindowExecution =
     "CancelMaintenanceWindowExecutionResponse"
     "fixture/CancelMaintenanceWindowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelMaintenanceWindowExecution)
+    (Proxy.Proxy :: Proxy.Proxy CancelMaintenanceWindowExecution)
 
 responseGetInventorySchema :: GetInventorySchemaResponse -> TestTree
 responseGetInventorySchema =
@@ -1919,7 +1919,7 @@ responseGetInventorySchema =
     "GetInventorySchemaResponse"
     "fixture/GetInventorySchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInventorySchema)
+    (Proxy.Proxy :: Proxy.Proxy GetInventorySchema)
 
 responseListComplianceSummaries :: ListComplianceSummariesResponse -> TestTree
 responseListComplianceSummaries =
@@ -1927,7 +1927,7 @@ responseListComplianceSummaries =
     "ListComplianceSummariesResponse"
     "fixture/ListComplianceSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComplianceSummaries)
+    (Proxy.Proxy :: Proxy.Proxy ListComplianceSummaries)
 
 responseStartAutomationExecution :: StartAutomationExecutionResponse -> TestTree
 responseStartAutomationExecution =
@@ -1935,7 +1935,7 @@ responseStartAutomationExecution =
     "StartAutomationExecutionResponse"
     "fixture/StartAutomationExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAutomationExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartAutomationExecution)
 
 responseCreateOpsItem :: CreateOpsItemResponse -> TestTree
 responseCreateOpsItem =
@@ -1943,7 +1943,7 @@ responseCreateOpsItem =
     "CreateOpsItemResponse"
     "fixture/CreateOpsItemResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOpsItem)
+    (Proxy.Proxy :: Proxy.Proxy CreateOpsItem)
 
 responseCreateActivation :: CreateActivationResponse -> TestTree
 responseCreateActivation =
@@ -1951,7 +1951,7 @@ responseCreateActivation =
     "CreateActivationResponse"
     "fixture/CreateActivationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateActivation)
+    (Proxy.Proxy :: Proxy.Proxy CreateActivation)
 
 responseDeleteMaintenanceWindow :: DeleteMaintenanceWindowResponse -> TestTree
 responseDeleteMaintenanceWindow =
@@ -1959,7 +1959,7 @@ responseDeleteMaintenanceWindow =
     "DeleteMaintenanceWindowResponse"
     "fixture/DeleteMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMaintenanceWindow)
 
 responseUpdateMaintenanceWindow :: UpdateMaintenanceWindowResponse -> TestTree
 responseUpdateMaintenanceWindow =
@@ -1967,7 +1967,7 @@ responseUpdateMaintenanceWindow =
     "UpdateMaintenanceWindowResponse"
     "fixture/UpdateMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMaintenanceWindow)
 
 responseDescribeSessions :: DescribeSessionsResponse -> TestTree
 responseDescribeSessions =
@@ -1975,7 +1975,7 @@ responseDescribeSessions =
     "DescribeSessionsResponse"
     "fixture/DescribeSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSessions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSessions)
 
 responseDescribeMaintenanceWindowExecutionTasks :: DescribeMaintenanceWindowExecutionTasksResponse -> TestTree
 responseDescribeMaintenanceWindowExecutionTasks =
@@ -1983,7 +1983,7 @@ responseDescribeMaintenanceWindowExecutionTasks =
     "DescribeMaintenanceWindowExecutionTasksResponse"
     "fixture/DescribeMaintenanceWindowExecutionTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowExecutionTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowExecutionTasks)
 
 responseGetDefaultPatchBaseline :: GetDefaultPatchBaselineResponse -> TestTree
 responseGetDefaultPatchBaseline =
@@ -1991,7 +1991,7 @@ responseGetDefaultPatchBaseline =
     "GetDefaultPatchBaselineResponse"
     "fixture/GetDefaultPatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDefaultPatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy GetDefaultPatchBaseline)
 
 responseGetMaintenanceWindowExecutionTask :: GetMaintenanceWindowExecutionTaskResponse -> TestTree
 responseGetMaintenanceWindowExecutionTask =
@@ -1999,7 +1999,7 @@ responseGetMaintenanceWindowExecutionTask =
     "GetMaintenanceWindowExecutionTaskResponse"
     "fixture/GetMaintenanceWindowExecutionTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMaintenanceWindowExecutionTask)
+    (Proxy.Proxy :: Proxy.Proxy GetMaintenanceWindowExecutionTask)
 
 responseCreateDocument :: CreateDocumentResponse -> TestTree
 responseCreateDocument =
@@ -2007,7 +2007,7 @@ responseCreateDocument =
     "CreateDocumentResponse"
     "fixture/CreateDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDocument)
+    (Proxy.Proxy :: Proxy.Proxy CreateDocument)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource =
@@ -2015,7 +2015,7 @@ responseRemoveTagsFromResource =
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
 responseGetCalendarState :: GetCalendarStateResponse -> TestTree
 responseGetCalendarState =
@@ -2023,7 +2023,7 @@ responseGetCalendarState =
     "GetCalendarStateResponse"
     "fixture/GetCalendarStateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCalendarState)
+    (Proxy.Proxy :: Proxy.Proxy GetCalendarState)
 
 responseDeleteParameters :: DeleteParametersResponse -> TestTree
 responseDeleteParameters =
@@ -2031,7 +2031,7 @@ responseDeleteParameters =
     "DeleteParametersResponse"
     "fixture/DeleteParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteParameters)
+    (Proxy.Proxy :: Proxy.Proxy DeleteParameters)
 
 responseDescribePatchGroupState :: DescribePatchGroupStateResponse -> TestTree
 responseDescribePatchGroupState =
@@ -2039,7 +2039,7 @@ responseDescribePatchGroupState =
     "DescribePatchGroupStateResponse"
     "fixture/DescribePatchGroupStateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePatchGroupState)
+    (Proxy.Proxy :: Proxy.Proxy DescribePatchGroupState)
 
 responseListCommandInvocations :: ListCommandInvocationsResponse -> TestTree
 responseListCommandInvocations =
@@ -2047,7 +2047,7 @@ responseListCommandInvocations =
     "ListCommandInvocationsResponse"
     "fixture/ListCommandInvocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCommandInvocations)
+    (Proxy.Proxy :: Proxy.Proxy ListCommandInvocations)
 
 responseDeregisterTargetFromMaintenanceWindow :: DeregisterTargetFromMaintenanceWindowResponse -> TestTree
 responseDeregisterTargetFromMaintenanceWindow =
@@ -2055,7 +2055,7 @@ responseDeregisterTargetFromMaintenanceWindow =
     "DeregisterTargetFromMaintenanceWindowResponse"
     "fixture/DeregisterTargetFromMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTargetFromMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTargetFromMaintenanceWindow)
 
 responseDescribeEffectivePatchesForPatchBaseline :: DescribeEffectivePatchesForPatchBaselineResponse -> TestTree
 responseDescribeEffectivePatchesForPatchBaseline =
@@ -2063,7 +2063,7 @@ responseDescribeEffectivePatchesForPatchBaseline =
     "DescribeEffectivePatchesForPatchBaselineResponse"
     "fixture/DescribeEffectivePatchesForPatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEffectivePatchesForPatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEffectivePatchesForPatchBaseline)
 
 responseUnlabelParameterVersion :: UnlabelParameterVersionResponse -> TestTree
 responseUnlabelParameterVersion =
@@ -2071,7 +2071,7 @@ responseUnlabelParameterVersion =
     "UnlabelParameterVersionResponse"
     "fixture/UnlabelParameterVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UnlabelParameterVersion)
+    (Proxy.Proxy :: Proxy.Proxy UnlabelParameterVersion)
 
 responseDescribeMaintenanceWindowTargets :: DescribeMaintenanceWindowTargetsResponse -> TestTree
 responseDescribeMaintenanceWindowTargets =
@@ -2079,7 +2079,7 @@ responseDescribeMaintenanceWindowTargets =
     "DescribeMaintenanceWindowTargetsResponse"
     "fixture/DescribeMaintenanceWindowTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowTargets)
 
 responseResetServiceSetting :: ResetServiceSettingResponse -> TestTree
 responseResetServiceSetting =
@@ -2087,7 +2087,7 @@ responseResetServiceSetting =
     "ResetServiceSettingResponse"
     "fixture/ResetServiceSettingResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetServiceSetting)
+    (Proxy.Proxy :: Proxy.Proxy ResetServiceSetting)
 
 responseRegisterPatchBaselineForPatchGroup :: RegisterPatchBaselineForPatchGroupResponse -> TestTree
 responseRegisterPatchBaselineForPatchGroup =
@@ -2095,7 +2095,7 @@ responseRegisterPatchBaselineForPatchGroup =
     "RegisterPatchBaselineForPatchGroupResponse"
     "fixture/RegisterPatchBaselineForPatchGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterPatchBaselineForPatchGroup)
+    (Proxy.Proxy :: Proxy.Proxy RegisterPatchBaselineForPatchGroup)
 
 responseListDocuments :: ListDocumentsResponse -> TestTree
 responseListDocuments =
@@ -2103,7 +2103,7 @@ responseListDocuments =
     "ListDocumentsResponse"
     "fixture/ListDocumentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDocuments)
+    (Proxy.Proxy :: Proxy.Proxy ListDocuments)
 
 responseDescribeInstancePatchStates :: DescribeInstancePatchStatesResponse -> TestTree
 responseDescribeInstancePatchStates =
@@ -2111,7 +2111,7 @@ responseDescribeInstancePatchStates =
     "DescribeInstancePatchStatesResponse"
     "fixture/DescribeInstancePatchStatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstancePatchStates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstancePatchStates)
 
 responseGetOpsSummary :: GetOpsSummaryResponse -> TestTree
 responseGetOpsSummary =
@@ -2119,7 +2119,7 @@ responseGetOpsSummary =
     "GetOpsSummaryResponse"
     "fixture/GetOpsSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOpsSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetOpsSummary)
 
 responseGetPatchBaselineForPatchGroup :: GetPatchBaselineForPatchGroupResponse -> TestTree
 responseGetPatchBaselineForPatchGroup =
@@ -2127,7 +2127,7 @@ responseGetPatchBaselineForPatchGroup =
     "GetPatchBaselineForPatchGroupResponse"
     "fixture/GetPatchBaselineForPatchGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPatchBaselineForPatchGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetPatchBaselineForPatchGroup)
 
 responseUpdateManagedInstanceRole :: UpdateManagedInstanceRoleResponse -> TestTree
 responseUpdateManagedInstanceRole =
@@ -2135,7 +2135,7 @@ responseUpdateManagedInstanceRole =
     "UpdateManagedInstanceRoleResponse"
     "fixture/UpdateManagedInstanceRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateManagedInstanceRole)
+    (Proxy.Proxy :: Proxy.Proxy UpdateManagedInstanceRole)
 
 responseListComplianceItems :: ListComplianceItemsResponse -> TestTree
 responseListComplianceItems =
@@ -2143,7 +2143,7 @@ responseListComplianceItems =
     "ListComplianceItemsResponse"
     "fixture/ListComplianceItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListComplianceItems)
+    (Proxy.Proxy :: Proxy.Proxy ListComplianceItems)
 
 responseGetDocument :: GetDocumentResponse -> TestTree
 responseGetDocument =
@@ -2151,7 +2151,7 @@ responseGetDocument =
     "GetDocumentResponse"
     "fixture/GetDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDocument)
+    (Proxy.Proxy :: Proxy.Proxy GetDocument)
 
 responseDescribeMaintenanceWindowSchedule :: DescribeMaintenanceWindowScheduleResponse -> TestTree
 responseDescribeMaintenanceWindowSchedule =
@@ -2159,7 +2159,7 @@ responseDescribeMaintenanceWindowSchedule =
     "DescribeMaintenanceWindowScheduleResponse"
     "fixture/DescribeMaintenanceWindowScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowSchedule)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
 responseAddTagsToResource =
@@ -2167,7 +2167,7 @@ responseAddTagsToResource =
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
 responseCancelCommand :: CancelCommandResponse -> TestTree
 responseCancelCommand =
@@ -2175,7 +2175,7 @@ responseCancelCommand =
     "CancelCommandResponse"
     "fixture/CancelCommandResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelCommand)
+    (Proxy.Proxy :: Proxy.Proxy CancelCommand)
 
 responseDescribeAutomationStepExecutions :: DescribeAutomationStepExecutionsResponse -> TestTree
 responseDescribeAutomationStepExecutions =
@@ -2183,7 +2183,7 @@ responseDescribeAutomationStepExecutions =
     "DescribeAutomationStepExecutionsResponse"
     "fixture/DescribeAutomationStepExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAutomationStepExecutions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAutomationStepExecutions)
 
 responseGetCommandInvocation :: GetCommandInvocationResponse -> TestTree
 responseGetCommandInvocation =
@@ -2191,7 +2191,7 @@ responseGetCommandInvocation =
     "GetCommandInvocationResponse"
     "fixture/GetCommandInvocationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCommandInvocation)
+    (Proxy.Proxy :: Proxy.Proxy GetCommandInvocation)
 
 responseDescribeInstancePatchStatesForPatchGroup :: DescribeInstancePatchStatesForPatchGroupResponse -> TestTree
 responseDescribeInstancePatchStatesForPatchGroup =
@@ -2199,7 +2199,7 @@ responseDescribeInstancePatchStatesForPatchGroup =
     "DescribeInstancePatchStatesForPatchGroupResponse"
     "fixture/DescribeInstancePatchStatesForPatchGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstancePatchStatesForPatchGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstancePatchStatesForPatchGroup)
 
 responseDeregisterManagedInstance :: DeregisterManagedInstanceResponse -> TestTree
 responseDeregisterManagedInstance =
@@ -2207,7 +2207,7 @@ responseDeregisterManagedInstance =
     "DeregisterManagedInstanceResponse"
     "fixture/DeregisterManagedInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterManagedInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterManagedInstance)
 
 responseDescribeAssociation :: DescribeAssociationResponse -> TestTree
 responseDescribeAssociation =
@@ -2215,7 +2215,7 @@ responseDescribeAssociation =
     "DescribeAssociationResponse"
     "fixture/DescribeAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssociation)
 
 responseDescribeAssociationExecutionTargets :: DescribeAssociationExecutionTargetsResponse -> TestTree
 responseDescribeAssociationExecutionTargets =
@@ -2223,7 +2223,7 @@ responseDescribeAssociationExecutionTargets =
     "DescribeAssociationExecutionTargetsResponse"
     "fixture/DescribeAssociationExecutionTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssociationExecutionTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssociationExecutionTargets)
 
 responseModifyDocumentPermission :: ModifyDocumentPermissionResponse -> TestTree
 responseModifyDocumentPermission =
@@ -2231,7 +2231,7 @@ responseModifyDocumentPermission =
     "ModifyDocumentPermissionResponse"
     "fixture/ModifyDocumentPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDocumentPermission)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDocumentPermission)
 
 responseUpdateResourceDataSync :: UpdateResourceDataSyncResponse -> TestTree
 responseUpdateResourceDataSync =
@@ -2239,7 +2239,7 @@ responseUpdateResourceDataSync =
     "UpdateResourceDataSyncResponse"
     "fixture/UpdateResourceDataSyncResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResourceDataSync)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceDataSync)
 
 responseDeleteResourceDataSync :: DeleteResourceDataSyncResponse -> TestTree
 responseDeleteResourceDataSync =
@@ -2247,7 +2247,7 @@ responseDeleteResourceDataSync =
     "DeleteResourceDataSyncResponse"
     "fixture/DeleteResourceDataSyncResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceDataSync)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceDataSync)
 
 responseUpdateAssociationStatus :: UpdateAssociationStatusResponse -> TestTree
 responseUpdateAssociationStatus =
@@ -2255,7 +2255,7 @@ responseUpdateAssociationStatus =
     "UpdateAssociationStatusResponse"
     "fixture/UpdateAssociationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssociationStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssociationStatus)
 
 responseDescribeAvailablePatches :: DescribeAvailablePatchesResponse -> TestTree
 responseDescribeAvailablePatches =
@@ -2263,7 +2263,7 @@ responseDescribeAvailablePatches =
     "DescribeAvailablePatchesResponse"
     "fixture/DescribeAvailablePatchesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAvailablePatches)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAvailablePatches)
 
 responseListDocumentVersions :: ListDocumentVersionsResponse -> TestTree
 responseListDocumentVersions =
@@ -2271,7 +2271,7 @@ responseListDocumentVersions =
     "ListDocumentVersionsResponse"
     "fixture/ListDocumentVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDocumentVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentVersions)
 
 responseDeregisterPatchBaselineForPatchGroup :: DeregisterPatchBaselineForPatchGroupResponse -> TestTree
 responseDeregisterPatchBaselineForPatchGroup =
@@ -2279,7 +2279,7 @@ responseDeregisterPatchBaselineForPatchGroup =
     "DeregisterPatchBaselineForPatchGroupResponse"
     "fixture/DeregisterPatchBaselineForPatchGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterPatchBaselineForPatchGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterPatchBaselineForPatchGroup)
 
 responseDescribePatchGroups :: DescribePatchGroupsResponse -> TestTree
 responseDescribePatchGroups =
@@ -2287,7 +2287,7 @@ responseDescribePatchGroups =
     "DescribePatchGroupsResponse"
     "fixture/DescribePatchGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePatchGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribePatchGroups)
 
 responseGetMaintenanceWindow :: GetMaintenanceWindowResponse -> TestTree
 responseGetMaintenanceWindow =
@@ -2295,7 +2295,7 @@ responseGetMaintenanceWindow =
     "GetMaintenanceWindowResponse"
     "fixture/GetMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy GetMaintenanceWindow)
 
 responseDescribeMaintenanceWindows :: DescribeMaintenanceWindowsResponse -> TestTree
 responseDescribeMaintenanceWindows =
@@ -2303,7 +2303,7 @@ responseDescribeMaintenanceWindows =
     "DescribeMaintenanceWindowsResponse"
     "fixture/DescribeMaintenanceWindowsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindows)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindows)
 
 responseRegisterTaskWithMaintenanceWindow :: RegisterTaskWithMaintenanceWindowResponse -> TestTree
 responseRegisterTaskWithMaintenanceWindow =
@@ -2311,7 +2311,7 @@ responseRegisterTaskWithMaintenanceWindow =
     "RegisterTaskWithMaintenanceWindowResponse"
     "fixture/RegisterTaskWithMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTaskWithMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTaskWithMaintenanceWindow)
 
 responseRegisterDefaultPatchBaseline :: RegisterDefaultPatchBaselineResponse -> TestTree
 responseRegisterDefaultPatchBaseline =
@@ -2319,7 +2319,7 @@ responseRegisterDefaultPatchBaseline =
     "RegisterDefaultPatchBaselineResponse"
     "fixture/RegisterDefaultPatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDefaultPatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDefaultPatchBaseline)
 
 responseListResourceComplianceSummaries :: ListResourceComplianceSummariesResponse -> TestTree
 responseListResourceComplianceSummaries =
@@ -2327,7 +2327,7 @@ responseListResourceComplianceSummaries =
     "ListResourceComplianceSummariesResponse"
     "fixture/ListResourceComplianceSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceComplianceSummaries)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceComplianceSummaries)
 
 responseAssociateOpsItemRelatedItem :: AssociateOpsItemRelatedItemResponse -> TestTree
 responseAssociateOpsItemRelatedItem =
@@ -2335,7 +2335,7 @@ responseAssociateOpsItemRelatedItem =
     "AssociateOpsItemRelatedItemResponse"
     "fixture/AssociateOpsItemRelatedItemResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateOpsItemRelatedItem)
+    (Proxy.Proxy :: Proxy.Proxy AssociateOpsItemRelatedItem)
 
 responseListAssociationVersions :: ListAssociationVersionsResponse -> TestTree
 responseListAssociationVersions =
@@ -2343,7 +2343,7 @@ responseListAssociationVersions =
     "ListAssociationVersionsResponse"
     "fixture/ListAssociationVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociationVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociationVersions)
 
 responseUpdateServiceSetting :: UpdateServiceSettingResponse -> TestTree
 responseUpdateServiceSetting =
@@ -2351,7 +2351,7 @@ responseUpdateServiceSetting =
     "UpdateServiceSettingResponse"
     "fixture/UpdateServiceSettingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServiceSetting)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSetting)
 
 responseDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasksResponse -> TestTree
 responseDescribeMaintenanceWindowTasks =
@@ -2359,7 +2359,7 @@ responseDescribeMaintenanceWindowTasks =
     "DescribeMaintenanceWindowTasksResponse"
     "fixture/DescribeMaintenanceWindowTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowTasks)
 
 responseDescribeInstanceAssociationsStatus :: DescribeInstanceAssociationsStatusResponse -> TestTree
 responseDescribeInstanceAssociationsStatus =
@@ -2367,7 +2367,7 @@ responseDescribeInstanceAssociationsStatus =
     "DescribeInstanceAssociationsStatusResponse"
     "fixture/DescribeInstanceAssociationsStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceAssociationsStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceAssociationsStatus)
 
 responseListOpsItemRelatedItems :: ListOpsItemRelatedItemsResponse -> TestTree
 responseListOpsItemRelatedItems =
@@ -2375,7 +2375,7 @@ responseListOpsItemRelatedItems =
     "ListOpsItemRelatedItemsResponse"
     "fixture/ListOpsItemRelatedItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOpsItemRelatedItems)
+    (Proxy.Proxy :: Proxy.Proxy ListOpsItemRelatedItems)
 
 responseDeregisterTaskFromMaintenanceWindow :: DeregisterTaskFromMaintenanceWindowResponse -> TestTree
 responseDeregisterTaskFromMaintenanceWindow =
@@ -2383,7 +2383,7 @@ responseDeregisterTaskFromMaintenanceWindow =
     "DeregisterTaskFromMaintenanceWindowResponse"
     "fixture/DeregisterTaskFromMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTaskFromMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTaskFromMaintenanceWindow)
 
 responseListInventoryEntries :: ListInventoryEntriesResponse -> TestTree
 responseListInventoryEntries =
@@ -2391,7 +2391,7 @@ responseListInventoryEntries =
     "ListInventoryEntriesResponse"
     "fixture/ListInventoryEntriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInventoryEntries)
+    (Proxy.Proxy :: Proxy.Proxy ListInventoryEntries)
 
 responseLabelParameterVersion :: LabelParameterVersionResponse -> TestTree
 responseLabelParameterVersion =
@@ -2399,7 +2399,7 @@ responseLabelParameterVersion =
     "LabelParameterVersionResponse"
     "fixture/LabelParameterVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy LabelParameterVersion)
+    (Proxy.Proxy :: Proxy.Proxy LabelParameterVersion)
 
 responseUpdateMaintenanceWindowTask :: UpdateMaintenanceWindowTaskResponse -> TestTree
 responseUpdateMaintenanceWindowTask =
@@ -2407,7 +2407,7 @@ responseUpdateMaintenanceWindowTask =
     "UpdateMaintenanceWindowTaskResponse"
     "fixture/UpdateMaintenanceWindowTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMaintenanceWindowTask)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMaintenanceWindowTask)
 
 responseGetParameterHistory :: GetParameterHistoryResponse -> TestTree
 responseGetParameterHistory =
@@ -2415,7 +2415,7 @@ responseGetParameterHistory =
     "GetParameterHistoryResponse"
     "fixture/GetParameterHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetParameterHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetParameterHistory)
 
 responseDescribeAssociationExecutions :: DescribeAssociationExecutionsResponse -> TestTree
 responseDescribeAssociationExecutions =
@@ -2423,7 +2423,7 @@ responseDescribeAssociationExecutions =
     "DescribeAssociationExecutionsResponse"
     "fixture/DescribeAssociationExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAssociationExecutions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssociationExecutions)
 
 responseGetServiceSetting :: GetServiceSettingResponse -> TestTree
 responseGetServiceSetting =
@@ -2431,7 +2431,7 @@ responseGetServiceSetting =
     "GetServiceSettingResponse"
     "fixture/GetServiceSettingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceSetting)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceSetting)
 
 responseStartAssociationsOnce :: StartAssociationsOnceResponse -> TestTree
 responseStartAssociationsOnce =
@@ -2439,7 +2439,7 @@ responseStartAssociationsOnce =
     "StartAssociationsOnceResponse"
     "fixture/StartAssociationsOnceResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAssociationsOnce)
+    (Proxy.Proxy :: Proxy.Proxy StartAssociationsOnce)
 
 responseCreateMaintenanceWindow :: CreateMaintenanceWindowResponse -> TestTree
 responseCreateMaintenanceWindow =
@@ -2447,7 +2447,7 @@ responseCreateMaintenanceWindow =
     "CreateMaintenanceWindowResponse"
     "fixture/CreateMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy CreateMaintenanceWindow)
 
 responseStopAutomationExecution :: StopAutomationExecutionResponse -> TestTree
 responseStopAutomationExecution =
@@ -2455,7 +2455,7 @@ responseStopAutomationExecution =
     "StopAutomationExecutionResponse"
     "fixture/StopAutomationExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopAutomationExecution)
+    (Proxy.Proxy :: Proxy.Proxy StopAutomationExecution)
 
 responseGetMaintenanceWindowExecution :: GetMaintenanceWindowExecutionResponse -> TestTree
 responseGetMaintenanceWindowExecution =
@@ -2463,7 +2463,7 @@ responseGetMaintenanceWindowExecution =
     "GetMaintenanceWindowExecutionResponse"
     "fixture/GetMaintenanceWindowExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMaintenanceWindowExecution)
+    (Proxy.Proxy :: Proxy.Proxy GetMaintenanceWindowExecution)
 
 responseSendAutomationSignal :: SendAutomationSignalResponse -> TestTree
 responseSendAutomationSignal =
@@ -2471,7 +2471,7 @@ responseSendAutomationSignal =
     "SendAutomationSignalResponse"
     "fixture/SendAutomationSignalResponse.proto"
     defaultService
-    (Proxy :: Proxy SendAutomationSignal)
+    (Proxy.Proxy :: Proxy.Proxy SendAutomationSignal)
 
 responseDeleteOpsMetadata :: DeleteOpsMetadataResponse -> TestTree
 responseDeleteOpsMetadata =
@@ -2479,7 +2479,7 @@ responseDeleteOpsMetadata =
     "DeleteOpsMetadataResponse"
     "fixture/DeleteOpsMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOpsMetadata)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOpsMetadata)
 
 responseUpdateOpsMetadata :: UpdateOpsMetadataResponse -> TestTree
 responseUpdateOpsMetadata =
@@ -2487,7 +2487,7 @@ responseUpdateOpsMetadata =
     "UpdateOpsMetadataResponse"
     "fixture/UpdateOpsMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOpsMetadata)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOpsMetadata)
 
 responsePutParameter :: PutParameterResponse -> TestTree
 responsePutParameter =
@@ -2495,7 +2495,7 @@ responsePutParameter =
     "PutParameterResponse"
     "fixture/PutParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy PutParameter)
+    (Proxy.Proxy :: Proxy.Proxy PutParameter)
 
 responseDescribeMaintenanceWindowExecutionTaskInvocations :: DescribeMaintenanceWindowExecutionTaskInvocationsResponse -> TestTree
 responseDescribeMaintenanceWindowExecutionTaskInvocations =
@@ -2503,7 +2503,7 @@ responseDescribeMaintenanceWindowExecutionTaskInvocations =
     "DescribeMaintenanceWindowExecutionTaskInvocationsResponse"
     "fixture/DescribeMaintenanceWindowExecutionTaskInvocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMaintenanceWindowExecutionTaskInvocations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceWindowExecutionTaskInvocations)
 
 responseGetMaintenanceWindowExecutionTaskInvocation :: GetMaintenanceWindowExecutionTaskInvocationResponse -> TestTree
 responseGetMaintenanceWindowExecutionTaskInvocation =
@@ -2511,7 +2511,7 @@ responseGetMaintenanceWindowExecutionTaskInvocation =
     "GetMaintenanceWindowExecutionTaskInvocationResponse"
     "fixture/GetMaintenanceWindowExecutionTaskInvocationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMaintenanceWindowExecutionTaskInvocation)
+    (Proxy.Proxy :: Proxy.Proxy GetMaintenanceWindowExecutionTaskInvocation)
 
 responseDeleteParameter :: DeleteParameterResponse -> TestTree
 responseDeleteParameter =
@@ -2519,7 +2519,7 @@ responseDeleteParameter =
     "DeleteParameterResponse"
     "fixture/DeleteParameterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteParameter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteParameter)
 
 responseDescribeInstanceInformation :: DescribeInstanceInformationResponse -> TestTree
 responseDescribeInstanceInformation =
@@ -2527,7 +2527,7 @@ responseDescribeInstanceInformation =
     "DescribeInstanceInformationResponse"
     "fixture/DescribeInstanceInformationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceInformation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceInformation)
 
 responseListAssociations :: ListAssociationsResponse -> TestTree
 responseListAssociations =
@@ -2535,7 +2535,7 @@ responseListAssociations =
     "ListAssociationsResponse"
     "fixture/ListAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociations)
 
 responseUpdateOpsItem :: UpdateOpsItemResponse -> TestTree
 responseUpdateOpsItem =
@@ -2543,7 +2543,7 @@ responseUpdateOpsItem =
     "UpdateOpsItemResponse"
     "fixture/UpdateOpsItemResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOpsItem)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOpsItem)
 
 responseDeleteAssociation :: DeleteAssociationResponse -> TestTree
 responseDeleteAssociation =
@@ -2551,7 +2551,7 @@ responseDeleteAssociation =
     "DeleteAssociationResponse"
     "fixture/DeleteAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssociation)
 
 responseUpdateAssociation :: UpdateAssociationResponse -> TestTree
 responseUpdateAssociation =
@@ -2559,7 +2559,7 @@ responseUpdateAssociation =
     "UpdateAssociationResponse"
     "fixture/UpdateAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssociation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssociation)
 
 responseDescribeInventoryDeletions :: DescribeInventoryDeletionsResponse -> TestTree
 responseDescribeInventoryDeletions =
@@ -2567,7 +2567,7 @@ responseDescribeInventoryDeletions =
     "DescribeInventoryDeletionsResponse"
     "fixture/DescribeInventoryDeletionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInventoryDeletions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInventoryDeletions)
 
 responseDeleteInventory :: DeleteInventoryResponse -> TestTree
 responseDeleteInventory =
@@ -2575,7 +2575,7 @@ responseDeleteInventory =
     "DeleteInventoryResponse"
     "fixture/DeleteInventoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInventory)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInventory)
 
 responsePutInventory :: PutInventoryResponse -> TestTree
 responsePutInventory =
@@ -2583,7 +2583,7 @@ responsePutInventory =
     "PutInventoryResponse"
     "fixture/PutInventoryResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInventory)
+    (Proxy.Proxy :: Proxy.Proxy PutInventory)
 
 responseUpdateDocumentMetadata :: UpdateDocumentMetadataResponse -> TestTree
 responseUpdateDocumentMetadata =
@@ -2591,7 +2591,7 @@ responseUpdateDocumentMetadata =
     "UpdateDocumentMetadataResponse"
     "fixture/UpdateDocumentMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocumentMetadata)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDocumentMetadata)
 
 responseListOpsMetadata :: ListOpsMetadataResponse -> TestTree
 responseListOpsMetadata =
@@ -2599,7 +2599,7 @@ responseListOpsMetadata =
     "ListOpsMetadataResponse"
     "fixture/ListOpsMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOpsMetadata)
+    (Proxy.Proxy :: Proxy.Proxy ListOpsMetadata)
 
 responseDescribeEffectiveInstanceAssociations :: DescribeEffectiveInstanceAssociationsResponse -> TestTree
 responseDescribeEffectiveInstanceAssociations =
@@ -2607,7 +2607,7 @@ responseDescribeEffectiveInstanceAssociations =
     "DescribeEffectiveInstanceAssociationsResponse"
     "fixture/DescribeEffectiveInstanceAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEffectiveInstanceAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEffectiveInstanceAssociations)
 
 responseDescribeAutomationExecutions :: DescribeAutomationExecutionsResponse -> TestTree
 responseDescribeAutomationExecutions =
@@ -2615,7 +2615,7 @@ responseDescribeAutomationExecutions =
     "DescribeAutomationExecutionsResponse"
     "fixture/DescribeAutomationExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAutomationExecutions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAutomationExecutions)
 
 responseGetAutomationExecution :: GetAutomationExecutionResponse -> TestTree
 responseGetAutomationExecution =
@@ -2623,7 +2623,7 @@ responseGetAutomationExecution =
     "GetAutomationExecutionResponse"
     "fixture/GetAutomationExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAutomationExecution)
+    (Proxy.Proxy :: Proxy.Proxy GetAutomationExecution)
 
 responseSendCommand :: SendCommandResponse -> TestTree
 responseSendCommand =
@@ -2631,7 +2631,7 @@ responseSendCommand =
     "SendCommandResponse"
     "fixture/SendCommandResponse.proto"
     defaultService
-    (Proxy :: Proxy SendCommand)
+    (Proxy.Proxy :: Proxy.Proxy SendCommand)
 
 responseDescribePatchBaselines :: DescribePatchBaselinesResponse -> TestTree
 responseDescribePatchBaselines =
@@ -2639,7 +2639,7 @@ responseDescribePatchBaselines =
     "DescribePatchBaselinesResponse"
     "fixture/DescribePatchBaselinesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePatchBaselines)
+    (Proxy.Proxy :: Proxy.Proxy DescribePatchBaselines)
 
 responseGetPatchBaseline :: GetPatchBaselineResponse -> TestTree
 responseGetPatchBaseline =
@@ -2647,7 +2647,7 @@ responseGetPatchBaseline =
     "GetPatchBaselineResponse"
     "fixture/GetPatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy GetPatchBaseline)
 
 responseRegisterTargetWithMaintenanceWindow :: RegisterTargetWithMaintenanceWindowResponse -> TestTree
 responseRegisterTargetWithMaintenanceWindow =
@@ -2655,7 +2655,7 @@ responseRegisterTargetWithMaintenanceWindow =
     "RegisterTargetWithMaintenanceWindowResponse"
     "fixture/RegisterTargetWithMaintenanceWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTargetWithMaintenanceWindow)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTargetWithMaintenanceWindow)
 
 responseStartSession :: StartSessionResponse -> TestTree
 responseStartSession =
@@ -2663,7 +2663,7 @@ responseStartSession =
     "StartSessionResponse"
     "fixture/StartSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSession)
+    (Proxy.Proxy :: Proxy.Proxy StartSession)
 
 responseListCommands :: ListCommandsResponse -> TestTree
 responseListCommands =
@@ -2671,7 +2671,7 @@ responseListCommands =
     "ListCommandsResponse"
     "fixture/ListCommandsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCommands)
+    (Proxy.Proxy :: Proxy.Proxy ListCommands)
 
 responseUpdateDocument :: UpdateDocumentResponse -> TestTree
 responseUpdateDocument =
@@ -2679,7 +2679,7 @@ responseUpdateDocument =
     "UpdateDocumentResponse"
     "fixture/UpdateDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocument)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDocument)
 
 responseDeleteDocument :: DeleteDocumentResponse -> TestTree
 responseDeleteDocument =
@@ -2687,7 +2687,7 @@ responseDeleteDocument =
     "DeleteDocumentResponse"
     "fixture/DeleteDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDocument)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDocument)
 
 responseDescribeDocumentPermission :: DescribeDocumentPermissionResponse -> TestTree
 responseDescribeDocumentPermission =
@@ -2695,7 +2695,7 @@ responseDescribeDocumentPermission =
     "DescribeDocumentPermissionResponse"
     "fixture/DescribeDocumentPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDocumentPermission)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDocumentPermission)
 
 responseCreateAssociationBatch :: CreateAssociationBatchResponse -> TestTree
 responseCreateAssociationBatch =
@@ -2703,7 +2703,7 @@ responseCreateAssociationBatch =
     "CreateAssociationBatchResponse"
     "fixture/CreateAssociationBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAssociationBatch)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssociationBatch)
 
 responseUpdateMaintenanceWindowTarget :: UpdateMaintenanceWindowTargetResponse -> TestTree
 responseUpdateMaintenanceWindowTarget =
@@ -2711,7 +2711,7 @@ responseUpdateMaintenanceWindowTarget =
     "UpdateMaintenanceWindowTargetResponse"
     "fixture/UpdateMaintenanceWindowTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMaintenanceWindowTarget)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMaintenanceWindowTarget)
 
 responseCreateResourceDataSync :: CreateResourceDataSyncResponse -> TestTree
 responseCreateResourceDataSync =
@@ -2719,7 +2719,7 @@ responseCreateResourceDataSync =
     "CreateResourceDataSyncResponse"
     "fixture/CreateResourceDataSyncResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceDataSync)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceDataSync)
 
 responseCreatePatchBaseline :: CreatePatchBaselineResponse -> TestTree
 responseCreatePatchBaseline =
@@ -2727,7 +2727,7 @@ responseCreatePatchBaseline =
     "CreatePatchBaselineResponse"
     "fixture/CreatePatchBaselineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePatchBaseline)
+    (Proxy.Proxy :: Proxy.Proxy CreatePatchBaseline)
 
 responseDisassociateOpsItemRelatedItem :: DisassociateOpsItemRelatedItemResponse -> TestTree
 responseDisassociateOpsItemRelatedItem =
@@ -2735,4 +2735,4 @@ responseDisassociateOpsItemRelatedItem =
     "DisassociateOpsItemRelatedItemResponse"
     "fixture/DisassociateOpsItemRelatedItemResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateOpsItemRelatedItem)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateOpsItemRelatedItem)

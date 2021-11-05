@@ -1,0 +1,150 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Wisdom.Types.AssistantAssociationData
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Wisdom.Types.AssistantAssociationData where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Wisdom.Types.AssistantAssociationOutputData
+import Network.AWS.Wisdom.Types.AssociationType
+
+-- | Information about the assistant association.
+--
+-- /See:/ 'newAssistantAssociationData' smart constructor.
+data AssistantAssociationData = AssistantAssociationData'
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the Wisdom assistant
+    assistantArn :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the assistant association.
+    assistantAssociationArn :: Prelude.Text,
+    -- | The identifier of the assistant association.
+    assistantAssociationId :: Prelude.Text,
+    -- | The identifier of the Wisdom assistant.
+    assistantId :: Prelude.Text,
+    -- | A union type that currently has a single argument, the knowledge base
+    -- ID.
+    associationData :: AssistantAssociationOutputData,
+    -- | The type of association.
+    associationType :: AssociationType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AssistantAssociationData' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'assistantAssociationData_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'assistantArn', 'assistantAssociationData_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant
+--
+-- 'assistantAssociationArn', 'assistantAssociationData_assistantAssociationArn' - The Amazon Resource Name (ARN) of the assistant association.
+--
+-- 'assistantAssociationId', 'assistantAssociationData_assistantAssociationId' - The identifier of the assistant association.
+--
+-- 'assistantId', 'assistantAssociationData_assistantId' - The identifier of the Wisdom assistant.
+--
+-- 'associationData', 'assistantAssociationData_associationData' - A union type that currently has a single argument, the knowledge base
+-- ID.
+--
+-- 'associationType', 'assistantAssociationData_associationType' - The type of association.
+newAssistantAssociationData ::
+  -- | 'assistantArn'
+  Prelude.Text ->
+  -- | 'assistantAssociationArn'
+  Prelude.Text ->
+  -- | 'assistantAssociationId'
+  Prelude.Text ->
+  -- | 'assistantId'
+  Prelude.Text ->
+  -- | 'associationData'
+  AssistantAssociationOutputData ->
+  -- | 'associationType'
+  AssociationType ->
+  AssistantAssociationData
+newAssistantAssociationData
+  pAssistantArn_
+  pAssistantAssociationArn_
+  pAssistantAssociationId_
+  pAssistantId_
+  pAssociationData_
+  pAssociationType_ =
+    AssistantAssociationData'
+      { tags = Prelude.Nothing,
+        assistantArn = pAssistantArn_,
+        assistantAssociationArn =
+          pAssistantAssociationArn_,
+        assistantAssociationId = pAssistantAssociationId_,
+        assistantId = pAssistantId_,
+        associationData = pAssociationData_,
+        associationType = pAssociationType_
+      }
+
+-- | The tags used to organize, track, or control access for this resource.
+assistantAssociationData_tags :: Lens.Lens' AssistantAssociationData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+assistantAssociationData_tags = Lens.lens (\AssistantAssociationData' {tags} -> tags) (\s@AssistantAssociationData' {} a -> s {tags = a} :: AssistantAssociationData) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the Wisdom assistant
+assistantAssociationData_assistantArn :: Lens.Lens' AssistantAssociationData Prelude.Text
+assistantAssociationData_assistantArn = Lens.lens (\AssistantAssociationData' {assistantArn} -> assistantArn) (\s@AssistantAssociationData' {} a -> s {assistantArn = a} :: AssistantAssociationData)
+
+-- | The Amazon Resource Name (ARN) of the assistant association.
+assistantAssociationData_assistantAssociationArn :: Lens.Lens' AssistantAssociationData Prelude.Text
+assistantAssociationData_assistantAssociationArn = Lens.lens (\AssistantAssociationData' {assistantAssociationArn} -> assistantAssociationArn) (\s@AssistantAssociationData' {} a -> s {assistantAssociationArn = a} :: AssistantAssociationData)
+
+-- | The identifier of the assistant association.
+assistantAssociationData_assistantAssociationId :: Lens.Lens' AssistantAssociationData Prelude.Text
+assistantAssociationData_assistantAssociationId = Lens.lens (\AssistantAssociationData' {assistantAssociationId} -> assistantAssociationId) (\s@AssistantAssociationData' {} a -> s {assistantAssociationId = a} :: AssistantAssociationData)
+
+-- | The identifier of the Wisdom assistant.
+assistantAssociationData_assistantId :: Lens.Lens' AssistantAssociationData Prelude.Text
+assistantAssociationData_assistantId = Lens.lens (\AssistantAssociationData' {assistantId} -> assistantId) (\s@AssistantAssociationData' {} a -> s {assistantId = a} :: AssistantAssociationData)
+
+-- | A union type that currently has a single argument, the knowledge base
+-- ID.
+assistantAssociationData_associationData :: Lens.Lens' AssistantAssociationData AssistantAssociationOutputData
+assistantAssociationData_associationData = Lens.lens (\AssistantAssociationData' {associationData} -> associationData) (\s@AssistantAssociationData' {} a -> s {associationData = a} :: AssistantAssociationData)
+
+-- | The type of association.
+assistantAssociationData_associationType :: Lens.Lens' AssistantAssociationData AssociationType
+assistantAssociationData_associationType = Lens.lens (\AssistantAssociationData' {associationType} -> associationType) (\s@AssistantAssociationData' {} a -> s {associationType = a} :: AssistantAssociationData)
+
+instance Core.FromJSON AssistantAssociationData where
+  parseJSON =
+    Core.withObject
+      "AssistantAssociationData"
+      ( \x ->
+          AssistantAssociationData'
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "assistantArn")
+            Prelude.<*> (x Core..: "assistantAssociationArn")
+            Prelude.<*> (x Core..: "assistantAssociationId")
+            Prelude.<*> (x Core..: "assistantId")
+            Prelude.<*> (x Core..: "associationData")
+            Prelude.<*> (x Core..: "associationType")
+      )
+
+instance Prelude.Hashable AssistantAssociationData
+
+instance Prelude.NFData AssistantAssociationData

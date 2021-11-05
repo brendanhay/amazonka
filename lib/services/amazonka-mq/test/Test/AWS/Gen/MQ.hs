@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MQ where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MQ
 import Test.AWS.Fixture
 import Test.AWS.MQ.Internal
@@ -307,7 +307,7 @@ responseCreateConfiguration =
     "CreateConfigurationResponse"
     "fixture/CreateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfiguration)
 
 responseCreateBroker :: CreateBrokerResponse -> TestTree
 responseCreateBroker =
@@ -315,7 +315,7 @@ responseCreateBroker =
     "CreateBrokerResponse"
     "fixture/CreateBrokerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBroker)
+    (Proxy.Proxy :: Proxy.Proxy CreateBroker)
 
 responseDeleteBroker :: DeleteBrokerResponse -> TestTree
 responseDeleteBroker =
@@ -323,7 +323,7 @@ responseDeleteBroker =
     "DeleteBrokerResponse"
     "fixture/DeleteBrokerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBroker)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBroker)
 
 responseUpdateBroker :: UpdateBrokerResponse -> TestTree
 responseUpdateBroker =
@@ -331,7 +331,7 @@ responseUpdateBroker =
     "UpdateBrokerResponse"
     "fixture/UpdateBrokerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBroker)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBroker)
 
 responseRebootBroker :: RebootBrokerResponse -> TestTree
 responseRebootBroker =
@@ -339,7 +339,7 @@ responseRebootBroker =
     "RebootBrokerResponse"
     "fixture/RebootBrokerResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootBroker)
+    (Proxy.Proxy :: Proxy.Proxy RebootBroker)
 
 responseListConfigurationRevisions :: ListConfigurationRevisionsResponse -> TestTree
 responseListConfigurationRevisions =
@@ -347,7 +347,7 @@ responseListConfigurationRevisions =
     "ListConfigurationRevisionsResponse"
     "fixture/ListConfigurationRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationRevisions)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationRevisions)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -355,7 +355,7 @@ responseCreateTags =
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateTags)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -363,7 +363,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -371,7 +371,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
 responseListConfigurations =
@@ -379,7 +379,7 @@ responseListConfigurations =
     "ListConfigurationsResponse"
     "fixture/ListConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurations)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -387,7 +387,7 @@ responseDescribeUser =
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responseDescribeBrokerInstanceOptions :: DescribeBrokerInstanceOptionsResponse -> TestTree
 responseDescribeBrokerInstanceOptions =
@@ -395,7 +395,7 @@ responseDescribeBrokerInstanceOptions =
     "DescribeBrokerInstanceOptionsResponse"
     "fixture/DescribeBrokerInstanceOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBrokerInstanceOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBrokerInstanceOptions)
 
 responseListBrokers :: ListBrokersResponse -> TestTree
 responseListBrokers =
@@ -403,7 +403,7 @@ responseListBrokers =
     "ListBrokersResponse"
     "fixture/ListBrokersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBrokers)
+    (Proxy.Proxy :: Proxy.Proxy ListBrokers)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -411,7 +411,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseDescribeConfiguration :: DescribeConfigurationResponse -> TestTree
 responseDescribeConfiguration =
@@ -419,7 +419,7 @@ responseDescribeConfiguration =
     "DescribeConfigurationResponse"
     "fixture/DescribeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfiguration)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -427,7 +427,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -435,7 +435,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -443,7 +443,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseDescribeBrokerEngineTypes :: DescribeBrokerEngineTypesResponse -> TestTree
 responseDescribeBrokerEngineTypes =
@@ -451,7 +451,7 @@ responseDescribeBrokerEngineTypes =
     "DescribeBrokerEngineTypesResponse"
     "fixture/DescribeBrokerEngineTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBrokerEngineTypes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBrokerEngineTypes)
 
 responseDescribeConfigurationRevision :: DescribeConfigurationRevisionResponse -> TestTree
 responseDescribeConfigurationRevision =
@@ -459,7 +459,7 @@ responseDescribeConfigurationRevision =
     "DescribeConfigurationRevisionResponse"
     "fixture/DescribeConfigurationRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurationRevision)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRevision)
 
 responseDescribeBroker :: DescribeBrokerResponse -> TestTree
 responseDescribeBroker =
@@ -467,7 +467,7 @@ responseDescribeBroker =
     "DescribeBrokerResponse"
     "fixture/DescribeBrokerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBroker)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBroker)
 
 responseUpdateConfiguration :: UpdateConfigurationResponse -> TestTree
 responseUpdateConfiguration =
@@ -475,4 +475,4 @@ responseUpdateConfiguration =
     "UpdateConfigurationResponse"
     "fixture/UpdateConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfiguration)

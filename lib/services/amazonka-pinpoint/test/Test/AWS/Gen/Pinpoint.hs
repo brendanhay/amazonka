@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Pinpoint where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Pinpoint
 import Test.AWS.Fixture
 import Test.AWS.Pinpoint.Internal
@@ -1447,7 +1447,7 @@ responseGetGcmChannel =
     "GetGcmChannelResponse"
     "fixture/GetGcmChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGcmChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetGcmChannel)
 
 responseGetSegmentImportJobs :: GetSegmentImportJobsResponse -> TestTree
 responseGetSegmentImportJobs =
@@ -1455,7 +1455,7 @@ responseGetSegmentImportJobs =
     "GetSegmentImportJobsResponse"
     "fixture/GetSegmentImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegmentImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetSegmentImportJobs)
 
 responseSendMessages :: SendMessagesResponse -> TestTree
 responseSendMessages =
@@ -1463,7 +1463,7 @@ responseSendMessages =
     "SendMessagesResponse"
     "fixture/SendMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy SendMessages)
+    (Proxy.Proxy :: Proxy.Proxy SendMessages)
 
 responseGetImportJob :: GetImportJobResponse -> TestTree
 responseGetImportJob =
@@ -1471,7 +1471,7 @@ responseGetImportJob =
     "GetImportJobResponse"
     "fixture/GetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImportJob)
+    (Proxy.Proxy :: Proxy.Proxy GetImportJob)
 
 responseDeleteSmsTemplate :: DeleteSmsTemplateResponse -> TestTree
 responseDeleteSmsTemplate =
@@ -1479,7 +1479,7 @@ responseDeleteSmsTemplate =
     "DeleteSmsTemplateResponse"
     "fixture/DeleteSmsTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSmsTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSmsTemplate)
 
 responseUpdateSmsTemplate :: UpdateSmsTemplateResponse -> TestTree
 responseUpdateSmsTemplate =
@@ -1487,7 +1487,7 @@ responseUpdateSmsTemplate =
     "UpdateSmsTemplateResponse"
     "fixture/UpdateSmsTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSmsTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSmsTemplate)
 
 responseGetApnsVoipSandboxChannel :: GetApnsVoipSandboxChannelResponse -> TestTree
 responseGetApnsVoipSandboxChannel =
@@ -1495,7 +1495,7 @@ responseGetApnsVoipSandboxChannel =
     "GetApnsVoipSandboxChannelResponse"
     "fixture/GetApnsVoipSandboxChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApnsVoipSandboxChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetApnsVoipSandboxChannel)
 
 responseGetSegmentVersions :: GetSegmentVersionsResponse -> TestTree
 responseGetSegmentVersions =
@@ -1503,7 +1503,7 @@ responseGetSegmentVersions =
     "GetSegmentVersionsResponse"
     "fixture/GetSegmentVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegmentVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetSegmentVersions)
 
 responseDeleteCampaign :: DeleteCampaignResponse -> TestTree
 responseDeleteCampaign =
@@ -1511,7 +1511,7 @@ responseDeleteCampaign =
     "DeleteCampaignResponse"
     "fixture/DeleteCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCampaign)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCampaign)
 
 responseUpdateCampaign :: UpdateCampaignResponse -> TestTree
 responseUpdateCampaign =
@@ -1519,7 +1519,7 @@ responseUpdateCampaign =
     "UpdateCampaignResponse"
     "fixture/UpdateCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCampaign)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCampaign)
 
 responseGetSegmentVersion :: GetSegmentVersionResponse -> TestTree
 responseGetSegmentVersion =
@@ -1527,7 +1527,7 @@ responseGetSegmentVersion =
     "GetSegmentVersionResponse"
     "fixture/GetSegmentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegmentVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetSegmentVersion)
 
 responseDeletePushTemplate :: DeletePushTemplateResponse -> TestTree
 responseDeletePushTemplate =
@@ -1535,7 +1535,7 @@ responseDeletePushTemplate =
     "DeletePushTemplateResponse"
     "fixture/DeletePushTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePushTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeletePushTemplate)
 
 responseUpdatePushTemplate :: UpdatePushTemplateResponse -> TestTree
 responseUpdatePushTemplate =
@@ -1543,7 +1543,7 @@ responseUpdatePushTemplate =
     "UpdatePushTemplateResponse"
     "fixture/UpdatePushTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePushTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePushTemplate)
 
 responseCreateExportJob :: CreateExportJobResponse -> TestTree
 responseCreateExportJob =
@@ -1551,7 +1551,7 @@ responseCreateExportJob =
     "CreateExportJobResponse"
     "fixture/CreateExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateExportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateExportJob)
 
 responseCreateSegment :: CreateSegmentResponse -> TestTree
 responseCreateSegment =
@@ -1559,7 +1559,7 @@ responseCreateSegment =
     "CreateSegmentResponse"
     "fixture/CreateSegmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSegment)
+    (Proxy.Proxy :: Proxy.Proxy CreateSegment)
 
 responseCreateRecommenderConfiguration :: CreateRecommenderConfigurationResponse -> TestTree
 responseCreateRecommenderConfiguration =
@@ -1567,7 +1567,7 @@ responseCreateRecommenderConfiguration =
     "CreateRecommenderConfigurationResponse"
     "fixture/CreateRecommenderConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRecommenderConfiguration')
+    (Proxy.Proxy :: Proxy.Proxy CreateRecommenderConfiguration')
 
 responseCreateInAppTemplate :: CreateInAppTemplateResponse -> TestTree
 responseCreateInAppTemplate =
@@ -1575,7 +1575,7 @@ responseCreateInAppTemplate =
     "CreateInAppTemplateResponse"
     "fixture/CreateInAppTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInAppTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateInAppTemplate)
 
 responseCreateVoiceTemplate :: CreateVoiceTemplateResponse -> TestTree
 responseCreateVoiceTemplate =
@@ -1583,7 +1583,7 @@ responseCreateVoiceTemplate =
     "CreateVoiceTemplateResponse"
     "fixture/CreateVoiceTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVoiceTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateVoiceTemplate)
 
 responseUpdateAdmChannel :: UpdateAdmChannelResponse -> TestTree
 responseUpdateAdmChannel =
@@ -1591,7 +1591,7 @@ responseUpdateAdmChannel =
     "UpdateAdmChannelResponse"
     "fixture/UpdateAdmChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAdmChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAdmChannel)
 
 responseDeleteAdmChannel :: DeleteAdmChannelResponse -> TestTree
 responseDeleteAdmChannel =
@@ -1599,7 +1599,7 @@ responseDeleteAdmChannel =
     "DeleteAdmChannelResponse"
     "fixture/DeleteAdmChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAdmChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAdmChannel)
 
 responseDeleteRecommenderConfiguration :: DeleteRecommenderConfigurationResponse -> TestTree
 responseDeleteRecommenderConfiguration =
@@ -1607,7 +1607,7 @@ responseDeleteRecommenderConfiguration =
     "DeleteRecommenderConfigurationResponse"
     "fixture/DeleteRecommenderConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRecommenderConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecommenderConfiguration)
 
 responseUpdateRecommenderConfiguration :: UpdateRecommenderConfigurationResponse -> TestTree
 responseUpdateRecommenderConfiguration =
@@ -1615,7 +1615,7 @@ responseUpdateRecommenderConfiguration =
     "UpdateRecommenderConfigurationResponse"
     "fixture/UpdateRecommenderConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRecommenderConfiguration')
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecommenderConfiguration')
 
 responseCreatePushTemplate :: CreatePushTemplateResponse -> TestTree
 responseCreatePushTemplate =
@@ -1623,7 +1623,7 @@ responseCreatePushTemplate =
     "CreatePushTemplateResponse"
     "fixture/CreatePushTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePushTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreatePushTemplate)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint =
@@ -1631,7 +1631,7 @@ responseDeleteEndpoint =
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
 responseUpdateEndpoint =
@@ -1639,7 +1639,7 @@ responseUpdateEndpoint =
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1647,7 +1647,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateCampaign :: CreateCampaignResponse -> TestTree
 responseCreateCampaign =
@@ -1655,7 +1655,7 @@ responseCreateCampaign =
     "CreateCampaignResponse"
     "fixture/CreateCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCampaign)
+    (Proxy.Proxy :: Proxy.Proxy CreateCampaign)
 
 responseGetEmailTemplate :: GetEmailTemplateResponse -> TestTree
 responseGetEmailTemplate =
@@ -1663,7 +1663,7 @@ responseGetEmailTemplate =
     "GetEmailTemplateResponse"
     "fixture/GetEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetEmailTemplate)
 
 responseGetExportJob :: GetExportJobResponse -> TestTree
 responseGetExportJob =
@@ -1671,7 +1671,7 @@ responseGetExportJob =
     "GetExportJobResponse"
     "fixture/GetExportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExportJob)
+    (Proxy.Proxy :: Proxy.Proxy GetExportJob)
 
 responseGetEndpoint :: GetEndpointResponse -> TestTree
 responseGetEndpoint =
@@ -1679,7 +1679,7 @@ responseGetEndpoint =
     "GetEndpointResponse"
     "fixture/GetEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetEndpoint)
 
 responseGetSegment :: GetSegmentResponse -> TestTree
 responseGetSegment =
@@ -1687,7 +1687,7 @@ responseGetSegment =
     "GetSegmentResponse"
     "fixture/GetSegmentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegment)
+    (Proxy.Proxy :: Proxy.Proxy GetSegment)
 
 responseGetRecommenderConfiguration :: GetRecommenderConfigurationResponse -> TestTree
 responseGetRecommenderConfiguration =
@@ -1695,7 +1695,7 @@ responseGetRecommenderConfiguration =
     "GetRecommenderConfigurationResponse"
     "fixture/GetRecommenderConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecommenderConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetRecommenderConfiguration)
 
 responseUpdateEndpointsBatch :: UpdateEndpointsBatchResponse -> TestTree
 responseUpdateEndpointsBatch =
@@ -1703,7 +1703,7 @@ responseUpdateEndpointsBatch =
     "UpdateEndpointsBatchResponse"
     "fixture/UpdateEndpointsBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpointsBatch)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpointsBatch)
 
 responseGetAdmChannel :: GetAdmChannelResponse -> TestTree
 responseGetAdmChannel =
@@ -1711,7 +1711,7 @@ responseGetAdmChannel =
     "GetAdmChannelResponse"
     "fixture/GetAdmChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAdmChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetAdmChannel)
 
 responseGetCampaign :: GetCampaignResponse -> TestTree
 responseGetCampaign =
@@ -1719,7 +1719,7 @@ responseGetCampaign =
     "GetCampaignResponse"
     "fixture/GetCampaignResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCampaign)
+    (Proxy.Proxy :: Proxy.Proxy GetCampaign)
 
 responseGetVoiceTemplate :: GetVoiceTemplateResponse -> TestTree
 responseGetVoiceTemplate =
@@ -1727,7 +1727,7 @@ responseGetVoiceTemplate =
     "GetVoiceTemplateResponse"
     "fixture/GetVoiceTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceTemplate)
 
 responseGetInAppTemplate :: GetInAppTemplateResponse -> TestTree
 responseGetInAppTemplate =
@@ -1735,7 +1735,7 @@ responseGetInAppTemplate =
     "GetInAppTemplateResponse"
     "fixture/GetInAppTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInAppTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetInAppTemplate)
 
 responseGetPushTemplate :: GetPushTemplateResponse -> TestTree
 responseGetPushTemplate =
@@ -1743,7 +1743,7 @@ responseGetPushTemplate =
     "GetPushTemplateResponse"
     "fixture/GetPushTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPushTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetPushTemplate)
 
 responseDeleteUserEndpoints :: DeleteUserEndpointsResponse -> TestTree
 responseDeleteUserEndpoints =
@@ -1751,7 +1751,7 @@ responseDeleteUserEndpoints =
     "DeleteUserEndpointsResponse"
     "fixture/DeleteUserEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserEndpoints)
 
 responseCreateEmailTemplate :: CreateEmailTemplateResponse -> TestTree
 responseCreateEmailTemplate =
@@ -1759,7 +1759,7 @@ responseCreateEmailTemplate =
     "CreateEmailTemplateResponse"
     "fixture/CreateEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateEmailTemplate)
 
 responseGetInAppMessages :: GetInAppMessagesResponse -> TestTree
 responseGetInAppMessages =
@@ -1767,7 +1767,7 @@ responseGetInAppMessages =
     "GetInAppMessagesResponse"
     "fixture/GetInAppMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInAppMessages)
+    (Proxy.Proxy :: Proxy.Proxy GetInAppMessages)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp =
@@ -1775,7 +1775,7 @@ responseDeleteApp =
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApp)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
 
 responseUpdateApnsVoipSandboxChannel :: UpdateApnsVoipSandboxChannelResponse -> TestTree
 responseUpdateApnsVoipSandboxChannel =
@@ -1783,7 +1783,7 @@ responseUpdateApnsVoipSandboxChannel =
     "UpdateApnsVoipSandboxChannelResponse"
     "fixture/UpdateApnsVoipSandboxChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApnsVoipSandboxChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApnsVoipSandboxChannel)
 
 responseDeleteApnsVoipSandboxChannel :: DeleteApnsVoipSandboxChannelResponse -> TestTree
 responseDeleteApnsVoipSandboxChannel =
@@ -1791,7 +1791,7 @@ responseDeleteApnsVoipSandboxChannel =
     "DeleteApnsVoipSandboxChannelResponse"
     "fixture/DeleteApnsVoipSandboxChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApnsVoipSandboxChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApnsVoipSandboxChannel)
 
 responseUpdateGcmChannel :: UpdateGcmChannelResponse -> TestTree
 responseUpdateGcmChannel =
@@ -1799,7 +1799,7 @@ responseUpdateGcmChannel =
     "UpdateGcmChannelResponse"
     "fixture/UpdateGcmChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGcmChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGcmChannel)
 
 responseDeleteGcmChannel :: DeleteGcmChannelResponse -> TestTree
 responseDeleteGcmChannel =
@@ -1807,7 +1807,7 @@ responseDeleteGcmChannel =
     "DeleteGcmChannelResponse"
     "fixture/DeleteGcmChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGcmChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGcmChannel)
 
 responseGetCampaignActivities :: GetCampaignActivitiesResponse -> TestTree
 responseGetCampaignActivities =
@@ -1815,7 +1815,7 @@ responseGetCampaignActivities =
     "GetCampaignActivitiesResponse"
     "fixture/GetCampaignActivitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCampaignActivities)
+    (Proxy.Proxy :: Proxy.Proxy GetCampaignActivities)
 
 responseGetJourneyExecutionMetrics :: GetJourneyExecutionMetricsResponse -> TestTree
 responseGetJourneyExecutionMetrics =
@@ -1823,7 +1823,7 @@ responseGetJourneyExecutionMetrics =
     "GetJourneyExecutionMetricsResponse"
     "fixture/GetJourneyExecutionMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJourneyExecutionMetrics)
+    (Proxy.Proxy :: Proxy.Proxy GetJourneyExecutionMetrics)
 
 responseUpdateJourneyState :: UpdateJourneyStateResponse -> TestTree
 responseUpdateJourneyState =
@@ -1831,7 +1831,7 @@ responseUpdateJourneyState =
     "UpdateJourneyStateResponse"
     "fixture/UpdateJourneyStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJourneyState)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJourneyState)
 
 responseGetEventStream :: GetEventStreamResponse -> TestTree
 responseGetEventStream =
@@ -1839,7 +1839,7 @@ responseGetEventStream =
     "GetEventStreamResponse"
     "fixture/GetEventStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventStream)
+    (Proxy.Proxy :: Proxy.Proxy GetEventStream)
 
 responseGetChannels :: GetChannelsResponse -> TestTree
 responseGetChannels =
@@ -1847,7 +1847,7 @@ responseGetChannels =
     "GetChannelsResponse"
     "fixture/GetChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChannels)
+    (Proxy.Proxy :: Proxy.Proxy GetChannels)
 
 responseGetJourney :: GetJourneyResponse -> TestTree
 responseGetJourney =
@@ -1855,7 +1855,7 @@ responseGetJourney =
     "GetJourneyResponse"
     "fixture/GetJourneyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJourney)
+    (Proxy.Proxy :: Proxy.Proxy GetJourney)
 
 responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
 responseDeleteEmailChannel =
@@ -1863,7 +1863,7 @@ responseDeleteEmailChannel =
     "DeleteEmailChannelResponse"
     "fixture/DeleteEmailChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEmailChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEmailChannel)
 
 responseUpdateEmailChannel :: UpdateEmailChannelResponse -> TestTree
 responseUpdateEmailChannel =
@@ -1871,7 +1871,7 @@ responseUpdateEmailChannel =
     "UpdateEmailChannelResponse"
     "fixture/UpdateEmailChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEmailChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEmailChannel)
 
 responseGetBaiduChannel :: GetBaiduChannelResponse -> TestTree
 responseGetBaiduChannel =
@@ -1879,7 +1879,7 @@ responseGetBaiduChannel =
     "GetBaiduChannelResponse"
     "fixture/GetBaiduChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBaiduChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetBaiduChannel)
 
 responseDeleteApnsChannel :: DeleteApnsChannelResponse -> TestTree
 responseDeleteApnsChannel =
@@ -1887,7 +1887,7 @@ responseDeleteApnsChannel =
     "DeleteApnsChannelResponse"
     "fixture/DeleteApnsChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApnsChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApnsChannel)
 
 responseUpdateApnsChannel :: UpdateApnsChannelResponse -> TestTree
 responseUpdateApnsChannel =
@@ -1895,7 +1895,7 @@ responseUpdateApnsChannel =
     "UpdateApnsChannelResponse"
     "fixture/UpdateApnsChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApnsChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApnsChannel)
 
 responseRemoveAttributes :: RemoveAttributesResponse -> TestTree
 responseRemoveAttributes =
@@ -1903,7 +1903,7 @@ responseRemoveAttributes =
     "RemoveAttributesResponse"
     "fixture/RemoveAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAttributes)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAttributes)
 
 responseListTemplates :: ListTemplatesResponse -> TestTree
 responseListTemplates =
@@ -1911,7 +1911,7 @@ responseListTemplates =
     "ListTemplatesResponse"
     "fixture/ListTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTemplates)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplates)
 
 responsePutEventStream :: PutEventStreamResponse -> TestTree
 responsePutEventStream =
@@ -1919,7 +1919,7 @@ responsePutEventStream =
     "PutEventStreamResponse"
     "fixture/PutEventStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEventStream)
+    (Proxy.Proxy :: Proxy.Proxy PutEventStream)
 
 responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
 responseDeleteEventStream =
@@ -1927,7 +1927,7 @@ responseDeleteEventStream =
     "DeleteEventStreamResponse"
     "fixture/DeleteEventStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventStream)
 
 responseGetCampaignVersions :: GetCampaignVersionsResponse -> TestTree
 responseGetCampaignVersions =
@@ -1935,7 +1935,7 @@ responseGetCampaignVersions =
     "GetCampaignVersionsResponse"
     "fixture/GetCampaignVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCampaignVersions)
+    (Proxy.Proxy :: Proxy.Proxy GetCampaignVersions)
 
 responseDeleteJourney :: DeleteJourneyResponse -> TestTree
 responseDeleteJourney =
@@ -1943,7 +1943,7 @@ responseDeleteJourney =
     "DeleteJourneyResponse"
     "fixture/DeleteJourneyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJourney)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJourney)
 
 responseUpdateJourney :: UpdateJourneyResponse -> TestTree
 responseUpdateJourney =
@@ -1951,7 +1951,7 @@ responseUpdateJourney =
     "UpdateJourneyResponse"
     "fixture/UpdateJourneyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJourney)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJourney)
 
 responseGetCampaignDateRangeKpi :: GetCampaignDateRangeKpiResponse -> TestTree
 responseGetCampaignDateRangeKpi =
@@ -1959,7 +1959,7 @@ responseGetCampaignDateRangeKpi =
     "GetCampaignDateRangeKpiResponse"
     "fixture/GetCampaignDateRangeKpiResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCampaignDateRangeKpi)
+    (Proxy.Proxy :: Proxy.Proxy GetCampaignDateRangeKpi)
 
 responseGetApnsChannel :: GetApnsChannelResponse -> TestTree
 responseGetApnsChannel =
@@ -1967,7 +1967,7 @@ responseGetApnsChannel =
     "GetApnsChannelResponse"
     "fixture/GetApnsChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApnsChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetApnsChannel)
 
 responseUpdateVoiceChannel :: UpdateVoiceChannelResponse -> TestTree
 responseUpdateVoiceChannel =
@@ -1975,7 +1975,7 @@ responseUpdateVoiceChannel =
     "UpdateVoiceChannelResponse"
     "fixture/UpdateVoiceChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVoiceChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceChannel)
 
 responseDeleteVoiceChannel :: DeleteVoiceChannelResponse -> TestTree
 responseDeleteVoiceChannel =
@@ -1983,7 +1983,7 @@ responseDeleteVoiceChannel =
     "DeleteVoiceChannelResponse"
     "fixture/DeleteVoiceChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceChannel)
 
 responseGetApps :: GetAppsResponse -> TestTree
 responseGetApps =
@@ -1991,7 +1991,7 @@ responseGetApps =
     "GetAppsResponse"
     "fixture/GetAppsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApps)
+    (Proxy.Proxy :: Proxy.Proxy GetApps)
 
 responseGetApnsSandboxChannel :: GetApnsSandboxChannelResponse -> TestTree
 responseGetApnsSandboxChannel =
@@ -1999,7 +1999,7 @@ responseGetApnsSandboxChannel =
     "GetApnsSandboxChannelResponse"
     "fixture/GetApnsSandboxChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApnsSandboxChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetApnsSandboxChannel)
 
 responseCreateJourney :: CreateJourneyResponse -> TestTree
 responseCreateJourney =
@@ -2007,7 +2007,7 @@ responseCreateJourney =
     "CreateJourneyResponse"
     "fixture/CreateJourneyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJourney)
+    (Proxy.Proxy :: Proxy.Proxy CreateJourney)
 
 responseGetUserEndpoints :: GetUserEndpointsResponse -> TestTree
 responseGetUserEndpoints =
@@ -2015,7 +2015,7 @@ responseGetUserEndpoints =
     "GetUserEndpointsResponse"
     "fixture/GetUserEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUserEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy GetUserEndpoints)
 
 responseDeleteVoiceTemplate :: DeleteVoiceTemplateResponse -> TestTree
 responseDeleteVoiceTemplate =
@@ -2023,7 +2023,7 @@ responseDeleteVoiceTemplate =
     "DeleteVoiceTemplateResponse"
     "fixture/DeleteVoiceTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVoiceTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceTemplate)
 
 responseUpdateVoiceTemplate :: UpdateVoiceTemplateResponse -> TestTree
 responseUpdateVoiceTemplate =
@@ -2031,7 +2031,7 @@ responseUpdateVoiceTemplate =
     "UpdateVoiceTemplateResponse"
     "fixture/UpdateVoiceTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVoiceTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceTemplate)
 
 responseDeleteInAppTemplate :: DeleteInAppTemplateResponse -> TestTree
 responseDeleteInAppTemplate =
@@ -2039,7 +2039,7 @@ responseDeleteInAppTemplate =
     "DeleteInAppTemplateResponse"
     "fixture/DeleteInAppTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInAppTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInAppTemplate)
 
 responseUpdateInAppTemplate :: UpdateInAppTemplateResponse -> TestTree
 responseUpdateInAppTemplate =
@@ -2047,7 +2047,7 @@ responseUpdateInAppTemplate =
     "UpdateInAppTemplateResponse"
     "fixture/UpdateInAppTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInAppTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInAppTemplate)
 
 responseGetImportJobs :: GetImportJobsResponse -> TestTree
 responseGetImportJobs =
@@ -2055,7 +2055,7 @@ responseGetImportJobs =
     "GetImportJobsResponse"
     "fixture/GetImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetImportJobs)
 
 responseGetJourneyDateRangeKpi :: GetJourneyDateRangeKpiResponse -> TestTree
 responseGetJourneyDateRangeKpi =
@@ -2063,7 +2063,7 @@ responseGetJourneyDateRangeKpi =
     "GetJourneyDateRangeKpiResponse"
     "fixture/GetJourneyDateRangeKpiResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJourneyDateRangeKpi)
+    (Proxy.Proxy :: Proxy.Proxy GetJourneyDateRangeKpi)
 
 responseUpdateTemplateActiveVersion :: UpdateTemplateActiveVersionResponse -> TestTree
 responseUpdateTemplateActiveVersion =
@@ -2071,7 +2071,7 @@ responseUpdateTemplateActiveVersion =
     "UpdateTemplateActiveVersionResponse"
     "fixture/UpdateTemplateActiveVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTemplateActiveVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplateActiveVersion)
 
 responseDeleteSmsChannel :: DeleteSmsChannelResponse -> TestTree
 responseDeleteSmsChannel =
@@ -2079,7 +2079,7 @@ responseDeleteSmsChannel =
     "DeleteSmsChannelResponse"
     "fixture/DeleteSmsChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSmsChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSmsChannel)
 
 responseUpdateSmsChannel :: UpdateSmsChannelResponse -> TestTree
 responseUpdateSmsChannel =
@@ -2087,7 +2087,7 @@ responseUpdateSmsChannel =
     "UpdateSmsChannelResponse"
     "fixture/UpdateSmsChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSmsChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSmsChannel)
 
 responseGetApp :: GetAppResponse -> TestTree
 responseGetApp =
@@ -2095,7 +2095,7 @@ responseGetApp =
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApp)
+    (Proxy.Proxy :: Proxy.Proxy GetApp)
 
 responseGetCampaignVersion :: GetCampaignVersionResponse -> TestTree
 responseGetCampaignVersion =
@@ -2103,7 +2103,7 @@ responseGetCampaignVersion =
     "GetCampaignVersionResponse"
     "fixture/GetCampaignVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCampaignVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetCampaignVersion)
 
 responseDeleteSegment :: DeleteSegmentResponse -> TestTree
 responseDeleteSegment =
@@ -2111,7 +2111,7 @@ responseDeleteSegment =
     "DeleteSegmentResponse"
     "fixture/DeleteSegmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSegment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSegment)
 
 responseUpdateSegment :: UpdateSegmentResponse -> TestTree
 responseUpdateSegment =
@@ -2119,7 +2119,7 @@ responseUpdateSegment =
     "UpdateSegmentResponse"
     "fixture/UpdateSegmentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSegment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSegment)
 
 responseGetApplicationDateRangeKpi :: GetApplicationDateRangeKpiResponse -> TestTree
 responseGetApplicationDateRangeKpi =
@@ -2127,7 +2127,7 @@ responseGetApplicationDateRangeKpi =
     "GetApplicationDateRangeKpiResponse"
     "fixture/GetApplicationDateRangeKpiResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplicationDateRangeKpi)
+    (Proxy.Proxy :: Proxy.Proxy GetApplicationDateRangeKpi)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
@@ -2135,7 +2135,7 @@ responseCreateApp =
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApp)
+    (Proxy.Proxy :: Proxy.Proxy CreateApp)
 
 responseGetSegmentExportJobs :: GetSegmentExportJobsResponse -> TestTree
 responseGetSegmentExportJobs =
@@ -2143,7 +2143,7 @@ responseGetSegmentExportJobs =
     "GetSegmentExportJobsResponse"
     "fixture/GetSegmentExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegmentExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetSegmentExportJobs)
 
 responseDeleteEmailTemplate :: DeleteEmailTemplateResponse -> TestTree
 responseDeleteEmailTemplate =
@@ -2151,7 +2151,7 @@ responseDeleteEmailTemplate =
     "DeleteEmailTemplateResponse"
     "fixture/DeleteEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEmailTemplate)
 
 responseUpdateEmailTemplate :: UpdateEmailTemplateResponse -> TestTree
 responseUpdateEmailTemplate =
@@ -2159,7 +2159,7 @@ responseUpdateEmailTemplate =
     "UpdateEmailTemplateResponse"
     "fixture/UpdateEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEmailTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEmailTemplate)
 
 responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
 responseGetSmsChannel =
@@ -2167,7 +2167,7 @@ responseGetSmsChannel =
     "GetSmsChannelResponse"
     "fixture/GetSmsChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSmsChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetSmsChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -2175,7 +2175,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeleteApnsSandboxChannel :: DeleteApnsSandboxChannelResponse -> TestTree
 responseDeleteApnsSandboxChannel =
@@ -2183,7 +2183,7 @@ responseDeleteApnsSandboxChannel =
     "DeleteApnsSandboxChannelResponse"
     "fixture/DeleteApnsSandboxChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApnsSandboxChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApnsSandboxChannel)
 
 responseUpdateApnsSandboxChannel :: UpdateApnsSandboxChannelResponse -> TestTree
 responseUpdateApnsSandboxChannel =
@@ -2191,7 +2191,7 @@ responseUpdateApnsSandboxChannel =
     "UpdateApnsSandboxChannelResponse"
     "fixture/UpdateApnsSandboxChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApnsSandboxChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApnsSandboxChannel)
 
 responseGetCampaigns :: GetCampaignsResponse -> TestTree
 responseGetCampaigns =
@@ -2199,7 +2199,7 @@ responseGetCampaigns =
     "GetCampaignsResponse"
     "fixture/GetCampaignsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCampaigns)
+    (Proxy.Proxy :: Proxy.Proxy GetCampaigns)
 
 responseGetVoiceChannel :: GetVoiceChannelResponse -> TestTree
 responseGetVoiceChannel =
@@ -2207,7 +2207,7 @@ responseGetVoiceChannel =
     "GetVoiceChannelResponse"
     "fixture/GetVoiceChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVoiceChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceChannel)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -2215,7 +2215,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
 responseListTemplateVersions =
@@ -2223,7 +2223,7 @@ responseListTemplateVersions =
     "ListTemplateVersionsResponse"
     "fixture/ListTemplateVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTemplateVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplateVersions)
 
 responseGetSmsTemplate :: GetSmsTemplateResponse -> TestTree
 responseGetSmsTemplate =
@@ -2231,7 +2231,7 @@ responseGetSmsTemplate =
     "GetSmsTemplateResponse"
     "fixture/GetSmsTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSmsTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetSmsTemplate)
 
 responsePutEvents :: PutEventsResponse -> TestTree
 responsePutEvents =
@@ -2239,7 +2239,7 @@ responsePutEvents =
     "PutEventsResponse"
     "fixture/PutEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEvents)
+    (Proxy.Proxy :: Proxy.Proxy PutEvents)
 
 responseUpdateApplicationSettings :: UpdateApplicationSettingsResponse -> TestTree
 responseUpdateApplicationSettings =
@@ -2247,7 +2247,7 @@ responseUpdateApplicationSettings =
     "UpdateApplicationSettingsResponse"
     "fixture/UpdateApplicationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplicationSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplicationSettings)
 
 responseGetJourneyExecutionActivityMetrics :: GetJourneyExecutionActivityMetricsResponse -> TestTree
 responseGetJourneyExecutionActivityMetrics =
@@ -2255,7 +2255,7 @@ responseGetJourneyExecutionActivityMetrics =
     "GetJourneyExecutionActivityMetricsResponse"
     "fixture/GetJourneyExecutionActivityMetricsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJourneyExecutionActivityMetrics)
+    (Proxy.Proxy :: Proxy.Proxy GetJourneyExecutionActivityMetrics)
 
 responseGetSegments :: GetSegmentsResponse -> TestTree
 responseGetSegments =
@@ -2263,7 +2263,7 @@ responseGetSegments =
     "GetSegmentsResponse"
     "fixture/GetSegmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegments)
+    (Proxy.Proxy :: Proxy.Proxy GetSegments)
 
 responseGetExportJobs :: GetExportJobsResponse -> TestTree
 responseGetExportJobs =
@@ -2271,7 +2271,7 @@ responseGetExportJobs =
     "GetExportJobsResponse"
     "fixture/GetExportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExportJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetExportJobs)
 
 responseCreateImportJob :: CreateImportJobResponse -> TestTree
 responseCreateImportJob =
@@ -2279,7 +2279,7 @@ responseCreateImportJob =
     "CreateImportJobResponse"
     "fixture/CreateImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateImportJob)
 
 responseGetRecommenderConfigurations :: GetRecommenderConfigurationsResponse -> TestTree
 responseGetRecommenderConfigurations =
@@ -2287,7 +2287,7 @@ responseGetRecommenderConfigurations =
     "GetRecommenderConfigurationsResponse"
     "fixture/GetRecommenderConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRecommenderConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy GetRecommenderConfigurations)
 
 responseDeleteApnsVoipChannel :: DeleteApnsVoipChannelResponse -> TestTree
 responseDeleteApnsVoipChannel =
@@ -2295,7 +2295,7 @@ responseDeleteApnsVoipChannel =
     "DeleteApnsVoipChannelResponse"
     "fixture/DeleteApnsVoipChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApnsVoipChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApnsVoipChannel)
 
 responseUpdateApnsVoipChannel :: UpdateApnsVoipChannelResponse -> TestTree
 responseUpdateApnsVoipChannel =
@@ -2303,7 +2303,7 @@ responseUpdateApnsVoipChannel =
     "UpdateApnsVoipChannelResponse"
     "fixture/UpdateApnsVoipChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApnsVoipChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApnsVoipChannel)
 
 responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
 responseSendUsersMessages =
@@ -2311,7 +2311,7 @@ responseSendUsersMessages =
     "SendUsersMessagesResponse"
     "fixture/SendUsersMessagesResponse.proto"
     defaultService
-    (Proxy :: Proxy SendUsersMessages)
+    (Proxy.Proxy :: Proxy.Proxy SendUsersMessages)
 
 responseGetApplicationSettings :: GetApplicationSettingsResponse -> TestTree
 responseGetApplicationSettings =
@@ -2319,7 +2319,7 @@ responseGetApplicationSettings =
     "GetApplicationSettingsResponse"
     "fixture/GetApplicationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplicationSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetApplicationSettings)
 
 responseDeleteBaiduChannel :: DeleteBaiduChannelResponse -> TestTree
 responseDeleteBaiduChannel =
@@ -2327,7 +2327,7 @@ responseDeleteBaiduChannel =
     "DeleteBaiduChannelResponse"
     "fixture/DeleteBaiduChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBaiduChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBaiduChannel)
 
 responseUpdateBaiduChannel :: UpdateBaiduChannelResponse -> TestTree
 responseUpdateBaiduChannel =
@@ -2335,7 +2335,7 @@ responseUpdateBaiduChannel =
     "UpdateBaiduChannelResponse"
     "fixture/UpdateBaiduChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateBaiduChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateBaiduChannel)
 
 responseCreateSmsTemplate :: CreateSmsTemplateResponse -> TestTree
 responseCreateSmsTemplate =
@@ -2343,7 +2343,7 @@ responseCreateSmsTemplate =
     "CreateSmsTemplateResponse"
     "fixture/CreateSmsTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSmsTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateSmsTemplate)
 
 responsePhoneNumberValidate :: PhoneNumberValidateResponse -> TestTree
 responsePhoneNumberValidate =
@@ -2351,7 +2351,7 @@ responsePhoneNumberValidate =
     "PhoneNumberValidateResponse"
     "fixture/PhoneNumberValidateResponse.proto"
     defaultService
-    (Proxy :: Proxy PhoneNumberValidate)
+    (Proxy.Proxy :: Proxy.Proxy PhoneNumberValidate)
 
 responseListJourneys :: ListJourneysResponse -> TestTree
 responseListJourneys =
@@ -2359,7 +2359,7 @@ responseListJourneys =
     "ListJourneysResponse"
     "fixture/ListJourneysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJourneys)
+    (Proxy.Proxy :: Proxy.Proxy ListJourneys)
 
 responseGetApnsVoipChannel :: GetApnsVoipChannelResponse -> TestTree
 responseGetApnsVoipChannel =
@@ -2367,7 +2367,7 @@ responseGetApnsVoipChannel =
     "GetApnsVoipChannelResponse"
     "fixture/GetApnsVoipChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApnsVoipChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetApnsVoipChannel)
 
 responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
 responseGetEmailChannel =
@@ -2375,4 +2375,4 @@ responseGetEmailChannel =
     "GetEmailChannelResponse"
     "fixture/GetEmailChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEmailChannel)
+    (Proxy.Proxy :: Proxy.Proxy GetEmailChannel)

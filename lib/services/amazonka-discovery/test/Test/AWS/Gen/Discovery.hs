@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Discovery where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Discovery
 import Test.AWS.Discovery.Internal
 import Test.AWS.Fixture
@@ -319,7 +319,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseDescribeContinuousExports :: DescribeContinuousExportsResponse -> TestTree
 responseDescribeContinuousExports =
@@ -327,7 +327,7 @@ responseDescribeContinuousExports =
     "DescribeContinuousExportsResponse"
     "fixture/DescribeContinuousExportsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContinuousExports)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContinuousExports)
 
 responseStopDataCollectionByAgentIds :: StopDataCollectionByAgentIdsResponse -> TestTree
 responseStopDataCollectionByAgentIds =
@@ -335,7 +335,7 @@ responseStopDataCollectionByAgentIds =
     "StopDataCollectionByAgentIdsResponse"
     "fixture/StopDataCollectionByAgentIdsResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDataCollectionByAgentIds)
+    (Proxy.Proxy :: Proxy.Proxy StopDataCollectionByAgentIds)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -343,7 +343,7 @@ responseCreateTags =
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateTags)
 
 responseBatchDeleteImportData :: BatchDeleteImportDataResponse -> TestTree
 responseBatchDeleteImportData =
@@ -351,7 +351,7 @@ responseBatchDeleteImportData =
     "BatchDeleteImportDataResponse"
     "fixture/BatchDeleteImportDataResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteImportData)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteImportData)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -359,7 +359,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseStartImportTask :: StartImportTaskResponse -> TestTree
 responseStartImportTask =
@@ -367,7 +367,7 @@ responseStartImportTask =
     "StartImportTaskResponse"
     "fixture/StartImportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy StartImportTask)
+    (Proxy.Proxy :: Proxy.Proxy StartImportTask)
 
 responseDeleteApplications :: DeleteApplicationsResponse -> TestTree
 responseDeleteApplications =
@@ -375,7 +375,7 @@ responseDeleteApplications =
     "DeleteApplicationsResponse"
     "fixture/DeleteApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplications)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplications)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -383,7 +383,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseDescribeConfigurations :: DescribeConfigurationsResponse -> TestTree
 responseDescribeConfigurations =
@@ -391,7 +391,7 @@ responseDescribeConfigurations =
     "DescribeConfigurationsResponse"
     "fixture/DescribeConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurations)
 
 responseDescribeImportTasks :: DescribeImportTasksResponse -> TestTree
 responseDescribeImportTasks =
@@ -399,7 +399,7 @@ responseDescribeImportTasks =
     "DescribeImportTasksResponse"
     "fixture/DescribeImportTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImportTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImportTasks)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -407,7 +407,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
 responseListConfigurations =
@@ -415,7 +415,7 @@ responseListConfigurations =
     "ListConfigurationsResponse"
     "fixture/ListConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurations)
 
 responseStartContinuousExport :: StartContinuousExportResponse -> TestTree
 responseStartContinuousExport =
@@ -423,7 +423,7 @@ responseStartContinuousExport =
     "StartContinuousExportResponse"
     "fixture/StartContinuousExportResponse.proto"
     defaultService
-    (Proxy :: Proxy StartContinuousExport)
+    (Proxy.Proxy :: Proxy.Proxy StartContinuousExport)
 
 responseDescribeAgents :: DescribeAgentsResponse -> TestTree
 responseDescribeAgents =
@@ -431,7 +431,7 @@ responseDescribeAgents =
     "DescribeAgentsResponse"
     "fixture/DescribeAgentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAgents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAgents)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
 responseDescribeExportTasks =
@@ -439,7 +439,7 @@ responseDescribeExportTasks =
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExportTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExportTasks)
 
 responseStartDataCollectionByAgentIds :: StartDataCollectionByAgentIdsResponse -> TestTree
 responseStartDataCollectionByAgentIds =
@@ -447,7 +447,7 @@ responseStartDataCollectionByAgentIds =
     "StartDataCollectionByAgentIdsResponse"
     "fixture/StartDataCollectionByAgentIdsResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDataCollectionByAgentIds)
+    (Proxy.Proxy :: Proxy.Proxy StartDataCollectionByAgentIds)
 
 responseGetDiscoverySummary :: GetDiscoverySummaryResponse -> TestTree
 responseGetDiscoverySummary =
@@ -455,7 +455,7 @@ responseGetDiscoverySummary =
     "GetDiscoverySummaryResponse"
     "fixture/GetDiscoverySummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDiscoverySummary)
+    (Proxy.Proxy :: Proxy.Proxy GetDiscoverySummary)
 
 responseDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplicationResponse -> TestTree
 responseDisassociateConfigurationItemsFromApplication =
@@ -463,7 +463,7 @@ responseDisassociateConfigurationItemsFromApplication =
     "DisassociateConfigurationItemsFromApplicationResponse"
     "fixture/DisassociateConfigurationItemsFromApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateConfigurationItemsFromApplication)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateConfigurationItemsFromApplication)
 
 responseAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplicationResponse -> TestTree
 responseAssociateConfigurationItemsToApplication =
@@ -471,7 +471,7 @@ responseAssociateConfigurationItemsToApplication =
     "AssociateConfigurationItemsToApplicationResponse"
     "fixture/AssociateConfigurationItemsToApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateConfigurationItemsToApplication)
+    (Proxy.Proxy :: Proxy.Proxy AssociateConfigurationItemsToApplication)
 
 responseListServerNeighbors :: ListServerNeighborsResponse -> TestTree
 responseListServerNeighbors =
@@ -479,7 +479,7 @@ responseListServerNeighbors =
     "ListServerNeighborsResponse"
     "fixture/ListServerNeighborsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServerNeighbors)
+    (Proxy.Proxy :: Proxy.Proxy ListServerNeighbors)
 
 responseStopContinuousExport :: StopContinuousExportResponse -> TestTree
 responseStopContinuousExport =
@@ -487,7 +487,7 @@ responseStopContinuousExport =
     "StopContinuousExportResponse"
     "fixture/StopContinuousExportResponse.proto"
     defaultService
-    (Proxy :: Proxy StopContinuousExport)
+    (Proxy.Proxy :: Proxy.Proxy StopContinuousExport)
 
 responseStartExportTask :: StartExportTaskResponse -> TestTree
 responseStartExportTask =
@@ -495,4 +495,4 @@ responseStartExportTask =
     "StartExportTaskResponse"
     "fixture/StartExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy StartExportTask)
+    (Proxy.Proxy :: Proxy.Proxy StartExportTask)

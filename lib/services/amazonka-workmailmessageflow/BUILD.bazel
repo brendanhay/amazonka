@@ -1,0 +1,61 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-workmailmessageflow/amazonka-workmailmessageflow.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-workmailmessageflow",
+    srcs = [
+        "gen/Network/AWS/WorkMailMessageFlow.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/GetRawMessageContent.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/Lens.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/PutRawMessageContent.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/Types.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/Types/RawMessageContent.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/Types/S3Reference.hs",
+        "gen/Network/AWS/WorkMailMessageFlow/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_workmailmessageflow=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-workmailmessageflow/amazonka-workmailmessageflow.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-workmailmessageflow-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/WorkMailMessageFlow.hs",
+        "test/Test/AWS/WorkMailMessageFlow.hs",
+        "test/Test/AWS/WorkMailMessageFlow/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_workmailmessageflow=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-workmailmessageflow",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

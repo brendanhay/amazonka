@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ImportExport where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ImportExport
 import Test.AWS.Fixture
 import Test.AWS.ImportExport.Internal
@@ -115,7 +115,7 @@ responseGetShippingLabel =
     "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy GetShippingLabel)
+    (Proxy.Proxy :: Proxy.Proxy GetShippingLabel)
 
 responseCreateJob :: CreateJobResponse -> TestTree
 responseCreateJob =
@@ -123,7 +123,7 @@ responseCreateJob =
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -131,7 +131,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
 responseUpdateJob =
@@ -139,7 +139,7 @@ responseUpdateJob =
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJob)
 
 responseGetStatus :: GetStatusResponse -> TestTree
 responseGetStatus =
@@ -147,7 +147,7 @@ responseGetStatus =
     "GetStatusResponse"
     "fixture/GetStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetStatus)
 
 responseCancelJob :: CancelJobResponse -> TestTree
 responseCancelJob =
@@ -155,4 +155,4 @@ responseCancelJob =
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)

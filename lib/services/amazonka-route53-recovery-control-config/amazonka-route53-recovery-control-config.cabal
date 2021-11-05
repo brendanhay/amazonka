@@ -1,0 +1,118 @@
+cabal-version:      2.2
+name:               amazonka-route53-recovery-control-config
+version:            2.0
+synopsis:           Amazon Route53 Recovery Control Config SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-11-02@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53RecoveryControlConfig.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Route53RecoveryControlConfig" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-route53-recovery-control-config
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Route53RecoveryControlConfig
+    Network.AWS.Route53RecoveryControlConfig.CreateCluster
+    Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
+    Network.AWS.Route53RecoveryControlConfig.CreateRoutingControl
+    Network.AWS.Route53RecoveryControlConfig.CreateSafetyRule
+    Network.AWS.Route53RecoveryControlConfig.DeleteCluster
+    Network.AWS.Route53RecoveryControlConfig.DeleteControlPanel
+    Network.AWS.Route53RecoveryControlConfig.DeleteRoutingControl
+    Network.AWS.Route53RecoveryControlConfig.DeleteSafetyRule
+    Network.AWS.Route53RecoveryControlConfig.DescribeCluster
+    Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
+    Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
+    Network.AWS.Route53RecoveryControlConfig.DescribeSafetyRule
+    Network.AWS.Route53RecoveryControlConfig.Lens
+    Network.AWS.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
+    Network.AWS.Route53RecoveryControlConfig.ListClusters
+    Network.AWS.Route53RecoveryControlConfig.ListControlPanels
+    Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
+    Network.AWS.Route53RecoveryControlConfig.ListSafetyRules
+    Network.AWS.Route53RecoveryControlConfig.Types
+    Network.AWS.Route53RecoveryControlConfig.Types.AssertionRule
+    Network.AWS.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
+    Network.AWS.Route53RecoveryControlConfig.Types.Cluster
+    Network.AWS.Route53RecoveryControlConfig.Types.ClusterEndpoint
+    Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel
+    Network.AWS.Route53RecoveryControlConfig.Types.GatingRule
+    Network.AWS.Route53RecoveryControlConfig.Types.GatingRuleUpdate
+    Network.AWS.Route53RecoveryControlConfig.Types.NewAssertionRule
+    Network.AWS.Route53RecoveryControlConfig.Types.NewGatingRule
+    Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl
+    Network.AWS.Route53RecoveryControlConfig.Types.Rule
+    Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig
+    Network.AWS.Route53RecoveryControlConfig.Types.RuleType
+    Network.AWS.Route53RecoveryControlConfig.Types.Status
+    Network.AWS.Route53RecoveryControlConfig.UpdateControlPanel
+    Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl
+    Network.AWS.Route53RecoveryControlConfig.UpdateSafetyRule
+    Network.AWS.Route53RecoveryControlConfig.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-route53-recovery-control-config-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Route53RecoveryControlConfig
+    Test.AWS.Route53RecoveryControlConfig
+    Test.AWS.Route53RecoveryControlConfig.Internal
+
+  build-depends:
+    , amazonka                                  ^>=2.0
+    , amazonka-route53-recovery-control-config
+    , amazonka-test                             ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

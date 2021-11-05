@@ -13,7 +13,7 @@
                 "Status"
             ]
         },
-        "KerberosAttributes" :{
+        "KerberosAttributes": {
             "optionalFields": [
                 "KdcAdminPassword",
                 "Realm"

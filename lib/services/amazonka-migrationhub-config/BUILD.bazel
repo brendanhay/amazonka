@@ -1,0 +1,63 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-migrationhub-config/amazonka-migrationhub-config.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-migrationhub-config",
+    srcs = [
+        "gen/Network/AWS/MigrationHubConfig.hs",
+        "gen/Network/AWS/MigrationHubConfig/CreateHomeRegionControl.hs",
+        "gen/Network/AWS/MigrationHubConfig/DescribeHomeRegionControls.hs",
+        "gen/Network/AWS/MigrationHubConfig/GetHomeRegion.hs",
+        "gen/Network/AWS/MigrationHubConfig/Lens.hs",
+        "gen/Network/AWS/MigrationHubConfig/Types.hs",
+        "gen/Network/AWS/MigrationHubConfig/Types/HomeRegionControl.hs",
+        "gen/Network/AWS/MigrationHubConfig/Types/Target.hs",
+        "gen/Network/AWS/MigrationHubConfig/Types/TargetType.hs",
+        "gen/Network/AWS/MigrationHubConfig/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_migrationhub_config=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-migrationhub-config/amazonka-migrationhub-config.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-migrationhub-config-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/MigrationHubConfig.hs",
+        "test/Test/AWS/MigrationHubConfig.hs",
+        "test/Test/AWS/MigrationHubConfig/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_migrationhub_config=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-migrationhub-config",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

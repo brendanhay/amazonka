@@ -1,0 +1,177 @@
+cabal-version:      2.2
+name:               amazonka-location
+version:            2.0
+synopsis:           Amazon Location Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-11-19@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Location.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Location" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-location
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Location
+    Network.AWS.Location.AssociateTrackerConsumer
+    Network.AWS.Location.BatchDeleteDevicePositionHistory
+    Network.AWS.Location.BatchDeleteGeofence
+    Network.AWS.Location.BatchEvaluateGeofences
+    Network.AWS.Location.BatchGetDevicePosition
+    Network.AWS.Location.BatchPutGeofence
+    Network.AWS.Location.BatchUpdateDevicePosition
+    Network.AWS.Location.CalculateRoute
+    Network.AWS.Location.CreateGeofenceCollection
+    Network.AWS.Location.CreateMap
+    Network.AWS.Location.CreatePlaceIndex
+    Network.AWS.Location.CreateRouteCalculator
+    Network.AWS.Location.CreateTracker
+    Network.AWS.Location.DeleteGeofenceCollection
+    Network.AWS.Location.DeleteMap
+    Network.AWS.Location.DeletePlaceIndex
+    Network.AWS.Location.DeleteRouteCalculator
+    Network.AWS.Location.DeleteTracker
+    Network.AWS.Location.DescribeGeofenceCollection
+    Network.AWS.Location.DescribeMap
+    Network.AWS.Location.DescribePlaceIndex
+    Network.AWS.Location.DescribeRouteCalculator
+    Network.AWS.Location.DescribeTracker
+    Network.AWS.Location.DisassociateTrackerConsumer
+    Network.AWS.Location.GetDevicePosition
+    Network.AWS.Location.GetDevicePositionHistory
+    Network.AWS.Location.GetGeofence
+    Network.AWS.Location.GetMapGlyphs
+    Network.AWS.Location.GetMapSprites
+    Network.AWS.Location.GetMapStyleDescriptor
+    Network.AWS.Location.GetMapTile
+    Network.AWS.Location.Lens
+    Network.AWS.Location.ListDevicePositions
+    Network.AWS.Location.ListGeofenceCollections
+    Network.AWS.Location.ListGeofences
+    Network.AWS.Location.ListMaps
+    Network.AWS.Location.ListPlaceIndexes
+    Network.AWS.Location.ListRouteCalculators
+    Network.AWS.Location.ListTagsForResource
+    Network.AWS.Location.ListTrackerConsumers
+    Network.AWS.Location.ListTrackers
+    Network.AWS.Location.PutGeofence
+    Network.AWS.Location.SearchPlaceIndexForPosition
+    Network.AWS.Location.SearchPlaceIndexForText
+    Network.AWS.Location.TagResource
+    Network.AWS.Location.Types
+    Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError
+    Network.AWS.Location.Types.BatchDeleteGeofenceError
+    Network.AWS.Location.Types.BatchEvaluateGeofencesError
+    Network.AWS.Location.Types.BatchGetDevicePositionError
+    Network.AWS.Location.Types.BatchItemError
+    Network.AWS.Location.Types.BatchItemErrorCode
+    Network.AWS.Location.Types.BatchPutGeofenceError
+    Network.AWS.Location.Types.BatchPutGeofenceRequestEntry
+    Network.AWS.Location.Types.BatchPutGeofenceSuccess
+    Network.AWS.Location.Types.BatchUpdateDevicePositionError
+    Network.AWS.Location.Types.CalculateRouteCarModeOptions
+    Network.AWS.Location.Types.CalculateRouteSummary
+    Network.AWS.Location.Types.CalculateRouteTruckModeOptions
+    Network.AWS.Location.Types.DataSourceConfiguration
+    Network.AWS.Location.Types.DevicePosition
+    Network.AWS.Location.Types.DevicePositionUpdate
+    Network.AWS.Location.Types.DimensionUnit
+    Network.AWS.Location.Types.DistanceUnit
+    Network.AWS.Location.Types.GeofenceGeometry
+    Network.AWS.Location.Types.IntendedUse
+    Network.AWS.Location.Types.Leg
+    Network.AWS.Location.Types.LegGeometry
+    Network.AWS.Location.Types.ListDevicePositionsResponseEntry
+    Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry
+    Network.AWS.Location.Types.ListGeofenceResponseEntry
+    Network.AWS.Location.Types.ListMapsResponseEntry
+    Network.AWS.Location.Types.ListPlaceIndexesResponseEntry
+    Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry
+    Network.AWS.Location.Types.ListTrackersResponseEntry
+    Network.AWS.Location.Types.MapConfiguration
+    Network.AWS.Location.Types.Place
+    Network.AWS.Location.Types.PlaceGeometry
+    Network.AWS.Location.Types.PositionFiltering
+    Network.AWS.Location.Types.PricingPlan
+    Network.AWS.Location.Types.SearchForPositionResult
+    Network.AWS.Location.Types.SearchForTextResult
+    Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary
+    Network.AWS.Location.Types.SearchPlaceIndexForTextSummary
+    Network.AWS.Location.Types.Step
+    Network.AWS.Location.Types.TravelMode
+    Network.AWS.Location.Types.TruckDimensions
+    Network.AWS.Location.Types.TruckWeight
+    Network.AWS.Location.Types.VehicleWeightUnit
+    Network.AWS.Location.UntagResource
+    Network.AWS.Location.UpdateGeofenceCollection
+    Network.AWS.Location.UpdateMap
+    Network.AWS.Location.UpdatePlaceIndex
+    Network.AWS.Location.UpdateRouteCalculator
+    Network.AWS.Location.UpdateTracker
+    Network.AWS.Location.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-location-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Location
+    Test.AWS.Location
+    Test.AWS.Location.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-location
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

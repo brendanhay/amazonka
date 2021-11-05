@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudSearch where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudSearch
 import Test.AWS.CloudSearch.Internal
 import Test.AWS.Fixture
@@ -355,7 +355,7 @@ responseDescribeAvailabilityOptions =
     "DescribeAvailabilityOptionsResponse"
     "fixture/DescribeAvailabilityOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAvailabilityOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAvailabilityOptions)
 
 responseDescribeExpressions :: DescribeExpressionsResponse -> TestTree
 responseDescribeExpressions =
@@ -363,7 +363,7 @@ responseDescribeExpressions =
     "DescribeExpressionsResponse"
     "fixture/DescribeExpressionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExpressions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExpressions)
 
 responseDefineExpression :: DefineExpressionResponse -> TestTree
 responseDefineExpression =
@@ -371,7 +371,7 @@ responseDefineExpression =
     "DefineExpressionResponse"
     "fixture/DefineExpressionResponse.proto"
     defaultService
-    (Proxy :: Proxy DefineExpression)
+    (Proxy.Proxy :: Proxy.Proxy DefineExpression)
 
 responseDescribeScalingParameters :: DescribeScalingParametersResponse -> TestTree
 responseDescribeScalingParameters =
@@ -379,7 +379,7 @@ responseDescribeScalingParameters =
     "DescribeScalingParametersResponse"
     "fixture/DescribeScalingParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalingParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalingParameters)
 
 responseDescribeServiceAccessPolicies :: DescribeServiceAccessPoliciesResponse -> TestTree
 responseDescribeServiceAccessPolicies =
@@ -387,7 +387,7 @@ responseDescribeServiceAccessPolicies =
     "DescribeServiceAccessPoliciesResponse"
     "fixture/DescribeServiceAccessPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceAccessPolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceAccessPolicies)
 
 responseDescribeSuggesters :: DescribeSuggestersResponse -> TestTree
 responseDescribeSuggesters =
@@ -395,7 +395,7 @@ responseDescribeSuggesters =
     "DescribeSuggestersResponse"
     "fixture/DescribeSuggestersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSuggesters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSuggesters)
 
 responseUpdateAvailabilityOptions :: UpdateAvailabilityOptionsResponse -> TestTree
 responseUpdateAvailabilityOptions =
@@ -403,7 +403,7 @@ responseUpdateAvailabilityOptions =
     "UpdateAvailabilityOptionsResponse"
     "fixture/UpdateAvailabilityOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAvailabilityOptions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAvailabilityOptions)
 
 responseDeleteExpression :: DeleteExpressionResponse -> TestTree
 responseDeleteExpression =
@@ -411,7 +411,7 @@ responseDeleteExpression =
     "DeleteExpressionResponse"
     "fixture/DeleteExpressionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteExpression)
+    (Proxy.Proxy :: Proxy.Proxy DeleteExpression)
 
 responseListDomainNames :: ListDomainNamesResponse -> TestTree
 responseListDomainNames =
@@ -419,7 +419,7 @@ responseListDomainNames =
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomainNames)
+    (Proxy.Proxy :: Proxy.Proxy ListDomainNames)
 
 responseDefineSuggester :: DefineSuggesterResponse -> TestTree
 responseDefineSuggester =
@@ -427,7 +427,7 @@ responseDefineSuggester =
     "DefineSuggesterResponse"
     "fixture/DefineSuggesterResponse.proto"
     defaultService
-    (Proxy :: Proxy DefineSuggester)
+    (Proxy.Proxy :: Proxy.Proxy DefineSuggester)
 
 responseDescribeDomains :: DescribeDomainsResponse -> TestTree
 responseDescribeDomains =
@@ -435,7 +435,7 @@ responseDescribeDomains =
     "DescribeDomainsResponse"
     "fixture/DescribeDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomains)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomains)
 
 responseDeleteAnalysisScheme :: DeleteAnalysisSchemeResponse -> TestTree
 responseDeleteAnalysisScheme =
@@ -443,7 +443,7 @@ responseDeleteAnalysisScheme =
     "DeleteAnalysisSchemeResponse"
     "fixture/DeleteAnalysisSchemeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAnalysisScheme)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnalysisScheme)
 
 responseDescribeDomainEndpointOptions :: DescribeDomainEndpointOptionsResponse -> TestTree
 responseDescribeDomainEndpointOptions =
@@ -451,7 +451,7 @@ responseDescribeDomainEndpointOptions =
     "DescribeDomainEndpointOptionsResponse"
     "fixture/DescribeDomainEndpointOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomainEndpointOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainEndpointOptions)
 
 responseDescribeAnalysisSchemes :: DescribeAnalysisSchemesResponse -> TestTree
 responseDescribeAnalysisSchemes =
@@ -459,7 +459,7 @@ responseDescribeAnalysisSchemes =
     "DescribeAnalysisSchemesResponse"
     "fixture/DescribeAnalysisSchemesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAnalysisSchemes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysisSchemes)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -467,7 +467,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseUpdateDomainEndpointOptions :: UpdateDomainEndpointOptionsResponse -> TestTree
 responseUpdateDomainEndpointOptions =
@@ -475,7 +475,7 @@ responseUpdateDomainEndpointOptions =
     "UpdateDomainEndpointOptionsResponse"
     "fixture/UpdateDomainEndpointOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainEndpointOptions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainEndpointOptions)
 
 responseDescribeIndexFields :: DescribeIndexFieldsResponse -> TestTree
 responseDescribeIndexFields =
@@ -483,7 +483,7 @@ responseDescribeIndexFields =
     "DescribeIndexFieldsResponse"
     "fixture/DescribeIndexFieldsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIndexFields)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIndexFields)
 
 responseDeleteSuggester :: DeleteSuggesterResponse -> TestTree
 responseDeleteSuggester =
@@ -491,7 +491,7 @@ responseDeleteSuggester =
     "DeleteSuggesterResponse"
     "fixture/DeleteSuggesterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSuggester)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSuggester)
 
 responseDefineAnalysisScheme :: DefineAnalysisSchemeResponse -> TestTree
 responseDefineAnalysisScheme =
@@ -499,7 +499,7 @@ responseDefineAnalysisScheme =
     "DefineAnalysisSchemeResponse"
     "fixture/DefineAnalysisSchemeResponse.proto"
     defaultService
-    (Proxy :: Proxy DefineAnalysisScheme)
+    (Proxy.Proxy :: Proxy.Proxy DefineAnalysisScheme)
 
 responseIndexDocuments :: IndexDocumentsResponse -> TestTree
 responseIndexDocuments =
@@ -507,7 +507,7 @@ responseIndexDocuments =
     "IndexDocumentsResponse"
     "fixture/IndexDocumentsResponse.proto"
     defaultService
-    (Proxy :: Proxy IndexDocuments)
+    (Proxy.Proxy :: Proxy.Proxy IndexDocuments)
 
 responseDeleteIndexField :: DeleteIndexFieldResponse -> TestTree
 responseDeleteIndexField =
@@ -515,7 +515,7 @@ responseDeleteIndexField =
     "DeleteIndexFieldResponse"
     "fixture/DeleteIndexFieldResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIndexField)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIndexField)
 
 responseUpdateServiceAccessPolicies :: UpdateServiceAccessPoliciesResponse -> TestTree
 responseUpdateServiceAccessPolicies =
@@ -523,7 +523,7 @@ responseUpdateServiceAccessPolicies =
     "UpdateServiceAccessPoliciesResponse"
     "fixture/UpdateServiceAccessPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServiceAccessPolicies)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceAccessPolicies)
 
 responseUpdateScalingParameters :: UpdateScalingParametersResponse -> TestTree
 responseUpdateScalingParameters =
@@ -531,7 +531,7 @@ responseUpdateScalingParameters =
     "UpdateScalingParametersResponse"
     "fixture/UpdateScalingParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateScalingParameters)
+    (Proxy.Proxy :: Proxy.Proxy UpdateScalingParameters)
 
 responseBuildSuggesters :: BuildSuggestersResponse -> TestTree
 responseBuildSuggesters =
@@ -539,7 +539,7 @@ responseBuildSuggesters =
     "BuildSuggestersResponse"
     "fixture/BuildSuggestersResponse.proto"
     defaultService
-    (Proxy :: Proxy BuildSuggesters)
+    (Proxy.Proxy :: Proxy.Proxy BuildSuggesters)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -547,7 +547,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseDefineIndexField :: DefineIndexFieldResponse -> TestTree
 responseDefineIndexField =
@@ -555,4 +555,4 @@ responseDefineIndexField =
     "DefineIndexFieldResponse"
     "fixture/DefineIndexFieldResponse.proto"
     defaultService
-    (Proxy :: Proxy DefineIndexField)
+    (Proxy.Proxy :: Proxy.Proxy DefineIndexField)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SecretsManager where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SecretsManager
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -307,7 +307,7 @@ responseValidateResourcePolicy =
     "ValidateResourcePolicyResponse"
     "fixture/ValidateResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidateResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy ValidateResourcePolicy)
 
 responseDeleteSecret :: DeleteSecretResponse -> TestTree
 responseDeleteSecret =
@@ -315,7 +315,7 @@ responseDeleteSecret =
     "DeleteSecretResponse"
     "fixture/DeleteSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSecret)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSecret)
 
 responseListSecrets :: ListSecretsResponse -> TestTree
 responseListSecrets =
@@ -323,7 +323,7 @@ responseListSecrets =
     "ListSecretsResponse"
     "fixture/ListSecretsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecrets)
+    (Proxy.Proxy :: Proxy.Proxy ListSecrets)
 
 responseUpdateSecret :: UpdateSecretResponse -> TestTree
 responseUpdateSecret =
@@ -331,7 +331,7 @@ responseUpdateSecret =
     "UpdateSecretResponse"
     "fixture/UpdateSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecret)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecret)
 
 responseRemoveRegionsFromReplication :: RemoveRegionsFromReplicationResponse -> TestTree
 responseRemoveRegionsFromReplication =
@@ -339,7 +339,7 @@ responseRemoveRegionsFromReplication =
     "RemoveRegionsFromReplicationResponse"
     "fixture/RemoveRegionsFromReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveRegionsFromReplication)
+    (Proxy.Proxy :: Proxy.Proxy RemoveRegionsFromReplication)
 
 responseRotateSecret :: RotateSecretResponse -> TestTree
 responseRotateSecret =
@@ -347,7 +347,7 @@ responseRotateSecret =
     "RotateSecretResponse"
     "fixture/RotateSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy RotateSecret)
+    (Proxy.Proxy :: Proxy.Proxy RotateSecret)
 
 responseCreateSecret :: CreateSecretResponse -> TestTree
 responseCreateSecret =
@@ -355,7 +355,7 @@ responseCreateSecret =
     "CreateSecretResponse"
     "fixture/CreateSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSecret)
+    (Proxy.Proxy :: Proxy.Proxy CreateSecret)
 
 responseGetSecretValue :: GetSecretValueResponse -> TestTree
 responseGetSecretValue =
@@ -363,7 +363,7 @@ responseGetSecretValue =
     "GetSecretValueResponse"
     "fixture/GetSecretValueResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSecretValue)
+    (Proxy.Proxy :: Proxy.Proxy GetSecretValue)
 
 responseDescribeSecret :: DescribeSecretResponse -> TestTree
 responseDescribeSecret =
@@ -371,7 +371,7 @@ responseDescribeSecret =
     "DescribeSecretResponse"
     "fixture/DescribeSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecret)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecret)
 
 responseRestoreSecret :: RestoreSecretResponse -> TestTree
 responseRestoreSecret =
@@ -379,7 +379,7 @@ responseRestoreSecret =
     "RestoreSecretResponse"
     "fixture/RestoreSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreSecret)
+    (Proxy.Proxy :: Proxy.Proxy RestoreSecret)
 
 responseCancelRotateSecret :: CancelRotateSecretResponse -> TestTree
 responseCancelRotateSecret =
@@ -387,7 +387,7 @@ responseCancelRotateSecret =
     "CancelRotateSecretResponse"
     "fixture/CancelRotateSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelRotateSecret)
+    (Proxy.Proxy :: Proxy.Proxy CancelRotateSecret)
 
 responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
 responseGetResourcePolicy =
@@ -395,7 +395,7 @@ responseGetResourcePolicy =
     "GetResourcePolicyResponse"
     "fixture/GetResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
 
 responsePutSecretValue :: PutSecretValueResponse -> TestTree
 responsePutSecretValue =
@@ -403,7 +403,7 @@ responsePutSecretValue =
     "PutSecretValueResponse"
     "fixture/PutSecretValueResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSecretValue)
+    (Proxy.Proxy :: Proxy.Proxy PutSecretValue)
 
 responseReplicateSecretToRegions :: ReplicateSecretToRegionsResponse -> TestTree
 responseReplicateSecretToRegions =
@@ -411,7 +411,7 @@ responseReplicateSecretToRegions =
     "ReplicateSecretToRegionsResponse"
     "fixture/ReplicateSecretToRegionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplicateSecretToRegions)
+    (Proxy.Proxy :: Proxy.Proxy ReplicateSecretToRegions)
 
 responseStopReplicationToReplica :: StopReplicationToReplicaResponse -> TestTree
 responseStopReplicationToReplica =
@@ -419,7 +419,7 @@ responseStopReplicationToReplica =
     "StopReplicationToReplicaResponse"
     "fixture/StopReplicationToReplicaResponse.proto"
     defaultService
-    (Proxy :: Proxy StopReplicationToReplica)
+    (Proxy.Proxy :: Proxy.Proxy StopReplicationToReplica)
 
 responseGetRandomPassword :: GetRandomPasswordResponse -> TestTree
 responseGetRandomPassword =
@@ -427,7 +427,7 @@ responseGetRandomPassword =
     "GetRandomPasswordResponse"
     "fixture/GetRandomPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRandomPassword)
+    (Proxy.Proxy :: Proxy.Proxy GetRandomPassword)
 
 responseListSecretVersionIds :: ListSecretVersionIdsResponse -> TestTree
 responseListSecretVersionIds =
@@ -435,7 +435,7 @@ responseListSecretVersionIds =
     "ListSecretVersionIdsResponse"
     "fixture/ListSecretVersionIdsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecretVersionIds)
+    (Proxy.Proxy :: Proxy.Proxy ListSecretVersionIds)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -443,7 +443,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -451,7 +451,7 @@ responsePutResourcePolicy =
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -459,7 +459,7 @@ responseDeleteResourcePolicy =
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -467,7 +467,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateSecretVersionStage :: UpdateSecretVersionStageResponse -> TestTree
 responseUpdateSecretVersionStage =
@@ -475,4 +475,4 @@ responseUpdateSecretVersionStage =
     "UpdateSecretVersionStageResponse"
     "fixture/UpdateSecretVersionStageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecretVersionStage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecretVersionStage)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KinesisVideoArchivedMedia where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KinesisVideoArchivedMedia
 import Test.AWS.Fixture
 import Test.AWS.KinesisVideoArchivedMedia.Internal
@@ -103,7 +103,7 @@ responseGetHLSStreamingSessionURL =
     "GetHLSStreamingSessionURLResponse"
     "fixture/GetHLSStreamingSessionURLResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHLSStreamingSessionURL)
+    (Proxy.Proxy :: Proxy.Proxy GetHLSStreamingSessionURL)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
 responseListFragments =
@@ -111,7 +111,7 @@ responseListFragments =
     "ListFragmentsResponse"
     "fixture/ListFragmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFragments)
+    (Proxy.Proxy :: Proxy.Proxy ListFragments)
 
 responseGetDASHStreamingSessionURL :: GetDASHStreamingSessionURLResponse -> TestTree
 responseGetDASHStreamingSessionURL =
@@ -119,4 +119,4 @@ responseGetDASHStreamingSessionURL =
     "GetDASHStreamingSessionURLResponse"
     "fixture/GetDASHStreamingSessionURLResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDASHStreamingSessionURL)
+    (Proxy.Proxy :: Proxy.Proxy GetDASHStreamingSessionURL)

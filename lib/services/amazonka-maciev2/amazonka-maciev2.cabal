@@ -1,0 +1,302 @@
+cabal-version:      2.2
+name:               amazonka-maciev2
+version:            2.0
+synopsis:           Amazon Macie 2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.MacieV2.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.MacieV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-maciev2
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.MacieV2
+    Network.AWS.MacieV2.AcceptInvitation
+    Network.AWS.MacieV2.BatchGetCustomDataIdentifiers
+    Network.AWS.MacieV2.CreateClassificationJob
+    Network.AWS.MacieV2.CreateCustomDataIdentifier
+    Network.AWS.MacieV2.CreateFindingsFilter
+    Network.AWS.MacieV2.CreateInvitations
+    Network.AWS.MacieV2.CreateMember
+    Network.AWS.MacieV2.CreateSampleFindings
+    Network.AWS.MacieV2.DeclineInvitations
+    Network.AWS.MacieV2.DeleteCustomDataIdentifier
+    Network.AWS.MacieV2.DeleteFindingsFilter
+    Network.AWS.MacieV2.DeleteInvitations
+    Network.AWS.MacieV2.DeleteMember
+    Network.AWS.MacieV2.DescribeBuckets
+    Network.AWS.MacieV2.DescribeClassificationJob
+    Network.AWS.MacieV2.DescribeOrganizationConfiguration
+    Network.AWS.MacieV2.DisableMacie
+    Network.AWS.MacieV2.DisableOrganizationAdminAccount
+    Network.AWS.MacieV2.DisassociateFromAdministratorAccount
+    Network.AWS.MacieV2.DisassociateFromMasterAccount
+    Network.AWS.MacieV2.DisassociateMember
+    Network.AWS.MacieV2.EnableMacie
+    Network.AWS.MacieV2.EnableOrganizationAdminAccount
+    Network.AWS.MacieV2.GetAdministratorAccount
+    Network.AWS.MacieV2.GetBucketStatistics
+    Network.AWS.MacieV2.GetClassificationExportConfiguration
+    Network.AWS.MacieV2.GetCustomDataIdentifier
+    Network.AWS.MacieV2.GetFindings
+    Network.AWS.MacieV2.GetFindingsFilter
+    Network.AWS.MacieV2.GetFindingsPublicationConfiguration
+    Network.AWS.MacieV2.GetFindingStatistics
+    Network.AWS.MacieV2.GetInvitationsCount
+    Network.AWS.MacieV2.GetMacieSession
+    Network.AWS.MacieV2.GetMasterAccount
+    Network.AWS.MacieV2.GetMember
+    Network.AWS.MacieV2.GetUsageStatistics
+    Network.AWS.MacieV2.GetUsageTotals
+    Network.AWS.MacieV2.Lens
+    Network.AWS.MacieV2.ListClassificationJobs
+    Network.AWS.MacieV2.ListCustomDataIdentifiers
+    Network.AWS.MacieV2.ListFindings
+    Network.AWS.MacieV2.ListFindingsFilters
+    Network.AWS.MacieV2.ListInvitations
+    Network.AWS.MacieV2.ListManagedDataIdentifiers
+    Network.AWS.MacieV2.ListMembers
+    Network.AWS.MacieV2.ListOrganizationAdminAccounts
+    Network.AWS.MacieV2.ListTagsForResource
+    Network.AWS.MacieV2.PutClassificationExportConfiguration
+    Network.AWS.MacieV2.PutFindingsPublicationConfiguration
+    Network.AWS.MacieV2.SearchResources
+    Network.AWS.MacieV2.TagResource
+    Network.AWS.MacieV2.TestCustomDataIdentifier
+    Network.AWS.MacieV2.Types
+    Network.AWS.MacieV2.Types.AccessControlList
+    Network.AWS.MacieV2.Types.AccountDetail
+    Network.AWS.MacieV2.Types.AccountLevelPermissions
+    Network.AWS.MacieV2.Types.AdminAccount
+    Network.AWS.MacieV2.Types.AdminStatus
+    Network.AWS.MacieV2.Types.AllowsUnencryptedObjectUploads
+    Network.AWS.MacieV2.Types.ApiCallDetails
+    Network.AWS.MacieV2.Types.AssumedRole
+    Network.AWS.MacieV2.Types.AwsAccount
+    Network.AWS.MacieV2.Types.AwsService
+    Network.AWS.MacieV2.Types.BatchGetCustomDataIdentifierSummary
+    Network.AWS.MacieV2.Types.BlockPublicAccess
+    Network.AWS.MacieV2.Types.BucketCountByEffectivePermission
+    Network.AWS.MacieV2.Types.BucketCountByEncryptionType
+    Network.AWS.MacieV2.Types.BucketCountBySharedAccessType
+    Network.AWS.MacieV2.Types.BucketCountPolicyAllowsUnencryptedObjectUploads
+    Network.AWS.MacieV2.Types.BucketCriteriaAdditionalProperties
+    Network.AWS.MacieV2.Types.BucketLevelPermissions
+    Network.AWS.MacieV2.Types.BucketMetadata
+    Network.AWS.MacieV2.Types.BucketMetadataErrorCode
+    Network.AWS.MacieV2.Types.BucketPermissionConfiguration
+    Network.AWS.MacieV2.Types.BucketPolicy
+    Network.AWS.MacieV2.Types.BucketPublicAccess
+    Network.AWS.MacieV2.Types.BucketServerSideEncryption
+    Network.AWS.MacieV2.Types.BucketSortCriteria
+    Network.AWS.MacieV2.Types.Cell
+    Network.AWS.MacieV2.Types.ClassificationDetails
+    Network.AWS.MacieV2.Types.ClassificationExportConfiguration
+    Network.AWS.MacieV2.Types.ClassificationResult
+    Network.AWS.MacieV2.Types.ClassificationResultStatus
+    Network.AWS.MacieV2.Types.CriteriaBlockForJob
+    Network.AWS.MacieV2.Types.CriteriaForJob
+    Network.AWS.MacieV2.Types.CriterionAdditionalProperties
+    Network.AWS.MacieV2.Types.Currency
+    Network.AWS.MacieV2.Types.CustomDataIdentifiers
+    Network.AWS.MacieV2.Types.CustomDataIdentifierSummary
+    Network.AWS.MacieV2.Types.CustomDetection
+    Network.AWS.MacieV2.Types.DailySchedule
+    Network.AWS.MacieV2.Types.DayOfWeek
+    Network.AWS.MacieV2.Types.DefaultDetection
+    Network.AWS.MacieV2.Types.DomainDetails
+    Network.AWS.MacieV2.Types.EffectivePermission
+    Network.AWS.MacieV2.Types.EncryptionType
+    Network.AWS.MacieV2.Types.ErrorCode
+    Network.AWS.MacieV2.Types.FederatedUser
+    Network.AWS.MacieV2.Types.Finding
+    Network.AWS.MacieV2.Types.FindingAction
+    Network.AWS.MacieV2.Types.FindingActionType
+    Network.AWS.MacieV2.Types.FindingActor
+    Network.AWS.MacieV2.Types.FindingCategory
+    Network.AWS.MacieV2.Types.FindingCriteria
+    Network.AWS.MacieV2.Types.FindingPublishingFrequency
+    Network.AWS.MacieV2.Types.FindingsFilterAction
+    Network.AWS.MacieV2.Types.FindingsFilterListItem
+    Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName
+    Network.AWS.MacieV2.Types.FindingStatisticsSortCriteria
+    Network.AWS.MacieV2.Types.FindingType
+    Network.AWS.MacieV2.Types.GroupBy
+    Network.AWS.MacieV2.Types.GroupCount
+    Network.AWS.MacieV2.Types.IamUser
+    Network.AWS.MacieV2.Types.Invitation
+    Network.AWS.MacieV2.Types.IpAddressDetails
+    Network.AWS.MacieV2.Types.IpCity
+    Network.AWS.MacieV2.Types.IpCountry
+    Network.AWS.MacieV2.Types.IpGeoLocation
+    Network.AWS.MacieV2.Types.IpOwner
+    Network.AWS.MacieV2.Types.IsDefinedInJob
+    Network.AWS.MacieV2.Types.IsMonitoredByJob
+    Network.AWS.MacieV2.Types.JobComparator
+    Network.AWS.MacieV2.Types.JobDetails
+    Network.AWS.MacieV2.Types.JobScheduleFrequency
+    Network.AWS.MacieV2.Types.JobScopeTerm
+    Network.AWS.MacieV2.Types.JobScopingBlock
+    Network.AWS.MacieV2.Types.JobStatus
+    Network.AWS.MacieV2.Types.JobSummary
+    Network.AWS.MacieV2.Types.JobType
+    Network.AWS.MacieV2.Types.KeyValuePair
+    Network.AWS.MacieV2.Types.LastRunErrorStatus
+    Network.AWS.MacieV2.Types.LastRunErrorStatusCode
+    Network.AWS.MacieV2.Types.ListJobsFilterCriteria
+    Network.AWS.MacieV2.Types.ListJobsFilterKey
+    Network.AWS.MacieV2.Types.ListJobsFilterTerm
+    Network.AWS.MacieV2.Types.ListJobsSortAttributeName
+    Network.AWS.MacieV2.Types.ListJobsSortCriteria
+    Network.AWS.MacieV2.Types.MacieStatus
+    Network.AWS.MacieV2.Types.ManagedDataIdentifierSelector
+    Network.AWS.MacieV2.Types.ManagedDataIdentifierSummary
+    Network.AWS.MacieV2.Types.MatchingBucket
+    Network.AWS.MacieV2.Types.MatchingResource
+    Network.AWS.MacieV2.Types.Member
+    Network.AWS.MacieV2.Types.MonthlySchedule
+    Network.AWS.MacieV2.Types.ObjectCountByEncryptionType
+    Network.AWS.MacieV2.Types.ObjectLevelStatistics
+    Network.AWS.MacieV2.Types.Occurrences
+    Network.AWS.MacieV2.Types.OrderBy
+    Network.AWS.MacieV2.Types.Page
+    Network.AWS.MacieV2.Types.PolicyDetails
+    Network.AWS.MacieV2.Types.Range
+    Network.AWS.MacieV2.Types.Record
+    Network.AWS.MacieV2.Types.RelationshipStatus
+    Network.AWS.MacieV2.Types.ReplicationDetails
+    Network.AWS.MacieV2.Types.ResourcesAffected
+    Network.AWS.MacieV2.Types.S3Bucket
+    Network.AWS.MacieV2.Types.S3BucketCriteriaForJob
+    Network.AWS.MacieV2.Types.S3BucketDefinitionForJob
+    Network.AWS.MacieV2.Types.S3BucketOwner
+    Network.AWS.MacieV2.Types.S3Destination
+    Network.AWS.MacieV2.Types.S3JobDefinition
+    Network.AWS.MacieV2.Types.S3Object
+    Network.AWS.MacieV2.Types.ScopeFilterKey
+    Network.AWS.MacieV2.Types.Scoping
+    Network.AWS.MacieV2.Types.SearchResourcesBucketCriteria
+    Network.AWS.MacieV2.Types.SearchResourcesComparator
+    Network.AWS.MacieV2.Types.SearchResourcesCriteria
+    Network.AWS.MacieV2.Types.SearchResourcesCriteriaBlock
+    Network.AWS.MacieV2.Types.SearchResourcesSimpleCriterion
+    Network.AWS.MacieV2.Types.SearchResourcesSimpleCriterionKey
+    Network.AWS.MacieV2.Types.SearchResourcesSortAttributeName
+    Network.AWS.MacieV2.Types.SearchResourcesSortCriteria
+    Network.AWS.MacieV2.Types.SearchResourcesTagCriterion
+    Network.AWS.MacieV2.Types.SearchResourcesTagCriterionPair
+    Network.AWS.MacieV2.Types.SecurityHubConfiguration
+    Network.AWS.MacieV2.Types.SensitiveDataItem
+    Network.AWS.MacieV2.Types.SensitiveDataItemCategory
+    Network.AWS.MacieV2.Types.ServerSideEncryption
+    Network.AWS.MacieV2.Types.ServiceLimit
+    Network.AWS.MacieV2.Types.SessionContext
+    Network.AWS.MacieV2.Types.SessionContextAttributes
+    Network.AWS.MacieV2.Types.SessionIssuer
+    Network.AWS.MacieV2.Types.Severity
+    Network.AWS.MacieV2.Types.SeverityDescription
+    Network.AWS.MacieV2.Types.SharedAccess
+    Network.AWS.MacieV2.Types.SimpleCriterionForJob
+    Network.AWS.MacieV2.Types.SimpleCriterionKeyForJob
+    Network.AWS.MacieV2.Types.SimpleScopeTerm
+    Network.AWS.MacieV2.Types.SortCriteria
+    Network.AWS.MacieV2.Types.Statistics
+    Network.AWS.MacieV2.Types.StorageClass
+    Network.AWS.MacieV2.Types.TagCriterionForJob
+    Network.AWS.MacieV2.Types.TagCriterionPairForJob
+    Network.AWS.MacieV2.Types.TagScopeTerm
+    Network.AWS.MacieV2.Types.TagTarget
+    Network.AWS.MacieV2.Types.TagValuePair
+    Network.AWS.MacieV2.Types.TimeRange
+    Network.AWS.MacieV2.Types.Type
+    Network.AWS.MacieV2.Types.Unit
+    Network.AWS.MacieV2.Types.UnprocessedAccount
+    Network.AWS.MacieV2.Types.UsageByAccount
+    Network.AWS.MacieV2.Types.UsageRecord
+    Network.AWS.MacieV2.Types.UsageStatisticsFilter
+    Network.AWS.MacieV2.Types.UsageStatisticsFilterComparator
+    Network.AWS.MacieV2.Types.UsageStatisticsFilterKey
+    Network.AWS.MacieV2.Types.UsageStatisticsSortBy
+    Network.AWS.MacieV2.Types.UsageStatisticsSortKey
+    Network.AWS.MacieV2.Types.UsageTotal
+    Network.AWS.MacieV2.Types.UsageType
+    Network.AWS.MacieV2.Types.UserIdentity
+    Network.AWS.MacieV2.Types.UserIdentityRoot
+    Network.AWS.MacieV2.Types.UserIdentityType
+    Network.AWS.MacieV2.Types.UserPausedDetails
+    Network.AWS.MacieV2.Types.WeeklySchedule
+    Network.AWS.MacieV2.UntagResource
+    Network.AWS.MacieV2.UpdateClassificationJob
+    Network.AWS.MacieV2.UpdateFindingsFilter
+    Network.AWS.MacieV2.UpdateMacieSession
+    Network.AWS.MacieV2.UpdateMemberSession
+    Network.AWS.MacieV2.UpdateOrganizationConfiguration
+    Network.AWS.MacieV2.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-maciev2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MacieV2
+    Test.AWS.MacieV2
+    Test.AWS.MacieV2.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-maciev2
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

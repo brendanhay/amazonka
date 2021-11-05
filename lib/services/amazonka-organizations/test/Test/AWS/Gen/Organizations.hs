@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Organizations where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Organizations
 import Test.AWS.Fixture
 import Test.AWS.Organizations.Internal
@@ -655,7 +655,7 @@ responseListHandshakesForAccount =
     "ListHandshakesForAccountResponse"
     "fixture/ListHandshakesForAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHandshakesForAccount)
+    (Proxy.Proxy :: Proxy.Proxy ListHandshakesForAccount)
 
 responseDescribeAccount :: DescribeAccountResponse -> TestTree
 responseDescribeAccount =
@@ -663,7 +663,7 @@ responseDescribeAccount =
     "DescribeAccountResponse"
     "fixture/DescribeAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccount)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccount)
 
 responseListPolicies :: ListPoliciesResponse -> TestTree
 responseListPolicies =
@@ -671,7 +671,7 @@ responseListPolicies =
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicies)
 
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
 responseCreatePolicy =
@@ -679,7 +679,7 @@ responseCreatePolicy =
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreatePolicy)
 
 responseListRoots :: ListRootsResponse -> TestTree
 responseListRoots =
@@ -687,7 +687,7 @@ responseListRoots =
     "ListRootsResponse"
     "fixture/ListRootsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoots)
+    (Proxy.Proxy :: Proxy.Proxy ListRoots)
 
 responseAcceptHandshake :: AcceptHandshakeResponse -> TestTree
 responseAcceptHandshake =
@@ -695,7 +695,7 @@ responseAcceptHandshake =
     "AcceptHandshakeResponse"
     "fixture/AcceptHandshakeResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptHandshake)
+    (Proxy.Proxy :: Proxy.Proxy AcceptHandshake)
 
 responseCreateOrganization :: CreateOrganizationResponse -> TestTree
 responseCreateOrganization =
@@ -703,7 +703,7 @@ responseCreateOrganization =
     "CreateOrganizationResponse"
     "fixture/CreateOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOrganization)
+    (Proxy.Proxy :: Proxy.Proxy CreateOrganization)
 
 responseEnableAllFeatures :: EnableAllFeaturesResponse -> TestTree
 responseEnableAllFeatures =
@@ -711,7 +711,7 @@ responseEnableAllFeatures =
     "EnableAllFeaturesResponse"
     "fixture/EnableAllFeaturesResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAllFeatures)
+    (Proxy.Proxy :: Proxy.Proxy EnableAllFeatures)
 
 responseDeleteOrganization :: DeleteOrganizationResponse -> TestTree
 responseDeleteOrganization =
@@ -719,7 +719,7 @@ responseDeleteOrganization =
     "DeleteOrganizationResponse"
     "fixture/DeleteOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOrganization)
 
 responseDescribeHandshake :: DescribeHandshakeResponse -> TestTree
 responseDescribeHandshake =
@@ -727,7 +727,7 @@ responseDescribeHandshake =
     "DescribeHandshakeResponse"
     "fixture/DescribeHandshakeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHandshake)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHandshake)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -735,7 +735,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribePolicy :: DescribePolicyResponse -> TestTree
 responseDescribePolicy =
@@ -743,7 +743,7 @@ responseDescribePolicy =
     "DescribePolicyResponse"
     "fixture/DescribePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribePolicy)
 
 responseListDelegatedServicesForAccount :: ListDelegatedServicesForAccountResponse -> TestTree
 responseListDelegatedServicesForAccount =
@@ -751,7 +751,7 @@ responseListDelegatedServicesForAccount =
     "ListDelegatedServicesForAccountResponse"
     "fixture/ListDelegatedServicesForAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDelegatedServicesForAccount)
+    (Proxy.Proxy :: Proxy.Proxy ListDelegatedServicesForAccount)
 
 responseDisableAWSServiceAccess :: DisableAWSServiceAccessResponse -> TestTree
 responseDisableAWSServiceAccess =
@@ -759,7 +759,7 @@ responseDisableAWSServiceAccess =
     "DisableAWSServiceAccessResponse"
     "fixture/DisableAWSServiceAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableAWSServiceAccess)
+    (Proxy.Proxy :: Proxy.Proxy DisableAWSServiceAccess)
 
 responseDescribeEffectivePolicy :: DescribeEffectivePolicyResponse -> TestTree
 responseDescribeEffectivePolicy =
@@ -767,7 +767,7 @@ responseDescribeEffectivePolicy =
     "DescribeEffectivePolicyResponse"
     "fixture/DescribeEffectivePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEffectivePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEffectivePolicy)
 
 responseLeaveOrganization :: LeaveOrganizationResponse -> TestTree
 responseLeaveOrganization =
@@ -775,7 +775,7 @@ responseLeaveOrganization =
     "LeaveOrganizationResponse"
     "fixture/LeaveOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy LeaveOrganization)
+    (Proxy.Proxy :: Proxy.Proxy LeaveOrganization)
 
 responseMoveAccount :: MoveAccountResponse -> TestTree
 responseMoveAccount =
@@ -783,7 +783,7 @@ responseMoveAccount =
     "MoveAccountResponse"
     "fixture/MoveAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy MoveAccount)
+    (Proxy.Proxy :: Proxy.Proxy MoveAccount)
 
 responseListAccounts :: ListAccountsResponse -> TestTree
 responseListAccounts =
@@ -791,7 +791,7 @@ responseListAccounts =
     "ListAccountsResponse"
     "fixture/ListAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListAccounts)
 
 responseInviteAccountToOrganization :: InviteAccountToOrganizationResponse -> TestTree
 responseInviteAccountToOrganization =
@@ -799,7 +799,7 @@ responseInviteAccountToOrganization =
     "InviteAccountToOrganizationResponse"
     "fixture/InviteAccountToOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy InviteAccountToOrganization)
+    (Proxy.Proxy :: Proxy.Proxy InviteAccountToOrganization)
 
 responseListAWSServiceAccessForOrganization :: ListAWSServiceAccessForOrganizationResponse -> TestTree
 responseListAWSServiceAccessForOrganization =
@@ -807,7 +807,7 @@ responseListAWSServiceAccessForOrganization =
     "ListAWSServiceAccessForOrganizationResponse"
     "fixture/ListAWSServiceAccessForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAWSServiceAccessForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy ListAWSServiceAccessForOrganization)
 
 responseListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParentResponse -> TestTree
 responseListOrganizationalUnitsForParent =
@@ -815,7 +815,7 @@ responseListOrganizationalUnitsForParent =
     "ListOrganizationalUnitsForParentResponse"
     "fixture/ListOrganizationalUnitsForParentResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOrganizationalUnitsForParent)
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationalUnitsForParent)
 
 responseCancelHandshake :: CancelHandshakeResponse -> TestTree
 responseCancelHandshake =
@@ -823,7 +823,7 @@ responseCancelHandshake =
     "CancelHandshakeResponse"
     "fixture/CancelHandshakeResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelHandshake)
+    (Proxy.Proxy :: Proxy.Proxy CancelHandshake)
 
 responseListChildren :: ListChildrenResponse -> TestTree
 responseListChildren =
@@ -831,7 +831,7 @@ responseListChildren =
     "ListChildrenResponse"
     "fixture/ListChildrenResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChildren)
+    (Proxy.Proxy :: Proxy.Proxy ListChildren)
 
 responseListDelegatedAdministrators :: ListDelegatedAdministratorsResponse -> TestTree
 responseListDelegatedAdministrators =
@@ -839,7 +839,7 @@ responseListDelegatedAdministrators =
     "ListDelegatedAdministratorsResponse"
     "fixture/ListDelegatedAdministratorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDelegatedAdministrators)
+    (Proxy.Proxy :: Proxy.Proxy ListDelegatedAdministrators)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -847,7 +847,7 @@ responseDeletePolicy =
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
 
 responseUpdatePolicy :: UpdatePolicyResponse -> TestTree
 responseUpdatePolicy =
@@ -855,7 +855,7 @@ responseUpdatePolicy =
     "UpdatePolicyResponse"
     "fixture/UpdatePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePolicy)
 
 responseEnablePolicyType :: EnablePolicyTypeResponse -> TestTree
 responseEnablePolicyType =
@@ -863,7 +863,7 @@ responseEnablePolicyType =
     "EnablePolicyTypeResponse"
     "fixture/EnablePolicyTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy EnablePolicyType)
+    (Proxy.Proxy :: Proxy.Proxy EnablePolicyType)
 
 responseDisablePolicyType :: DisablePolicyTypeResponse -> TestTree
 responseDisablePolicyType =
@@ -871,7 +871,7 @@ responseDisablePolicyType =
     "DisablePolicyTypeResponse"
     "fixture/DisablePolicyTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DisablePolicyType)
+    (Proxy.Proxy :: Proxy.Proxy DisablePolicyType)
 
 responseDescribeCreateAccountStatus :: DescribeCreateAccountStatusResponse -> TestTree
 responseDescribeCreateAccountStatus =
@@ -879,7 +879,7 @@ responseDescribeCreateAccountStatus =
     "DescribeCreateAccountStatusResponse"
     "fixture/DescribeCreateAccountStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCreateAccountStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCreateAccountStatus)
 
 responseCreateOrganizationalUnit :: CreateOrganizationalUnitResponse -> TestTree
 responseCreateOrganizationalUnit =
@@ -887,7 +887,7 @@ responseCreateOrganizationalUnit =
     "CreateOrganizationalUnitResponse"
     "fixture/CreateOrganizationalUnitResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOrganizationalUnit)
+    (Proxy.Proxy :: Proxy.Proxy CreateOrganizationalUnit)
 
 responseListAccountsForParent :: ListAccountsForParentResponse -> TestTree
 responseListAccountsForParent =
@@ -895,7 +895,7 @@ responseListAccountsForParent =
     "ListAccountsForParentResponse"
     "fixture/ListAccountsForParentResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountsForParent)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountsForParent)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
 responseDetachPolicy =
@@ -903,7 +903,7 @@ responseDetachPolicy =
     "DetachPolicyResponse"
     "fixture/DetachPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DetachPolicy)
 
 responseRemoveAccountFromOrganization :: RemoveAccountFromOrganizationResponse -> TestTree
 responseRemoveAccountFromOrganization =
@@ -911,7 +911,7 @@ responseRemoveAccountFromOrganization =
     "RemoveAccountFromOrganizationResponse"
     "fixture/RemoveAccountFromOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAccountFromOrganization)
+    (Proxy.Proxy :: Proxy.Proxy RemoveAccountFromOrganization)
 
 responseCreateGovCloudAccount :: CreateGovCloudAccountResponse -> TestTree
 responseCreateGovCloudAccount =
@@ -919,7 +919,7 @@ responseCreateGovCloudAccount =
     "CreateGovCloudAccountResponse"
     "fixture/CreateGovCloudAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGovCloudAccount)
+    (Proxy.Proxy :: Proxy.Proxy CreateGovCloudAccount)
 
 responseEnableAWSServiceAccess :: EnableAWSServiceAccessResponse -> TestTree
 responseEnableAWSServiceAccess =
@@ -927,7 +927,7 @@ responseEnableAWSServiceAccess =
     "EnableAWSServiceAccessResponse"
     "fixture/EnableAWSServiceAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAWSServiceAccess)
+    (Proxy.Proxy :: Proxy.Proxy EnableAWSServiceAccess)
 
 responseDescribeOrganizationalUnit :: DescribeOrganizationalUnitResponse -> TestTree
 responseDescribeOrganizationalUnit =
@@ -935,7 +935,7 @@ responseDescribeOrganizationalUnit =
     "DescribeOrganizationalUnitResponse"
     "fixture/DescribeOrganizationalUnitResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganizationalUnit)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationalUnit)
 
 responseListParents :: ListParentsResponse -> TestTree
 responseListParents =
@@ -943,7 +943,7 @@ responseListParents =
     "ListParentsResponse"
     "fixture/ListParentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListParents)
+    (Proxy.Proxy :: Proxy.Proxy ListParents)
 
 responseCreateAccount :: CreateAccountResponse -> TestTree
 responseCreateAccount =
@@ -951,7 +951,7 @@ responseCreateAccount =
     "CreateAccountResponse"
     "fixture/CreateAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccount)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccount)
 
 responseDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministratorResponse -> TestTree
 responseDeregisterDelegatedAdministrator =
@@ -959,7 +959,7 @@ responseDeregisterDelegatedAdministrator =
     "DeregisterDelegatedAdministratorResponse"
     "fixture/DeregisterDelegatedAdministratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterDelegatedAdministrator)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterDelegatedAdministrator)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -967,7 +967,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListCreateAccountStatus :: ListCreateAccountStatusResponse -> TestTree
 responseListCreateAccountStatus =
@@ -975,7 +975,7 @@ responseListCreateAccountStatus =
     "ListCreateAccountStatusResponse"
     "fixture/ListCreateAccountStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCreateAccountStatus)
+    (Proxy.Proxy :: Proxy.Proxy ListCreateAccountStatus)
 
 responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
 responseListTargetsForPolicy =
@@ -983,7 +983,7 @@ responseListTargetsForPolicy =
     "ListTargetsForPolicyResponse"
     "fixture/ListTargetsForPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTargetsForPolicy)
+    (Proxy.Proxy :: Proxy.Proxy ListTargetsForPolicy)
 
 responseDeclineHandshake :: DeclineHandshakeResponse -> TestTree
 responseDeclineHandshake =
@@ -991,7 +991,7 @@ responseDeclineHandshake =
     "DeclineHandshakeResponse"
     "fixture/DeclineHandshakeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeclineHandshake)
+    (Proxy.Proxy :: Proxy.Proxy DeclineHandshake)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -999,7 +999,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
 responseAttachPolicy =
@@ -1007,7 +1007,7 @@ responseAttachPolicy =
     "AttachPolicyResponse"
     "fixture/AttachPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AttachPolicy)
 
 responseListPoliciesForTarget :: ListPoliciesForTargetResponse -> TestTree
 responseListPoliciesForTarget =
@@ -1015,7 +1015,7 @@ responseListPoliciesForTarget =
     "ListPoliciesForTargetResponse"
     "fixture/ListPoliciesForTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPoliciesForTarget)
+    (Proxy.Proxy :: Proxy.Proxy ListPoliciesForTarget)
 
 responseDescribeOrganization :: DescribeOrganizationResponse -> TestTree
 responseDescribeOrganization =
@@ -1023,7 +1023,7 @@ responseDescribeOrganization =
     "DescribeOrganizationResponse"
     "fixture/DescribeOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOrganization)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganization)
 
 responseListHandshakesForOrganization :: ListHandshakesForOrganizationResponse -> TestTree
 responseListHandshakesForOrganization =
@@ -1031,7 +1031,7 @@ responseListHandshakesForOrganization =
     "ListHandshakesForOrganizationResponse"
     "fixture/ListHandshakesForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHandshakesForOrganization)
+    (Proxy.Proxy :: Proxy.Proxy ListHandshakesForOrganization)
 
 responseRegisterDelegatedAdministrator :: RegisterDelegatedAdministratorResponse -> TestTree
 responseRegisterDelegatedAdministrator =
@@ -1039,7 +1039,7 @@ responseRegisterDelegatedAdministrator =
     "RegisterDelegatedAdministratorResponse"
     "fixture/RegisterDelegatedAdministratorResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDelegatedAdministrator)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDelegatedAdministrator)
 
 responseDeleteOrganizationalUnit :: DeleteOrganizationalUnitResponse -> TestTree
 responseDeleteOrganizationalUnit =
@@ -1047,7 +1047,7 @@ responseDeleteOrganizationalUnit =
     "DeleteOrganizationalUnitResponse"
     "fixture/DeleteOrganizationalUnitResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOrganizationalUnit)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOrganizationalUnit)
 
 responseUpdateOrganizationalUnit :: UpdateOrganizationalUnitResponse -> TestTree
 responseUpdateOrganizationalUnit =
@@ -1055,4 +1055,4 @@ responseUpdateOrganizationalUnit =
     "UpdateOrganizationalUnitResponse"
     "fixture/UpdateOrganizationalUnitResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOrganizationalUnit)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationalUnit)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CognitoSync where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CognitoSync
 import Test.AWS.CognitoSync.Internal
 import Test.AWS.Fixture
@@ -247,7 +247,7 @@ responseDescribeDataset =
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseSetCognitoEvents :: SetCognitoEventsResponse -> TestTree
 responseSetCognitoEvents =
@@ -255,7 +255,7 @@ responseSetCognitoEvents =
     "SetCognitoEventsResponse"
     "fixture/SetCognitoEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy SetCognitoEvents)
+    (Proxy.Proxy :: Proxy.Proxy SetCognitoEvents)
 
 responseDescribeIdentityPoolUsage :: DescribeIdentityPoolUsageResponse -> TestTree
 responseDescribeIdentityPoolUsage =
@@ -263,7 +263,7 @@ responseDescribeIdentityPoolUsage =
     "DescribeIdentityPoolUsageResponse"
     "fixture/DescribeIdentityPoolUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityPoolUsage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityPoolUsage)
 
 responseGetBulkPublishDetails :: GetBulkPublishDetailsResponse -> TestTree
 responseGetBulkPublishDetails =
@@ -271,7 +271,7 @@ responseGetBulkPublishDetails =
     "GetBulkPublishDetailsResponse"
     "fixture/GetBulkPublishDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBulkPublishDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetBulkPublishDetails)
 
 responseListIdentityPoolUsage :: ListIdentityPoolUsageResponse -> TestTree
 responseListIdentityPoolUsage =
@@ -279,7 +279,7 @@ responseListIdentityPoolUsage =
     "ListIdentityPoolUsageResponse"
     "fixture/ListIdentityPoolUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentityPoolUsage)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentityPoolUsage)
 
 responseSetIdentityPoolConfiguration :: SetIdentityPoolConfigurationResponse -> TestTree
 responseSetIdentityPoolConfiguration =
@@ -287,7 +287,7 @@ responseSetIdentityPoolConfiguration =
     "SetIdentityPoolConfigurationResponse"
     "fixture/SetIdentityPoolConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy SetIdentityPoolConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy SetIdentityPoolConfiguration)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
 responseDeleteDataset =
@@ -295,7 +295,7 @@ responseDeleteDataset =
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
 responseGetCognitoEvents :: GetCognitoEventsResponse -> TestTree
 responseGetCognitoEvents =
@@ -303,7 +303,7 @@ responseGetCognitoEvents =
     "GetCognitoEventsResponse"
     "fixture/GetCognitoEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCognitoEvents)
+    (Proxy.Proxy :: Proxy.Proxy GetCognitoEvents)
 
 responseDescribeIdentityUsage :: DescribeIdentityUsageResponse -> TestTree
 responseDescribeIdentityUsage =
@@ -311,7 +311,7 @@ responseDescribeIdentityUsage =
     "DescribeIdentityUsageResponse"
     "fixture/DescribeIdentityUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityUsage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityUsage)
 
 responseRegisterDevice :: RegisterDeviceResponse -> TestTree
 responseRegisterDevice =
@@ -319,7 +319,7 @@ responseRegisterDevice =
     "RegisterDeviceResponse"
     "fixture/RegisterDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDevice)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDevice)
 
 responseSubscribeToDataset :: SubscribeToDatasetResponse -> TestTree
 responseSubscribeToDataset =
@@ -327,7 +327,7 @@ responseSubscribeToDataset =
     "SubscribeToDatasetResponse"
     "fixture/SubscribeToDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy SubscribeToDataset)
+    (Proxy.Proxy :: Proxy.Proxy SubscribeToDataset)
 
 responseGetIdentityPoolConfiguration :: GetIdentityPoolConfigurationResponse -> TestTree
 responseGetIdentityPoolConfiguration =
@@ -335,7 +335,7 @@ responseGetIdentityPoolConfiguration =
     "GetIdentityPoolConfigurationResponse"
     "fixture/GetIdentityPoolConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityPoolConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityPoolConfiguration)
 
 responseListRecords :: ListRecordsResponse -> TestTree
 responseListRecords =
@@ -343,7 +343,7 @@ responseListRecords =
     "ListRecordsResponse"
     "fixture/ListRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecords)
+    (Proxy.Proxy :: Proxy.Proxy ListRecords)
 
 responseUnsubscribeFromDataset :: UnsubscribeFromDatasetResponse -> TestTree
 responseUnsubscribeFromDataset =
@@ -351,7 +351,7 @@ responseUnsubscribeFromDataset =
     "UnsubscribeFromDatasetResponse"
     "fixture/UnsubscribeFromDatasetResponse.proto"
     defaultService
-    (Proxy :: Proxy UnsubscribeFromDataset)
+    (Proxy.Proxy :: Proxy.Proxy UnsubscribeFromDataset)
 
 responseUpdateRecords :: UpdateRecordsResponse -> TestTree
 responseUpdateRecords =
@@ -359,7 +359,7 @@ responseUpdateRecords =
     "UpdateRecordsResponse"
     "fixture/UpdateRecordsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRecords)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecords)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -367,7 +367,7 @@ responseListDatasets =
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatasets)
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
 responseBulkPublish :: BulkPublishResponse -> TestTree
 responseBulkPublish =
@@ -375,4 +375,4 @@ responseBulkPublish =
     "BulkPublishResponse"
     "fixture/BulkPublishResponse.proto"
     defaultService
-    (Proxy :: Proxy BulkPublish)
+    (Proxy.Proxy :: Proxy.Proxy BulkPublish)

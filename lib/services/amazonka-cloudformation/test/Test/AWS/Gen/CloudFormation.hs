@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudFormation where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudFormation
 import Test.AWS.CloudFormation.Internal
 import Test.AWS.Fixture
@@ -823,7 +823,7 @@ responseDescribeStackSetOperation =
     "DescribeStackSetOperationResponse"
     "fixture/DescribeStackSetOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackSetOperation)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackSetOperation)
 
 responseImportStacksToStackSet :: ImportStacksToStackSetResponse -> TestTree
 responseImportStacksToStackSet =
@@ -831,7 +831,7 @@ responseImportStacksToStackSet =
     "ImportStacksToStackSetResponse"
     "fixture/ImportStacksToStackSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportStacksToStackSet)
+    (Proxy.Proxy :: Proxy.Proxy ImportStacksToStackSet)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack =
@@ -839,7 +839,7 @@ responseDeleteStack =
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStack)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStack)
 
 responseUpdateStack :: UpdateStackResponse -> TestTree
 responseUpdateStack =
@@ -847,7 +847,7 @@ responseUpdateStack =
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStack)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStack)
 
 responseBatchDescribeTypeConfigurations :: BatchDescribeTypeConfigurationsResponse -> TestTree
 responseBatchDescribeTypeConfigurations =
@@ -855,7 +855,7 @@ responseBatchDescribeTypeConfigurations =
     "BatchDescribeTypeConfigurationsResponse"
     "fixture/BatchDescribeTypeConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDescribeTypeConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy BatchDescribeTypeConfigurations)
 
 responseSetTypeConfiguration :: SetTypeConfigurationResponse -> TestTree
 responseSetTypeConfiguration =
@@ -863,7 +863,7 @@ responseSetTypeConfiguration =
     "SetTypeConfigurationResponse"
     "fixture/SetTypeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTypeConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy SetTypeConfiguration)
 
 responseGetTemplateSummary :: GetTemplateSummaryResponse -> TestTree
 responseGetTemplateSummary =
@@ -871,7 +871,7 @@ responseGetTemplateSummary =
     "GetTemplateSummaryResponse"
     "fixture/GetTemplateSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTemplateSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetTemplateSummary)
 
 responseListChangeSets :: ListChangeSetsResponse -> TestTree
 responseListChangeSets =
@@ -879,7 +879,7 @@ responseListChangeSets =
     "ListChangeSetsResponse"
     "fixture/ListChangeSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChangeSets)
+    (Proxy.Proxy :: Proxy.Proxy ListChangeSets)
 
 responseListStackResources :: ListStackResourcesResponse -> TestTree
 responseListStackResources =
@@ -887,7 +887,7 @@ responseListStackResources =
     "ListStackResourcesResponse"
     "fixture/ListStackResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStackResources)
+    (Proxy.Proxy :: Proxy.Proxy ListStackResources)
 
 responseUpdateStackInstances :: UpdateStackInstancesResponse -> TestTree
 responseUpdateStackInstances =
@@ -895,7 +895,7 @@ responseUpdateStackInstances =
     "UpdateStackInstancesResponse"
     "fixture/UpdateStackInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStackInstances)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStackInstances)
 
 responseDeleteStackInstances :: DeleteStackInstancesResponse -> TestTree
 responseDeleteStackInstances =
@@ -903,7 +903,7 @@ responseDeleteStackInstances =
     "DeleteStackInstancesResponse"
     "fixture/DeleteStackInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStackInstances)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStackInstances)
 
 responseDescribeType :: DescribeTypeResponse -> TestTree
 responseDescribeType =
@@ -911,7 +911,7 @@ responseDescribeType =
     "DescribeTypeResponse"
     "fixture/DescribeTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeType)
+    (Proxy.Proxy :: Proxy.Proxy DescribeType)
 
 responseCreateStackInstances :: CreateStackInstancesResponse -> TestTree
 responseCreateStackInstances =
@@ -919,7 +919,7 @@ responseCreateStackInstances =
     "CreateStackInstancesResponse"
     "fixture/CreateStackInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStackInstances)
+    (Proxy.Proxy :: Proxy.Proxy CreateStackInstances)
 
 responseListTypeRegistrations :: ListTypeRegistrationsResponse -> TestTree
 responseListTypeRegistrations =
@@ -927,7 +927,7 @@ responseListTypeRegistrations =
     "ListTypeRegistrationsResponse"
     "fixture/ListTypeRegistrationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypeRegistrations)
+    (Proxy.Proxy :: Proxy.Proxy ListTypeRegistrations)
 
 responseGetStackPolicy :: GetStackPolicyResponse -> TestTree
 responseGetStackPolicy =
@@ -935,7 +935,7 @@ responseGetStackPolicy =
     "GetStackPolicyResponse"
     "fixture/GetStackPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStackPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetStackPolicy)
 
 responseDescribeStacks :: DescribeStacksResponse -> TestTree
 responseDescribeStacks =
@@ -943,7 +943,7 @@ responseDescribeStacks =
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStacks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStacks)
 
 responseCreateChangeSet :: CreateChangeSetResponse -> TestTree
 responseCreateChangeSet =
@@ -951,7 +951,7 @@ responseCreateChangeSet =
     "CreateChangeSetResponse"
     "fixture/CreateChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateChangeSet)
 
 responseListStackSetOperations :: ListStackSetOperationsResponse -> TestTree
 responseListStackSetOperations =
@@ -959,7 +959,7 @@ responseListStackSetOperations =
     "ListStackSetOperationsResponse"
     "fixture/ListStackSetOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStackSetOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListStackSetOperations)
 
 responseExecuteChangeSet :: ExecuteChangeSetResponse -> TestTree
 responseExecuteChangeSet =
@@ -967,7 +967,7 @@ responseExecuteChangeSet =
     "ExecuteChangeSetResponse"
     "fixture/ExecuteChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteChangeSet)
 
 responseDescribePublisher :: DescribePublisherResponse -> TestTree
 responseDescribePublisher =
@@ -975,7 +975,7 @@ responseDescribePublisher =
     "DescribePublisherResponse"
     "fixture/DescribePublisherResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePublisher)
+    (Proxy.Proxy :: Proxy.Proxy DescribePublisher)
 
 responseListStackInstances :: ListStackInstancesResponse -> TestTree
 responseListStackInstances =
@@ -983,7 +983,7 @@ responseListStackInstances =
     "ListStackInstancesResponse"
     "fixture/ListStackInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStackInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListStackInstances)
 
 responseContinueUpdateRollback :: ContinueUpdateRollbackResponse -> TestTree
 responseContinueUpdateRollback =
@@ -991,7 +991,7 @@ responseContinueUpdateRollback =
     "ContinueUpdateRollbackResponse"
     "fixture/ContinueUpdateRollbackResponse.proto"
     defaultService
-    (Proxy :: Proxy ContinueUpdateRollback)
+    (Proxy.Proxy :: Proxy.Proxy ContinueUpdateRollback)
 
 responseValidateTemplate :: ValidateTemplateResponse -> TestTree
 responseValidateTemplate =
@@ -999,7 +999,7 @@ responseValidateTemplate =
     "ValidateTemplateResponse"
     "fixture/ValidateTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy ValidateTemplate)
 
 responseCancelUpdateStack :: CancelUpdateStackResponse -> TestTree
 responseCancelUpdateStack =
@@ -1007,7 +1007,7 @@ responseCancelUpdateStack =
     "CancelUpdateStackResponse"
     "fixture/CancelUpdateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelUpdateStack)
+    (Proxy.Proxy :: Proxy.Proxy CancelUpdateStack)
 
 responsePublishType :: PublishTypeResponse -> TestTree
 responsePublishType =
@@ -1015,7 +1015,7 @@ responsePublishType =
     "PublishTypeResponse"
     "fixture/PublishTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishType)
+    (Proxy.Proxy :: Proxy.Proxy PublishType)
 
 responseListTypes :: ListTypesResponse -> TestTree
 responseListTypes =
@@ -1023,7 +1023,7 @@ responseListTypes =
     "ListTypesResponse"
     "fixture/ListTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListTypes)
 
 responseDescribeTypeRegistration :: DescribeTypeRegistrationResponse -> TestTree
 responseDescribeTypeRegistration =
@@ -1031,7 +1031,7 @@ responseDescribeTypeRegistration =
     "DescribeTypeRegistrationResponse"
     "fixture/DescribeTypeRegistrationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTypeRegistration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTypeRegistration)
 
 responseDetectStackDrift :: DetectStackDriftResponse -> TestTree
 responseDetectStackDrift =
@@ -1039,7 +1039,7 @@ responseDetectStackDrift =
     "DetectStackDriftResponse"
     "fixture/DetectStackDriftResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectStackDrift)
+    (Proxy.Proxy :: Proxy.Proxy DetectStackDrift)
 
 responseDescribeStackEvents :: DescribeStackEventsResponse -> TestTree
 responseDescribeStackEvents =
@@ -1047,7 +1047,7 @@ responseDescribeStackEvents =
     "DescribeStackEventsResponse"
     "fixture/DescribeStackEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackEvents)
 
 responseSignalResource :: SignalResourceResponse -> TestTree
 responseSignalResource =
@@ -1055,7 +1055,7 @@ responseSignalResource =
     "SignalResourceResponse"
     "fixture/SignalResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy SignalResource)
+    (Proxy.Proxy :: Proxy.Proxy SignalResource)
 
 responseSetStackPolicy :: SetStackPolicyResponse -> TestTree
 responseSetStackPolicy =
@@ -1063,7 +1063,7 @@ responseSetStackPolicy =
     "SetStackPolicyResponse"
     "fixture/SetStackPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy SetStackPolicy)
+    (Proxy.Proxy :: Proxy.Proxy SetStackPolicy)
 
 responseListImports :: ListImportsResponse -> TestTree
 responseListImports =
@@ -1071,7 +1071,7 @@ responseListImports =
     "ListImportsResponse"
     "fixture/ListImportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImports)
+    (Proxy.Proxy :: Proxy.Proxy ListImports)
 
 responseDescribeStackResourceDrifts :: DescribeStackResourceDriftsResponse -> TestTree
 responseDescribeStackResourceDrifts =
@@ -1079,7 +1079,7 @@ responseDescribeStackResourceDrifts =
     "DescribeStackResourceDriftsResponse"
     "fixture/DescribeStackResourceDriftsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackResourceDrifts)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackResourceDrifts)
 
 responseListStacks :: ListStacksResponse -> TestTree
 responseListStacks =
@@ -1087,7 +1087,7 @@ responseListStacks =
     "ListStacksResponse"
     "fixture/ListStacksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStacks)
+    (Proxy.Proxy :: Proxy.Proxy ListStacks)
 
 responseRegisterPublisher :: RegisterPublisherResponse -> TestTree
 responseRegisterPublisher =
@@ -1095,7 +1095,7 @@ responseRegisterPublisher =
     "RegisterPublisherResponse"
     "fixture/RegisterPublisherResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterPublisher)
+    (Proxy.Proxy :: Proxy.Proxy RegisterPublisher)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
 responseDescribeAccountLimits =
@@ -1103,7 +1103,7 @@ responseDescribeAccountLimits =
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountLimits)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountLimits)
 
 responseDescribeStackResources :: DescribeStackResourcesResponse -> TestTree
 responseDescribeStackResources =
@@ -1111,7 +1111,7 @@ responseDescribeStackResources =
     "DescribeStackResourcesResponse"
     "fixture/DescribeStackResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackResources)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackResources)
 
 responseDescribeStackInstance :: DescribeStackInstanceResponse -> TestTree
 responseDescribeStackInstance =
@@ -1119,7 +1119,7 @@ responseDescribeStackInstance =
     "DescribeStackInstanceResponse"
     "fixture/DescribeStackInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackInstance)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackInstance)
 
 responseCreateStack :: CreateStackResponse -> TestTree
 responseCreateStack =
@@ -1127,7 +1127,7 @@ responseCreateStack =
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStack)
+    (Proxy.Proxy :: Proxy.Proxy CreateStack)
 
 responseUpdateStackSet :: UpdateStackSetResponse -> TestTree
 responseUpdateStackSet =
@@ -1135,7 +1135,7 @@ responseUpdateStackSet =
     "UpdateStackSetResponse"
     "fixture/UpdateStackSetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStackSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStackSet)
 
 responseDeleteStackSet :: DeleteStackSetResponse -> TestTree
 responseDeleteStackSet =
@@ -1143,7 +1143,7 @@ responseDeleteStackSet =
     "DeleteStackSetResponse"
     "fixture/DeleteStackSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStackSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStackSet)
 
 responseEstimateTemplateCost :: EstimateTemplateCostResponse -> TestTree
 responseEstimateTemplateCost =
@@ -1151,7 +1151,7 @@ responseEstimateTemplateCost =
     "EstimateTemplateCostResponse"
     "fixture/EstimateTemplateCostResponse.proto"
     defaultService
-    (Proxy :: Proxy EstimateTemplateCost)
+    (Proxy.Proxy :: Proxy.Proxy EstimateTemplateCost)
 
 responseDeleteChangeSet :: DeleteChangeSetResponse -> TestTree
 responseDeleteChangeSet =
@@ -1159,7 +1159,7 @@ responseDeleteChangeSet =
     "DeleteChangeSetResponse"
     "fixture/DeleteChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChangeSet)
 
 responseListStackSets :: ListStackSetsResponse -> TestTree
 responseListStackSets =
@@ -1167,7 +1167,7 @@ responseListStackSets =
     "ListStackSetsResponse"
     "fixture/ListStackSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStackSets)
+    (Proxy.Proxy :: Proxy.Proxy ListStackSets)
 
 responseListExports :: ListExportsResponse -> TestTree
 responseListExports =
@@ -1175,7 +1175,7 @@ responseListExports =
     "ListExportsResponse"
     "fixture/ListExportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExports)
+    (Proxy.Proxy :: Proxy.Proxy ListExports)
 
 responseDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatusResponse -> TestTree
 responseDescribeStackDriftDetectionStatus =
@@ -1183,7 +1183,7 @@ responseDescribeStackDriftDetectionStatus =
     "DescribeStackDriftDetectionStatusResponse"
     "fixture/DescribeStackDriftDetectionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackDriftDetectionStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackDriftDetectionStatus)
 
 responseRollbackStack :: RollbackStackResponse -> TestTree
 responseRollbackStack =
@@ -1191,7 +1191,7 @@ responseRollbackStack =
     "RollbackStackResponse"
     "fixture/RollbackStackResponse.proto"
     defaultService
-    (Proxy :: Proxy RollbackStack)
+    (Proxy.Proxy :: Proxy.Proxy RollbackStack)
 
 responseCreateStackSet :: CreateStackSetResponse -> TestTree
 responseCreateStackSet =
@@ -1199,7 +1199,7 @@ responseCreateStackSet =
     "CreateStackSetResponse"
     "fixture/CreateStackSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStackSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateStackSet)
 
 responseDeregisterType :: DeregisterTypeResponse -> TestTree
 responseDeregisterType =
@@ -1207,7 +1207,7 @@ responseDeregisterType =
     "DeregisterTypeResponse"
     "fixture/DeregisterTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterType)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterType)
 
 responseDeactivateType :: DeactivateTypeResponse -> TestTree
 responseDeactivateType =
@@ -1215,7 +1215,7 @@ responseDeactivateType =
     "DeactivateTypeResponse"
     "fixture/DeactivateTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateType)
+    (Proxy.Proxy :: Proxy.Proxy DeactivateType)
 
 responseRecordHandlerProgress :: RecordHandlerProgressResponse -> TestTree
 responseRecordHandlerProgress =
@@ -1223,7 +1223,7 @@ responseRecordHandlerProgress =
     "RecordHandlerProgressResponse"
     "fixture/RecordHandlerProgressResponse.proto"
     defaultService
-    (Proxy :: Proxy RecordHandlerProgress)
+    (Proxy.Proxy :: Proxy.Proxy RecordHandlerProgress)
 
 responseListTypeVersions :: ListTypeVersionsResponse -> TestTree
 responseListTypeVersions =
@@ -1231,7 +1231,7 @@ responseListTypeVersions =
     "ListTypeVersionsResponse"
     "fixture/ListTypeVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypeVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListTypeVersions)
 
 responseSetTypeDefaultVersion :: SetTypeDefaultVersionResponse -> TestTree
 responseSetTypeDefaultVersion =
@@ -1239,7 +1239,7 @@ responseSetTypeDefaultVersion =
     "SetTypeDefaultVersionResponse"
     "fixture/SetTypeDefaultVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTypeDefaultVersion)
+    (Proxy.Proxy :: Proxy.Proxy SetTypeDefaultVersion)
 
 responseUpdateTerminationProtection :: UpdateTerminationProtectionResponse -> TestTree
 responseUpdateTerminationProtection =
@@ -1247,7 +1247,7 @@ responseUpdateTerminationProtection =
     "UpdateTerminationProtectionResponse"
     "fixture/UpdateTerminationProtectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTerminationProtection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTerminationProtection)
 
 responseTestType :: TestTypeResponse -> TestTree
 responseTestType =
@@ -1255,7 +1255,7 @@ responseTestType =
     "TestTypeResponse"
     "fixture/TestTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy TestType)
+    (Proxy.Proxy :: Proxy.Proxy TestType)
 
 responseGetTemplate :: GetTemplateResponse -> TestTree
 responseGetTemplate =
@@ -1263,7 +1263,7 @@ responseGetTemplate =
     "GetTemplateResponse"
     "fixture/GetTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetTemplate)
 
 responseDetectStackSetDrift :: DetectStackSetDriftResponse -> TestTree
 responseDetectStackSetDrift =
@@ -1271,7 +1271,7 @@ responseDetectStackSetDrift =
     "DetectStackSetDriftResponse"
     "fixture/DetectStackSetDriftResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectStackSetDrift)
+    (Proxy.Proxy :: Proxy.Proxy DetectStackSetDrift)
 
 responseDetectStackResourceDrift :: DetectStackResourceDriftResponse -> TestTree
 responseDetectStackResourceDrift =
@@ -1279,7 +1279,7 @@ responseDetectStackResourceDrift =
     "DetectStackResourceDriftResponse"
     "fixture/DetectStackResourceDriftResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectStackResourceDrift)
+    (Proxy.Proxy :: Proxy.Proxy DetectStackResourceDrift)
 
 responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
 responseDescribeChangeSet =
@@ -1287,7 +1287,7 @@ responseDescribeChangeSet =
     "DescribeChangeSetResponse"
     "fixture/DescribeChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChangeSet)
 
 responseDescribeStackSet :: DescribeStackSetResponse -> TestTree
 responseDescribeStackSet =
@@ -1295,7 +1295,7 @@ responseDescribeStackSet =
     "DescribeStackSetResponse"
     "fixture/DescribeStackSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackSet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackSet)
 
 responseListStackSetOperationResults :: ListStackSetOperationResultsResponse -> TestTree
 responseListStackSetOperationResults =
@@ -1303,7 +1303,7 @@ responseListStackSetOperationResults =
     "ListStackSetOperationResultsResponse"
     "fixture/ListStackSetOperationResultsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStackSetOperationResults)
+    (Proxy.Proxy :: Proxy.Proxy ListStackSetOperationResults)
 
 responseRegisterType :: RegisterTypeResponse -> TestTree
 responseRegisterType =
@@ -1311,7 +1311,7 @@ responseRegisterType =
     "RegisterTypeResponse"
     "fixture/RegisterTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterType)
+    (Proxy.Proxy :: Proxy.Proxy RegisterType)
 
 responseActivateType :: ActivateTypeResponse -> TestTree
 responseActivateType =
@@ -1319,7 +1319,7 @@ responseActivateType =
     "ActivateTypeResponse"
     "fixture/ActivateTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateType)
+    (Proxy.Proxy :: Proxy.Proxy ActivateType)
 
 responseStopStackSetOperation :: StopStackSetOperationResponse -> TestTree
 responseStopStackSetOperation =
@@ -1327,7 +1327,7 @@ responseStopStackSetOperation =
     "StopStackSetOperationResponse"
     "fixture/StopStackSetOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopStackSetOperation)
+    (Proxy.Proxy :: Proxy.Proxy StopStackSetOperation)
 
 responseDescribeStackResource :: DescribeStackResourceResponse -> TestTree
 responseDescribeStackResource =
@@ -1335,4 +1335,4 @@ responseDescribeStackResource =
     "DescribeStackResourceResponse"
     "fixture/DescribeStackResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStackResource)

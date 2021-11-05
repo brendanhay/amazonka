@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Rekognition where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Rekognition
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -655,7 +655,7 @@ responseDetectProtectiveEquipment =
     "DetectProtectiveEquipmentResponse"
     "fixture/DetectProtectiveEquipmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectProtectiveEquipment)
+    (Proxy.Proxy :: Proxy.Proxy DetectProtectiveEquipment)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -663,7 +663,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseStartCelebrityRecognition :: StartCelebrityRecognitionResponse -> TestTree
 responseStartCelebrityRecognition =
@@ -671,7 +671,7 @@ responseStartCelebrityRecognition =
     "StartCelebrityRecognitionResponse"
     "fixture/StartCelebrityRecognitionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartCelebrityRecognition)
+    (Proxy.Proxy :: Proxy.Proxy StartCelebrityRecognition)
 
 responseGetPersonTracking :: GetPersonTrackingResponse -> TestTree
 responseGetPersonTracking =
@@ -679,7 +679,7 @@ responseGetPersonTracking =
     "GetPersonTrackingResponse"
     "fixture/GetPersonTrackingResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPersonTracking)
+    (Proxy.Proxy :: Proxy.Proxy GetPersonTracking)
 
 responseGetTextDetection :: GetTextDetectionResponse -> TestTree
 responseGetTextDetection =
@@ -687,7 +687,7 @@ responseGetTextDetection =
     "GetTextDetectionResponse"
     "fixture/GetTextDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTextDetection)
+    (Proxy.Proxy :: Proxy.Proxy GetTextDetection)
 
 responseStartSegmentDetection :: StartSegmentDetectionResponse -> TestTree
 responseStartSegmentDetection =
@@ -695,7 +695,7 @@ responseStartSegmentDetection =
     "StartSegmentDetectionResponse"
     "fixture/StartSegmentDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSegmentDetection)
+    (Proxy.Proxy :: Proxy.Proxy StartSegmentDetection)
 
 responseListCollections :: ListCollectionsResponse -> TestTree
 responseListCollections =
@@ -703,7 +703,7 @@ responseListCollections =
     "ListCollectionsResponse"
     "fixture/ListCollectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCollections)
+    (Proxy.Proxy :: Proxy.Proxy ListCollections)
 
 responseStartProjectVersion :: StartProjectVersionResponse -> TestTree
 responseStartProjectVersion =
@@ -711,7 +711,7 @@ responseStartProjectVersion =
     "StartProjectVersionResponse"
     "fixture/StartProjectVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartProjectVersion)
+    (Proxy.Proxy :: Proxy.Proxy StartProjectVersion)
 
 responseDeleteCollection :: DeleteCollectionResponse -> TestTree
 responseDeleteCollection =
@@ -719,7 +719,7 @@ responseDeleteCollection =
     "DeleteCollectionResponse"
     "fixture/DeleteCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCollection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCollection)
 
 responseCreateCollection :: CreateCollectionResponse -> TestTree
 responseCreateCollection =
@@ -727,7 +727,7 @@ responseCreateCollection =
     "CreateCollectionResponse"
     "fixture/CreateCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCollection)
+    (Proxy.Proxy :: Proxy.Proxy CreateCollection)
 
 responseStopStreamProcessor :: StopStreamProcessorResponse -> TestTree
 responseStopStreamProcessor =
@@ -735,7 +735,7 @@ responseStopStreamProcessor =
     "StopStreamProcessorResponse"
     "fixture/StopStreamProcessorResponse.proto"
     defaultService
-    (Proxy :: Proxy StopStreamProcessor)
+    (Proxy.Proxy :: Proxy.Proxy StopStreamProcessor)
 
 responseDetectLabels :: DetectLabelsResponse -> TestTree
 responseDetectLabels =
@@ -743,7 +743,7 @@ responseDetectLabels =
     "DetectLabelsResponse"
     "fixture/DetectLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectLabels)
+    (Proxy.Proxy :: Proxy.Proxy DetectLabels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -751,7 +751,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStartContentModeration :: StartContentModerationResponse -> TestTree
 responseStartContentModeration =
@@ -759,7 +759,7 @@ responseStartContentModeration =
     "StartContentModerationResponse"
     "fixture/StartContentModerationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartContentModeration)
+    (Proxy.Proxy :: Proxy.Proxy StartContentModeration)
 
 responseSearchFacesByImage :: SearchFacesByImageResponse -> TestTree
 responseSearchFacesByImage =
@@ -767,7 +767,7 @@ responseSearchFacesByImage =
     "SearchFacesByImageResponse"
     "fixture/SearchFacesByImageResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchFacesByImage)
+    (Proxy.Proxy :: Proxy.Proxy SearchFacesByImage)
 
 responseListStreamProcessors :: ListStreamProcessorsResponse -> TestTree
 responseListStreamProcessors =
@@ -775,7 +775,7 @@ responseListStreamProcessors =
     "ListStreamProcessorsResponse"
     "fixture/ListStreamProcessorsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreamProcessors)
+    (Proxy.Proxy :: Proxy.Proxy ListStreamProcessors)
 
 responseDescribeCollection :: DescribeCollectionResponse -> TestTree
 responseDescribeCollection =
@@ -783,7 +783,7 @@ responseDescribeCollection =
     "DescribeCollectionResponse"
     "fixture/DescribeCollectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCollection)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCollection)
 
 responseDeleteProjectVersion :: DeleteProjectVersionResponse -> TestTree
 responseDeleteProjectVersion =
@@ -791,7 +791,7 @@ responseDeleteProjectVersion =
     "DeleteProjectVersionResponse"
     "fixture/DeleteProjectVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProjectVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProjectVersion)
 
 responseDescribeProjectVersions :: DescribeProjectVersionsResponse -> TestTree
 responseDescribeProjectVersions =
@@ -799,7 +799,7 @@ responseDescribeProjectVersions =
     "DescribeProjectVersionsResponse"
     "fixture/DescribeProjectVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProjectVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProjectVersions)
 
 responseRecognizeCelebrities :: RecognizeCelebritiesResponse -> TestTree
 responseRecognizeCelebrities =
@@ -807,7 +807,7 @@ responseRecognizeCelebrities =
     "RecognizeCelebritiesResponse"
     "fixture/RecognizeCelebritiesResponse.proto"
     defaultService
-    (Proxy :: Proxy RecognizeCelebrities)
+    (Proxy.Proxy :: Proxy.Proxy RecognizeCelebrities)
 
 responseDetectCustomLabels :: DetectCustomLabelsResponse -> TestTree
 responseDetectCustomLabels =
@@ -815,7 +815,7 @@ responseDetectCustomLabels =
     "DetectCustomLabelsResponse"
     "fixture/DetectCustomLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectCustomLabels)
+    (Proxy.Proxy :: Proxy.Proxy DetectCustomLabels)
 
 responseGetFaceSearch :: GetFaceSearchResponse -> TestTree
 responseGetFaceSearch =
@@ -823,7 +823,7 @@ responseGetFaceSearch =
     "GetFaceSearchResponse"
     "fixture/GetFaceSearchResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFaceSearch)
+    (Proxy.Proxy :: Proxy.Proxy GetFaceSearch)
 
 responseStartLabelDetection :: StartLabelDetectionResponse -> TestTree
 responseStartLabelDetection =
@@ -831,7 +831,7 @@ responseStartLabelDetection =
     "StartLabelDetectionResponse"
     "fixture/StartLabelDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartLabelDetection)
+    (Proxy.Proxy :: Proxy.Proxy StartLabelDetection)
 
 responseSearchFaces :: SearchFacesResponse -> TestTree
 responseSearchFaces =
@@ -839,7 +839,7 @@ responseSearchFaces =
     "SearchFacesResponse"
     "fixture/SearchFacesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchFaces)
+    (Proxy.Proxy :: Proxy.Proxy SearchFaces)
 
 responseIndexFaces :: IndexFacesResponse -> TestTree
 responseIndexFaces =
@@ -847,7 +847,7 @@ responseIndexFaces =
     "IndexFacesResponse"
     "fixture/IndexFacesResponse.proto"
     defaultService
-    (Proxy :: Proxy IndexFaces)
+    (Proxy.Proxy :: Proxy.Proxy IndexFaces)
 
 responseGetLabelDetection :: GetLabelDetectionResponse -> TestTree
 responseGetLabelDetection =
@@ -855,7 +855,7 @@ responseGetLabelDetection =
     "GetLabelDetectionResponse"
     "fixture/GetLabelDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLabelDetection)
+    (Proxy.Proxy :: Proxy.Proxy GetLabelDetection)
 
 responseStopProjectVersion :: StopProjectVersionResponse -> TestTree
 responseStopProjectVersion =
@@ -863,7 +863,7 @@ responseStopProjectVersion =
     "StopProjectVersionResponse"
     "fixture/StopProjectVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopProjectVersion)
+    (Proxy.Proxy :: Proxy.Proxy StopProjectVersion)
 
 responseDescribeStreamProcessor :: DescribeStreamProcessorResponse -> TestTree
 responseDescribeStreamProcessor =
@@ -871,7 +871,7 @@ responseDescribeStreamProcessor =
     "DescribeStreamProcessorResponse"
     "fixture/DescribeStreamProcessorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStreamProcessor)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStreamProcessor)
 
 responseStartFaceSearch :: StartFaceSearchResponse -> TestTree
 responseStartFaceSearch =
@@ -879,7 +879,7 @@ responseStartFaceSearch =
     "StartFaceSearchResponse"
     "fixture/StartFaceSearchResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFaceSearch)
+    (Proxy.Proxy :: Proxy.Proxy StartFaceSearch)
 
 responseStartTextDetection :: StartTextDetectionResponse -> TestTree
 responseStartTextDetection =
@@ -887,7 +887,7 @@ responseStartTextDetection =
     "StartTextDetectionResponse"
     "fixture/StartTextDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTextDetection)
+    (Proxy.Proxy :: Proxy.Proxy StartTextDetection)
 
 responseStartPersonTracking :: StartPersonTrackingResponse -> TestTree
 responseStartPersonTracking =
@@ -895,7 +895,7 @@ responseStartPersonTracking =
     "StartPersonTrackingResponse"
     "fixture/StartPersonTrackingResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPersonTracking)
+    (Proxy.Proxy :: Proxy.Proxy StartPersonTracking)
 
 responseGetCelebrityRecognition :: GetCelebrityRecognitionResponse -> TestTree
 responseGetCelebrityRecognition =
@@ -903,7 +903,7 @@ responseGetCelebrityRecognition =
     "GetCelebrityRecognitionResponse"
     "fixture/GetCelebrityRecognitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCelebrityRecognition)
+    (Proxy.Proxy :: Proxy.Proxy GetCelebrityRecognition)
 
 responseStartStreamProcessor :: StartStreamProcessorResponse -> TestTree
 responseStartStreamProcessor =
@@ -911,7 +911,7 @@ responseStartStreamProcessor =
     "StartStreamProcessorResponse"
     "fixture/StartStreamProcessorResponse.proto"
     defaultService
-    (Proxy :: Proxy StartStreamProcessor)
+    (Proxy.Proxy :: Proxy.Proxy StartStreamProcessor)
 
 responseDetectText :: DetectTextResponse -> TestTree
 responseDetectText =
@@ -919,7 +919,7 @@ responseDetectText =
     "DetectTextResponse"
     "fixture/DetectTextResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectText)
+    (Proxy.Proxy :: Proxy.Proxy DetectText)
 
 responseGetSegmentDetection :: GetSegmentDetectionResponse -> TestTree
 responseGetSegmentDetection =
@@ -927,7 +927,7 @@ responseGetSegmentDetection =
     "GetSegmentDetectionResponse"
     "fixture/GetSegmentDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSegmentDetection)
+    (Proxy.Proxy :: Proxy.Proxy GetSegmentDetection)
 
 responseCompareFaces :: CompareFacesResponse -> TestTree
 responseCompareFaces =
@@ -935,7 +935,7 @@ responseCompareFaces =
     "CompareFacesResponse"
     "fixture/CompareFacesResponse.proto"
     defaultService
-    (Proxy :: Proxy CompareFaces)
+    (Proxy.Proxy :: Proxy.Proxy CompareFaces)
 
 responseDetectFaces :: DetectFacesResponse -> TestTree
 responseDetectFaces =
@@ -943,7 +943,7 @@ responseDetectFaces =
     "DetectFacesResponse"
     "fixture/DetectFacesResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectFaces)
+    (Proxy.Proxy :: Proxy.Proxy DetectFaces)
 
 responseGetFaceDetection :: GetFaceDetectionResponse -> TestTree
 responseGetFaceDetection =
@@ -951,7 +951,7 @@ responseGetFaceDetection =
     "GetFaceDetectionResponse"
     "fixture/GetFaceDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFaceDetection)
+    (Proxy.Proxy :: Proxy.Proxy GetFaceDetection)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -959,7 +959,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListFaces :: ListFacesResponse -> TestTree
 responseListFaces =
@@ -967,7 +967,7 @@ responseListFaces =
     "ListFacesResponse"
     "fixture/ListFacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFaces)
+    (Proxy.Proxy :: Proxy.Proxy ListFaces)
 
 responseCreateProjectVersion :: CreateProjectVersionResponse -> TestTree
 responseCreateProjectVersion =
@@ -975,7 +975,7 @@ responseCreateProjectVersion =
     "CreateProjectVersionResponse"
     "fixture/CreateProjectVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProjectVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateProjectVersion)
 
 responseDescribeProjects :: DescribeProjectsResponse -> TestTree
 responseDescribeProjects =
@@ -983,7 +983,7 @@ responseDescribeProjects =
     "DescribeProjectsResponse"
     "fixture/DescribeProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProjects)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProjects)
 
 responseGetContentModeration :: GetContentModerationResponse -> TestTree
 responseGetContentModeration =
@@ -991,7 +991,7 @@ responseGetContentModeration =
     "GetContentModerationResponse"
     "fixture/GetContentModerationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContentModeration)
+    (Proxy.Proxy :: Proxy.Proxy GetContentModeration)
 
 responseDeleteFaces :: DeleteFacesResponse -> TestTree
 responseDeleteFaces =
@@ -999,7 +999,7 @@ responseDeleteFaces =
     "DeleteFacesResponse"
     "fixture/DeleteFacesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFaces)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFaces)
 
 responseGetCelebrityInfo :: GetCelebrityInfoResponse -> TestTree
 responseGetCelebrityInfo =
@@ -1007,7 +1007,7 @@ responseGetCelebrityInfo =
     "GetCelebrityInfoResponse"
     "fixture/GetCelebrityInfoResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCelebrityInfo)
+    (Proxy.Proxy :: Proxy.Proxy GetCelebrityInfo)
 
 responseDeleteStreamProcessor :: DeleteStreamProcessorResponse -> TestTree
 responseDeleteStreamProcessor =
@@ -1015,7 +1015,7 @@ responseDeleteStreamProcessor =
     "DeleteStreamProcessorResponse"
     "fixture/DeleteStreamProcessorResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStreamProcessor)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamProcessor)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1023,7 +1023,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDetectModerationLabels :: DetectModerationLabelsResponse -> TestTree
 responseDetectModerationLabels =
@@ -1031,7 +1031,7 @@ responseDetectModerationLabels =
     "DetectModerationLabelsResponse"
     "fixture/DetectModerationLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectModerationLabels)
+    (Proxy.Proxy :: Proxy.Proxy DetectModerationLabels)
 
 responseCreateStreamProcessor :: CreateStreamProcessorResponse -> TestTree
 responseCreateStreamProcessor =
@@ -1039,7 +1039,7 @@ responseCreateStreamProcessor =
     "CreateStreamProcessorResponse"
     "fixture/CreateStreamProcessorResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamProcessor)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamProcessor)
 
 responseStartFaceDetection :: StartFaceDetectionResponse -> TestTree
 responseStartFaceDetection =
@@ -1047,7 +1047,7 @@ responseStartFaceDetection =
     "StartFaceDetectionResponse"
     "fixture/StartFaceDetectionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartFaceDetection)
+    (Proxy.Proxy :: Proxy.Proxy StartFaceDetection)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -1055,4 +1055,4 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)

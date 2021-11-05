@@ -1,0 +1,75 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-braket/amazonka-braket.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-braket",
+    srcs = [
+        "gen/Network/AWS/Braket.hs",
+        "gen/Network/AWS/Braket/CancelQuantumTask.hs",
+        "gen/Network/AWS/Braket/CreateQuantumTask.hs",
+        "gen/Network/AWS/Braket/GetDevice.hs",
+        "gen/Network/AWS/Braket/GetQuantumTask.hs",
+        "gen/Network/AWS/Braket/Lens.hs",
+        "gen/Network/AWS/Braket/ListTagsForResource.hs",
+        "gen/Network/AWS/Braket/SearchDevices.hs",
+        "gen/Network/AWS/Braket/SearchQuantumTasks.hs",
+        "gen/Network/AWS/Braket/TagResource.hs",
+        "gen/Network/AWS/Braket/Types.hs",
+        "gen/Network/AWS/Braket/Types/CancellationStatus.hs",
+        "gen/Network/AWS/Braket/Types/DeviceStatus.hs",
+        "gen/Network/AWS/Braket/Types/DeviceSummary.hs",
+        "gen/Network/AWS/Braket/Types/DeviceType.hs",
+        "gen/Network/AWS/Braket/Types/QuantumTaskStatus.hs",
+        "gen/Network/AWS/Braket/Types/QuantumTaskSummary.hs",
+        "gen/Network/AWS/Braket/Types/SearchDevicesFilter.hs",
+        "gen/Network/AWS/Braket/Types/SearchQuantumTasksFilter.hs",
+        "gen/Network/AWS/Braket/Types/SearchQuantumTasksFilterOperator.hs",
+        "gen/Network/AWS/Braket/UntagResource.hs",
+        "gen/Network/AWS/Braket/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_braket=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-braket/amazonka-braket.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-braket-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Braket.hs",
+        "test/Test/AWS/Braket/Internal.hs",
+        "test/Test/AWS/Gen/Braket.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_braket=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-braket",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

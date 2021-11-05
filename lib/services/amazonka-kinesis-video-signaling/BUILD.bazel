@@ -1,0 +1,61 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-kinesis-video-signaling/amazonka-kinesis-video-signaling.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-kinesis-video-signaling",
+    srcs = [
+        "gen/Network/AWS/KinesisVideoSignaling.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/GetIceServerConfig.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/Lens.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/SendAlexaOfferToMaster.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/Types.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/Types/IceServer.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/Types/Service.hs",
+        "gen/Network/AWS/KinesisVideoSignaling/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_kinesis_video_signaling=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-kinesis-video-signaling/amazonka-kinesis-video-signaling.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-kinesis-video-signaling-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/KinesisVideoSignaling.hs",
+        "test/Test/AWS/KinesisVideoSignaling.hs",
+        "test/Test/AWS/KinesisVideoSignaling/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_kinesis_video_signaling=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-kinesis-video-signaling",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

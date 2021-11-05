@@ -12,7 +12,9 @@
         },
         "InvalidParameterNameList": {
             "type": "list",
-            "member": { "shape": "PSParameterName" }
+            "member": {
+                "shape": "PSParameterName"
+            }
         }
     }
 }

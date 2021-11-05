@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudSearchDomains where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudSearchDomains
 import Test.AWS.CloudSearchDomains.Internal
 import Test.AWS.Fixture
@@ -73,7 +73,7 @@ responseSuggest =
     "SuggestResponse"
     "fixture/SuggestResponse.proto"
     defaultService
-    (Proxy :: Proxy Suggest)
+    (Proxy.Proxy :: Proxy.Proxy Suggest)
 
 responseUploadDocuments :: UploadDocumentsResponse -> TestTree
 responseUploadDocuments =
@@ -81,7 +81,7 @@ responseUploadDocuments =
     "UploadDocumentsResponse"
     "fixture/UploadDocumentsResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadDocuments)
+    (Proxy.Proxy :: Proxy.Proxy UploadDocuments)
 
 responseSearch :: SearchResponse -> TestTree
 responseSearch =
@@ -89,4 +89,4 @@ responseSearch =
     "SearchResponse"
     "fixture/SearchResponse.proto"
     defaultService
-    (Proxy :: Proxy Search)
+    (Proxy.Proxy :: Proxy.Proxy Search)

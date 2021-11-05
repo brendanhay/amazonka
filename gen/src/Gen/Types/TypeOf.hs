@@ -17,6 +17,7 @@ module Gen.Types.TypeOf
     isHashable,
     isNFData,
     typeDefault,
+    typeMember,
   )
 where
 
@@ -24,6 +25,7 @@ import Control.Comonad.Cofree
 import Control.Lens hiding (List, enum, mapping, (:<), (??))
 import Data.Foldable (foldr')
 import Data.List (delete, intersect, nub, sort)
+import Data.Text (Text)
 import Gen.Types.Ann
 import Gen.Types.Id
 import Gen.Types.Service
@@ -49,10 +51,13 @@ instance HasId a => TypeOf (Shape a) where
         List (ListF i e)
           | nonEmpty i -> TList1 (typeOf e)
           | otherwise -> TList (typeOf e)
-        Map (MapF _ k v) -> TMap (typeOf k) (typeOf v)
-        Lit i l -> lit i l
+        Map (MapF _ k v) ->
+          case typeOf k of
+            TSensitive t -> TMap t (typeOf v)
+            t -> TMap t (typeOf v)
+        Lit i l -> literal i l
 
-      lit i = \case
+      literal i = \case
         Int -> natural i (TLit Int)
         Long -> natural i (TLit Long)
         Base64 | isStreaming i -> TStream
@@ -132,6 +137,19 @@ typeDefault = \case
   TList {} -> True
   TMap {} -> True
   _ -> False
+
+-- FIXME: This would be much more sane with a proper fixpoint datatype.
+typeMember :: Either Text Lit -> TType -> Bool
+typeMember x = \case
+  TType t _ -> x == Left t
+  TLit l -> x == Right l
+  TStream -> False
+  TNatural -> False
+  TMaybe e -> typeMember x e
+  TSensitive e -> typeMember x e
+  TList e -> typeMember x e
+  TList1 e -> typeMember x e
+  TMap k v -> typeMember x k || typeMember x v
 
 natural :: HasInfo a => a -> TType -> TType
 natural x

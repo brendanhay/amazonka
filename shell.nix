@@ -30,6 +30,7 @@ in pkgs.mkShell {
   buildInputs = [
     bazel
     ghc
+    pkgs.python3
     pkgs.cabal-install
     pkgs.haskellPackages.cabal-fmt
     pkgs.curl

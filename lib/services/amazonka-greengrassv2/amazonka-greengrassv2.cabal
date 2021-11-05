@@ -1,0 +1,162 @@
+cabal-version:      2.2
+name:               amazonka-greengrassv2
+version:            2.0
+synopsis:           Amazon IoT Greengrass V2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-11-30@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.GreengrassV2.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.GreengrassV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-greengrassv2
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.GreengrassV2
+    Network.AWS.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice
+    Network.AWS.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
+    Network.AWS.GreengrassV2.CancelDeployment
+    Network.AWS.GreengrassV2.CreateComponentVersion
+    Network.AWS.GreengrassV2.CreateDeployment
+    Network.AWS.GreengrassV2.DeleteComponent
+    Network.AWS.GreengrassV2.DeleteCoreDevice
+    Network.AWS.GreengrassV2.DescribeComponent
+    Network.AWS.GreengrassV2.GetComponent
+    Network.AWS.GreengrassV2.GetComponentVersionArtifact
+    Network.AWS.GreengrassV2.GetCoreDevice
+    Network.AWS.GreengrassV2.GetDeployment
+    Network.AWS.GreengrassV2.Lens
+    Network.AWS.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
+    Network.AWS.GreengrassV2.ListComponents
+    Network.AWS.GreengrassV2.ListComponentVersions
+    Network.AWS.GreengrassV2.ListCoreDevices
+    Network.AWS.GreengrassV2.ListDeployments
+    Network.AWS.GreengrassV2.ListEffectiveDeployments
+    Network.AWS.GreengrassV2.ListInstalledComponents
+    Network.AWS.GreengrassV2.ListTagsForResource
+    Network.AWS.GreengrassV2.ResolveComponentCandidates
+    Network.AWS.GreengrassV2.TagResource
+    Network.AWS.GreengrassV2.Types
+    Network.AWS.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceEntry
+    Network.AWS.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry
+    Network.AWS.GreengrassV2.Types.AssociatedClientDevice
+    Network.AWS.GreengrassV2.Types.CloudComponentState
+    Network.AWS.GreengrassV2.Types.CloudComponentStatus
+    Network.AWS.GreengrassV2.Types.Component
+    Network.AWS.GreengrassV2.Types.ComponentCandidate
+    Network.AWS.GreengrassV2.Types.ComponentConfigurationUpdate
+    Network.AWS.GreengrassV2.Types.ComponentDependencyRequirement
+    Network.AWS.GreengrassV2.Types.ComponentDependencyType
+    Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification
+    Network.AWS.GreengrassV2.Types.ComponentLatestVersion
+    Network.AWS.GreengrassV2.Types.ComponentPlatform
+    Network.AWS.GreengrassV2.Types.ComponentRunWith
+    Network.AWS.GreengrassV2.Types.ComponentVersionListItem
+    Network.AWS.GreengrassV2.Types.ComponentVisibilityScope
+    Network.AWS.GreengrassV2.Types.CoreDevice
+    Network.AWS.GreengrassV2.Types.CoreDeviceStatus
+    Network.AWS.GreengrassV2.Types.Deployment
+    Network.AWS.GreengrassV2.Types.DeploymentComponentUpdatePolicy
+    Network.AWS.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction
+    Network.AWS.GreengrassV2.Types.DeploymentConfigurationValidationPolicy
+    Network.AWS.GreengrassV2.Types.DeploymentFailureHandlingPolicy
+    Network.AWS.GreengrassV2.Types.DeploymentHistoryFilter
+    Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration
+    Network.AWS.GreengrassV2.Types.DeploymentPolicies
+    Network.AWS.GreengrassV2.Types.DeploymentStatus
+    Network.AWS.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceEntry
+    Network.AWS.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceErrorEntry
+    Network.AWS.GreengrassV2.Types.EffectiveDeployment
+    Network.AWS.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
+    Network.AWS.GreengrassV2.Types.InstalledComponent
+    Network.AWS.GreengrassV2.Types.InstalledComponentLifecycleState
+    Network.AWS.GreengrassV2.Types.IoTJobAbortAction
+    Network.AWS.GreengrassV2.Types.IoTJobAbortConfig
+    Network.AWS.GreengrassV2.Types.IoTJobAbortCriteria
+    Network.AWS.GreengrassV2.Types.IoTJobExecutionFailureType
+    Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
+    Network.AWS.GreengrassV2.Types.IoTJobExponentialRolloutRate
+    Network.AWS.GreengrassV2.Types.IoTJobRateIncreaseCriteria
+    Network.AWS.GreengrassV2.Types.IoTJobTimeoutConfig
+    Network.AWS.GreengrassV2.Types.LambdaContainerParams
+    Network.AWS.GreengrassV2.Types.LambdaDeviceMount
+    Network.AWS.GreengrassV2.Types.LambdaEventSource
+    Network.AWS.GreengrassV2.Types.LambdaEventSourceType
+    Network.AWS.GreengrassV2.Types.LambdaExecutionParameters
+    Network.AWS.GreengrassV2.Types.LambdaFilesystemPermission
+    Network.AWS.GreengrassV2.Types.LambdaFunctionRecipeSource
+    Network.AWS.GreengrassV2.Types.LambdaInputPayloadEncodingType
+    Network.AWS.GreengrassV2.Types.LambdaIsolationMode
+    Network.AWS.GreengrassV2.Types.LambdaLinuxProcessParams
+    Network.AWS.GreengrassV2.Types.LambdaVolumeMount
+    Network.AWS.GreengrassV2.Types.RecipeOutputFormat
+    Network.AWS.GreengrassV2.Types.ResolvedComponentVersion
+    Network.AWS.GreengrassV2.Types.SystemResourceLimits
+    Network.AWS.GreengrassV2.UntagResource
+    Network.AWS.GreengrassV2.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-greengrassv2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.GreengrassV2
+    Test.AWS.GreengrassV2
+    Test.AWS.GreengrassV2.Internal
+
+  build-depends:
+    , amazonka               ^>=2.0
+    , amazonka-greengrassv2
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

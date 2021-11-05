@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DirectConnect where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DirectConnect
 import Test.AWS.DirectConnect.Internal
 import Test.AWS.Fixture
@@ -751,7 +751,7 @@ responseDescribeDirectConnectGatewayAssociations =
     "DescribeDirectConnectGatewayAssociationsResponse"
     "fixture/DescribeDirectConnectGatewayAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGatewayAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDirectConnectGatewayAssociations)
 
 responseDescribeInterconnects :: DescribeInterconnectsResponse -> TestTree
 responseDescribeInterconnects =
@@ -759,7 +759,7 @@ responseDescribeInterconnects =
     "DescribeInterconnectsResponse"
     "fixture/DescribeInterconnectsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInterconnects)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInterconnects)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -767,7 +767,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseCreateTransitVirtualInterface :: CreateTransitVirtualInterfaceResponse -> TestTree
 responseCreateTransitVirtualInterface =
@@ -775,7 +775,7 @@ responseCreateTransitVirtualInterface =
     "CreateTransitVirtualInterfaceResponse"
     "fixture/CreateTransitVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitVirtualInterface)
 
 responseDescribeLoa :: DescribeLoaResponse -> TestTree
 responseDescribeLoa =
@@ -783,7 +783,7 @@ responseDescribeLoa =
     "DescribeLoaResponse"
     "fixture/DescribeLoaResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLoa)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoa)
 
 responseDisassociateMacSecKey :: DisassociateMacSecKeyResponse -> TestTree
 responseDisassociateMacSecKey =
@@ -791,7 +791,7 @@ responseDisassociateMacSecKey =
     "DisassociateMacSecKeyResponse"
     "fixture/DisassociateMacSecKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateMacSecKey)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMacSecKey)
 
 responseDeleteConnection :: Connection -> TestTree
 responseDeleteConnection =
@@ -799,7 +799,7 @@ responseDeleteConnection =
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseUpdateConnection :: Connection -> TestTree
 responseUpdateConnection =
@@ -807,7 +807,7 @@ responseUpdateConnection =
     "UpdateConnectionResponse"
     "fixture/UpdateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnection)
 
 responseStartBgpFailoverTest :: StartBgpFailoverTestResponse -> TestTree
 responseStartBgpFailoverTest =
@@ -815,7 +815,7 @@ responseStartBgpFailoverTest =
     "StartBgpFailoverTestResponse"
     "fixture/StartBgpFailoverTestResponse.proto"
     defaultService
-    (Proxy :: Proxy StartBgpFailoverTest)
+    (Proxy.Proxy :: Proxy.Proxy StartBgpFailoverTest)
 
 responseUpdateVirtualInterfaceAttributes :: VirtualInterface -> TestTree
 responseUpdateVirtualInterfaceAttributes =
@@ -823,7 +823,7 @@ responseUpdateVirtualInterfaceAttributes =
     "UpdateVirtualInterfaceAttributesResponse"
     "fixture/UpdateVirtualInterfaceAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVirtualInterfaceAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualInterfaceAttributes)
 
 responseAssociateConnectionWithLag :: Connection -> TestTree
 responseAssociateConnectionWithLag =
@@ -831,7 +831,7 @@ responseAssociateConnectionWithLag =
     "AssociateConnectionWithLagResponse"
     "fixture/AssociateConnectionWithLagResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateConnectionWithLag)
+    (Proxy.Proxy :: Proxy.Proxy AssociateConnectionWithLag)
 
 responseCreateDirectConnectGatewayAssociationProposal :: CreateDirectConnectGatewayAssociationProposalResponse -> TestTree
 responseCreateDirectConnectGatewayAssociationProposal =
@@ -839,7 +839,7 @@ responseCreateDirectConnectGatewayAssociationProposal =
     "CreateDirectConnectGatewayAssociationProposalResponse"
     "fixture/CreateDirectConnectGatewayAssociationProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectConnectGatewayAssociationProposal)
+    (Proxy.Proxy :: Proxy.Proxy CreateDirectConnectGatewayAssociationProposal)
 
 responseCreateConnection :: Connection -> TestTree
 responseCreateConnection =
@@ -847,7 +847,7 @@ responseCreateConnection =
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
 responseDescribeDirectConnectGateways :: DescribeDirectConnectGatewaysResponse -> TestTree
 responseDescribeDirectConnectGateways =
@@ -855,7 +855,7 @@ responseDescribeDirectConnectGateways =
     "DescribeDirectConnectGatewaysResponse"
     "fixture/DescribeDirectConnectGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDirectConnectGateways)
 
 responseAssociateVirtualInterface :: VirtualInterface -> TestTree
 responseAssociateVirtualInterface =
@@ -863,7 +863,7 @@ responseAssociateVirtualInterface =
     "AssociateVirtualInterfaceResponse"
     "fixture/AssociateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy AssociateVirtualInterface)
 
 responseDescribeConnections :: Connections -> TestTree
 responseDescribeConnections =
@@ -871,7 +871,7 @@ responseDescribeConnections =
     "DescribeConnectionsResponse"
     "fixture/DescribeConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnections)
 
 responseConfirmCustomerAgreement :: ConfirmCustomerAgreementResponse -> TestTree
 responseConfirmCustomerAgreement =
@@ -879,7 +879,7 @@ responseConfirmCustomerAgreement =
     "ConfirmCustomerAgreementResponse"
     "fixture/ConfirmCustomerAgreementResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmCustomerAgreement)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmCustomerAgreement)
 
 responseDeleteInterconnect :: DeleteInterconnectResponse -> TestTree
 responseDeleteInterconnect =
@@ -887,7 +887,7 @@ responseDeleteInterconnect =
     "DeleteInterconnectResponse"
     "fixture/DeleteInterconnectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInterconnect)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInterconnect)
 
 responseConfirmPrivateVirtualInterface :: ConfirmPrivateVirtualInterfaceResponse -> TestTree
 responseConfirmPrivateVirtualInterface =
@@ -895,7 +895,7 @@ responseConfirmPrivateVirtualInterface =
     "ConfirmPrivateVirtualInterfaceResponse"
     "fixture/ConfirmPrivateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmPrivateVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmPrivateVirtualInterface)
 
 responseUpdateDirectConnectGatewayAssociation :: UpdateDirectConnectGatewayAssociationResponse -> TestTree
 responseUpdateDirectConnectGatewayAssociation =
@@ -903,7 +903,7 @@ responseUpdateDirectConnectGatewayAssociation =
     "UpdateDirectConnectGatewayAssociationResponse"
     "fixture/UpdateDirectConnectGatewayAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDirectConnectGatewayAssociation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDirectConnectGatewayAssociation)
 
 responseDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociationResponse -> TestTree
 responseDeleteDirectConnectGatewayAssociation =
@@ -911,7 +911,7 @@ responseDeleteDirectConnectGatewayAssociation =
     "DeleteDirectConnectGatewayAssociationResponse"
     "fixture/DeleteDirectConnectGatewayAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectConnectGatewayAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDirectConnectGatewayAssociation)
 
 responseDescribeLocations :: DescribeLocationsResponse -> TestTree
 responseDescribeLocations =
@@ -919,7 +919,7 @@ responseDescribeLocations =
     "DescribeLocationsResponse"
     "fixture/DescribeLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocations)
 
 responseCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociationResponse -> TestTree
 responseCreateDirectConnectGatewayAssociation =
@@ -927,7 +927,7 @@ responseCreateDirectConnectGatewayAssociation =
     "CreateDirectConnectGatewayAssociationResponse"
     "fixture/CreateDirectConnectGatewayAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectConnectGatewayAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateDirectConnectGatewayAssociation)
 
 responseAcceptDirectConnectGatewayAssociationProposal :: AcceptDirectConnectGatewayAssociationProposalResponse -> TestTree
 responseAcceptDirectConnectGatewayAssociationProposal =
@@ -935,7 +935,7 @@ responseAcceptDirectConnectGatewayAssociationProposal =
     "AcceptDirectConnectGatewayAssociationProposalResponse"
     "fixture/AcceptDirectConnectGatewayAssociationProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptDirectConnectGatewayAssociationProposal)
+    (Proxy.Proxy :: Proxy.Proxy AcceptDirectConnectGatewayAssociationProposal)
 
 responseCreatePublicVirtualInterface :: VirtualInterface -> TestTree
 responseCreatePublicVirtualInterface =
@@ -943,7 +943,7 @@ responseCreatePublicVirtualInterface =
     "CreatePublicVirtualInterfaceResponse"
     "fixture/CreatePublicVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePublicVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy CreatePublicVirtualInterface)
 
 responseAssociateMacSecKey :: AssociateMacSecKeyResponse -> TestTree
 responseAssociateMacSecKey =
@@ -951,7 +951,7 @@ responseAssociateMacSecKey =
     "AssociateMacSecKeyResponse"
     "fixture/AssociateMacSecKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateMacSecKey)
+    (Proxy.Proxy :: Proxy.Proxy AssociateMacSecKey)
 
 responseAllocatePrivateVirtualInterface :: VirtualInterface -> TestTree
 responseAllocatePrivateVirtualInterface =
@@ -959,7 +959,7 @@ responseAllocatePrivateVirtualInterface =
     "AllocatePrivateVirtualInterfaceResponse"
     "fixture/AllocatePrivateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocatePrivateVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy AllocatePrivateVirtualInterface)
 
 responseDescribeLags :: DescribeLagsResponse -> TestTree
 responseDescribeLags =
@@ -967,7 +967,7 @@ responseDescribeLags =
     "DescribeLagsResponse"
     "fixture/DescribeLagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLags)
 
 responseConfirmConnection :: ConfirmConnectionResponse -> TestTree
 responseConfirmConnection =
@@ -975,7 +975,7 @@ responseConfirmConnection =
     "ConfirmConnectionResponse"
     "fixture/ConfirmConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmConnection)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmConnection)
 
 responseDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachmentsResponse -> TestTree
 responseDescribeDirectConnectGatewayAttachments =
@@ -983,7 +983,7 @@ responseDescribeDirectConnectGatewayAttachments =
     "DescribeDirectConnectGatewayAttachmentsResponse"
     "fixture/DescribeDirectConnectGatewayAttachmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGatewayAttachments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDirectConnectGatewayAttachments)
 
 responseDescribeCustomerMetadata :: DescribeCustomerMetadataResponse -> TestTree
 responseDescribeCustomerMetadata =
@@ -991,7 +991,7 @@ responseDescribeCustomerMetadata =
     "DescribeCustomerMetadataResponse"
     "fixture/DescribeCustomerMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomerMetadata)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomerMetadata)
 
 responseConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterfaceResponse -> TestTree
 responseConfirmPublicVirtualInterface =
@@ -999,7 +999,7 @@ responseConfirmPublicVirtualInterface =
     "ConfirmPublicVirtualInterfaceResponse"
     "fixture/ConfirmPublicVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmPublicVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmPublicVirtualInterface)
 
 responseDescribeVirtualGateways :: DescribeVirtualGatewaysResponse -> TestTree
 responseDescribeVirtualGateways =
@@ -1007,7 +1007,7 @@ responseDescribeVirtualGateways =
     "DescribeVirtualGatewaysResponse"
     "fixture/DescribeVirtualGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualGateways)
 
 responseDeleteDirectConnectGatewayAssociationProposal :: DeleteDirectConnectGatewayAssociationProposalResponse -> TestTree
 responseDeleteDirectConnectGatewayAssociationProposal =
@@ -1015,7 +1015,7 @@ responseDeleteDirectConnectGatewayAssociationProposal =
     "DeleteDirectConnectGatewayAssociationProposalResponse"
     "fixture/DeleteDirectConnectGatewayAssociationProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectConnectGatewayAssociationProposal)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDirectConnectGatewayAssociationProposal)
 
 responseStopBgpFailoverTest :: StopBgpFailoverTestResponse -> TestTree
 responseStopBgpFailoverTest =
@@ -1023,7 +1023,7 @@ responseStopBgpFailoverTest =
     "StopBgpFailoverTestResponse"
     "fixture/StopBgpFailoverTestResponse.proto"
     defaultService
-    (Proxy :: Proxy StopBgpFailoverTest)
+    (Proxy.Proxy :: Proxy.Proxy StopBgpFailoverTest)
 
 responseCreateDirectConnectGateway :: CreateDirectConnectGatewayResponse -> TestTree
 responseCreateDirectConnectGateway =
@@ -1031,7 +1031,7 @@ responseCreateDirectConnectGateway =
     "CreateDirectConnectGatewayResponse"
     "fixture/CreateDirectConnectGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectConnectGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateDirectConnectGateway)
 
 responseDeleteDirectConnectGateway :: DeleteDirectConnectGatewayResponse -> TestTree
 responseDeleteDirectConnectGateway =
@@ -1039,7 +1039,7 @@ responseDeleteDirectConnectGateway =
     "DeleteDirectConnectGatewayResponse"
     "fixture/DeleteDirectConnectGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectConnectGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDirectConnectGateway)
 
 responseUpdateDirectConnectGateway :: UpdateDirectConnectGatewayResponse -> TestTree
 responseUpdateDirectConnectGateway =
@@ -1047,7 +1047,7 @@ responseUpdateDirectConnectGateway =
     "UpdateDirectConnectGatewayResponse"
     "fixture/UpdateDirectConnectGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDirectConnectGateway)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDirectConnectGateway)
 
 responseDescribeVirtualInterfaces :: DescribeVirtualInterfacesResponse -> TestTree
 responseDescribeVirtualInterfaces =
@@ -1055,7 +1055,7 @@ responseDescribeVirtualInterfaces =
     "DescribeVirtualInterfacesResponse"
     "fixture/DescribeVirtualInterfacesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualInterfaces)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualInterfaces)
 
 responseListVirtualInterfaceTestHistory :: ListVirtualInterfaceTestHistoryResponse -> TestTree
 responseListVirtualInterfaceTestHistory =
@@ -1063,7 +1063,7 @@ responseListVirtualInterfaceTestHistory =
     "ListVirtualInterfaceTestHistoryResponse"
     "fixture/ListVirtualInterfaceTestHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualInterfaceTestHistory)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualInterfaceTestHistory)
 
 responseAllocateHostedConnection :: Connection -> TestTree
 responseAllocateHostedConnection =
@@ -1071,7 +1071,7 @@ responseAllocateHostedConnection =
     "AllocateHostedConnectionResponse"
     "fixture/AllocateHostedConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocateHostedConnection)
+    (Proxy.Proxy :: Proxy.Proxy AllocateHostedConnection)
 
 responseDeleteVirtualInterface :: DeleteVirtualInterfaceResponse -> TestTree
 responseDeleteVirtualInterface =
@@ -1079,7 +1079,7 @@ responseDeleteVirtualInterface =
     "DeleteVirtualInterfaceResponse"
     "fixture/DeleteVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualInterface)
 
 responseCreatePrivateVirtualInterface :: VirtualInterface -> TestTree
 responseCreatePrivateVirtualInterface =
@@ -1087,7 +1087,7 @@ responseCreatePrivateVirtualInterface =
     "CreatePrivateVirtualInterfaceResponse"
     "fixture/CreatePrivateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePrivateVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy CreatePrivateVirtualInterface)
 
 responseAllocatePublicVirtualInterface :: VirtualInterface -> TestTree
 responseAllocatePublicVirtualInterface =
@@ -1095,7 +1095,7 @@ responseAllocatePublicVirtualInterface =
     "AllocatePublicVirtualInterfaceResponse"
     "fixture/AllocatePublicVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocatePublicVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy AllocatePublicVirtualInterface)
 
 responseDescribeDirectConnectGatewayAssociationProposals :: DescribeDirectConnectGatewayAssociationProposalsResponse -> TestTree
 responseDescribeDirectConnectGatewayAssociationProposals =
@@ -1103,7 +1103,7 @@ responseDescribeDirectConnectGatewayAssociationProposals =
     "DescribeDirectConnectGatewayAssociationProposalsResponse"
     "fixture/DescribeDirectConnectGatewayAssociationProposalsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGatewayAssociationProposals)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDirectConnectGatewayAssociationProposals)
 
 responseDisassociateConnectionFromLag :: Connection -> TestTree
 responseDisassociateConnectionFromLag =
@@ -1111,7 +1111,7 @@ responseDisassociateConnectionFromLag =
     "DisassociateConnectionFromLagResponse"
     "fixture/DisassociateConnectionFromLagResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateConnectionFromLag)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateConnectionFromLag)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1119,7 +1119,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDeleteLag :: Lag -> TestTree
 responseDeleteLag =
@@ -1127,7 +1127,7 @@ responseDeleteLag =
     "DeleteLagResponse"
     "fixture/DeleteLagResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLag)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLag)
 
 responseUpdateLag :: Lag -> TestTree
 responseUpdateLag =
@@ -1135,7 +1135,7 @@ responseUpdateLag =
     "UpdateLagResponse"
     "fixture/UpdateLagResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLag)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLag)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1143,7 +1143,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateBGPPeer :: CreateBGPPeerResponse -> TestTree
 responseCreateBGPPeer =
@@ -1151,7 +1151,7 @@ responseCreateBGPPeer =
     "CreateBGPPeerResponse"
     "fixture/CreateBGPPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBGPPeer)
+    (Proxy.Proxy :: Proxy.Proxy CreateBGPPeer)
 
 responseAssociateHostedConnection :: Connection -> TestTree
 responseAssociateHostedConnection =
@@ -1159,7 +1159,7 @@ responseAssociateHostedConnection =
     "AssociateHostedConnectionResponse"
     "fixture/AssociateHostedConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateHostedConnection)
+    (Proxy.Proxy :: Proxy.Proxy AssociateHostedConnection)
 
 responseCreateInterconnect :: Interconnect -> TestTree
 responseCreateInterconnect =
@@ -1167,7 +1167,7 @@ responseCreateInterconnect =
     "CreateInterconnectResponse"
     "fixture/CreateInterconnectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInterconnect)
+    (Proxy.Proxy :: Proxy.Proxy CreateInterconnect)
 
 responseDescribeRouterConfiguration :: DescribeRouterConfigurationResponse -> TestTree
 responseDescribeRouterConfiguration =
@@ -1175,7 +1175,7 @@ responseDescribeRouterConfiguration =
     "DescribeRouterConfigurationResponse"
     "fixture/DescribeRouterConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRouterConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRouterConfiguration)
 
 responseDeleteBGPPeer :: DeleteBGPPeerResponse -> TestTree
 responseDeleteBGPPeer =
@@ -1183,7 +1183,7 @@ responseDeleteBGPPeer =
     "DeleteBGPPeerResponse"
     "fixture/DeleteBGPPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBGPPeer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBGPPeer)
 
 responseAllocateTransitVirtualInterface :: AllocateTransitVirtualInterfaceResponse -> TestTree
 responseAllocateTransitVirtualInterface =
@@ -1191,7 +1191,7 @@ responseAllocateTransitVirtualInterface =
     "AllocateTransitVirtualInterfaceResponse"
     "fixture/AllocateTransitVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocateTransitVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy AllocateTransitVirtualInterface)
 
 responseCreateLag :: Lag -> TestTree
 responseCreateLag =
@@ -1199,7 +1199,7 @@ responseCreateLag =
     "CreateLagResponse"
     "fixture/CreateLagResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLag)
+    (Proxy.Proxy :: Proxy.Proxy CreateLag)
 
 responseConfirmTransitVirtualInterface :: ConfirmTransitVirtualInterfaceResponse -> TestTree
 responseConfirmTransitVirtualInterface =
@@ -1207,7 +1207,7 @@ responseConfirmTransitVirtualInterface =
     "ConfirmTransitVirtualInterfaceResponse"
     "fixture/ConfirmTransitVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmTransitVirtualInterface)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmTransitVirtualInterface)
 
 responseDescribeHostedConnections :: Connections -> TestTree
 responseDescribeHostedConnections =
@@ -1215,4 +1215,4 @@ responseDescribeHostedConnections =
     "DescribeHostedConnectionsResponse"
     "fixture/DescribeHostedConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHostedConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHostedConnections)

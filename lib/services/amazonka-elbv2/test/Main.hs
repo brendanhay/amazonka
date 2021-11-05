@@ -9,15 +9,15 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ELBv2
-import Test.AWS.ELBv2.Internal
+import Test.AWS.ELBV2
+import Test.AWS.ELBV2.Internal
 import Test.Tasty
 
 main :: IO ()
 main =
   defaultMain $
     testGroup
-      "ELBv2"
+      "ELBV2"
       [ testGroup "tests" tests,
         testGroup "fixtures" fixtures
       ]

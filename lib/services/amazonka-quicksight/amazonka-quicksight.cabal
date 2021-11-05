@@ -1,0 +1,383 @@
+cabal-version:      2.2
+name:               amazonka-quicksight
+version:            2.0
+synopsis:           Amazon QuickSight SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-04-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.QuickSight.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.QuickSight" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-quicksight
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.QuickSight
+    Network.AWS.QuickSight.CancelIngestion
+    Network.AWS.QuickSight.CreateAccountCustomization
+    Network.AWS.QuickSight.CreateAnalysis
+    Network.AWS.QuickSight.CreateDashboard
+    Network.AWS.QuickSight.CreateDataSet
+    Network.AWS.QuickSight.CreateDataSource
+    Network.AWS.QuickSight.CreateFolder
+    Network.AWS.QuickSight.CreateFolderMembership
+    Network.AWS.QuickSight.CreateGroup
+    Network.AWS.QuickSight.CreateGroupMembership
+    Network.AWS.QuickSight.CreateIAMPolicyAssignment
+    Network.AWS.QuickSight.CreateIngestion
+    Network.AWS.QuickSight.CreateNamespace
+    Network.AWS.QuickSight.CreateTemplate
+    Network.AWS.QuickSight.CreateTemplateAlias
+    Network.AWS.QuickSight.CreateTheme
+    Network.AWS.QuickSight.CreateThemeAlias
+    Network.AWS.QuickSight.DeleteAccountCustomization
+    Network.AWS.QuickSight.DeleteAnalysis
+    Network.AWS.QuickSight.DeleteDashboard
+    Network.AWS.QuickSight.DeleteDataSet
+    Network.AWS.QuickSight.DeleteDataSource
+    Network.AWS.QuickSight.DeleteFolder
+    Network.AWS.QuickSight.DeleteFolderMembership
+    Network.AWS.QuickSight.DeleteGroup
+    Network.AWS.QuickSight.DeleteGroupMembership
+    Network.AWS.QuickSight.DeleteIAMPolicyAssignment
+    Network.AWS.QuickSight.DeleteNamespace
+    Network.AWS.QuickSight.DeleteTemplate
+    Network.AWS.QuickSight.DeleteTemplateAlias
+    Network.AWS.QuickSight.DeleteTheme
+    Network.AWS.QuickSight.DeleteThemeAlias
+    Network.AWS.QuickSight.DeleteUser
+    Network.AWS.QuickSight.DeleteUserByPrincipalId
+    Network.AWS.QuickSight.DescribeAccountCustomization
+    Network.AWS.QuickSight.DescribeAccountSettings
+    Network.AWS.QuickSight.DescribeAnalysis
+    Network.AWS.QuickSight.DescribeAnalysisPermissions
+    Network.AWS.QuickSight.DescribeDashboard
+    Network.AWS.QuickSight.DescribeDashboardPermissions
+    Network.AWS.QuickSight.DescribeDataSet
+    Network.AWS.QuickSight.DescribeDataSetPermissions
+    Network.AWS.QuickSight.DescribeDataSource
+    Network.AWS.QuickSight.DescribeDataSourcePermissions
+    Network.AWS.QuickSight.DescribeFolder
+    Network.AWS.QuickSight.DescribeFolderPermissions
+    Network.AWS.QuickSight.DescribeFolderResolvedPermissions
+    Network.AWS.QuickSight.DescribeGroup
+    Network.AWS.QuickSight.DescribeIAMPolicyAssignment
+    Network.AWS.QuickSight.DescribeIngestion
+    Network.AWS.QuickSight.DescribeIpRestriction
+    Network.AWS.QuickSight.DescribeNamespace
+    Network.AWS.QuickSight.DescribeTemplate
+    Network.AWS.QuickSight.DescribeTemplateAlias
+    Network.AWS.QuickSight.DescribeTemplatePermissions
+    Network.AWS.QuickSight.DescribeTheme
+    Network.AWS.QuickSight.DescribeThemeAlias
+    Network.AWS.QuickSight.DescribeThemePermissions
+    Network.AWS.QuickSight.DescribeUser
+    Network.AWS.QuickSight.GenerateEmbedUrlForAnonymousUser
+    Network.AWS.QuickSight.GenerateEmbedUrlForRegisteredUser
+    Network.AWS.QuickSight.GetDashboardEmbedUrl
+    Network.AWS.QuickSight.GetSessionEmbedUrl
+    Network.AWS.QuickSight.Lens
+    Network.AWS.QuickSight.ListAnalyses
+    Network.AWS.QuickSight.ListDashboards
+    Network.AWS.QuickSight.ListDashboardVersions
+    Network.AWS.QuickSight.ListDataSets
+    Network.AWS.QuickSight.ListDataSources
+    Network.AWS.QuickSight.ListFolderMembers
+    Network.AWS.QuickSight.ListFolders
+    Network.AWS.QuickSight.ListGroupMemberships
+    Network.AWS.QuickSight.ListGroups
+    Network.AWS.QuickSight.ListIAMPolicyAssignments
+    Network.AWS.QuickSight.ListIAMPolicyAssignmentsForUser
+    Network.AWS.QuickSight.ListIngestions
+    Network.AWS.QuickSight.ListNamespaces
+    Network.AWS.QuickSight.ListTagsForResource
+    Network.AWS.QuickSight.ListTemplateAliases
+    Network.AWS.QuickSight.ListTemplates
+    Network.AWS.QuickSight.ListTemplateVersions
+    Network.AWS.QuickSight.ListThemeAliases
+    Network.AWS.QuickSight.ListThemes
+    Network.AWS.QuickSight.ListThemeVersions
+    Network.AWS.QuickSight.ListUserGroups
+    Network.AWS.QuickSight.ListUsers
+    Network.AWS.QuickSight.RegisterUser
+    Network.AWS.QuickSight.RestoreAnalysis
+    Network.AWS.QuickSight.SearchAnalyses
+    Network.AWS.QuickSight.SearchDashboards
+    Network.AWS.QuickSight.SearchFolders
+    Network.AWS.QuickSight.TagResource
+    Network.AWS.QuickSight.Types
+    Network.AWS.QuickSight.Types.AccountCustomization
+    Network.AWS.QuickSight.Types.AccountSettings
+    Network.AWS.QuickSight.Types.ActiveIAMPolicyAssignment
+    Network.AWS.QuickSight.Types.AdHocFilteringOption
+    Network.AWS.QuickSight.Types.AmazonElasticsearchParameters
+    Network.AWS.QuickSight.Types.AmazonOpenSearchParameters
+    Network.AWS.QuickSight.Types.Analysis
+    Network.AWS.QuickSight.Types.AnalysisError
+    Network.AWS.QuickSight.Types.AnalysisErrorType
+    Network.AWS.QuickSight.Types.AnalysisFilterAttribute
+    Network.AWS.QuickSight.Types.AnalysisSearchFilter
+    Network.AWS.QuickSight.Types.AnalysisSourceEntity
+    Network.AWS.QuickSight.Types.AnalysisSourceTemplate
+    Network.AWS.QuickSight.Types.AnalysisSummary
+    Network.AWS.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration
+    Network.AWS.QuickSight.Types.AnonymousUserEmbeddingExperienceConfiguration
+    Network.AWS.QuickSight.Types.AssignmentStatus
+    Network.AWS.QuickSight.Types.AthenaParameters
+    Network.AWS.QuickSight.Types.AuroraParameters
+    Network.AWS.QuickSight.Types.AuroraPostgreSqlParameters
+    Network.AWS.QuickSight.Types.AwsIotAnalyticsParameters
+    Network.AWS.QuickSight.Types.BorderStyle
+    Network.AWS.QuickSight.Types.CalculatedColumn
+    Network.AWS.QuickSight.Types.CastColumnTypeOperation
+    Network.AWS.QuickSight.Types.ColumnDataType
+    Network.AWS.QuickSight.Types.ColumnDescription
+    Network.AWS.QuickSight.Types.ColumnGroup
+    Network.AWS.QuickSight.Types.ColumnGroupColumnSchema
+    Network.AWS.QuickSight.Types.ColumnGroupSchema
+    Network.AWS.QuickSight.Types.ColumnLevelPermissionRule
+    Network.AWS.QuickSight.Types.ColumnSchema
+    Network.AWS.QuickSight.Types.ColumnTag
+    Network.AWS.QuickSight.Types.ColumnTagName
+    Network.AWS.QuickSight.Types.CreateColumnsOperation
+    Network.AWS.QuickSight.Types.CredentialPair
+    Network.AWS.QuickSight.Types.CustomSql
+    Network.AWS.QuickSight.Types.Dashboard
+    Network.AWS.QuickSight.Types.DashboardBehavior
+    Network.AWS.QuickSight.Types.DashboardError
+    Network.AWS.QuickSight.Types.DashboardErrorType
+    Network.AWS.QuickSight.Types.DashboardFilterAttribute
+    Network.AWS.QuickSight.Types.DashboardPublishOptions
+    Network.AWS.QuickSight.Types.DashboardSearchFilter
+    Network.AWS.QuickSight.Types.DashboardSourceEntity
+    Network.AWS.QuickSight.Types.DashboardSourceTemplate
+    Network.AWS.QuickSight.Types.DashboardSummary
+    Network.AWS.QuickSight.Types.DashboardUIState
+    Network.AWS.QuickSight.Types.DashboardVersion
+    Network.AWS.QuickSight.Types.DashboardVersionSummary
+    Network.AWS.QuickSight.Types.DataColorPalette
+    Network.AWS.QuickSight.Types.DataSet
+    Network.AWS.QuickSight.Types.DataSetConfiguration
+    Network.AWS.QuickSight.Types.DataSetImportMode
+    Network.AWS.QuickSight.Types.DataSetReference
+    Network.AWS.QuickSight.Types.DataSetSchema
+    Network.AWS.QuickSight.Types.DataSetSummary
+    Network.AWS.QuickSight.Types.DataSetUsageConfiguration
+    Network.AWS.QuickSight.Types.DataSource
+    Network.AWS.QuickSight.Types.DataSourceCredentials
+    Network.AWS.QuickSight.Types.DataSourceErrorInfo
+    Network.AWS.QuickSight.Types.DataSourceErrorInfoType
+    Network.AWS.QuickSight.Types.DataSourceParameters
+    Network.AWS.QuickSight.Types.DataSourceType
+    Network.AWS.QuickSight.Types.DateTimeParameter
+    Network.AWS.QuickSight.Types.DecimalParameter
+    Network.AWS.QuickSight.Types.Edition
+    Network.AWS.QuickSight.Types.EmbeddingIdentityType
+    Network.AWS.QuickSight.Types.ErrorInfo
+    Network.AWS.QuickSight.Types.ExportToCSVOption
+    Network.AWS.QuickSight.Types.FieldFolder
+    Network.AWS.QuickSight.Types.FileFormat
+    Network.AWS.QuickSight.Types.FilterOperation
+    Network.AWS.QuickSight.Types.FilterOperator
+    Network.AWS.QuickSight.Types.Folder
+    Network.AWS.QuickSight.Types.FolderFilterAttribute
+    Network.AWS.QuickSight.Types.FolderMember
+    Network.AWS.QuickSight.Types.FolderSearchFilter
+    Network.AWS.QuickSight.Types.FolderSummary
+    Network.AWS.QuickSight.Types.FolderType
+    Network.AWS.QuickSight.Types.GeoSpatialColumnGroup
+    Network.AWS.QuickSight.Types.GeoSpatialCountryCode
+    Network.AWS.QuickSight.Types.GeoSpatialDataRole
+    Network.AWS.QuickSight.Types.Group
+    Network.AWS.QuickSight.Types.GroupMember
+    Network.AWS.QuickSight.Types.GutterStyle
+    Network.AWS.QuickSight.Types.IAMPolicyAssignment
+    Network.AWS.QuickSight.Types.IAMPolicyAssignmentSummary
+    Network.AWS.QuickSight.Types.IdentityStore
+    Network.AWS.QuickSight.Types.IdentityType
+    Network.AWS.QuickSight.Types.Ingestion
+    Network.AWS.QuickSight.Types.IngestionErrorType
+    Network.AWS.QuickSight.Types.IngestionRequestSource
+    Network.AWS.QuickSight.Types.IngestionRequestType
+    Network.AWS.QuickSight.Types.IngestionStatus
+    Network.AWS.QuickSight.Types.IngestionType
+    Network.AWS.QuickSight.Types.InputColumn
+    Network.AWS.QuickSight.Types.InputColumnDataType
+    Network.AWS.QuickSight.Types.IntegerParameter
+    Network.AWS.QuickSight.Types.JiraParameters
+    Network.AWS.QuickSight.Types.JoinInstruction
+    Network.AWS.QuickSight.Types.JoinKeyProperties
+    Network.AWS.QuickSight.Types.JoinType
+    Network.AWS.QuickSight.Types.LogicalTable
+    Network.AWS.QuickSight.Types.LogicalTableSource
+    Network.AWS.QuickSight.Types.ManifestFileLocation
+    Network.AWS.QuickSight.Types.MarginStyle
+    Network.AWS.QuickSight.Types.MariaDbParameters
+    Network.AWS.QuickSight.Types.MemberIdArnPair
+    Network.AWS.QuickSight.Types.MemberType
+    Network.AWS.QuickSight.Types.MySqlParameters
+    Network.AWS.QuickSight.Types.NamespaceError
+    Network.AWS.QuickSight.Types.NamespaceErrorType
+    Network.AWS.QuickSight.Types.NamespaceInfoV2
+    Network.AWS.QuickSight.Types.NamespaceStatus
+    Network.AWS.QuickSight.Types.OracleParameters
+    Network.AWS.QuickSight.Types.OutputColumn
+    Network.AWS.QuickSight.Types.Parameters
+    Network.AWS.QuickSight.Types.PhysicalTable
+    Network.AWS.QuickSight.Types.PostgreSqlParameters
+    Network.AWS.QuickSight.Types.PrestoParameters
+    Network.AWS.QuickSight.Types.ProjectOperation
+    Network.AWS.QuickSight.Types.QueueInfo
+    Network.AWS.QuickSight.Types.RdsParameters
+    Network.AWS.QuickSight.Types.RedshiftParameters
+    Network.AWS.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
+    Network.AWS.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration
+    Network.AWS.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
+    Network.AWS.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfiguration
+    Network.AWS.QuickSight.Types.RelationalTable
+    Network.AWS.QuickSight.Types.RenameColumnOperation
+    Network.AWS.QuickSight.Types.ResourcePermission
+    Network.AWS.QuickSight.Types.ResourceStatus
+    Network.AWS.QuickSight.Types.RowInfo
+    Network.AWS.QuickSight.Types.RowLevelPermissionDataSet
+    Network.AWS.QuickSight.Types.RowLevelPermissionFormatVersion
+    Network.AWS.QuickSight.Types.RowLevelPermissionPolicy
+    Network.AWS.QuickSight.Types.RowLevelPermissionTagConfiguration
+    Network.AWS.QuickSight.Types.RowLevelPermissionTagRule
+    Network.AWS.QuickSight.Types.S3Parameters
+    Network.AWS.QuickSight.Types.S3Source
+    Network.AWS.QuickSight.Types.ServiceNowParameters
+    Network.AWS.QuickSight.Types.SessionTag
+    Network.AWS.QuickSight.Types.Sheet
+    Network.AWS.QuickSight.Types.SheetControlsOption
+    Network.AWS.QuickSight.Types.SheetStyle
+    Network.AWS.QuickSight.Types.SnowflakeParameters
+    Network.AWS.QuickSight.Types.SparkParameters
+    Network.AWS.QuickSight.Types.SqlServerParameters
+    Network.AWS.QuickSight.Types.SslProperties
+    Network.AWS.QuickSight.Types.Status
+    Network.AWS.QuickSight.Types.StringParameter
+    Network.AWS.QuickSight.Types.Tag
+    Network.AWS.QuickSight.Types.TagColumnOperation
+    Network.AWS.QuickSight.Types.Template
+    Network.AWS.QuickSight.Types.TemplateAlias
+    Network.AWS.QuickSight.Types.TemplateError
+    Network.AWS.QuickSight.Types.TemplateErrorType
+    Network.AWS.QuickSight.Types.TemplateSourceAnalysis
+    Network.AWS.QuickSight.Types.TemplateSourceEntity
+    Network.AWS.QuickSight.Types.TemplateSourceTemplate
+    Network.AWS.QuickSight.Types.TemplateSummary
+    Network.AWS.QuickSight.Types.TemplateVersion
+    Network.AWS.QuickSight.Types.TemplateVersionSummary
+    Network.AWS.QuickSight.Types.TeradataParameters
+    Network.AWS.QuickSight.Types.TextQualifier
+    Network.AWS.QuickSight.Types.Theme
+    Network.AWS.QuickSight.Types.ThemeAlias
+    Network.AWS.QuickSight.Types.ThemeConfiguration
+    Network.AWS.QuickSight.Types.ThemeError
+    Network.AWS.QuickSight.Types.ThemeErrorType
+    Network.AWS.QuickSight.Types.ThemeSummary
+    Network.AWS.QuickSight.Types.ThemeType
+    Network.AWS.QuickSight.Types.ThemeVersion
+    Network.AWS.QuickSight.Types.ThemeVersionSummary
+    Network.AWS.QuickSight.Types.TileLayoutStyle
+    Network.AWS.QuickSight.Types.TileStyle
+    Network.AWS.QuickSight.Types.TransformOperation
+    Network.AWS.QuickSight.Types.TwitterParameters
+    Network.AWS.QuickSight.Types.UIColorPalette
+    Network.AWS.QuickSight.Types.UntagColumnOperation
+    Network.AWS.QuickSight.Types.UploadSettings
+    Network.AWS.QuickSight.Types.User
+    Network.AWS.QuickSight.Types.UserRole
+    Network.AWS.QuickSight.Types.VpcConnectionProperties
+    Network.AWS.QuickSight.UntagResource
+    Network.AWS.QuickSight.UpdateAccountCustomization
+    Network.AWS.QuickSight.UpdateAccountSettings
+    Network.AWS.QuickSight.UpdateAnalysis
+    Network.AWS.QuickSight.UpdateAnalysisPermissions
+    Network.AWS.QuickSight.UpdateDashboard
+    Network.AWS.QuickSight.UpdateDashboardPermissions
+    Network.AWS.QuickSight.UpdateDashboardPublishedVersion
+    Network.AWS.QuickSight.UpdateDataSet
+    Network.AWS.QuickSight.UpdateDataSetPermissions
+    Network.AWS.QuickSight.UpdateDataSource
+    Network.AWS.QuickSight.UpdateDataSourcePermissions
+    Network.AWS.QuickSight.UpdateFolder
+    Network.AWS.QuickSight.UpdateFolderPermissions
+    Network.AWS.QuickSight.UpdateGroup
+    Network.AWS.QuickSight.UpdateIAMPolicyAssignment
+    Network.AWS.QuickSight.UpdateIpRestriction
+    Network.AWS.QuickSight.UpdateTemplate
+    Network.AWS.QuickSight.UpdateTemplateAlias
+    Network.AWS.QuickSight.UpdateTemplatePermissions
+    Network.AWS.QuickSight.UpdateTheme
+    Network.AWS.QuickSight.UpdateThemeAlias
+    Network.AWS.QuickSight.UpdateThemePermissions
+    Network.AWS.QuickSight.UpdateUser
+    Network.AWS.QuickSight.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-quicksight-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.QuickSight
+    Test.AWS.QuickSight
+    Test.AWS.QuickSight.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-quicksight
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

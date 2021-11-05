@@ -1,0 +1,75 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-codestar-connections/amazonka-codestar-connections.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-codestar-connections",
+    srcs = [
+        "gen/Network/AWS/CodeStarConnections.hs",
+        "gen/Network/AWS/CodeStarConnections/CreateConnection.hs",
+        "gen/Network/AWS/CodeStarConnections/CreateHost.hs",
+        "gen/Network/AWS/CodeStarConnections/DeleteConnection.hs",
+        "gen/Network/AWS/CodeStarConnections/DeleteHost.hs",
+        "gen/Network/AWS/CodeStarConnections/GetConnection.hs",
+        "gen/Network/AWS/CodeStarConnections/GetHost.hs",
+        "gen/Network/AWS/CodeStarConnections/Lens.hs",
+        "gen/Network/AWS/CodeStarConnections/ListConnections.hs",
+        "gen/Network/AWS/CodeStarConnections/ListHosts.hs",
+        "gen/Network/AWS/CodeStarConnections/ListTagsForResource.hs",
+        "gen/Network/AWS/CodeStarConnections/TagResource.hs",
+        "gen/Network/AWS/CodeStarConnections/Types.hs",
+        "gen/Network/AWS/CodeStarConnections/Types/Connection.hs",
+        "gen/Network/AWS/CodeStarConnections/Types/ConnectionStatus.hs",
+        "gen/Network/AWS/CodeStarConnections/Types/Host.hs",
+        "gen/Network/AWS/CodeStarConnections/Types/ProviderType.hs",
+        "gen/Network/AWS/CodeStarConnections/Types/Tag.hs",
+        "gen/Network/AWS/CodeStarConnections/Types/VpcConfiguration.hs",
+        "gen/Network/AWS/CodeStarConnections/UntagResource.hs",
+        "gen/Network/AWS/CodeStarConnections/UpdateHost.hs",
+        "gen/Network/AWS/CodeStarConnections/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_codestar_connections=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-codestar-connections/amazonka-codestar-connections.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-codestar-connections-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/CodeStarConnections.hs",
+        "test/Test/AWS/CodeStarConnections/Internal.hs",
+        "test/Test/AWS/Gen/CodeStarConnections.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_codestar_connections=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-codestar-connections",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

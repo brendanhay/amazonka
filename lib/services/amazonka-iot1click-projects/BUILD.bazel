@@ -1,0 +1,79 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-iot1click-projects/amazonka-iot1click-projects.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-iot1click-projects",
+    srcs = [
+        "gen/Network/AWS/IoT1ClickProjects.hs",
+        "gen/Network/AWS/IoT1ClickProjects/AssociateDeviceWithPlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/CreatePlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/CreateProject.hs",
+        "gen/Network/AWS/IoT1ClickProjects/DeletePlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/DeleteProject.hs",
+        "gen/Network/AWS/IoT1ClickProjects/DescribePlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/DescribeProject.hs",
+        "gen/Network/AWS/IoT1ClickProjects/DisassociateDeviceFromPlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/GetDevicesInPlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Lens.hs",
+        "gen/Network/AWS/IoT1ClickProjects/ListPlacements.hs",
+        "gen/Network/AWS/IoT1ClickProjects/ListProjects.hs",
+        "gen/Network/AWS/IoT1ClickProjects/ListTagsForResource.hs",
+        "gen/Network/AWS/IoT1ClickProjects/TagResource.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types/DeviceTemplate.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types/PlacementDescription.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types/PlacementSummary.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types/PlacementTemplate.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types/ProjectDescription.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Types/ProjectSummary.hs",
+        "gen/Network/AWS/IoT1ClickProjects/UntagResource.hs",
+        "gen/Network/AWS/IoT1ClickProjects/UpdatePlacement.hs",
+        "gen/Network/AWS/IoT1ClickProjects/UpdateProject.hs",
+        "gen/Network/AWS/IoT1ClickProjects/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iot1click_projects=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-iot1click-projects/amazonka-iot1click-projects.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-iot1click-projects-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/IoT1ClickProjects.hs",
+        "test/Test/AWS/IoT1ClickProjects.hs",
+        "test/Test/AWS/IoT1ClickProjects/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_iot1click_projects=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-iot1click-projects",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -1,0 +1,177 @@
+cabal-version:      2.2
+name:               amazonka-databrew
+version:            2.0
+synopsis:           Amazon Glue DataBrew SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2017-07-25@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.DataBrew.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.DataBrew" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-databrew
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.DataBrew
+    Network.AWS.DataBrew.BatchDeleteRecipeVersion
+    Network.AWS.DataBrew.CreateDataset
+    Network.AWS.DataBrew.CreateProfileJob
+    Network.AWS.DataBrew.CreateProject
+    Network.AWS.DataBrew.CreateRecipe
+    Network.AWS.DataBrew.CreateRecipeJob
+    Network.AWS.DataBrew.CreateSchedule
+    Network.AWS.DataBrew.DeleteDataset
+    Network.AWS.DataBrew.DeleteJob
+    Network.AWS.DataBrew.DeleteProject
+    Network.AWS.DataBrew.DeleteRecipeVersion
+    Network.AWS.DataBrew.DeleteSchedule
+    Network.AWS.DataBrew.DescribeDataset
+    Network.AWS.DataBrew.DescribeJob
+    Network.AWS.DataBrew.DescribeJobRun
+    Network.AWS.DataBrew.DescribeProject
+    Network.AWS.DataBrew.DescribeRecipe
+    Network.AWS.DataBrew.DescribeSchedule
+    Network.AWS.DataBrew.Lens
+    Network.AWS.DataBrew.ListDatasets
+    Network.AWS.DataBrew.ListJobRuns
+    Network.AWS.DataBrew.ListJobs
+    Network.AWS.DataBrew.ListProjects
+    Network.AWS.DataBrew.ListRecipes
+    Network.AWS.DataBrew.ListRecipeVersions
+    Network.AWS.DataBrew.ListSchedules
+    Network.AWS.DataBrew.ListTagsForResource
+    Network.AWS.DataBrew.PublishRecipe
+    Network.AWS.DataBrew.SendProjectSessionAction
+    Network.AWS.DataBrew.StartJobRun
+    Network.AWS.DataBrew.StartProjectSession
+    Network.AWS.DataBrew.StopJobRun
+    Network.AWS.DataBrew.TagResource
+    Network.AWS.DataBrew.Types
+    Network.AWS.DataBrew.Types.ColumnSelector
+    Network.AWS.DataBrew.Types.ColumnStatisticsConfiguration
+    Network.AWS.DataBrew.Types.CompressionFormat
+    Network.AWS.DataBrew.Types.ConditionExpression
+    Network.AWS.DataBrew.Types.CsvOptions
+    Network.AWS.DataBrew.Types.CsvOutputOptions
+    Network.AWS.DataBrew.Types.DatabaseInputDefinition
+    Network.AWS.DataBrew.Types.DatabaseOutput
+    Network.AWS.DataBrew.Types.DatabaseOutputMode
+    Network.AWS.DataBrew.Types.DatabaseTableOutputOptions
+    Network.AWS.DataBrew.Types.DataCatalogInputDefinition
+    Network.AWS.DataBrew.Types.DataCatalogOutput
+    Network.AWS.DataBrew.Types.Dataset
+    Network.AWS.DataBrew.Types.DatasetParameter
+    Network.AWS.DataBrew.Types.DatetimeOptions
+    Network.AWS.DataBrew.Types.EncryptionMode
+    Network.AWS.DataBrew.Types.ExcelOptions
+    Network.AWS.DataBrew.Types.FilesLimit
+    Network.AWS.DataBrew.Types.FilterExpression
+    Network.AWS.DataBrew.Types.FormatOptions
+    Network.AWS.DataBrew.Types.Input
+    Network.AWS.DataBrew.Types.InputFormat
+    Network.AWS.DataBrew.Types.Job
+    Network.AWS.DataBrew.Types.JobRun
+    Network.AWS.DataBrew.Types.JobRunState
+    Network.AWS.DataBrew.Types.JobSample
+    Network.AWS.DataBrew.Types.JobType
+    Network.AWS.DataBrew.Types.JsonOptions
+    Network.AWS.DataBrew.Types.LogSubscription
+    Network.AWS.DataBrew.Types.Order
+    Network.AWS.DataBrew.Types.OrderedBy
+    Network.AWS.DataBrew.Types.Output
+    Network.AWS.DataBrew.Types.OutputFormat
+    Network.AWS.DataBrew.Types.OutputFormatOptions
+    Network.AWS.DataBrew.Types.ParameterType
+    Network.AWS.DataBrew.Types.PathOptions
+    Network.AWS.DataBrew.Types.ProfileConfiguration
+    Network.AWS.DataBrew.Types.Project
+    Network.AWS.DataBrew.Types.Recipe
+    Network.AWS.DataBrew.Types.RecipeAction
+    Network.AWS.DataBrew.Types.RecipeReference
+    Network.AWS.DataBrew.Types.RecipeStep
+    Network.AWS.DataBrew.Types.RecipeVersionErrorDetail
+    Network.AWS.DataBrew.Types.S3Location
+    Network.AWS.DataBrew.Types.S3TableOutputOptions
+    Network.AWS.DataBrew.Types.Sample
+    Network.AWS.DataBrew.Types.SampleMode
+    Network.AWS.DataBrew.Types.SampleType
+    Network.AWS.DataBrew.Types.Schedule
+    Network.AWS.DataBrew.Types.SessionStatus
+    Network.AWS.DataBrew.Types.Source
+    Network.AWS.DataBrew.Types.StatisticOverride
+    Network.AWS.DataBrew.Types.StatisticsConfiguration
+    Network.AWS.DataBrew.Types.ViewFrame
+    Network.AWS.DataBrew.UntagResource
+    Network.AWS.DataBrew.UpdateDataset
+    Network.AWS.DataBrew.UpdateProfileJob
+    Network.AWS.DataBrew.UpdateProject
+    Network.AWS.DataBrew.UpdateRecipe
+    Network.AWS.DataBrew.UpdateRecipeJob
+    Network.AWS.DataBrew.UpdateSchedule
+    Network.AWS.DataBrew.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-databrew-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.DataBrew
+    Test.AWS.DataBrew.Internal
+    Test.AWS.Gen.DataBrew
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-databrew
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

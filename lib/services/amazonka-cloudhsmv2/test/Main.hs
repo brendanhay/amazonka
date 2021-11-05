@@ -9,15 +9,15 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CloudHSMv2
-import Test.AWS.CloudHSMv2.Internal
+import Test.AWS.CloudHSMV2
+import Test.AWS.CloudHSMV2.Internal
 import Test.Tasty
 
 main :: IO ()
 main =
   defaultMain $
     testGroup
-      "CloudHSMv2"
+      "CloudHSMV2"
       [ testGroup "tests" tests,
         testGroup "fixtures" fixtures
       ]

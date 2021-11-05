@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CertificateManagerPCA where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CertificateManagerPCA
 import Test.AWS.CertificateManagerPCA.Internal
 import Test.AWS.Fixture
@@ -319,7 +319,7 @@ responseImportCertificateAuthorityCertificate =
     "ImportCertificateAuthorityCertificateResponse"
     "fixture/ImportCertificateAuthorityCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportCertificateAuthorityCertificate)
+    (Proxy.Proxy :: Proxy.Proxy ImportCertificateAuthorityCertificate)
 
 responseCreatePermission :: CreatePermissionResponse -> TestTree
 responseCreatePermission =
@@ -327,7 +327,7 @@ responseCreatePermission =
     "CreatePermissionResponse"
     "fixture/CreatePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePermission)
+    (Proxy.Proxy :: Proxy.Proxy CreatePermission)
 
 responseDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReportResponse -> TestTree
 responseDescribeCertificateAuthorityAuditReport =
@@ -335,7 +335,7 @@ responseDescribeCertificateAuthorityAuditReport =
     "DescribeCertificateAuthorityAuditReportResponse"
     "fixture/DescribeCertificateAuthorityAuditReportResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificateAuthorityAuditReport)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificateAuthorityAuditReport)
 
 responseDeletePermission :: DeletePermissionResponse -> TestTree
 responseDeletePermission =
@@ -343,7 +343,7 @@ responseDeletePermission =
     "DeletePermissionResponse"
     "fixture/DeletePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePermission)
+    (Proxy.Proxy :: Proxy.Proxy DeletePermission)
 
 responseRevokeCertificate :: RevokeCertificateResponse -> TestTree
 responseRevokeCertificate =
@@ -351,7 +351,7 @@ responseRevokeCertificate =
     "RevokeCertificateResponse"
     "fixture/RevokeCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeCertificate)
+    (Proxy.Proxy :: Proxy.Proxy RevokeCertificate)
 
 responseUpdateCertificateAuthority :: UpdateCertificateAuthorityResponse -> TestTree
 responseUpdateCertificateAuthority =
@@ -359,7 +359,7 @@ responseUpdateCertificateAuthority =
     "UpdateCertificateAuthorityResponse"
     "fixture/UpdateCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCertificateAuthority)
 
 responseDeleteCertificateAuthority :: DeleteCertificateAuthorityResponse -> TestTree
 responseDeleteCertificateAuthority =
@@ -367,7 +367,7 @@ responseDeleteCertificateAuthority =
     "DeleteCertificateAuthorityResponse"
     "fixture/DeleteCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCertificateAuthority)
 
 responseGetCertificateAuthorityCsr :: GetCertificateAuthorityCsrResponse -> TestTree
 responseGetCertificateAuthorityCsr =
@@ -375,7 +375,7 @@ responseGetCertificateAuthorityCsr =
     "GetCertificateAuthorityCsrResponse"
     "fixture/GetCertificateAuthorityCsrResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificateAuthorityCsr)
+    (Proxy.Proxy :: Proxy.Proxy GetCertificateAuthorityCsr)
 
 responseCreateCertificateAuthority :: CreateCertificateAuthorityResponse -> TestTree
 responseCreateCertificateAuthority =
@@ -383,7 +383,7 @@ responseCreateCertificateAuthority =
     "CreateCertificateAuthorityResponse"
     "fixture/CreateCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy CreateCertificateAuthority)
 
 responseListCertificateAuthorities :: ListCertificateAuthoritiesResponse -> TestTree
 responseListCertificateAuthorities =
@@ -391,7 +391,7 @@ responseListCertificateAuthorities =
     "ListCertificateAuthoritiesResponse"
     "fixture/ListCertificateAuthoritiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCertificateAuthorities)
+    (Proxy.Proxy :: Proxy.Proxy ListCertificateAuthorities)
 
 responseGetCertificate :: GetCertificateResponse -> TestTree
 responseGetCertificate =
@@ -399,7 +399,7 @@ responseGetCertificate =
     "GetCertificateResponse"
     "fixture/GetCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificate)
+    (Proxy.Proxy :: Proxy.Proxy GetCertificate)
 
 responseTagCertificateAuthority :: TagCertificateAuthorityResponse -> TestTree
 responseTagCertificateAuthority =
@@ -407,7 +407,7 @@ responseTagCertificateAuthority =
     "TagCertificateAuthorityResponse"
     "fixture/TagCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy TagCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy TagCertificateAuthority)
 
 responsePutPolicy :: PutPolicyResponse -> TestTree
 responsePutPolicy =
@@ -415,7 +415,7 @@ responsePutPolicy =
     "PutPolicyResponse"
     "fixture/PutPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutPolicy)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -423,7 +423,7 @@ responseDeletePolicy =
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
 
 responseDescribeCertificateAuthority :: DescribeCertificateAuthorityResponse -> TestTree
 responseDescribeCertificateAuthority =
@@ -431,7 +431,7 @@ responseDescribeCertificateAuthority =
     "DescribeCertificateAuthorityResponse"
     "fixture/DescribeCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificateAuthority)
 
 responseRestoreCertificateAuthority :: RestoreCertificateAuthorityResponse -> TestTree
 responseRestoreCertificateAuthority =
@@ -439,7 +439,7 @@ responseRestoreCertificateAuthority =
     "RestoreCertificateAuthorityResponse"
     "fixture/RestoreCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy RestoreCertificateAuthority)
 
 responseIssueCertificate :: IssueCertificateResponse -> TestTree
 responseIssueCertificate =
@@ -447,7 +447,7 @@ responseIssueCertificate =
     "IssueCertificateResponse"
     "fixture/IssueCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy IssueCertificate)
+    (Proxy.Proxy :: Proxy.Proxy IssueCertificate)
 
 responseGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificateResponse -> TestTree
 responseGetCertificateAuthorityCertificate =
@@ -455,7 +455,7 @@ responseGetCertificateAuthorityCertificate =
     "GetCertificateAuthorityCertificateResponse"
     "fixture/GetCertificateAuthorityCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCertificateAuthorityCertificate)
+    (Proxy.Proxy :: Proxy.Proxy GetCertificateAuthorityCertificate)
 
 responseListPermissions :: ListPermissionsResponse -> TestTree
 responseListPermissions =
@@ -463,7 +463,7 @@ responseListPermissions =
     "ListPermissionsResponse"
     "fixture/ListPermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissions)
 
 responseUntagCertificateAuthority :: UntagCertificateAuthorityResponse -> TestTree
 responseUntagCertificateAuthority =
@@ -471,7 +471,7 @@ responseUntagCertificateAuthority =
     "UntagCertificateAuthorityResponse"
     "fixture/UntagCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy UntagCertificateAuthority)
 
 responseCreateCertificateAuthorityAuditReport :: CreateCertificateAuthorityAuditReportResponse -> TestTree
 responseCreateCertificateAuthorityAuditReport =
@@ -479,7 +479,7 @@ responseCreateCertificateAuthorityAuditReport =
     "CreateCertificateAuthorityAuditReportResponse"
     "fixture/CreateCertificateAuthorityAuditReportResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCertificateAuthorityAuditReport)
+    (Proxy.Proxy :: Proxy.Proxy CreateCertificateAuthorityAuditReport)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -487,7 +487,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -495,4 +495,4 @@ responseGetPolicy =
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)

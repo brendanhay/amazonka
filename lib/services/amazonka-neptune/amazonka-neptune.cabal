@@ -1,0 +1,193 @@
+cabal-version:      2.2
+name:               amazonka-neptune
+version:            2.0
+synopsis:           Amazon Neptune SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2014-10-31@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Neptune.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Neptune" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-neptune
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Neptune
+    Network.AWS.Neptune.AddRoleToDBCluster
+    Network.AWS.Neptune.AddSourceIdentifierToSubscription
+    Network.AWS.Neptune.AddTagsToResource
+    Network.AWS.Neptune.ApplyPendingMaintenanceAction
+    Network.AWS.Neptune.CopyDBClusterParameterGroup
+    Network.AWS.Neptune.CopyDBClusterSnapshot
+    Network.AWS.Neptune.CopyDBParameterGroup
+    Network.AWS.Neptune.CreateDBCluster
+    Network.AWS.Neptune.CreateDBClusterEndpoint
+    Network.AWS.Neptune.CreateDBClusterParameterGroup
+    Network.AWS.Neptune.CreateDBClusterSnapshot
+    Network.AWS.Neptune.CreateDBInstance
+    Network.AWS.Neptune.CreateDBParameterGroup
+    Network.AWS.Neptune.CreateDBSubnetGroup
+    Network.AWS.Neptune.CreateEventSubscription
+    Network.AWS.Neptune.DeleteDBCluster
+    Network.AWS.Neptune.DeleteDBClusterEndpoint
+    Network.AWS.Neptune.DeleteDBClusterParameterGroup
+    Network.AWS.Neptune.DeleteDBClusterSnapshot
+    Network.AWS.Neptune.DeleteDBInstance
+    Network.AWS.Neptune.DeleteDBParameterGroup
+    Network.AWS.Neptune.DeleteDBSubnetGroup
+    Network.AWS.Neptune.DeleteEventSubscription
+    Network.AWS.Neptune.DescribeDBClusterEndpoints
+    Network.AWS.Neptune.DescribeDBClusterParameterGroups
+    Network.AWS.Neptune.DescribeDBClusterParameters
+    Network.AWS.Neptune.DescribeDBClusters
+    Network.AWS.Neptune.DescribeDBClusterSnapshotAttributes
+    Network.AWS.Neptune.DescribeDBClusterSnapshots
+    Network.AWS.Neptune.DescribeDBEngineVersions
+    Network.AWS.Neptune.DescribeDBInstances
+    Network.AWS.Neptune.DescribeDBParameterGroups
+    Network.AWS.Neptune.DescribeDBParameters
+    Network.AWS.Neptune.DescribeDBSubnetGroups
+    Network.AWS.Neptune.DescribeEngineDefaultClusterParameters
+    Network.AWS.Neptune.DescribeEngineDefaultParameters
+    Network.AWS.Neptune.DescribeEventCategories
+    Network.AWS.Neptune.DescribeEvents
+    Network.AWS.Neptune.DescribeEventSubscriptions
+    Network.AWS.Neptune.DescribeOrderableDBInstanceOptions
+    Network.AWS.Neptune.DescribePendingMaintenanceActions
+    Network.AWS.Neptune.DescribeValidDBInstanceModifications
+    Network.AWS.Neptune.FailoverDBCluster
+    Network.AWS.Neptune.Lens
+    Network.AWS.Neptune.ListTagsForResource
+    Network.AWS.Neptune.ModifyDBCluster
+    Network.AWS.Neptune.ModifyDBClusterEndpoint
+    Network.AWS.Neptune.ModifyDBClusterParameterGroup
+    Network.AWS.Neptune.ModifyDBClusterSnapshotAttribute
+    Network.AWS.Neptune.ModifyDBInstance
+    Network.AWS.Neptune.ModifyDBParameterGroup
+    Network.AWS.Neptune.ModifyDBSubnetGroup
+    Network.AWS.Neptune.ModifyEventSubscription
+    Network.AWS.Neptune.PromoteReadReplicaDBCluster
+    Network.AWS.Neptune.RebootDBInstance
+    Network.AWS.Neptune.RemoveRoleFromDBCluster
+    Network.AWS.Neptune.RemoveSourceIdentifierFromSubscription
+    Network.AWS.Neptune.RemoveTagsFromResource
+    Network.AWS.Neptune.ResetDBClusterParameterGroup
+    Network.AWS.Neptune.ResetDBParameterGroup
+    Network.AWS.Neptune.RestoreDBClusterFromSnapshot
+    Network.AWS.Neptune.RestoreDBClusterToPointInTime
+    Network.AWS.Neptune.StartDBCluster
+    Network.AWS.Neptune.StopDBCluster
+    Network.AWS.Neptune.Types
+    Network.AWS.Neptune.Types.ApplyMethod
+    Network.AWS.Neptune.Types.AvailabilityZone
+    Network.AWS.Neptune.Types.CharacterSet
+    Network.AWS.Neptune.Types.CloudwatchLogsExportConfiguration
+    Network.AWS.Neptune.Types.DBCluster
+    Network.AWS.Neptune.Types.DBClusterEndpoint
+    Network.AWS.Neptune.Types.DBClusterMember
+    Network.AWS.Neptune.Types.DBClusterOptionGroupStatus
+    Network.AWS.Neptune.Types.DBClusterParameterGroup
+    Network.AWS.Neptune.Types.DBClusterParameterGroupNameMessage
+    Network.AWS.Neptune.Types.DBClusterRole
+    Network.AWS.Neptune.Types.DBClusterSnapshot
+    Network.AWS.Neptune.Types.DBClusterSnapshotAttribute
+    Network.AWS.Neptune.Types.DBClusterSnapshotAttributesResult
+    Network.AWS.Neptune.Types.DBEngineVersion
+    Network.AWS.Neptune.Types.DBInstance
+    Network.AWS.Neptune.Types.DBInstanceStatusInfo
+    Network.AWS.Neptune.Types.DBParameterGroup
+    Network.AWS.Neptune.Types.DBParameterGroupNameMessage
+    Network.AWS.Neptune.Types.DBParameterGroupStatus
+    Network.AWS.Neptune.Types.DBSecurityGroupMembership
+    Network.AWS.Neptune.Types.DBSubnetGroup
+    Network.AWS.Neptune.Types.DomainMembership
+    Network.AWS.Neptune.Types.DoubleRange
+    Network.AWS.Neptune.Types.Endpoint
+    Network.AWS.Neptune.Types.EngineDefaults
+    Network.AWS.Neptune.Types.Event
+    Network.AWS.Neptune.Types.EventCategoriesMap
+    Network.AWS.Neptune.Types.EventSubscription
+    Network.AWS.Neptune.Types.Filter
+    Network.AWS.Neptune.Types.OptionGroupMembership
+    Network.AWS.Neptune.Types.OrderableDBInstanceOption
+    Network.AWS.Neptune.Types.Parameter
+    Network.AWS.Neptune.Types.PendingCloudwatchLogsExports
+    Network.AWS.Neptune.Types.PendingMaintenanceAction
+    Network.AWS.Neptune.Types.PendingModifiedValues
+    Network.AWS.Neptune.Types.Range
+    Network.AWS.Neptune.Types.ResourcePendingMaintenanceActions
+    Network.AWS.Neptune.Types.SourceType
+    Network.AWS.Neptune.Types.Subnet
+    Network.AWS.Neptune.Types.Tag
+    Network.AWS.Neptune.Types.Timezone
+    Network.AWS.Neptune.Types.UpgradeTarget
+    Network.AWS.Neptune.Types.ValidDBInstanceModificationsMessage
+    Network.AWS.Neptune.Types.ValidStorageOptions
+    Network.AWS.Neptune.Types.VpcSecurityGroupMembership
+    Network.AWS.Neptune.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-neptune-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Neptune
+    Test.AWS.Neptune
+    Test.AWS.Neptune.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-neptune
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

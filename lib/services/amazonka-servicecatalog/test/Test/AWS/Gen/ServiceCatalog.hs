@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServiceCatalog where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ServiceCatalog
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -1087,7 +1087,7 @@ responseImportAsProvisionedProduct =
     "ImportAsProvisionedProductResponse"
     "fixture/ImportAsProvisionedProductResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportAsProvisionedProduct)
+    (Proxy.Proxy :: Proxy.Proxy ImportAsProvisionedProduct)
 
 responseDeleteConstraint :: DeleteConstraintResponse -> TestTree
 responseDeleteConstraint =
@@ -1095,7 +1095,7 @@ responseDeleteConstraint =
     "DeleteConstraintResponse"
     "fixture/DeleteConstraintResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConstraint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConstraint)
 
 responseUpdateConstraint :: UpdateConstraintResponse -> TestTree
 responseUpdateConstraint =
@@ -1103,7 +1103,7 @@ responseUpdateConstraint =
     "UpdateConstraintResponse"
     "fixture/UpdateConstraintResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConstraint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConstraint)
 
 responseCreateProvisionedProductPlan :: CreateProvisionedProductPlanResponse -> TestTree
 responseCreateProvisionedProductPlan =
@@ -1111,7 +1111,7 @@ responseCreateProvisionedProductPlan =
     "CreateProvisionedProductPlanResponse"
     "fixture/CreateProvisionedProductPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProvisionedProductPlan)
+    (Proxy.Proxy :: Proxy.Proxy CreateProvisionedProductPlan)
 
 responseExecuteProvisionedProductServiceAction :: ExecuteProvisionedProductServiceActionResponse -> TestTree
 responseExecuteProvisionedProductServiceAction =
@@ -1119,7 +1119,7 @@ responseExecuteProvisionedProductServiceAction =
     "ExecuteProvisionedProductServiceActionResponse"
     "fixture/ExecuteProvisionedProductServiceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteProvisionedProductServiceAction)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteProvisionedProductServiceAction)
 
 responseCreateProduct :: CreateProductResponse -> TestTree
 responseCreateProduct =
@@ -1127,7 +1127,7 @@ responseCreateProduct =
     "CreateProductResponse"
     "fixture/CreateProductResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProduct)
+    (Proxy.Proxy :: Proxy.Proxy CreateProduct)
 
 responseDescribeCopyProductStatus :: DescribeCopyProductStatusResponse -> TestTree
 responseDescribeCopyProductStatus =
@@ -1135,7 +1135,7 @@ responseDescribeCopyProductStatus =
     "DescribeCopyProductStatusResponse"
     "fixture/DescribeCopyProductStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCopyProductStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCopyProductStatus)
 
 responseCreateServiceAction :: CreateServiceActionResponse -> TestTree
 responseCreateServiceAction =
@@ -1143,7 +1143,7 @@ responseCreateServiceAction =
     "CreateServiceActionResponse"
     "fixture/CreateServiceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateServiceAction)
+    (Proxy.Proxy :: Proxy.Proxy CreateServiceAction)
 
 responseTerminateProvisionedProduct :: TerminateProvisionedProductResponse -> TestTree
 responseTerminateProvisionedProduct =
@@ -1151,7 +1151,7 @@ responseTerminateProvisionedProduct =
     "TerminateProvisionedProductResponse"
     "fixture/TerminateProvisionedProductResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateProvisionedProduct)
+    (Proxy.Proxy :: Proxy.Proxy TerminateProvisionedProduct)
 
 responseUpdateProvisionedProduct :: UpdateProvisionedProductResponse -> TestTree
 responseUpdateProvisionedProduct =
@@ -1159,7 +1159,7 @@ responseUpdateProvisionedProduct =
     "UpdateProvisionedProductResponse"
     "fixture/UpdateProvisionedProductResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProvisionedProduct)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProvisionedProduct)
 
 responseDescribeProvisioningArtifact :: DescribeProvisioningArtifactResponse -> TestTree
 responseDescribeProvisioningArtifact =
@@ -1167,7 +1167,7 @@ responseDescribeProvisioningArtifact =
     "DescribeProvisioningArtifactResponse"
     "fixture/DescribeProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProvisioningArtifact)
 
 responseAssociateServiceActionWithProvisioningArtifact :: AssociateServiceActionWithProvisioningArtifactResponse -> TestTree
 responseAssociateServiceActionWithProvisioningArtifact =
@@ -1175,7 +1175,7 @@ responseAssociateServiceActionWithProvisioningArtifact =
     "AssociateServiceActionWithProvisioningArtifactResponse"
     "fixture/AssociateServiceActionWithProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateServiceActionWithProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy AssociateServiceActionWithProvisioningArtifact)
 
 responseListRecordHistory :: ListRecordHistoryResponse -> TestTree
 responseListRecordHistory =
@@ -1183,7 +1183,7 @@ responseListRecordHistory =
     "ListRecordHistoryResponse"
     "fixture/ListRecordHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRecordHistory)
+    (Proxy.Proxy :: Proxy.Proxy ListRecordHistory)
 
 responseDescribeProvisionedProductPlan :: DescribeProvisionedProductPlanResponse -> TestTree
 responseDescribeProvisionedProductPlan =
@@ -1191,7 +1191,7 @@ responseDescribeProvisionedProductPlan =
     "DescribeProvisionedProductPlanResponse"
     "fixture/DescribeProvisionedProductPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProvisionedProductPlan)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProvisionedProductPlan)
 
 responseAssociateTagOptionWithResource :: AssociateTagOptionWithResourceResponse -> TestTree
 responseAssociateTagOptionWithResource =
@@ -1199,7 +1199,7 @@ responseAssociateTagOptionWithResource =
     "AssociateTagOptionWithResourceResponse"
     "fixture/AssociateTagOptionWithResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTagOptionWithResource)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTagOptionWithResource)
 
 responseCreateTagOption :: CreateTagOptionResponse -> TestTree
 responseCreateTagOption =
@@ -1207,7 +1207,7 @@ responseCreateTagOption =
     "CreateTagOptionResponse"
     "fixture/CreateTagOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTagOption)
+    (Proxy.Proxy :: Proxy.Proxy CreateTagOption)
 
 responseListBudgetsForResource :: ListBudgetsForResourceResponse -> TestTree
 responseListBudgetsForResource =
@@ -1215,7 +1215,7 @@ responseListBudgetsForResource =
     "ListBudgetsForResourceResponse"
     "fixture/ListBudgetsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListBudgetsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListBudgetsForResource)
 
 responseDisassociateProductFromPortfolio :: DisassociateProductFromPortfolioResponse -> TestTree
 responseDisassociateProductFromPortfolio =
@@ -1223,7 +1223,7 @@ responseDisassociateProductFromPortfolio =
     "DisassociateProductFromPortfolioResponse"
     "fixture/DisassociateProductFromPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateProductFromPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateProductFromPortfolio)
 
 responseListConstraintsForPortfolio :: ListConstraintsForPortfolioResponse -> TestTree
 responseListConstraintsForPortfolio =
@@ -1231,7 +1231,7 @@ responseListConstraintsForPortfolio =
     "ListConstraintsForPortfolioResponse"
     "fixture/ListConstraintsForPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConstraintsForPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy ListConstraintsForPortfolio)
 
 responseDescribeRecord :: DescribeRecordResponse -> TestTree
 responseDescribeRecord =
@@ -1239,7 +1239,7 @@ responseDescribeRecord =
     "DescribeRecordResponse"
     "fixture/DescribeRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRecord)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecord)
 
 responseEnableAWSOrganizationsAccess :: EnableAWSOrganizationsAccessResponse -> TestTree
 responseEnableAWSOrganizationsAccess =
@@ -1247,7 +1247,7 @@ responseEnableAWSOrganizationsAccess =
     "EnableAWSOrganizationsAccessResponse"
     "fixture/EnableAWSOrganizationsAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAWSOrganizationsAccess)
+    (Proxy.Proxy :: Proxy.Proxy EnableAWSOrganizationsAccess)
 
 responseDescribeConstraint :: DescribeConstraintResponse -> TestTree
 responseDescribeConstraint =
@@ -1255,7 +1255,7 @@ responseDescribeConstraint =
     "DescribeConstraintResponse"
     "fixture/DescribeConstraintResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConstraint)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConstraint)
 
 responseCreateProvisioningArtifact :: CreateProvisioningArtifactResponse -> TestTree
 responseCreateProvisioningArtifact =
@@ -1263,7 +1263,7 @@ responseCreateProvisioningArtifact =
     "CreateProvisioningArtifactResponse"
     "fixture/CreateProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy CreateProvisioningArtifact)
 
 responseListPortfolios :: ListPortfoliosResponse -> TestTree
 responseListPortfolios =
@@ -1271,7 +1271,7 @@ responseListPortfolios =
     "ListPortfoliosResponse"
     "fixture/ListPortfoliosResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPortfolios)
+    (Proxy.Proxy :: Proxy.Proxy ListPortfolios)
 
 responseDisassociateBudgetFromResource :: DisassociateBudgetFromResourceResponse -> TestTree
 responseDisassociateBudgetFromResource =
@@ -1279,7 +1279,7 @@ responseDisassociateBudgetFromResource =
     "DisassociateBudgetFromResourceResponse"
     "fixture/DisassociateBudgetFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateBudgetFromResource)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateBudgetFromResource)
 
 responseDescribeProductView :: DescribeProductViewResponse -> TestTree
 responseDescribeProductView =
@@ -1287,7 +1287,7 @@ responseDescribeProductView =
     "DescribeProductViewResponse"
     "fixture/DescribeProductViewResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProductView)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProductView)
 
 responseCreatePortfolioShare :: CreatePortfolioShareResponse -> TestTree
 responseCreatePortfolioShare =
@@ -1295,7 +1295,7 @@ responseCreatePortfolioShare =
     "CreatePortfolioShareResponse"
     "fixture/CreatePortfolioShareResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePortfolioShare)
+    (Proxy.Proxy :: Proxy.Proxy CreatePortfolioShare)
 
 responseListProvisioningArtifacts :: ListProvisioningArtifactsResponse -> TestTree
 responseListProvisioningArtifacts =
@@ -1303,7 +1303,7 @@ responseListProvisioningArtifacts =
     "ListProvisioningArtifactsResponse"
     "fixture/ListProvisioningArtifactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProvisioningArtifacts)
+    (Proxy.Proxy :: Proxy.Proxy ListProvisioningArtifacts)
 
 responseListServiceActionsForProvisioningArtifact :: ListServiceActionsForProvisioningArtifactResponse -> TestTree
 responseListServiceActionsForProvisioningArtifact =
@@ -1311,7 +1311,7 @@ responseListServiceActionsForProvisioningArtifact =
     "ListServiceActionsForProvisioningArtifactResponse"
     "fixture/ListServiceActionsForProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServiceActionsForProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy ListServiceActionsForProvisioningArtifact)
 
 responseSearchProducts :: SearchProductsResponse -> TestTree
 responseSearchProducts =
@@ -1319,7 +1319,7 @@ responseSearchProducts =
     "SearchProductsResponse"
     "fixture/SearchProductsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchProducts)
+    (Proxy.Proxy :: Proxy.Proxy SearchProducts)
 
 responseDescribeServiceActionExecutionParameters :: DescribeServiceActionExecutionParametersResponse -> TestTree
 responseDescribeServiceActionExecutionParameters =
@@ -1327,7 +1327,7 @@ responseDescribeServiceActionExecutionParameters =
     "DescribeServiceActionExecutionParametersResponse"
     "fixture/DescribeServiceActionExecutionParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceActionExecutionParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceActionExecutionParameters)
 
 responseSearchProvisionedProducts :: SearchProvisionedProductsResponse -> TestTree
 responseSearchProvisionedProducts =
@@ -1335,7 +1335,7 @@ responseSearchProvisionedProducts =
     "SearchProvisionedProductsResponse"
     "fixture/SearchProvisionedProductsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchProvisionedProducts)
+    (Proxy.Proxy :: Proxy.Proxy SearchProvisionedProducts)
 
 responseListStackInstancesForProvisionedProduct :: ListStackInstancesForProvisionedProductResponse -> TestTree
 responseListStackInstancesForProvisionedProduct =
@@ -1343,7 +1343,7 @@ responseListStackInstancesForProvisionedProduct =
     "ListStackInstancesForProvisionedProductResponse"
     "fixture/ListStackInstancesForProvisionedProductResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStackInstancesForProvisionedProduct)
+    (Proxy.Proxy :: Proxy.Proxy ListStackInstancesForProvisionedProduct)
 
 responseDescribeServiceAction :: DescribeServiceActionResponse -> TestTree
 responseDescribeServiceAction =
@@ -1351,7 +1351,7 @@ responseDescribeServiceAction =
     "DescribeServiceActionResponse"
     "fixture/DescribeServiceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceAction)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceAction)
 
 responseDescribeProduct :: DescribeProductResponse -> TestTree
 responseDescribeProduct =
@@ -1359,7 +1359,7 @@ responseDescribeProduct =
     "DescribeProductResponse"
     "fixture/DescribeProductResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProduct)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProduct)
 
 responseDeleteProvisionedProductPlan :: DeleteProvisionedProductPlanResponse -> TestTree
 responseDeleteProvisionedProductPlan =
@@ -1367,7 +1367,7 @@ responseDeleteProvisionedProductPlan =
     "DeleteProvisionedProductPlanResponse"
     "fixture/DeleteProvisionedProductPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProvisionedProductPlan)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProvisionedProductPlan)
 
 responseGetProvisionedProductOutputs :: GetProvisionedProductOutputsResponse -> TestTree
 responseGetProvisionedProductOutputs =
@@ -1375,7 +1375,7 @@ responseGetProvisionedProductOutputs =
     "GetProvisionedProductOutputsResponse"
     "fixture/GetProvisionedProductOutputsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProvisionedProductOutputs)
+    (Proxy.Proxy :: Proxy.Proxy GetProvisionedProductOutputs)
 
 responseCreateConstraint :: CreateConstraintResponse -> TestTree
 responseCreateConstraint =
@@ -1383,7 +1383,7 @@ responseCreateConstraint =
     "CreateConstraintResponse"
     "fixture/CreateConstraintResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConstraint)
+    (Proxy.Proxy :: Proxy.Proxy CreateConstraint)
 
 responseListProvisionedProductPlans :: ListProvisionedProductPlansResponse -> TestTree
 responseListProvisionedProductPlans =
@@ -1391,7 +1391,7 @@ responseListProvisionedProductPlans =
     "ListProvisionedProductPlansResponse"
     "fixture/ListProvisionedProductPlansResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProvisionedProductPlans)
+    (Proxy.Proxy :: Proxy.Proxy ListProvisionedProductPlans)
 
 responseListPortfolioAccess :: ListPortfolioAccessResponse -> TestTree
 responseListPortfolioAccess =
@@ -1399,7 +1399,7 @@ responseListPortfolioAccess =
     "ListPortfolioAccessResponse"
     "fixture/ListPortfolioAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPortfolioAccess)
+    (Proxy.Proxy :: Proxy.Proxy ListPortfolioAccess)
 
 responseBatchDisassociateServiceActionFromProvisioningArtifact :: BatchDisassociateServiceActionFromProvisioningArtifactResponse -> TestTree
 responseBatchDisassociateServiceActionFromProvisioningArtifact =
@@ -1407,7 +1407,7 @@ responseBatchDisassociateServiceActionFromProvisioningArtifact =
     "BatchDisassociateServiceActionFromProvisioningArtifactResponse"
     "fixture/BatchDisassociateServiceActionFromProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDisassociateServiceActionFromProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateServiceActionFromProvisioningArtifact)
 
 responseDisassociatePrincipalFromPortfolio :: DisassociatePrincipalFromPortfolioResponse -> TestTree
 responseDisassociatePrincipalFromPortfolio =
@@ -1415,7 +1415,7 @@ responseDisassociatePrincipalFromPortfolio =
     "DisassociatePrincipalFromPortfolioResponse"
     "fixture/DisassociatePrincipalFromPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociatePrincipalFromPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePrincipalFromPortfolio)
 
 responseDescribeTagOption :: DescribeTagOptionResponse -> TestTree
 responseDescribeTagOption =
@@ -1423,7 +1423,7 @@ responseDescribeTagOption =
     "DescribeTagOptionResponse"
     "fixture/DescribeTagOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTagOption)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTagOption)
 
 responseDisassociateTagOptionFromResource :: DisassociateTagOptionFromResourceResponse -> TestTree
 responseDisassociateTagOptionFromResource =
@@ -1431,7 +1431,7 @@ responseDisassociateTagOptionFromResource =
     "DisassociateTagOptionFromResourceResponse"
     "fixture/DisassociateTagOptionFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTagOptionFromResource)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTagOptionFromResource)
 
 responseDescribePortfolio :: DescribePortfolioResponse -> TestTree
 responseDescribePortfolio =
@@ -1439,7 +1439,7 @@ responseDescribePortfolio =
     "DescribePortfolioResponse"
     "fixture/DescribePortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePortfolio)
+    (Proxy.Proxy :: Proxy.Proxy DescribePortfolio)
 
 responseAssociateProductWithPortfolio :: AssociateProductWithPortfolioResponse -> TestTree
 responseAssociateProductWithPortfolio =
@@ -1447,7 +1447,7 @@ responseAssociateProductWithPortfolio =
     "AssociateProductWithPortfolioResponse"
     "fixture/AssociateProductWithPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateProductWithPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy AssociateProductWithPortfolio)
 
 responseListAcceptedPortfolioShares :: ListAcceptedPortfolioSharesResponse -> TestTree
 responseListAcceptedPortfolioShares =
@@ -1455,7 +1455,7 @@ responseListAcceptedPortfolioShares =
     "ListAcceptedPortfolioSharesResponse"
     "fixture/ListAcceptedPortfolioSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAcceptedPortfolioShares)
+    (Proxy.Proxy :: Proxy.Proxy ListAcceptedPortfolioShares)
 
 responseExecuteProvisionedProductPlan :: ExecuteProvisionedProductPlanResponse -> TestTree
 responseExecuteProvisionedProductPlan =
@@ -1463,7 +1463,7 @@ responseExecuteProvisionedProductPlan =
     "ExecuteProvisionedProductPlanResponse"
     "fixture/ExecuteProvisionedProductPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy ExecuteProvisionedProductPlan)
+    (Proxy.Proxy :: Proxy.Proxy ExecuteProvisionedProductPlan)
 
 responseAcceptPortfolioShare :: AcceptPortfolioShareResponse -> TestTree
 responseAcceptPortfolioShare =
@@ -1471,7 +1471,7 @@ responseAcceptPortfolioShare =
     "AcceptPortfolioShareResponse"
     "fixture/AcceptPortfolioShareResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptPortfolioShare)
+    (Proxy.Proxy :: Proxy.Proxy AcceptPortfolioShare)
 
 responseScanProvisionedProducts :: ScanProvisionedProductsResponse -> TestTree
 responseScanProvisionedProducts =
@@ -1479,7 +1479,7 @@ responseScanProvisionedProducts =
     "ScanProvisionedProductsResponse"
     "fixture/ScanProvisionedProductsResponse.proto"
     defaultService
-    (Proxy :: Proxy ScanProvisionedProducts)
+    (Proxy.Proxy :: Proxy.Proxy ScanProvisionedProducts)
 
 responseListOrganizationPortfolioAccess :: ListOrganizationPortfolioAccessResponse -> TestTree
 responseListOrganizationPortfolioAccess =
@@ -1487,7 +1487,7 @@ responseListOrganizationPortfolioAccess =
     "ListOrganizationPortfolioAccessResponse"
     "fixture/ListOrganizationPortfolioAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOrganizationPortfolioAccess)
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationPortfolioAccess)
 
 responseListPrincipalsForPortfolio :: ListPrincipalsForPortfolioResponse -> TestTree
 responseListPrincipalsForPortfolio =
@@ -1495,7 +1495,7 @@ responseListPrincipalsForPortfolio =
     "ListPrincipalsForPortfolioResponse"
     "fixture/ListPrincipalsForPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPrincipalsForPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy ListPrincipalsForPortfolio)
 
 responseDeleteProduct :: DeleteProductResponse -> TestTree
 responseDeleteProduct =
@@ -1503,7 +1503,7 @@ responseDeleteProduct =
     "DeleteProductResponse"
     "fixture/DeleteProductResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProduct)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProduct)
 
 responseUpdateProduct :: UpdateProductResponse -> TestTree
 responseUpdateProduct =
@@ -1511,7 +1511,7 @@ responseUpdateProduct =
     "UpdateProductResponse"
     "fixture/UpdateProductResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProduct)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProduct)
 
 responseListServiceActions :: ListServiceActionsResponse -> TestTree
 responseListServiceActions =
@@ -1519,7 +1519,7 @@ responseListServiceActions =
     "ListServiceActionsResponse"
     "fixture/ListServiceActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServiceActions)
+    (Proxy.Proxy :: Proxy.Proxy ListServiceActions)
 
 responseProvisionProduct :: ProvisionProductResponse -> TestTree
 responseProvisionProduct =
@@ -1527,7 +1527,7 @@ responseProvisionProduct =
     "ProvisionProductResponse"
     "fixture/ProvisionProductResponse.proto"
     defaultService
-    (Proxy :: Proxy ProvisionProduct)
+    (Proxy.Proxy :: Proxy.Proxy ProvisionProduct)
 
 responseDeleteServiceAction :: DeleteServiceActionResponse -> TestTree
 responseDeleteServiceAction =
@@ -1535,7 +1535,7 @@ responseDeleteServiceAction =
     "DeleteServiceActionResponse"
     "fixture/DeleteServiceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServiceAction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceAction)
 
 responseUpdateServiceAction :: UpdateServiceActionResponse -> TestTree
 responseUpdateServiceAction =
@@ -1543,7 +1543,7 @@ responseUpdateServiceAction =
     "UpdateServiceActionResponse"
     "fixture/UpdateServiceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServiceAction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceAction)
 
 responseDisableAWSOrganizationsAccess :: DisableAWSOrganizationsAccessResponse -> TestTree
 responseDisableAWSOrganizationsAccess =
@@ -1551,7 +1551,7 @@ responseDisableAWSOrganizationsAccess =
     "DisableAWSOrganizationsAccessResponse"
     "fixture/DisableAWSOrganizationsAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableAWSOrganizationsAccess)
+    (Proxy.Proxy :: Proxy.Proxy DisableAWSOrganizationsAccess)
 
 responseRejectPortfolioShare :: RejectPortfolioShareResponse -> TestTree
 responseRejectPortfolioShare =
@@ -1559,7 +1559,7 @@ responseRejectPortfolioShare =
     "RejectPortfolioShareResponse"
     "fixture/RejectPortfolioShareResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectPortfolioShare)
+    (Proxy.Proxy :: Proxy.Proxy RejectPortfolioShare)
 
 responseDisassociateServiceActionFromProvisioningArtifact :: DisassociateServiceActionFromProvisioningArtifactResponse -> TestTree
 responseDisassociateServiceActionFromProvisioningArtifact =
@@ -1567,7 +1567,7 @@ responseDisassociateServiceActionFromProvisioningArtifact =
     "DisassociateServiceActionFromProvisioningArtifactResponse"
     "fixture/DisassociateServiceActionFromProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateServiceActionFromProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateServiceActionFromProvisioningArtifact)
 
 responseDeleteTagOption :: DeleteTagOptionResponse -> TestTree
 responseDeleteTagOption =
@@ -1575,7 +1575,7 @@ responseDeleteTagOption =
     "DeleteTagOptionResponse"
     "fixture/DeleteTagOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTagOption)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTagOption)
 
 responseUpdateTagOption :: UpdateTagOptionResponse -> TestTree
 responseUpdateTagOption =
@@ -1583,7 +1583,7 @@ responseUpdateTagOption =
     "UpdateTagOptionResponse"
     "fixture/UpdateTagOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTagOption)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTagOption)
 
 responseListTagOptions :: ListTagOptionsResponse -> TestTree
 responseListTagOptions =
@@ -1591,7 +1591,7 @@ responseListTagOptions =
     "ListTagOptionsResponse"
     "fixture/ListTagOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagOptions)
+    (Proxy.Proxy :: Proxy.Proxy ListTagOptions)
 
 responseUpdateProvisionedProductProperties :: UpdateProvisionedProductPropertiesResponse -> TestTree
 responseUpdateProvisionedProductProperties =
@@ -1599,7 +1599,7 @@ responseUpdateProvisionedProductProperties =
     "UpdateProvisionedProductPropertiesResponse"
     "fixture/UpdateProvisionedProductPropertiesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProvisionedProductProperties)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProvisionedProductProperties)
 
 responseSearchProductsAsAdmin :: SearchProductsAsAdminResponse -> TestTree
 responseSearchProductsAsAdmin =
@@ -1607,7 +1607,7 @@ responseSearchProductsAsAdmin =
     "SearchProductsAsAdminResponse"
     "fixture/SearchProductsAsAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchProductsAsAdmin)
+    (Proxy.Proxy :: Proxy.Proxy SearchProductsAsAdmin)
 
 responseDeletePortfolio :: DeletePortfolioResponse -> TestTree
 responseDeletePortfolio =
@@ -1615,7 +1615,7 @@ responseDeletePortfolio =
     "DeletePortfolioResponse"
     "fixture/DeletePortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePortfolio)
+    (Proxy.Proxy :: Proxy.Proxy DeletePortfolio)
 
 responseUpdatePortfolio :: UpdatePortfolioResponse -> TestTree
 responseUpdatePortfolio =
@@ -1623,7 +1623,7 @@ responseUpdatePortfolio =
     "UpdatePortfolioResponse"
     "fixture/UpdatePortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePortfolio)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePortfolio)
 
 responseListPortfoliosForProduct :: ListPortfoliosForProductResponse -> TestTree
 responseListPortfoliosForProduct =
@@ -1631,7 +1631,7 @@ responseListPortfoliosForProduct =
     "ListPortfoliosForProductResponse"
     "fixture/ListPortfoliosForProductResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPortfoliosForProduct)
+    (Proxy.Proxy :: Proxy.Proxy ListPortfoliosForProduct)
 
 responseGetAWSOrganizationsAccessStatus :: GetAWSOrganizationsAccessStatusResponse -> TestTree
 responseGetAWSOrganizationsAccessStatus =
@@ -1639,7 +1639,7 @@ responseGetAWSOrganizationsAccessStatus =
     "GetAWSOrganizationsAccessStatusResponse"
     "fixture/GetAWSOrganizationsAccessStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAWSOrganizationsAccessStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetAWSOrganizationsAccessStatus)
 
 responseDescribeProductAsAdmin :: DescribeProductAsAdminResponse -> TestTree
 responseDescribeProductAsAdmin =
@@ -1647,7 +1647,7 @@ responseDescribeProductAsAdmin =
     "DescribeProductAsAdminResponse"
     "fixture/DescribeProductAsAdminResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProductAsAdmin)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProductAsAdmin)
 
 responseBatchAssociateServiceActionWithProvisioningArtifact :: BatchAssociateServiceActionWithProvisioningArtifactResponse -> TestTree
 responseBatchAssociateServiceActionWithProvisioningArtifact =
@@ -1655,7 +1655,7 @@ responseBatchAssociateServiceActionWithProvisioningArtifact =
     "BatchAssociateServiceActionWithProvisioningArtifactResponse"
     "fixture/BatchAssociateServiceActionWithProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchAssociateServiceActionWithProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateServiceActionWithProvisioningArtifact)
 
 responseDescribeProvisioningParameters :: DescribeProvisioningParametersResponse -> TestTree
 responseDescribeProvisioningParameters =
@@ -1663,7 +1663,7 @@ responseDescribeProvisioningParameters =
     "DescribeProvisioningParametersResponse"
     "fixture/DescribeProvisioningParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProvisioningParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProvisioningParameters)
 
 responseAssociatePrincipalWithPortfolio :: AssociatePrincipalWithPortfolioResponse -> TestTree
 responseAssociatePrincipalWithPortfolio =
@@ -1671,7 +1671,7 @@ responseAssociatePrincipalWithPortfolio =
     "AssociatePrincipalWithPortfolioResponse"
     "fixture/AssociatePrincipalWithPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociatePrincipalWithPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePrincipalWithPortfolio)
 
 responseDescribeProvisionedProduct :: DescribeProvisionedProductResponse -> TestTree
 responseDescribeProvisionedProduct =
@@ -1679,7 +1679,7 @@ responseDescribeProvisionedProduct =
     "DescribeProvisionedProductResponse"
     "fixture/DescribeProvisionedProductResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProvisionedProduct)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProvisionedProduct)
 
 responseCopyProduct :: CopyProductResponse -> TestTree
 responseCopyProduct =
@@ -1687,7 +1687,7 @@ responseCopyProduct =
     "CopyProductResponse"
     "fixture/CopyProductResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyProduct)
+    (Proxy.Proxy :: Proxy.Proxy CopyProduct)
 
 responseDescribePortfolioShareStatus :: DescribePortfolioShareStatusResponse -> TestTree
 responseDescribePortfolioShareStatus =
@@ -1695,7 +1695,7 @@ responseDescribePortfolioShareStatus =
     "DescribePortfolioShareStatusResponse"
     "fixture/DescribePortfolioShareStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePortfolioShareStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribePortfolioShareStatus)
 
 responseUpdateProvisioningArtifact :: UpdateProvisioningArtifactResponse -> TestTree
 responseUpdateProvisioningArtifact =
@@ -1703,7 +1703,7 @@ responseUpdateProvisioningArtifact =
     "UpdateProvisioningArtifactResponse"
     "fixture/UpdateProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProvisioningArtifact)
 
 responseDeletePortfolioShare :: DeletePortfolioShareResponse -> TestTree
 responseDeletePortfolioShare =
@@ -1711,7 +1711,7 @@ responseDeletePortfolioShare =
     "DeletePortfolioShareResponse"
     "fixture/DeletePortfolioShareResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePortfolioShare)
+    (Proxy.Proxy :: Proxy.Proxy DeletePortfolioShare)
 
 responseDeleteProvisioningArtifact :: DeleteProvisioningArtifactResponse -> TestTree
 responseDeleteProvisioningArtifact =
@@ -1719,7 +1719,7 @@ responseDeleteProvisioningArtifact =
     "DeleteProvisioningArtifactResponse"
     "fixture/DeleteProvisioningArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProvisioningArtifact)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProvisioningArtifact)
 
 responseUpdatePortfolioShare :: UpdatePortfolioShareResponse -> TestTree
 responseUpdatePortfolioShare =
@@ -1727,7 +1727,7 @@ responseUpdatePortfolioShare =
     "UpdatePortfolioShareResponse"
     "fixture/UpdatePortfolioShareResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePortfolioShare)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePortfolioShare)
 
 responseListProvisioningArtifactsForServiceAction :: ListProvisioningArtifactsForServiceActionResponse -> TestTree
 responseListProvisioningArtifactsForServiceAction =
@@ -1735,7 +1735,7 @@ responseListProvisioningArtifactsForServiceAction =
     "ListProvisioningArtifactsForServiceActionResponse"
     "fixture/ListProvisioningArtifactsForServiceActionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProvisioningArtifactsForServiceAction)
+    (Proxy.Proxy :: Proxy.Proxy ListProvisioningArtifactsForServiceAction)
 
 responseCreatePortfolio :: CreatePortfolioResponse -> TestTree
 responseCreatePortfolio =
@@ -1743,7 +1743,7 @@ responseCreatePortfolio =
     "CreatePortfolioResponse"
     "fixture/CreatePortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePortfolio)
+    (Proxy.Proxy :: Proxy.Proxy CreatePortfolio)
 
 responseListLaunchPaths :: ListLaunchPathsResponse -> TestTree
 responseListLaunchPaths =
@@ -1751,7 +1751,7 @@ responseListLaunchPaths =
     "ListLaunchPathsResponse"
     "fixture/ListLaunchPathsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLaunchPaths)
+    (Proxy.Proxy :: Proxy.Proxy ListLaunchPaths)
 
 responseDescribePortfolioShares :: DescribePortfolioSharesResponse -> TestTree
 responseDescribePortfolioShares =
@@ -1759,7 +1759,7 @@ responseDescribePortfolioShares =
     "DescribePortfolioSharesResponse"
     "fixture/DescribePortfolioSharesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePortfolioShares)
+    (Proxy.Proxy :: Proxy.Proxy DescribePortfolioShares)
 
 responseListResourcesForTagOption :: ListResourcesForTagOptionResponse -> TestTree
 responseListResourcesForTagOption =
@@ -1767,7 +1767,7 @@ responseListResourcesForTagOption =
     "ListResourcesForTagOptionResponse"
     "fixture/ListResourcesForTagOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourcesForTagOption)
+    (Proxy.Proxy :: Proxy.Proxy ListResourcesForTagOption)
 
 responseAssociateBudgetWithResource :: AssociateBudgetWithResourceResponse -> TestTree
 responseAssociateBudgetWithResource =
@@ -1775,4 +1775,4 @@ responseAssociateBudgetWithResource =
     "AssociateBudgetWithResourceResponse"
     "fixture/AssociateBudgetWithResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateBudgetWithResource)
+    (Proxy.Proxy :: Proxy.Proxy AssociateBudgetWithResource)

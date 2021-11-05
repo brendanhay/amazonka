@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.OpsWorksCM where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.OpsWorksCM
 import Test.AWS.Fixture
 import Test.AWS.OpsWorksCM.Internal
@@ -271,7 +271,7 @@ responseAssociateNode =
     "AssociateNodeResponse"
     "fixture/AssociateNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateNode)
+    (Proxy.Proxy :: Proxy.Proxy AssociateNode)
 
 responseUpdateServer :: UpdateServerResponse -> TestTree
 responseUpdateServer =
@@ -279,7 +279,7 @@ responseUpdateServer =
     "UpdateServerResponse"
     "fixture/UpdateServerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServer)
 
 responseDeleteServer :: DeleteServerResponse -> TestTree
 responseDeleteServer =
@@ -287,7 +287,7 @@ responseDeleteServer =
     "DeleteServerResponse"
     "fixture/DeleteServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServer)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
 responseDeleteBackup =
@@ -295,7 +295,7 @@ responseDeleteBackup =
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteBackup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackup)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -303,7 +303,7 @@ responseDescribeEvents =
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
 responseDisassociateNode :: DisassociateNodeResponse -> TestTree
 responseDisassociateNode =
@@ -311,7 +311,7 @@ responseDisassociateNode =
     "DisassociateNodeResponse"
     "fixture/DisassociateNodeResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateNode)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateNode)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -319,7 +319,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateBackup :: CreateBackupResponse -> TestTree
 responseCreateBackup =
@@ -327,7 +327,7 @@ responseCreateBackup =
     "CreateBackupResponse"
     "fixture/CreateBackupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBackup)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackup)
 
 responseUpdateServerEngineAttributes :: UpdateServerEngineAttributesResponse -> TestTree
 responseUpdateServerEngineAttributes =
@@ -335,7 +335,7 @@ responseUpdateServerEngineAttributes =
     "UpdateServerEngineAttributesResponse"
     "fixture/UpdateServerEngineAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServerEngineAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServerEngineAttributes)
 
 responseStartMaintenance :: StartMaintenanceResponse -> TestTree
 responseStartMaintenance =
@@ -343,7 +343,7 @@ responseStartMaintenance =
     "StartMaintenanceResponse"
     "fixture/StartMaintenanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMaintenance)
+    (Proxy.Proxy :: Proxy.Proxy StartMaintenance)
 
 responseDescribeBackups :: DescribeBackupsResponse -> TestTree
 responseDescribeBackups =
@@ -351,7 +351,7 @@ responseDescribeBackups =
     "DescribeBackupsResponse"
     "fixture/DescribeBackupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackups)
 
 responseCreateServer :: CreateServerResponse -> TestTree
 responseCreateServer =
@@ -359,7 +359,7 @@ responseCreateServer =
     "CreateServerResponse"
     "fixture/CreateServerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateServer)
+    (Proxy.Proxy :: Proxy.Proxy CreateServer)
 
 responseRestoreServer :: RestoreServerResponse -> TestTree
 responseRestoreServer =
@@ -367,7 +367,7 @@ responseRestoreServer =
     "RestoreServerResponse"
     "fixture/RestoreServerResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreServer)
+    (Proxy.Proxy :: Proxy.Proxy RestoreServer)
 
 responseDescribeNodeAssociationStatus :: DescribeNodeAssociationStatusResponse -> TestTree
 responseDescribeNodeAssociationStatus =
@@ -375,7 +375,7 @@ responseDescribeNodeAssociationStatus =
     "DescribeNodeAssociationStatusResponse"
     "fixture/DescribeNodeAssociationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNodeAssociationStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNodeAssociationStatus)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -383,7 +383,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
 responseDescribeAccountAttributes =
@@ -391,7 +391,7 @@ responseDescribeAccountAttributes =
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAttributes)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -399,7 +399,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeServers :: DescribeServersResponse -> TestTree
 responseDescribeServers =
@@ -407,7 +407,7 @@ responseDescribeServers =
     "DescribeServersResponse"
     "fixture/DescribeServersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServers)
 
 responseExportServerEngineAttribute :: ExportServerEngineAttributeResponse -> TestTree
 responseExportServerEngineAttribute =
@@ -415,4 +415,4 @@ responseExportServerEngineAttribute =
     "ExportServerEngineAttributeResponse"
     "fixture/ExportServerEngineAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportServerEngineAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ExportServerEngineAttribute)

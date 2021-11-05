@@ -1,0 +1,69 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-ebs/amazonka-ebs.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-ebs",
+    srcs = [
+        "gen/Network/AWS/EBS.hs",
+        "gen/Network/AWS/EBS/CompleteSnapshot.hs",
+        "gen/Network/AWS/EBS/GetSnapshotBlock.hs",
+        "gen/Network/AWS/EBS/Lens.hs",
+        "gen/Network/AWS/EBS/ListChangedBlocks.hs",
+        "gen/Network/AWS/EBS/ListSnapshotBlocks.hs",
+        "gen/Network/AWS/EBS/PutSnapshotBlock.hs",
+        "gen/Network/AWS/EBS/StartSnapshot.hs",
+        "gen/Network/AWS/EBS/Types.hs",
+        "gen/Network/AWS/EBS/Types/Block.hs",
+        "gen/Network/AWS/EBS/Types/ChangedBlock.hs",
+        "gen/Network/AWS/EBS/Types/ChecksumAggregationMethod.hs",
+        "gen/Network/AWS/EBS/Types/ChecksumAlgorithm.hs",
+        "gen/Network/AWS/EBS/Types/Status.hs",
+        "gen/Network/AWS/EBS/Types/Tag.hs",
+        "gen/Network/AWS/EBS/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_ebs=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-ebs/amazonka-ebs.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-ebs-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/EBS.hs",
+        "test/Test/AWS/EBS/Internal.hs",
+        "test/Test/AWS/Gen/EBS.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_ebs=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-ebs",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

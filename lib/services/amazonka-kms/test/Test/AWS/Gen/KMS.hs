@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KMS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KMS
 import Test.AWS.Fixture
 import Test.AWS.KMS.Internal
@@ -619,7 +619,7 @@ responseEncrypt =
     "EncryptResponse"
     "fixture/EncryptResponse.proto"
     defaultService
-    (Proxy :: Proxy Encrypt)
+    (Proxy.Proxy :: Proxy.Proxy Encrypt)
 
 responseCreateCustomKeyStore :: CreateCustomKeyStoreResponse -> TestTree
 responseCreateCustomKeyStore =
@@ -627,7 +627,7 @@ responseCreateCustomKeyStore =
     "CreateCustomKeyStoreResponse"
     "fixture/CreateCustomKeyStoreResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomKeyStore)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomKeyStore)
 
 responseListGrants :: ListGrantsResponse -> TestTree
 responseListGrants =
@@ -635,7 +635,7 @@ responseListGrants =
     "ListGrantsResponse"
     "fixture/ListGrantsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGrants)
+    (Proxy.Proxy :: Proxy.Proxy ListGrants)
 
 responseDisableKeyRotation :: DisableKeyRotationResponse -> TestTree
 responseDisableKeyRotation =
@@ -643,7 +643,7 @@ responseDisableKeyRotation =
     "DisableKeyRotationResponse"
     "fixture/DisableKeyRotationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableKeyRotation)
+    (Proxy.Proxy :: Proxy.Proxy DisableKeyRotation)
 
 responseVerify :: VerifyResponse -> TestTree
 responseVerify =
@@ -651,7 +651,7 @@ responseVerify =
     "VerifyResponse"
     "fixture/VerifyResponse.proto"
     defaultService
-    (Proxy :: Proxy Verify)
+    (Proxy.Proxy :: Proxy.Proxy Verify)
 
 responseGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
 responseGenerateDataKeyWithoutPlaintext =
@@ -659,7 +659,7 @@ responseGenerateDataKeyWithoutPlaintext =
     "GenerateDataKeyWithoutPlaintextResponse"
     "fixture/GenerateDataKeyWithoutPlaintextResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
+    (Proxy.Proxy :: Proxy.Proxy GenerateDataKeyWithoutPlaintext)
 
 responseUpdateCustomKeyStore :: UpdateCustomKeyStoreResponse -> TestTree
 responseUpdateCustomKeyStore =
@@ -667,7 +667,7 @@ responseUpdateCustomKeyStore =
     "UpdateCustomKeyStoreResponse"
     "fixture/UpdateCustomKeyStoreResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCustomKeyStore)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCustomKeyStore)
 
 responseGetParametersForImport :: GetParametersForImportResponse -> TestTree
 responseGetParametersForImport =
@@ -675,7 +675,7 @@ responseGetParametersForImport =
     "GetParametersForImportResponse"
     "fixture/GetParametersForImportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetParametersForImport)
+    (Proxy.Proxy :: Proxy.Proxy GetParametersForImport)
 
 responseEnableKeyRotation :: EnableKeyRotationResponse -> TestTree
 responseEnableKeyRotation =
@@ -683,7 +683,7 @@ responseEnableKeyRotation =
     "EnableKeyRotationResponse"
     "fixture/EnableKeyRotationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableKeyRotation)
+    (Proxy.Proxy :: Proxy.Proxy EnableKeyRotation)
 
 responseDeleteCustomKeyStore :: DeleteCustomKeyStoreResponse -> TestTree
 responseDeleteCustomKeyStore =
@@ -691,7 +691,7 @@ responseDeleteCustomKeyStore =
     "DeleteCustomKeyStoreResponse"
     "fixture/DeleteCustomKeyStoreResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomKeyStore)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomKeyStore)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
 responseCreateAlias =
@@ -699,7 +699,7 @@ responseCreateAlias =
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlias)
 
 responseCreateGrant :: CreateGrantResponse -> TestTree
 responseCreateGrant =
@@ -707,7 +707,7 @@ responseCreateGrant =
     "CreateGrantResponse"
     "fixture/CreateGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGrant)
+    (Proxy.Proxy :: Proxy.Proxy CreateGrant)
 
 responseListAliases :: ListAliasesResponse -> TestTree
 responseListAliases =
@@ -715,7 +715,7 @@ responseListAliases =
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListAliases)
 
 responseUpdatePrimaryRegion :: UpdatePrimaryRegionResponse -> TestTree
 responseUpdatePrimaryRegion =
@@ -723,7 +723,7 @@ responseUpdatePrimaryRegion =
     "UpdatePrimaryRegionResponse"
     "fixture/UpdatePrimaryRegionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePrimaryRegion)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePrimaryRegion)
 
 responseConnectCustomKeyStore :: ConnectCustomKeyStoreResponse -> TestTree
 responseConnectCustomKeyStore =
@@ -731,7 +731,7 @@ responseConnectCustomKeyStore =
     "ConnectCustomKeyStoreResponse"
     "fixture/ConnectCustomKeyStoreResponse.proto"
     defaultService
-    (Proxy :: Proxy ConnectCustomKeyStore)
+    (Proxy.Proxy :: Proxy.Proxy ConnectCustomKeyStore)
 
 responseListRetirableGrants :: ListGrantsResponse -> TestTree
 responseListRetirableGrants =
@@ -739,7 +739,7 @@ responseListRetirableGrants =
     "ListRetirableGrantsResponse"
     "fixture/ListRetirableGrantsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRetirableGrants)
+    (Proxy.Proxy :: Proxy.Proxy ListRetirableGrants)
 
 responseGetPublicKey :: GetPublicKeyResponse -> TestTree
 responseGetPublicKey =
@@ -747,7 +747,7 @@ responseGetPublicKey =
     "GetPublicKeyResponse"
     "fixture/GetPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy GetPublicKey)
 
 responseGenerateRandom :: GenerateRandomResponse -> TestTree
 responseGenerateRandom =
@@ -755,7 +755,7 @@ responseGenerateRandom =
     "GenerateRandomResponse"
     "fixture/GenerateRandomResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateRandom)
+    (Proxy.Proxy :: Proxy.Proxy GenerateRandom)
 
 responseCreateKey :: CreateKeyResponse -> TestTree
 responseCreateKey =
@@ -763,7 +763,7 @@ responseCreateKey =
     "CreateKeyResponse"
     "fixture/CreateKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKey)
+    (Proxy.Proxy :: Proxy.Proxy CreateKey)
 
 responseDisableKey :: DisableKeyResponse -> TestTree
 responseDisableKey =
@@ -771,7 +771,7 @@ responseDisableKey =
     "DisableKeyResponse"
     "fixture/DisableKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableKey)
+    (Proxy.Proxy :: Proxy.Proxy DisableKey)
 
 responseDisconnectCustomKeyStore :: DisconnectCustomKeyStoreResponse -> TestTree
 responseDisconnectCustomKeyStore =
@@ -779,7 +779,7 @@ responseDisconnectCustomKeyStore =
     "DisconnectCustomKeyStoreResponse"
     "fixture/DisconnectCustomKeyStoreResponse.proto"
     defaultService
-    (Proxy :: Proxy DisconnectCustomKeyStore)
+    (Proxy.Proxy :: Proxy.Proxy DisconnectCustomKeyStore)
 
 responseRetireGrant :: RetireGrantResponse -> TestTree
 responseRetireGrant =
@@ -787,7 +787,7 @@ responseRetireGrant =
     "RetireGrantResponse"
     "fixture/RetireGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy RetireGrant)
+    (Proxy.Proxy :: Proxy.Proxy RetireGrant)
 
 responseListKeys :: ListKeysResponse -> TestTree
 responseListKeys =
@@ -795,7 +795,7 @@ responseListKeys =
     "ListKeysResponse"
     "fixture/ListKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListKeys)
 
 responseListResourceTags :: ListResourceTagsResponse -> TestTree
 responseListResourceTags =
@@ -803,7 +803,7 @@ responseListResourceTags =
     "ListResourceTagsResponse"
     "fixture/ListResourceTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceTags)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceTags)
 
 responseGetKeyRotationStatus :: GetKeyRotationStatusResponse -> TestTree
 responseGetKeyRotationStatus =
@@ -811,7 +811,7 @@ responseGetKeyRotationStatus =
     "GetKeyRotationStatusResponse"
     "fixture/GetKeyRotationStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKeyRotationStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetKeyRotationStatus)
 
 responseGenerateDataKey :: GenerateDataKeyResponse -> TestTree
 responseGenerateDataKey =
@@ -819,7 +819,7 @@ responseGenerateDataKey =
     "GenerateDataKeyResponse"
     "fixture/GenerateDataKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateDataKey)
+    (Proxy.Proxy :: Proxy.Proxy GenerateDataKey)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
 responseDeleteAlias =
@@ -827,7 +827,7 @@ responseDeleteAlias =
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlias)
 
 responseUpdateAlias :: UpdateAliasResponse -> TestTree
 responseUpdateAlias =
@@ -835,7 +835,7 @@ responseUpdateAlias =
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAlias)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAlias)
 
 responseDescribeKey :: DescribeKeyResponse -> TestTree
 responseDescribeKey =
@@ -843,7 +843,7 @@ responseDescribeKey =
     "DescribeKeyResponse"
     "fixture/DescribeKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeKey)
+    (Proxy.Proxy :: Proxy.Proxy DescribeKey)
 
 responseDescribeCustomKeyStores :: DescribeCustomKeyStoresResponse -> TestTree
 responseDescribeCustomKeyStores =
@@ -851,7 +851,7 @@ responseDescribeCustomKeyStores =
     "DescribeCustomKeyStoresResponse"
     "fixture/DescribeCustomKeyStoresResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomKeyStores)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomKeyStores)
 
 responseCancelKeyDeletion :: CancelKeyDeletionResponse -> TestTree
 responseCancelKeyDeletion =
@@ -859,7 +859,7 @@ responseCancelKeyDeletion =
     "CancelKeyDeletionResponse"
     "fixture/CancelKeyDeletionResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelKeyDeletion)
+    (Proxy.Proxy :: Proxy.Proxy CancelKeyDeletion)
 
 responseDecrypt :: DecryptResponse -> TestTree
 responseDecrypt =
@@ -867,7 +867,7 @@ responseDecrypt =
     "DecryptResponse"
     "fixture/DecryptResponse.proto"
     defaultService
-    (Proxy :: Proxy Decrypt)
+    (Proxy.Proxy :: Proxy.Proxy Decrypt)
 
 responseGenerateDataKeyPairWithoutPlaintext :: GenerateDataKeyPairWithoutPlaintextResponse -> TestTree
 responseGenerateDataKeyPairWithoutPlaintext =
@@ -875,7 +875,7 @@ responseGenerateDataKeyPairWithoutPlaintext =
     "GenerateDataKeyPairWithoutPlaintextResponse"
     "fixture/GenerateDataKeyPairWithoutPlaintextResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateDataKeyPairWithoutPlaintext)
+    (Proxy.Proxy :: Proxy.Proxy GenerateDataKeyPairWithoutPlaintext)
 
 responseUpdateKeyDescription :: UpdateKeyDescriptionResponse -> TestTree
 responseUpdateKeyDescription =
@@ -883,7 +883,7 @@ responseUpdateKeyDescription =
     "UpdateKeyDescriptionResponse"
     "fixture/UpdateKeyDescriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateKeyDescription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateKeyDescription)
 
 responseReEncrypt :: ReEncryptResponse -> TestTree
 responseReEncrypt =
@@ -891,7 +891,7 @@ responseReEncrypt =
     "ReEncryptResponse"
     "fixture/ReEncryptResponse.proto"
     defaultService
-    (Proxy :: Proxy ReEncrypt)
+    (Proxy.Proxy :: Proxy.Proxy ReEncrypt)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -899,7 +899,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListKeyPolicies :: ListKeyPoliciesResponse -> TestTree
 responseListKeyPolicies =
@@ -907,7 +907,7 @@ responseListKeyPolicies =
     "ListKeyPoliciesResponse"
     "fixture/ListKeyPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKeyPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListKeyPolicies)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -915,7 +915,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseSign :: SignResponse -> TestTree
 responseSign =
@@ -923,7 +923,7 @@ responseSign =
     "SignResponse"
     "fixture/SignResponse.proto"
     defaultService
-    (Proxy :: Proxy Sign)
+    (Proxy.Proxy :: Proxy.Proxy Sign)
 
 responseScheduleKeyDeletion :: ScheduleKeyDeletionResponse -> TestTree
 responseScheduleKeyDeletion =
@@ -931,7 +931,7 @@ responseScheduleKeyDeletion =
     "ScheduleKeyDeletionResponse"
     "fixture/ScheduleKeyDeletionResponse.proto"
     defaultService
-    (Proxy :: Proxy ScheduleKeyDeletion)
+    (Proxy.Proxy :: Proxy.Proxy ScheduleKeyDeletion)
 
 responseGenerateDataKeyPair :: GenerateDataKeyPairResponse -> TestTree
 responseGenerateDataKeyPair =
@@ -939,7 +939,7 @@ responseGenerateDataKeyPair =
     "GenerateDataKeyPairResponse"
     "fixture/GenerateDataKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateDataKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy GenerateDataKeyPair)
 
 responseReplicateKey :: ReplicateKeyResponse -> TestTree
 responseReplicateKey =
@@ -947,7 +947,7 @@ responseReplicateKey =
     "ReplicateKeyResponse"
     "fixture/ReplicateKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplicateKey)
+    (Proxy.Proxy :: Proxy.Proxy ReplicateKey)
 
 responsePutKeyPolicy :: PutKeyPolicyResponse -> TestTree
 responsePutKeyPolicy =
@@ -955,7 +955,7 @@ responsePutKeyPolicy =
     "PutKeyPolicyResponse"
     "fixture/PutKeyPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutKeyPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutKeyPolicy)
 
 responseEnableKey :: EnableKeyResponse -> TestTree
 responseEnableKey =
@@ -963,7 +963,7 @@ responseEnableKey =
     "EnableKeyResponse"
     "fixture/EnableKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableKey)
+    (Proxy.Proxy :: Proxy.Proxy EnableKey)
 
 responseRevokeGrant :: RevokeGrantResponse -> TestTree
 responseRevokeGrant =
@@ -971,7 +971,7 @@ responseRevokeGrant =
     "RevokeGrantResponse"
     "fixture/RevokeGrantResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeGrant)
+    (Proxy.Proxy :: Proxy.Proxy RevokeGrant)
 
 responseGetKeyPolicy :: GetKeyPolicyResponse -> TestTree
 responseGetKeyPolicy =
@@ -979,7 +979,7 @@ responseGetKeyPolicy =
     "GetKeyPolicyResponse"
     "fixture/GetKeyPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKeyPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetKeyPolicy)
 
 responseImportKeyMaterial :: ImportKeyMaterialResponse -> TestTree
 responseImportKeyMaterial =
@@ -987,7 +987,7 @@ responseImportKeyMaterial =
     "ImportKeyMaterialResponse"
     "fixture/ImportKeyMaterialResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportKeyMaterial)
+    (Proxy.Proxy :: Proxy.Proxy ImportKeyMaterial)
 
 responseDeleteImportedKeyMaterial :: DeleteImportedKeyMaterialResponse -> TestTree
 responseDeleteImportedKeyMaterial =
@@ -995,4 +995,4 @@ responseDeleteImportedKeyMaterial =
     "DeleteImportedKeyMaterialResponse"
     "fixture/DeleteImportedKeyMaterialResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImportedKeyMaterial)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImportedKeyMaterial)

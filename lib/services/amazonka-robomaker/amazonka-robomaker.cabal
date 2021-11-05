@@ -1,0 +1,214 @@
+cabal-version:      2.2
+name:               amazonka-robomaker
+version:            2.0
+synopsis:           Amazon RoboMaker SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-06-29@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.RobOMaker.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.RobOMaker" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-robomaker
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.RobOMaker
+    Network.AWS.RobOMaker.BatchDeleteWorlds
+    Network.AWS.RobOMaker.BatchDescribeSimulationJob
+    Network.AWS.RobOMaker.CancelDeploymentJob
+    Network.AWS.RobOMaker.CancelSimulationJob
+    Network.AWS.RobOMaker.CancelSimulationJobBatch
+    Network.AWS.RobOMaker.CancelWorldExportJob
+    Network.AWS.RobOMaker.CancelWorldGenerationJob
+    Network.AWS.RobOMaker.CreateDeploymentJob
+    Network.AWS.RobOMaker.CreateFleet
+    Network.AWS.RobOMaker.CreateRobot
+    Network.AWS.RobOMaker.CreateRobotApplication
+    Network.AWS.RobOMaker.CreateRobotApplicationVersion
+    Network.AWS.RobOMaker.CreateSimulationApplication
+    Network.AWS.RobOMaker.CreateSimulationApplicationVersion
+    Network.AWS.RobOMaker.CreateSimulationJob
+    Network.AWS.RobOMaker.CreateWorldExportJob
+    Network.AWS.RobOMaker.CreateWorldGenerationJob
+    Network.AWS.RobOMaker.CreateWorldTemplate
+    Network.AWS.RobOMaker.DeleteFleet
+    Network.AWS.RobOMaker.DeleteRobot
+    Network.AWS.RobOMaker.DeleteRobotApplication
+    Network.AWS.RobOMaker.DeleteSimulationApplication
+    Network.AWS.RobOMaker.DeleteWorldTemplate
+    Network.AWS.RobOMaker.DeregisterRobot
+    Network.AWS.RobOMaker.DescribeDeploymentJob
+    Network.AWS.RobOMaker.DescribeFleet
+    Network.AWS.RobOMaker.DescribeRobot
+    Network.AWS.RobOMaker.DescribeRobotApplication
+    Network.AWS.RobOMaker.DescribeSimulationApplication
+    Network.AWS.RobOMaker.DescribeSimulationJob
+    Network.AWS.RobOMaker.DescribeSimulationJobBatch
+    Network.AWS.RobOMaker.DescribeWorld
+    Network.AWS.RobOMaker.DescribeWorldExportJob
+    Network.AWS.RobOMaker.DescribeWorldGenerationJob
+    Network.AWS.RobOMaker.DescribeWorldTemplate
+    Network.AWS.RobOMaker.GetWorldTemplateBody
+    Network.AWS.RobOMaker.Lens
+    Network.AWS.RobOMaker.ListDeploymentJobs
+    Network.AWS.RobOMaker.ListFleets
+    Network.AWS.RobOMaker.ListRobotApplications
+    Network.AWS.RobOMaker.ListRobots
+    Network.AWS.RobOMaker.ListSimulationApplications
+    Network.AWS.RobOMaker.ListSimulationJobBatches
+    Network.AWS.RobOMaker.ListSimulationJobs
+    Network.AWS.RobOMaker.ListTagsForResource
+    Network.AWS.RobOMaker.ListWorldExportJobs
+    Network.AWS.RobOMaker.ListWorldGenerationJobs
+    Network.AWS.RobOMaker.ListWorlds
+    Network.AWS.RobOMaker.ListWorldTemplates
+    Network.AWS.RobOMaker.RegisterRobot
+    Network.AWS.RobOMaker.RestartSimulationJob
+    Network.AWS.RobOMaker.StartSimulationJobBatch
+    Network.AWS.RobOMaker.SyncDeploymentJob
+    Network.AWS.RobOMaker.TagResource
+    Network.AWS.RobOMaker.Types
+    Network.AWS.RobOMaker.Types.Architecture
+    Network.AWS.RobOMaker.Types.BatchPolicy
+    Network.AWS.RobOMaker.Types.Compute
+    Network.AWS.RobOMaker.Types.ComputeResponse
+    Network.AWS.RobOMaker.Types.ComputeType
+    Network.AWS.RobOMaker.Types.DataSource
+    Network.AWS.RobOMaker.Types.DataSourceConfig
+    Network.AWS.RobOMaker.Types.DataSourceType
+    Network.AWS.RobOMaker.Types.DeploymentApplicationConfig
+    Network.AWS.RobOMaker.Types.DeploymentConfig
+    Network.AWS.RobOMaker.Types.DeploymentJob
+    Network.AWS.RobOMaker.Types.DeploymentJobErrorCode
+    Network.AWS.RobOMaker.Types.DeploymentLaunchConfig
+    Network.AWS.RobOMaker.Types.DeploymentStatus
+    Network.AWS.RobOMaker.Types.Environment
+    Network.AWS.RobOMaker.Types.ExitBehavior
+    Network.AWS.RobOMaker.Types.FailedCreateSimulationJobRequest
+    Network.AWS.RobOMaker.Types.FailureBehavior
+    Network.AWS.RobOMaker.Types.FailureSummary
+    Network.AWS.RobOMaker.Types.Filter
+    Network.AWS.RobOMaker.Types.FinishedWorldsSummary
+    Network.AWS.RobOMaker.Types.Fleet
+    Network.AWS.RobOMaker.Types.LaunchConfig
+    Network.AWS.RobOMaker.Types.LoggingConfig
+    Network.AWS.RobOMaker.Types.NetworkInterface
+    Network.AWS.RobOMaker.Types.OutputLocation
+    Network.AWS.RobOMaker.Types.PortForwardingConfig
+    Network.AWS.RobOMaker.Types.PortMapping
+    Network.AWS.RobOMaker.Types.ProgressDetail
+    Network.AWS.RobOMaker.Types.RenderingEngine
+    Network.AWS.RobOMaker.Types.RenderingEngineType
+    Network.AWS.RobOMaker.Types.Robot
+    Network.AWS.RobOMaker.Types.RobotApplicationConfig
+    Network.AWS.RobOMaker.Types.RobotApplicationSummary
+    Network.AWS.RobOMaker.Types.RobotDeployment
+    Network.AWS.RobOMaker.Types.RobotDeploymentStep
+    Network.AWS.RobOMaker.Types.RobotSoftwareSuite
+    Network.AWS.RobOMaker.Types.RobotSoftwareSuiteType
+    Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType
+    Network.AWS.RobOMaker.Types.RobotStatus
+    Network.AWS.RobOMaker.Types.S3KeyOutput
+    Network.AWS.RobOMaker.Types.S3Object
+    Network.AWS.RobOMaker.Types.SimulationApplicationConfig
+    Network.AWS.RobOMaker.Types.SimulationApplicationSummary
+    Network.AWS.RobOMaker.Types.SimulationJob
+    Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode
+    Network.AWS.RobOMaker.Types.SimulationJobBatchStatus
+    Network.AWS.RobOMaker.Types.SimulationJobBatchSummary
+    Network.AWS.RobOMaker.Types.SimulationJobErrorCode
+    Network.AWS.RobOMaker.Types.SimulationJobRequest
+    Network.AWS.RobOMaker.Types.SimulationJobStatus
+    Network.AWS.RobOMaker.Types.SimulationJobSummary
+    Network.AWS.RobOMaker.Types.SimulationSoftwareSuite
+    Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType
+    Network.AWS.RobOMaker.Types.Source
+    Network.AWS.RobOMaker.Types.SourceConfig
+    Network.AWS.RobOMaker.Types.TemplateLocation
+    Network.AWS.RobOMaker.Types.TemplateSummary
+    Network.AWS.RobOMaker.Types.Tool
+    Network.AWS.RobOMaker.Types.UploadBehavior
+    Network.AWS.RobOMaker.Types.UploadConfiguration
+    Network.AWS.RobOMaker.Types.VPCConfig
+    Network.AWS.RobOMaker.Types.VPCConfigResponse
+    Network.AWS.RobOMaker.Types.WorldConfig
+    Network.AWS.RobOMaker.Types.WorldCount
+    Network.AWS.RobOMaker.Types.WorldExportJobErrorCode
+    Network.AWS.RobOMaker.Types.WorldExportJobStatus
+    Network.AWS.RobOMaker.Types.WorldExportJobSummary
+    Network.AWS.RobOMaker.Types.WorldFailure
+    Network.AWS.RobOMaker.Types.WorldGenerationJobErrorCode
+    Network.AWS.RobOMaker.Types.WorldGenerationJobStatus
+    Network.AWS.RobOMaker.Types.WorldGenerationJobSummary
+    Network.AWS.RobOMaker.Types.WorldSummary
+    Network.AWS.RobOMaker.UntagResource
+    Network.AWS.RobOMaker.UpdateRobotApplication
+    Network.AWS.RobOMaker.UpdateSimulationApplication
+    Network.AWS.RobOMaker.UpdateWorldTemplate
+    Network.AWS.RobOMaker.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-robomaker-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.RobOMaker
+    Test.AWS.RobOMaker
+    Test.AWS.RobOMaker.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-robomaker
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

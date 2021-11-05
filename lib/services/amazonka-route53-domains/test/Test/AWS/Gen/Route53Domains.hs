@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53Domains where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53Domains
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -379,7 +379,7 @@ responseListOperations =
     "ListOperationsResponse"
     "fixture/ListOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListOperations)
 
 responseGetDomainDetail :: GetDomainDetailResponse -> TestTree
 responseGetDomainDetail =
@@ -387,7 +387,7 @@ responseGetDomainDetail =
     "GetDomainDetailResponse"
     "fixture/GetDomainDetailResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainDetail)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainDetail)
 
 responseCheckDomainTransferability :: CheckDomainTransferabilityResponse -> TestTree
 responseCheckDomainTransferability =
@@ -395,7 +395,7 @@ responseCheckDomainTransferability =
     "CheckDomainTransferabilityResponse"
     "fixture/CheckDomainTransferabilityResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckDomainTransferability)
+    (Proxy.Proxy :: Proxy.Proxy CheckDomainTransferability)
 
 responseUpdateDomainContactPrivacy :: UpdateDomainContactPrivacyResponse -> TestTree
 responseUpdateDomainContactPrivacy =
@@ -403,7 +403,7 @@ responseUpdateDomainContactPrivacy =
     "UpdateDomainContactPrivacyResponse"
     "fixture/UpdateDomainContactPrivacyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainContactPrivacy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainContactPrivacy)
 
 responseGetOperationDetail :: GetOperationDetailResponse -> TestTree
 responseGetOperationDetail =
@@ -411,7 +411,7 @@ responseGetOperationDetail =
     "GetOperationDetailResponse"
     "fixture/GetOperationDetailResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOperationDetail)
+    (Proxy.Proxy :: Proxy.Proxy GetOperationDetail)
 
 responseRejectDomainTransferFromAnotherAwsAccount :: RejectDomainTransferFromAnotherAwsAccountResponse -> TestTree
 responseRejectDomainTransferFromAnotherAwsAccount =
@@ -419,7 +419,7 @@ responseRejectDomainTransferFromAnotherAwsAccount =
     "RejectDomainTransferFromAnotherAwsAccountResponse"
     "fixture/RejectDomainTransferFromAnotherAwsAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectDomainTransferFromAnotherAwsAccount)
+    (Proxy.Proxy :: Proxy.Proxy RejectDomainTransferFromAnotherAwsAccount)
 
 responseEnableDomainAutoRenew :: EnableDomainAutoRenewResponse -> TestTree
 responseEnableDomainAutoRenew =
@@ -427,7 +427,7 @@ responseEnableDomainAutoRenew =
     "EnableDomainAutoRenewResponse"
     "fixture/EnableDomainAutoRenewResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableDomainAutoRenew)
+    (Proxy.Proxy :: Proxy.Proxy EnableDomainAutoRenew)
 
 responseResendContactReachabilityEmail :: ResendContactReachabilityEmailResponse -> TestTree
 responseResendContactReachabilityEmail =
@@ -435,7 +435,7 @@ responseResendContactReachabilityEmail =
     "ResendContactReachabilityEmailResponse"
     "fixture/ResendContactReachabilityEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy ResendContactReachabilityEmail)
+    (Proxy.Proxy :: Proxy.Proxy ResendContactReachabilityEmail)
 
 responseDisableDomainAutoRenew :: DisableDomainAutoRenewResponse -> TestTree
 responseDisableDomainAutoRenew =
@@ -443,7 +443,7 @@ responseDisableDomainAutoRenew =
     "DisableDomainAutoRenewResponse"
     "fixture/DisableDomainAutoRenewResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableDomainAutoRenew)
+    (Proxy.Proxy :: Proxy.Proxy DisableDomainAutoRenew)
 
 responseRenewDomain :: RenewDomainResponse -> TestTree
 responseRenewDomain =
@@ -451,7 +451,7 @@ responseRenewDomain =
     "RenewDomainResponse"
     "fixture/RenewDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy RenewDomain)
+    (Proxy.Proxy :: Proxy.Proxy RenewDomain)
 
 responseViewBilling :: ViewBillingResponse -> TestTree
 responseViewBilling =
@@ -459,7 +459,7 @@ responseViewBilling =
     "ViewBillingResponse"
     "fixture/ViewBillingResponse.proto"
     defaultService
-    (Proxy :: Proxy ViewBilling)
+    (Proxy.Proxy :: Proxy.Proxy ViewBilling)
 
 responseUpdateDomainContact :: UpdateDomainContactResponse -> TestTree
 responseUpdateDomainContact =
@@ -467,7 +467,7 @@ responseUpdateDomainContact =
     "UpdateDomainContactResponse"
     "fixture/UpdateDomainContactResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainContact)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainContact)
 
 responseEnableDomainTransferLock :: EnableDomainTransferLockResponse -> TestTree
 responseEnableDomainTransferLock =
@@ -475,7 +475,7 @@ responseEnableDomainTransferLock =
     "EnableDomainTransferLockResponse"
     "fixture/EnableDomainTransferLockResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableDomainTransferLock)
+    (Proxy.Proxy :: Proxy.Proxy EnableDomainTransferLock)
 
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
 responseRegisterDomain =
@@ -483,7 +483,7 @@ responseRegisterDomain =
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDomain)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDomain)
 
 responseGetDomainSuggestions :: GetDomainSuggestionsResponse -> TestTree
 responseGetDomainSuggestions =
@@ -491,7 +491,7 @@ responseGetDomainSuggestions =
     "GetDomainSuggestionsResponse"
     "fixture/GetDomainSuggestionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDomainSuggestions)
+    (Proxy.Proxy :: Proxy.Proxy GetDomainSuggestions)
 
 responseDisableDomainTransferLock :: DisableDomainTransferLockResponse -> TestTree
 responseDisableDomainTransferLock =
@@ -499,7 +499,7 @@ responseDisableDomainTransferLock =
     "DisableDomainTransferLockResponse"
     "fixture/DisableDomainTransferLockResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableDomainTransferLock)
+    (Proxy.Proxy :: Proxy.Proxy DisableDomainTransferLock)
 
 responseCheckDomainAvailability :: CheckDomainAvailabilityResponse -> TestTree
 responseCheckDomainAvailability =
@@ -507,7 +507,7 @@ responseCheckDomainAvailability =
     "CheckDomainAvailabilityResponse"
     "fixture/CheckDomainAvailabilityResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckDomainAvailability)
+    (Proxy.Proxy :: Proxy.Proxy CheckDomainAvailability)
 
 responseTransferDomainToAnotherAwsAccount :: TransferDomainToAnotherAwsAccountResponse -> TestTree
 responseTransferDomainToAnotherAwsAccount =
@@ -515,7 +515,7 @@ responseTransferDomainToAnotherAwsAccount =
     "TransferDomainToAnotherAwsAccountResponse"
     "fixture/TransferDomainToAnotherAwsAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy TransferDomainToAnotherAwsAccount)
+    (Proxy.Proxy :: Proxy.Proxy TransferDomainToAnotherAwsAccount)
 
 responseAcceptDomainTransferFromAnotherAwsAccount :: AcceptDomainTransferFromAnotherAwsAccountResponse -> TestTree
 responseAcceptDomainTransferFromAnotherAwsAccount =
@@ -523,7 +523,7 @@ responseAcceptDomainTransferFromAnotherAwsAccount =
     "AcceptDomainTransferFromAnotherAwsAccountResponse"
     "fixture/AcceptDomainTransferFromAnotherAwsAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptDomainTransferFromAnotherAwsAccount)
+    (Proxy.Proxy :: Proxy.Proxy AcceptDomainTransferFromAnotherAwsAccount)
 
 responseGetContactReachabilityStatus :: GetContactReachabilityStatusResponse -> TestTree
 responseGetContactReachabilityStatus =
@@ -531,7 +531,7 @@ responseGetContactReachabilityStatus =
     "GetContactReachabilityStatusResponse"
     "fixture/GetContactReachabilityStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContactReachabilityStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetContactReachabilityStatus)
 
 responseListTagsForDomain :: ListTagsForDomainResponse -> TestTree
 responseListTagsForDomain =
@@ -539,7 +539,7 @@ responseListTagsForDomain =
     "ListTagsForDomainResponse"
     "fixture/ListTagsForDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForDomain)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForDomain)
 
 responseUpdateDomainNameservers :: UpdateDomainNameserversResponse -> TestTree
 responseUpdateDomainNameservers =
@@ -547,7 +547,7 @@ responseUpdateDomainNameservers =
     "UpdateDomainNameserversResponse"
     "fixture/UpdateDomainNameserversResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomainNameservers)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainNameservers)
 
 responseDeleteTagsForDomain :: DeleteTagsForDomainResponse -> TestTree
 responseDeleteTagsForDomain =
@@ -555,7 +555,7 @@ responseDeleteTagsForDomain =
     "DeleteTagsForDomainResponse"
     "fixture/DeleteTagsForDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTagsForDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTagsForDomain)
 
 responseUpdateTagsForDomain :: UpdateTagsForDomainResponse -> TestTree
 responseUpdateTagsForDomain =
@@ -563,7 +563,7 @@ responseUpdateTagsForDomain =
     "UpdateTagsForDomainResponse"
     "fixture/UpdateTagsForDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTagsForDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTagsForDomain)
 
 responseRetrieveDomainAuthCode :: RetrieveDomainAuthCodeResponse -> TestTree
 responseRetrieveDomainAuthCode =
@@ -571,7 +571,7 @@ responseRetrieveDomainAuthCode =
     "RetrieveDomainAuthCodeResponse"
     "fixture/RetrieveDomainAuthCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy RetrieveDomainAuthCode)
+    (Proxy.Proxy :: Proxy.Proxy RetrieveDomainAuthCode)
 
 responseTransferDomain :: TransferDomainResponse -> TestTree
 responseTransferDomain =
@@ -579,7 +579,7 @@ responseTransferDomain =
     "TransferDomainResponse"
     "fixture/TransferDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy TransferDomain)
+    (Proxy.Proxy :: Proxy.Proxy TransferDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -587,7 +587,7 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
 
 responseCancelDomainTransferToAnotherAwsAccount :: CancelDomainTransferToAnotherAwsAccountResponse -> TestTree
 responseCancelDomainTransferToAnotherAwsAccount =
@@ -595,4 +595,4 @@ responseCancelDomainTransferToAnotherAwsAccount =
     "CancelDomainTransferToAnotherAwsAccountResponse"
     "fixture/CancelDomainTransferToAnotherAwsAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelDomainTransferToAnotherAwsAccount)
+    (Proxy.Proxy :: Proxy.Proxy CancelDomainTransferToAnotherAwsAccount)

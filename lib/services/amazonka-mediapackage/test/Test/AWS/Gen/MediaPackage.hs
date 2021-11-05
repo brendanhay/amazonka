@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaPackage where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaPackage
 import Test.AWS.Fixture
 import Test.AWS.MediaPackage.Internal
@@ -259,7 +259,7 @@ responseCreateHarvestJob =
     "CreateHarvestJobResponse"
     "fixture/CreateHarvestJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHarvestJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateHarvestJob)
 
 responseConfigureLogs :: ConfigureLogsResponse -> TestTree
 responseConfigureLogs =
@@ -267,7 +267,7 @@ responseConfigureLogs =
     "ConfigureLogsResponse"
     "fixture/ConfigureLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfigureLogs)
+    (Proxy.Proxy :: Proxy.Proxy ConfigureLogs)
 
 responseDescribeOriginEndpoint :: DescribeOriginEndpointResponse -> TestTree
 responseDescribeOriginEndpoint =
@@ -275,7 +275,7 @@ responseDescribeOriginEndpoint =
     "DescribeOriginEndpointResponse"
     "fixture/DescribeOriginEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeOriginEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DescribeOriginEndpoint)
 
 responseListChannels :: ListChannelsResponse -> TestTree
 responseListChannels =
@@ -283,7 +283,7 @@ responseListChannels =
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -291,7 +291,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel =
@@ -299,7 +299,7 @@ responseDeleteChannel =
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
 responseUpdateChannel =
@@ -307,7 +307,7 @@ responseUpdateChannel =
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseDescribeHarvestJob :: DescribeHarvestJobResponse -> TestTree
 responseDescribeHarvestJob =
@@ -315,7 +315,7 @@ responseDescribeHarvestJob =
     "DescribeHarvestJobResponse"
     "fixture/DescribeHarvestJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHarvestJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHarvestJob)
 
 responseRotateIngestEndpointCredentials :: RotateIngestEndpointCredentialsResponse -> TestTree
 responseRotateIngestEndpointCredentials =
@@ -323,7 +323,7 @@ responseRotateIngestEndpointCredentials =
     "RotateIngestEndpointCredentialsResponse"
     "fixture/RotateIngestEndpointCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy RotateIngestEndpointCredentials)
+    (Proxy.Proxy :: Proxy.Proxy RotateIngestEndpointCredentials)
 
 responseCreateOriginEndpoint :: CreateOriginEndpointResponse -> TestTree
 responseCreateOriginEndpoint =
@@ -331,7 +331,7 @@ responseCreateOriginEndpoint =
     "CreateOriginEndpointResponse"
     "fixture/CreateOriginEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOriginEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateOriginEndpoint)
 
 responseListOriginEndpoints :: ListOriginEndpointsResponse -> TestTree
 responseListOriginEndpoints =
@@ -339,7 +339,7 @@ responseListOriginEndpoints =
     "ListOriginEndpointsResponse"
     "fixture/ListOriginEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOriginEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy ListOriginEndpoints)
 
 responseListHarvestJobs :: ListHarvestJobsResponse -> TestTree
 responseListHarvestJobs =
@@ -347,7 +347,7 @@ responseListHarvestJobs =
     "ListHarvestJobsResponse"
     "fixture/ListHarvestJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHarvestJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListHarvestJobs)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
 responseCreateChannel =
@@ -355,7 +355,7 @@ responseCreateChannel =
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -363,7 +363,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -371,7 +371,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
@@ -379,7 +379,7 @@ responseDescribeChannel =
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
 
 responseDeleteOriginEndpoint :: DeleteOriginEndpointResponse -> TestTree
 responseDeleteOriginEndpoint =
@@ -387,7 +387,7 @@ responseDeleteOriginEndpoint =
     "DeleteOriginEndpointResponse"
     "fixture/DeleteOriginEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOriginEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOriginEndpoint)
 
 responseUpdateOriginEndpoint :: UpdateOriginEndpointResponse -> TestTree
 responseUpdateOriginEndpoint =
@@ -395,4 +395,4 @@ responseUpdateOriginEndpoint =
     "UpdateOriginEndpointResponse"
     "fixture/UpdateOriginEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOriginEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOriginEndpoint)

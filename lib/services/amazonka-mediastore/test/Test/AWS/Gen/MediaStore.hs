@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaStore where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MediaStore
 import Test.AWS.Fixture
 import Test.AWS.MediaStore.Internal
@@ -295,7 +295,7 @@ responseStopAccessLogging =
     "StopAccessLoggingResponse"
     "fixture/StopAccessLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy StopAccessLogging)
+    (Proxy.Proxy :: Proxy.Proxy StopAccessLogging)
 
 responsePutLifecyclePolicy :: PutLifecyclePolicyResponse -> TestTree
 responsePutLifecyclePolicy =
@@ -303,7 +303,7 @@ responsePutLifecyclePolicy =
     "PutLifecyclePolicyResponse"
     "fixture/PutLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutLifecyclePolicy)
 
 responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
 responseDeleteLifecyclePolicy =
@@ -311,7 +311,7 @@ responseDeleteLifecyclePolicy =
     "DeleteLifecyclePolicyResponse"
     "fixture/DeleteLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLifecyclePolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -319,7 +319,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateContainer :: CreateContainerResponse -> TestTree
 responseCreateContainer =
@@ -327,7 +327,7 @@ responseCreateContainer =
     "CreateContainerResponse"
     "fixture/CreateContainerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContainer)
+    (Proxy.Proxy :: Proxy.Proxy CreateContainer)
 
 responseListContainers :: ListContainersResponse -> TestTree
 responseListContainers =
@@ -335,7 +335,7 @@ responseListContainers =
     "ListContainersResponse"
     "fixture/ListContainersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContainers)
+    (Proxy.Proxy :: Proxy.Proxy ListContainers)
 
 responseDeleteContainer :: DeleteContainerResponse -> TestTree
 responseDeleteContainer =
@@ -343,7 +343,7 @@ responseDeleteContainer =
     "DeleteContainerResponse"
     "fixture/DeleteContainerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContainer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContainer)
 
 responsePutCorsPolicy :: PutCorsPolicyResponse -> TestTree
 responsePutCorsPolicy =
@@ -351,7 +351,7 @@ responsePutCorsPolicy =
     "PutCorsPolicyResponse"
     "fixture/PutCorsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutCorsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutCorsPolicy)
 
 responseDeleteCorsPolicy :: DeleteCorsPolicyResponse -> TestTree
 responseDeleteCorsPolicy =
@@ -359,7 +359,7 @@ responseDeleteCorsPolicy =
     "DeleteCorsPolicyResponse"
     "fixture/DeleteCorsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCorsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCorsPolicy)
 
 responseStartAccessLogging :: StartAccessLoggingResponse -> TestTree
 responseStartAccessLogging =
@@ -367,7 +367,7 @@ responseStartAccessLogging =
     "StartAccessLoggingResponse"
     "fixture/StartAccessLoggingResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAccessLogging)
+    (Proxy.Proxy :: Proxy.Proxy StartAccessLogging)
 
 responseDescribeContainer :: DescribeContainerResponse -> TestTree
 responseDescribeContainer =
@@ -375,7 +375,7 @@ responseDescribeContainer =
     "DescribeContainerResponse"
     "fixture/DescribeContainerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContainer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContainer)
 
 responseGetMetricPolicy :: GetMetricPolicyResponse -> TestTree
 responseGetMetricPolicy =
@@ -383,7 +383,7 @@ responseGetMetricPolicy =
     "GetMetricPolicyResponse"
     "fixture/GetMetricPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMetricPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetMetricPolicy)
 
 responseDeleteMetricPolicy :: DeleteMetricPolicyResponse -> TestTree
 responseDeleteMetricPolicy =
@@ -391,7 +391,7 @@ responseDeleteMetricPolicy =
     "DeleteMetricPolicyResponse"
     "fixture/DeleteMetricPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMetricPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMetricPolicy)
 
 responsePutMetricPolicy :: PutMetricPolicyResponse -> TestTree
 responsePutMetricPolicy =
@@ -399,7 +399,7 @@ responsePutMetricPolicy =
     "PutMetricPolicyResponse"
     "fixture/PutMetricPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMetricPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutMetricPolicy)
 
 responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
 responseGetLifecyclePolicy =
@@ -407,7 +407,7 @@ responseGetLifecyclePolicy =
     "GetLifecyclePolicyResponse"
     "fixture/GetLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLifecyclePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetLifecyclePolicy)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -415,7 +415,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetCorsPolicy :: GetCorsPolicyResponse -> TestTree
 responseGetCorsPolicy =
@@ -423,7 +423,7 @@ responseGetCorsPolicy =
     "GetCorsPolicyResponse"
     "fixture/GetCorsPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCorsPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetCorsPolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -431,7 +431,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteContainerPolicy :: DeleteContainerPolicyResponse -> TestTree
 responseDeleteContainerPolicy =
@@ -439,7 +439,7 @@ responseDeleteContainerPolicy =
     "DeleteContainerPolicyResponse"
     "fixture/DeleteContainerPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContainerPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContainerPolicy)
 
 responsePutContainerPolicy :: PutContainerPolicyResponse -> TestTree
 responsePutContainerPolicy =
@@ -447,7 +447,7 @@ responsePutContainerPolicy =
     "PutContainerPolicyResponse"
     "fixture/PutContainerPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutContainerPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutContainerPolicy)
 
 responseGetContainerPolicy :: GetContainerPolicyResponse -> TestTree
 responseGetContainerPolicy =
@@ -455,4 +455,4 @@ responseGetContainerPolicy =
     "GetContainerPolicyResponse"
     "fixture/GetContainerPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContainerPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetContainerPolicy)

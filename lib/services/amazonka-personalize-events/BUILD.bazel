@@ -1,0 +1,63 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-personalize-events/amazonka-personalize-events.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-personalize-events",
+    srcs = [
+        "gen/Network/AWS/PersonalizeEvents.hs",
+        "gen/Network/AWS/PersonalizeEvents/Lens.hs",
+        "gen/Network/AWS/PersonalizeEvents/PutEvents.hs",
+        "gen/Network/AWS/PersonalizeEvents/PutItems.hs",
+        "gen/Network/AWS/PersonalizeEvents/PutUsers.hs",
+        "gen/Network/AWS/PersonalizeEvents/Types.hs",
+        "gen/Network/AWS/PersonalizeEvents/Types/Event.hs",
+        "gen/Network/AWS/PersonalizeEvents/Types/Item.hs",
+        "gen/Network/AWS/PersonalizeEvents/Types/User.hs",
+        "gen/Network/AWS/PersonalizeEvents/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_personalize_events=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-personalize-events/amazonka-personalize-events.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-personalize-events-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/PersonalizeEvents.hs",
+        "test/Test/AWS/PersonalizeEvents.hs",
+        "test/Test/AWS/PersonalizeEvents/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_personalize_events=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-personalize-events",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

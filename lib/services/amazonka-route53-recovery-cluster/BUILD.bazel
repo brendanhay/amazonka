@@ -1,0 +1,62 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-route53-recovery-cluster/amazonka-route53-recovery-cluster.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-route53-recovery-cluster",
+    srcs = [
+        "gen/Network/AWS/Route53RecoveryCluster.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/GetRoutingControlState.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/Lens.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/Types.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/Types/RoutingControlState.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/Types/UpdateRoutingControlStateEntry.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/UpdateRoutingControlState.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/UpdateRoutingControlStates.hs",
+        "gen/Network/AWS/Route53RecoveryCluster/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_route53_recovery_cluster=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-route53-recovery-cluster/amazonka-route53-recovery-cluster.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-route53-recovery-cluster-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Route53RecoveryCluster.hs",
+        "test/Test/AWS/Route53RecoveryCluster.hs",
+        "test/Test/AWS/Route53RecoveryCluster/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_route53_recovery_cluster=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-route53-recovery-cluster",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

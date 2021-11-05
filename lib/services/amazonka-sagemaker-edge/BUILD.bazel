@@ -1,0 +1,61 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-sagemaker-edge/amazonka-sagemaker-edge.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-sagemaker-edge",
+    srcs = [
+        "gen/Network/AWS/SageMakerEdge.hs",
+        "gen/Network/AWS/SageMakerEdge/GetDeviceRegistration.hs",
+        "gen/Network/AWS/SageMakerEdge/Lens.hs",
+        "gen/Network/AWS/SageMakerEdge/SendHeartbeat.hs",
+        "gen/Network/AWS/SageMakerEdge/Types.hs",
+        "gen/Network/AWS/SageMakerEdge/Types/EdgeMetric.hs",
+        "gen/Network/AWS/SageMakerEdge/Types/Model.hs",
+        "gen/Network/AWS/SageMakerEdge/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sagemaker_edge=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-sagemaker-edge/amazonka-sagemaker-edge.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sagemaker-edge-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SageMakerEdge.hs",
+        "test/Test/AWS/SageMakerEdge.hs",
+        "test/Test/AWS/SageMakerEdge/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sagemaker_edge=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sagemaker-edge",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

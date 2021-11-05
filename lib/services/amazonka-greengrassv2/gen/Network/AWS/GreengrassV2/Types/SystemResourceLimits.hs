@@ -1,0 +1,115 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.GreengrassV2.Types.SystemResourceLimits
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.GreengrassV2.Types.SystemResourceLimits where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Contains information about system resource limits that the IoT
+-- Greengrass Core software applies to a component\'s processes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-system-resource-limits Configure system resource limits for components>.
+--
+-- /See:/ 'newSystemResourceLimits' smart constructor.
+data SystemResourceLimits = SystemResourceLimits'
+  { -- | The maximum amount of RAM, expressed in kilobytes, that a component\'s
+    -- processes can use on the core device.
+    memory :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum amount of CPU time that a component\'s processes can use on
+    -- the core device. A core device\'s total CPU time is equivalent to the
+    -- device\'s number of CPU cores. For example, on a core device with 4 CPU
+    -- cores, you can set this value to @2@ to limit the component\'s processes
+    -- to 50 percent usage of each CPU core. On a device with 1 CPU core, you
+    -- can set this value to @0.25@ to limit the component\'s processes to 25
+    -- percent usage of the CPU. If you set this value to a number greater than
+    -- the number of CPU cores, the IoT Greengrass Core software doesn\'t limit
+    -- the component\'s CPU usage.
+    cpus :: Prelude.Maybe Prelude.Double
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'SystemResourceLimits' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'memory', 'systemResourceLimits_memory' - The maximum amount of RAM, expressed in kilobytes, that a component\'s
+-- processes can use on the core device.
+--
+-- 'cpus', 'systemResourceLimits_cpus' - The maximum amount of CPU time that a component\'s processes can use on
+-- the core device. A core device\'s total CPU time is equivalent to the
+-- device\'s number of CPU cores. For example, on a core device with 4 CPU
+-- cores, you can set this value to @2@ to limit the component\'s processes
+-- to 50 percent usage of each CPU core. On a device with 1 CPU core, you
+-- can set this value to @0.25@ to limit the component\'s processes to 25
+-- percent usage of the CPU. If you set this value to a number greater than
+-- the number of CPU cores, the IoT Greengrass Core software doesn\'t limit
+-- the component\'s CPU usage.
+newSystemResourceLimits ::
+  SystemResourceLimits
+newSystemResourceLimits =
+  SystemResourceLimits'
+    { memory = Prelude.Nothing,
+      cpus = Prelude.Nothing
+    }
+
+-- | The maximum amount of RAM, expressed in kilobytes, that a component\'s
+-- processes can use on the core device.
+systemResourceLimits_memory :: Lens.Lens' SystemResourceLimits (Prelude.Maybe Prelude.Natural)
+systemResourceLimits_memory = Lens.lens (\SystemResourceLimits' {memory} -> memory) (\s@SystemResourceLimits' {} a -> s {memory = a} :: SystemResourceLimits)
+
+-- | The maximum amount of CPU time that a component\'s processes can use on
+-- the core device. A core device\'s total CPU time is equivalent to the
+-- device\'s number of CPU cores. For example, on a core device with 4 CPU
+-- cores, you can set this value to @2@ to limit the component\'s processes
+-- to 50 percent usage of each CPU core. On a device with 1 CPU core, you
+-- can set this value to @0.25@ to limit the component\'s processes to 25
+-- percent usage of the CPU. If you set this value to a number greater than
+-- the number of CPU cores, the IoT Greengrass Core software doesn\'t limit
+-- the component\'s CPU usage.
+systemResourceLimits_cpus :: Lens.Lens' SystemResourceLimits (Prelude.Maybe Prelude.Double)
+systemResourceLimits_cpus = Lens.lens (\SystemResourceLimits' {cpus} -> cpus) (\s@SystemResourceLimits' {} a -> s {cpus = a} :: SystemResourceLimits)
+
+instance Core.FromJSON SystemResourceLimits where
+  parseJSON =
+    Core.withObject
+      "SystemResourceLimits"
+      ( \x ->
+          SystemResourceLimits'
+            Prelude.<$> (x Core..:? "memory")
+            Prelude.<*> (x Core..:? "cpus")
+      )
+
+instance Prelude.Hashable SystemResourceLimits
+
+instance Prelude.NFData SystemResourceLimits
+
+instance Core.ToJSON SystemResourceLimits where
+  toJSON SystemResourceLimits' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("memory" Core..=) Prelude.<$> memory,
+            ("cpus" Core..=) Prelude.<$> cpus
+          ]
+      )

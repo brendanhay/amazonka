@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMaker where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SageMaker
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -2923,7 +2923,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -2931,7 +2931,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseGetModelPackageGroupPolicy :: GetModelPackageGroupPolicyResponse -> TestTree
 responseGetModelPackageGroupPolicy =
@@ -2939,7 +2939,7 @@ responseGetModelPackageGroupPolicy =
     "GetModelPackageGroupPolicyResponse"
     "fixture/GetModelPackageGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetModelPackageGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetModelPackageGroupPolicy)
 
 responseCreateNotebookInstance :: CreateNotebookInstanceResponse -> TestTree
 responseCreateNotebookInstance =
@@ -2947,7 +2947,7 @@ responseCreateNotebookInstance =
     "CreateNotebookInstanceResponse"
     "fixture/CreateNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNotebookInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateNotebookInstance)
 
 responseUpdateModelPackage :: UpdateModelPackageResponse -> TestTree
 responseUpdateModelPackage =
@@ -2955,7 +2955,7 @@ responseUpdateModelPackage =
     "UpdateModelPackageResponse"
     "fixture/UpdateModelPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateModelPackage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateModelPackage)
 
 responseDeleteModelPackage :: DeleteModelPackageResponse -> TestTree
 responseDeleteModelPackage =
@@ -2963,7 +2963,7 @@ responseDeleteModelPackage =
     "DeleteModelPackageResponse"
     "fixture/DeleteModelPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelPackage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelPackage)
 
 responseDescribeMonitoringSchedule :: DescribeMonitoringScheduleResponse -> TestTree
 responseDescribeMonitoringSchedule =
@@ -2971,7 +2971,7 @@ responseDescribeMonitoringSchedule =
     "DescribeMonitoringScheduleResponse"
     "fixture/DescribeMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMonitoringSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMonitoringSchedule)
 
 responseListTrialComponents :: ListTrialComponentsResponse -> TestTree
 responseListTrialComponents =
@@ -2979,7 +2979,7 @@ responseListTrialComponents =
     "ListTrialComponentsResponse"
     "fixture/ListTrialComponentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrialComponents)
+    (Proxy.Proxy :: Proxy.Proxy ListTrialComponents)
 
 responseDescribeEndpointConfig :: DescribeEndpointConfigResponse -> TestTree
 responseDescribeEndpointConfig =
@@ -2987,7 +2987,7 @@ responseDescribeEndpointConfig =
     "DescribeEndpointConfigResponse"
     "fixture/DescribeEndpointConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpointConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpointConfig)
 
 responseCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinitionResponse -> TestTree
 responseCreateModelExplainabilityJobDefinition =
@@ -2995,7 +2995,7 @@ responseCreateModelExplainabilityJobDefinition =
     "CreateModelExplainabilityJobDefinitionResponse"
     "fixture/CreateModelExplainabilityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelExplainabilityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateModelExplainabilityJobDefinition)
 
 responseDescribeApp :: DescribeAppResponse -> TestTree
 responseDescribeApp =
@@ -3003,7 +3003,7 @@ responseDescribeApp =
     "DescribeAppResponse"
     "fixture/DescribeAppResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApp)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApp)
 
 responseListImageVersions :: ListImageVersionsResponse -> TestTree
 responseListImageVersions =
@@ -3011,7 +3011,7 @@ responseListImageVersions =
     "ListImageVersionsResponse"
     "fixture/ListImageVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImageVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListImageVersions)
 
 responseDescribeAutoMLJob :: DescribeAutoMLJobResponse -> TestTree
 responseDescribeAutoMLJob =
@@ -3019,7 +3019,7 @@ responseDescribeAutoMLJob =
     "DescribeAutoMLJobResponse"
     "fixture/DescribeAutoMLJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAutoMLJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAutoMLJob)
 
 responseStopProcessingJob :: StopProcessingJobResponse -> TestTree
 responseStopProcessingJob =
@@ -3027,7 +3027,7 @@ responseStopProcessingJob =
     "StopProcessingJobResponse"
     "fixture/StopProcessingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopProcessingJob)
+    (Proxy.Proxy :: Proxy.Proxy StopProcessingJob)
 
 responseDeleteAction :: DeleteActionResponse -> TestTree
 responseDeleteAction =
@@ -3035,7 +3035,7 @@ responseDeleteAction =
     "DeleteActionResponse"
     "fixture/DeleteActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAction)
 
 responseUpdateAction :: UpdateActionResponse -> TestTree
 responseUpdateAction =
@@ -3043,7 +3043,7 @@ responseUpdateAction =
     "UpdateActionResponse"
     "fixture/UpdateActionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAction)
 
 responseListLabelingJobsForWorkteam :: ListLabelingJobsForWorkteamResponse -> TestTree
 responseListLabelingJobsForWorkteam =
@@ -3051,7 +3051,7 @@ responseListLabelingJobsForWorkteam =
     "ListLabelingJobsForWorkteamResponse"
     "fixture/ListLabelingJobsForWorkteamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLabelingJobsForWorkteam)
+    (Proxy.Proxy :: Proxy.Proxy ListLabelingJobsForWorkteam)
 
 responseCreateTransformJob :: CreateTransformJobResponse -> TestTree
 responseCreateTransformJob =
@@ -3059,7 +3059,7 @@ responseCreateTransformJob =
     "CreateTransformJobResponse"
     "fixture/CreateTransformJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransformJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransformJob)
 
 responseListArtifacts :: ListArtifactsResponse -> TestTree
 responseListArtifacts =
@@ -3067,7 +3067,7 @@ responseListArtifacts =
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListArtifacts)
+    (Proxy.Proxy :: Proxy.Proxy ListArtifacts)
 
 responseDeleteDeviceFleet :: DeleteDeviceFleetResponse -> TestTree
 responseDeleteDeviceFleet =
@@ -3075,7 +3075,7 @@ responseDeleteDeviceFleet =
     "DeleteDeviceFleetResponse"
     "fixture/DeleteDeviceFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeviceFleet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeviceFleet)
 
 responseUpdateDeviceFleet :: UpdateDeviceFleetResponse -> TestTree
 responseUpdateDeviceFleet =
@@ -3083,7 +3083,7 @@ responseUpdateDeviceFleet =
     "UpdateDeviceFleetResponse"
     "fixture/UpdateDeviceFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeviceFleet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceFleet)
 
 responseListCompilationJobs :: ListCompilationJobsResponse -> TestTree
 responseListCompilationJobs =
@@ -3091,7 +3091,7 @@ responseListCompilationJobs =
     "ListCompilationJobsResponse"
     "fixture/ListCompilationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCompilationJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListCompilationJobs)
 
 responseDescribePipeline :: DescribePipelineResponse -> TestTree
 responseDescribePipeline =
@@ -3099,7 +3099,7 @@ responseDescribePipeline =
     "DescribePipelineResponse"
     "fixture/DescribePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DescribePipeline)
 
 responseDisassociateTrialComponent :: DisassociateTrialComponentResponse -> TestTree
 responseDisassociateTrialComponent =
@@ -3107,7 +3107,7 @@ responseDisassociateTrialComponent =
     "DisassociateTrialComponentResponse"
     "fixture/DisassociateTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTrialComponent)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTrialComponent)
 
 responseDescribeModelPackageGroup :: DescribeModelPackageGroupResponse -> TestTree
 responseDescribeModelPackageGroup =
@@ -3115,7 +3115,7 @@ responseDescribeModelPackageGroup =
     "DescribeModelPackageGroupResponse"
     "fixture/DescribeModelPackageGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModelPackageGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelPackageGroup)
 
 responseCreateEdgePackagingJob :: CreateEdgePackagingJobResponse -> TestTree
 responseCreateEdgePackagingJob =
@@ -3123,7 +3123,7 @@ responseCreateEdgePackagingJob =
     "CreateEdgePackagingJobResponse"
     "fixture/CreateEdgePackagingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEdgePackagingJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateEdgePackagingJob)
 
 responseStopHyperParameterTuningJob :: StopHyperParameterTuningJobResponse -> TestTree
 responseStopHyperParameterTuningJob =
@@ -3131,7 +3131,7 @@ responseStopHyperParameterTuningJob =
     "StopHyperParameterTuningJobResponse"
     "fixture/StopHyperParameterTuningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopHyperParameterTuningJob)
+    (Proxy.Proxy :: Proxy.Proxy StopHyperParameterTuningJob)
 
 responseListHumanTaskUis :: ListHumanTaskUisResponse -> TestTree
 responseListHumanTaskUis =
@@ -3139,7 +3139,7 @@ responseListHumanTaskUis =
     "ListHumanTaskUisResponse"
     "fixture/ListHumanTaskUisResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHumanTaskUis)
+    (Proxy.Proxy :: Proxy.Proxy ListHumanTaskUis)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
 responseCreateEndpoint =
@@ -3147,7 +3147,7 @@ responseCreateEndpoint =
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpoint)
 
 responseGetSearchSuggestions :: GetSearchSuggestionsResponse -> TestTree
 responseGetSearchSuggestions =
@@ -3155,7 +3155,7 @@ responseGetSearchSuggestions =
     "GetSearchSuggestionsResponse"
     "fixture/GetSearchSuggestionsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSearchSuggestions)
+    (Proxy.Proxy :: Proxy.Proxy GetSearchSuggestions)
 
 responseUpdateArtifact :: UpdateArtifactResponse -> TestTree
 responseUpdateArtifact =
@@ -3163,7 +3163,7 @@ responseUpdateArtifact =
     "UpdateArtifactResponse"
     "fixture/UpdateArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateArtifact)
+    (Proxy.Proxy :: Proxy.Proxy UpdateArtifact)
 
 responseDeleteArtifact :: DeleteArtifactResponse -> TestTree
 responseDeleteArtifact =
@@ -3171,7 +3171,7 @@ responseDeleteArtifact =
     "DeleteArtifactResponse"
     "fixture/DeleteArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteArtifact)
+    (Proxy.Proxy :: Proxy.Proxy DeleteArtifact)
 
 responseDescribeTrial :: DescribeTrialResponse -> TestTree
 responseDescribeTrial =
@@ -3179,7 +3179,7 @@ responseDescribeTrial =
     "DescribeTrialResponse"
     "fixture/DescribeTrialResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrial)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrial)
 
 responseListActions :: ListActionsResponse -> TestTree
 responseListActions =
@@ -3187,7 +3187,7 @@ responseListActions =
     "ListActionsResponse"
     "fixture/ListActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActions)
+    (Proxy.Proxy :: Proxy.Proxy ListActions)
 
 responseCreateArtifact :: CreateArtifactResponse -> TestTree
 responseCreateArtifact =
@@ -3195,7 +3195,7 @@ responseCreateArtifact =
     "CreateArtifactResponse"
     "fixture/CreateArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateArtifact)
+    (Proxy.Proxy :: Proxy.Proxy CreateArtifact)
 
 responseCreatePresignedDomainUrl :: CreatePresignedDomainUrlResponse -> TestTree
 responseCreatePresignedDomainUrl =
@@ -3203,7 +3203,7 @@ responseCreatePresignedDomainUrl =
     "CreatePresignedDomainUrlResponse"
     "fixture/CreatePresignedDomainUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePresignedDomainUrl)
+    (Proxy.Proxy :: Proxy.Proxy CreatePresignedDomainUrl)
 
 responseListFeatureGroups :: ListFeatureGroupsResponse -> TestTree
 responseListFeatureGroups =
@@ -3211,7 +3211,7 @@ responseListFeatureGroups =
     "ListFeatureGroupsResponse"
     "fixture/ListFeatureGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFeatureGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListFeatureGroups)
 
 responseDescribeCodeRepository :: DescribeCodeRepositoryResponse -> TestTree
 responseDescribeCodeRepository =
@@ -3219,7 +3219,7 @@ responseDescribeCodeRepository =
     "DescribeCodeRepositoryResponse"
     "fixture/DescribeCodeRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCodeRepository)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCodeRepository)
 
 responseDescribeContext :: DescribeContextResponse -> TestTree
 responseDescribeContext =
@@ -3227,7 +3227,7 @@ responseDescribeContext =
     "DescribeContextResponse"
     "fixture/DescribeContextResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeContext)
+    (Proxy.Proxy :: Proxy.Proxy DescribeContext)
 
 responseDescribeImage :: DescribeImageResponse -> TestTree
 responseDescribeImage =
@@ -3235,7 +3235,7 @@ responseDescribeImage =
     "DescribeImageResponse"
     "fixture/DescribeImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImage)
 
 responseDescribeTrainingJob :: DescribeTrainingJobResponse -> TestTree
 responseDescribeTrainingJob =
@@ -3243,7 +3243,7 @@ responseDescribeTrainingJob =
     "DescribeTrainingJobResponse"
     "fixture/DescribeTrainingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrainingJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrainingJob)
 
 responseCreateAction :: CreateActionResponse -> TestTree
 responseCreateAction =
@@ -3251,7 +3251,7 @@ responseCreateAction =
     "CreateActionResponse"
     "fixture/CreateActionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAction)
+    (Proxy.Proxy :: Proxy.Proxy CreateAction)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint =
@@ -3259,7 +3259,7 @@ responseDeleteEndpoint =
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
 responseUpdateEndpoint =
@@ -3267,7 +3267,7 @@ responseUpdateEndpoint =
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)
 
 responseDescribeDataQualityJobDefinition :: DescribeDataQualityJobDefinitionResponse -> TestTree
 responseDescribeDataQualityJobDefinition =
@@ -3275,7 +3275,7 @@ responseDescribeDataQualityJobDefinition =
     "DescribeDataQualityJobDefinitionResponse"
     "fixture/DescribeDataQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDataQualityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataQualityJobDefinition)
 
 responseCreateHumanTaskUi :: CreateHumanTaskUiResponse -> TestTree
 responseCreateHumanTaskUi =
@@ -3283,7 +3283,7 @@ responseCreateHumanTaskUi =
     "CreateHumanTaskUiResponse"
     "fixture/CreateHumanTaskUiResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHumanTaskUi)
+    (Proxy.Proxy :: Proxy.Proxy CreateHumanTaskUi)
 
 responseRegisterDevices :: RegisterDevicesResponse -> TestTree
 responseRegisterDevices =
@@ -3291,7 +3291,7 @@ responseRegisterDevices =
     "RegisterDevicesResponse"
     "fixture/RegisterDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterDevices)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDevices)
 
 responseCreateCompilationJob :: CreateCompilationJobResponse -> TestTree
 responseCreateCompilationJob =
@@ -3299,7 +3299,7 @@ responseCreateCompilationJob =
     "CreateCompilationJobResponse"
     "fixture/CreateCompilationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCompilationJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateCompilationJob)
 
 responseDeleteAppImageConfig :: DeleteAppImageConfigResponse -> TestTree
 responseDeleteAppImageConfig =
@@ -3307,7 +3307,7 @@ responseDeleteAppImageConfig =
     "DeleteAppImageConfigResponse"
     "fixture/DeleteAppImageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppImageConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppImageConfig)
 
 responseUpdateAppImageConfig :: UpdateAppImageConfigResponse -> TestTree
 responseUpdateAppImageConfig =
@@ -3315,7 +3315,7 @@ responseUpdateAppImageConfig =
     "UpdateAppImageConfigResponse"
     "fixture/UpdateAppImageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAppImageConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppImageConfig)
 
 responseDescribePipelineExecution :: DescribePipelineExecutionResponse -> TestTree
 responseDescribePipelineExecution =
@@ -3323,7 +3323,7 @@ responseDescribePipelineExecution =
     "DescribePipelineExecutionResponse"
     "fixture/DescribePipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribePipelineExecution)
 
 responseDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfigResponse -> TestTree
 responseDeleteNotebookInstanceLifecycleConfig =
@@ -3331,7 +3331,7 @@ responseDeleteNotebookInstanceLifecycleConfig =
     "DeleteNotebookInstanceLifecycleConfigResponse"
     "fixture/DeleteNotebookInstanceLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotebookInstanceLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotebookInstanceLifecycleConfig)
 
 responseUpdateNotebookInstanceLifecycleConfig :: UpdateNotebookInstanceLifecycleConfigResponse -> TestTree
 responseUpdateNotebookInstanceLifecycleConfig =
@@ -3339,7 +3339,7 @@ responseUpdateNotebookInstanceLifecycleConfig =
     "UpdateNotebookInstanceLifecycleConfigResponse"
     "fixture/UpdateNotebookInstanceLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNotebookInstanceLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotebookInstanceLifecycleConfig)
 
 responseDeleteWorkforce :: DeleteWorkforceResponse -> TestTree
 responseDeleteWorkforce =
@@ -3347,7 +3347,7 @@ responseDeleteWorkforce =
     "DeleteWorkforceResponse"
     "fixture/DeleteWorkforceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkforce)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkforce)
 
 responseUpdateWorkforce :: UpdateWorkforceResponse -> TestTree
 responseUpdateWorkforce =
@@ -3355,7 +3355,7 @@ responseUpdateWorkforce =
     "UpdateWorkforceResponse"
     "fixture/UpdateWorkforceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkforce)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkforce)
 
 responseListProcessingJobs :: ListProcessingJobsResponse -> TestTree
 responseListProcessingJobs =
@@ -3363,7 +3363,7 @@ responseListProcessingJobs =
     "ListProcessingJobsResponse"
     "fixture/ListProcessingJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProcessingJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListProcessingJobs)
 
 responseCreateLabelingJob :: CreateLabelingJobResponse -> TestTree
 responseCreateLabelingJob =
@@ -3371,7 +3371,7 @@ responseCreateLabelingJob =
     "CreateLabelingJobResponse"
     "fixture/CreateLabelingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLabelingJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateLabelingJob)
 
 responseEnableSagemakerServicecatalogPortfolio :: EnableSagemakerServicecatalogPortfolioResponse -> TestTree
 responseEnableSagemakerServicecatalogPortfolio =
@@ -3379,7 +3379,7 @@ responseEnableSagemakerServicecatalogPortfolio =
     "EnableSagemakerServicecatalogPortfolioResponse"
     "fixture/EnableSagemakerServicecatalogPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableSagemakerServicecatalogPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy EnableSagemakerServicecatalogPortfolio)
 
 responseDescribeNotebookInstance :: DescribeNotebookInstanceResponse -> TestTree
 responseDescribeNotebookInstance =
@@ -3387,7 +3387,7 @@ responseDescribeNotebookInstance =
     "DescribeNotebookInstanceResponse"
     "fixture/DescribeNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotebookInstance)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotebookInstance)
 
 responseCreateMonitoringSchedule :: CreateMonitoringScheduleResponse -> TestTree
 responseCreateMonitoringSchedule =
@@ -3395,7 +3395,7 @@ responseCreateMonitoringSchedule =
     "CreateMonitoringScheduleResponse"
     "fixture/CreateMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMonitoringSchedule)
+    (Proxy.Proxy :: Proxy.Proxy CreateMonitoringSchedule)
 
 responseListAppImageConfigs :: ListAppImageConfigsResponse -> TestTree
 responseListAppImageConfigs =
@@ -3403,7 +3403,7 @@ responseListAppImageConfigs =
     "ListAppImageConfigsResponse"
     "fixture/ListAppImageConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAppImageConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListAppImageConfigs)
 
 responseCreateEndpointConfig :: CreateEndpointConfigResponse -> TestTree
 responseCreateEndpointConfig =
@@ -3411,7 +3411,7 @@ responseCreateEndpointConfig =
     "CreateEndpointConfigResponse"
     "fixture/CreateEndpointConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpointConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpointConfig)
 
 responseSendPipelineExecutionStepSuccess :: SendPipelineExecutionStepSuccessResponse -> TestTree
 responseSendPipelineExecutionStepSuccess =
@@ -3419,7 +3419,7 @@ responseSendPipelineExecutionStepSuccess =
     "SendPipelineExecutionStepSuccessResponse"
     "fixture/SendPipelineExecutionStepSuccessResponse.proto"
     defaultService
-    (Proxy :: Proxy SendPipelineExecutionStepSuccess)
+    (Proxy.Proxy :: Proxy.Proxy SendPipelineExecutionStepSuccess)
 
 responseDescribeModelQualityJobDefinition :: DescribeModelQualityJobDefinitionResponse -> TestTree
 responseDescribeModelQualityJobDefinition =
@@ -3427,7 +3427,7 @@ responseDescribeModelQualityJobDefinition =
     "DescribeModelQualityJobDefinitionResponse"
     "fixture/DescribeModelQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModelQualityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelQualityJobDefinition)
 
 responseDeleteStudioLifecycleConfig :: DeleteStudioLifecycleConfigResponse -> TestTree
 responseDeleteStudioLifecycleConfig =
@@ -3435,7 +3435,7 @@ responseDeleteStudioLifecycleConfig =
     "DeleteStudioLifecycleConfigResponse"
     "fixture/DeleteStudioLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStudioLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudioLifecycleConfig)
 
 responseDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinitionResponse -> TestTree
 responseDescribeModelExplainabilityJobDefinition =
@@ -3443,7 +3443,7 @@ responseDescribeModelExplainabilityJobDefinition =
     "DescribeModelExplainabilityJobDefinitionResponse"
     "fixture/DescribeModelExplainabilityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModelExplainabilityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelExplainabilityJobDefinition)
 
 responseStopNotebookInstance :: StopNotebookInstanceResponse -> TestTree
 responseStopNotebookInstance =
@@ -3451,7 +3451,7 @@ responseStopNotebookInstance =
     "StopNotebookInstanceResponse"
     "fixture/StopNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StopNotebookInstance)
+    (Proxy.Proxy :: Proxy.Proxy StopNotebookInstance)
 
 responseUpdateEndpointWeightsAndCapacities :: UpdateEndpointWeightsAndCapacitiesResponse -> TestTree
 responseUpdateEndpointWeightsAndCapacities =
@@ -3459,7 +3459,7 @@ responseUpdateEndpointWeightsAndCapacities =
     "UpdateEndpointWeightsAndCapacitiesResponse"
     "fixture/UpdateEndpointWeightsAndCapacitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpointWeightsAndCapacities)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpointWeightsAndCapacities)
 
 responseCreateAppImageConfig :: CreateAppImageConfigResponse -> TestTree
 responseCreateAppImageConfig =
@@ -3467,7 +3467,7 @@ responseCreateAppImageConfig =
     "CreateAppImageConfigResponse"
     "fixture/CreateAppImageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppImageConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppImageConfig)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -3475,7 +3475,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseListExperiments :: ListExperimentsResponse -> TestTree
 responseListExperiments =
@@ -3483,7 +3483,7 @@ responseListExperiments =
     "ListExperimentsResponse"
     "fixture/ListExperimentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExperiments)
+    (Proxy.Proxy :: Proxy.Proxy ListExperiments)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -3491,7 +3491,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseListAutoMLJobs :: ListAutoMLJobsResponse -> TestTree
 responseListAutoMLJobs =
@@ -3499,7 +3499,7 @@ responseListAutoMLJobs =
     "ListAutoMLJobsResponse"
     "fixture/ListAutoMLJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAutoMLJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListAutoMLJobs)
 
 responseListApps :: ListAppsResponse -> TestTree
 responseListApps =
@@ -3507,7 +3507,7 @@ responseListApps =
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApps)
+    (Proxy.Proxy :: Proxy.Proxy ListApps)
 
 responseRetryPipelineExecution :: RetryPipelineExecutionResponse -> TestTree
 responseRetryPipelineExecution =
@@ -3515,7 +3515,7 @@ responseRetryPipelineExecution =
     "RetryPipelineExecutionResponse"
     "fixture/RetryPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy RetryPipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy RetryPipelineExecution)
 
 responseCreateProcessingJob :: CreateProcessingJobResponse -> TestTree
 responseCreateProcessingJob =
@@ -3523,7 +3523,7 @@ responseCreateProcessingJob =
     "CreateProcessingJobResponse"
     "fixture/CreateProcessingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProcessingJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateProcessingJob)
 
 responseDeleteMonitoringSchedule :: DeleteMonitoringScheduleResponse -> TestTree
 responseDeleteMonitoringSchedule =
@@ -3531,7 +3531,7 @@ responseDeleteMonitoringSchedule =
     "DeleteMonitoringScheduleResponse"
     "fixture/DeleteMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMonitoringSchedule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMonitoringSchedule)
 
 responseDescribeModelPackage :: DescribeModelPackageResponse -> TestTree
 responseDescribeModelPackage =
@@ -3539,7 +3539,7 @@ responseDescribeModelPackage =
     "DescribeModelPackageResponse"
     "fixture/DescribeModelPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModelPackage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelPackage)
 
 responseDeleteEndpointConfig :: DeleteEndpointConfigResponse -> TestTree
 responseDeleteEndpointConfig =
@@ -3547,7 +3547,7 @@ responseDeleteEndpointConfig =
     "DeleteEndpointConfigResponse"
     "fixture/DeleteEndpointConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpointConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpointConfig)
 
 responseUpdateMonitoringSchedule :: UpdateMonitoringScheduleResponse -> TestTree
 responseUpdateMonitoringSchedule =
@@ -3555,7 +3555,7 @@ responseUpdateMonitoringSchedule =
     "UpdateMonitoringScheduleResponse"
     "fixture/UpdateMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateMonitoringSchedule)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMonitoringSchedule)
 
 responseAddAssociation :: AddAssociationResponse -> TestTree
 responseAddAssociation =
@@ -3563,7 +3563,7 @@ responseAddAssociation =
     "AddAssociationResponse"
     "fixture/AddAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy AddAssociation)
+    (Proxy.Proxy :: Proxy.Proxy AddAssociation)
 
 responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
 responseStartPipelineExecution =
@@ -3571,7 +3571,7 @@ responseStartPipelineExecution =
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartPipelineExecution)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp =
@@ -3579,7 +3579,7 @@ responseDeleteApp =
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApp)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
 
 responseCreateAlgorithm :: CreateAlgorithmResponse -> TestTree
 responseCreateAlgorithm =
@@ -3587,7 +3587,7 @@ responseCreateAlgorithm =
     "CreateAlgorithmResponse"
     "fixture/CreateAlgorithmResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlgorithm)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlgorithm)
 
 responseListPipelineExecutionSteps :: ListPipelineExecutionStepsResponse -> TestTree
 responseListPipelineExecutionSteps =
@@ -3595,7 +3595,7 @@ responseListPipelineExecutionSteps =
     "ListPipelineExecutionStepsResponse"
     "fixture/ListPipelineExecutionStepsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelineExecutionSteps)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelineExecutionSteps)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline =
@@ -3603,7 +3603,7 @@ responseUpdatePipeline =
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipeline)
 
 responseStopTransformJob :: StopTransformJobResponse -> TestTree
 responseStopTransformJob =
@@ -3611,7 +3611,7 @@ responseStopTransformJob =
     "StopTransformJobResponse"
     "fixture/StopTransformJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopTransformJob)
+    (Proxy.Proxy :: Proxy.Proxy StopTransformJob)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
 responseDeletePipeline =
@@ -3619,7 +3619,7 @@ responseDeletePipeline =
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeletePipeline)
 
 responseDescribeAction :: DescribeActionResponse -> TestTree
 responseDescribeAction =
@@ -3627,7 +3627,7 @@ responseDescribeAction =
     "DescribeActionResponse"
     "fixture/DescribeActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAction)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAction)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -3635,7 +3635,7 @@ responseCreateModel =
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModel)
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
 responseListUserProfiles =
@@ -3643,7 +3643,7 @@ responseListUserProfiles =
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListUserProfiles)
 
 responseCreateDataQualityJobDefinition :: CreateDataQualityJobDefinitionResponse -> TestTree
 responseCreateDataQualityJobDefinition =
@@ -3651,7 +3651,7 @@ responseCreateDataQualityJobDefinition =
     "CreateDataQualityJobDefinitionResponse"
     "fixture/CreateDataQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataQualityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataQualityJobDefinition)
 
 responseDeleteModelPackageGroup :: DeleteModelPackageGroupResponse -> TestTree
 responseDeleteModelPackageGroup =
@@ -3659,7 +3659,7 @@ responseDeleteModelPackageGroup =
     "DeleteModelPackageGroupResponse"
     "fixture/DeleteModelPackageGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelPackageGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelPackageGroup)
 
 responseDescribeArtifact :: DescribeArtifactResponse -> TestTree
 responseDescribeArtifact =
@@ -3667,7 +3667,7 @@ responseDescribeArtifact =
     "DescribeArtifactResponse"
     "fixture/DescribeArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeArtifact)
+    (Proxy.Proxy :: Proxy.Proxy DescribeArtifact)
 
 responseStopEdgePackagingJob :: StopEdgePackagingJobResponse -> TestTree
 responseStopEdgePackagingJob =
@@ -3675,7 +3675,7 @@ responseStopEdgePackagingJob =
     "StopEdgePackagingJobResponse"
     "fixture/StopEdgePackagingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopEdgePackagingJob)
+    (Proxy.Proxy :: Proxy.Proxy StopEdgePackagingJob)
 
 responseCreateCodeRepository :: CreateCodeRepositoryResponse -> TestTree
 responseCreateCodeRepository =
@@ -3683,7 +3683,7 @@ responseCreateCodeRepository =
     "CreateCodeRepositoryResponse"
     "fixture/CreateCodeRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCodeRepository)
+    (Proxy.Proxy :: Proxy.Proxy CreateCodeRepository)
 
 responseCreateHyperParameterTuningJob :: CreateHyperParameterTuningJobResponse -> TestTree
 responseCreateHyperParameterTuningJob =
@@ -3691,7 +3691,7 @@ responseCreateHyperParameterTuningJob =
     "CreateHyperParameterTuningJobResponse"
     "fixture/CreateHyperParameterTuningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHyperParameterTuningJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateHyperParameterTuningJob)
 
 responseDeleteTrial :: DeleteTrialResponse -> TestTree
 responseDeleteTrial =
@@ -3699,7 +3699,7 @@ responseDeleteTrial =
     "DeleteTrialResponse"
     "fixture/DeleteTrialResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrial)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrial)
 
 responseUpdateTrial :: UpdateTrialResponse -> TestTree
 responseUpdateTrial =
@@ -3707,7 +3707,7 @@ responseUpdateTrial =
     "UpdateTrialResponse"
     "fixture/UpdateTrialResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrial)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrial)
 
 responseDescribeDeviceFleet :: DescribeDeviceFleetResponse -> TestTree
 responseDescribeDeviceFleet =
@@ -3715,7 +3715,7 @@ responseDescribeDeviceFleet =
     "DescribeDeviceFleetResponse"
     "fixture/DescribeDeviceFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeviceFleet)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeviceFleet)
 
 responseListCodeRepositories :: ListCodeRepositoriesResponse -> TestTree
 responseListCodeRepositories =
@@ -3723,7 +3723,7 @@ responseListCodeRepositories =
     "ListCodeRepositoriesResponse"
     "fixture/ListCodeRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCodeRepositories)
+    (Proxy.Proxy :: Proxy.Proxy ListCodeRepositories)
 
 responseDescribeCompilationJob :: DescribeCompilationJobResponse -> TestTree
 responseDescribeCompilationJob =
@@ -3731,7 +3731,7 @@ responseDescribeCompilationJob =
     "DescribeCompilationJobResponse"
     "fixture/DescribeCompilationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCompilationJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCompilationJob)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
 responseListPipelines =
@@ -3739,7 +3739,7 @@ responseListPipelines =
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelines)
 
 responseListHyperParameterTuningJobs :: ListHyperParameterTuningJobsResponse -> TestTree
 responseListHyperParameterTuningJobs =
@@ -3747,7 +3747,7 @@ responseListHyperParameterTuningJobs =
     "ListHyperParameterTuningJobsResponse"
     "fixture/ListHyperParameterTuningJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHyperParameterTuningJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListHyperParameterTuningJobs)
 
 responseListAlgorithms :: ListAlgorithmsResponse -> TestTree
 responseListAlgorithms =
@@ -3755,7 +3755,7 @@ responseListAlgorithms =
     "ListAlgorithmsResponse"
     "fixture/ListAlgorithmsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAlgorithms)
+    (Proxy.Proxy :: Proxy.Proxy ListAlgorithms)
 
 responseCreateModelPackageGroup :: CreateModelPackageGroupResponse -> TestTree
 responseCreateModelPackageGroup =
@@ -3763,7 +3763,7 @@ responseCreateModelPackageGroup =
     "CreateModelPackageGroupResponse"
     "fixture/CreateModelPackageGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelPackageGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateModelPackageGroup)
 
 responseGetSagemakerServicecatalogPortfolioStatus :: GetSagemakerServicecatalogPortfolioStatusResponse -> TestTree
 responseGetSagemakerServicecatalogPortfolioStatus =
@@ -3771,7 +3771,7 @@ responseGetSagemakerServicecatalogPortfolioStatus =
     "GetSagemakerServicecatalogPortfolioStatusResponse"
     "fixture/GetSagemakerServicecatalogPortfolioStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSagemakerServicecatalogPortfolioStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetSagemakerServicecatalogPortfolioStatus)
 
 responseDescribeFeatureGroup :: DescribeFeatureGroupResponse -> TestTree
 responseDescribeFeatureGroup =
@@ -3779,7 +3779,7 @@ responseDescribeFeatureGroup =
     "DescribeFeatureGroupResponse"
     "fixture/DescribeFeatureGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFeatureGroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFeatureGroup)
 
 responseRenderUiTemplate :: RenderUiTemplateResponse -> TestTree
 responseRenderUiTemplate =
@@ -3787,7 +3787,7 @@ responseRenderUiTemplate =
     "RenderUiTemplateResponse"
     "fixture/RenderUiTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy RenderUiTemplate)
+    (Proxy.Proxy :: Proxy.Proxy RenderUiTemplate)
 
 responseDeleteFlowDefinition :: DeleteFlowDefinitionResponse -> TestTree
 responseDeleteFlowDefinition =
@@ -3795,7 +3795,7 @@ responseDeleteFlowDefinition =
     "DeleteFlowDefinitionResponse"
     "fixture/DeleteFlowDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFlowDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlowDefinition)
 
 responseSendPipelineExecutionStepFailure :: SendPipelineExecutionStepFailureResponse -> TestTree
 responseSendPipelineExecutionStepFailure =
@@ -3803,7 +3803,7 @@ responseSendPipelineExecutionStepFailure =
     "SendPipelineExecutionStepFailureResponse"
     "fixture/SendPipelineExecutionStepFailureResponse.proto"
     defaultService
-    (Proxy :: Proxy SendPipelineExecutionStepFailure)
+    (Proxy.Proxy :: Proxy.Proxy SendPipelineExecutionStepFailure)
 
 responseCreateTrial :: CreateTrialResponse -> TestTree
 responseCreateTrial =
@@ -3811,7 +3811,7 @@ responseCreateTrial =
     "CreateTrialResponse"
     "fixture/CreateTrialResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrial)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrial)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -3819,7 +3819,7 @@ responseDeleteModel =
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
 
 responseListDataQualityJobDefinitions :: ListDataQualityJobDefinitionsResponse -> TestTree
 responseListDataQualityJobDefinitions =
@@ -3827,7 +3827,7 @@ responseListDataQualityJobDefinitions =
     "ListDataQualityJobDefinitionsResponse"
     "fixture/ListDataQualityJobDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataQualityJobDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListDataQualityJobDefinitions)
 
 responseListModels :: ListModelsResponse -> TestTree
 responseListModels =
@@ -3835,7 +3835,7 @@ responseListModels =
     "ListModelsResponse"
     "fixture/ListModelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModels)
+    (Proxy.Proxy :: Proxy.Proxy ListModels)
 
 responseDeleteAlgorithm :: DeleteAlgorithmResponse -> TestTree
 responseDeleteAlgorithm =
@@ -3843,7 +3843,7 @@ responseDeleteAlgorithm =
     "DeleteAlgorithmResponse"
     "fixture/DeleteAlgorithmResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAlgorithm)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlgorithm)
 
 responseAssociateTrialComponent :: AssociateTrialComponentResponse -> TestTree
 responseAssociateTrialComponent =
@@ -3851,7 +3851,7 @@ responseAssociateTrialComponent =
     "AssociateTrialComponentResponse"
     "fixture/AssociateTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTrialComponent)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTrialComponent)
 
 responseUpdatePipelineExecution :: UpdatePipelineExecutionResponse -> TestTree
 responseUpdatePipelineExecution =
@@ -3859,7 +3859,7 @@ responseUpdatePipelineExecution =
     "UpdatePipelineExecutionResponse"
     "fixture/UpdatePipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipelineExecution)
 
 responseDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfigResponse -> TestTree
 responseDescribeNotebookInstanceLifecycleConfig =
@@ -3867,7 +3867,7 @@ responseDescribeNotebookInstanceLifecycleConfig =
     "DescribeNotebookInstanceLifecycleConfigResponse"
     "fixture/DescribeNotebookInstanceLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotebookInstanceLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotebookInstanceLifecycleConfig)
 
 responseDescribeWorkforce :: DescribeWorkforceResponse -> TestTree
 responseDescribeWorkforce =
@@ -3875,7 +3875,7 @@ responseDescribeWorkforce =
     "DescribeWorkforceResponse"
     "fixture/DescribeWorkforceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkforce)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkforce)
 
 responseDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinitionResponse -> TestTree
 responseDeleteModelExplainabilityJobDefinition =
@@ -3883,7 +3883,7 @@ responseDeleteModelExplainabilityJobDefinition =
     "DeleteModelExplainabilityJobDefinitionResponse"
     "fixture/DeleteModelExplainabilityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelExplainabilityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelExplainabilityJobDefinition)
 
 responseCreateModelPackage :: CreateModelPackageResponse -> TestTree
 responseCreateModelPackage =
@@ -3891,7 +3891,7 @@ responseCreateModelPackage =
     "CreateModelPackageResponse"
     "fixture/CreateModelPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelPackage)
+    (Proxy.Proxy :: Proxy.Proxy CreateModelPackage)
 
 responseDeleteModelQualityJobDefinition :: DeleteModelQualityJobDefinitionResponse -> TestTree
 responseDeleteModelQualityJobDefinition =
@@ -3899,7 +3899,7 @@ responseDeleteModelQualityJobDefinition =
     "DeleteModelQualityJobDefinitionResponse"
     "fixture/DeleteModelQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelQualityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelQualityJobDefinition)
 
 responseStopMonitoringSchedule :: StopMonitoringScheduleResponse -> TestTree
 responseStopMonitoringSchedule =
@@ -3907,7 +3907,7 @@ responseStopMonitoringSchedule =
     "StopMonitoringScheduleResponse"
     "fixture/StopMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy StopMonitoringSchedule)
+    (Proxy.Proxy :: Proxy.Proxy StopMonitoringSchedule)
 
 responseListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitionsResponse -> TestTree
 responseListModelExplainabilityJobDefinitions =
@@ -3915,7 +3915,7 @@ responseListModelExplainabilityJobDefinitions =
     "ListModelExplainabilityJobDefinitionsResponse"
     "fixture/ListModelExplainabilityJobDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModelExplainabilityJobDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListModelExplainabilityJobDefinitions)
 
 responseDescribeAppImageConfig :: DescribeAppImageConfigResponse -> TestTree
 responseDescribeAppImageConfig =
@@ -3923,7 +3923,7 @@ responseDescribeAppImageConfig =
     "DescribeAppImageConfigResponse"
     "fixture/DescribeAppImageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAppImageConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppImageConfig)
 
 responseListNotebookInstances :: ListNotebookInstancesResponse -> TestTree
 responseListNotebookInstances =
@@ -3931,7 +3931,7 @@ responseListNotebookInstances =
     "ListNotebookInstancesResponse"
     "fixture/ListNotebookInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotebookInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListNotebookInstances)
 
 responseDescribeStudioLifecycleConfig :: DescribeStudioLifecycleConfigResponse -> TestTree
 responseDescribeStudioLifecycleConfig =
@@ -3939,7 +3939,7 @@ responseDescribeStudioLifecycleConfig =
     "DescribeStudioLifecycleConfigResponse"
     "fixture/DescribeStudioLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStudioLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStudioLifecycleConfig)
 
 responseStopLabelingJob :: StopLabelingJobResponse -> TestTree
 responseStopLabelingJob =
@@ -3947,7 +3947,7 @@ responseStopLabelingJob =
     "StopLabelingJobResponse"
     "fixture/StopLabelingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopLabelingJob)
+    (Proxy.Proxy :: Proxy.Proxy StopLabelingJob)
 
 responseDeleteNotebookInstance :: DeleteNotebookInstanceResponse -> TestTree
 responseDeleteNotebookInstance =
@@ -3955,7 +3955,7 @@ responseDeleteNotebookInstance =
     "DeleteNotebookInstanceResponse"
     "fixture/DeleteNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotebookInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotebookInstance)
 
 responseUpdateNotebookInstance :: UpdateNotebookInstanceResponse -> TestTree
 responseUpdateNotebookInstance =
@@ -3963,7 +3963,7 @@ responseUpdateNotebookInstance =
     "UpdateNotebookInstanceResponse"
     "fixture/UpdateNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNotebookInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotebookInstance)
 
 responseListModelPackages :: ListModelPackagesResponse -> TestTree
 responseListModelPackages =
@@ -3971,7 +3971,7 @@ responseListModelPackages =
     "ListModelPackagesResponse"
     "fixture/ListModelPackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModelPackages)
+    (Proxy.Proxy :: Proxy.Proxy ListModelPackages)
 
 responseCreateModelQualityJobDefinition :: CreateModelQualityJobDefinitionResponse -> TestTree
 responseCreateModelQualityJobDefinition =
@@ -3979,7 +3979,7 @@ responseCreateModelQualityJobDefinition =
     "CreateModelQualityJobDefinitionResponse"
     "fixture/CreateModelQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelQualityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateModelQualityJobDefinition)
 
 responseDeleteImageVersion :: DeleteImageVersionResponse -> TestTree
 responseDeleteImageVersion =
@@ -3987,7 +3987,7 @@ responseDeleteImageVersion =
     "DeleteImageVersionResponse"
     "fixture/DeleteImageVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImageVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImageVersion)
 
 responseDescribeExperiment :: DescribeExperimentResponse -> TestTree
 responseDescribeExperiment =
@@ -3995,7 +3995,7 @@ responseDescribeExperiment =
     "DescribeExperimentResponse"
     "fixture/DescribeExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExperiment)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExperiment)
 
 responseDeleteTrialComponent :: DeleteTrialComponentResponse -> TestTree
 responseDeleteTrialComponent =
@@ -4003,7 +4003,7 @@ responseDeleteTrialComponent =
     "DeleteTrialComponentResponse"
     "fixture/DeleteTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrialComponent)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrialComponent)
 
 responseUpdateTrialComponent :: UpdateTrialComponentResponse -> TestTree
 responseUpdateTrialComponent =
@@ -4011,7 +4011,7 @@ responseUpdateTrialComponent =
     "UpdateTrialComponentResponse"
     "fixture/UpdateTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrialComponent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrialComponent)
 
 responseDescribeLabelingJob :: DescribeLabelingJobResponse -> TestTree
 responseDescribeLabelingJob =
@@ -4019,7 +4019,7 @@ responseDescribeLabelingJob =
     "DescribeLabelingJobResponse"
     "fixture/DescribeLabelingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLabelingJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLabelingJob)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -4027,7 +4027,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseListDeviceFleets :: ListDeviceFleetsResponse -> TestTree
 responseListDeviceFleets =
@@ -4035,7 +4035,7 @@ responseListDeviceFleets =
     "ListDeviceFleetsResponse"
     "fixture/ListDeviceFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceFleets)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceFleets)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
 responseDescribeUserProfile =
@@ -4043,7 +4043,7 @@ responseDescribeUserProfile =
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserProfile)
 
 responseListMonitoringExecutions :: ListMonitoringExecutionsResponse -> TestTree
 responseListMonitoringExecutions =
@@ -4051,7 +4051,7 @@ responseListMonitoringExecutions =
     "ListMonitoringExecutionsResponse"
     "fixture/ListMonitoringExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMonitoringExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListMonitoringExecutions)
 
 responseDeleteHumanTaskUi :: DeleteHumanTaskUiResponse -> TestTree
 responseDeleteHumanTaskUi =
@@ -4059,7 +4059,7 @@ responseDeleteHumanTaskUi =
     "DeleteHumanTaskUiResponse"
     "fixture/DeleteHumanTaskUiResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHumanTaskUi)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHumanTaskUi)
 
 responseStopTrainingJob :: StopTrainingJobResponse -> TestTree
 responseStopTrainingJob =
@@ -4067,7 +4067,7 @@ responseStopTrainingJob =
     "StopTrainingJobResponse"
     "fixture/StopTrainingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopTrainingJob)
+    (Proxy.Proxy :: Proxy.Proxy StopTrainingJob)
 
 responseCreateFeatureGroup :: CreateFeatureGroupResponse -> TestTree
 responseCreateFeatureGroup =
@@ -4075,7 +4075,7 @@ responseCreateFeatureGroup =
     "CreateFeatureGroupResponse"
     "fixture/CreateFeatureGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFeatureGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateFeatureGroup)
 
 responseDescribeAlgorithm :: DescribeAlgorithmResponse -> TestTree
 responseDescribeAlgorithm =
@@ -4083,7 +4083,7 @@ responseDescribeAlgorithm =
     "DescribeAlgorithmResponse"
     "fixture/DescribeAlgorithmResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAlgorithm)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlgorithm)
 
 responseUpdateDevices :: UpdateDevicesResponse -> TestTree
 responseUpdateDevices =
@@ -4091,7 +4091,7 @@ responseUpdateDevices =
     "UpdateDevicesResponse"
     "fixture/UpdateDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDevices)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDevices)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
 responseDescribeModel =
@@ -4099,7 +4099,7 @@ responseDescribeModel =
     "DescribeModelResponse"
     "fixture/DescribeModelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModel)
 
 responseListTransformJobs :: ListTransformJobsResponse -> TestTree
 responseListTransformJobs =
@@ -4107,7 +4107,7 @@ responseListTransformJobs =
     "ListTransformJobsResponse"
     "fixture/ListTransformJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTransformJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListTransformJobs)
 
 responseDeleteFeatureGroup :: DeleteFeatureGroupResponse -> TestTree
 responseDeleteFeatureGroup =
@@ -4115,7 +4115,7 @@ responseDeleteFeatureGroup =
     "DeleteFeatureGroupResponse"
     "fixture/DeleteFeatureGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFeatureGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFeatureGroup)
 
 responseListEdgePackagingJobs :: ListEdgePackagingJobsResponse -> TestTree
 responseListEdgePackagingJobs =
@@ -4123,7 +4123,7 @@ responseListEdgePackagingJobs =
     "ListEdgePackagingJobsResponse"
     "fixture/ListEdgePackagingJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEdgePackagingJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListEdgePackagingJobs)
 
 responseDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJobResponse -> TestTree
 responseDescribeHyperParameterTuningJob =
@@ -4131,7 +4131,7 @@ responseDescribeHyperParameterTuningJob =
     "DescribeHyperParameterTuningJobResponse"
     "fixture/DescribeHyperParameterTuningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHyperParameterTuningJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHyperParameterTuningJob)
 
 responseListEndpoints :: ListEndpointsResponse -> TestTree
 responseListEndpoints =
@@ -4139,7 +4139,7 @@ responseListEndpoints =
     "ListEndpointsResponse"
     "fixture/ListEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
 
 responseDescribeFlowDefinition :: DescribeFlowDefinitionResponse -> TestTree
 responseDescribeFlowDefinition =
@@ -4147,7 +4147,7 @@ responseDescribeFlowDefinition =
     "DescribeFlowDefinitionResponse"
     "fixture/DescribeFlowDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFlowDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlowDefinition)
 
 responseCreateDeviceFleet :: CreateDeviceFleetResponse -> TestTree
 responseCreateDeviceFleet =
@@ -4155,7 +4155,7 @@ responseCreateDeviceFleet =
     "CreateDeviceFleetResponse"
     "fixture/CreateDeviceFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeviceFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeviceFleet)
 
 responseCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrlResponse -> TestTree
 responseCreatePresignedNotebookInstanceUrl =
@@ -4163,7 +4163,7 @@ responseCreatePresignedNotebookInstanceUrl =
     "CreatePresignedNotebookInstanceUrlResponse"
     "fixture/CreatePresignedNotebookInstanceUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePresignedNotebookInstanceUrl)
+    (Proxy.Proxy :: Proxy.Proxy CreatePresignedNotebookInstanceUrl)
 
 responseListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJobResponse -> TestTree
 responseListTrainingJobsForHyperParameterTuningJob =
@@ -4171,7 +4171,7 @@ responseListTrainingJobsForHyperParameterTuningJob =
     "ListTrainingJobsForHyperParameterTuningJobResponse"
     "fixture/ListTrainingJobsForHyperParameterTuningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrainingJobsForHyperParameterTuningJob)
+    (Proxy.Proxy :: Proxy.Proxy ListTrainingJobsForHyperParameterTuningJob)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -4179,7 +4179,7 @@ responseDescribeDomain =
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
 
 responseDeleteModelBiasJobDefinition :: DeleteModelBiasJobDefinitionResponse -> TestTree
 responseDeleteModelBiasJobDefinition =
@@ -4187,7 +4187,7 @@ responseDeleteModelBiasJobDefinition =
     "DeleteModelBiasJobDefinitionResponse"
     "fixture/DeleteModelBiasJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelBiasJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelBiasJobDefinition)
 
 responseUpdateWorkteam :: UpdateWorkteamResponse -> TestTree
 responseUpdateWorkteam =
@@ -4195,7 +4195,7 @@ responseUpdateWorkteam =
     "UpdateWorkteamResponse"
     "fixture/UpdateWorkteamResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkteam)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkteam)
 
 responseDeleteWorkteam :: DeleteWorkteamResponse -> TestTree
 responseDeleteWorkteam =
@@ -4203,7 +4203,7 @@ responseDeleteWorkteam =
     "DeleteWorkteamResponse"
     "fixture/DeleteWorkteamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkteam)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkteam)
 
 responseListWorkteams :: ListWorkteamsResponse -> TestTree
 responseListWorkteams =
@@ -4211,7 +4211,7 @@ responseListWorkteams =
     "ListWorkteamsResponse"
     "fixture/ListWorkteamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkteams)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkteams)
 
 responseDescribeDevice :: DescribeDeviceResponse -> TestTree
 responseDescribeDevice =
@@ -4219,7 +4219,7 @@ responseDescribeDevice =
     "DescribeDeviceResponse"
     "fixture/DescribeDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDevice)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
 
 responseCreateAutoMLJob :: CreateAutoMLJobResponse -> TestTree
 responseCreateAutoMLJob =
@@ -4227,7 +4227,7 @@ responseCreateAutoMLJob =
     "CreateAutoMLJobResponse"
     "fixture/CreateAutoMLJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAutoMLJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateAutoMLJob)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
@@ -4235,7 +4235,7 @@ responseCreateApp =
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApp)
+    (Proxy.Proxy :: Proxy.Proxy CreateApp)
 
 responseCreateExperiment :: CreateExperimentResponse -> TestTree
 responseCreateExperiment =
@@ -4243,7 +4243,7 @@ responseCreateExperiment =
     "CreateExperimentResponse"
     "fixture/CreateExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateExperiment)
+    (Proxy.Proxy :: Proxy.Proxy CreateExperiment)
 
 responseListNotebookInstanceLifecycleConfigs :: ListNotebookInstanceLifecycleConfigsResponse -> TestTree
 responseListNotebookInstanceLifecycleConfigs =
@@ -4251,7 +4251,7 @@ responseListNotebookInstanceLifecycleConfigs =
     "ListNotebookInstanceLifecycleConfigsResponse"
     "fixture/ListNotebookInstanceLifecycleConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNotebookInstanceLifecycleConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListNotebookInstanceLifecycleConfigs)
 
 responseListWorkforces :: ListWorkforcesResponse -> TestTree
 responseListWorkforces =
@@ -4259,7 +4259,7 @@ responseListWorkforces =
     "ListWorkforcesResponse"
     "fixture/ListWorkforcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkforces)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkforces)
 
 responseDescribeSubscribedWorkteam :: DescribeSubscribedWorkteamResponse -> TestTree
 responseDescribeSubscribedWorkteam =
@@ -4267,7 +4267,7 @@ responseDescribeSubscribedWorkteam =
     "DescribeSubscribedWorkteamResponse"
     "fixture/DescribeSubscribedWorkteamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubscribedWorkteam)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSubscribedWorkteam)
 
 responseListStudioLifecycleConfigs :: ListStudioLifecycleConfigsResponse -> TestTree
 responseListStudioLifecycleConfigs =
@@ -4275,7 +4275,7 @@ responseListStudioLifecycleConfigs =
     "ListStudioLifecycleConfigsResponse"
     "fixture/ListStudioLifecycleConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStudioLifecycleConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListStudioLifecycleConfigs)
 
 responseListModelBiasJobDefinitions :: ListModelBiasJobDefinitionsResponse -> TestTree
 responseListModelBiasJobDefinitions =
@@ -4283,7 +4283,7 @@ responseListModelBiasJobDefinitions =
     "ListModelBiasJobDefinitionsResponse"
     "fixture/ListModelBiasJobDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModelBiasJobDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListModelBiasJobDefinitions)
 
 responseCreateStudioLifecycleConfig :: CreateStudioLifecycleConfigResponse -> TestTree
 responseCreateStudioLifecycleConfig =
@@ -4291,7 +4291,7 @@ responseCreateStudioLifecycleConfig =
     "CreateStudioLifecycleConfigResponse"
     "fixture/CreateStudioLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStudioLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudioLifecycleConfig)
 
 responseDisableSagemakerServicecatalogPortfolio :: DisableSagemakerServicecatalogPortfolioResponse -> TestTree
 responseDisableSagemakerServicecatalogPortfolio =
@@ -4299,7 +4299,7 @@ responseDisableSagemakerServicecatalogPortfolio =
     "DisableSagemakerServicecatalogPortfolioResponse"
     "fixture/DisableSagemakerServicecatalogPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableSagemakerServicecatalogPortfolio)
+    (Proxy.Proxy :: Proxy.Proxy DisableSagemakerServicecatalogPortfolio)
 
 responseCreateWorkteam :: CreateWorkteamResponse -> TestTree
 responseCreateWorkteam =
@@ -4307,7 +4307,7 @@ responseCreateWorkteam =
     "CreateWorkteamResponse"
     "fixture/CreateWorkteamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkteam)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkteam)
 
 responseCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfigResponse -> TestTree
 responseCreateNotebookInstanceLifecycleConfig =
@@ -4315,7 +4315,7 @@ responseCreateNotebookInstanceLifecycleConfig =
     "CreateNotebookInstanceLifecycleConfigResponse"
     "fixture/CreateNotebookInstanceLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNotebookInstanceLifecycleConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateNotebookInstanceLifecycleConfig)
 
 responseListMonitoringSchedules :: ListMonitoringSchedulesResponse -> TestTree
 responseListMonitoringSchedules =
@@ -4323,7 +4323,7 @@ responseListMonitoringSchedules =
     "ListMonitoringSchedulesResponse"
     "fixture/ListMonitoringSchedulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMonitoringSchedules)
+    (Proxy.Proxy :: Proxy.Proxy ListMonitoringSchedules)
 
 responseListLabelingJobs :: ListLabelingJobsResponse -> TestTree
 responseListLabelingJobs =
@@ -4331,7 +4331,7 @@ responseListLabelingJobs =
     "ListLabelingJobsResponse"
     "fixture/ListLabelingJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLabelingJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListLabelingJobs)
 
 responseStartNotebookInstance :: StartNotebookInstanceResponse -> TestTree
 responseStartNotebookInstance =
@@ -4339,7 +4339,7 @@ responseStartNotebookInstance =
     "StartNotebookInstanceResponse"
     "fixture/StartNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StartNotebookInstance)
+    (Proxy.Proxy :: Proxy.Proxy StartNotebookInstance)
 
 responseUpdateExperiment :: UpdateExperimentResponse -> TestTree
 responseUpdateExperiment =
@@ -4347,7 +4347,7 @@ responseUpdateExperiment =
     "UpdateExperimentResponse"
     "fixture/UpdateExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateExperiment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateExperiment)
 
 responseDeleteExperiment :: DeleteExperimentResponse -> TestTree
 responseDeleteExperiment =
@@ -4355,7 +4355,7 @@ responseDeleteExperiment =
     "DeleteExperimentResponse"
     "fixture/DeleteExperimentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteExperiment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteExperiment)
 
 responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
 responseStopPipelineExecution =
@@ -4363,7 +4363,7 @@ responseStopPipelineExecution =
     "StopPipelineExecutionResponse"
     "fixture/StopPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopPipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy StopPipelineExecution)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -4371,7 +4371,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseListAssociations :: ListAssociationsResponse -> TestTree
 responseListAssociations =
@@ -4379,7 +4379,7 @@ responseListAssociations =
     "ListAssociationsResponse"
     "fixture/ListAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociations)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociations)
 
 responseCreateWorkforce :: CreateWorkforceResponse -> TestTree
 responseCreateWorkforce =
@@ -4387,7 +4387,7 @@ responseCreateWorkforce =
     "CreateWorkforceResponse"
     "fixture/CreateWorkforceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkforce)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkforce)
 
 responseDescribeTrialComponent :: DescribeTrialComponentResponse -> TestTree
 responseDescribeTrialComponent =
@@ -4395,7 +4395,7 @@ responseDescribeTrialComponent =
     "DescribeTrialComponentResponse"
     "fixture/DescribeTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrialComponent)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrialComponent)
 
 responseDescribeImageVersion :: DescribeImageVersionResponse -> TestTree
 responseDescribeImageVersion =
@@ -4403,7 +4403,7 @@ responseDescribeImageVersion =
     "DescribeImageVersionResponse"
     "fixture/DescribeImageVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImageVersion)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImageVersion)
 
 responseCreateModelBiasJobDefinition :: CreateModelBiasJobDefinitionResponse -> TestTree
 responseCreateModelBiasJobDefinition =
@@ -4411,7 +4411,7 @@ responseCreateModelBiasJobDefinition =
     "CreateModelBiasJobDefinitionResponse"
     "fixture/CreateModelBiasJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelBiasJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateModelBiasJobDefinition)
 
 responseListEndpointConfigs :: ListEndpointConfigsResponse -> TestTree
 responseListEndpointConfigs =
@@ -4419,7 +4419,7 @@ responseListEndpointConfigs =
     "ListEndpointConfigsResponse"
     "fixture/ListEndpointConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEndpointConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListEndpointConfigs)
 
 responseDeleteAssociation :: DeleteAssociationResponse -> TestTree
 responseDeleteAssociation =
@@ -4427,7 +4427,7 @@ responseDeleteAssociation =
     "DeleteAssociationResponse"
     "fixture/DeleteAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssociation)
 
 responseCreateFlowDefinition :: CreateFlowDefinitionResponse -> TestTree
 responseCreateFlowDefinition =
@@ -4435,7 +4435,7 @@ responseCreateFlowDefinition =
     "CreateFlowDefinitionResponse"
     "fixture/CreateFlowDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFlowDefinition)
+    (Proxy.Proxy :: Proxy.Proxy CreateFlowDefinition)
 
 responseListModelPackageGroups :: ListModelPackageGroupsResponse -> TestTree
 responseListModelPackageGroups =
@@ -4443,7 +4443,7 @@ responseListModelPackageGroups =
     "ListModelPackageGroupsResponse"
     "fixture/ListModelPackageGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModelPackageGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListModelPackageGroups)
 
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
@@ -4451,7 +4451,7 @@ responseListTags =
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
 
 responseDeregisterDevices :: DeregisterDevicesResponse -> TestTree
 responseDeregisterDevices =
@@ -4459,7 +4459,7 @@ responseDeregisterDevices =
     "DeregisterDevicesResponse"
     "fixture/DeregisterDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterDevices)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterDevices)
 
 responseDescribeHumanTaskUi :: DescribeHumanTaskUiResponse -> TestTree
 responseDescribeHumanTaskUi =
@@ -4467,7 +4467,7 @@ responseDescribeHumanTaskUi =
     "DescribeHumanTaskUiResponse"
     "fixture/DescribeHumanTaskUiResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHumanTaskUi)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHumanTaskUi)
 
 responseCreateTrainingJob :: CreateTrainingJobResponse -> TestTree
 responseCreateTrainingJob =
@@ -4475,7 +4475,7 @@ responseCreateTrainingJob =
     "CreateTrainingJobResponse"
     "fixture/CreateTrainingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrainingJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrainingJob)
 
 responseDeleteModelPackageGroupPolicy :: DeleteModelPackageGroupPolicyResponse -> TestTree
 responseDeleteModelPackageGroupPolicy =
@@ -4483,7 +4483,7 @@ responseDeleteModelPackageGroupPolicy =
     "DeleteModelPackageGroupPolicyResponse"
     "fixture/DeleteModelPackageGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelPackageGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelPackageGroupPolicy)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
 responseDeleteUserProfile =
@@ -4491,7 +4491,7 @@ responseDeleteUserProfile =
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
 responseUpdateUserProfile =
@@ -4499,7 +4499,7 @@ responseUpdateUserProfile =
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserProfile)
 
 responseCreateImage :: CreateImageResponse -> TestTree
 responseCreateImage =
@@ -4507,7 +4507,7 @@ responseCreateImage =
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateImage)
 
 responsePutModelPackageGroupPolicy :: PutModelPackageGroupPolicyResponse -> TestTree
 responsePutModelPackageGroupPolicy =
@@ -4515,7 +4515,7 @@ responsePutModelPackageGroupPolicy =
     "PutModelPackageGroupPolicyResponse"
     "fixture/PutModelPackageGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutModelPackageGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutModelPackageGroupPolicy)
 
 responseListPipelineParametersForExecution :: ListPipelineParametersForExecutionResponse -> TestTree
 responseListPipelineParametersForExecution =
@@ -4523,7 +4523,7 @@ responseListPipelineParametersForExecution =
     "ListPipelineParametersForExecutionResponse"
     "fixture/ListPipelineParametersForExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelineParametersForExecution)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelineParametersForExecution)
 
 responseCreateContext :: CreateContextResponse -> TestTree
 responseCreateContext =
@@ -4531,7 +4531,7 @@ responseCreateContext =
     "CreateContextResponse"
     "fixture/CreateContextResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateContext)
+    (Proxy.Proxy :: Proxy.Proxy CreateContext)
 
 responseDescribePipelineDefinitionForExecution :: DescribePipelineDefinitionForExecutionResponse -> TestTree
 responseDescribePipelineDefinitionForExecution =
@@ -4539,7 +4539,7 @@ responseDescribePipelineDefinitionForExecution =
     "DescribePipelineDefinitionForExecutionResponse"
     "fixture/DescribePipelineDefinitionForExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePipelineDefinitionForExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribePipelineDefinitionForExecution)
 
 responseListTrials :: ListTrialsResponse -> TestTree
 responseListTrials =
@@ -4547,7 +4547,7 @@ responseListTrials =
     "ListTrialsResponse"
     "fixture/ListTrialsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrials)
+    (Proxy.Proxy :: Proxy.Proxy ListTrials)
 
 responseStopCompilationJob :: StopCompilationJobResponse -> TestTree
 responseStopCompilationJob =
@@ -4555,7 +4555,7 @@ responseStopCompilationJob =
     "StopCompilationJobResponse"
     "fixture/StopCompilationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopCompilationJob)
+    (Proxy.Proxy :: Proxy.Proxy StopCompilationJob)
 
 responseListImages :: ListImagesResponse -> TestTree
 responseListImages =
@@ -4563,7 +4563,7 @@ responseListImages =
     "ListImagesResponse"
     "fixture/ListImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListImages)
+    (Proxy.Proxy :: Proxy.Proxy ListImages)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
 responseCreateUserProfile =
@@ -4571,7 +4571,7 @@ responseCreateUserProfile =
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserProfile)
 
 responseSearch :: SearchResponse -> TestTree
 responseSearch =
@@ -4579,7 +4579,7 @@ responseSearch =
     "SearchResponse"
     "fixture/SearchResponse.proto"
     defaultService
-    (Proxy :: Proxy Search)
+    (Proxy.Proxy :: Proxy.Proxy Search)
 
 responseUpdateCodeRepository :: UpdateCodeRepositoryResponse -> TestTree
 responseUpdateCodeRepository =
@@ -4587,7 +4587,7 @@ responseUpdateCodeRepository =
     "UpdateCodeRepositoryResponse"
     "fixture/UpdateCodeRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCodeRepository)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCodeRepository)
 
 responseDeleteCodeRepository :: DeleteCodeRepositoryResponse -> TestTree
 responseDeleteCodeRepository =
@@ -4595,7 +4595,7 @@ responseDeleteCodeRepository =
     "DeleteCodeRepositoryResponse"
     "fixture/DeleteCodeRepositoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCodeRepository)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCodeRepository)
 
 responseListContexts :: ListContextsResponse -> TestTree
 responseListContexts =
@@ -4603,7 +4603,7 @@ responseListContexts =
     "ListContextsResponse"
     "fixture/ListContextsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListContexts)
+    (Proxy.Proxy :: Proxy.Proxy ListContexts)
 
 responseDescribeTransformJob :: DescribeTransformJobResponse -> TestTree
 responseDescribeTransformJob =
@@ -4611,7 +4611,7 @@ responseDescribeTransformJob =
     "DescribeTransformJobResponse"
     "fixture/DescribeTransformJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransformJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransformJob)
 
 responseDescribeEdgePackagingJob :: DescribeEdgePackagingJobResponse -> TestTree
 responseDescribeEdgePackagingJob =
@@ -4619,7 +4619,7 @@ responseDescribeEdgePackagingJob =
     "DescribeEdgePackagingJobResponse"
     "fixture/DescribeEdgePackagingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEdgePackagingJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEdgePackagingJob)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
@@ -4627,7 +4627,7 @@ responseCreatePipeline =
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreatePipeline)
 
 responseListCandidatesForAutoMLJob :: ListCandidatesForAutoMLJobResponse -> TestTree
 responseListCandidatesForAutoMLJob =
@@ -4635,7 +4635,7 @@ responseListCandidatesForAutoMLJob =
     "ListCandidatesForAutoMLJobResponse"
     "fixture/ListCandidatesForAutoMLJobResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCandidatesForAutoMLJob)
+    (Proxy.Proxy :: Proxy.Proxy ListCandidatesForAutoMLJob)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
 responseDeleteImage =
@@ -4643,7 +4643,7 @@ responseDeleteImage =
     "DeleteImageResponse"
     "fixture/DeleteImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteImage)
 
 responseUpdateImage :: UpdateImageResponse -> TestTree
 responseUpdateImage =
@@ -4651,7 +4651,7 @@ responseUpdateImage =
     "UpdateImageResponse"
     "fixture/UpdateImageResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateImage)
+    (Proxy.Proxy :: Proxy.Proxy UpdateImage)
 
 responseListFlowDefinitions :: ListFlowDefinitionsResponse -> TestTree
 responseListFlowDefinitions =
@@ -4659,7 +4659,7 @@ responseListFlowDefinitions =
     "ListFlowDefinitionsResponse"
     "fixture/ListFlowDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFlowDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListFlowDefinitions)
 
 responseDeleteContext :: DeleteContextResponse -> TestTree
 responseDeleteContext =
@@ -4667,7 +4667,7 @@ responseDeleteContext =
     "DeleteContextResponse"
     "fixture/DeleteContextResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteContext)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContext)
 
 responseUpdateContext :: UpdateContextResponse -> TestTree
 responseUpdateContext =
@@ -4675,7 +4675,7 @@ responseUpdateContext =
     "UpdateContextResponse"
     "fixture/UpdateContextResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContext)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContext)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
 responseDescribeEndpoint =
@@ -4683,7 +4683,7 @@ responseDescribeEndpoint =
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoint)
 
 responseUpdateTrainingJob :: UpdateTrainingJobResponse -> TestTree
 responseUpdateTrainingJob =
@@ -4691,7 +4691,7 @@ responseUpdateTrainingJob =
     "UpdateTrainingJobResponse"
     "fixture/UpdateTrainingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrainingJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrainingJob)
 
 responseListTrainingJobs :: ListTrainingJobsResponse -> TestTree
 responseListTrainingJobs =
@@ -4699,7 +4699,7 @@ responseListTrainingJobs =
     "ListTrainingJobsResponse"
     "fixture/ListTrainingJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrainingJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListTrainingJobs)
 
 responseGetDeviceFleetReport :: GetDeviceFleetReportResponse -> TestTree
 responseGetDeviceFleetReport =
@@ -4707,7 +4707,7 @@ responseGetDeviceFleetReport =
     "GetDeviceFleetReportResponse"
     "fixture/GetDeviceFleetReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceFleetReport)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceFleetReport)
 
 responseDeleteDataQualityJobDefinition :: DeleteDataQualityJobDefinitionResponse -> TestTree
 responseDeleteDataQualityJobDefinition =
@@ -4715,7 +4715,7 @@ responseDeleteDataQualityJobDefinition =
     "DeleteDataQualityJobDefinitionResponse"
     "fixture/DeleteDataQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataQualityJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataQualityJobDefinition)
 
 responseDescribeWorkteam :: DescribeWorkteamResponse -> TestTree
 responseDescribeWorkteam =
@@ -4723,7 +4723,7 @@ responseDescribeWorkteam =
     "DescribeWorkteamResponse"
     "fixture/DescribeWorkteamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeWorkteam)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkteam)
 
 responseListSubscribedWorkteams :: ListSubscribedWorkteamsResponse -> TestTree
 responseListSubscribedWorkteams =
@@ -4731,7 +4731,7 @@ responseListSubscribedWorkteams =
     "ListSubscribedWorkteamsResponse"
     "fixture/ListSubscribedWorkteamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscribedWorkteams)
+    (Proxy.Proxy :: Proxy.Proxy ListSubscribedWorkteams)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -4739,7 +4739,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
 responseUpdateDomain =
@@ -4747,7 +4747,7 @@ responseUpdateDomain =
     "UpdateDomainResponse"
     "fixture/UpdateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -4755,7 +4755,7 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
 
 responseListModelQualityJobDefinitions :: ListModelQualityJobDefinitionsResponse -> TestTree
 responseListModelQualityJobDefinitions =
@@ -4763,7 +4763,7 @@ responseListModelQualityJobDefinitions =
     "ListModelQualityJobDefinitionsResponse"
     "fixture/ListModelQualityJobDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModelQualityJobDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy ListModelQualityJobDefinitions)
 
 responseCreateImageVersion :: CreateImageVersionResponse -> TestTree
 responseCreateImageVersion =
@@ -4771,7 +4771,7 @@ responseCreateImageVersion =
     "CreateImageVersionResponse"
     "fixture/CreateImageVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateImageVersion)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -4779,7 +4779,7 @@ responseListDevices =
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)
 
 responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
 responseListPipelineExecutions =
@@ -4787,7 +4787,7 @@ responseListPipelineExecutions =
     "ListPipelineExecutionsResponse"
     "fixture/ListPipelineExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelineExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelineExecutions)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -4795,7 +4795,7 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
 responseDescribeModelBiasJobDefinition :: DescribeModelBiasJobDefinitionResponse -> TestTree
 responseDescribeModelBiasJobDefinition =
@@ -4803,7 +4803,7 @@ responseDescribeModelBiasJobDefinition =
     "DescribeModelBiasJobDefinitionResponse"
     "fixture/DescribeModelBiasJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeModelBiasJobDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelBiasJobDefinition)
 
 responseStartMonitoringSchedule :: StartMonitoringScheduleResponse -> TestTree
 responseStartMonitoringSchedule =
@@ -4811,7 +4811,7 @@ responseStartMonitoringSchedule =
     "StartMonitoringScheduleResponse"
     "fixture/StartMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMonitoringSchedule)
+    (Proxy.Proxy :: Proxy.Proxy StartMonitoringSchedule)
 
 responseStopAutoMLJob :: StopAutoMLJobResponse -> TestTree
 responseStopAutoMLJob =
@@ -4819,7 +4819,7 @@ responseStopAutoMLJob =
     "StopAutoMLJobResponse"
     "fixture/StopAutoMLJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopAutoMLJob)
+    (Proxy.Proxy :: Proxy.Proxy StopAutoMLJob)
 
 responseCreateTrialComponent :: CreateTrialComponentResponse -> TestTree
 responseCreateTrialComponent =
@@ -4827,7 +4827,7 @@ responseCreateTrialComponent =
     "CreateTrialComponentResponse"
     "fixture/CreateTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrialComponent)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrialComponent)
 
 responseDescribeProcessingJob :: DescribeProcessingJobResponse -> TestTree
 responseDescribeProcessingJob =
@@ -4835,4 +4835,4 @@ responseDescribeProcessingJob =
     "DescribeProcessingJobResponse"
     "fixture/DescribeProcessingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProcessingJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProcessingJob)

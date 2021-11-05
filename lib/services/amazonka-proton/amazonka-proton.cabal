@@ -1,0 +1,164 @@
+cabal-version:      2.2
+name:               amazonka-proton
+version:            2.0
+synopsis:           Amazon Proton SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-07-20@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Proton.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Proton" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-proton
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Proton
+    Network.AWS.Proton.AcceptEnvironmentAccountConnection
+    Network.AWS.Proton.CancelEnvironmentDeployment
+    Network.AWS.Proton.CancelServiceInstanceDeployment
+    Network.AWS.Proton.CancelServicePipelineDeployment
+    Network.AWS.Proton.CreateEnvironment
+    Network.AWS.Proton.CreateEnvironmentAccountConnection
+    Network.AWS.Proton.CreateEnvironmentTemplate
+    Network.AWS.Proton.CreateEnvironmentTemplateVersion
+    Network.AWS.Proton.CreateService
+    Network.AWS.Proton.CreateServiceTemplate
+    Network.AWS.Proton.CreateServiceTemplateVersion
+    Network.AWS.Proton.DeleteEnvironment
+    Network.AWS.Proton.DeleteEnvironmentAccountConnection
+    Network.AWS.Proton.DeleteEnvironmentTemplate
+    Network.AWS.Proton.DeleteEnvironmentTemplateVersion
+    Network.AWS.Proton.DeleteService
+    Network.AWS.Proton.DeleteServiceTemplate
+    Network.AWS.Proton.DeleteServiceTemplateVersion
+    Network.AWS.Proton.GetAccountSettings
+    Network.AWS.Proton.GetEnvironment
+    Network.AWS.Proton.GetEnvironmentAccountConnection
+    Network.AWS.Proton.GetEnvironmentTemplate
+    Network.AWS.Proton.GetEnvironmentTemplateVersion
+    Network.AWS.Proton.GetService
+    Network.AWS.Proton.GetServiceInstance
+    Network.AWS.Proton.GetServiceTemplate
+    Network.AWS.Proton.GetServiceTemplateVersion
+    Network.AWS.Proton.Lens
+    Network.AWS.Proton.ListEnvironmentAccountConnections
+    Network.AWS.Proton.ListEnvironments
+    Network.AWS.Proton.ListEnvironmentTemplates
+    Network.AWS.Proton.ListEnvironmentTemplateVersions
+    Network.AWS.Proton.ListServiceInstances
+    Network.AWS.Proton.ListServices
+    Network.AWS.Proton.ListServiceTemplates
+    Network.AWS.Proton.ListServiceTemplateVersions
+    Network.AWS.Proton.ListTagsForResource
+    Network.AWS.Proton.RejectEnvironmentAccountConnection
+    Network.AWS.Proton.TagResource
+    Network.AWS.Proton.Types
+    Network.AWS.Proton.Types.AccountSettings
+    Network.AWS.Proton.Types.CompatibleEnvironmentTemplate
+    Network.AWS.Proton.Types.CompatibleEnvironmentTemplateInput
+    Network.AWS.Proton.Types.DeploymentStatus
+    Network.AWS.Proton.Types.DeploymentUpdateType
+    Network.AWS.Proton.Types.Environment
+    Network.AWS.Proton.Types.EnvironmentAccountConnection
+    Network.AWS.Proton.Types.EnvironmentAccountConnectionRequesterAccountType
+    Network.AWS.Proton.Types.EnvironmentAccountConnectionStatus
+    Network.AWS.Proton.Types.EnvironmentAccountConnectionSummary
+    Network.AWS.Proton.Types.EnvironmentSummary
+    Network.AWS.Proton.Types.EnvironmentTemplate
+    Network.AWS.Proton.Types.EnvironmentTemplateFilter
+    Network.AWS.Proton.Types.EnvironmentTemplateSummary
+    Network.AWS.Proton.Types.EnvironmentTemplateVersion
+    Network.AWS.Proton.Types.EnvironmentTemplateVersionSummary
+    Network.AWS.Proton.Types.Provisioning
+    Network.AWS.Proton.Types.S3ObjectSource
+    Network.AWS.Proton.Types.Service
+    Network.AWS.Proton.Types.ServiceInstance
+    Network.AWS.Proton.Types.ServiceInstanceSummary
+    Network.AWS.Proton.Types.ServicePipeline
+    Network.AWS.Proton.Types.ServiceStatus
+    Network.AWS.Proton.Types.ServiceSummary
+    Network.AWS.Proton.Types.ServiceTemplate
+    Network.AWS.Proton.Types.ServiceTemplateSummary
+    Network.AWS.Proton.Types.ServiceTemplateVersion
+    Network.AWS.Proton.Types.ServiceTemplateVersionSummary
+    Network.AWS.Proton.Types.Tag
+    Network.AWS.Proton.Types.TemplateVersionSourceInput
+    Network.AWS.Proton.Types.TemplateVersionStatus
+    Network.AWS.Proton.UntagResource
+    Network.AWS.Proton.UpdateAccountSettings
+    Network.AWS.Proton.UpdateEnvironment
+    Network.AWS.Proton.UpdateEnvironmentAccountConnection
+    Network.AWS.Proton.UpdateEnvironmentTemplate
+    Network.AWS.Proton.UpdateEnvironmentTemplateVersion
+    Network.AWS.Proton.UpdateService
+    Network.AWS.Proton.UpdateServiceInstance
+    Network.AWS.Proton.UpdateServicePipeline
+    Network.AWS.Proton.UpdateServiceTemplate
+    Network.AWS.Proton.UpdateServiceTemplateVersion
+    Network.AWS.Proton.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-proton-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Proton
+    Test.AWS.Proton
+    Test.AWS.Proton.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-proton
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

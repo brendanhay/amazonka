@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudHSM where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudHSM
 import Test.AWS.CloudHSM.Internal
 import Test.AWS.Fixture
@@ -283,7 +283,7 @@ responseDeleteHapg =
     "DeleteHapgResponse"
     "fixture/DeleteHapgResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHapg)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHapg)
 
 responseListHapgs :: ListHapgsResponse -> TestTree
 responseListHapgs =
@@ -291,7 +291,7 @@ responseListHapgs =
     "ListHapgsResponse"
     "fixture/ListHapgsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHapgs)
+    (Proxy.Proxy :: Proxy.Proxy ListHapgs)
 
 responseModifyLunaClient :: ModifyLunaClientResponse -> TestTree
 responseModifyLunaClient =
@@ -299,7 +299,7 @@ responseModifyLunaClient =
     "ModifyLunaClientResponse"
     "fixture/ModifyLunaClientResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyLunaClient)
+    (Proxy.Proxy :: Proxy.Proxy ModifyLunaClient)
 
 responseListHsms :: ListHsmsResponse -> TestTree
 responseListHsms =
@@ -307,7 +307,7 @@ responseListHsms =
     "ListHsmsResponse"
     "fixture/ListHsmsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHsms)
+    (Proxy.Proxy :: Proxy.Proxy ListHsms)
 
 responseDescribeLunaClient :: DescribeLunaClientResponse -> TestTree
 responseDescribeLunaClient =
@@ -315,7 +315,7 @@ responseDescribeLunaClient =
     "DescribeLunaClientResponse"
     "fixture/DescribeLunaClientResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLunaClient)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLunaClient)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -323,7 +323,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateHapg :: CreateHapgResponse -> TestTree
 responseCreateHapg =
@@ -331,7 +331,7 @@ responseCreateHapg =
     "CreateHapgResponse"
     "fixture/CreateHapgResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHapg)
+    (Proxy.Proxy :: Proxy.Proxy CreateHapg)
 
 responseCreateHsm :: CreateHsmResponse -> TestTree
 responseCreateHsm =
@@ -339,7 +339,7 @@ responseCreateHsm =
     "CreateHsmResponse"
     "fixture/CreateHsmResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHsm)
+    (Proxy.Proxy :: Proxy.Proxy CreateHsm)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource =
@@ -347,7 +347,7 @@ responseRemoveTagsFromResource =
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
 responseDescribeHapg :: DescribeHapgResponse -> TestTree
 responseDescribeHapg =
@@ -355,7 +355,7 @@ responseDescribeHapg =
     "DescribeHapgResponse"
     "fixture/DescribeHapgResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHapg)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHapg)
 
 responseCreateLunaClient :: CreateLunaClientResponse -> TestTree
 responseCreateLunaClient =
@@ -363,7 +363,7 @@ responseCreateLunaClient =
     "CreateLunaClientResponse"
     "fixture/CreateLunaClientResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLunaClient)
+    (Proxy.Proxy :: Proxy.Proxy CreateLunaClient)
 
 responseListLunaClients :: ListLunaClientsResponse -> TestTree
 responseListLunaClients =
@@ -371,7 +371,7 @@ responseListLunaClients =
     "ListLunaClientsResponse"
     "fixture/ListLunaClientsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLunaClients)
+    (Proxy.Proxy :: Proxy.Proxy ListLunaClients)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
 responseAddTagsToResource =
@@ -379,7 +379,7 @@ responseAddTagsToResource =
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
 responseGetConfig :: GetConfigResponse -> TestTree
 responseGetConfig =
@@ -387,7 +387,7 @@ responseGetConfig =
     "GetConfigResponse"
     "fixture/GetConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetConfig)
 
 responseDeleteHsm :: DeleteHsmResponse -> TestTree
 responseDeleteHsm =
@@ -395,7 +395,7 @@ responseDeleteHsm =
     "DeleteHsmResponse"
     "fixture/DeleteHsmResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHsm)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHsm)
 
 responseDescribeHsm :: DescribeHsmResponse -> TestTree
 responseDescribeHsm =
@@ -403,7 +403,7 @@ responseDescribeHsm =
     "DescribeHsmResponse"
     "fixture/DescribeHsmResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHsm)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHsm)
 
 responseModifyHapg :: ModifyHapgResponse -> TestTree
 responseModifyHapg =
@@ -411,7 +411,7 @@ responseModifyHapg =
     "ModifyHapgResponse"
     "fixture/ModifyHapgResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyHapg)
+    (Proxy.Proxy :: Proxy.Proxy ModifyHapg)
 
 responseDeleteLunaClient :: DeleteLunaClientResponse -> TestTree
 responseDeleteLunaClient =
@@ -419,7 +419,7 @@ responseDeleteLunaClient =
     "DeleteLunaClientResponse"
     "fixture/DeleteLunaClientResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLunaClient)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLunaClient)
 
 responseModifyHsm :: ModifyHsmResponse -> TestTree
 responseModifyHsm =
@@ -427,7 +427,7 @@ responseModifyHsm =
     "ModifyHsmResponse"
     "fixture/ModifyHsmResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyHsm)
+    (Proxy.Proxy :: Proxy.Proxy ModifyHsm)
 
 responseListAvailableZones :: ListAvailableZonesResponse -> TestTree
 responseListAvailableZones =
@@ -435,4 +435,4 @@ responseListAvailableZones =
     "ListAvailableZonesResponse"
     "fixture/ListAvailableZonesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAvailableZones)
+    (Proxy.Proxy :: Proxy.Proxy ListAvailableZones)

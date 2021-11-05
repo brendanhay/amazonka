@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudWatchLogs where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudWatchLogs
 import Test.AWS.CloudWatchLogs.Internal
 import Test.AWS.Fixture
@@ -547,7 +547,7 @@ responseGetLogGroupFields =
     "GetLogGroupFieldsResponse"
     "fixture/GetLogGroupFieldsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLogGroupFields)
+    (Proxy.Proxy :: Proxy.Proxy GetLogGroupFields)
 
 responseGetLogRecord :: GetLogRecordResponse -> TestTree
 responseGetLogRecord =
@@ -555,7 +555,7 @@ responseGetLogRecord =
     "GetLogRecordResponse"
     "fixture/GetLogRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLogRecord)
+    (Proxy.Proxy :: Proxy.Proxy GetLogRecord)
 
 responseDescribeDestinations :: DescribeDestinationsResponse -> TestTree
 responseDescribeDestinations =
@@ -563,7 +563,7 @@ responseDescribeDestinations =
     "DescribeDestinationsResponse"
     "fixture/DescribeDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDestinations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDestinations)
 
 responseUntagLogGroup :: UntagLogGroupResponse -> TestTree
 responseUntagLogGroup =
@@ -571,7 +571,7 @@ responseUntagLogGroup =
     "UntagLogGroupResponse"
     "fixture/UntagLogGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy UntagLogGroup)
 
 responseStopQuery :: StopQueryResponse -> TestTree
 responseStopQuery =
@@ -579,7 +579,7 @@ responseStopQuery =
     "StopQueryResponse"
     "fixture/StopQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy StopQuery)
+    (Proxy.Proxy :: Proxy.Proxy StopQuery)
 
 responseCreateExportTask :: CreateExportTaskResponse -> TestTree
 responseCreateExportTask =
@@ -587,7 +587,7 @@ responseCreateExportTask =
     "CreateExportTaskResponse"
     "fixture/CreateExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateExportTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateExportTask)
 
 responsePutDestination :: PutDestinationResponse -> TestTree
 responsePutDestination =
@@ -595,7 +595,7 @@ responsePutDestination =
     "PutDestinationResponse"
     "fixture/PutDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDestination)
+    (Proxy.Proxy :: Proxy.Proxy PutDestination)
 
 responseDescribeSubscriptionFilters :: DescribeSubscriptionFiltersResponse -> TestTree
 responseDescribeSubscriptionFilters =
@@ -603,7 +603,7 @@ responseDescribeSubscriptionFilters =
     "DescribeSubscriptionFiltersResponse"
     "fixture/DescribeSubscriptionFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubscriptionFilters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSubscriptionFilters)
 
 responseGetLogEvents :: GetLogEventsResponse -> TestTree
 responseGetLogEvents =
@@ -611,7 +611,7 @@ responseGetLogEvents =
     "GetLogEventsResponse"
     "fixture/GetLogEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLogEvents)
+    (Proxy.Proxy :: Proxy.Proxy GetLogEvents)
 
 responseDescribeLogGroups :: DescribeLogGroupsResponse -> TestTree
 responseDescribeLogGroups =
@@ -619,7 +619,7 @@ responseDescribeLogGroups =
     "DescribeLogGroupsResponse"
     "fixture/DescribeLogGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLogGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLogGroups)
 
 responseDeleteDestination :: DeleteDestinationResponse -> TestTree
 responseDeleteDestination =
@@ -627,7 +627,7 @@ responseDeleteDestination =
     "DeleteDestinationResponse"
     "fixture/DeleteDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDestination)
 
 responseDisassociateKmsKey :: DisassociateKmsKeyResponse -> TestTree
 responseDisassociateKmsKey =
@@ -635,7 +635,7 @@ responseDisassociateKmsKey =
     "DisassociateKmsKeyResponse"
     "fixture/DisassociateKmsKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateKmsKey)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateKmsKey)
 
 responseFilterLogEvents :: FilterLogEventsResponse -> TestTree
 responseFilterLogEvents =
@@ -643,7 +643,7 @@ responseFilterLogEvents =
     "FilterLogEventsResponse"
     "fixture/FilterLogEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy FilterLogEvents)
+    (Proxy.Proxy :: Proxy.Proxy FilterLogEvents)
 
 responseDeleteQueryDefinition :: DeleteQueryDefinitionResponse -> TestTree
 responseDeleteQueryDefinition =
@@ -651,7 +651,7 @@ responseDeleteQueryDefinition =
     "DeleteQueryDefinitionResponse"
     "fixture/DeleteQueryDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueryDefinition)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueryDefinition)
 
 responsePutQueryDefinition :: PutQueryDefinitionResponse -> TestTree
 responsePutQueryDefinition =
@@ -659,7 +659,7 @@ responsePutQueryDefinition =
     "PutQueryDefinitionResponse"
     "fixture/PutQueryDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutQueryDefinition)
+    (Proxy.Proxy :: Proxy.Proxy PutQueryDefinition)
 
 responseTagLogGroup :: TagLogGroupResponse -> TestTree
 responseTagLogGroup =
@@ -667,7 +667,7 @@ responseTagLogGroup =
     "TagLogGroupResponse"
     "fixture/TagLogGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy TagLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy TagLogGroup)
 
 responseDescribeResourcePolicies :: DescribeResourcePoliciesResponse -> TestTree
 responseDescribeResourcePolicies =
@@ -675,7 +675,7 @@ responseDescribeResourcePolicies =
     "DescribeResourcePoliciesResponse"
     "fixture/DescribeResourcePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResourcePolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePolicies)
 
 responseDescribeQueryDefinitions :: DescribeQueryDefinitionsResponse -> TestTree
 responseDescribeQueryDefinitions =
@@ -683,7 +683,7 @@ responseDescribeQueryDefinitions =
     "DescribeQueryDefinitionsResponse"
     "fixture/DescribeQueryDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeQueryDefinitions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeQueryDefinitions)
 
 responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
 responseDeleteLogStream =
@@ -691,7 +691,7 @@ responseDeleteLogStream =
     "DeleteLogStreamResponse"
     "fixture/DeleteLogStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLogStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLogStream)
 
 responseDescribeQueries :: DescribeQueriesResponse -> TestTree
 responseDescribeQueries =
@@ -699,7 +699,7 @@ responseDescribeQueries =
     "DescribeQueriesResponse"
     "fixture/DescribeQueriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeQueries)
+    (Proxy.Proxy :: Proxy.Proxy DescribeQueries)
 
 responseCreateLogStream :: CreateLogStreamResponse -> TestTree
 responseCreateLogStream =
@@ -707,7 +707,7 @@ responseCreateLogStream =
     "CreateLogStreamResponse"
     "fixture/CreateLogStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLogStream)
+    (Proxy.Proxy :: Proxy.Proxy CreateLogStream)
 
 responseCreateLogGroup :: CreateLogGroupResponse -> TestTree
 responseCreateLogGroup =
@@ -715,7 +715,7 @@ responseCreateLogGroup =
     "CreateLogGroupResponse"
     "fixture/CreateLogGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateLogGroup)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
 responseDescribeExportTasks =
@@ -723,7 +723,7 @@ responseDescribeExportTasks =
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExportTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExportTasks)
 
 responseCancelExportTask :: CancelExportTaskResponse -> TestTree
 responseCancelExportTask =
@@ -731,7 +731,7 @@ responseCancelExportTask =
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelExportTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelExportTask)
 
 responsePutSubscriptionFilter :: PutSubscriptionFilterResponse -> TestTree
 responsePutSubscriptionFilter =
@@ -739,7 +739,7 @@ responsePutSubscriptionFilter =
     "PutSubscriptionFilterResponse"
     "fixture/PutSubscriptionFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSubscriptionFilter)
+    (Proxy.Proxy :: Proxy.Proxy PutSubscriptionFilter)
 
 responseStartQuery :: StartQueryResponse -> TestTree
 responseStartQuery =
@@ -747,7 +747,7 @@ responseStartQuery =
     "StartQueryResponse"
     "fixture/StartQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy StartQuery)
+    (Proxy.Proxy :: Proxy.Proxy StartQuery)
 
 responseDeleteLogGroup :: DeleteLogGroupResponse -> TestTree
 responseDeleteLogGroup =
@@ -755,7 +755,7 @@ responseDeleteLogGroup =
     "DeleteLogGroupResponse"
     "fixture/DeleteLogGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLogGroup)
 
 responseDeleteSubscriptionFilter :: DeleteSubscriptionFilterResponse -> TestTree
 responseDeleteSubscriptionFilter =
@@ -763,7 +763,7 @@ responseDeleteSubscriptionFilter =
     "DeleteSubscriptionFilterResponse"
     "fixture/DeleteSubscriptionFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSubscriptionFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubscriptionFilter)
 
 responsePutLogEvents :: PutLogEventsResponse -> TestTree
 responsePutLogEvents =
@@ -771,7 +771,7 @@ responsePutLogEvents =
     "PutLogEventsResponse"
     "fixture/PutLogEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLogEvents)
+    (Proxy.Proxy :: Proxy.Proxy PutLogEvents)
 
 responseDescribeMetricFilters :: DescribeMetricFiltersResponse -> TestTree
 responseDescribeMetricFilters =
@@ -779,7 +779,7 @@ responseDescribeMetricFilters =
     "DescribeMetricFiltersResponse"
     "fixture/DescribeMetricFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMetricFilters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMetricFilters)
 
 responseTestMetricFilter :: TestMetricFilterResponse -> TestTree
 responseTestMetricFilter =
@@ -787,7 +787,7 @@ responseTestMetricFilter =
     "TestMetricFilterResponse"
     "fixture/TestMetricFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy TestMetricFilter)
+    (Proxy.Proxy :: Proxy.Proxy TestMetricFilter)
 
 responsePutDestinationPolicy :: PutDestinationPolicyResponse -> TestTree
 responsePutDestinationPolicy =
@@ -795,7 +795,7 @@ responsePutDestinationPolicy =
     "PutDestinationPolicyResponse"
     "fixture/PutDestinationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDestinationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutDestinationPolicy)
 
 responsePutMetricFilter :: PutMetricFilterResponse -> TestTree
 responsePutMetricFilter =
@@ -803,7 +803,7 @@ responsePutMetricFilter =
     "PutMetricFilterResponse"
     "fixture/PutMetricFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy PutMetricFilter)
+    (Proxy.Proxy :: Proxy.Proxy PutMetricFilter)
 
 responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
 responseDeleteRetentionPolicy =
@@ -811,7 +811,7 @@ responseDeleteRetentionPolicy =
     "DeleteRetentionPolicyResponse"
     "fixture/DeleteRetentionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRetentionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRetentionPolicy)
 
 responseDeleteMetricFilter :: DeleteMetricFilterResponse -> TestTree
 responseDeleteMetricFilter =
@@ -819,7 +819,7 @@ responseDeleteMetricFilter =
     "DeleteMetricFilterResponse"
     "fixture/DeleteMetricFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMetricFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMetricFilter)
 
 responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
 responsePutRetentionPolicy =
@@ -827,7 +827,7 @@ responsePutRetentionPolicy =
     "PutRetentionPolicyResponse"
     "fixture/PutRetentionPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRetentionPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutRetentionPolicy)
 
 responseListTagsLogGroup :: ListTagsLogGroupResponse -> TestTree
 responseListTagsLogGroup =
@@ -835,7 +835,7 @@ responseListTagsLogGroup =
     "ListTagsLogGroupResponse"
     "fixture/ListTagsLogGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsLogGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsLogGroup)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -843,7 +843,7 @@ responsePutResourcePolicy =
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -851,7 +851,7 @@ responseDeleteResourcePolicy =
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
 responseAssociateKmsKey :: AssociateKmsKeyResponse -> TestTree
 responseAssociateKmsKey =
@@ -859,7 +859,7 @@ responseAssociateKmsKey =
     "AssociateKmsKeyResponse"
     "fixture/AssociateKmsKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateKmsKey)
+    (Proxy.Proxy :: Proxy.Proxy AssociateKmsKey)
 
 responseGetQueryResults :: GetQueryResultsResponse -> TestTree
 responseGetQueryResults =
@@ -867,7 +867,7 @@ responseGetQueryResults =
     "GetQueryResultsResponse"
     "fixture/GetQueryResultsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueryResults)
+    (Proxy.Proxy :: Proxy.Proxy GetQueryResults)
 
 responseDescribeLogStreams :: DescribeLogStreamsResponse -> TestTree
 responseDescribeLogStreams =
@@ -875,4 +875,4 @@ responseDescribeLogStreams =
     "DescribeLogStreamsResponse"
     "fixture/DescribeLogStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLogStreams)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLogStreams)

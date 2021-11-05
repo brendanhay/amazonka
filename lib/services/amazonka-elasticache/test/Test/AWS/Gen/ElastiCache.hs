@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElastiCache where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ElastiCache
 import Test.AWS.ElastiCache.Internal
 import Test.AWS.Fixture
@@ -823,7 +823,7 @@ responseStartMigration =
     "StartMigrationResponse"
     "fixture/StartMigrationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMigration)
+    (Proxy.Proxy :: Proxy.Proxy StartMigration)
 
 responseDeleteCacheSecurityGroup :: DeleteCacheSecurityGroupResponse -> TestTree
 responseDeleteCacheSecurityGroup =
@@ -831,7 +831,7 @@ responseDeleteCacheSecurityGroup =
     "DeleteCacheSecurityGroupResponse"
     "fixture/DeleteCacheSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCacheSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCacheSecurityGroup)
 
 responseCreateReplicationGroup :: CreateReplicationGroupResponse -> TestTree
 responseCreateReplicationGroup =
@@ -839,7 +839,7 @@ responseCreateReplicationGroup =
     "CreateReplicationGroupResponse"
     "fixture/CreateReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateReplicationGroup)
 
 responseDeleteCacheCluster :: DeleteCacheClusterResponse -> TestTree
 responseDeleteCacheCluster =
@@ -847,7 +847,7 @@ responseDeleteCacheCluster =
     "DeleteCacheClusterResponse"
     "fixture/DeleteCacheClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCacheCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCacheCluster)
 
 responseIncreaseNodeGroupsInGlobalReplicationGroup :: IncreaseNodeGroupsInGlobalReplicationGroupResponse -> TestTree
 responseIncreaseNodeGroupsInGlobalReplicationGroup =
@@ -855,7 +855,7 @@ responseIncreaseNodeGroupsInGlobalReplicationGroup =
     "IncreaseNodeGroupsInGlobalReplicationGroupResponse"
     "fixture/IncreaseNodeGroupsInGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy IncreaseNodeGroupsInGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy IncreaseNodeGroupsInGlobalReplicationGroup)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
 responseDescribeUsers =
@@ -863,7 +863,7 @@ responseDescribeUsers =
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUsers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUsers)
 
 responseRebootCacheCluster :: RebootCacheClusterResponse -> TestTree
 responseRebootCacheCluster =
@@ -871,7 +871,7 @@ responseRebootCacheCluster =
     "RebootCacheClusterResponse"
     "fixture/RebootCacheClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootCacheCluster)
+    (Proxy.Proxy :: Proxy.Proxy RebootCacheCluster)
 
 responseCreateUserGroup :: UserGroup -> TestTree
 responseCreateUserGroup =
@@ -879,7 +879,7 @@ responseCreateUserGroup =
     "CreateUserGroupResponse"
     "fixture/CreateUserGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserGroup)
 
 responseRevokeCacheSecurityGroupIngress :: RevokeCacheSecurityGroupIngressResponse -> TestTree
 responseRevokeCacheSecurityGroupIngress =
@@ -887,7 +887,7 @@ responseRevokeCacheSecurityGroupIngress =
     "RevokeCacheSecurityGroupIngressResponse"
     "fixture/RevokeCacheSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeCacheSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy RevokeCacheSecurityGroupIngress)
 
 responseCreateCacheCluster :: CreateCacheClusterResponse -> TestTree
 responseCreateCacheCluster =
@@ -895,7 +895,7 @@ responseCreateCacheCluster =
     "CreateCacheClusterResponse"
     "fixture/CreateCacheClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCacheCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCacheCluster)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -903,7 +903,7 @@ responseDescribeEvents =
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEvents)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
 
 responseDescribeEngineDefaultParameters :: DescribeEngineDefaultParametersResponse -> TestTree
 responseDescribeEngineDefaultParameters =
@@ -911,7 +911,7 @@ responseDescribeEngineDefaultParameters =
     "DescribeEngineDefaultParametersResponse"
     "fixture/DescribeEngineDefaultParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEngineDefaultParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEngineDefaultParameters)
 
 responseDisassociateGlobalReplicationGroup :: DisassociateGlobalReplicationGroupResponse -> TestTree
 responseDisassociateGlobalReplicationGroup =
@@ -919,7 +919,7 @@ responseDisassociateGlobalReplicationGroup =
     "DisassociateGlobalReplicationGroupResponse"
     "fixture/DisassociateGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateGlobalReplicationGroup)
 
 responseModifyCacheParameterGroup :: CacheParameterGroupNameMessage -> TestTree
 responseModifyCacheParameterGroup =
@@ -927,7 +927,7 @@ responseModifyCacheParameterGroup =
     "ModifyCacheParameterGroupResponse"
     "fixture/ModifyCacheParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCacheParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCacheParameterGroup)
 
 responseTestFailover :: TestFailoverResponse -> TestTree
 responseTestFailover =
@@ -935,7 +935,7 @@ responseTestFailover =
     "TestFailoverResponse"
     "fixture/TestFailoverResponse.proto"
     defaultService
-    (Proxy :: Proxy TestFailover)
+    (Proxy.Proxy :: Proxy.Proxy TestFailover)
 
 responseDeleteReplicationGroup :: DeleteReplicationGroupResponse -> TestTree
 responseDeleteReplicationGroup =
@@ -943,7 +943,7 @@ responseDeleteReplicationGroup =
     "DeleteReplicationGroupResponse"
     "fixture/DeleteReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationGroup)
 
 responseListTagsForResource :: TagListMessage -> TestTree
 responseListTagsForResource =
@@ -951,7 +951,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCompleteMigration :: CompleteMigrationResponse -> TestTree
 responseCompleteMigration =
@@ -959,7 +959,7 @@ responseCompleteMigration =
     "CompleteMigrationResponse"
     "fixture/CompleteMigrationResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteMigration)
+    (Proxy.Proxy :: Proxy.Proxy CompleteMigration)
 
 responseDescribeCacheClusters :: DescribeCacheClustersResponse -> TestTree
 responseDescribeCacheClusters =
@@ -967,7 +967,7 @@ responseDescribeCacheClusters =
     "DescribeCacheClustersResponse"
     "fixture/DescribeCacheClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCacheClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCacheClusters)
 
 responsePurchaseReservedCacheNodesOffering :: PurchaseReservedCacheNodesOfferingResponse -> TestTree
 responsePurchaseReservedCacheNodesOffering =
@@ -975,7 +975,7 @@ responsePurchaseReservedCacheNodesOffering =
     "PurchaseReservedCacheNodesOfferingResponse"
     "fixture/PurchaseReservedCacheNodesOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseReservedCacheNodesOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedCacheNodesOffering)
 
 responseRemoveTagsFromResource :: TagListMessage -> TestTree
 responseRemoveTagsFromResource =
@@ -983,7 +983,7 @@ responseRemoveTagsFromResource =
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
 responseModifyReplicationGroup :: ModifyReplicationGroupResponse -> TestTree
 responseModifyReplicationGroup =
@@ -991,7 +991,7 @@ responseModifyReplicationGroup =
     "ModifyReplicationGroupResponse"
     "fixture/ModifyReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyReplicationGroup)
 
 responseDescribeCacheParameters :: DescribeCacheParametersResponse -> TestTree
 responseDescribeCacheParameters =
@@ -999,7 +999,7 @@ responseDescribeCacheParameters =
     "DescribeCacheParametersResponse"
     "fixture/DescribeCacheParametersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCacheParameters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCacheParameters)
 
 responseDescribeGlobalReplicationGroups :: DescribeGlobalReplicationGroupsResponse -> TestTree
 responseDescribeGlobalReplicationGroups =
@@ -1007,7 +1007,7 @@ responseDescribeGlobalReplicationGroups =
     "DescribeGlobalReplicationGroupsResponse"
     "fixture/DescribeGlobalReplicationGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGlobalReplicationGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalReplicationGroups)
 
 responseDescribeCacheSubnetGroups :: DescribeCacheSubnetGroupsResponse -> TestTree
 responseDescribeCacheSubnetGroups =
@@ -1015,7 +1015,7 @@ responseDescribeCacheSubnetGroups =
     "DescribeCacheSubnetGroupsResponse"
     "fixture/DescribeCacheSubnetGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCacheSubnetGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCacheSubnetGroups)
 
 responseDescribeUpdateActions :: DescribeUpdateActionsResponse -> TestTree
 responseDescribeUpdateActions =
@@ -1023,7 +1023,7 @@ responseDescribeUpdateActions =
     "DescribeUpdateActionsResponse"
     "fixture/DescribeUpdateActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUpdateActions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUpdateActions)
 
 responseRebalanceSlotsInGlobalReplicationGroup :: RebalanceSlotsInGlobalReplicationGroupResponse -> TestTree
 responseRebalanceSlotsInGlobalReplicationGroup =
@@ -1031,7 +1031,7 @@ responseRebalanceSlotsInGlobalReplicationGroup =
     "RebalanceSlotsInGlobalReplicationGroupResponse"
     "fixture/RebalanceSlotsInGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy RebalanceSlotsInGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy RebalanceSlotsInGlobalReplicationGroup)
 
 responseCreateCacheSecurityGroup :: CreateCacheSecurityGroupResponse -> TestTree
 responseCreateCacheSecurityGroup =
@@ -1039,7 +1039,7 @@ responseCreateCacheSecurityGroup =
     "CreateCacheSecurityGroupResponse"
     "fixture/CreateCacheSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCacheSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateCacheSecurityGroup)
 
 responseDecreaseReplicaCount :: DecreaseReplicaCountResponse -> TestTree
 responseDecreaseReplicaCount =
@@ -1047,7 +1047,7 @@ responseDecreaseReplicaCount =
     "DecreaseReplicaCountResponse"
     "fixture/DecreaseReplicaCountResponse.proto"
     defaultService
-    (Proxy :: Proxy DecreaseReplicaCount)
+    (Proxy.Proxy :: Proxy.Proxy DecreaseReplicaCount)
 
 responseAddTagsToResource :: TagListMessage -> TestTree
 responseAddTagsToResource =
@@ -1055,7 +1055,7 @@ responseAddTagsToResource =
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
 responseAuthorizeCacheSecurityGroupIngress :: AuthorizeCacheSecurityGroupIngressResponse -> TestTree
 responseAuthorizeCacheSecurityGroupIngress =
@@ -1063,7 +1063,7 @@ responseAuthorizeCacheSecurityGroupIngress =
     "AuthorizeCacheSecurityGroupIngressResponse"
     "fixture/AuthorizeCacheSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeCacheSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeCacheSecurityGroupIngress)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
 responseCopySnapshot =
@@ -1071,7 +1071,7 @@ responseCopySnapshot =
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopySnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopySnapshot)
 
 responseFailoverGlobalReplicationGroup :: FailoverGlobalReplicationGroupResponse -> TestTree
 responseFailoverGlobalReplicationGroup =
@@ -1079,7 +1079,7 @@ responseFailoverGlobalReplicationGroup =
     "FailoverGlobalReplicationGroupResponse"
     "fixture/FailoverGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy FailoverGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy FailoverGlobalReplicationGroup)
 
 responseCreateCacheSubnetGroup :: CreateCacheSubnetGroupResponse -> TestTree
 responseCreateCacheSubnetGroup =
@@ -1087,7 +1087,7 @@ responseCreateCacheSubnetGroup =
     "CreateCacheSubnetGroupResponse"
     "fixture/CreateCacheSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCacheSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateCacheSubnetGroup)
 
 responseCreateGlobalReplicationGroup :: CreateGlobalReplicationGroupResponse -> TestTree
 responseCreateGlobalReplicationGroup =
@@ -1095,7 +1095,7 @@ responseCreateGlobalReplicationGroup =
     "CreateGlobalReplicationGroupResponse"
     "fixture/CreateGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGlobalReplicationGroup)
 
 responseDescribeCacheParameterGroups :: DescribeCacheParameterGroupsResponse -> TestTree
 responseDescribeCacheParameterGroups =
@@ -1103,7 +1103,7 @@ responseDescribeCacheParameterGroups =
     "DescribeCacheParameterGroupsResponse"
     "fixture/DescribeCacheParameterGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCacheParameterGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCacheParameterGroups)
 
 responseResetCacheParameterGroup :: CacheParameterGroupNameMessage -> TestTree
 responseResetCacheParameterGroup =
@@ -1111,7 +1111,7 @@ responseResetCacheParameterGroup =
     "ResetCacheParameterGroupResponse"
     "fixture/ResetCacheParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetCacheParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy ResetCacheParameterGroup)
 
 responseListAllowedNodeTypeModifications :: ListAllowedNodeTypeModificationsResponse -> TestTree
 responseListAllowedNodeTypeModifications =
@@ -1119,7 +1119,7 @@ responseListAllowedNodeTypeModifications =
     "ListAllowedNodeTypeModificationsResponse"
     "fixture/ListAllowedNodeTypeModificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAllowedNodeTypeModifications)
+    (Proxy.Proxy :: Proxy.Proxy ListAllowedNodeTypeModifications)
 
 responseIncreaseReplicaCount :: IncreaseReplicaCountResponse -> TestTree
 responseIncreaseReplicaCount =
@@ -1127,7 +1127,7 @@ responseIncreaseReplicaCount =
     "IncreaseReplicaCountResponse"
     "fixture/IncreaseReplicaCountResponse.proto"
     defaultService
-    (Proxy :: Proxy IncreaseReplicaCount)
+    (Proxy.Proxy :: Proxy.Proxy IncreaseReplicaCount)
 
 responseModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfigurationResponse -> TestTree
 responseModifyReplicationGroupShardConfiguration =
@@ -1135,7 +1135,7 @@ responseModifyReplicationGroupShardConfiguration =
     "ModifyReplicationGroupShardConfigurationResponse"
     "fixture/ModifyReplicationGroupShardConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyReplicationGroupShardConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ModifyReplicationGroupShardConfiguration)
 
 responseBatchApplyUpdateAction :: UpdateActionResultsMessage -> TestTree
 responseBatchApplyUpdateAction =
@@ -1143,7 +1143,7 @@ responseBatchApplyUpdateAction =
     "BatchApplyUpdateActionResponse"
     "fixture/BatchApplyUpdateActionResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchApplyUpdateAction)
+    (Proxy.Proxy :: Proxy.Proxy BatchApplyUpdateAction)
 
 responseDeleteUserGroup :: UserGroup -> TestTree
 responseDeleteUserGroup =
@@ -1151,7 +1151,7 @@ responseDeleteUserGroup =
     "DeleteUserGroupResponse"
     "fixture/DeleteUserGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserGroup)
 
 responseDescribeServiceUpdates :: DescribeServiceUpdatesResponse -> TestTree
 responseDescribeServiceUpdates =
@@ -1159,7 +1159,7 @@ responseDescribeServiceUpdates =
     "DescribeServiceUpdatesResponse"
     "fixture/DescribeServiceUpdatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServiceUpdates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServiceUpdates)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots =
@@ -1167,7 +1167,7 @@ responseDescribeSnapshots =
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshots)
 
 responseDescribeReplicationGroups :: DescribeReplicationGroupsResponse -> TestTree
 responseDescribeReplicationGroups =
@@ -1175,7 +1175,7 @@ responseDescribeReplicationGroups =
     "DescribeReplicationGroupsResponse"
     "fixture/DescribeReplicationGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReplicationGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReplicationGroups)
 
 responseCreateUser :: User -> TestTree
 responseCreateUser =
@@ -1183,7 +1183,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
 responseDeleteSnapshot =
@@ -1191,7 +1191,7 @@ responseDeleteSnapshot =
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshot)
 
 responseDescribeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferingsResponse -> TestTree
 responseDescribeReservedCacheNodesOfferings =
@@ -1199,7 +1199,7 @@ responseDescribeReservedCacheNodesOfferings =
     "DescribeReservedCacheNodesOfferingsResponse"
     "fixture/DescribeReservedCacheNodesOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedCacheNodesOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedCacheNodesOfferings)
 
 responseModifyCacheSubnetGroup :: ModifyCacheSubnetGroupResponse -> TestTree
 responseModifyCacheSubnetGroup =
@@ -1207,7 +1207,7 @@ responseModifyCacheSubnetGroup =
     "ModifyCacheSubnetGroupResponse"
     "fixture/ModifyCacheSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCacheSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCacheSubnetGroup)
 
 responseDeleteUser :: User -> TestTree
 responseDeleteUser =
@@ -1215,7 +1215,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
 responseCreateSnapshot =
@@ -1223,7 +1223,7 @@ responseCreateSnapshot =
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseModifyGlobalReplicationGroup :: ModifyGlobalReplicationGroupResponse -> TestTree
 responseModifyGlobalReplicationGroup =
@@ -1231,7 +1231,7 @@ responseModifyGlobalReplicationGroup =
     "ModifyGlobalReplicationGroupResponse"
     "fixture/ModifyGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyGlobalReplicationGroup)
 
 responseDescribeUserGroups :: DescribeUserGroupsResponse -> TestTree
 responseDescribeUserGroups =
@@ -1239,7 +1239,7 @@ responseDescribeUserGroups =
     "DescribeUserGroupsResponse"
     "fixture/DescribeUserGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserGroups)
 
 responseDeleteCacheParameterGroup :: DeleteCacheParameterGroupResponse -> TestTree
 responseDeleteCacheParameterGroup =
@@ -1247,7 +1247,7 @@ responseDeleteCacheParameterGroup =
     "DeleteCacheParameterGroupResponse"
     "fixture/DeleteCacheParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCacheParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCacheParameterGroup)
 
 responseDescribeCacheSecurityGroups :: DescribeCacheSecurityGroupsResponse -> TestTree
 responseDescribeCacheSecurityGroups =
@@ -1255,7 +1255,7 @@ responseDescribeCacheSecurityGroups =
     "DescribeCacheSecurityGroupsResponse"
     "fixture/DescribeCacheSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCacheSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCacheSecurityGroups)
 
 responseBatchStopUpdateAction :: UpdateActionResultsMessage -> TestTree
 responseBatchStopUpdateAction =
@@ -1263,7 +1263,7 @@ responseBatchStopUpdateAction =
     "BatchStopUpdateActionResponse"
     "fixture/BatchStopUpdateActionResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchStopUpdateAction)
+    (Proxy.Proxy :: Proxy.Proxy BatchStopUpdateAction)
 
 responseModifyCacheCluster :: ModifyCacheClusterResponse -> TestTree
 responseModifyCacheCluster =
@@ -1271,7 +1271,7 @@ responseModifyCacheCluster =
     "ModifyCacheClusterResponse"
     "fixture/ModifyCacheClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCacheCluster)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCacheCluster)
 
 responseDescribeCacheEngineVersions :: DescribeCacheEngineVersionsResponse -> TestTree
 responseDescribeCacheEngineVersions =
@@ -1279,7 +1279,7 @@ responseDescribeCacheEngineVersions =
     "DescribeCacheEngineVersionsResponse"
     "fixture/DescribeCacheEngineVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCacheEngineVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCacheEngineVersions)
 
 responseModifyUserGroup :: UserGroup -> TestTree
 responseModifyUserGroup =
@@ -1287,7 +1287,7 @@ responseModifyUserGroup =
     "ModifyUserGroupResponse"
     "fixture/ModifyUserGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyUserGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyUserGroup)
 
 responseCreateCacheParameterGroup :: CreateCacheParameterGroupResponse -> TestTree
 responseCreateCacheParameterGroup =
@@ -1295,7 +1295,7 @@ responseCreateCacheParameterGroup =
     "CreateCacheParameterGroupResponse"
     "fixture/CreateCacheParameterGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCacheParameterGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateCacheParameterGroup)
 
 responseDescribeReservedCacheNodes :: DescribeReservedCacheNodesResponse -> TestTree
 responseDescribeReservedCacheNodes =
@@ -1303,7 +1303,7 @@ responseDescribeReservedCacheNodes =
     "DescribeReservedCacheNodesResponse"
     "fixture/DescribeReservedCacheNodesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedCacheNodes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedCacheNodes)
 
 responseDeleteGlobalReplicationGroup :: DeleteGlobalReplicationGroupResponse -> TestTree
 responseDeleteGlobalReplicationGroup =
@@ -1311,7 +1311,7 @@ responseDeleteGlobalReplicationGroup =
     "DeleteGlobalReplicationGroupResponse"
     "fixture/DeleteGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGlobalReplicationGroup)
 
 responseDecreaseNodeGroupsInGlobalReplicationGroup :: DecreaseNodeGroupsInGlobalReplicationGroupResponse -> TestTree
 responseDecreaseNodeGroupsInGlobalReplicationGroup =
@@ -1319,7 +1319,7 @@ responseDecreaseNodeGroupsInGlobalReplicationGroup =
     "DecreaseNodeGroupsInGlobalReplicationGroupResponse"
     "fixture/DecreaseNodeGroupsInGlobalReplicationGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DecreaseNodeGroupsInGlobalReplicationGroup)
+    (Proxy.Proxy :: Proxy.Proxy DecreaseNodeGroupsInGlobalReplicationGroup)
 
 responseModifyUser :: User -> TestTree
 responseModifyUser =
@@ -1327,7 +1327,7 @@ responseModifyUser =
     "ModifyUserResponse"
     "fixture/ModifyUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyUser)
+    (Proxy.Proxy :: Proxy.Proxy ModifyUser)
 
 responseDeleteCacheSubnetGroup :: DeleteCacheSubnetGroupResponse -> TestTree
 responseDeleteCacheSubnetGroup =
@@ -1335,4 +1335,4 @@ responseDeleteCacheSubnetGroup =
     "DeleteCacheSubnetGroupResponse"
     "fixture/DeleteCacheSubnetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCacheSubnetGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCacheSubnetGroup)

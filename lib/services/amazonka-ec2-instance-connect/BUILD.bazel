@@ -1,0 +1,59 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-ec2-instance-connect/amazonka-ec2-instance-connect.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-ec2-instance-connect",
+    srcs = [
+        "gen/Network/AWS/EC2InstanceConnect.hs",
+        "gen/Network/AWS/EC2InstanceConnect/Lens.hs",
+        "gen/Network/AWS/EC2InstanceConnect/SendSSHPublicKey.hs",
+        "gen/Network/AWS/EC2InstanceConnect/SendSerialConsoleSSHPublicKey.hs",
+        "gen/Network/AWS/EC2InstanceConnect/Types.hs",
+        "gen/Network/AWS/EC2InstanceConnect/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_ec2_instance_connect=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-ec2-instance-connect/amazonka-ec2-instance-connect.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-ec2-instance-connect-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/EC2InstanceConnect.hs",
+        "test/Test/AWS/EC2InstanceConnect/Internal.hs",
+        "test/Test/AWS/Gen/EC2InstanceConnect.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_ec2_instance_connect=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-ec2-instance-connect",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

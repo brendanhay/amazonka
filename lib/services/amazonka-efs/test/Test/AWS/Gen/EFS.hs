@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EFS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EFS
 import Test.AWS.EFS.Internal
 import Test.AWS.Fixture
@@ -331,7 +331,7 @@ responseCreateAccessPoint =
     "CreateAccessPointResponse"
     "fixture/CreateAccessPointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccessPoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccessPoint)
 
 responseDescribeAccountPreferences :: DescribeAccountPreferencesResponse -> TestTree
 responseDescribeAccountPreferences =
@@ -339,7 +339,7 @@ responseDescribeAccountPreferences =
     "DescribeAccountPreferencesResponse"
     "fixture/DescribeAccountPreferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountPreferences)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountPreferences)
 
 responseDescribeMountTargets :: DescribeMountTargetsResponse -> TestTree
 responseDescribeMountTargets =
@@ -347,7 +347,7 @@ responseDescribeMountTargets =
     "DescribeMountTargetsResponse"
     "fixture/DescribeMountTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMountTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMountTargets)
 
 responseDeleteFileSystemPolicy :: DeleteFileSystemPolicyResponse -> TestTree
 responseDeleteFileSystemPolicy =
@@ -355,7 +355,7 @@ responseDeleteFileSystemPolicy =
     "DeleteFileSystemPolicyResponse"
     "fixture/DeleteFileSystemPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFileSystemPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFileSystemPolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -363,7 +363,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePutFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
 responsePutFileSystemPolicy =
@@ -371,7 +371,7 @@ responsePutFileSystemPolicy =
     "PutFileSystemPolicyResponse"
     "fixture/PutFileSystemPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutFileSystemPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutFileSystemPolicy)
 
 responseDescribeFileSystems :: DescribeFileSystemsResponse -> TestTree
 responseDescribeFileSystems =
@@ -379,7 +379,7 @@ responseDescribeFileSystems =
     "DescribeFileSystemsResponse"
     "fixture/DescribeFileSystemsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFileSystems)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystems)
 
 responseDeleteMountTarget :: DeleteMountTargetResponse -> TestTree
 responseDeleteMountTarget =
@@ -387,7 +387,7 @@ responseDeleteMountTarget =
     "DeleteMountTargetResponse"
     "fixture/DeleteMountTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMountTarget)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMountTarget)
 
 responsePutAccountPreferences :: PutAccountPreferencesResponse -> TestTree
 responsePutAccountPreferences =
@@ -395,7 +395,7 @@ responsePutAccountPreferences =
     "PutAccountPreferencesResponse"
     "fixture/PutAccountPreferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAccountPreferences)
+    (Proxy.Proxy :: Proxy.Proxy PutAccountPreferences)
 
 responseDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroupsResponse -> TestTree
 responseDescribeMountTargetSecurityGroups =
@@ -403,7 +403,7 @@ responseDescribeMountTargetSecurityGroups =
     "DescribeMountTargetSecurityGroupsResponse"
     "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMountTargetSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMountTargetSecurityGroups)
 
 responseDescribeAccessPoints :: DescribeAccessPointsResponse -> TestTree
 responseDescribeAccessPoints =
@@ -411,7 +411,7 @@ responseDescribeAccessPoints =
     "DescribeAccessPointsResponse"
     "fixture/DescribeAccessPointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccessPoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccessPoints)
 
 responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
 responseModifyMountTargetSecurityGroups =
@@ -419,7 +419,7 @@ responseModifyMountTargetSecurityGroups =
     "ModifyMountTargetSecurityGroupsResponse"
     "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyMountTargetSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy ModifyMountTargetSecurityGroups)
 
 responseCreateFileSystem :: FileSystemDescription -> TestTree
 responseCreateFileSystem =
@@ -427,7 +427,7 @@ responseCreateFileSystem =
     "CreateFileSystemResponse"
     "fixture/CreateFileSystemResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFileSystem)
+    (Proxy.Proxy :: Proxy.Proxy CreateFileSystem)
 
 responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
 responsePutLifecycleConfiguration =
@@ -435,7 +435,7 @@ responsePutLifecycleConfiguration =
     "PutLifecycleConfigurationResponse"
     "fixture/PutLifecycleConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLifecycleConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutLifecycleConfiguration)
 
 responsePutBackupPolicy :: BackupPolicyDescription -> TestTree
 responsePutBackupPolicy =
@@ -443,7 +443,7 @@ responsePutBackupPolicy =
     "PutBackupPolicyResponse"
     "fixture/PutBackupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutBackupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutBackupPolicy)
 
 responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
 responseDeleteFileSystem =
@@ -451,7 +451,7 @@ responseDeleteFileSystem =
     "DeleteFileSystemResponse"
     "fixture/DeleteFileSystemResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFileSystem)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFileSystem)
 
 responseUpdateFileSystem :: FileSystemDescription -> TestTree
 responseUpdateFileSystem =
@@ -459,7 +459,7 @@ responseUpdateFileSystem =
     "UpdateFileSystemResponse"
     "fixture/UpdateFileSystemResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFileSystem)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFileSystem)
 
 responseCreateMountTarget :: MountTargetDescription -> TestTree
 responseCreateMountTarget =
@@ -467,7 +467,7 @@ responseCreateMountTarget =
     "CreateMountTargetResponse"
     "fixture/CreateMountTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMountTarget)
+    (Proxy.Proxy :: Proxy.Proxy CreateMountTarget)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -475,7 +475,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribeBackupPolicy :: BackupPolicyDescription -> TestTree
 responseDescribeBackupPolicy =
@@ -483,7 +483,7 @@ responseDescribeBackupPolicy =
     "DescribeBackupPolicyResponse"
     "fixture/DescribeBackupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackupPolicy)
 
 responseDescribeLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
 responseDescribeLifecycleConfiguration =
@@ -491,7 +491,7 @@ responseDescribeLifecycleConfiguration =
     "DescribeLifecycleConfigurationResponse"
     "fixture/DescribeLifecycleConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLifecycleConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLifecycleConfiguration)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -499,7 +499,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDescribeFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
 responseDescribeFileSystemPolicy =
@@ -507,7 +507,7 @@ responseDescribeFileSystemPolicy =
     "DescribeFileSystemPolicyResponse"
     "fixture/DescribeFileSystemPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFileSystemPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystemPolicy)
 
 responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
 responseDeleteAccessPoint =
@@ -515,4 +515,4 @@ responseDeleteAccessPoint =
     "DeleteAccessPointResponse"
     "fixture/DeleteAccessPointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccessPoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessPoint)

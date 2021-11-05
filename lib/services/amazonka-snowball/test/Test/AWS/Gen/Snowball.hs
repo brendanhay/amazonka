@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Snowball where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Snowball
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -343,7 +343,7 @@ responseCancelCluster =
     "CancelClusterResponse"
     "fixture/CancelClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelCluster)
+    (Proxy.Proxy :: Proxy.Proxy CancelCluster)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
 responseDescribeCluster =
@@ -351,7 +351,7 @@ responseDescribeCluster =
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCluster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
 
 responseCreateAddress :: CreateAddressResponse -> TestTree
 responseCreateAddress =
@@ -359,7 +359,7 @@ responseCreateAddress =
     "CreateAddressResponse"
     "fixture/CreateAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAddress)
+    (Proxy.Proxy :: Proxy.Proxy CreateAddress)
 
 responseCreateReturnShippingLabel :: CreateReturnShippingLabelResponse -> TestTree
 responseCreateReturnShippingLabel =
@@ -367,7 +367,7 @@ responseCreateReturnShippingLabel =
     "CreateReturnShippingLabelResponse"
     "fixture/CreateReturnShippingLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReturnShippingLabel)
+    (Proxy.Proxy :: Proxy.Proxy CreateReturnShippingLabel)
 
 responseGetSnowballUsage :: GetSnowballUsageResponse -> TestTree
 responseGetSnowballUsage =
@@ -375,7 +375,7 @@ responseGetSnowballUsage =
     "GetSnowballUsageResponse"
     "fixture/GetSnowballUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSnowballUsage)
+    (Proxy.Proxy :: Proxy.Proxy GetSnowballUsage)
 
 responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
 responseDescribeAddresses =
@@ -383,7 +383,7 @@ responseDescribeAddresses =
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddresses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddresses)
 
 responseListCompatibleImages :: ListCompatibleImagesResponse -> TestTree
 responseListCompatibleImages =
@@ -391,7 +391,7 @@ responseListCompatibleImages =
     "ListCompatibleImagesResponse"
     "fixture/ListCompatibleImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCompatibleImages)
+    (Proxy.Proxy :: Proxy.Proxy ListCompatibleImages)
 
 responseCreateLongTermPricing :: CreateLongTermPricingResponse -> TestTree
 responseCreateLongTermPricing =
@@ -399,7 +399,7 @@ responseCreateLongTermPricing =
     "CreateLongTermPricingResponse"
     "fixture/CreateLongTermPricingResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLongTermPricing)
+    (Proxy.Proxy :: Proxy.Proxy CreateLongTermPricing)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
 responseUpdateCluster =
@@ -407,7 +407,7 @@ responseUpdateCluster =
     "UpdateClusterResponse"
     "fixture/UpdateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCluster)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCluster)
 
 responseGetSoftwareUpdates :: GetSoftwareUpdatesResponse -> TestTree
 responseGetSoftwareUpdates =
@@ -415,7 +415,7 @@ responseGetSoftwareUpdates =
     "GetSoftwareUpdatesResponse"
     "fixture/GetSoftwareUpdatesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSoftwareUpdates)
+    (Proxy.Proxy :: Proxy.Proxy GetSoftwareUpdates)
 
 responseCreateJob :: CreateJobResponse -> TestTree
 responseCreateJob =
@@ -423,7 +423,7 @@ responseCreateJob =
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
 
 responseListLongTermPricing :: ListLongTermPricingResponse -> TestTree
 responseListLongTermPricing =
@@ -431,7 +431,7 @@ responseListLongTermPricing =
     "ListLongTermPricingResponse"
     "fixture/ListLongTermPricingResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLongTermPricing)
+    (Proxy.Proxy :: Proxy.Proxy ListLongTermPricing)
 
 responseGetJobManifest :: GetJobManifestResponse -> TestTree
 responseGetJobManifest =
@@ -439,7 +439,7 @@ responseGetJobManifest =
     "GetJobManifestResponse"
     "fixture/GetJobManifestResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobManifest)
+    (Proxy.Proxy :: Proxy.Proxy GetJobManifest)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -447,7 +447,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -455,7 +455,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
 responseUpdateJob =
@@ -463,7 +463,7 @@ responseUpdateJob =
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJob)
 
 responseUpdateJobShipmentState :: UpdateJobShipmentStateResponse -> TestTree
 responseUpdateJobShipmentState =
@@ -471,7 +471,7 @@ responseUpdateJobShipmentState =
     "UpdateJobShipmentStateResponse"
     "fixture/UpdateJobShipmentStateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateJobShipmentState)
+    (Proxy.Proxy :: Proxy.Proxy UpdateJobShipmentState)
 
 responseGetJobUnlockCode :: GetJobUnlockCodeResponse -> TestTree
 responseGetJobUnlockCode =
@@ -479,7 +479,7 @@ responseGetJobUnlockCode =
     "GetJobUnlockCodeResponse"
     "fixture/GetJobUnlockCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobUnlockCode)
+    (Proxy.Proxy :: Proxy.Proxy GetJobUnlockCode)
 
 responseListClusterJobs :: ListClusterJobsResponse -> TestTree
 responseListClusterJobs =
@@ -487,7 +487,7 @@ responseListClusterJobs =
     "ListClusterJobsResponse"
     "fixture/ListClusterJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusterJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListClusterJobs)
 
 responseDescribeJob :: DescribeJobResponse -> TestTree
 responseDescribeJob =
@@ -495,7 +495,7 @@ responseDescribeJob =
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJob)
 
 responseUpdateLongTermPricing :: UpdateLongTermPricingResponse -> TestTree
 responseUpdateLongTermPricing =
@@ -503,7 +503,7 @@ responseUpdateLongTermPricing =
     "UpdateLongTermPricingResponse"
     "fixture/UpdateLongTermPricingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLongTermPricing)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLongTermPricing)
 
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
@@ -511,7 +511,7 @@ responseListClusters =
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
 
 responseDescribeAddress :: DescribeAddressResponse -> TestTree
 responseDescribeAddress =
@@ -519,7 +519,7 @@ responseDescribeAddress =
     "DescribeAddressResponse"
     "fixture/DescribeAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddress)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddress)
 
 responseDescribeReturnShippingLabel :: DescribeReturnShippingLabelResponse -> TestTree
 responseDescribeReturnShippingLabel =
@@ -527,7 +527,7 @@ responseDescribeReturnShippingLabel =
     "DescribeReturnShippingLabelResponse"
     "fixture/DescribeReturnShippingLabelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReturnShippingLabel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReturnShippingLabel)
 
 responseCancelJob :: CancelJobResponse -> TestTree
 responseCancelJob =
@@ -535,4 +535,4 @@ responseCancelJob =
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)

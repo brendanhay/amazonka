@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KinesisVideo where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KinesisVideo
 import Test.AWS.Fixture
 import Test.AWS.KinesisVideo.Internal
@@ -271,7 +271,7 @@ responseListSignalingChannels =
     "ListSignalingChannelsResponse"
     "fixture/ListSignalingChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSignalingChannels)
+    (Proxy.Proxy :: Proxy.Proxy ListSignalingChannels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -279,7 +279,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseUntagStream :: UntagStreamResponse -> TestTree
 responseUntagStream =
@@ -287,7 +287,7 @@ responseUntagStream =
     "UntagStreamResponse"
     "fixture/UntagStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagStream)
+    (Proxy.Proxy :: Proxy.Proxy UntagStream)
 
 responseUpdateDataRetention :: UpdateDataRetentionResponse -> TestTree
 responseUpdateDataRetention =
@@ -295,7 +295,7 @@ responseUpdateDataRetention =
     "UpdateDataRetentionResponse"
     "fixture/UpdateDataRetentionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataRetention)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataRetention)
 
 responseGetDataEndpoint :: GetDataEndpointResponse -> TestTree
 responseGetDataEndpoint =
@@ -303,7 +303,7 @@ responseGetDataEndpoint =
     "GetDataEndpointResponse"
     "fixture/GetDataEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetDataEndpoint)
 
 responseGetSignalingChannelEndpoint :: GetSignalingChannelEndpointResponse -> TestTree
 responseGetSignalingChannelEndpoint =
@@ -311,7 +311,7 @@ responseGetSignalingChannelEndpoint =
     "GetSignalingChannelEndpointResponse"
     "fixture/GetSignalingChannelEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSignalingChannelEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy GetSignalingChannelEndpoint)
 
 responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
 responseListTagsForStream =
@@ -319,7 +319,7 @@ responseListTagsForStream =
     "ListTagsForStreamResponse"
     "fixture/ListTagsForStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForStream)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForStream)
 
 responseDeleteSignalingChannel :: DeleteSignalingChannelResponse -> TestTree
 responseDeleteSignalingChannel =
@@ -327,7 +327,7 @@ responseDeleteSignalingChannel =
     "DeleteSignalingChannelResponse"
     "fixture/DeleteSignalingChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSignalingChannel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSignalingChannel)
 
 responseUpdateSignalingChannel :: UpdateSignalingChannelResponse -> TestTree
 responseUpdateSignalingChannel =
@@ -335,7 +335,7 @@ responseUpdateSignalingChannel =
     "UpdateSignalingChannelResponse"
     "fixture/UpdateSignalingChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSignalingChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSignalingChannel)
 
 responseUpdateStream :: UpdateStreamResponse -> TestTree
 responseUpdateStream =
@@ -343,7 +343,7 @@ responseUpdateStream =
     "UpdateStreamResponse"
     "fixture/UpdateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStream)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStream)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
 responseDeleteStream =
@@ -351,7 +351,7 @@ responseDeleteStream =
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStream)
 
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
@@ -359,7 +359,7 @@ responseListStreams =
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListStreams)
 
 responseCreateStream :: CreateStreamResponse -> TestTree
 responseCreateStream =
@@ -367,7 +367,7 @@ responseCreateStream =
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStream)
+    (Proxy.Proxy :: Proxy.Proxy CreateStream)
 
 responseDescribeSignalingChannel :: DescribeSignalingChannelResponse -> TestTree
 responseDescribeSignalingChannel =
@@ -375,7 +375,7 @@ responseDescribeSignalingChannel =
     "DescribeSignalingChannelResponse"
     "fixture/DescribeSignalingChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSignalingChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSignalingChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -383,7 +383,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -391,7 +391,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseTagStream :: TagStreamResponse -> TestTree
 responseTagStream =
@@ -399,7 +399,7 @@ responseTagStream =
     "TagStreamResponse"
     "fixture/TagStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy TagStream)
+    (Proxy.Proxy :: Proxy.Proxy TagStream)
 
 responseCreateSignalingChannel :: CreateSignalingChannelResponse -> TestTree
 responseCreateSignalingChannel =
@@ -407,7 +407,7 @@ responseCreateSignalingChannel =
     "CreateSignalingChannelResponse"
     "fixture/CreateSignalingChannelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSignalingChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateSignalingChannel)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
 responseDescribeStream =
@@ -415,4 +415,4 @@ responseDescribeStream =
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStream)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStream)

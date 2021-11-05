@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Translate where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Translate
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -211,7 +211,7 @@ responseDescribeTextTranslationJob =
     "DescribeTextTranslationJobResponse"
     "fixture/DescribeTextTranslationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTextTranslationJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTextTranslationJob)
 
 responseListTerminologies :: ListTerminologiesResponse -> TestTree
 responseListTerminologies =
@@ -219,7 +219,7 @@ responseListTerminologies =
     "ListTerminologiesResponse"
     "fixture/ListTerminologiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTerminologies)
+    (Proxy.Proxy :: Proxy.Proxy ListTerminologies)
 
 responseCreateParallelData :: CreateParallelDataResponse -> TestTree
 responseCreateParallelData =
@@ -227,7 +227,7 @@ responseCreateParallelData =
     "CreateParallelDataResponse"
     "fixture/CreateParallelDataResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateParallelData)
+    (Proxy.Proxy :: Proxy.Proxy CreateParallelData)
 
 responseUpdateParallelData :: UpdateParallelDataResponse -> TestTree
 responseUpdateParallelData =
@@ -235,7 +235,7 @@ responseUpdateParallelData =
     "UpdateParallelDataResponse"
     "fixture/UpdateParallelDataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateParallelData)
+    (Proxy.Proxy :: Proxy.Proxy UpdateParallelData)
 
 responseDeleteParallelData :: DeleteParallelDataResponse -> TestTree
 responseDeleteParallelData =
@@ -243,7 +243,7 @@ responseDeleteParallelData =
     "DeleteParallelDataResponse"
     "fixture/DeleteParallelDataResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteParallelData)
+    (Proxy.Proxy :: Proxy.Proxy DeleteParallelData)
 
 responseGetParallelData :: GetParallelDataResponse -> TestTree
 responseGetParallelData =
@@ -251,7 +251,7 @@ responseGetParallelData =
     "GetParallelDataResponse"
     "fixture/GetParallelDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetParallelData)
+    (Proxy.Proxy :: Proxy.Proxy GetParallelData)
 
 responseGetTerminology :: GetTerminologyResponse -> TestTree
 responseGetTerminology =
@@ -259,7 +259,7 @@ responseGetTerminology =
     "GetTerminologyResponse"
     "fixture/GetTerminologyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTerminology)
+    (Proxy.Proxy :: Proxy.Proxy GetTerminology)
 
 responseTranslateText :: TranslateTextResponse -> TestTree
 responseTranslateText =
@@ -267,7 +267,7 @@ responseTranslateText =
     "TranslateTextResponse"
     "fixture/TranslateTextResponse.proto"
     defaultService
-    (Proxy :: Proxy TranslateText)
+    (Proxy.Proxy :: Proxy.Proxy TranslateText)
 
 responseImportTerminology :: ImportTerminologyResponse -> TestTree
 responseImportTerminology =
@@ -275,7 +275,7 @@ responseImportTerminology =
     "ImportTerminologyResponse"
     "fixture/ImportTerminologyResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportTerminology)
+    (Proxy.Proxy :: Proxy.Proxy ImportTerminology)
 
 responseStopTextTranslationJob :: StopTextTranslationJobResponse -> TestTree
 responseStopTextTranslationJob =
@@ -283,7 +283,7 @@ responseStopTextTranslationJob =
     "StopTextTranslationJobResponse"
     "fixture/StopTextTranslationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopTextTranslationJob)
+    (Proxy.Proxy :: Proxy.Proxy StopTextTranslationJob)
 
 responseDeleteTerminology :: DeleteTerminologyResponse -> TestTree
 responseDeleteTerminology =
@@ -291,7 +291,7 @@ responseDeleteTerminology =
     "DeleteTerminologyResponse"
     "fixture/DeleteTerminologyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTerminology)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTerminology)
 
 responseListTextTranslationJobs :: ListTextTranslationJobsResponse -> TestTree
 responseListTextTranslationJobs =
@@ -299,7 +299,7 @@ responseListTextTranslationJobs =
     "ListTextTranslationJobsResponse"
     "fixture/ListTextTranslationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTextTranslationJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListTextTranslationJobs)
 
 responseStartTextTranslationJob :: StartTextTranslationJobResponse -> TestTree
 responseStartTextTranslationJob =
@@ -307,7 +307,7 @@ responseStartTextTranslationJob =
     "StartTextTranslationJobResponse"
     "fixture/StartTextTranslationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTextTranslationJob)
+    (Proxy.Proxy :: Proxy.Proxy StartTextTranslationJob)
 
 responseListParallelData :: ListParallelDataResponse -> TestTree
 responseListParallelData =
@@ -315,4 +315,4 @@ responseListParallelData =
     "ListParallelDataResponse"
     "fixture/ListParallelDataResponse.proto"
     defaultService
-    (Proxy :: Proxy ListParallelData)
+    (Proxy.Proxy :: Proxy.Proxy ListParallelData)

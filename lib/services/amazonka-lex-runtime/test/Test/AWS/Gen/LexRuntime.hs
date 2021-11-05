@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LexRuntime where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.LexRuntime
 import Test.AWS.Fixture
 import Test.AWS.LexRuntime.Internal
@@ -97,7 +97,7 @@ responseDeleteSession =
     "DeleteSessionResponse"
     "fixture/DeleteSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSession)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSession)
 
 responsePostText :: PostTextResponse -> TestTree
 responsePostText =
@@ -105,7 +105,7 @@ responsePostText =
     "PostTextResponse"
     "fixture/PostTextResponse.proto"
     defaultService
-    (Proxy :: Proxy PostText)
+    (Proxy.Proxy :: Proxy.Proxy PostText)
 
 responseGetSession :: GetSessionResponse -> TestTree
 responseGetSession =
@@ -113,4 +113,4 @@ responseGetSession =
     "GetSessionResponse"
     "fixture/GetSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSession)
+    (Proxy.Proxy :: Proxy.Proxy GetSession)

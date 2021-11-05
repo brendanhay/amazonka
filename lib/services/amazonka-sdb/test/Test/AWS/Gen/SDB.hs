@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SDB where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SDB
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -163,7 +163,7 @@ responseBatchDeleteAttributes =
     "BatchDeleteAttributesResponse"
     "fixture/BatchDeleteAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteAttributes)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteAttributes)
 
 responseBatchPutAttributes :: BatchPutAttributesResponse -> TestTree
 responseBatchPutAttributes =
@@ -171,7 +171,7 @@ responseBatchPutAttributes =
     "BatchPutAttributesResponse"
     "fixture/BatchPutAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchPutAttributes)
+    (Proxy.Proxy :: Proxy.Proxy BatchPutAttributes)
 
 responseGetAttributes :: GetAttributesResponse -> TestTree
 responseGetAttributes =
@@ -179,7 +179,7 @@ responseGetAttributes =
     "GetAttributesResponse"
     "fixture/GetAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAttributes)
+    (Proxy.Proxy :: Proxy.Proxy GetAttributes)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -187,7 +187,7 @@ responseCreateDomain =
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseDomainMetadata :: DomainMetadataResponse -> TestTree
 responseDomainMetadata =
@@ -195,7 +195,7 @@ responseDomainMetadata =
     "DomainMetadataResponse"
     "fixture/DomainMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy DomainMetadata)
+    (Proxy.Proxy :: Proxy.Proxy DomainMetadata)
 
 responseSelect :: SelectResponse -> TestTree
 responseSelect =
@@ -203,7 +203,7 @@ responseSelect =
     "SelectResponse"
     "fixture/SelectResponse.proto"
     defaultService
-    (Proxy :: Proxy Select)
+    (Proxy.Proxy :: Proxy.Proxy Select)
 
 responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
 responseDeleteAttributes =
@@ -211,7 +211,7 @@ responseDeleteAttributes =
     "DeleteAttributesResponse"
     "fixture/DeleteAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAttributes)
 
 responsePutAttributes :: PutAttributesResponse -> TestTree
 responsePutAttributes =
@@ -219,7 +219,7 @@ responsePutAttributes =
     "PutAttributesResponse"
     "fixture/PutAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutAttributes)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -227,7 +227,7 @@ responseDeleteDomain =
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
@@ -235,4 +235,4 @@ responseListDomains =
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)

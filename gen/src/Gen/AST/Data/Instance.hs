@@ -13,7 +13,9 @@ module Gen.AST.Data.Instance where
 import Control.Applicative
 import Control.Error
 import Control.Lens
+import Control.Monad (guard)
 import Data.Aeson
+import Data.Functor (($>))
 import Data.List (find, partition)
 import Data.Text (Text)
 import qualified Data.Text as Text
@@ -51,31 +53,35 @@ instToText = \case
   IsNFData -> "NFData"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
-shapeInsts p m fs = go m
+shapeInsts proto mode fields = instances
   where
-    go :: Mode -> [Inst]
-    go = \case
-      Bi -> [inp p fs, out p fs]
-      Uni Input -> [inp p fs]
-      Uni Output -> [out p fs]
+    instances =
+      catMaybes $
+        case mode of
+          Bi -> [input, output]
+          Uni Input -> [input]
+          Uni Output -> [output]
 
-    inp :: Protocol -> [Field] -> Inst
-    inp = \case
-      JSON -> ToJSON
-      RestJSON -> ToJSON
-      RestXML -> ToXML
-      Query -> ToQuery . map Right
-      EC2 -> ToQuery . map Right
-      APIGateway -> ToJSON
+    input =
+      case proto of
+        JSON -> unlessBinary (ToJSON fields)
+        RestJSON -> unlessBinary (ToJSON fields)
+        APIGateway -> unlessBinary (ToJSON fields)
+        RestXML -> pure (ToXML fields)
+        Query -> pure (ToQuery (map Right fields))
+        EC2 -> pure (ToQuery (map Right fields))
 
-    out :: Protocol -> [Field] -> Inst
-    out = \case
-      JSON -> FromJSON
-      RestJSON -> FromJSON
-      RestXML -> FromXML
-      Query -> FromXML
-      EC2 -> FromXML
-      APIGateway -> FromJSON
+    output =
+      case proto of
+        JSON -> unlessBinary (FromJSON fields)
+        RestJSON -> unlessBinary (FromJSON fields)
+        APIGateway -> unlessBinary (FromJSON fields)
+        RestXML -> pure (FromXML fields)
+        Query -> pure (FromXML fields)
+        EC2 -> pure (FromXML fields)
+
+    -- Filter out To/FromJSON instances for shapes with ByteString fields.
+    unlessBinary x = guard (not (any fieldBytes fields)) $> x
 
 responseInsts :: [Field] -> [Inst]
 responseInsts fs

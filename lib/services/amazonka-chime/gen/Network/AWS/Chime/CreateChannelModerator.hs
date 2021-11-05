@@ -1,0 +1,208 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Chime.CreateChannelModerator
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a new @ChannelModerator@. A channel moderator can:
+--
+-- -   Add and remove other members of the channel.
+--
+-- -   Add and remove other moderators of the channel.
+--
+-- -   Add and remove user bans for the channel.
+--
+-- -   Redact messages in the channel.
+--
+-- -   List messages in the channel.
+--
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the
+-- @AppInstanceUserArn@ of the user that makes the API call as the value in
+-- the header.
+module Network.AWS.Chime.CreateChannelModerator
+  ( -- * Creating a Request
+    CreateChannelModerator (..),
+    newCreateChannelModerator,
+
+    -- * Request Lenses
+    createChannelModerator_chimeBearer,
+    createChannelModerator_channelArn,
+    createChannelModerator_channelModeratorArn,
+
+    -- * Destructuring the Response
+    CreateChannelModeratorResponse (..),
+    newCreateChannelModeratorResponse,
+
+    -- * Response Lenses
+    createChannelModeratorResponse_channelModerator,
+    createChannelModeratorResponse_channelArn,
+    createChannelModeratorResponse_httpStatus,
+  )
+where
+
+import Network.AWS.Chime.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newCreateChannelModerator' smart constructor.
+data CreateChannelModerator = CreateChannelModerator'
+  { -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    chimeBearer :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Text,
+    -- | The ARN of the moderator.
+    channelModeratorArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateChannelModerator' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'chimeBearer', 'createChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+--
+-- 'channelArn', 'createChannelModerator_channelArn' - The ARN of the channel.
+--
+-- 'channelModeratorArn', 'createChannelModerator_channelModeratorArn' - The ARN of the moderator.
+newCreateChannelModerator ::
+  -- | 'channelArn'
+  Prelude.Text ->
+  -- | 'channelModeratorArn'
+  Prelude.Text ->
+  CreateChannelModerator
+newCreateChannelModerator
+  pChannelArn_
+  pChannelModeratorArn_ =
+    CreateChannelModerator'
+      { chimeBearer =
+          Prelude.Nothing,
+        channelArn = pChannelArn_,
+        channelModeratorArn = pChannelModeratorArn_
+      }
+
+-- | The @AppInstanceUserArn@ of the user that makes the API call.
+createChannelModerator_chimeBearer :: Lens.Lens' CreateChannelModerator (Prelude.Maybe Prelude.Text)
+createChannelModerator_chimeBearer = Lens.lens (\CreateChannelModerator' {chimeBearer} -> chimeBearer) (\s@CreateChannelModerator' {} a -> s {chimeBearer = a} :: CreateChannelModerator)
+
+-- | The ARN of the channel.
+createChannelModerator_channelArn :: Lens.Lens' CreateChannelModerator Prelude.Text
+createChannelModerator_channelArn = Lens.lens (\CreateChannelModerator' {channelArn} -> channelArn) (\s@CreateChannelModerator' {} a -> s {channelArn = a} :: CreateChannelModerator)
+
+-- | The ARN of the moderator.
+createChannelModerator_channelModeratorArn :: Lens.Lens' CreateChannelModerator Prelude.Text
+createChannelModerator_channelModeratorArn = Lens.lens (\CreateChannelModerator' {channelModeratorArn} -> channelModeratorArn) (\s@CreateChannelModerator' {} a -> s {channelModeratorArn = a} :: CreateChannelModerator)
+
+instance Core.AWSRequest CreateChannelModerator where
+  type
+    AWSResponse CreateChannelModerator =
+      CreateChannelModeratorResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateChannelModeratorResponse'
+            Prelude.<$> (x Core..?> "ChannelModerator")
+            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateChannelModerator
+
+instance Prelude.NFData CreateChannelModerator
+
+instance Core.ToHeaders CreateChannelModerator where
+  toHeaders CreateChannelModerator' {..} =
+    Prelude.mconcat
+      ["x-amz-chime-bearer" Core.=# chimeBearer]
+
+instance Core.ToJSON CreateChannelModerator where
+  toJSON CreateChannelModerator' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ChannelModeratorArn" Core..= channelModeratorArn)
+          ]
+      )
+
+instance Core.ToPath CreateChannelModerator where
+  toPath CreateChannelModerator' {..} =
+    Prelude.mconcat
+      ["/channels/", Core.toBS channelArn, "/moderators"]
+
+instance Core.ToQuery CreateChannelModerator where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateChannelModeratorResponse' smart constructor.
+data CreateChannelModeratorResponse = CreateChannelModeratorResponse'
+  { -- | The ARNs of the channel and the moderator.
+    channelModerator :: Prelude.Maybe Identity,
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateChannelModeratorResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'channelModerator', 'createChannelModeratorResponse_channelModerator' - The ARNs of the channel and the moderator.
+--
+-- 'channelArn', 'createChannelModeratorResponse_channelArn' - The ARN of the channel.
+--
+-- 'httpStatus', 'createChannelModeratorResponse_httpStatus' - The response's http status code.
+newCreateChannelModeratorResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateChannelModeratorResponse
+newCreateChannelModeratorResponse pHttpStatus_ =
+  CreateChannelModeratorResponse'
+    { channelModerator =
+        Prelude.Nothing,
+      channelArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The ARNs of the channel and the moderator.
+createChannelModeratorResponse_channelModerator :: Lens.Lens' CreateChannelModeratorResponse (Prelude.Maybe Identity)
+createChannelModeratorResponse_channelModerator = Lens.lens (\CreateChannelModeratorResponse' {channelModerator} -> channelModerator) (\s@CreateChannelModeratorResponse' {} a -> s {channelModerator = a} :: CreateChannelModeratorResponse)
+
+-- | The ARN of the channel.
+createChannelModeratorResponse_channelArn :: Lens.Lens' CreateChannelModeratorResponse (Prelude.Maybe Prelude.Text)
+createChannelModeratorResponse_channelArn = Lens.lens (\CreateChannelModeratorResponse' {channelArn} -> channelArn) (\s@CreateChannelModeratorResponse' {} a -> s {channelArn = a} :: CreateChannelModeratorResponse)
+
+-- | The response's http status code.
+createChannelModeratorResponse_httpStatus :: Lens.Lens' CreateChannelModeratorResponse Prelude.Int
+createChannelModeratorResponse_httpStatus = Lens.lens (\CreateChannelModeratorResponse' {httpStatus} -> httpStatus) (\s@CreateChannelModeratorResponse' {} a -> s {httpStatus = a} :: CreateChannelModeratorResponse)
+
+instance
+  Prelude.NFData
+    CreateChannelModeratorResponse

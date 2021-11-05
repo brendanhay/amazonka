@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DeviceFarm where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DeviceFarm
 import Test.AWS.DeviceFarm.Internal
 import Test.AWS.Fixture
@@ -967,7 +967,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -975,7 +975,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -983,7 +983,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
 responseUpdateNetworkProfile =
@@ -991,7 +991,7 @@ responseUpdateNetworkProfile =
     "UpdateNetworkProfileResponse"
     "fixture/UpdateNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNetworkProfile)
 
 responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
 responseDeleteNetworkProfile =
@@ -999,7 +999,7 @@ responseDeleteNetworkProfile =
     "DeleteNetworkProfileResponse"
     "fixture/DeleteNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkProfile)
 
 responseGetDevicePoolCompatibility :: GetDevicePoolCompatibilityResponse -> TestTree
 responseGetDevicePoolCompatibility =
@@ -1007,7 +1007,7 @@ responseGetDevicePoolCompatibility =
     "GetDevicePoolCompatibilityResponse"
     "fixture/GetDevicePoolCompatibilityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevicePoolCompatibility)
+    (Proxy.Proxy :: Proxy.Proxy GetDevicePoolCompatibility)
 
 responseInstallToRemoteAccessSession :: InstallToRemoteAccessSessionResponse -> TestTree
 responseInstallToRemoteAccessSession =
@@ -1015,7 +1015,7 @@ responseInstallToRemoteAccessSession =
     "InstallToRemoteAccessSessionResponse"
     "fixture/InstallToRemoteAccessSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy InstallToRemoteAccessSession)
+    (Proxy.Proxy :: Proxy.Proxy InstallToRemoteAccessSession)
 
 responseListTests :: ListTestsResponse -> TestTree
 responseListTests =
@@ -1023,7 +1023,7 @@ responseListTests =
     "ListTestsResponse"
     "fixture/ListTestsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTests)
+    (Proxy.Proxy :: Proxy.Proxy ListTests)
 
 responseListArtifacts :: ListArtifactsResponse -> TestTree
 responseListArtifacts =
@@ -1031,7 +1031,7 @@ responseListArtifacts =
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListArtifacts)
+    (Proxy.Proxy :: Proxy.Proxy ListArtifacts)
 
 responseListTestGridSessionActions :: ListTestGridSessionActionsResponse -> TestTree
 responseListTestGridSessionActions =
@@ -1039,7 +1039,7 @@ responseListTestGridSessionActions =
     "ListTestGridSessionActionsResponse"
     "fixture/ListTestGridSessionActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTestGridSessionActions)
+    (Proxy.Proxy :: Proxy.Proxy ListTestGridSessionActions)
 
 responseCreateUpload :: CreateUploadResponse -> TestTree
 responseCreateUpload =
@@ -1047,7 +1047,7 @@ responseCreateUpload =
     "CreateUploadResponse"
     "fixture/CreateUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUpload)
+    (Proxy.Proxy :: Proxy.Proxy CreateUpload)
 
 responseGetDeviceInstance :: GetDeviceInstanceResponse -> TestTree
 responseGetDeviceInstance =
@@ -1055,7 +1055,7 @@ responseGetDeviceInstance =
     "GetDeviceInstanceResponse"
     "fixture/GetDeviceInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeviceInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceInstance)
 
 responseStopJob :: StopJobResponse -> TestTree
 responseStopJob =
@@ -1063,7 +1063,7 @@ responseStopJob =
     "StopJobResponse"
     "fixture/StopJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopJob)
+    (Proxy.Proxy :: Proxy.Proxy StopJob)
 
 responseDeleteRemoteAccessSession :: DeleteRemoteAccessSessionResponse -> TestTree
 responseDeleteRemoteAccessSession =
@@ -1071,7 +1071,7 @@ responseDeleteRemoteAccessSession =
     "DeleteRemoteAccessSessionResponse"
     "fixture/DeleteRemoteAccessSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRemoteAccessSession)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRemoteAccessSession)
 
 responseListTestGridSessionArtifacts :: ListTestGridSessionArtifactsResponse -> TestTree
 responseListTestGridSessionArtifacts =
@@ -1079,7 +1079,7 @@ responseListTestGridSessionArtifacts =
     "ListTestGridSessionArtifactsResponse"
     "fixture/ListTestGridSessionArtifactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTestGridSessionArtifacts)
+    (Proxy.Proxy :: Proxy.Proxy ListTestGridSessionArtifacts)
 
 responseListTestGridProjects :: ListTestGridProjectsResponse -> TestTree
 responseListTestGridProjects =
@@ -1087,7 +1087,7 @@ responseListTestGridProjects =
     "ListTestGridProjectsResponse"
     "fixture/ListTestGridProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTestGridProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListTestGridProjects)
 
 responseDeleteUpload :: DeleteUploadResponse -> TestTree
 responseDeleteUpload =
@@ -1095,7 +1095,7 @@ responseDeleteUpload =
     "DeleteUploadResponse"
     "fixture/DeleteUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUpload)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUpload)
 
 responseUpdateUpload :: UpdateUploadResponse -> TestTree
 responseUpdateUpload =
@@ -1103,7 +1103,7 @@ responseUpdateUpload =
     "UpdateUploadResponse"
     "fixture/UpdateUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUpload)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUpload)
 
 responseDeleteTestGridProject :: DeleteTestGridProjectResponse -> TestTree
 responseDeleteTestGridProject =
@@ -1111,7 +1111,7 @@ responseDeleteTestGridProject =
     "DeleteTestGridProjectResponse"
     "fixture/DeleteTestGridProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTestGridProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTestGridProject)
 
 responseUpdateTestGridProject :: UpdateTestGridProjectResponse -> TestTree
 responseUpdateTestGridProject =
@@ -1119,7 +1119,7 @@ responseUpdateTestGridProject =
     "UpdateTestGridProjectResponse"
     "fixture/UpdateTestGridProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTestGridProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTestGridProject)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1127,7 +1127,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetDevicePool :: GetDevicePoolResponse -> TestTree
 responseGetDevicePool =
@@ -1135,7 +1135,7 @@ responseGetDevicePool =
     "GetDevicePoolResponse"
     "fixture/GetDevicePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevicePool)
+    (Proxy.Proxy :: Proxy.Proxy GetDevicePool)
 
 responseListDevicePools :: ListDevicePoolsResponse -> TestTree
 responseListDevicePools =
@@ -1143,7 +1143,7 @@ responseListDevicePools =
     "ListDevicePoolsResponse"
     "fixture/ListDevicePoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevicePools)
+    (Proxy.Proxy :: Proxy.Proxy ListDevicePools)
 
 responseUpdateDevicePool :: UpdateDevicePoolResponse -> TestTree
 responseUpdateDevicePool =
@@ -1151,7 +1151,7 @@ responseUpdateDevicePool =
     "UpdateDevicePoolResponse"
     "fixture/UpdateDevicePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDevicePool)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDevicePool)
 
 responseDeleteDevicePool :: DeleteDevicePoolResponse -> TestTree
 responseDeleteDevicePool =
@@ -1159,7 +1159,7 @@ responseDeleteDevicePool =
     "DeleteDevicePoolResponse"
     "fixture/DeleteDevicePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDevicePool)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDevicePool)
 
 responseGetUpload :: GetUploadResponse -> TestTree
 responseGetUpload =
@@ -1167,7 +1167,7 @@ responseGetUpload =
     "GetUploadResponse"
     "fixture/GetUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUpload)
+    (Proxy.Proxy :: Proxy.Proxy GetUpload)
 
 responseListOfferingTransactions :: ListOfferingTransactionsResponse -> TestTree
 responseListOfferingTransactions =
@@ -1175,7 +1175,7 @@ responseListOfferingTransactions =
     "ListOfferingTransactionsResponse"
     "fixture/ListOfferingTransactionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOfferingTransactions)
+    (Proxy.Proxy :: Proxy.Proxy ListOfferingTransactions)
 
 responseCreateDevicePool :: CreateDevicePoolResponse -> TestTree
 responseCreateDevicePool =
@@ -1183,7 +1183,7 @@ responseCreateDevicePool =
     "CreateDevicePoolResponse"
     "fixture/CreateDevicePoolResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDevicePool)
+    (Proxy.Proxy :: Proxy.Proxy CreateDevicePool)
 
 responseDeleteRun :: DeleteRunResponse -> TestTree
 responseDeleteRun =
@@ -1191,7 +1191,7 @@ responseDeleteRun =
     "DeleteRunResponse"
     "fixture/DeleteRunResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRun)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRun)
 
 responseListRuns :: ListRunsResponse -> TestTree
 responseListRuns =
@@ -1199,7 +1199,7 @@ responseListRuns =
     "ListRunsResponse"
     "fixture/ListRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRuns)
+    (Proxy.Proxy :: Proxy.Proxy ListRuns)
 
 responseGetTest :: GetTestResponse -> TestTree
 responseGetTest =
@@ -1207,7 +1207,7 @@ responseGetTest =
     "GetTestResponse"
     "fixture/GetTestResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTest)
+    (Proxy.Proxy :: Proxy.Proxy GetTest)
 
 responseUpdateDeviceInstance :: UpdateDeviceInstanceResponse -> TestTree
 responseUpdateDeviceInstance =
@@ -1215,7 +1215,7 @@ responseUpdateDeviceInstance =
     "UpdateDeviceInstanceResponse"
     "fixture/UpdateDeviceInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeviceInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceInstance)
 
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
 responseGetNetworkProfile =
@@ -1223,7 +1223,7 @@ responseGetNetworkProfile =
     "GetNetworkProfileResponse"
     "fixture/GetNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetNetworkProfile)
 
 responseRenewOffering :: RenewOfferingResponse -> TestTree
 responseRenewOffering =
@@ -1231,7 +1231,7 @@ responseRenewOffering =
     "RenewOfferingResponse"
     "fixture/RenewOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy RenewOffering)
+    (Proxy.Proxy :: Proxy.Proxy RenewOffering)
 
 responseDeleteInstanceProfile :: DeleteInstanceProfileResponse -> TestTree
 responseDeleteInstanceProfile =
@@ -1239,7 +1239,7 @@ responseDeleteInstanceProfile =
     "DeleteInstanceProfileResponse"
     "fixture/DeleteInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstanceProfile)
 
 responseUpdateInstanceProfile :: UpdateInstanceProfileResponse -> TestTree
 responseUpdateInstanceProfile =
@@ -1247,7 +1247,7 @@ responseUpdateInstanceProfile =
     "UpdateInstanceProfileResponse"
     "fixture/UpdateInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceProfile)
 
 responseCreateInstanceProfile :: CreateInstanceProfileResponse -> TestTree
 responseCreateInstanceProfile =
@@ -1255,7 +1255,7 @@ responseCreateInstanceProfile =
     "CreateInstanceProfileResponse"
     "fixture/CreateInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceProfile)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice =
@@ -1263,7 +1263,7 @@ responseGetDevice =
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevice)
+    (Proxy.Proxy :: Proxy.Proxy GetDevice)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -1271,7 +1271,7 @@ responseListJobs =
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
 
 responseGetTestGridSession :: GetTestGridSessionResponse -> TestTree
 responseGetTestGridSession =
@@ -1279,7 +1279,7 @@ responseGetTestGridSession =
     "GetTestGridSessionResponse"
     "fixture/GetTestGridSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTestGridSession)
+    (Proxy.Proxy :: Proxy.Proxy GetTestGridSession)
 
 responseGetVPCEConfiguration :: GetVPCEConfigurationResponse -> TestTree
 responseGetVPCEConfiguration =
@@ -1287,7 +1287,7 @@ responseGetVPCEConfiguration =
     "GetVPCEConfigurationResponse"
     "fixture/GetVPCEConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVPCEConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetVPCEConfiguration)
 
 responseStopRemoteAccessSession :: StopRemoteAccessSessionResponse -> TestTree
 responseStopRemoteAccessSession =
@@ -1295,7 +1295,7 @@ responseStopRemoteAccessSession =
     "StopRemoteAccessSessionResponse"
     "fixture/StopRemoteAccessSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopRemoteAccessSession)
+    (Proxy.Proxy :: Proxy.Proxy StopRemoteAccessSession)
 
 responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
 responseCreateNetworkProfile =
@@ -1303,7 +1303,7 @@ responseCreateNetworkProfile =
     "CreateNetworkProfileResponse"
     "fixture/CreateNetworkProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkProfile)
 
 responseDeleteVPCEConfiguration :: DeleteVPCEConfigurationResponse -> TestTree
 responseDeleteVPCEConfiguration =
@@ -1311,7 +1311,7 @@ responseDeleteVPCEConfiguration =
     "DeleteVPCEConfigurationResponse"
     "fixture/DeleteVPCEConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVPCEConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVPCEConfiguration)
 
 responseUpdateVPCEConfiguration :: UpdateVPCEConfigurationResponse -> TestTree
 responseUpdateVPCEConfiguration =
@@ -1319,7 +1319,7 @@ responseUpdateVPCEConfiguration =
     "UpdateVPCEConfigurationResponse"
     "fixture/UpdateVPCEConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVPCEConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateVPCEConfiguration)
 
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob =
@@ -1327,7 +1327,7 @@ responseGetJob =
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJob)
+    (Proxy.Proxy :: Proxy.Proxy GetJob)
 
 responseGetInstanceProfile :: GetInstanceProfileResponse -> TestTree
 responseGetInstanceProfile =
@@ -1335,7 +1335,7 @@ responseGetInstanceProfile =
     "GetInstanceProfileResponse"
     "fixture/GetInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceProfile)
 
 responseListNetworkProfiles :: ListNetworkProfilesResponse -> TestTree
 responseListNetworkProfiles =
@@ -1343,7 +1343,7 @@ responseListNetworkProfiles =
     "ListNetworkProfilesResponse"
     "fixture/ListNetworkProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNetworkProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListNetworkProfiles)
 
 responseCreateVPCEConfiguration :: CreateVPCEConfigurationResponse -> TestTree
 responseCreateVPCEConfiguration =
@@ -1351,7 +1351,7 @@ responseCreateVPCEConfiguration =
     "CreateVPCEConfigurationResponse"
     "fixture/CreateVPCEConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVPCEConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateVPCEConfiguration)
 
 responseScheduleRun :: ScheduleRunResponse -> TestTree
 responseScheduleRun =
@@ -1359,7 +1359,7 @@ responseScheduleRun =
     "ScheduleRunResponse"
     "fixture/ScheduleRunResponse.proto"
     defaultService
-    (Proxy :: Proxy ScheduleRun)
+    (Proxy.Proxy :: Proxy.Proxy ScheduleRun)
 
 responseCreateTestGridProject :: CreateTestGridProjectResponse -> TestTree
 responseCreateTestGridProject =
@@ -1367,7 +1367,7 @@ responseCreateTestGridProject =
     "CreateTestGridProjectResponse"
     "fixture/CreateTestGridProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTestGridProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateTestGridProject)
 
 responseGetRun :: GetRunResponse -> TestTree
 responseGetRun =
@@ -1375,7 +1375,7 @@ responseGetRun =
     "GetRunResponse"
     "fixture/GetRunResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRun)
+    (Proxy.Proxy :: Proxy.Proxy GetRun)
 
 responseListSamples :: ListSamplesResponse -> TestTree
 responseListSamples =
@@ -1383,7 +1383,7 @@ responseListSamples =
     "ListSamplesResponse"
     "fixture/ListSamplesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSamples)
+    (Proxy.Proxy :: Proxy.Proxy ListSamples)
 
 responseListSuites :: ListSuitesResponse -> TestTree
 responseListSuites =
@@ -1391,7 +1391,7 @@ responseListSuites =
     "ListSuitesResponse"
     "fixture/ListSuitesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSuites)
+    (Proxy.Proxy :: Proxy.Proxy ListSuites)
 
 responseListRemoteAccessSessions :: ListRemoteAccessSessionsResponse -> TestTree
 responseListRemoteAccessSessions =
@@ -1399,7 +1399,7 @@ responseListRemoteAccessSessions =
     "ListRemoteAccessSessionsResponse"
     "fixture/ListRemoteAccessSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRemoteAccessSessions)
+    (Proxy.Proxy :: Proxy.Proxy ListRemoteAccessSessions)
 
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
 responseGetAccountSettings =
@@ -1407,7 +1407,7 @@ responseGetAccountSettings =
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
 
 responseCreateRemoteAccessSession :: CreateRemoteAccessSessionResponse -> TestTree
 responseCreateRemoteAccessSession =
@@ -1415,7 +1415,7 @@ responseCreateRemoteAccessSession =
     "CreateRemoteAccessSessionResponse"
     "fixture/CreateRemoteAccessSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRemoteAccessSession)
+    (Proxy.Proxy :: Proxy.Proxy CreateRemoteAccessSession)
 
 responseListOfferingPromotions :: ListOfferingPromotionsResponse -> TestTree
 responseListOfferingPromotions =
@@ -1423,7 +1423,7 @@ responseListOfferingPromotions =
     "ListOfferingPromotionsResponse"
     "fixture/ListOfferingPromotionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOfferingPromotions)
+    (Proxy.Proxy :: Proxy.Proxy ListOfferingPromotions)
 
 responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
 responseGetOfferingStatus =
@@ -1431,7 +1431,7 @@ responseGetOfferingStatus =
     "GetOfferingStatusResponse"
     "fixture/GetOfferingStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOfferingStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetOfferingStatus)
 
 responseListUploads :: ListUploadsResponse -> TestTree
 responseListUploads =
@@ -1439,7 +1439,7 @@ responseListUploads =
     "ListUploadsResponse"
     "fixture/ListUploadsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUploads)
+    (Proxy.Proxy :: Proxy.Proxy ListUploads)
 
 responseGetTestGridProject :: GetTestGridProjectResponse -> TestTree
 responseGetTestGridProject =
@@ -1447,7 +1447,7 @@ responseGetTestGridProject =
     "GetTestGridProjectResponse"
     "fixture/GetTestGridProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTestGridProject)
+    (Proxy.Proxy :: Proxy.Proxy GetTestGridProject)
 
 responseGetSuite :: GetSuiteResponse -> TestTree
 responseGetSuite =
@@ -1455,7 +1455,7 @@ responseGetSuite =
     "GetSuiteResponse"
     "fixture/GetSuiteResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSuite)
+    (Proxy.Proxy :: Proxy.Proxy GetSuite)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1463,7 +1463,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetRemoteAccessSession :: GetRemoteAccessSessionResponse -> TestTree
 responseGetRemoteAccessSession =
@@ -1471,7 +1471,7 @@ responseGetRemoteAccessSession =
     "GetRemoteAccessSessionResponse"
     "fixture/GetRemoteAccessSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRemoteAccessSession)
+    (Proxy.Proxy :: Proxy.Proxy GetRemoteAccessSession)
 
 responseListDeviceInstances :: ListDeviceInstancesResponse -> TestTree
 responseListDeviceInstances =
@@ -1479,7 +1479,7 @@ responseListDeviceInstances =
     "ListDeviceInstancesResponse"
     "fixture/ListDeviceInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeviceInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListDeviceInstances)
 
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
 responsePurchaseOffering =
@@ -1487,7 +1487,7 @@ responsePurchaseOffering =
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseOffering)
 
 responseListInstanceProfiles :: ListInstanceProfilesResponse -> TestTree
 responseListInstanceProfiles =
@@ -1495,7 +1495,7 @@ responseListInstanceProfiles =
     "ListInstanceProfilesResponse"
     "fixture/ListInstanceProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceProfiles)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1503,7 +1503,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetProject :: GetProjectResponse -> TestTree
 responseGetProject =
@@ -1511,7 +1511,7 @@ responseGetProject =
     "GetProjectResponse"
     "fixture/GetProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProject)
+    (Proxy.Proxy :: Proxy.Proxy GetProject)
 
 responseListUniqueProblems :: ListUniqueProblemsResponse -> TestTree
 responseListUniqueProblems =
@@ -1519,7 +1519,7 @@ responseListUniqueProblems =
     "ListUniqueProblemsResponse"
     "fixture/ListUniqueProblemsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUniqueProblems)
+    (Proxy.Proxy :: Proxy.Proxy ListUniqueProblems)
 
 responseListVPCEConfigurations :: ListVPCEConfigurationsResponse -> TestTree
 responseListVPCEConfigurations =
@@ -1527,7 +1527,7 @@ responseListVPCEConfigurations =
     "ListVPCEConfigurationsResponse"
     "fixture/ListVPCEConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVPCEConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy ListVPCEConfigurations)
 
 responseStopRun :: StopRunResponse -> TestTree
 responseStopRun =
@@ -1535,7 +1535,7 @@ responseStopRun =
     "StopRunResponse"
     "fixture/StopRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StopRun)
+    (Proxy.Proxy :: Proxy.Proxy StopRun)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -1543,7 +1543,7 @@ responseListDevices =
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -1551,7 +1551,7 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
 responseListTestGridSessions :: ListTestGridSessionsResponse -> TestTree
 responseListTestGridSessions =
@@ -1559,7 +1559,7 @@ responseListTestGridSessions =
     "ListTestGridSessionsResponse"
     "fixture/ListTestGridSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTestGridSessions)
+    (Proxy.Proxy :: Proxy.Proxy ListTestGridSessions)
 
 responseCreateTestGridUrl :: CreateTestGridUrlResponse -> TestTree
 responseCreateTestGridUrl =
@@ -1567,7 +1567,7 @@ responseCreateTestGridUrl =
     "CreateTestGridUrlResponse"
     "fixture/CreateTestGridUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTestGridUrl)
+    (Proxy.Proxy :: Proxy.Proxy CreateTestGridUrl)
 
 responseListOfferings :: ListOfferingsResponse -> TestTree
 responseListOfferings =
@@ -1575,4 +1575,4 @@ responseListOfferings =
     "ListOfferingsResponse"
     "fixture/ListOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOfferings)
+    (Proxy.Proxy :: Proxy.Proxy ListOfferings)

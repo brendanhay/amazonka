@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Firehose where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Firehose
 import Test.AWS.Firehose.Internal
 import Test.AWS.Fixture
@@ -187,7 +187,7 @@ responsePutRecord =
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRecord)
+    (Proxy.Proxy :: Proxy.Proxy PutRecord)
 
 responseStopDeliveryStreamEncryption :: StopDeliveryStreamEncryptionResponse -> TestTree
 responseStopDeliveryStreamEncryption =
@@ -195,7 +195,7 @@ responseStopDeliveryStreamEncryption =
     "StopDeliveryStreamEncryptionResponse"
     "fixture/StopDeliveryStreamEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDeliveryStreamEncryption)
+    (Proxy.Proxy :: Proxy.Proxy StopDeliveryStreamEncryption)
 
 responseTagDeliveryStream :: TagDeliveryStreamResponse -> TestTree
 responseTagDeliveryStream =
@@ -203,7 +203,7 @@ responseTagDeliveryStream =
     "TagDeliveryStreamResponse"
     "fixture/TagDeliveryStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy TagDeliveryStream)
+    (Proxy.Proxy :: Proxy.Proxy TagDeliveryStream)
 
 responseUpdateDestination :: UpdateDestinationResponse -> TestTree
 responseUpdateDestination =
@@ -211,7 +211,7 @@ responseUpdateDestination =
     "UpdateDestinationResponse"
     "fixture/UpdateDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDestination)
 
 responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
 responsePutRecordBatch =
@@ -219,7 +219,7 @@ responsePutRecordBatch =
     "PutRecordBatchResponse"
     "fixture/PutRecordBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRecordBatch)
+    (Proxy.Proxy :: Proxy.Proxy PutRecordBatch)
 
 responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
 responseUntagDeliveryStream =
@@ -227,7 +227,7 @@ responseUntagDeliveryStream =
     "UntagDeliveryStreamResponse"
     "fixture/UntagDeliveryStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagDeliveryStream)
+    (Proxy.Proxy :: Proxy.Proxy UntagDeliveryStream)
 
 responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
 responseCreateDeliveryStream =
@@ -235,7 +235,7 @@ responseCreateDeliveryStream =
     "CreateDeliveryStreamResponse"
     "fixture/CreateDeliveryStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeliveryStream)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeliveryStream)
 
 responseStartDeliveryStreamEncryption :: StartDeliveryStreamEncryptionResponse -> TestTree
 responseStartDeliveryStreamEncryption =
@@ -243,7 +243,7 @@ responseStartDeliveryStreamEncryption =
     "StartDeliveryStreamEncryptionResponse"
     "fixture/StartDeliveryStreamEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDeliveryStreamEncryption)
+    (Proxy.Proxy :: Proxy.Proxy StartDeliveryStreamEncryption)
 
 responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
 responseDescribeDeliveryStream =
@@ -251,7 +251,7 @@ responseDescribeDeliveryStream =
     "DescribeDeliveryStreamResponse"
     "fixture/DescribeDeliveryStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDeliveryStream)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeliveryStream)
 
 responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
 responseListTagsForDeliveryStream =
@@ -259,7 +259,7 @@ responseListTagsForDeliveryStream =
     "ListTagsForDeliveryStreamResponse"
     "fixture/ListTagsForDeliveryStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForDeliveryStream)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForDeliveryStream)
 
 responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
 responseListDeliveryStreams =
@@ -267,7 +267,7 @@ responseListDeliveryStreams =
     "ListDeliveryStreamsResponse"
     "fixture/ListDeliveryStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeliveryStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListDeliveryStreams)
 
 responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
 responseDeleteDeliveryStream =
@@ -275,4 +275,4 @@ responseDeleteDeliveryStream =
     "DeleteDeliveryStreamResponse"
     "fixture/DeleteDeliveryStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeliveryStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeliveryStream)

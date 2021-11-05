@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Athena where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Athena
 import Test.AWS.Athena.Internal
 import Test.AWS.Fixture
@@ -451,7 +451,7 @@ responseListDatabases =
     "ListDatabasesResponse"
     "fixture/ListDatabasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDatabases)
+    (Proxy.Proxy :: Proxy.Proxy ListDatabases)
 
 responseCreatePreparedStatement :: CreatePreparedStatementResponse -> TestTree
 responseCreatePreparedStatement =
@@ -459,7 +459,7 @@ responseCreatePreparedStatement =
     "CreatePreparedStatementResponse"
     "fixture/CreatePreparedStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePreparedStatement)
+    (Proxy.Proxy :: Proxy.Proxy CreatePreparedStatement)
 
 responseDeleteWorkGroup :: DeleteWorkGroupResponse -> TestTree
 responseDeleteWorkGroup =
@@ -467,7 +467,7 @@ responseDeleteWorkGroup =
     "DeleteWorkGroupResponse"
     "fixture/DeleteWorkGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkGroup)
 
 responseUpdateWorkGroup :: UpdateWorkGroupResponse -> TestTree
 responseUpdateWorkGroup =
@@ -475,7 +475,7 @@ responseUpdateWorkGroup =
     "UpdateWorkGroupResponse"
     "fixture/UpdateWorkGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateWorkGroup)
 
 responseGetNamedQuery :: GetNamedQueryResponse -> TestTree
 responseGetNamedQuery =
@@ -483,7 +483,7 @@ responseGetNamedQuery =
     "GetNamedQueryResponse"
     "fixture/GetNamedQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNamedQuery)
+    (Proxy.Proxy :: Proxy.Proxy GetNamedQuery)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -491,7 +491,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteDataCatalog :: DeleteDataCatalogResponse -> TestTree
 responseDeleteDataCatalog =
@@ -499,7 +499,7 @@ responseDeleteDataCatalog =
     "DeleteDataCatalogResponse"
     "fixture/DeleteDataCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDataCatalog)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataCatalog)
 
 responseUpdateDataCatalog :: UpdateDataCatalogResponse -> TestTree
 responseUpdateDataCatalog =
@@ -507,7 +507,7 @@ responseUpdateDataCatalog =
     "UpdateDataCatalogResponse"
     "fixture/UpdateDataCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDataCatalog)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataCatalog)
 
 responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
 responseListDataCatalogs =
@@ -515,7 +515,7 @@ responseListDataCatalogs =
     "ListDataCatalogsResponse"
     "fixture/ListDataCatalogsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataCatalogs)
+    (Proxy.Proxy :: Proxy.Proxy ListDataCatalogs)
 
 responseCreateNamedQuery :: CreateNamedQueryResponse -> TestTree
 responseCreateNamedQuery =
@@ -523,7 +523,7 @@ responseCreateNamedQuery =
     "CreateNamedQueryResponse"
     "fixture/CreateNamedQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNamedQuery)
+    (Proxy.Proxy :: Proxy.Proxy CreateNamedQuery)
 
 responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
 responseGetTableMetadata =
@@ -531,7 +531,7 @@ responseGetTableMetadata =
     "GetTableMetadataResponse"
     "fixture/GetTableMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTableMetadata)
+    (Proxy.Proxy :: Proxy.Proxy GetTableMetadata)
 
 responseListNamedQueries :: ListNamedQueriesResponse -> TestTree
 responseListNamedQueries =
@@ -539,7 +539,7 @@ responseListNamedQueries =
     "ListNamedQueriesResponse"
     "fixture/ListNamedQueriesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNamedQueries)
+    (Proxy.Proxy :: Proxy.Proxy ListNamedQueries)
 
 responseDeleteNamedQuery :: DeleteNamedQueryResponse -> TestTree
 responseDeleteNamedQuery =
@@ -547,7 +547,7 @@ responseDeleteNamedQuery =
     "DeleteNamedQueryResponse"
     "fixture/DeleteNamedQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNamedQuery)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNamedQuery)
 
 responseStartQueryExecution :: StartQueryExecutionResponse -> TestTree
 responseStartQueryExecution =
@@ -555,7 +555,7 @@ responseStartQueryExecution =
     "StartQueryExecutionResponse"
     "fixture/StartQueryExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartQueryExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartQueryExecution)
 
 responseBatchGetNamedQuery :: BatchGetNamedQueryResponse -> TestTree
 responseBatchGetNamedQuery =
@@ -563,7 +563,7 @@ responseBatchGetNamedQuery =
     "BatchGetNamedQueryResponse"
     "fixture/BatchGetNamedQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetNamedQuery)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetNamedQuery)
 
 responseGetQueryExecution :: GetQueryExecutionResponse -> TestTree
 responseGetQueryExecution =
@@ -571,7 +571,7 @@ responseGetQueryExecution =
     "GetQueryExecutionResponse"
     "fixture/GetQueryExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueryExecution)
+    (Proxy.Proxy :: Proxy.Proxy GetQueryExecution)
 
 responseListPreparedStatements :: ListPreparedStatementsResponse -> TestTree
 responseListPreparedStatements =
@@ -579,7 +579,7 @@ responseListPreparedStatements =
     "ListPreparedStatementsResponse"
     "fixture/ListPreparedStatementsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPreparedStatements)
+    (Proxy.Proxy :: Proxy.Proxy ListPreparedStatements)
 
 responseCreateDataCatalog :: CreateDataCatalogResponse -> TestTree
 responseCreateDataCatalog =
@@ -587,7 +587,7 @@ responseCreateDataCatalog =
     "CreateDataCatalogResponse"
     "fixture/CreateDataCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataCatalog)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataCatalog)
 
 responseListWorkGroups :: ListWorkGroupsResponse -> TestTree
 responseListWorkGroups =
@@ -595,7 +595,7 @@ responseListWorkGroups =
     "ListWorkGroupsResponse"
     "fixture/ListWorkGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWorkGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkGroups)
 
 responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
 responseCreateWorkGroup =
@@ -603,7 +603,7 @@ responseCreateWorkGroup =
     "CreateWorkGroupResponse"
     "fixture/CreateWorkGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateWorkGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkGroup)
 
 responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
 responseBatchGetQueryExecution =
@@ -611,7 +611,7 @@ responseBatchGetQueryExecution =
     "BatchGetQueryExecutionResponse"
     "fixture/BatchGetQueryExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetQueryExecution)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetQueryExecution)
 
 responseListEngineVersions :: ListEngineVersionsResponse -> TestTree
 responseListEngineVersions =
@@ -619,7 +619,7 @@ responseListEngineVersions =
     "ListEngineVersionsResponse"
     "fixture/ListEngineVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEngineVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListEngineVersions)
 
 responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
 responseGetDataCatalog =
@@ -627,7 +627,7 @@ responseGetDataCatalog =
     "GetDataCatalogResponse"
     "fixture/GetDataCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDataCatalog)
+    (Proxy.Proxy :: Proxy.Proxy GetDataCatalog)
 
 responseStopQueryExecution :: StopQueryExecutionResponse -> TestTree
 responseStopQueryExecution =
@@ -635,7 +635,7 @@ responseStopQueryExecution =
     "StopQueryExecutionResponse"
     "fixture/StopQueryExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopQueryExecution)
+    (Proxy.Proxy :: Proxy.Proxy StopQueryExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -643,7 +643,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetWorkGroup :: GetWorkGroupResponse -> TestTree
 responseGetWorkGroup =
@@ -651,7 +651,7 @@ responseGetWorkGroup =
     "GetWorkGroupResponse"
     "fixture/GetWorkGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorkGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetWorkGroup)
 
 responseGetDatabase :: GetDatabaseResponse -> TestTree
 responseGetDatabase =
@@ -659,7 +659,7 @@ responseGetDatabase =
     "GetDatabaseResponse"
     "fixture/GetDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDatabase)
+    (Proxy.Proxy :: Proxy.Proxy GetDatabase)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -667,7 +667,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetPreparedStatement :: GetPreparedStatementResponse -> TestTree
 responseGetPreparedStatement =
@@ -675,7 +675,7 @@ responseGetPreparedStatement =
     "GetPreparedStatementResponse"
     "fixture/GetPreparedStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPreparedStatement)
+    (Proxy.Proxy :: Proxy.Proxy GetPreparedStatement)
 
 responseGetQueryResults :: GetQueryResultsResponse -> TestTree
 responseGetQueryResults =
@@ -683,7 +683,7 @@ responseGetQueryResults =
     "GetQueryResultsResponse"
     "fixture/GetQueryResultsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueryResults)
+    (Proxy.Proxy :: Proxy.Proxy GetQueryResults)
 
 responseListTableMetadata :: ListTableMetadataResponse -> TestTree
 responseListTableMetadata =
@@ -691,7 +691,7 @@ responseListTableMetadata =
     "ListTableMetadataResponse"
     "fixture/ListTableMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTableMetadata)
+    (Proxy.Proxy :: Proxy.Proxy ListTableMetadata)
 
 responseListQueryExecutions :: ListQueryExecutionsResponse -> TestTree
 responseListQueryExecutions =
@@ -699,7 +699,7 @@ responseListQueryExecutions =
     "ListQueryExecutionsResponse"
     "fixture/ListQueryExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueryExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListQueryExecutions)
 
 responseDeletePreparedStatement :: DeletePreparedStatementResponse -> TestTree
 responseDeletePreparedStatement =
@@ -707,7 +707,7 @@ responseDeletePreparedStatement =
     "DeletePreparedStatementResponse"
     "fixture/DeletePreparedStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePreparedStatement)
+    (Proxy.Proxy :: Proxy.Proxy DeletePreparedStatement)
 
 responseUpdatePreparedStatement :: UpdatePreparedStatementResponse -> TestTree
 responseUpdatePreparedStatement =
@@ -715,4 +715,4 @@ responseUpdatePreparedStatement =
     "UpdatePreparedStatementResponse"
     "fixture/UpdatePreparedStatementResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePreparedStatement)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePreparedStatement)

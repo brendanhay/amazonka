@@ -7,6 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Sensitive where
 
+import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.JSON
@@ -33,8 +34,10 @@ newtype Sensitive a = Sensitive {fromSensitive :: a}
       ToJSON,
       FromJSON,
       ToHeader,
+      ToBody,
       Hashable,
-      NFData
+      NFData,
+      IsList
     )
 
 instance Show (Sensitive a) where

@@ -1,0 +1,140 @@
+cabal-version:      2.2
+name:               amazonka-voice-id
+version:            2.0
+synopsis:           Amazon Voice ID SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2021-09-27@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.VoiceId.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.VoiceId" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-voice-id
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.VoiceId
+    Network.AWS.VoiceId.CreateDomain
+    Network.AWS.VoiceId.DeleteDomain
+    Network.AWS.VoiceId.DeleteFraudster
+    Network.AWS.VoiceId.DeleteSpeaker
+    Network.AWS.VoiceId.DescribeDomain
+    Network.AWS.VoiceId.DescribeFraudster
+    Network.AWS.VoiceId.DescribeFraudsterRegistrationJob
+    Network.AWS.VoiceId.DescribeSpeaker
+    Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob
+    Network.AWS.VoiceId.EvaluateSession
+    Network.AWS.VoiceId.Lens
+    Network.AWS.VoiceId.ListDomains
+    Network.AWS.VoiceId.ListFraudsterRegistrationJobs
+    Network.AWS.VoiceId.ListSpeakerEnrollmentJobs
+    Network.AWS.VoiceId.ListSpeakers
+    Network.AWS.VoiceId.ListTagsForResource
+    Network.AWS.VoiceId.OptOutSpeaker
+    Network.AWS.VoiceId.StartFraudsterRegistrationJob
+    Network.AWS.VoiceId.StartSpeakerEnrollmentJob
+    Network.AWS.VoiceId.TagResource
+    Network.AWS.VoiceId.Types
+    Network.AWS.VoiceId.Types.AuthenticationConfiguration
+    Network.AWS.VoiceId.Types.AuthenticationDecision
+    Network.AWS.VoiceId.Types.AuthenticationResult
+    Network.AWS.VoiceId.Types.Domain
+    Network.AWS.VoiceId.Types.DomainStatus
+    Network.AWS.VoiceId.Types.DomainSummary
+    Network.AWS.VoiceId.Types.DuplicateRegistrationAction
+    Network.AWS.VoiceId.Types.EnrollmentConfig
+    Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig
+    Network.AWS.VoiceId.Types.ExistingEnrollmentAction
+    Network.AWS.VoiceId.Types.FailureDetails
+    Network.AWS.VoiceId.Types.FraudDetectionAction
+    Network.AWS.VoiceId.Types.FraudDetectionConfiguration
+    Network.AWS.VoiceId.Types.FraudDetectionDecision
+    Network.AWS.VoiceId.Types.FraudDetectionReason
+    Network.AWS.VoiceId.Types.FraudDetectionResult
+    Network.AWS.VoiceId.Types.FraudRiskDetails
+    Network.AWS.VoiceId.Types.Fraudster
+    Network.AWS.VoiceId.Types.FraudsterRegistrationJob
+    Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus
+    Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary
+    Network.AWS.VoiceId.Types.InputDataConfig
+    Network.AWS.VoiceId.Types.JobProgress
+    Network.AWS.VoiceId.Types.KnownFraudsterRisk
+    Network.AWS.VoiceId.Types.OutputDataConfig
+    Network.AWS.VoiceId.Types.RegistrationConfig
+    Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration
+    Network.AWS.VoiceId.Types.Speaker
+    Network.AWS.VoiceId.Types.SpeakerEnrollmentJob
+    Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus
+    Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary
+    Network.AWS.VoiceId.Types.SpeakerStatus
+    Network.AWS.VoiceId.Types.SpeakerSummary
+    Network.AWS.VoiceId.Types.StreamingStatus
+    Network.AWS.VoiceId.Types.Tag
+    Network.AWS.VoiceId.UntagResource
+    Network.AWS.VoiceId.UpdateDomain
+    Network.AWS.VoiceId.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-voice-id-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.VoiceId
+    Test.AWS.VoiceId
+    Test.AWS.VoiceId.Internal
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-test         ^>=2.0
+    , amazonka-voice-id
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,0 +1,218 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.MemoryDb.DescribeACLs
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a list of ACLs
+module Network.AWS.MemoryDb.DescribeACLs
+  ( -- * Creating a Request
+    DescribeACLs (..),
+    newDescribeACLs,
+
+    -- * Request Lenses
+    describeACLs_nextToken,
+    describeACLs_maxResults,
+    describeACLs_aCLName,
+
+    -- * Destructuring the Response
+    DescribeACLsResponse (..),
+    newDescribeACLsResponse,
+
+    -- * Response Lenses
+    describeACLsResponse_nextToken,
+    describeACLsResponse_aCLs,
+    describeACLsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MemoryDb.Types
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDescribeACLs' smart constructor.
+data DescribeACLs = DescribeACLs'
+  { -- | An optional argument to pass in case the total number of records exceeds
+    -- the value of MaxResults. If nextToken is returned, there are more
+    -- results available. The value of nextToken is a unique pagination token
+    -- for each page. Make the call again using the returned token to retrieve
+    -- the next page. Keep all other arguments unchanged.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxResults value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The name of the ACL
+    aCLName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeACLs' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeACLs_nextToken' - An optional argument to pass in case the total number of records exceeds
+-- the value of MaxResults. If nextToken is returned, there are more
+-- results available. The value of nextToken is a unique pagination token
+-- for each page. Make the call again using the returned token to retrieve
+-- the next page. Keep all other arguments unchanged.
+--
+-- 'maxResults', 'describeACLs_maxResults' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxResults value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- 'aCLName', 'describeACLs_aCLName' - The name of the ACL
+newDescribeACLs ::
+  DescribeACLs
+newDescribeACLs =
+  DescribeACLs'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      aCLName = Prelude.Nothing
+    }
+
+-- | An optional argument to pass in case the total number of records exceeds
+-- the value of MaxResults. If nextToken is returned, there are more
+-- results available. The value of nextToken is a unique pagination token
+-- for each page. Make the call again using the returned token to retrieve
+-- the next page. Keep all other arguments unchanged.
+describeACLs_nextToken :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
+describeACLs_nextToken = Lens.lens (\DescribeACLs' {nextToken} -> nextToken) (\s@DescribeACLs' {} a -> s {nextToken = a} :: DescribeACLs)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxResults value, a token is included
+-- in the response so that the remaining results can be retrieved.
+describeACLs_maxResults :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Int)
+describeACLs_maxResults = Lens.lens (\DescribeACLs' {maxResults} -> maxResults) (\s@DescribeACLs' {} a -> s {maxResults = a} :: DescribeACLs)
+
+-- | The name of the ACL
+describeACLs_aCLName :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
+describeACLs_aCLName = Lens.lens (\DescribeACLs' {aCLName} -> aCLName) (\s@DescribeACLs' {} a -> s {aCLName = a} :: DescribeACLs)
+
+instance Core.AWSRequest DescribeACLs where
+  type AWSResponse DescribeACLs = DescribeACLsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeACLsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ACLs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeACLs
+
+instance Prelude.NFData DescribeACLs
+
+instance Core.ToHeaders DescribeACLs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonMemoryDB.DescribeACLs" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeACLs where
+  toJSON DescribeACLs' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ACLName" Core..=) Prelude.<$> aCLName
+          ]
+      )
+
+instance Core.ToPath DescribeACLs where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeACLs where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeACLsResponse' smart constructor.
+data DescribeACLsResponse = DescribeACLsResponse'
+  { -- | If nextToken is returned, there are more results available. The value of
+    -- nextToken is a unique pagination token for each page. Make the call
+    -- again using the returned token to retrieve the next page. Keep all other
+    -- arguments unchanged.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of ACLs
+    aCLs :: Prelude.Maybe [ACL],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeACLsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeACLsResponse_nextToken' - If nextToken is returned, there are more results available. The value of
+-- nextToken is a unique pagination token for each page. Make the call
+-- again using the returned token to retrieve the next page. Keep all other
+-- arguments unchanged.
+--
+-- 'aCLs', 'describeACLsResponse_aCLs' - The list of ACLs
+--
+-- 'httpStatus', 'describeACLsResponse_httpStatus' - The response's http status code.
+newDescribeACLsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeACLsResponse
+newDescribeACLsResponse pHttpStatus_ =
+  DescribeACLsResponse'
+    { nextToken = Prelude.Nothing,
+      aCLs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If nextToken is returned, there are more results available. The value of
+-- nextToken is a unique pagination token for each page. Make the call
+-- again using the returned token to retrieve the next page. Keep all other
+-- arguments unchanged.
+describeACLsResponse_nextToken :: Lens.Lens' DescribeACLsResponse (Prelude.Maybe Prelude.Text)
+describeACLsResponse_nextToken = Lens.lens (\DescribeACLsResponse' {nextToken} -> nextToken) (\s@DescribeACLsResponse' {} a -> s {nextToken = a} :: DescribeACLsResponse)
+
+-- | The list of ACLs
+describeACLsResponse_aCLs :: Lens.Lens' DescribeACLsResponse (Prelude.Maybe [ACL])
+describeACLsResponse_aCLs = Lens.lens (\DescribeACLsResponse' {aCLs} -> aCLs) (\s@DescribeACLsResponse' {} a -> s {aCLs = a} :: DescribeACLsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response's http status code.
+describeACLsResponse_httpStatus :: Lens.Lens' DescribeACLsResponse Prelude.Int
+describeACLsResponse_httpStatus = Lens.lens (\DescribeACLsResponse' {httpStatus} -> httpStatus) (\s@DescribeACLsResponse' {} a -> s {httpStatus = a} :: DescribeACLsResponse)
+
+instance Prelude.NFData DescribeACLsResponse

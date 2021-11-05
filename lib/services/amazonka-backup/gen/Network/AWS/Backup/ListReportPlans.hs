@@ -1,0 +1,202 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Backup.ListReportPlans
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a list of your report plans. For detailed information about a
+-- single report plan, use @DescribeReportPlan@.
+module Network.AWS.Backup.ListReportPlans
+  ( -- * Creating a Request
+    ListReportPlans (..),
+    newListReportPlans,
+
+    -- * Request Lenses
+    listReportPlans_nextToken,
+    listReportPlans_maxResults,
+
+    -- * Destructuring the Response
+    ListReportPlansResponse (..),
+    newListReportPlansResponse,
+
+    -- * Response Lenses
+    listReportPlansResponse_reportPlans,
+    listReportPlansResponse_nextToken,
+    listReportPlansResponse_httpStatus,
+  )
+where
+
+import Network.AWS.Backup.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newListReportPlans' smart constructor.
+data ListReportPlans = ListReportPlans'
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of desired results from 1 to 1000. Optional. If unspecified,
+    -- the query will return 1 MB of data.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListReportPlans' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listReportPlans_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'maxResults', 'listReportPlans_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,
+-- the query will return 1 MB of data.
+newListReportPlans ::
+  ListReportPlans
+newListReportPlans =
+  ListReportPlans'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listReportPlans_nextToken :: Lens.Lens' ListReportPlans (Prelude.Maybe Prelude.Text)
+listReportPlans_nextToken = Lens.lens (\ListReportPlans' {nextToken} -> nextToken) (\s@ListReportPlans' {} a -> s {nextToken = a} :: ListReportPlans)
+
+-- | The number of desired results from 1 to 1000. Optional. If unspecified,
+-- the query will return 1 MB of data.
+listReportPlans_maxResults :: Lens.Lens' ListReportPlans (Prelude.Maybe Prelude.Natural)
+listReportPlans_maxResults = Lens.lens (\ListReportPlans' {maxResults} -> maxResults) (\s@ListReportPlans' {} a -> s {maxResults = a} :: ListReportPlans)
+
+instance Core.AWSRequest ListReportPlans where
+  type
+    AWSResponse ListReportPlans =
+      ListReportPlansResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListReportPlansResponse'
+            Prelude.<$> (x Core..?> "ReportPlans" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListReportPlans
+
+instance Prelude.NFData ListReportPlans
+
+instance Core.ToHeaders ListReportPlans where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath ListReportPlans where
+  toPath = Prelude.const "/audit/report-plans"
+
+instance Core.ToQuery ListReportPlans where
+  toQuery ListReportPlans' {..} =
+    Prelude.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
+      ]
+
+-- | /See:/ 'newListReportPlansResponse' smart constructor.
+data ListReportPlansResponse = ListReportPlansResponse'
+  { -- | A list of your report plans with detailed information for each plan.
+    -- This information includes the Amazon Resource Name (ARN), report plan
+    -- name, description, settings, delivery channel, deployment status,
+    -- creation time, and last times the report plan attempted to and
+    -- successfully ran.
+    reportPlans :: Prelude.Maybe [ReportPlan],
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListReportPlansResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'reportPlans', 'listReportPlansResponse_reportPlans' - A list of your report plans with detailed information for each plan.
+-- This information includes the Amazon Resource Name (ARN), report plan
+-- name, description, settings, delivery channel, deployment status,
+-- creation time, and last times the report plan attempted to and
+-- successfully ran.
+--
+-- 'nextToken', 'listReportPlansResponse_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'httpStatus', 'listReportPlansResponse_httpStatus' - The response's http status code.
+newListReportPlansResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListReportPlansResponse
+newListReportPlansResponse pHttpStatus_ =
+  ListReportPlansResponse'
+    { reportPlans =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A list of your report plans with detailed information for each plan.
+-- This information includes the Amazon Resource Name (ARN), report plan
+-- name, description, settings, delivery channel, deployment status,
+-- creation time, and last times the report plan attempted to and
+-- successfully ran.
+listReportPlansResponse_reportPlans :: Lens.Lens' ListReportPlansResponse (Prelude.Maybe [ReportPlan])
+listReportPlansResponse_reportPlans = Lens.lens (\ListReportPlansResponse' {reportPlans} -> reportPlans) (\s@ListReportPlansResponse' {} a -> s {reportPlans = a} :: ListReportPlansResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listReportPlansResponse_nextToken :: Lens.Lens' ListReportPlansResponse (Prelude.Maybe Prelude.Text)
+listReportPlansResponse_nextToken = Lens.lens (\ListReportPlansResponse' {nextToken} -> nextToken) (\s@ListReportPlansResponse' {} a -> s {nextToken = a} :: ListReportPlansResponse)
+
+-- | The response's http status code.
+listReportPlansResponse_httpStatus :: Lens.Lens' ListReportPlansResponse Prelude.Int
+listReportPlansResponse_httpStatus = Lens.lens (\ListReportPlansResponse' {httpStatus} -> httpStatus) (\s@ListReportPlansResponse' {} a -> s {httpStatus = a} :: ListReportPlansResponse)
+
+instance Prelude.NFData ListReportPlansResponse

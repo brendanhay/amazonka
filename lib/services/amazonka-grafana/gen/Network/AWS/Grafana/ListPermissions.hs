@@ -1,0 +1,265 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Grafana.ListPermissions
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists the users and groups who have the Grafana @Admin@ and @Editor@
+-- roles in this workspace. If you use this operation without specifying
+-- @userId@ or @groupId@, the operation returns the roles of all users and
+-- groups. If you specify a @userId@ or a @groupId@, only the roles for
+-- that user or group are returned. If you do this, you can specify only
+-- one @userId@ or one @groupId@.
+--
+-- This operation returns paginated results.
+module Network.AWS.Grafana.ListPermissions
+  ( -- * Creating a Request
+    ListPermissions (..),
+    newListPermissions,
+
+    -- * Request Lenses
+    listPermissions_userId,
+    listPermissions_nextToken,
+    listPermissions_groupId,
+    listPermissions_maxResults,
+    listPermissions_userType,
+    listPermissions_workspaceId,
+
+    -- * Destructuring the Response
+    ListPermissionsResponse (..),
+    newListPermissionsResponse,
+
+    -- * Response Lenses
+    listPermissionsResponse_nextToken,
+    listPermissionsResponse_httpStatus,
+    listPermissionsResponse_permissions,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.Grafana.Types
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newListPermissions' smart constructor.
+data ListPermissions = ListPermissions'
+  { -- | (Optional) Limits the results to only the user that matches this ID.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The token to use when requesting the next set of results. You received
+    -- this token from a previous @ListPermissions@ operation.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Limits the results to only the group that matches this ID.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to include in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) If you specify @SSO_USER@, then only the permissions of
+    -- Amazon Web Services SSO users are returned. If you specify @SSO_GROUP@,
+    -- only the permissions of Amazon Web Services SSO groups are returned.
+    userType :: Prelude.Maybe UserType,
+    -- | The ID of the workspace to list permissions for. This parameter is
+    -- required.
+    workspaceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListPermissions' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'userId', 'listPermissions_userId' - (Optional) Limits the results to only the user that matches this ID.
+--
+-- 'nextToken', 'listPermissions_nextToken' - The token to use when requesting the next set of results. You received
+-- this token from a previous @ListPermissions@ operation.
+--
+-- 'groupId', 'listPermissions_groupId' - (Optional) Limits the results to only the group that matches this ID.
+--
+-- 'maxResults', 'listPermissions_maxResults' - The maximum number of results to include in the response.
+--
+-- 'userType', 'listPermissions_userType' - (Optional) If you specify @SSO_USER@, then only the permissions of
+-- Amazon Web Services SSO users are returned. If you specify @SSO_GROUP@,
+-- only the permissions of Amazon Web Services SSO groups are returned.
+--
+-- 'workspaceId', 'listPermissions_workspaceId' - The ID of the workspace to list permissions for. This parameter is
+-- required.
+newListPermissions ::
+  -- | 'workspaceId'
+  Prelude.Text ->
+  ListPermissions
+newListPermissions pWorkspaceId_ =
+  ListPermissions'
+    { userId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      userType = Prelude.Nothing,
+      workspaceId = pWorkspaceId_
+    }
+
+-- | (Optional) Limits the results to only the user that matches this ID.
+listPermissions_userId :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
+listPermissions_userId = Lens.lens (\ListPermissions' {userId} -> userId) (\s@ListPermissions' {} a -> s {userId = a} :: ListPermissions)
+
+-- | The token to use when requesting the next set of results. You received
+-- this token from a previous @ListPermissions@ operation.
+listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
+listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
+
+-- | (Optional) Limits the results to only the group that matches this ID.
+listPermissions_groupId :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
+listPermissions_groupId = Lens.lens (\ListPermissions' {groupId} -> groupId) (\s@ListPermissions' {} a -> s {groupId = a} :: ListPermissions)
+
+-- | The maximum number of results to include in the response.
+listPermissions_maxResults :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Natural)
+listPermissions_maxResults = Lens.lens (\ListPermissions' {maxResults} -> maxResults) (\s@ListPermissions' {} a -> s {maxResults = a} :: ListPermissions)
+
+-- | (Optional) If you specify @SSO_USER@, then only the permissions of
+-- Amazon Web Services SSO users are returned. If you specify @SSO_GROUP@,
+-- only the permissions of Amazon Web Services SSO groups are returned.
+listPermissions_userType :: Lens.Lens' ListPermissions (Prelude.Maybe UserType)
+listPermissions_userType = Lens.lens (\ListPermissions' {userType} -> userType) (\s@ListPermissions' {} a -> s {userType = a} :: ListPermissions)
+
+-- | The ID of the workspace to list permissions for. This parameter is
+-- required.
+listPermissions_workspaceId :: Lens.Lens' ListPermissions Prelude.Text
+listPermissions_workspaceId = Lens.lens (\ListPermissions' {workspaceId} -> workspaceId) (\s@ListPermissions' {} a -> s {workspaceId = a} :: ListPermissions)
+
+instance Core.AWSPager ListPermissions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listPermissionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. listPermissionsResponse_permissions) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listPermissions_nextToken
+          Lens..~ rs
+          Lens.^? listPermissionsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest ListPermissions where
+  type
+    AWSResponse ListPermissions =
+      ListPermissionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListPermissionsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
+      )
+
+instance Prelude.Hashable ListPermissions
+
+instance Prelude.NFData ListPermissions
+
+instance Core.ToHeaders ListPermissions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath ListPermissions where
+  toPath ListPermissions' {..} =
+    Prelude.mconcat
+      [ "/workspaces/",
+        Core.toBS workspaceId,
+        "/permissions"
+      ]
+
+instance Core.ToQuery ListPermissions where
+  toQuery ListPermissions' {..} =
+    Prelude.mconcat
+      [ "userId" Core.=: userId,
+        "nextToken" Core.=: nextToken,
+        "groupId" Core.=: groupId,
+        "maxResults" Core.=: maxResults,
+        "userType" Core.=: userType
+      ]
+
+-- | /See:/ 'newListPermissionsResponse' smart constructor.
+data ListPermissionsResponse = ListPermissionsResponse'
+  { -- | The token to use in a subsequent @ListPermissions@ operation to return
+    -- the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The permissions returned by the operation.
+    permissions :: [PermissionEntry]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListPermissionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listPermissionsResponse_nextToken' - The token to use in a subsequent @ListPermissions@ operation to return
+-- the next set of results.
+--
+-- 'httpStatus', 'listPermissionsResponse_httpStatus' - The response's http status code.
+--
+-- 'permissions', 'listPermissionsResponse_permissions' - The permissions returned by the operation.
+newListPermissionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListPermissionsResponse
+newListPermissionsResponse pHttpStatus_ =
+  ListPermissionsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      permissions = Prelude.mempty
+    }
+
+-- | The token to use in a subsequent @ListPermissions@ operation to return
+-- the next set of results.
+listPermissionsResponse_nextToken :: Lens.Lens' ListPermissionsResponse (Prelude.Maybe Prelude.Text)
+listPermissionsResponse_nextToken = Lens.lens (\ListPermissionsResponse' {nextToken} -> nextToken) (\s@ListPermissionsResponse' {} a -> s {nextToken = a} :: ListPermissionsResponse)
+
+-- | The response's http status code.
+listPermissionsResponse_httpStatus :: Lens.Lens' ListPermissionsResponse Prelude.Int
+listPermissionsResponse_httpStatus = Lens.lens (\ListPermissionsResponse' {httpStatus} -> httpStatus) (\s@ListPermissionsResponse' {} a -> s {httpStatus = a} :: ListPermissionsResponse)
+
+-- | The permissions returned by the operation.
+listPermissionsResponse_permissions :: Lens.Lens' ListPermissionsResponse [PermissionEntry]
+listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Prelude.. Lens.coerced
+
+instance Prelude.NFData ListPermissionsResponse

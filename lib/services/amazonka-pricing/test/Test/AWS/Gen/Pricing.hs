@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Pricing where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Pricing
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -79,7 +79,7 @@ responseGetAttributeValues =
     "GetAttributeValuesResponse"
     "fixture/GetAttributeValuesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAttributeValues)
+    (Proxy.Proxy :: Proxy.Proxy GetAttributeValues)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
 responseDescribeServices =
@@ -87,7 +87,7 @@ responseDescribeServices =
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeServices)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
 
 responseGetProducts :: GetProductsResponse -> TestTree
 responseGetProducts =
@@ -95,4 +95,4 @@ responseGetProducts =
     "GetProductsResponse"
     "fixture/GetProductsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProducts)
+    (Proxy.Proxy :: Proxy.Proxy GetProducts)

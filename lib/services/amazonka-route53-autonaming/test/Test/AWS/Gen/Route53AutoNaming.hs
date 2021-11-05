@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53AutoNaming where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53AutoNaming
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -355,7 +355,7 @@ responseListServices =
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServices)
+    (Proxy.Proxy :: Proxy.Proxy ListServices)
 
 responseDeleteService :: DeleteServiceResponse -> TestTree
 responseDeleteService =
@@ -363,7 +363,7 @@ responseDeleteService =
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteService)
+    (Proxy.Proxy :: Proxy.Proxy DeleteService)
 
 responseUpdateService :: UpdateServiceResponse -> TestTree
 responseUpdateService =
@@ -371,7 +371,7 @@ responseUpdateService =
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateService)
+    (Proxy.Proxy :: Proxy.Proxy UpdateService)
 
 responseListOperations :: ListOperationsResponse -> TestTree
 responseListOperations =
@@ -379,7 +379,7 @@ responseListOperations =
     "ListOperationsResponse"
     "fixture/ListOperationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOperations)
+    (Proxy.Proxy :: Proxy.Proxy ListOperations)
 
 responseCreateHttpNamespace :: CreateHttpNamespaceResponse -> TestTree
 responseCreateHttpNamespace =
@@ -387,7 +387,7 @@ responseCreateHttpNamespace =
     "CreateHttpNamespaceResponse"
     "fixture/CreateHttpNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHttpNamespace)
+    (Proxy.Proxy :: Proxy.Proxy CreateHttpNamespace)
 
 responseCreatePublicDnsNamespace :: CreatePublicDnsNamespaceResponse -> TestTree
 responseCreatePublicDnsNamespace =
@@ -395,7 +395,7 @@ responseCreatePublicDnsNamespace =
     "CreatePublicDnsNamespaceResponse"
     "fixture/CreatePublicDnsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePublicDnsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy CreatePublicDnsNamespace)
 
 responseGetInstance :: GetInstanceResponse -> TestTree
 responseGetInstance =
@@ -403,7 +403,7 @@ responseGetInstance =
     "GetInstanceResponse"
     "fixture/GetInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetInstance)
 
 responseListNamespaces :: ListNamespacesResponse -> TestTree
 responseListNamespaces =
@@ -411,7 +411,7 @@ responseListNamespaces =
     "ListNamespacesResponse"
     "fixture/ListNamespacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNamespaces)
+    (Proxy.Proxy :: Proxy.Proxy ListNamespaces)
 
 responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
 responseDeleteNamespace =
@@ -419,7 +419,7 @@ responseDeleteNamespace =
     "DeleteNamespaceResponse"
     "fixture/DeleteNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNamespace)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
 
 responseUpdatePublicDnsNamespace :: UpdatePublicDnsNamespaceResponse -> TestTree
 responseUpdatePublicDnsNamespace =
@@ -427,7 +427,7 @@ responseUpdatePublicDnsNamespace =
     "UpdatePublicDnsNamespaceResponse"
     "fixture/UpdatePublicDnsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePublicDnsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePublicDnsNamespace)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -435,7 +435,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDiscoverInstances :: DiscoverInstancesResponse -> TestTree
 responseDiscoverInstances =
@@ -443,7 +443,7 @@ responseDiscoverInstances =
     "DiscoverInstancesResponse"
     "fixture/DiscoverInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DiscoverInstances)
+    (Proxy.Proxy :: Proxy.Proxy DiscoverInstances)
 
 responseGetInstancesHealthStatus :: GetInstancesHealthStatusResponse -> TestTree
 responseGetInstancesHealthStatus =
@@ -451,7 +451,7 @@ responseGetInstancesHealthStatus =
     "GetInstancesHealthStatusResponse"
     "fixture/GetInstancesHealthStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstancesHealthStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetInstancesHealthStatus)
 
 responseUpdateHttpNamespace :: UpdateHttpNamespaceResponse -> TestTree
 responseUpdateHttpNamespace =
@@ -459,7 +459,7 @@ responseUpdateHttpNamespace =
     "UpdateHttpNamespaceResponse"
     "fixture/UpdateHttpNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHttpNamespace)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHttpNamespace)
 
 responseGetNamespace :: GetNamespaceResponse -> TestTree
 responseGetNamespace =
@@ -467,7 +467,7 @@ responseGetNamespace =
     "GetNamespaceResponse"
     "fixture/GetNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetNamespace)
+    (Proxy.Proxy :: Proxy.Proxy GetNamespace)
 
 responseRegisterInstance :: RegisterInstanceResponse -> TestTree
 responseRegisterInstance =
@@ -475,7 +475,7 @@ responseRegisterInstance =
     "RegisterInstanceResponse"
     "fixture/RegisterInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterInstance)
+    (Proxy.Proxy :: Proxy.Proxy RegisterInstance)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -483,7 +483,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListInstances :: ListInstancesResponse -> TestTree
 responseListInstances =
@@ -491,7 +491,7 @@ responseListInstances =
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListInstances)
 
 responseGetOperation :: GetOperationResponse -> TestTree
 responseGetOperation =
@@ -499,7 +499,7 @@ responseGetOperation =
     "GetOperationResponse"
     "fixture/GetOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOperation)
+    (Proxy.Proxy :: Proxy.Proxy GetOperation)
 
 responseUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatusResponse -> TestTree
 responseUpdateInstanceCustomHealthStatus =
@@ -507,7 +507,7 @@ responseUpdateInstanceCustomHealthStatus =
     "UpdateInstanceCustomHealthStatusResponse"
     "fixture/UpdateInstanceCustomHealthStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateInstanceCustomHealthStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceCustomHealthStatus)
 
 responseGetService :: GetServiceResponse -> TestTree
 responseGetService =
@@ -515,7 +515,7 @@ responseGetService =
     "GetServiceResponse"
     "fixture/GetServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetService)
+    (Proxy.Proxy :: Proxy.Proxy GetService)
 
 responseCreatePrivateDnsNamespace :: CreatePrivateDnsNamespaceResponse -> TestTree
 responseCreatePrivateDnsNamespace =
@@ -523,7 +523,7 @@ responseCreatePrivateDnsNamespace =
     "CreatePrivateDnsNamespaceResponse"
     "fixture/CreatePrivateDnsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePrivateDnsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy CreatePrivateDnsNamespace)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -531,7 +531,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdatePrivateDnsNamespace :: UpdatePrivateDnsNamespaceResponse -> TestTree
 responseUpdatePrivateDnsNamespace =
@@ -539,7 +539,7 @@ responseUpdatePrivateDnsNamespace =
     "UpdatePrivateDnsNamespaceResponse"
     "fixture/UpdatePrivateDnsNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePrivateDnsNamespace)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePrivateDnsNamespace)
 
 responseCreateService :: CreateServiceResponse -> TestTree
 responseCreateService =
@@ -547,7 +547,7 @@ responseCreateService =
     "CreateServiceResponse"
     "fixture/CreateServiceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateService)
+    (Proxy.Proxy :: Proxy.Proxy CreateService)
 
 responseDeregisterInstance :: DeregisterInstanceResponse -> TestTree
 responseDeregisterInstance =
@@ -555,4 +555,4 @@ responseDeregisterInstance =
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterInstance)

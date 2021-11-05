@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EKS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EKS
 import Test.AWS.EKS.Internal
 import Test.AWS.Fixture
@@ -451,7 +451,7 @@ responseCreateAddon =
     "CreateAddonResponse"
     "fixture/CreateAddonResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAddon)
+    (Proxy.Proxy :: Proxy.Proxy CreateAddon)
 
 responseDescribeFargateProfile :: DescribeFargateProfileResponse -> TestTree
 responseDescribeFargateProfile =
@@ -459,7 +459,7 @@ responseDescribeFargateProfile =
     "DescribeFargateProfileResponse"
     "fixture/DescribeFargateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFargateProfile)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFargateProfile)
 
 responseDescribeUpdate :: DescribeUpdateResponse -> TestTree
 responseDescribeUpdate =
@@ -467,7 +467,7 @@ responseDescribeUpdate =
     "DescribeUpdateResponse"
     "fixture/DescribeUpdateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUpdate)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUpdate)
 
 responseUpdateNodegroupConfig :: UpdateNodegroupConfigResponse -> TestTree
 responseUpdateNodegroupConfig =
@@ -475,7 +475,7 @@ responseUpdateNodegroupConfig =
     "UpdateNodegroupConfigResponse"
     "fixture/UpdateNodegroupConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNodegroupConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNodegroupConfig)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
 responseDescribeCluster =
@@ -483,7 +483,7 @@ responseDescribeCluster =
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCluster)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
 
 responseDeregisterCluster :: DeregisterClusterResponse -> TestTree
 responseDeregisterCluster =
@@ -491,7 +491,7 @@ responseDeregisterCluster =
     "DeregisterClusterResponse"
     "fixture/DeregisterClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterCluster)
 
 responseDescribeNodegroup :: DescribeNodegroupResponse -> TestTree
 responseDescribeNodegroup =
@@ -499,7 +499,7 @@ responseDescribeNodegroup =
     "DescribeNodegroupResponse"
     "fixture/DescribeNodegroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNodegroup)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNodegroup)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -507,7 +507,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateFargateProfile :: CreateFargateProfileResponse -> TestTree
 responseCreateFargateProfile =
@@ -515,7 +515,7 @@ responseCreateFargateProfile =
     "CreateFargateProfileResponse"
     "fixture/CreateFargateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFargateProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateFargateProfile)
 
 responseDescribeIdentityProviderConfig :: DescribeIdentityProviderConfigResponse -> TestTree
 responseDescribeIdentityProviderConfig =
@@ -523,7 +523,7 @@ responseDescribeIdentityProviderConfig =
     "DescribeIdentityProviderConfigResponse"
     "fixture/DescribeIdentityProviderConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityProviderConfig)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityProviderConfig)
 
 responseDeleteFargateProfile :: DeleteFargateProfileResponse -> TestTree
 responseDeleteFargateProfile =
@@ -531,7 +531,7 @@ responseDeleteFargateProfile =
     "DeleteFargateProfileResponse"
     "fixture/DeleteFargateProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFargateProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFargateProfile)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
@@ -539,7 +539,7 @@ responseDeleteCluster =
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -547,7 +547,7 @@ responseCreateCluster =
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCluster)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
 responseUpdateClusterConfig :: UpdateClusterConfigResponse -> TestTree
 responseUpdateClusterConfig =
@@ -555,7 +555,7 @@ responseUpdateClusterConfig =
     "UpdateClusterConfigResponse"
     "fixture/UpdateClusterConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateClusterConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterConfig)
 
 responseListAddons :: ListAddonsResponse -> TestTree
 responseListAddons =
@@ -563,7 +563,7 @@ responseListAddons =
     "ListAddonsResponse"
     "fixture/ListAddonsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAddons)
+    (Proxy.Proxy :: Proxy.Proxy ListAddons)
 
 responseUpdateClusterVersion :: UpdateClusterVersionResponse -> TestTree
 responseUpdateClusterVersion =
@@ -571,7 +571,7 @@ responseUpdateClusterVersion =
     "UpdateClusterVersionResponse"
     "fixture/UpdateClusterVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateClusterVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterVersion)
 
 responseDescribeAddonVersions :: DescribeAddonVersionsResponse -> TestTree
 responseDescribeAddonVersions =
@@ -579,7 +579,7 @@ responseDescribeAddonVersions =
     "DescribeAddonVersionsResponse"
     "fixture/DescribeAddonVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddonVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddonVersions)
 
 responseUpdateNodegroupVersion :: UpdateNodegroupVersionResponse -> TestTree
 responseUpdateNodegroupVersion =
@@ -587,7 +587,7 @@ responseUpdateNodegroupVersion =
     "UpdateNodegroupVersionResponse"
     "fixture/UpdateNodegroupVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNodegroupVersion)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNodegroupVersion)
 
 responseListIdentityProviderConfigs :: ListIdentityProviderConfigsResponse -> TestTree
 responseListIdentityProviderConfigs =
@@ -595,7 +595,7 @@ responseListIdentityProviderConfigs =
     "ListIdentityProviderConfigsResponse"
     "fixture/ListIdentityProviderConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentityProviderConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentityProviderConfigs)
 
 responseDisassociateIdentityProviderConfig :: DisassociateIdentityProviderConfigResponse -> TestTree
 responseDisassociateIdentityProviderConfig =
@@ -603,7 +603,7 @@ responseDisassociateIdentityProviderConfig =
     "DisassociateIdentityProviderConfigResponse"
     "fixture/DisassociateIdentityProviderConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateIdentityProviderConfig)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateIdentityProviderConfig)
 
 responseDescribeAddon :: DescribeAddonResponse -> TestTree
 responseDescribeAddon =
@@ -611,7 +611,7 @@ responseDescribeAddon =
     "DescribeAddonResponse"
     "fixture/DescribeAddonResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddon)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddon)
 
 responseListUpdates :: ListUpdatesResponse -> TestTree
 responseListUpdates =
@@ -619,7 +619,7 @@ responseListUpdates =
     "ListUpdatesResponse"
     "fixture/ListUpdatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUpdates)
+    (Proxy.Proxy :: Proxy.Proxy ListUpdates)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -627,7 +627,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListFargateProfiles :: ListFargateProfilesResponse -> TestTree
 responseListFargateProfiles =
@@ -635,7 +635,7 @@ responseListFargateProfiles =
     "ListFargateProfilesResponse"
     "fixture/ListFargateProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFargateProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListFargateProfiles)
 
 responseRegisterCluster :: RegisterClusterResponse -> TestTree
 responseRegisterCluster =
@@ -643,7 +643,7 @@ responseRegisterCluster =
     "RegisterClusterResponse"
     "fixture/RegisterClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterCluster)
+    (Proxy.Proxy :: Proxy.Proxy RegisterCluster)
 
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
@@ -651,7 +651,7 @@ responseListClusters =
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -659,7 +659,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateNodegroup :: CreateNodegroupResponse -> TestTree
 responseCreateNodegroup =
@@ -667,7 +667,7 @@ responseCreateNodegroup =
     "CreateNodegroupResponse"
     "fixture/CreateNodegroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNodegroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateNodegroup)
 
 responseListNodegroups :: ListNodegroupsResponse -> TestTree
 responseListNodegroups =
@@ -675,7 +675,7 @@ responseListNodegroups =
     "ListNodegroupsResponse"
     "fixture/ListNodegroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListNodegroups)
+    (Proxy.Proxy :: Proxy.Proxy ListNodegroups)
 
 responseDeleteNodegroup :: DeleteNodegroupResponse -> TestTree
 responseDeleteNodegroup =
@@ -683,7 +683,7 @@ responseDeleteNodegroup =
     "DeleteNodegroupResponse"
     "fixture/DeleteNodegroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNodegroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNodegroup)
 
 responseAssociateEncryptionConfig :: AssociateEncryptionConfigResponse -> TestTree
 responseAssociateEncryptionConfig =
@@ -691,7 +691,7 @@ responseAssociateEncryptionConfig =
     "AssociateEncryptionConfigResponse"
     "fixture/AssociateEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy AssociateEncryptionConfig)
 
 responseAssociateIdentityProviderConfig :: AssociateIdentityProviderConfigResponse -> TestTree
 responseAssociateIdentityProviderConfig =
@@ -699,7 +699,7 @@ responseAssociateIdentityProviderConfig =
     "AssociateIdentityProviderConfigResponse"
     "fixture/AssociateIdentityProviderConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateIdentityProviderConfig)
+    (Proxy.Proxy :: Proxy.Proxy AssociateIdentityProviderConfig)
 
 responseDeleteAddon :: DeleteAddonResponse -> TestTree
 responseDeleteAddon =
@@ -707,7 +707,7 @@ responseDeleteAddon =
     "DeleteAddonResponse"
     "fixture/DeleteAddonResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAddon)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAddon)
 
 responseUpdateAddon :: UpdateAddonResponse -> TestTree
 responseUpdateAddon =
@@ -715,4 +715,4 @@ responseUpdateAddon =
     "UpdateAddonResponse"
     "fixture/UpdateAddonResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAddon)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAddon)

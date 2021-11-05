@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.QLDB where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.QLDB
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -283,7 +283,7 @@ responseUpdateLedger =
     "UpdateLedgerResponse"
     "fixture/UpdateLedgerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLedger)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLedger)
 
 responseDeleteLedger :: DeleteLedgerResponse -> TestTree
 responseDeleteLedger =
@@ -291,7 +291,7 @@ responseDeleteLedger =
     "DeleteLedgerResponse"
     "fixture/DeleteLedgerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLedger)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLedger)
 
 responseListJournalKinesisStreamsForLedger :: ListJournalKinesisStreamsForLedgerResponse -> TestTree
 responseListJournalKinesisStreamsForLedger =
@@ -299,7 +299,7 @@ responseListJournalKinesisStreamsForLedger =
     "ListJournalKinesisStreamsForLedgerResponse"
     "fixture/ListJournalKinesisStreamsForLedgerResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJournalKinesisStreamsForLedger)
+    (Proxy.Proxy :: Proxy.Proxy ListJournalKinesisStreamsForLedger)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -307,7 +307,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetRevision :: GetRevisionResponse -> TestTree
 responseGetRevision =
@@ -315,7 +315,7 @@ responseGetRevision =
     "GetRevisionResponse"
     "fixture/GetRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRevision)
+    (Proxy.Proxy :: Proxy.Proxy GetRevision)
 
 responseDescribeLedger :: DescribeLedgerResponse -> TestTree
 responseDescribeLedger =
@@ -323,7 +323,7 @@ responseDescribeLedger =
     "DescribeLedgerResponse"
     "fixture/DescribeLedgerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLedger)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLedger)
 
 responseCancelJournalKinesisStream :: CancelJournalKinesisStreamResponse -> TestTree
 responseCancelJournalKinesisStream =
@@ -331,7 +331,7 @@ responseCancelJournalKinesisStream =
     "CancelJournalKinesisStreamResponse"
     "fixture/CancelJournalKinesisStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJournalKinesisStream)
+    (Proxy.Proxy :: Proxy.Proxy CancelJournalKinesisStream)
 
 responseExportJournalToS3 :: ExportJournalToS3Response -> TestTree
 responseExportJournalToS3 =
@@ -339,7 +339,7 @@ responseExportJournalToS3 =
     "ExportJournalToS3Response"
     "fixture/ExportJournalToS3Response.proto"
     defaultService
-    (Proxy :: Proxy ExportJournalToS3)
+    (Proxy.Proxy :: Proxy.Proxy ExportJournalToS3)
 
 responseStreamJournalToKinesis :: StreamJournalToKinesisResponse -> TestTree
 responseStreamJournalToKinesis =
@@ -347,7 +347,7 @@ responseStreamJournalToKinesis =
     "StreamJournalToKinesisResponse"
     "fixture/StreamJournalToKinesisResponse.proto"
     defaultService
-    (Proxy :: Proxy StreamJournalToKinesis)
+    (Proxy.Proxy :: Proxy.Proxy StreamJournalToKinesis)
 
 responseCreateLedger :: CreateLedgerResponse -> TestTree
 responseCreateLedger =
@@ -355,7 +355,7 @@ responseCreateLedger =
     "CreateLedgerResponse"
     "fixture/CreateLedgerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLedger)
+    (Proxy.Proxy :: Proxy.Proxy CreateLedger)
 
 responseListLedgers :: ListLedgersResponse -> TestTree
 responseListLedgers =
@@ -363,7 +363,7 @@ responseListLedgers =
     "ListLedgersResponse"
     "fixture/ListLedgersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLedgers)
+    (Proxy.Proxy :: Proxy.Proxy ListLedgers)
 
 responseListJournalS3Exports :: ListJournalS3ExportsResponse -> TestTree
 responseListJournalS3Exports =
@@ -371,7 +371,7 @@ responseListJournalS3Exports =
     "ListJournalS3ExportsResponse"
     "fixture/ListJournalS3ExportsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJournalS3Exports)
+    (Proxy.Proxy :: Proxy.Proxy ListJournalS3Exports)
 
 responseUpdateLedgerPermissionsMode :: UpdateLedgerPermissionsModeResponse -> TestTree
 responseUpdateLedgerPermissionsMode =
@@ -379,7 +379,7 @@ responseUpdateLedgerPermissionsMode =
     "UpdateLedgerPermissionsModeResponse"
     "fixture/UpdateLedgerPermissionsModeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLedgerPermissionsMode)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLedgerPermissionsMode)
 
 responseGetBlock :: GetBlockResponse -> TestTree
 responseGetBlock =
@@ -387,7 +387,7 @@ responseGetBlock =
     "GetBlockResponse"
     "fixture/GetBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy GetBlock)
+    (Proxy.Proxy :: Proxy.Proxy GetBlock)
 
 responseListJournalS3ExportsForLedger :: ListJournalS3ExportsForLedgerResponse -> TestTree
 responseListJournalS3ExportsForLedger =
@@ -395,7 +395,7 @@ responseListJournalS3ExportsForLedger =
     "ListJournalS3ExportsForLedgerResponse"
     "fixture/ListJournalS3ExportsForLedgerResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJournalS3ExportsForLedger)
+    (Proxy.Proxy :: Proxy.Proxy ListJournalS3ExportsForLedger)
 
 responseDescribeJournalKinesisStream :: DescribeJournalKinesisStreamResponse -> TestTree
 responseDescribeJournalKinesisStream =
@@ -403,7 +403,7 @@ responseDescribeJournalKinesisStream =
     "DescribeJournalKinesisStreamResponse"
     "fixture/DescribeJournalKinesisStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJournalKinesisStream)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJournalKinesisStream)
 
 responseDescribeJournalS3Export :: DescribeJournalS3ExportResponse -> TestTree
 responseDescribeJournalS3Export =
@@ -411,7 +411,7 @@ responseDescribeJournalS3Export =
     "DescribeJournalS3ExportResponse"
     "fixture/DescribeJournalS3ExportResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeJournalS3Export)
+    (Proxy.Proxy :: Proxy.Proxy DescribeJournalS3Export)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -419,7 +419,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -427,7 +427,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetDigest :: GetDigestResponse -> TestTree
 responseGetDigest =
@@ -435,4 +435,4 @@ responseGetDigest =
     "GetDigestResponse"
     "fixture/GetDigestResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDigest)
+    (Proxy.Proxy :: Proxy.Proxy GetDigest)

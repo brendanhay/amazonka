@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudFront where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudFront
 import Test.AWS.CloudFront.Internal
 import Test.AWS.Fixture
@@ -1063,7 +1063,7 @@ responseDeleteOriginRequestPolicy =
     "DeleteOriginRequestPolicyResponse"
     "fixture/DeleteOriginRequestPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOriginRequestPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOriginRequestPolicy)
 
 responseUpdateOriginRequestPolicy :: UpdateOriginRequestPolicyResponse -> TestTree
 responseUpdateOriginRequestPolicy =
@@ -1071,7 +1071,7 @@ responseUpdateOriginRequestPolicy =
     "UpdateOriginRequestPolicyResponse"
     "fixture/UpdateOriginRequestPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOriginRequestPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOriginRequestPolicy)
 
 responseListConflictingAliases :: ListConflictingAliasesResponse -> TestTree
 responseListConflictingAliases =
@@ -1079,7 +1079,7 @@ responseListConflictingAliases =
     "ListConflictingAliasesResponse"
     "fixture/ListConflictingAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConflictingAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListConflictingAliases)
 
 responseDeleteStreamingDistribution :: DeleteStreamingDistributionResponse -> TestTree
 responseDeleteStreamingDistribution =
@@ -1087,7 +1087,7 @@ responseDeleteStreamingDistribution =
     "DeleteStreamingDistributionResponse"
     "fixture/DeleteStreamingDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStreamingDistribution)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamingDistribution)
 
 responseUpdateStreamingDistribution :: UpdateStreamingDistributionResponse -> TestTree
 responseUpdateStreamingDistribution =
@@ -1095,7 +1095,7 @@ responseUpdateStreamingDistribution =
     "UpdateStreamingDistributionResponse"
     "fixture/UpdateStreamingDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStreamingDistribution)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStreamingDistribution)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
 responseListPublicKeys =
@@ -1103,7 +1103,7 @@ responseListPublicKeys =
     "ListPublicKeysResponse"
     "fixture/ListPublicKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPublicKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListPublicKeys)
 
 responseGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfigResponse -> TestTree
 responseGetFieldLevelEncryptionConfig =
@@ -1111,7 +1111,7 @@ responseGetFieldLevelEncryptionConfig =
     "GetFieldLevelEncryptionConfigResponse"
     "fixture/GetFieldLevelEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFieldLevelEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetFieldLevelEncryptionConfig)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1119,7 +1119,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreatePublicKey :: CreatePublicKeyResponse -> TestTree
 responseCreatePublicKey =
@@ -1127,7 +1127,7 @@ responseCreatePublicKey =
     "CreatePublicKeyResponse"
     "fixture/CreatePublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePublicKey)
+    (Proxy.Proxy :: Proxy.Proxy CreatePublicKey)
 
 responseGetPublicKeyConfig :: GetPublicKeyConfigResponse -> TestTree
 responseGetPublicKeyConfig =
@@ -1135,7 +1135,7 @@ responseGetPublicKeyConfig =
     "GetPublicKeyConfigResponse"
     "fixture/GetPublicKeyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPublicKeyConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetPublicKeyConfig)
 
 responseCreateDistributionWithTags :: CreateDistributionWithTagsResponse -> TestTree
 responseCreateDistributionWithTags =
@@ -1143,7 +1143,7 @@ responseCreateDistributionWithTags =
     "CreateDistributionWithTagsResponse"
     "fixture/CreateDistributionWithTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDistributionWithTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateDistributionWithTags)
 
 responseCreateFieldLevelEncryptionConfig :: CreateFieldLevelEncryptionConfigResponse -> TestTree
 responseCreateFieldLevelEncryptionConfig =
@@ -1151,7 +1151,7 @@ responseCreateFieldLevelEncryptionConfig =
     "CreateFieldLevelEncryptionConfigResponse"
     "fixture/CreateFieldLevelEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFieldLevelEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateFieldLevelEncryptionConfig)
 
 responseDeleteCachePolicy :: DeleteCachePolicyResponse -> TestTree
 responseDeleteCachePolicy =
@@ -1159,7 +1159,7 @@ responseDeleteCachePolicy =
     "DeleteCachePolicyResponse"
     "fixture/DeleteCachePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCachePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCachePolicy)
 
 responseUpdateCachePolicy :: UpdateCachePolicyResponse -> TestTree
 responseUpdateCachePolicy =
@@ -1167,7 +1167,7 @@ responseUpdateCachePolicy =
     "UpdateCachePolicyResponse"
     "fixture/UpdateCachePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCachePolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCachePolicy)
 
 responseGetFieldLevelEncryption :: GetFieldLevelEncryptionResponse -> TestTree
 responseGetFieldLevelEncryption =
@@ -1175,7 +1175,7 @@ responseGetFieldLevelEncryption =
     "GetFieldLevelEncryptionResponse"
     "fixture/GetFieldLevelEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFieldLevelEncryption)
+    (Proxy.Proxy :: Proxy.Proxy GetFieldLevelEncryption)
 
 responseListRealtimeLogConfigs :: ListRealtimeLogConfigsResponse -> TestTree
 responseListRealtimeLogConfigs =
@@ -1183,7 +1183,7 @@ responseListRealtimeLogConfigs =
     "ListRealtimeLogConfigsResponse"
     "fixture/ListRealtimeLogConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRealtimeLogConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListRealtimeLogConfigs)
 
 responseGetPublicKey :: GetPublicKeyResponse -> TestTree
 responseGetPublicKey =
@@ -1191,7 +1191,7 @@ responseGetPublicKey =
     "GetPublicKeyResponse"
     "fixture/GetPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy GetPublicKey)
 
 responseDeleteRealtimeLogConfig :: DeleteRealtimeLogConfigResponse -> TestTree
 responseDeleteRealtimeLogConfig =
@@ -1199,7 +1199,7 @@ responseDeleteRealtimeLogConfig =
     "DeleteRealtimeLogConfigResponse"
     "fixture/DeleteRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRealtimeLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRealtimeLogConfig)
 
 responseUpdateRealtimeLogConfig :: UpdateRealtimeLogConfigResponse -> TestTree
 responseUpdateRealtimeLogConfig =
@@ -1207,7 +1207,7 @@ responseUpdateRealtimeLogConfig =
     "UpdateRealtimeLogConfigResponse"
     "fixture/UpdateRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRealtimeLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRealtimeLogConfig)
 
 responseListDistributionsByOriginRequestPolicyId :: ListDistributionsByOriginRequestPolicyIdResponse -> TestTree
 responseListDistributionsByOriginRequestPolicyId =
@@ -1215,7 +1215,7 @@ responseListDistributionsByOriginRequestPolicyId =
     "ListDistributionsByOriginRequestPolicyIdResponse"
     "fixture/ListDistributionsByOriginRequestPolicyIdResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributionsByOriginRequestPolicyId)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionsByOriginRequestPolicyId)
 
 responseDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfigResponse -> TestTree
 responseDeleteFieldLevelEncryptionConfig =
@@ -1223,7 +1223,7 @@ responseDeleteFieldLevelEncryptionConfig =
     "DeleteFieldLevelEncryptionConfigResponse"
     "fixture/DeleteFieldLevelEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFieldLevelEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFieldLevelEncryptionConfig)
 
 responseUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfigResponse -> TestTree
 responseUpdateFieldLevelEncryptionConfig =
@@ -1231,7 +1231,7 @@ responseUpdateFieldLevelEncryptionConfig =
     "UpdateFieldLevelEncryptionConfigResponse"
     "fixture/UpdateFieldLevelEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFieldLevelEncryptionConfig)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFieldLevelEncryptionConfig)
 
 responseGetKeyGroup :: GetKeyGroupResponse -> TestTree
 responseGetKeyGroup =
@@ -1239,7 +1239,7 @@ responseGetKeyGroup =
     "GetKeyGroupResponse"
     "fixture/GetKeyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKeyGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetKeyGroup)
 
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
 responseCreateDistribution =
@@ -1247,7 +1247,7 @@ responseCreateDistribution =
     "CreateDistributionResponse"
     "fixture/CreateDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDistribution)
+    (Proxy.Proxy :: Proxy.Proxy CreateDistribution)
 
 responseGetFieldLevelEncryptionProfile :: GetFieldLevelEncryptionProfileResponse -> TestTree
 responseGetFieldLevelEncryptionProfile =
@@ -1255,7 +1255,7 @@ responseGetFieldLevelEncryptionProfile =
     "GetFieldLevelEncryptionProfileResponse"
     "fixture/GetFieldLevelEncryptionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFieldLevelEncryptionProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetFieldLevelEncryptionProfile)
 
 responseDeleteMonitoringSubscription :: DeleteMonitoringSubscriptionResponse -> TestTree
 responseDeleteMonitoringSubscription =
@@ -1263,7 +1263,7 @@ responseDeleteMonitoringSubscription =
     "DeleteMonitoringSubscriptionResponse"
     "fixture/DeleteMonitoringSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMonitoringSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMonitoringSubscription)
 
 responseCreateFunction :: CreateFunctionResponse -> TestTree
 responseCreateFunction =
@@ -1271,7 +1271,7 @@ responseCreateFunction =
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFunction)
+    (Proxy.Proxy :: Proxy.Proxy CreateFunction)
 
 responseGetDistributionConfig :: GetDistributionConfigResponse -> TestTree
 responseGetDistributionConfig =
@@ -1279,7 +1279,7 @@ responseGetDistributionConfig =
     "GetDistributionConfigResponse"
     "fixture/GetDistributionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistributionConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetDistributionConfig)
 
 responseCreateStreamingDistributionWithTags :: CreateStreamingDistributionWithTagsResponse -> TestTree
 responseCreateStreamingDistributionWithTags =
@@ -1287,7 +1287,7 @@ responseCreateStreamingDistributionWithTags =
     "CreateStreamingDistributionWithTagsResponse"
     "fixture/CreateStreamingDistributionWithTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingDistributionWithTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingDistributionWithTags)
 
 responseDeleteFieldLevelEncryptionProfile :: DeleteFieldLevelEncryptionProfileResponse -> TestTree
 responseDeleteFieldLevelEncryptionProfile =
@@ -1295,7 +1295,7 @@ responseDeleteFieldLevelEncryptionProfile =
     "DeleteFieldLevelEncryptionProfileResponse"
     "fixture/DeleteFieldLevelEncryptionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFieldLevelEncryptionProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFieldLevelEncryptionProfile)
 
 responseUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfileResponse -> TestTree
 responseUpdateFieldLevelEncryptionProfile =
@@ -1303,7 +1303,7 @@ responseUpdateFieldLevelEncryptionProfile =
     "UpdateFieldLevelEncryptionProfileResponse"
     "fixture/UpdateFieldLevelEncryptionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFieldLevelEncryptionProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFieldLevelEncryptionProfile)
 
 responseListDistributionsByCachePolicyId :: ListDistributionsByCachePolicyIdResponse -> TestTree
 responseListDistributionsByCachePolicyId =
@@ -1311,7 +1311,7 @@ responseListDistributionsByCachePolicyId =
     "ListDistributionsByCachePolicyIdResponse"
     "fixture/ListDistributionsByCachePolicyIdResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributionsByCachePolicyId)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionsByCachePolicyId)
 
 responseTestFunction :: TestFunctionResponse -> TestTree
 responseTestFunction =
@@ -1319,7 +1319,7 @@ responseTestFunction =
     "TestFunctionResponse"
     "fixture/TestFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy TestFunction)
+    (Proxy.Proxy :: Proxy.Proxy TestFunction)
 
 responseCreateFieldLevelEncryptionProfile :: CreateFieldLevelEncryptionProfileResponse -> TestTree
 responseCreateFieldLevelEncryptionProfile =
@@ -1327,7 +1327,7 @@ responseCreateFieldLevelEncryptionProfile =
     "CreateFieldLevelEncryptionProfileResponse"
     "fixture/CreateFieldLevelEncryptionProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFieldLevelEncryptionProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateFieldLevelEncryptionProfile)
 
 responseGetKeyGroupConfig :: GetKeyGroupConfigResponse -> TestTree
 responseGetKeyGroupConfig =
@@ -1335,7 +1335,7 @@ responseGetKeyGroupConfig =
     "GetKeyGroupConfigResponse"
     "fixture/GetKeyGroupConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetKeyGroupConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetKeyGroupConfig)
 
 responseGetDistribution :: GetDistributionResponse -> TestTree
 responseGetDistribution =
@@ -1343,7 +1343,7 @@ responseGetDistribution =
     "GetDistributionResponse"
     "fixture/GetDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDistribution)
+    (Proxy.Proxy :: Proxy.Proxy GetDistribution)
 
 responseGetFieldLevelEncryptionProfileConfig :: GetFieldLevelEncryptionProfileConfigResponse -> TestTree
 responseGetFieldLevelEncryptionProfileConfig =
@@ -1351,7 +1351,7 @@ responseGetFieldLevelEncryptionProfileConfig =
     "GetFieldLevelEncryptionProfileConfigResponse"
     "fixture/GetFieldLevelEncryptionProfileConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFieldLevelEncryptionProfileConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetFieldLevelEncryptionProfileConfig)
 
 responseGetFunction :: GetFunctionResponse -> TestTree
 responseGetFunction =
@@ -1359,7 +1359,7 @@ responseGetFunction =
     "GetFunctionResponse"
     "fixture/GetFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFunction)
+    (Proxy.Proxy :: Proxy.Proxy GetFunction)
 
 responseCreateKeyGroup :: CreateKeyGroupResponse -> TestTree
 responseCreateKeyGroup =
@@ -1367,7 +1367,7 @@ responseCreateKeyGroup =
     "CreateKeyGroupResponse"
     "fixture/CreateKeyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKeyGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateKeyGroup)
 
 responseUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
 responseUpdateCloudFrontOriginAccessIdentity =
@@ -1375,7 +1375,7 @@ responseUpdateCloudFrontOriginAccessIdentity =
     "UpdateCloudFrontOriginAccessIdentityResponse"
     "fixture/UpdateCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCloudFrontOriginAccessIdentity)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCloudFrontOriginAccessIdentity)
 
 responseDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentityResponse -> TestTree
 responseDeleteCloudFrontOriginAccessIdentity =
@@ -1383,7 +1383,7 @@ responseDeleteCloudFrontOriginAccessIdentity =
     "DeleteCloudFrontOriginAccessIdentityResponse"
     "fixture/DeleteCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCloudFrontOriginAccessIdentity)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCloudFrontOriginAccessIdentity)
 
 responseListStreamingDistributions :: ListStreamingDistributionsResponse -> TestTree
 responseListStreamingDistributions =
@@ -1391,7 +1391,7 @@ responseListStreamingDistributions =
     "ListStreamingDistributionsResponse"
     "fixture/ListStreamingDistributionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStreamingDistributions)
+    (Proxy.Proxy :: Proxy.Proxy ListStreamingDistributions)
 
 responseDeletePublicKey :: DeletePublicKeyResponse -> TestTree
 responseDeletePublicKey =
@@ -1399,7 +1399,7 @@ responseDeletePublicKey =
     "DeletePublicKeyResponse"
     "fixture/DeletePublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePublicKey)
+    (Proxy.Proxy :: Proxy.Proxy DeletePublicKey)
 
 responseUpdatePublicKey :: UpdatePublicKeyResponse -> TestTree
 responseUpdatePublicKey =
@@ -1407,7 +1407,7 @@ responseUpdatePublicKey =
     "UpdatePublicKeyResponse"
     "fixture/UpdatePublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePublicKey)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePublicKey)
 
 responseGetRealtimeLogConfig :: GetRealtimeLogConfigResponse -> TestTree
 responseGetRealtimeLogConfig =
@@ -1415,7 +1415,7 @@ responseGetRealtimeLogConfig =
     "GetRealtimeLogConfigResponse"
     "fixture/GetRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRealtimeLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetRealtimeLogConfig)
 
 responseDescribeFunction :: DescribeFunctionResponse -> TestTree
 responseDescribeFunction =
@@ -1423,7 +1423,7 @@ responseDescribeFunction =
     "DescribeFunctionResponse"
     "fixture/DescribeFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFunction)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFunction)
 
 responseGetStreamingDistributionConfig :: GetStreamingDistributionConfigResponse -> TestTree
 responseGetStreamingDistributionConfig =
@@ -1431,7 +1431,7 @@ responseGetStreamingDistributionConfig =
     "GetStreamingDistributionConfigResponse"
     "fixture/GetStreamingDistributionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStreamingDistributionConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingDistributionConfig)
 
 responseGetCloudFrontOriginAccessIdentityConfig :: GetCloudFrontOriginAccessIdentityConfigResponse -> TestTree
 responseGetCloudFrontOriginAccessIdentityConfig =
@@ -1439,7 +1439,7 @@ responseGetCloudFrontOriginAccessIdentityConfig =
     "GetCloudFrontOriginAccessIdentityConfigResponse"
     "fixture/GetCloudFrontOriginAccessIdentityConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCloudFrontOriginAccessIdentityConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetCloudFrontOriginAccessIdentityConfig)
 
 responseCreateStreamingDistribution :: CreateStreamingDistributionResponse -> TestTree
 responseCreateStreamingDistribution =
@@ -1447,7 +1447,7 @@ responseCreateStreamingDistribution =
     "CreateStreamingDistributionResponse"
     "fixture/CreateStreamingDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingDistribution)
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingDistribution)
 
 responseCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentityResponse -> TestTree
 responseCreateCloudFrontOriginAccessIdentity =
@@ -1455,7 +1455,7 @@ responseCreateCloudFrontOriginAccessIdentity =
     "CreateCloudFrontOriginAccessIdentityResponse"
     "fixture/CreateCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCloudFrontOriginAccessIdentity)
+    (Proxy.Proxy :: Proxy.Proxy CreateCloudFrontOriginAccessIdentity)
 
 responseListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentitiesResponse -> TestTree
 responseListCloudFrontOriginAccessIdentities =
@@ -1463,7 +1463,7 @@ responseListCloudFrontOriginAccessIdentities =
     "ListCloudFrontOriginAccessIdentitiesResponse"
     "fixture/ListCloudFrontOriginAccessIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCloudFrontOriginAccessIdentities)
+    (Proxy.Proxy :: Proxy.Proxy ListCloudFrontOriginAccessIdentities)
 
 responseGetInvalidation :: GetInvalidationResponse -> TestTree
 responseGetInvalidation =
@@ -1471,7 +1471,7 @@ responseGetInvalidation =
     "GetInvalidationResponse"
     "fixture/GetInvalidationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInvalidation)
+    (Proxy.Proxy :: Proxy.Proxy GetInvalidation)
 
 responseGetCachePolicy :: GetCachePolicyResponse -> TestTree
 responseGetCachePolicy =
@@ -1479,7 +1479,7 @@ responseGetCachePolicy =
     "GetCachePolicyResponse"
     "fixture/GetCachePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCachePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetCachePolicy)
 
 responseAssociateAlias :: AssociateAliasResponse -> TestTree
 responseAssociateAlias =
@@ -1487,7 +1487,7 @@ responseAssociateAlias =
     "AssociateAliasResponse"
     "fixture/AssociateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAlias)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAlias)
 
 responseCreateRealtimeLogConfig :: CreateRealtimeLogConfigResponse -> TestTree
 responseCreateRealtimeLogConfig =
@@ -1495,7 +1495,7 @@ responseCreateRealtimeLogConfig =
     "CreateRealtimeLogConfigResponse"
     "fixture/CreateRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRealtimeLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateRealtimeLogConfig)
 
 responseListInvalidations :: ListInvalidationsResponse -> TestTree
 responseListInvalidations =
@@ -1503,7 +1503,7 @@ responseListInvalidations =
     "ListInvalidationsResponse"
     "fixture/ListInvalidationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInvalidations)
+    (Proxy.Proxy :: Proxy.Proxy ListInvalidations)
 
 responseCreateInvalidation :: CreateInvalidationResponse -> TestTree
 responseCreateInvalidation =
@@ -1511,7 +1511,7 @@ responseCreateInvalidation =
     "CreateInvalidationResponse"
     "fixture/CreateInvalidationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInvalidation)
+    (Proxy.Proxy :: Proxy.Proxy CreateInvalidation)
 
 responseGetCloudFrontOriginAccessIdentity :: GetCloudFrontOriginAccessIdentityResponse -> TestTree
 responseGetCloudFrontOriginAccessIdentity =
@@ -1519,7 +1519,7 @@ responseGetCloudFrontOriginAccessIdentity =
     "GetCloudFrontOriginAccessIdentityResponse"
     "fixture/GetCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCloudFrontOriginAccessIdentity)
+    (Proxy.Proxy :: Proxy.Proxy GetCloudFrontOriginAccessIdentity)
 
 responseListCachePolicies :: ListCachePoliciesResponse -> TestTree
 responseListCachePolicies =
@@ -1527,7 +1527,7 @@ responseListCachePolicies =
     "ListCachePoliciesResponse"
     "fixture/ListCachePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCachePolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListCachePolicies)
 
 responseCreateCachePolicy :: CreateCachePolicyResponse -> TestTree
 responseCreateCachePolicy =
@@ -1535,7 +1535,7 @@ responseCreateCachePolicy =
     "CreateCachePolicyResponse"
     "fixture/CreateCachePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCachePolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateCachePolicy)
 
 responseGetCachePolicyConfig :: GetCachePolicyConfigResponse -> TestTree
 responseGetCachePolicyConfig =
@@ -1543,7 +1543,7 @@ responseGetCachePolicyConfig =
     "GetCachePolicyConfigResponse"
     "fixture/GetCachePolicyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCachePolicyConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetCachePolicyConfig)
 
 responseListFieldLevelEncryptionConfigs :: ListFieldLevelEncryptionConfigsResponse -> TestTree
 responseListFieldLevelEncryptionConfigs =
@@ -1551,7 +1551,7 @@ responseListFieldLevelEncryptionConfigs =
     "ListFieldLevelEncryptionConfigsResponse"
     "fixture/ListFieldLevelEncryptionConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFieldLevelEncryptionConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListFieldLevelEncryptionConfigs)
 
 responseListDistributionsByKeyGroup :: ListDistributionsByKeyGroupResponse -> TestTree
 responseListDistributionsByKeyGroup =
@@ -1559,7 +1559,7 @@ responseListDistributionsByKeyGroup =
     "ListDistributionsByKeyGroupResponse"
     "fixture/ListDistributionsByKeyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributionsByKeyGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionsByKeyGroup)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1567,7 +1567,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseGetStreamingDistribution :: GetStreamingDistributionResponse -> TestTree
 responseGetStreamingDistribution =
@@ -1575,7 +1575,7 @@ responseGetStreamingDistribution =
     "GetStreamingDistributionResponse"
     "fixture/GetStreamingDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetStreamingDistribution)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingDistribution)
 
 responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
 responseUpdateDistribution =
@@ -1583,7 +1583,7 @@ responseUpdateDistribution =
     "UpdateDistributionResponse"
     "fixture/UpdateDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDistribution)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDistribution)
 
 responseUpdateFunction :: UpdateFunctionResponse -> TestTree
 responseUpdateFunction =
@@ -1591,7 +1591,7 @@ responseUpdateFunction =
     "UpdateFunctionResponse"
     "fixture/UpdateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFunction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunction)
 
 responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
 responseDeleteDistribution =
@@ -1599,7 +1599,7 @@ responseDeleteDistribution =
     "DeleteDistributionResponse"
     "fixture/DeleteDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDistribution)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDistribution)
 
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
 responseDeleteFunction =
@@ -1607,7 +1607,7 @@ responseDeleteFunction =
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFunction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunction)
 
 responseGetOriginRequestPolicy :: GetOriginRequestPolicyResponse -> TestTree
 responseGetOriginRequestPolicy =
@@ -1615,7 +1615,7 @@ responseGetOriginRequestPolicy =
     "GetOriginRequestPolicyResponse"
     "fixture/GetOriginRequestPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOriginRequestPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetOriginRequestPolicy)
 
 responsePublishFunction :: PublishFunctionResponse -> TestTree
 responsePublishFunction =
@@ -1623,7 +1623,7 @@ responsePublishFunction =
     "PublishFunctionResponse"
     "fixture/PublishFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy PublishFunction)
+    (Proxy.Proxy :: Proxy.Proxy PublishFunction)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1631,7 +1631,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreateMonitoringSubscription :: CreateMonitoringSubscriptionResponse -> TestTree
 responseCreateMonitoringSubscription =
@@ -1639,7 +1639,7 @@ responseCreateMonitoringSubscription =
     "CreateMonitoringSubscriptionResponse"
     "fixture/CreateMonitoringSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMonitoringSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateMonitoringSubscription)
 
 responseListDistributionsByWebACLId :: ListDistributionsByWebACLIdResponse -> TestTree
 responseListDistributionsByWebACLId =
@@ -1647,7 +1647,7 @@ responseListDistributionsByWebACLId =
     "ListDistributionsByWebACLIdResponse"
     "fixture/ListDistributionsByWebACLIdResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributionsByWebACLId)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionsByWebACLId)
 
 responseListDistributions :: ListDistributionsResponse -> TestTree
 responseListDistributions =
@@ -1655,7 +1655,7 @@ responseListDistributions =
     "ListDistributionsResponse"
     "fixture/ListDistributionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributions)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributions)
 
 responseListFunctions :: ListFunctionsResponse -> TestTree
 responseListFunctions =
@@ -1663,7 +1663,7 @@ responseListFunctions =
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFunctions)
+    (Proxy.Proxy :: Proxy.Proxy ListFunctions)
 
 responseListDistributionsByRealtimeLogConfig :: ListDistributionsByRealtimeLogConfigResponse -> TestTree
 responseListDistributionsByRealtimeLogConfig =
@@ -1671,7 +1671,7 @@ responseListDistributionsByRealtimeLogConfig =
     "ListDistributionsByRealtimeLogConfigResponse"
     "fixture/ListDistributionsByRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributionsByRealtimeLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionsByRealtimeLogConfig)
 
 responseCreateOriginRequestPolicy :: CreateOriginRequestPolicyResponse -> TestTree
 responseCreateOriginRequestPolicy =
@@ -1679,7 +1679,7 @@ responseCreateOriginRequestPolicy =
     "CreateOriginRequestPolicyResponse"
     "fixture/CreateOriginRequestPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOriginRequestPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateOriginRequestPolicy)
 
 responseListKeyGroups :: ListKeyGroupsResponse -> TestTree
 responseListKeyGroups =
@@ -1687,7 +1687,7 @@ responseListKeyGroups =
     "ListKeyGroupsResponse"
     "fixture/ListKeyGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKeyGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListKeyGroups)
 
 responseListFieldLevelEncryptionProfiles :: ListFieldLevelEncryptionProfilesResponse -> TestTree
 responseListFieldLevelEncryptionProfiles =
@@ -1695,7 +1695,7 @@ responseListFieldLevelEncryptionProfiles =
     "ListFieldLevelEncryptionProfilesResponse"
     "fixture/ListFieldLevelEncryptionProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListFieldLevelEncryptionProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListFieldLevelEncryptionProfiles)
 
 responseGetMonitoringSubscription :: GetMonitoringSubscriptionResponse -> TestTree
 responseGetMonitoringSubscription =
@@ -1703,7 +1703,7 @@ responseGetMonitoringSubscription =
     "GetMonitoringSubscriptionResponse"
     "fixture/GetMonitoringSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMonitoringSubscription)
+    (Proxy.Proxy :: Proxy.Proxy GetMonitoringSubscription)
 
 responseUpdateKeyGroup :: UpdateKeyGroupResponse -> TestTree
 responseUpdateKeyGroup =
@@ -1711,7 +1711,7 @@ responseUpdateKeyGroup =
     "UpdateKeyGroupResponse"
     "fixture/UpdateKeyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateKeyGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateKeyGroup)
 
 responseDeleteKeyGroup :: DeleteKeyGroupResponse -> TestTree
 responseDeleteKeyGroup =
@@ -1719,7 +1719,7 @@ responseDeleteKeyGroup =
     "DeleteKeyGroupResponse"
     "fixture/DeleteKeyGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteKeyGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteKeyGroup)
 
 responseListOriginRequestPolicies :: ListOriginRequestPoliciesResponse -> TestTree
 responseListOriginRequestPolicies =
@@ -1727,7 +1727,7 @@ responseListOriginRequestPolicies =
     "ListOriginRequestPoliciesResponse"
     "fixture/ListOriginRequestPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOriginRequestPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListOriginRequestPolicies)
 
 responseGetOriginRequestPolicyConfig :: GetOriginRequestPolicyConfigResponse -> TestTree
 responseGetOriginRequestPolicyConfig =
@@ -1735,4 +1735,4 @@ responseGetOriginRequestPolicyConfig =
     "GetOriginRequestPolicyConfigResponse"
     "fixture/GetOriginRequestPolicyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOriginRequestPolicyConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetOriginRequestPolicyConfig)

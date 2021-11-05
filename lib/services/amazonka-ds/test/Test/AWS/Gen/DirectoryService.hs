@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DirectoryService where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DirectoryService
 import Test.AWS.DirectoryService.Internal
 import Test.AWS.Fixture
@@ -799,7 +799,7 @@ responseShareDirectory =
     "ShareDirectoryResponse"
     "fixture/ShareDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ShareDirectory)
+    (Proxy.Proxy :: Proxy.Proxy ShareDirectory)
 
 responseUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllersResponse -> TestTree
 responseUpdateNumberOfDomainControllers =
@@ -807,7 +807,7 @@ responseUpdateNumberOfDomainControllers =
     "UpdateNumberOfDomainControllersResponse"
     "fixture/UpdateNumberOfDomainControllersResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateNumberOfDomainControllers)
+    (Proxy.Proxy :: Proxy.Proxy UpdateNumberOfDomainControllers)
 
 responseDescribeConditionalForwarders :: DescribeConditionalForwardersResponse -> TestTree
 responseDescribeConditionalForwarders =
@@ -815,7 +815,7 @@ responseDescribeConditionalForwarders =
     "DescribeConditionalForwardersResponse"
     "fixture/DescribeConditionalForwardersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConditionalForwarders)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConditionalForwarders)
 
 responseGetSnapshotLimits :: GetSnapshotLimitsResponse -> TestTree
 responseGetSnapshotLimits =
@@ -823,7 +823,7 @@ responseGetSnapshotLimits =
     "GetSnapshotLimitsResponse"
     "fixture/GetSnapshotLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSnapshotLimits)
+    (Proxy.Proxy :: Proxy.Proxy GetSnapshotLimits)
 
 responseRegisterEventTopic :: RegisterEventTopicResponse -> TestTree
 responseRegisterEventTopic =
@@ -831,7 +831,7 @@ responseRegisterEventTopic =
     "RegisterEventTopicResponse"
     "fixture/RegisterEventTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterEventTopic)
+    (Proxy.Proxy :: Proxy.Proxy RegisterEventTopic)
 
 responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
 responseRegisterCertificate =
@@ -839,7 +839,7 @@ responseRegisterCertificate =
     "RegisterCertificateResponse"
     "fixture/RegisterCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterCertificate)
+    (Proxy.Proxy :: Proxy.Proxy RegisterCertificate)
 
 responseConnectDirectory :: ConnectDirectoryResponse -> TestTree
 responseConnectDirectory =
@@ -847,7 +847,7 @@ responseConnectDirectory =
     "ConnectDirectoryResponse"
     "fixture/ConnectDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy ConnectDirectory)
+    (Proxy.Proxy :: Proxy.Proxy ConnectDirectory)
 
 responseDescribeLDAPSSettings :: DescribeLDAPSSettingsResponse -> TestTree
 responseDescribeLDAPSSettings =
@@ -855,7 +855,7 @@ responseDescribeLDAPSSettings =
     "DescribeLDAPSSettingsResponse"
     "fixture/DescribeLDAPSSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLDAPSSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLDAPSSettings)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
 responseCreateAlias =
@@ -863,7 +863,7 @@ responseCreateAlias =
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlias)
 
 responseDescribeDirectories :: DescribeDirectoriesResponse -> TestTree
 responseDescribeDirectories =
@@ -871,7 +871,7 @@ responseDescribeDirectories =
     "DescribeDirectoriesResponse"
     "fixture/DescribeDirectoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDirectories)
 
 responseAddIpRoutes :: AddIpRoutesResponse -> TestTree
 responseAddIpRoutes =
@@ -879,7 +879,7 @@ responseAddIpRoutes =
     "AddIpRoutesResponse"
     "fixture/AddIpRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy AddIpRoutes)
+    (Proxy.Proxy :: Proxy.Proxy AddIpRoutes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -887,7 +887,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeTrusts :: DescribeTrustsResponse -> TestTree
 responseDescribeTrusts =
@@ -895,7 +895,7 @@ responseDescribeTrusts =
     "DescribeTrustsResponse"
     "fixture/DescribeTrustsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrusts)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrusts)
 
 responseDeleteTrust :: DeleteTrustResponse -> TestTree
 responseDeleteTrust =
@@ -903,7 +903,7 @@ responseDeleteTrust =
     "DeleteTrustResponse"
     "fixture/DeleteTrustResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrust)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrust)
 
 responseUpdateTrust :: UpdateTrustResponse -> TestTree
 responseUpdateTrust =
@@ -911,7 +911,7 @@ responseUpdateTrust =
     "UpdateTrustResponse"
     "fixture/UpdateTrustResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrust)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrust)
 
 responseCreateMicrosoftAD :: CreateMicrosoftADResponse -> TestTree
 responseCreateMicrosoftAD =
@@ -919,7 +919,7 @@ responseCreateMicrosoftAD =
     "CreateMicrosoftADResponse"
     "fixture/CreateMicrosoftADResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMicrosoftAD)
+    (Proxy.Proxy :: Proxy.Proxy CreateMicrosoftAD)
 
 responseDisableClientAuthentication :: DisableClientAuthenticationResponse -> TestTree
 responseDisableClientAuthentication =
@@ -927,7 +927,7 @@ responseDisableClientAuthentication =
     "DisableClientAuthenticationResponse"
     "fixture/DisableClientAuthenticationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableClientAuthentication)
+    (Proxy.Proxy :: Proxy.Proxy DisableClientAuthentication)
 
 responseDeregisterEventTopic :: DeregisterEventTopicResponse -> TestTree
 responseDeregisterEventTopic =
@@ -935,7 +935,7 @@ responseDeregisterEventTopic =
     "DeregisterEventTopicResponse"
     "fixture/DeregisterEventTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterEventTopic)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterEventTopic)
 
 responseCreateDirectory :: CreateDirectoryResponse -> TestTree
 responseCreateDirectory =
@@ -943,7 +943,7 @@ responseCreateDirectory =
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectory)
+    (Proxy.Proxy :: Proxy.Proxy CreateDirectory)
 
 responseAcceptSharedDirectory :: AcceptSharedDirectoryResponse -> TestTree
 responseAcceptSharedDirectory =
@@ -951,7 +951,7 @@ responseAcceptSharedDirectory =
     "AcceptSharedDirectoryResponse"
     "fixture/AcceptSharedDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptSharedDirectory)
+    (Proxy.Proxy :: Proxy.Proxy AcceptSharedDirectory)
 
 responseCreateLogSubscription :: CreateLogSubscriptionResponse -> TestTree
 responseCreateLogSubscription =
@@ -959,7 +959,7 @@ responseCreateLogSubscription =
     "CreateLogSubscriptionResponse"
     "fixture/CreateLogSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLogSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateLogSubscription)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource =
@@ -967,7 +967,7 @@ responseRemoveTagsFromResource =
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromResource)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
 responseDescribeEventTopics :: DescribeEventTopicsResponse -> TestTree
 responseDescribeEventTopics =
@@ -975,7 +975,7 @@ responseDescribeEventTopics =
     "DescribeEventTopicsResponse"
     "fixture/DescribeEventTopicsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventTopics)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventTopics)
 
 responseResetUserPassword :: ResetUserPasswordResponse -> TestTree
 responseResetUserPassword =
@@ -983,7 +983,7 @@ responseResetUserPassword =
     "ResetUserPasswordResponse"
     "fixture/ResetUserPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetUserPassword)
+    (Proxy.Proxy :: Proxy.Proxy ResetUserPassword)
 
 responseUpdateConditionalForwarder :: UpdateConditionalForwarderResponse -> TestTree
 responseUpdateConditionalForwarder =
@@ -991,7 +991,7 @@ responseUpdateConditionalForwarder =
     "UpdateConditionalForwarderResponse"
     "fixture/UpdateConditionalForwarderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConditionalForwarder)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConditionalForwarder)
 
 responseDeleteConditionalForwarder :: DeleteConditionalForwarderResponse -> TestTree
 responseDeleteConditionalForwarder =
@@ -999,7 +999,7 @@ responseDeleteConditionalForwarder =
     "DeleteConditionalForwarderResponse"
     "fixture/DeleteConditionalForwarderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConditionalForwarder)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConditionalForwarder)
 
 responseDisableLDAPS :: DisableLDAPSResponse -> TestTree
 responseDisableLDAPS =
@@ -1007,7 +1007,7 @@ responseDisableLDAPS =
     "DisableLDAPSResponse"
     "fixture/DisableLDAPSResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableLDAPS)
+    (Proxy.Proxy :: Proxy.Proxy DisableLDAPS)
 
 responseDeleteLogSubscription :: DeleteLogSubscriptionResponse -> TestTree
 responseDeleteLogSubscription =
@@ -1015,7 +1015,7 @@ responseDeleteLogSubscription =
     "DeleteLogSubscriptionResponse"
     "fixture/DeleteLogSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLogSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLogSubscription)
 
 responseEnableSso :: EnableSsoResponse -> TestTree
 responseEnableSso =
@@ -1023,7 +1023,7 @@ responseEnableSso =
     "EnableSsoResponse"
     "fixture/EnableSsoResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableSso)
+    (Proxy.Proxy :: Proxy.Proxy EnableSso)
 
 responseCancelSchemaExtension :: CancelSchemaExtensionResponse -> TestTree
 responseCancelSchemaExtension =
@@ -1031,7 +1031,7 @@ responseCancelSchemaExtension =
     "CancelSchemaExtensionResponse"
     "fixture/CancelSchemaExtensionResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSchemaExtension)
+    (Proxy.Proxy :: Proxy.Proxy CancelSchemaExtension)
 
 responseListLogSubscriptions :: ListLogSubscriptionsResponse -> TestTree
 responseListLogSubscriptions =
@@ -1039,7 +1039,7 @@ responseListLogSubscriptions =
     "ListLogSubscriptionsResponse"
     "fixture/ListLogSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLogSubscriptions)
+    (Proxy.Proxy :: Proxy.Proxy ListLogSubscriptions)
 
 responseEnableRadius :: EnableRadiusResponse -> TestTree
 responseEnableRadius =
@@ -1047,7 +1047,7 @@ responseEnableRadius =
     "EnableRadiusResponse"
     "fixture/EnableRadiusResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableRadius)
+    (Proxy.Proxy :: Proxy.Proxy EnableRadius)
 
 responseListIpRoutes :: ListIpRoutesResponse -> TestTree
 responseListIpRoutes =
@@ -1055,7 +1055,7 @@ responseListIpRoutes =
     "ListIpRoutesResponse"
     "fixture/ListIpRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIpRoutes)
+    (Proxy.Proxy :: Proxy.Proxy ListIpRoutes)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
 responseAddTagsToResource =
@@ -1063,7 +1063,7 @@ responseAddTagsToResource =
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
 responseDescribeClientAuthenticationSettings :: DescribeClientAuthenticationSettingsResponse -> TestTree
 responseDescribeClientAuthenticationSettings =
@@ -1071,7 +1071,7 @@ responseDescribeClientAuthenticationSettings =
     "DescribeClientAuthenticationSettingsResponse"
     "fixture/DescribeClientAuthenticationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientAuthenticationSettings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientAuthenticationSettings)
 
 responseListSchemaExtensions :: ListSchemaExtensionsResponse -> TestTree
 responseListSchemaExtensions =
@@ -1079,7 +1079,7 @@ responseListSchemaExtensions =
     "ListSchemaExtensionsResponse"
     "fixture/ListSchemaExtensionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSchemaExtensions)
+    (Proxy.Proxy :: Proxy.Proxy ListSchemaExtensions)
 
 responseDisableRadius :: DisableRadiusResponse -> TestTree
 responseDisableRadius =
@@ -1087,7 +1087,7 @@ responseDisableRadius =
     "DisableRadiusResponse"
     "fixture/DisableRadiusResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableRadius)
+    (Proxy.Proxy :: Proxy.Proxy DisableRadius)
 
 responseListCertificates :: ListCertificatesResponse -> TestTree
 responseListCertificates =
@@ -1095,7 +1095,7 @@ responseListCertificates =
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCertificates)
+    (Proxy.Proxy :: Proxy.Proxy ListCertificates)
 
 responseRejectSharedDirectory :: RejectSharedDirectoryResponse -> TestTree
 responseRejectSharedDirectory =
@@ -1103,7 +1103,7 @@ responseRejectSharedDirectory =
     "RejectSharedDirectoryResponse"
     "fixture/RejectSharedDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectSharedDirectory)
+    (Proxy.Proxy :: Proxy.Proxy RejectSharedDirectory)
 
 responseUnshareDirectory :: UnshareDirectoryResponse -> TestTree
 responseUnshareDirectory =
@@ -1111,7 +1111,7 @@ responseUnshareDirectory =
     "UnshareDirectoryResponse"
     "fixture/UnshareDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy UnshareDirectory)
+    (Proxy.Proxy :: Proxy.Proxy UnshareDirectory)
 
 responseRestoreFromSnapshot :: RestoreFromSnapshotResponse -> TestTree
 responseRestoreFromSnapshot =
@@ -1119,7 +1119,7 @@ responseRestoreFromSnapshot =
     "RestoreFromSnapshotResponse"
     "fixture/RestoreFromSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreFromSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy RestoreFromSnapshot)
 
 responseDescribeDomainControllers :: DescribeDomainControllersResponse -> TestTree
 responseDescribeDomainControllers =
@@ -1127,7 +1127,7 @@ responseDescribeDomainControllers =
     "DescribeDomainControllersResponse"
     "fixture/DescribeDomainControllersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomainControllers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainControllers)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots =
@@ -1135,7 +1135,7 @@ responseDescribeSnapshots =
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshots)
 
 responseRemoveIpRoutes :: RemoveIpRoutesResponse -> TestTree
 responseRemoveIpRoutes =
@@ -1143,7 +1143,7 @@ responseRemoveIpRoutes =
     "RemoveIpRoutesResponse"
     "fixture/RemoveIpRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveIpRoutes)
+    (Proxy.Proxy :: Proxy.Proxy RemoveIpRoutes)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
 responseDeleteSnapshot =
@@ -1151,7 +1151,7 @@ responseDeleteSnapshot =
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshot)
 
 responseDeregisterCertificate :: DeregisterCertificateResponse -> TestTree
 responseDeregisterCertificate =
@@ -1159,7 +1159,7 @@ responseDeregisterCertificate =
     "DeregisterCertificateResponse"
     "fixture/DeregisterCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterCertificate)
 
 responseStartSchemaExtension :: StartSchemaExtensionResponse -> TestTree
 responseStartSchemaExtension =
@@ -1167,7 +1167,7 @@ responseStartSchemaExtension =
     "StartSchemaExtensionResponse"
     "fixture/StartSchemaExtensionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSchemaExtension)
+    (Proxy.Proxy :: Proxy.Proxy StartSchemaExtension)
 
 responseCreateTrust :: CreateTrustResponse -> TestTree
 responseCreateTrust =
@@ -1175,7 +1175,7 @@ responseCreateTrust =
     "CreateTrustResponse"
     "fixture/CreateTrustResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrust)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrust)
 
 responseDeleteDirectory :: DeleteDirectoryResponse -> TestTree
 responseDeleteDirectory =
@@ -1183,7 +1183,7 @@ responseDeleteDirectory =
     "DeleteDirectoryResponse"
     "fixture/DeleteDirectoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectory)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDirectory)
 
 responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
 responseCreateSnapshot =
@@ -1191,7 +1191,7 @@ responseCreateSnapshot =
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
 responseDescribeCertificate =
@@ -1199,7 +1199,7 @@ responseDescribeCertificate =
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificate)
 
 responseEnableClientAuthentication :: EnableClientAuthenticationResponse -> TestTree
 responseEnableClientAuthentication =
@@ -1207,7 +1207,7 @@ responseEnableClientAuthentication =
     "EnableClientAuthenticationResponse"
     "fixture/EnableClientAuthenticationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableClientAuthentication)
+    (Proxy.Proxy :: Proxy.Proxy EnableClientAuthentication)
 
 responseCreateComputer :: CreateComputerResponse -> TestTree
 responseCreateComputer =
@@ -1215,7 +1215,7 @@ responseCreateComputer =
     "CreateComputerResponse"
     "fixture/CreateComputerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateComputer)
+    (Proxy.Proxy :: Proxy.Proxy CreateComputer)
 
 responseDescribeSharedDirectories :: DescribeSharedDirectoriesResponse -> TestTree
 responseDescribeSharedDirectories =
@@ -1223,7 +1223,7 @@ responseDescribeSharedDirectories =
     "DescribeSharedDirectoriesResponse"
     "fixture/DescribeSharedDirectoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSharedDirectories)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSharedDirectories)
 
 responseEnableLDAPS :: EnableLDAPSResponse -> TestTree
 responseEnableLDAPS =
@@ -1231,7 +1231,7 @@ responseEnableLDAPS =
     "EnableLDAPSResponse"
     "fixture/EnableLDAPSResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableLDAPS)
+    (Proxy.Proxy :: Proxy.Proxy EnableLDAPS)
 
 responseDisableSso :: DisableSsoResponse -> TestTree
 responseDisableSso =
@@ -1239,7 +1239,7 @@ responseDisableSso =
     "DisableSsoResponse"
     "fixture/DisableSsoResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableSso)
+    (Proxy.Proxy :: Proxy.Proxy DisableSso)
 
 responseVerifyTrust :: VerifyTrustResponse -> TestTree
 responseVerifyTrust =
@@ -1247,7 +1247,7 @@ responseVerifyTrust =
     "VerifyTrustResponse"
     "fixture/VerifyTrustResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifyTrust)
+    (Proxy.Proxy :: Proxy.Proxy VerifyTrust)
 
 responseRemoveRegion :: RemoveRegionResponse -> TestTree
 responseRemoveRegion =
@@ -1255,7 +1255,7 @@ responseRemoveRegion =
     "RemoveRegionResponse"
     "fixture/RemoveRegionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveRegion)
+    (Proxy.Proxy :: Proxy.Proxy RemoveRegion)
 
 responseCreateConditionalForwarder :: CreateConditionalForwarderResponse -> TestTree
 responseCreateConditionalForwarder =
@@ -1263,7 +1263,7 @@ responseCreateConditionalForwarder =
     "CreateConditionalForwarderResponse"
     "fixture/CreateConditionalForwarderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConditionalForwarder)
+    (Proxy.Proxy :: Proxy.Proxy CreateConditionalForwarder)
 
 responseDescribeRegions :: DescribeRegionsResponse -> TestTree
 responseDescribeRegions =
@@ -1271,7 +1271,7 @@ responseDescribeRegions =
     "DescribeRegionsResponse"
     "fixture/DescribeRegionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRegions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegions)
 
 responseAddRegion :: AddRegionResponse -> TestTree
 responseAddRegion =
@@ -1279,7 +1279,7 @@ responseAddRegion =
     "AddRegionResponse"
     "fixture/AddRegionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddRegion)
+    (Proxy.Proxy :: Proxy.Proxy AddRegion)
 
 responseGetDirectoryLimits :: GetDirectoryLimitsResponse -> TestTree
 responseGetDirectoryLimits =
@@ -1287,7 +1287,7 @@ responseGetDirectoryLimits =
     "GetDirectoryLimitsResponse"
     "fixture/GetDirectoryLimitsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDirectoryLimits)
+    (Proxy.Proxy :: Proxy.Proxy GetDirectoryLimits)
 
 responseUpdateRadius :: UpdateRadiusResponse -> TestTree
 responseUpdateRadius =
@@ -1295,4 +1295,4 @@ responseUpdateRadius =
     "UpdateRadiusResponse"
     "fixture/UpdateRadiusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRadius)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRadius)

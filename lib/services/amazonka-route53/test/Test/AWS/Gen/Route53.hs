@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Route53
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -811,7 +811,7 @@ responseGetHostedZoneLimit =
     "GetHostedZoneLimitResponse"
     "fixture/GetHostedZoneLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHostedZoneLimit)
+    (Proxy.Proxy :: Proxy.Proxy GetHostedZoneLimit)
 
 responseAssociateVPCWithHostedZone :: AssociateVPCWithHostedZoneResponse -> TestTree
 responseAssociateVPCWithHostedZone =
@@ -819,7 +819,7 @@ responseAssociateVPCWithHostedZone =
     "AssociateVPCWithHostedZoneResponse"
     "fixture/AssociateVPCWithHostedZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateVPCWithHostedZone)
+    (Proxy.Proxy :: Proxy.Proxy AssociateVPCWithHostedZone)
 
 responseDeleteTrafficPolicy :: DeleteTrafficPolicyResponse -> TestTree
 responseDeleteTrafficPolicy =
@@ -827,7 +827,7 @@ responseDeleteTrafficPolicy =
     "DeleteTrafficPolicyResponse"
     "fixture/DeleteTrafficPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrafficPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficPolicy)
 
 responseDisableHostedZoneDNSSEC :: DisableHostedZoneDNSSECResponse -> TestTree
 responseDisableHostedZoneDNSSEC =
@@ -835,7 +835,7 @@ responseDisableHostedZoneDNSSEC =
     "DisableHostedZoneDNSSECResponse"
     "fixture/DisableHostedZoneDNSSECResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableHostedZoneDNSSEC)
+    (Proxy.Proxy :: Proxy.Proxy DisableHostedZoneDNSSEC)
 
 responseCreateKeySigningKey :: CreateKeySigningKeyResponse -> TestTree
 responseCreateKeySigningKey =
@@ -843,7 +843,7 @@ responseCreateKeySigningKey =
     "CreateKeySigningKeyResponse"
     "fixture/CreateKeySigningKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKeySigningKey)
+    (Proxy.Proxy :: Proxy.Proxy CreateKeySigningKey)
 
 responseGetCheckerIpRanges :: GetCheckerIpRangesResponse -> TestTree
 responseGetCheckerIpRanges =
@@ -851,7 +851,7 @@ responseGetCheckerIpRanges =
     "GetCheckerIpRangesResponse"
     "fixture/GetCheckerIpRangesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCheckerIpRanges)
+    (Proxy.Proxy :: Proxy.Proxy GetCheckerIpRanges)
 
 responseGetTrafficPolicyInstance :: GetTrafficPolicyInstanceResponse -> TestTree
 responseGetTrafficPolicyInstance =
@@ -859,7 +859,7 @@ responseGetTrafficPolicyInstance =
     "GetTrafficPolicyInstanceResponse"
     "fixture/GetTrafficPolicyInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTrafficPolicyInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetTrafficPolicyInstance)
 
 responseGetHealthCheckLastFailureReason :: GetHealthCheckLastFailureReasonResponse -> TestTree
 responseGetHealthCheckLastFailureReason =
@@ -867,7 +867,7 @@ responseGetHealthCheckLastFailureReason =
     "GetHealthCheckLastFailureReasonResponse"
     "fixture/GetHealthCheckLastFailureReasonResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHealthCheckLastFailureReason)
+    (Proxy.Proxy :: Proxy.Proxy GetHealthCheckLastFailureReason)
 
 responseDeleteReusableDelegationSet :: DeleteReusableDelegationSetResponse -> TestTree
 responseDeleteReusableDelegationSet =
@@ -875,7 +875,7 @@ responseDeleteReusableDelegationSet =
     "DeleteReusableDelegationSetResponse"
     "fixture/DeleteReusableDelegationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReusableDelegationSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReusableDelegationSet)
 
 responseListHostedZonesByName :: ListHostedZonesByNameResponse -> TestTree
 responseListHostedZonesByName =
@@ -883,7 +883,7 @@ responseListHostedZonesByName =
     "ListHostedZonesByNameResponse"
     "fixture/ListHostedZonesByNameResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHostedZonesByName)
+    (Proxy.Proxy :: Proxy.Proxy ListHostedZonesByName)
 
 responseActivateKeySigningKey :: ActivateKeySigningKeyResponse -> TestTree
 responseActivateKeySigningKey =
@@ -891,7 +891,7 @@ responseActivateKeySigningKey =
     "ActivateKeySigningKeyResponse"
     "fixture/ActivateKeySigningKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateKeySigningKey)
+    (Proxy.Proxy :: Proxy.Proxy ActivateKeySigningKey)
 
 responseListReusableDelegationSets :: ListReusableDelegationSetsResponse -> TestTree
 responseListReusableDelegationSets =
@@ -899,7 +899,7 @@ responseListReusableDelegationSets =
     "ListReusableDelegationSetsResponse"
     "fixture/ListReusableDelegationSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReusableDelegationSets)
+    (Proxy.Proxy :: Proxy.Proxy ListReusableDelegationSets)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -907,7 +907,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListQueryLoggingConfigs :: ListQueryLoggingConfigsResponse -> TestTree
 responseListQueryLoggingConfigs =
@@ -915,7 +915,7 @@ responseListQueryLoggingConfigs =
     "ListQueryLoggingConfigsResponse"
     "fixture/ListQueryLoggingConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListQueryLoggingConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListQueryLoggingConfigs)
 
 responseListTrafficPolicyInstances :: ListTrafficPolicyInstancesResponse -> TestTree
 responseListTrafficPolicyInstances =
@@ -923,7 +923,7 @@ responseListTrafficPolicyInstances =
     "ListTrafficPolicyInstancesResponse"
     "fixture/ListTrafficPolicyInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrafficPolicyInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListTrafficPolicyInstances)
 
 responseCreateTrafficPolicyInstance :: CreateTrafficPolicyInstanceResponse -> TestTree
 responseCreateTrafficPolicyInstance =
@@ -931,7 +931,7 @@ responseCreateTrafficPolicyInstance =
     "CreateTrafficPolicyInstanceResponse"
     "fixture/CreateTrafficPolicyInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficPolicyInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficPolicyInstance)
 
 responseGetChange :: GetChangeResponse -> TestTree
 responseGetChange =
@@ -939,7 +939,7 @@ responseGetChange =
     "GetChangeResponse"
     "fixture/GetChangeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetChange)
+    (Proxy.Proxy :: Proxy.Proxy GetChange)
 
 responseChangeResourceRecordSets :: ChangeResourceRecordSetsResponse -> TestTree
 responseChangeResourceRecordSets =
@@ -947,7 +947,7 @@ responseChangeResourceRecordSets =
     "ChangeResourceRecordSetsResponse"
     "fixture/ChangeResourceRecordSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeResourceRecordSets)
+    (Proxy.Proxy :: Proxy.Proxy ChangeResourceRecordSets)
 
 responseDeleteHealthCheck :: DeleteHealthCheckResponse -> TestTree
 responseDeleteHealthCheck =
@@ -955,7 +955,7 @@ responseDeleteHealthCheck =
     "DeleteHealthCheckResponse"
     "fixture/DeleteHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHealthCheck)
 
 responseUpdateHealthCheck :: UpdateHealthCheckResponse -> TestTree
 responseUpdateHealthCheck =
@@ -963,7 +963,7 @@ responseUpdateHealthCheck =
     "UpdateHealthCheckResponse"
     "fixture/UpdateHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHealthCheck)
 
 responseCreateHostedZone :: CreateHostedZoneResponse -> TestTree
 responseCreateHostedZone =
@@ -971,7 +971,7 @@ responseCreateHostedZone =
     "CreateHostedZoneResponse"
     "fixture/CreateHostedZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHostedZone)
+    (Proxy.Proxy :: Proxy.Proxy CreateHostedZone)
 
 responseCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorizationResponse -> TestTree
 responseCreateVPCAssociationAuthorization =
@@ -979,7 +979,7 @@ responseCreateVPCAssociationAuthorization =
     "CreateVPCAssociationAuthorizationResponse"
     "fixture/CreateVPCAssociationAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVPCAssociationAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy CreateVPCAssociationAuthorization)
 
 responseListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizationsResponse -> TestTree
 responseListVPCAssociationAuthorizations =
@@ -987,7 +987,7 @@ responseListVPCAssociationAuthorizations =
     "ListVPCAssociationAuthorizationsResponse"
     "fixture/ListVPCAssociationAuthorizationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVPCAssociationAuthorizations)
+    (Proxy.Proxy :: Proxy.Proxy ListVPCAssociationAuthorizations)
 
 responseListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicyResponse -> TestTree
 responseListTrafficPolicyInstancesByPolicy =
@@ -995,7 +995,7 @@ responseListTrafficPolicyInstancesByPolicy =
     "ListTrafficPolicyInstancesByPolicyResponse"
     "fixture/ListTrafficPolicyInstancesByPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrafficPolicyInstancesByPolicy)
+    (Proxy.Proxy :: Proxy.Proxy ListTrafficPolicyInstancesByPolicy)
 
 responseDisassociateVPCFromHostedZone :: DisassociateVPCFromHostedZoneResponse -> TestTree
 responseDisassociateVPCFromHostedZone =
@@ -1003,7 +1003,7 @@ responseDisassociateVPCFromHostedZone =
     "DisassociateVPCFromHostedZoneResponse"
     "fixture/DisassociateVPCFromHostedZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateVPCFromHostedZone)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateVPCFromHostedZone)
 
 responseCreateHealthCheck :: CreateHealthCheckResponse -> TestTree
 responseCreateHealthCheck =
@@ -1011,7 +1011,7 @@ responseCreateHealthCheck =
     "CreateHealthCheckResponse"
     "fixture/CreateHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy CreateHealthCheck)
 
 responseDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorizationResponse -> TestTree
 responseDeleteVPCAssociationAuthorization =
@@ -1019,7 +1019,7 @@ responseDeleteVPCAssociationAuthorization =
     "DeleteVPCAssociationAuthorizationResponse"
     "fixture/DeleteVPCAssociationAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVPCAssociationAuthorization)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVPCAssociationAuthorization)
 
 responseChangeTagsForResource :: ChangeTagsForResourceResponse -> TestTree
 responseChangeTagsForResource =
@@ -1027,7 +1027,7 @@ responseChangeTagsForResource =
     "ChangeTagsForResourceResponse"
     "fixture/ChangeTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ChangeTagsForResource)
 
 responseListHostedZones :: ListHostedZonesResponse -> TestTree
 responseListHostedZones =
@@ -1035,7 +1035,7 @@ responseListHostedZones =
     "ListHostedZonesResponse"
     "fixture/ListHostedZonesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHostedZones)
+    (Proxy.Proxy :: Proxy.Proxy ListHostedZones)
 
 responseGetTrafficPolicyInstanceCount :: GetTrafficPolicyInstanceCountResponse -> TestTree
 responseGetTrafficPolicyInstanceCount =
@@ -1043,7 +1043,7 @@ responseGetTrafficPolicyInstanceCount =
     "GetTrafficPolicyInstanceCountResponse"
     "fixture/GetTrafficPolicyInstanceCountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTrafficPolicyInstanceCount)
+    (Proxy.Proxy :: Proxy.Proxy GetTrafficPolicyInstanceCount)
 
 responseListGeoLocations :: ListGeoLocationsResponse -> TestTree
 responseListGeoLocations =
@@ -1051,7 +1051,7 @@ responseListGeoLocations =
     "ListGeoLocationsResponse"
     "fixture/ListGeoLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGeoLocations)
+    (Proxy.Proxy :: Proxy.Proxy ListGeoLocations)
 
 responseGetHostedZone :: GetHostedZoneResponse -> TestTree
 responseGetHostedZone =
@@ -1059,7 +1059,7 @@ responseGetHostedZone =
     "GetHostedZoneResponse"
     "fixture/GetHostedZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHostedZone)
+    (Proxy.Proxy :: Proxy.Proxy GetHostedZone)
 
 responseGetHealthCheck :: GetHealthCheckResponse -> TestTree
 responseGetHealthCheck =
@@ -1067,7 +1067,7 @@ responseGetHealthCheck =
     "GetHealthCheckResponse"
     "fixture/GetHealthCheckResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHealthCheck)
+    (Proxy.Proxy :: Proxy.Proxy GetHealthCheck)
 
 responseListResourceRecordSets :: ListResourceRecordSetsResponse -> TestTree
 responseListResourceRecordSets =
@@ -1075,7 +1075,7 @@ responseListResourceRecordSets =
     "ListResourceRecordSetsResponse"
     "fixture/ListResourceRecordSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceRecordSets)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceRecordSets)
 
 responseCreateReusableDelegationSet :: CreateReusableDelegationSetResponse -> TestTree
 responseCreateReusableDelegationSet =
@@ -1083,7 +1083,7 @@ responseCreateReusableDelegationSet =
     "CreateReusableDelegationSetResponse"
     "fixture/CreateReusableDelegationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReusableDelegationSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateReusableDelegationSet)
 
 responseCreateQueryLoggingConfig :: CreateQueryLoggingConfigResponse -> TestTree
 responseCreateQueryLoggingConfig =
@@ -1091,7 +1091,7 @@ responseCreateQueryLoggingConfig =
     "CreateQueryLoggingConfigResponse"
     "fixture/CreateQueryLoggingConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQueryLoggingConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateQueryLoggingConfig)
 
 responseGetHealthCheckCount :: GetHealthCheckCountResponse -> TestTree
 responseGetHealthCheckCount =
@@ -1099,7 +1099,7 @@ responseGetHealthCheckCount =
     "GetHealthCheckCountResponse"
     "fixture/GetHealthCheckCountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHealthCheckCount)
+    (Proxy.Proxy :: Proxy.Proxy GetHealthCheckCount)
 
 responseUpdateTrafficPolicyComment :: UpdateTrafficPolicyCommentResponse -> TestTree
 responseUpdateTrafficPolicyComment =
@@ -1107,7 +1107,7 @@ responseUpdateTrafficPolicyComment =
     "UpdateTrafficPolicyCommentResponse"
     "fixture/UpdateTrafficPolicyCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrafficPolicyComment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrafficPolicyComment)
 
 responseGetHostedZoneCount :: GetHostedZoneCountResponse -> TestTree
 responseGetHostedZoneCount =
@@ -1115,7 +1115,7 @@ responseGetHostedZoneCount =
     "GetHostedZoneCountResponse"
     "fixture/GetHostedZoneCountResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHostedZoneCount)
+    (Proxy.Proxy :: Proxy.Proxy GetHostedZoneCount)
 
 responseDeleteKeySigningKey :: DeleteKeySigningKeyResponse -> TestTree
 responseDeleteKeySigningKey =
@@ -1123,7 +1123,7 @@ responseDeleteKeySigningKey =
     "DeleteKeySigningKeyResponse"
     "fixture/DeleteKeySigningKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteKeySigningKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteKeySigningKey)
 
 responseGetDNSSEC :: GetDNSSECResponse -> TestTree
 responseGetDNSSEC =
@@ -1131,7 +1131,7 @@ responseGetDNSSEC =
     "GetDNSSECResponse"
     "fixture/GetDNSSECResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDNSSEC)
+    (Proxy.Proxy :: Proxy.Proxy GetDNSSEC)
 
 responseGetAccountLimit :: GetAccountLimitResponse -> TestTree
 responseGetAccountLimit =
@@ -1139,7 +1139,7 @@ responseGetAccountLimit =
     "GetAccountLimitResponse"
     "fixture/GetAccountLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountLimit)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountLimit)
 
 responseEnableHostedZoneDNSSEC :: EnableHostedZoneDNSSECResponse -> TestTree
 responseEnableHostedZoneDNSSEC =
@@ -1147,7 +1147,7 @@ responseEnableHostedZoneDNSSEC =
     "EnableHostedZoneDNSSECResponse"
     "fixture/EnableHostedZoneDNSSECResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableHostedZoneDNSSEC)
+    (Proxy.Proxy :: Proxy.Proxy EnableHostedZoneDNSSEC)
 
 responseDeleteQueryLoggingConfig :: DeleteQueryLoggingConfigResponse -> TestTree
 responseDeleteQueryLoggingConfig =
@@ -1155,7 +1155,7 @@ responseDeleteQueryLoggingConfig =
     "DeleteQueryLoggingConfigResponse"
     "fixture/DeleteQueryLoggingConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueryLoggingConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueryLoggingConfig)
 
 responseGetQueryLoggingConfig :: GetQueryLoggingConfigResponse -> TestTree
 responseGetQueryLoggingConfig =
@@ -1163,7 +1163,7 @@ responseGetQueryLoggingConfig =
     "GetQueryLoggingConfigResponse"
     "fixture/GetQueryLoggingConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueryLoggingConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetQueryLoggingConfig)
 
 responseGetReusableDelegationSet :: GetReusableDelegationSetResponse -> TestTree
 responseGetReusableDelegationSet =
@@ -1171,7 +1171,7 @@ responseGetReusableDelegationSet =
     "GetReusableDelegationSetResponse"
     "fixture/GetReusableDelegationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReusableDelegationSet)
+    (Proxy.Proxy :: Proxy.Proxy GetReusableDelegationSet)
 
 responseDeleteTrafficPolicyInstance :: DeleteTrafficPolicyInstanceResponse -> TestTree
 responseDeleteTrafficPolicyInstance =
@@ -1179,7 +1179,7 @@ responseDeleteTrafficPolicyInstance =
     "DeleteTrafficPolicyInstanceResponse"
     "fixture/DeleteTrafficPolicyInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrafficPolicyInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficPolicyInstance)
 
 responseUpdateTrafficPolicyInstance :: UpdateTrafficPolicyInstanceResponse -> TestTree
 responseUpdateTrafficPolicyInstance =
@@ -1187,7 +1187,7 @@ responseUpdateTrafficPolicyInstance =
     "UpdateTrafficPolicyInstanceResponse"
     "fixture/UpdateTrafficPolicyInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrafficPolicyInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTrafficPolicyInstance)
 
 responseUpdateHostedZoneComment :: UpdateHostedZoneCommentResponse -> TestTree
 responseUpdateHostedZoneComment =
@@ -1195,7 +1195,7 @@ responseUpdateHostedZoneComment =
     "UpdateHostedZoneCommentResponse"
     "fixture/UpdateHostedZoneCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateHostedZoneComment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHostedZoneComment)
 
 responseGetHealthCheckStatus :: GetHealthCheckStatusResponse -> TestTree
 responseGetHealthCheckStatus =
@@ -1203,7 +1203,7 @@ responseGetHealthCheckStatus =
     "GetHealthCheckStatusResponse"
     "fixture/GetHealthCheckStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHealthCheckStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetHealthCheckStatus)
 
 responseListHostedZonesByVPC :: ListHostedZonesByVPCResponse -> TestTree
 responseListHostedZonesByVPC =
@@ -1211,7 +1211,7 @@ responseListHostedZonesByVPC =
     "ListHostedZonesByVPCResponse"
     "fixture/ListHostedZonesByVPCResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHostedZonesByVPC)
+    (Proxy.Proxy :: Proxy.Proxy ListHostedZonesByVPC)
 
 responseGetReusableDelegationSetLimit :: GetReusableDelegationSetLimitResponse -> TestTree
 responseGetReusableDelegationSetLimit =
@@ -1219,7 +1219,7 @@ responseGetReusableDelegationSetLimit =
     "GetReusableDelegationSetLimitResponse"
     "fixture/GetReusableDelegationSetLimitResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReusableDelegationSetLimit)
+    (Proxy.Proxy :: Proxy.Proxy GetReusableDelegationSetLimit)
 
 responseCreateTrafficPolicyVersion :: CreateTrafficPolicyVersionResponse -> TestTree
 responseCreateTrafficPolicyVersion =
@@ -1227,7 +1227,7 @@ responseCreateTrafficPolicyVersion =
     "CreateTrafficPolicyVersionResponse"
     "fixture/CreateTrafficPolicyVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficPolicyVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficPolicyVersion)
 
 responseDeactivateKeySigningKey :: DeactivateKeySigningKeyResponse -> TestTree
 responseDeactivateKeySigningKey =
@@ -1235,7 +1235,7 @@ responseDeactivateKeySigningKey =
     "DeactivateKeySigningKeyResponse"
     "fixture/DeactivateKeySigningKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateKeySigningKey)
+    (Proxy.Proxy :: Proxy.Proxy DeactivateKeySigningKey)
 
 responseTestDNSAnswer :: TestDNSAnswerResponse -> TestTree
 responseTestDNSAnswer =
@@ -1243,7 +1243,7 @@ responseTestDNSAnswer =
     "TestDNSAnswerResponse"
     "fixture/TestDNSAnswerResponse.proto"
     defaultService
-    (Proxy :: Proxy TestDNSAnswer)
+    (Proxy.Proxy :: Proxy.Proxy TestDNSAnswer)
 
 responseListHealthChecks :: ListHealthChecksResponse -> TestTree
 responseListHealthChecks =
@@ -1251,7 +1251,7 @@ responseListHealthChecks =
     "ListHealthChecksResponse"
     "fixture/ListHealthChecksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListHealthChecks)
+    (Proxy.Proxy :: Proxy.Proxy ListHealthChecks)
 
 responseGetTrafficPolicy :: GetTrafficPolicyResponse -> TestTree
 responseGetTrafficPolicy =
@@ -1259,7 +1259,7 @@ responseGetTrafficPolicy =
     "GetTrafficPolicyResponse"
     "fixture/GetTrafficPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTrafficPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetTrafficPolicy)
 
 responseListTrafficPolicyVersions :: ListTrafficPolicyVersionsResponse -> TestTree
 responseListTrafficPolicyVersions =
@@ -1267,7 +1267,7 @@ responseListTrafficPolicyVersions =
     "ListTrafficPolicyVersionsResponse"
     "fixture/ListTrafficPolicyVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrafficPolicyVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListTrafficPolicyVersions)
 
 responseDeleteHostedZone :: DeleteHostedZoneResponse -> TestTree
 responseDeleteHostedZone =
@@ -1275,7 +1275,7 @@ responseDeleteHostedZone =
     "DeleteHostedZoneResponse"
     "fixture/DeleteHostedZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHostedZone)
+    (Proxy.Proxy :: Proxy.Proxy DeleteHostedZone)
 
 responseGetGeoLocation :: GetGeoLocationResponse -> TestTree
 responseGetGeoLocation =
@@ -1283,7 +1283,7 @@ responseGetGeoLocation =
     "GetGeoLocationResponse"
     "fixture/GetGeoLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGeoLocation)
+    (Proxy.Proxy :: Proxy.Proxy GetGeoLocation)
 
 responseListTagsForResources :: ListTagsForResourcesResponse -> TestTree
 responseListTagsForResources =
@@ -1291,7 +1291,7 @@ responseListTagsForResources =
     "ListTagsForResourcesResponse"
     "fixture/ListTagsForResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResources)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResources)
 
 responseCreateTrafficPolicy :: CreateTrafficPolicyResponse -> TestTree
 responseCreateTrafficPolicy =
@@ -1299,7 +1299,7 @@ responseCreateTrafficPolicy =
     "CreateTrafficPolicyResponse"
     "fixture/CreateTrafficPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficPolicy)
 
 responseListTrafficPolicyInstancesByHostedZone :: ListTrafficPolicyInstancesByHostedZoneResponse -> TestTree
 responseListTrafficPolicyInstancesByHostedZone =
@@ -1307,7 +1307,7 @@ responseListTrafficPolicyInstancesByHostedZone =
     "ListTrafficPolicyInstancesByHostedZoneResponse"
     "fixture/ListTrafficPolicyInstancesByHostedZoneResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrafficPolicyInstancesByHostedZone)
+    (Proxy.Proxy :: Proxy.Proxy ListTrafficPolicyInstancesByHostedZone)
 
 responseListTrafficPolicies :: ListTrafficPoliciesResponse -> TestTree
 responseListTrafficPolicies =
@@ -1315,4 +1315,4 @@ responseListTrafficPolicies =
     "ListTrafficPoliciesResponse"
     "fixture/ListTrafficPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTrafficPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListTrafficPolicies)

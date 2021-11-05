@@ -1,0 +1,172 @@
+cabal-version:      2.2
+name:               amazonka-pinpoint-email
+version:            2.0
+synopsis:           Amazon Pinpoint Email Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-07-26@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.PinpointEmail.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.PinpointEmail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-pinpoint-email
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.PinpointEmail
+    Network.AWS.PinpointEmail.CreateConfigurationSet
+    Network.AWS.PinpointEmail.CreateConfigurationSetEventDestination
+    Network.AWS.PinpointEmail.CreateDedicatedIpPool
+    Network.AWS.PinpointEmail.CreateDeliverabilityTestReport
+    Network.AWS.PinpointEmail.CreateEmailIdentity
+    Network.AWS.PinpointEmail.DeleteConfigurationSet
+    Network.AWS.PinpointEmail.DeleteConfigurationSetEventDestination
+    Network.AWS.PinpointEmail.DeleteDedicatedIpPool
+    Network.AWS.PinpointEmail.DeleteEmailIdentity
+    Network.AWS.PinpointEmail.GetAccount
+    Network.AWS.PinpointEmail.GetBlacklistReports
+    Network.AWS.PinpointEmail.GetConfigurationSet
+    Network.AWS.PinpointEmail.GetConfigurationSetEventDestinations
+    Network.AWS.PinpointEmail.GetDedicatedIp
+    Network.AWS.PinpointEmail.GetDedicatedIps
+    Network.AWS.PinpointEmail.GetDeliverabilityDashboardOptions
+    Network.AWS.PinpointEmail.GetDeliverabilityTestReport
+    Network.AWS.PinpointEmail.GetDomainDeliverabilityCampaign
+    Network.AWS.PinpointEmail.GetDomainStatisticsReport
+    Network.AWS.PinpointEmail.GetEmailIdentity
+    Network.AWS.PinpointEmail.Lens
+    Network.AWS.PinpointEmail.ListConfigurationSets
+    Network.AWS.PinpointEmail.ListDedicatedIpPools
+    Network.AWS.PinpointEmail.ListDeliverabilityTestReports
+    Network.AWS.PinpointEmail.ListDomainDeliverabilityCampaigns
+    Network.AWS.PinpointEmail.ListEmailIdentities
+    Network.AWS.PinpointEmail.ListTagsForResource
+    Network.AWS.PinpointEmail.PutAccountDedicatedIpWarmupAttributes
+    Network.AWS.PinpointEmail.PutAccountSendingAttributes
+    Network.AWS.PinpointEmail.PutConfigurationSetDeliveryOptions
+    Network.AWS.PinpointEmail.PutConfigurationSetReputationOptions
+    Network.AWS.PinpointEmail.PutConfigurationSetSendingOptions
+    Network.AWS.PinpointEmail.PutConfigurationSetTrackingOptions
+    Network.AWS.PinpointEmail.PutDedicatedIpInPool
+    Network.AWS.PinpointEmail.PutDedicatedIpWarmupAttributes
+    Network.AWS.PinpointEmail.PutDeliverabilityDashboardOption
+    Network.AWS.PinpointEmail.PutEmailIdentityDkimAttributes
+    Network.AWS.PinpointEmail.PutEmailIdentityFeedbackAttributes
+    Network.AWS.PinpointEmail.PutEmailIdentityMailFromAttributes
+    Network.AWS.PinpointEmail.SendEmail
+    Network.AWS.PinpointEmail.TagResource
+    Network.AWS.PinpointEmail.Types
+    Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure
+    Network.AWS.PinpointEmail.Types.BlacklistEntry
+    Network.AWS.PinpointEmail.Types.Body
+    Network.AWS.PinpointEmail.Types.CloudWatchDestination
+    Network.AWS.PinpointEmail.Types.CloudWatchDimensionConfiguration
+    Network.AWS.PinpointEmail.Types.Content
+    Network.AWS.PinpointEmail.Types.DailyVolume
+    Network.AWS.PinpointEmail.Types.DedicatedIp
+    Network.AWS.PinpointEmail.Types.DeliverabilityDashboardAccountStatus
+    Network.AWS.PinpointEmail.Types.DeliverabilityTestReport
+    Network.AWS.PinpointEmail.Types.DeliverabilityTestStatus
+    Network.AWS.PinpointEmail.Types.DeliveryOptions
+    Network.AWS.PinpointEmail.Types.Destination
+    Network.AWS.PinpointEmail.Types.DimensionValueSource
+    Network.AWS.PinpointEmail.Types.DkimAttributes
+    Network.AWS.PinpointEmail.Types.DkimStatus
+    Network.AWS.PinpointEmail.Types.DomainDeliverabilityCampaign
+    Network.AWS.PinpointEmail.Types.DomainDeliverabilityTrackingOption
+    Network.AWS.PinpointEmail.Types.DomainIspPlacement
+    Network.AWS.PinpointEmail.Types.EmailContent
+    Network.AWS.PinpointEmail.Types.EventDestination
+    Network.AWS.PinpointEmail.Types.EventDestinationDefinition
+    Network.AWS.PinpointEmail.Types.EventType
+    Network.AWS.PinpointEmail.Types.IdentityInfo
+    Network.AWS.PinpointEmail.Types.IdentityType
+    Network.AWS.PinpointEmail.Types.InboxPlacementTrackingOption
+    Network.AWS.PinpointEmail.Types.IspPlacement
+    Network.AWS.PinpointEmail.Types.KinesisFirehoseDestination
+    Network.AWS.PinpointEmail.Types.MailFromAttributes
+    Network.AWS.PinpointEmail.Types.MailFromDomainStatus
+    Network.AWS.PinpointEmail.Types.Message
+    Network.AWS.PinpointEmail.Types.MessageTag
+    Network.AWS.PinpointEmail.Types.OverallVolume
+    Network.AWS.PinpointEmail.Types.PinpointDestination
+    Network.AWS.PinpointEmail.Types.PlacementStatistics
+    Network.AWS.PinpointEmail.Types.RawMessage
+    Network.AWS.PinpointEmail.Types.ReputationOptions
+    Network.AWS.PinpointEmail.Types.SendingOptions
+    Network.AWS.PinpointEmail.Types.SendQuota
+    Network.AWS.PinpointEmail.Types.SnsDestination
+    Network.AWS.PinpointEmail.Types.Tag
+    Network.AWS.PinpointEmail.Types.Template
+    Network.AWS.PinpointEmail.Types.TlsPolicy
+    Network.AWS.PinpointEmail.Types.TrackingOptions
+    Network.AWS.PinpointEmail.Types.VolumeStatistics
+    Network.AWS.PinpointEmail.Types.WarmupStatus
+    Network.AWS.PinpointEmail.UntagResource
+    Network.AWS.PinpointEmail.UpdateConfigurationSetEventDestination
+    Network.AWS.PinpointEmail.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-pinpoint-email-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.PinpointEmail
+    Test.AWS.PinpointEmail
+    Test.AWS.PinpointEmail.Internal
+
+  build-depends:
+    , amazonka                 ^>=2.0
+    , amazonka-pinpoint-email
+    , amazonka-test            ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

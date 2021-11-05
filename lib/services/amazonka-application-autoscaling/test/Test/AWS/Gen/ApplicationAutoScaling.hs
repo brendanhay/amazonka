@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApplicationAutoScaling where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ApplicationAutoScaling
 import Test.AWS.ApplicationAutoScaling.Internal
 import Test.AWS.Fixture
@@ -163,7 +163,7 @@ responseDeleteScalingPolicy =
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteScalingPolicy)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
 responsePutScalingPolicy =
@@ -171,7 +171,7 @@ responsePutScalingPolicy =
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutScalingPolicy)
 
 responseRegisterScalableTarget :: RegisterScalableTargetResponse -> TestTree
 responseRegisterScalableTarget =
@@ -179,7 +179,7 @@ responseRegisterScalableTarget =
     "RegisterScalableTargetResponse"
     "fixture/RegisterScalableTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterScalableTarget)
+    (Proxy.Proxy :: Proxy.Proxy RegisterScalableTarget)
 
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
 responseDescribeScalingPolicies =
@@ -187,7 +187,7 @@ responseDescribeScalingPolicies =
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalingPolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalingPolicies)
 
 responsePutScheduledAction :: PutScheduledActionResponse -> TestTree
 responsePutScheduledAction =
@@ -195,7 +195,7 @@ responsePutScheduledAction =
     "PutScheduledActionResponse"
     "fixture/PutScheduledActionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutScheduledAction)
+    (Proxy.Proxy :: Proxy.Proxy PutScheduledAction)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
 responseDeleteScheduledAction =
@@ -203,7 +203,7 @@ responseDeleteScheduledAction =
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScheduledAction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteScheduledAction)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
 responseDescribeScheduledActions =
@@ -211,7 +211,7 @@ responseDescribeScheduledActions =
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScheduledActions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScheduledActions)
 
 responseDescribeScalableTargets :: DescribeScalableTargetsResponse -> TestTree
 responseDescribeScalableTargets =
@@ -219,7 +219,7 @@ responseDescribeScalableTargets =
     "DescribeScalableTargetsResponse"
     "fixture/DescribeScalableTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalableTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalableTargets)
 
 responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
 responseDescribeScalingActivities =
@@ -227,7 +227,7 @@ responseDescribeScalingActivities =
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScalingActivities)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScalingActivities)
 
 responseDeregisterScalableTarget :: DeregisterScalableTargetResponse -> TestTree
 responseDeregisterScalableTarget =
@@ -235,4 +235,4 @@ responseDeregisterScalableTarget =
     "DeregisterScalableTargetResponse"
     "fixture/DeregisterScalableTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterScalableTarget)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterScalableTarget)

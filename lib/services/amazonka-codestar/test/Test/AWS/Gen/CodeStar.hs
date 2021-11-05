@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeStar where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeStar
 import Test.AWS.CodeStar.Internal
 import Test.AWS.Fixture
@@ -259,7 +259,7 @@ responseListProjects =
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
 
 responseListTeamMembers :: ListTeamMembersResponse -> TestTree
 responseListTeamMembers =
@@ -267,7 +267,7 @@ responseListTeamMembers =
     "ListTeamMembersResponse"
     "fixture/ListTeamMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTeamMembers)
+    (Proxy.Proxy :: Proxy.Proxy ListTeamMembers)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -275,7 +275,7 @@ responseDeleteProject =
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProject)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
 responseUpdateProject =
@@ -283,7 +283,7 @@ responseUpdateProject =
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
 
 responseDisassociateTeamMember :: DisassociateTeamMemberResponse -> TestTree
 responseDisassociateTeamMember =
@@ -291,7 +291,7 @@ responseDisassociateTeamMember =
     "DisassociateTeamMemberResponse"
     "fixture/DisassociateTeamMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTeamMember)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTeamMember)
 
 responseTagProject :: TagProjectResponse -> TestTree
 responseTagProject =
@@ -299,7 +299,7 @@ responseTagProject =
     "TagProjectResponse"
     "fixture/TagProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy TagProject)
+    (Proxy.Proxy :: Proxy.Proxy TagProject)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -307,7 +307,7 @@ responseDescribeProject =
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
 responseListUserProfiles =
@@ -315,7 +315,7 @@ responseListUserProfiles =
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListUserProfiles)
 
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
@@ -323,7 +323,7 @@ responseListResources =
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResources)
+    (Proxy.Proxy :: Proxy.Proxy ListResources)
 
 responseAssociateTeamMember :: AssociateTeamMemberResponse -> TestTree
 responseAssociateTeamMember =
@@ -331,7 +331,7 @@ responseAssociateTeamMember =
     "AssociateTeamMemberResponse"
     "fixture/AssociateTeamMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTeamMember)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTeamMember)
 
 responseUntagProject :: UntagProjectResponse -> TestTree
 responseUntagProject =
@@ -339,7 +339,7 @@ responseUntagProject =
     "UntagProjectResponse"
     "fixture/UntagProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagProject)
+    (Proxy.Proxy :: Proxy.Proxy UntagProject)
 
 responseUpdateTeamMember :: UpdateTeamMemberResponse -> TestTree
 responseUpdateTeamMember =
@@ -347,7 +347,7 @@ responseUpdateTeamMember =
     "UpdateTeamMemberResponse"
     "fixture/UpdateTeamMemberResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTeamMember)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTeamMember)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
 responseDescribeUserProfile =
@@ -355,7 +355,7 @@ responseDescribeUserProfile =
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserProfile)
 
 responseListTagsForProject :: ListTagsForProjectResponse -> TestTree
 responseListTagsForProject =
@@ -363,7 +363,7 @@ responseListTagsForProject =
     "ListTagsForProjectResponse"
     "fixture/ListTagsForProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForProject)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForProject)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
 responseDeleteUserProfile =
@@ -371,7 +371,7 @@ responseDeleteUserProfile =
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
 responseUpdateUserProfile =
@@ -379,7 +379,7 @@ responseUpdateUserProfile =
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserProfile)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
 responseCreateUserProfile =
@@ -387,7 +387,7 @@ responseCreateUserProfile =
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserProfile)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -395,4 +395,4 @@ responseCreateProject =
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)

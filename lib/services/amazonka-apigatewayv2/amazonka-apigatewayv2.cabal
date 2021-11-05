@@ -1,0 +1,192 @@
+cabal-version:      2.2
+name:               amazonka-apigatewayv2
+version:            2.0
+synopsis:           Amazon ApiGatewayV2 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2018-11-29@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ApiGatewayV2.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ApiGatewayV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-apigatewayv2
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.ApiGatewayV2
+    Network.AWS.ApiGatewayV2.CreateApi
+    Network.AWS.ApiGatewayV2.CreateApiMapping
+    Network.AWS.ApiGatewayV2.CreateAuthorizer
+    Network.AWS.ApiGatewayV2.CreateDeployment
+    Network.AWS.ApiGatewayV2.CreateDomainName
+    Network.AWS.ApiGatewayV2.CreateIntegration
+    Network.AWS.ApiGatewayV2.CreateIntegrationResponse
+    Network.AWS.ApiGatewayV2.CreateModel
+    Network.AWS.ApiGatewayV2.CreateRoute
+    Network.AWS.ApiGatewayV2.CreateRouteResponse
+    Network.AWS.ApiGatewayV2.CreateStage
+    Network.AWS.ApiGatewayV2.CreateVpcLink
+    Network.AWS.ApiGatewayV2.DeleteAccessLogSettings
+    Network.AWS.ApiGatewayV2.DeleteApi
+    Network.AWS.ApiGatewayV2.DeleteApiMapping
+    Network.AWS.ApiGatewayV2.DeleteAuthorizer
+    Network.AWS.ApiGatewayV2.DeleteCorsConfiguration
+    Network.AWS.ApiGatewayV2.DeleteDeployment
+    Network.AWS.ApiGatewayV2.DeleteDomainName
+    Network.AWS.ApiGatewayV2.DeleteIntegration
+    Network.AWS.ApiGatewayV2.DeleteIntegrationResponse
+    Network.AWS.ApiGatewayV2.DeleteModel
+    Network.AWS.ApiGatewayV2.DeleteRoute
+    Network.AWS.ApiGatewayV2.DeleteRouteRequestParameter
+    Network.AWS.ApiGatewayV2.DeleteRouteResponse
+    Network.AWS.ApiGatewayV2.DeleteRouteSettings
+    Network.AWS.ApiGatewayV2.DeleteStage
+    Network.AWS.ApiGatewayV2.DeleteVpcLink
+    Network.AWS.ApiGatewayV2.ExportApi
+    Network.AWS.ApiGatewayV2.GetApi
+    Network.AWS.ApiGatewayV2.GetApiMapping
+    Network.AWS.ApiGatewayV2.GetApiMappings
+    Network.AWS.ApiGatewayV2.GetApis
+    Network.AWS.ApiGatewayV2.GetAuthorizer
+    Network.AWS.ApiGatewayV2.GetAuthorizers
+    Network.AWS.ApiGatewayV2.GetDeployment
+    Network.AWS.ApiGatewayV2.GetDeployments
+    Network.AWS.ApiGatewayV2.GetDomainName
+    Network.AWS.ApiGatewayV2.GetDomainNames
+    Network.AWS.ApiGatewayV2.GetIntegration
+    Network.AWS.ApiGatewayV2.GetIntegrationResponse
+    Network.AWS.ApiGatewayV2.GetIntegrationResponses
+    Network.AWS.ApiGatewayV2.GetIntegrations
+    Network.AWS.ApiGatewayV2.GetModel
+    Network.AWS.ApiGatewayV2.GetModels
+    Network.AWS.ApiGatewayV2.GetModelTemplate
+    Network.AWS.ApiGatewayV2.GetRoute
+    Network.AWS.ApiGatewayV2.GetRouteResponse
+    Network.AWS.ApiGatewayV2.GetRouteResponses
+    Network.AWS.ApiGatewayV2.GetRoutes
+    Network.AWS.ApiGatewayV2.GetStage
+    Network.AWS.ApiGatewayV2.GetStages
+    Network.AWS.ApiGatewayV2.GetTags
+    Network.AWS.ApiGatewayV2.GetVpcLink
+    Network.AWS.ApiGatewayV2.GetVpcLinks
+    Network.AWS.ApiGatewayV2.ImportApi
+    Network.AWS.ApiGatewayV2.Lens
+    Network.AWS.ApiGatewayV2.ReimportApi
+    Network.AWS.ApiGatewayV2.ResetAuthorizersCache
+    Network.AWS.ApiGatewayV2.TagResource
+    Network.AWS.ApiGatewayV2.Types
+    Network.AWS.ApiGatewayV2.Types.AccessLogSettings
+    Network.AWS.ApiGatewayV2.Types.Api
+    Network.AWS.ApiGatewayV2.Types.ApiMapping
+    Network.AWS.ApiGatewayV2.Types.AuthorizationType
+    Network.AWS.ApiGatewayV2.Types.Authorizer
+    Network.AWS.ApiGatewayV2.Types.AuthorizerType
+    Network.AWS.ApiGatewayV2.Types.ConnectionType
+    Network.AWS.ApiGatewayV2.Types.ContentHandlingStrategy
+    Network.AWS.ApiGatewayV2.Types.Cors
+    Network.AWS.ApiGatewayV2.Types.Deployment
+    Network.AWS.ApiGatewayV2.Types.DeploymentStatus
+    Network.AWS.ApiGatewayV2.Types.DomainName
+    Network.AWS.ApiGatewayV2.Types.DomainNameConfiguration
+    Network.AWS.ApiGatewayV2.Types.DomainNameStatus
+    Network.AWS.ApiGatewayV2.Types.EndpointType
+    Network.AWS.ApiGatewayV2.Types.Integration
+    Network.AWS.ApiGatewayV2.Types.IntegrationResponse
+    Network.AWS.ApiGatewayV2.Types.IntegrationType
+    Network.AWS.ApiGatewayV2.Types.JWTConfiguration
+    Network.AWS.ApiGatewayV2.Types.LoggingLevel
+    Network.AWS.ApiGatewayV2.Types.Model
+    Network.AWS.ApiGatewayV2.Types.MutualTlsAuthentication
+    Network.AWS.ApiGatewayV2.Types.MutualTlsAuthenticationInput
+    Network.AWS.ApiGatewayV2.Types.ParameterConstraints
+    Network.AWS.ApiGatewayV2.Types.PassthroughBehavior
+    Network.AWS.ApiGatewayV2.Types.ProtocolType
+    Network.AWS.ApiGatewayV2.Types.Route
+    Network.AWS.ApiGatewayV2.Types.RouteResponse
+    Network.AWS.ApiGatewayV2.Types.RouteSettings
+    Network.AWS.ApiGatewayV2.Types.SecurityPolicy
+    Network.AWS.ApiGatewayV2.Types.Stage
+    Network.AWS.ApiGatewayV2.Types.TlsConfig
+    Network.AWS.ApiGatewayV2.Types.TlsConfigInput
+    Network.AWS.ApiGatewayV2.Types.VpcLink
+    Network.AWS.ApiGatewayV2.Types.VpcLinkStatus
+    Network.AWS.ApiGatewayV2.Types.VpcLinkVersion
+    Network.AWS.ApiGatewayV2.UntagResource
+    Network.AWS.ApiGatewayV2.UpdateApi
+    Network.AWS.ApiGatewayV2.UpdateApiMapping
+    Network.AWS.ApiGatewayV2.UpdateAuthorizer
+    Network.AWS.ApiGatewayV2.UpdateDeployment
+    Network.AWS.ApiGatewayV2.UpdateDomainName
+    Network.AWS.ApiGatewayV2.UpdateIntegration
+    Network.AWS.ApiGatewayV2.UpdateIntegrationResponse
+    Network.AWS.ApiGatewayV2.UpdateModel
+    Network.AWS.ApiGatewayV2.UpdateRoute
+    Network.AWS.ApiGatewayV2.UpdateRouteResponse
+    Network.AWS.ApiGatewayV2.UpdateStage
+    Network.AWS.ApiGatewayV2.UpdateVpcLink
+    Network.AWS.ApiGatewayV2.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-apigatewayv2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.ApiGatewayV2
+    Test.AWS.ApiGatewayV2.Internal
+    Test.AWS.Gen.ApiGatewayV2
+
+  build-depends:
+    , amazonka               ^>=2.0
+    , amazonka-apigatewayv2
+    , amazonka-test          ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

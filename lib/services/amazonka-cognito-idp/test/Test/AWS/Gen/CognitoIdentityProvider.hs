@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CognitoIdentityProvider where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CognitoIdentityProvider
 import Test.AWS.CognitoIdentityProvider.Internal
 import Test.AWS.Fixture
@@ -1255,7 +1255,7 @@ responseDeleteUserPool =
     "DeleteUserPoolResponse"
     "fixture/DeleteUserPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserPool)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserPool)
 
 responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
 responseUpdateUserPool =
@@ -1263,7 +1263,7 @@ responseUpdateUserPool =
     "UpdateUserPoolResponse"
     "fixture/UpdateUserPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserPool)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserPool)
 
 responseUpdateUserPoolDomain :: UpdateUserPoolDomainResponse -> TestTree
 responseUpdateUserPoolDomain =
@@ -1271,7 +1271,7 @@ responseUpdateUserPoolDomain =
     "UpdateUserPoolDomainResponse"
     "fixture/UpdateUserPoolDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserPoolDomain)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserPoolDomain)
 
 responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
 responseDeleteUserPoolDomain =
@@ -1279,7 +1279,7 @@ responseDeleteUserPoolDomain =
     "DeleteUserPoolDomainResponse"
     "fixture/DeleteUserPoolDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserPoolDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserPoolDomain)
 
 responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
 responseAdminInitiateAuth =
@@ -1287,7 +1287,7 @@ responseAdminInitiateAuth =
     "AdminInitiateAuthResponse"
     "fixture/AdminInitiateAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminInitiateAuth)
+    (Proxy.Proxy :: Proxy.Proxy AdminInitiateAuth)
 
 responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
 responseAdminLinkProviderForUser =
@@ -1295,7 +1295,7 @@ responseAdminLinkProviderForUser =
     "AdminLinkProviderForUserResponse"
     "fixture/AdminLinkProviderForUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminLinkProviderForUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminLinkProviderForUser)
 
 responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
 responseAdminEnableUser =
@@ -1303,7 +1303,7 @@ responseAdminEnableUser =
     "AdminEnableUserResponse"
     "fixture/AdminEnableUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminEnableUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminEnableUser)
 
 responseGetUserAttributeVerificationCode :: GetUserAttributeVerificationCodeResponse -> TestTree
 responseGetUserAttributeVerificationCode =
@@ -1311,7 +1311,7 @@ responseGetUserAttributeVerificationCode =
     "GetUserAttributeVerificationCodeResponse"
     "fixture/GetUserAttributeVerificationCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUserAttributeVerificationCode)
+    (Proxy.Proxy :: Proxy.Proxy GetUserAttributeVerificationCode)
 
 responseSetUserPoolMfaConfig :: SetUserPoolMfaConfigResponse -> TestTree
 responseSetUserPoolMfaConfig =
@@ -1319,7 +1319,7 @@ responseSetUserPoolMfaConfig =
     "SetUserPoolMfaConfigResponse"
     "fixture/SetUserPoolMfaConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy SetUserPoolMfaConfig)
+    (Proxy.Proxy :: Proxy.Proxy SetUserPoolMfaConfig)
 
 responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
 responseUpdateUserAttributes =
@@ -1327,7 +1327,7 @@ responseUpdateUserAttributes =
     "UpdateUserAttributesResponse"
     "fixture/UpdateUserAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserAttributes)
 
 responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
 responseDeleteUserAttributes =
@@ -1335,7 +1335,7 @@ responseDeleteUserAttributes =
     "DeleteUserAttributesResponse"
     "fixture/DeleteUserAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserAttributes)
 
 responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
 responseVerifyUserAttribute =
@@ -1343,7 +1343,7 @@ responseVerifyUserAttribute =
     "VerifyUserAttributeResponse"
     "fixture/VerifyUserAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifyUserAttribute)
+    (Proxy.Proxy :: Proxy.Proxy VerifyUserAttribute)
 
 responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
 responseAdminDisableUser =
@@ -1351,7 +1351,7 @@ responseAdminDisableUser =
     "AdminDisableUserResponse"
     "fixture/AdminDisableUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminDisableUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminDisableUser)
 
 responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
 responseConfirmDevice =
@@ -1359,7 +1359,7 @@ responseConfirmDevice =
     "ConfirmDeviceResponse"
     "fixture/ConfirmDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmDevice)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmDevice)
 
 responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
 responseConfirmForgotPassword =
@@ -1367,7 +1367,7 @@ responseConfirmForgotPassword =
     "ConfirmForgotPasswordResponse"
     "fixture/ConfirmForgotPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmForgotPassword)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmForgotPassword)
 
 responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
 responseListUserImportJobs =
@@ -1375,7 +1375,7 @@ responseListUserImportJobs =
     "ListUserImportJobsResponse"
     "fixture/ListUserImportJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserImportJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListUserImportJobs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1383,7 +1383,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
 responseDescribeIdentityProvider =
@@ -1391,7 +1391,7 @@ responseDescribeIdentityProvider =
     "DescribeIdentityProviderResponse"
     "fixture/DescribeIdentityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityProvider)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityProvider)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -1399,7 +1399,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
 responseAdminDeleteUserAttributes =
@@ -1407,7 +1407,7 @@ responseAdminDeleteUserAttributes =
     "AdminDeleteUserAttributesResponse"
     "fixture/AdminDeleteUserAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminDeleteUserAttributes)
+    (Proxy.Proxy :: Proxy.Proxy AdminDeleteUserAttributes)
 
 responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
 responseDescribeUserPoolDomain =
@@ -1415,7 +1415,7 @@ responseDescribeUserPoolDomain =
     "DescribeUserPoolDomainResponse"
     "fixture/DescribeUserPoolDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserPoolDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserPoolDomain)
 
 responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
 responseAdminUpdateUserAttributes =
@@ -1423,7 +1423,7 @@ responseAdminUpdateUserAttributes =
     "AdminUpdateUserAttributesResponse"
     "fixture/AdminUpdateUserAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminUpdateUserAttributes)
+    (Proxy.Proxy :: Proxy.Proxy AdminUpdateUserAttributes)
 
 responseAdminGetUser :: AdminGetUserResponse -> TestTree
 responseAdminGetUser =
@@ -1431,7 +1431,7 @@ responseAdminGetUser =
     "AdminGetUserResponse"
     "fixture/AdminGetUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminGetUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminGetUser)
 
 responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
 responseAdminUserGlobalSignOut =
@@ -1439,7 +1439,7 @@ responseAdminUserGlobalSignOut =
     "AdminUserGlobalSignOutResponse"
     "fixture/AdminUserGlobalSignOutResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminUserGlobalSignOut)
+    (Proxy.Proxy :: Proxy.Proxy AdminUserGlobalSignOut)
 
 responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
 responseListUsersInGroup =
@@ -1447,7 +1447,7 @@ responseListUsersInGroup =
     "ListUsersInGroupResponse"
     "fixture/ListUsersInGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsersInGroup)
+    (Proxy.Proxy :: Proxy.Proxy ListUsersInGroup)
 
 responseAssociateSoftwareToken :: AssociateSoftwareTokenResponse -> TestTree
 responseAssociateSoftwareToken =
@@ -1455,7 +1455,7 @@ responseAssociateSoftwareToken =
     "AssociateSoftwareTokenResponse"
     "fixture/AssociateSoftwareTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSoftwareToken)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSoftwareToken)
 
 responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
 responseAdminDisableProviderForUser =
@@ -1463,7 +1463,7 @@ responseAdminDisableProviderForUser =
     "AdminDisableProviderForUserResponse"
     "fixture/AdminDisableProviderForUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminDisableProviderForUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminDisableProviderForUser)
 
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
 responseForgotPassword =
@@ -1471,7 +1471,7 @@ responseForgotPassword =
     "ForgotPasswordResponse"
     "fixture/ForgotPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ForgotPassword)
+    (Proxy.Proxy :: Proxy.Proxy ForgotPassword)
 
 responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
 responseDescribeUserPool =
@@ -1479,7 +1479,7 @@ responseDescribeUserPool =
     "DescribeUserPoolResponse"
     "fixture/DescribeUserPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserPool)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserPool)
 
 responseInitiateAuth :: InitiateAuthResponse -> TestTree
 responseInitiateAuth =
@@ -1487,7 +1487,7 @@ responseInitiateAuth =
     "InitiateAuthResponse"
     "fixture/InitiateAuthResponse.proto"
     defaultService
-    (Proxy :: Proxy InitiateAuth)
+    (Proxy.Proxy :: Proxy.Proxy InitiateAuth)
 
 responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
 responseAdminListGroupsForUser =
@@ -1495,7 +1495,7 @@ responseAdminListGroupsForUser =
     "AdminListGroupsForUserResponse"
     "fixture/AdminListGroupsForUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminListGroupsForUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminListGroupsForUser)
 
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
 responseAdminConfirmSignUp =
@@ -1503,7 +1503,7 @@ responseAdminConfirmSignUp =
     "AdminConfirmSignUpResponse"
     "fixture/AdminConfirmSignUpResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminConfirmSignUp)
+    (Proxy.Proxy :: Proxy.Proxy AdminConfirmSignUp)
 
 responseAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedbackResponse -> TestTree
 responseAdminUpdateAuthEventFeedback =
@@ -1511,7 +1511,7 @@ responseAdminUpdateAuthEventFeedback =
     "AdminUpdateAuthEventFeedbackResponse"
     "fixture/AdminUpdateAuthEventFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminUpdateAuthEventFeedback)
+    (Proxy.Proxy :: Proxy.Proxy AdminUpdateAuthEventFeedback)
 
 responseAdminSetUserPassword :: AdminSetUserPasswordResponse -> TestTree
 responseAdminSetUserPassword =
@@ -1519,7 +1519,7 @@ responseAdminSetUserPassword =
     "AdminSetUserPasswordResponse"
     "fixture/AdminSetUserPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminSetUserPassword)
+    (Proxy.Proxy :: Proxy.Proxy AdminSetUserPassword)
 
 responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
 responseStartUserImportJob =
@@ -1527,7 +1527,7 @@ responseStartUserImportJob =
     "StartUserImportJobResponse"
     "fixture/StartUserImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartUserImportJob)
+    (Proxy.Proxy :: Proxy.Proxy StartUserImportJob)
 
 responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
 responseCreateIdentityProvider =
@@ -1535,7 +1535,7 @@ responseCreateIdentityProvider =
     "CreateIdentityProviderResponse"
     "fixture/CreateIdentityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateIdentityProvider)
+    (Proxy.Proxy :: Proxy.Proxy CreateIdentityProvider)
 
 responseSetUICustomization :: SetUICustomizationResponse -> TestTree
 responseSetUICustomization =
@@ -1543,7 +1543,7 @@ responseSetUICustomization =
     "SetUICustomizationResponse"
     "fixture/SetUICustomizationResponse.proto"
     defaultService
-    (Proxy :: Proxy SetUICustomization)
+    (Proxy.Proxy :: Proxy.Proxy SetUICustomization)
 
 responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
 responseListIdentityProviders =
@@ -1551,7 +1551,7 @@ responseListIdentityProviders =
     "ListIdentityProvidersResponse"
     "fixture/ListIdentityProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListIdentityProviders)
+    (Proxy.Proxy :: Proxy.Proxy ListIdentityProviders)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice =
@@ -1559,7 +1559,7 @@ responseGetDevice =
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDevice)
+    (Proxy.Proxy :: Proxy.Proxy GetDevice)
 
 responseSignUp :: SignUpResponse -> TestTree
 responseSignUp =
@@ -1567,7 +1567,7 @@ responseSignUp =
     "SignUpResponse"
     "fixture/SignUpResponse.proto"
     defaultService
-    (Proxy :: Proxy SignUp)
+    (Proxy.Proxy :: Proxy.Proxy SignUp)
 
 responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
 responseDeleteResourceServer =
@@ -1575,7 +1575,7 @@ responseDeleteResourceServer =
     "DeleteResourceServerResponse"
     "fixture/DeleteResourceServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourceServer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceServer)
 
 responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
 responseUpdateResourceServer =
@@ -1583,7 +1583,7 @@ responseUpdateResourceServer =
     "UpdateResourceServerResponse"
     "fixture/UpdateResourceServerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateResourceServer)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceServer)
 
 responseChangePassword :: ChangePasswordResponse -> TestTree
 responseChangePassword =
@@ -1591,7 +1591,7 @@ responseChangePassword =
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangePassword)
+    (Proxy.Proxy :: Proxy.Proxy ChangePassword)
 
 responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
 responseCreateUserPoolDomain =
@@ -1599,7 +1599,7 @@ responseCreateUserPoolDomain =
     "CreateUserPoolDomainResponse"
     "fixture/CreateUserPoolDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserPoolDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserPoolDomain)
 
 responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
 responseRespondToAuthChallenge =
@@ -1607,7 +1607,7 @@ responseRespondToAuthChallenge =
     "RespondToAuthChallengeResponse"
     "fixture/RespondToAuthChallengeResponse.proto"
     defaultService
-    (Proxy :: Proxy RespondToAuthChallenge)
+    (Proxy.Proxy :: Proxy.Proxy RespondToAuthChallenge)
 
 responseCreateUserPool :: CreateUserPoolResponse -> TestTree
 responseCreateUserPool =
@@ -1615,7 +1615,7 @@ responseCreateUserPool =
     "CreateUserPoolResponse"
     "fixture/CreateUserPoolResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserPool)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserPool)
 
 responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
 responseAdminGetDevice =
@@ -1623,7 +1623,7 @@ responseAdminGetDevice =
     "AdminGetDeviceResponse"
     "fixture/AdminGetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminGetDevice)
+    (Proxy.Proxy :: Proxy.Proxy AdminGetDevice)
 
 responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
 responseGetIdentityProviderByIdentifier =
@@ -1631,7 +1631,7 @@ responseGetIdentityProviderByIdentifier =
     "GetIdentityProviderByIdentifierResponse"
     "fixture/GetIdentityProviderByIdentifierResponse.proto"
     defaultService
-    (Proxy :: Proxy GetIdentityProviderByIdentifier)
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityProviderByIdentifier)
 
 responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
 responseAdminRemoveUserFromGroup =
@@ -1639,7 +1639,7 @@ responseAdminRemoveUserFromGroup =
     "AdminRemoveUserFromGroupResponse"
     "fixture/AdminRemoveUserFromGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminRemoveUserFromGroup)
+    (Proxy.Proxy :: Proxy.Proxy AdminRemoveUserFromGroup)
 
 responseSetRiskConfiguration :: SetRiskConfigurationResponse -> TestTree
 responseSetRiskConfiguration =
@@ -1647,7 +1647,7 @@ responseSetRiskConfiguration =
     "SetRiskConfigurationResponse"
     "fixture/SetRiskConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy SetRiskConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy SetRiskConfiguration)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
 responseConfirmSignUp =
@@ -1655,7 +1655,7 @@ responseConfirmSignUp =
     "ConfirmSignUpResponse"
     "fixture/ConfirmSignUpResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmSignUp)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmSignUp)
 
 responseListUserPools :: ListUserPoolsResponse -> TestTree
 responseListUserPools =
@@ -1663,7 +1663,7 @@ responseListUserPools =
     "ListUserPoolsResponse"
     "fixture/ListUserPoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserPools)
+    (Proxy.Proxy :: Proxy.Proxy ListUserPools)
 
 responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
 responseAdminResetUserPassword =
@@ -1671,7 +1671,7 @@ responseAdminResetUserPassword =
     "AdminResetUserPasswordResponse"
     "fixture/AdminResetUserPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminResetUserPassword)
+    (Proxy.Proxy :: Proxy.Proxy AdminResetUserPassword)
 
 responseUpdateAuthEventFeedback :: UpdateAuthEventFeedbackResponse -> TestTree
 responseUpdateAuthEventFeedback =
@@ -1679,7 +1679,7 @@ responseUpdateAuthEventFeedback =
     "UpdateAuthEventFeedbackResponse"
     "fixture/UpdateAuthEventFeedbackResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAuthEventFeedback)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAuthEventFeedback)
 
 responseCreateUserImportJob :: CreateUserImportJobResponse -> TestTree
 responseCreateUserImportJob =
@@ -1687,7 +1687,7 @@ responseCreateUserImportJob =
     "CreateUserImportJobResponse"
     "fixture/CreateUserImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserImportJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserImportJob)
 
 responseGetUser :: GetUserResponse -> TestTree
 responseGetUser =
@@ -1695,7 +1695,7 @@ responseGetUser =
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUser)
+    (Proxy.Proxy :: Proxy.Proxy GetUser)
 
 responseGetUICustomization :: GetUICustomizationResponse -> TestTree
 responseGetUICustomization =
@@ -1703,7 +1703,7 @@ responseGetUICustomization =
     "GetUICustomizationResponse"
     "fixture/GetUICustomizationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUICustomization)
+    (Proxy.Proxy :: Proxy.Proxy GetUICustomization)
 
 responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
 responseGetCSVHeader =
@@ -1711,7 +1711,7 @@ responseGetCSVHeader =
     "GetCSVHeaderResponse"
     "fixture/GetCSVHeaderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCSVHeader)
+    (Proxy.Proxy :: Proxy.Proxy GetCSVHeader)
 
 responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
 responseAdminDeleteUser =
@@ -1719,7 +1719,7 @@ responseAdminDeleteUser =
     "AdminDeleteUserResponse"
     "fixture/AdminDeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminDeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminDeleteUser)
 
 responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
 responseAdminForgetDevice =
@@ -1727,7 +1727,7 @@ responseAdminForgetDevice =
     "AdminForgetDeviceResponse"
     "fixture/AdminForgetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminForgetDevice)
+    (Proxy.Proxy :: Proxy.Proxy AdminForgetDevice)
 
 responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
 responseDescribeResourceServer =
@@ -1735,7 +1735,7 @@ responseDescribeResourceServer =
     "DescribeResourceServerResponse"
     "fixture/DescribeResourceServerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeResourceServer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourceServer)
 
 responseSetUserMFAPreference :: SetUserMFAPreferenceResponse -> TestTree
 responseSetUserMFAPreference =
@@ -1743,7 +1743,7 @@ responseSetUserMFAPreference =
     "SetUserMFAPreferenceResponse"
     "fixture/SetUserMFAPreferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy SetUserMFAPreference)
+    (Proxy.Proxy :: Proxy.Proxy SetUserMFAPreference)
 
 responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
 responseAdminUpdateDeviceStatus =
@@ -1751,7 +1751,7 @@ responseAdminUpdateDeviceStatus =
     "AdminUpdateDeviceStatusResponse"
     "fixture/AdminUpdateDeviceStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminUpdateDeviceStatus)
+    (Proxy.Proxy :: Proxy.Proxy AdminUpdateDeviceStatus)
 
 responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
 responseAdminCreateUser =
@@ -1759,7 +1759,7 @@ responseAdminCreateUser =
     "AdminCreateUserResponse"
     "fixture/AdminCreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminCreateUser)
+    (Proxy.Proxy :: Proxy.Proxy AdminCreateUser)
 
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
 responseAddCustomAttributes =
@@ -1767,7 +1767,7 @@ responseAddCustomAttributes =
     "AddCustomAttributesResponse"
     "fixture/AddCustomAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy AddCustomAttributes)
+    (Proxy.Proxy :: Proxy.Proxy AddCustomAttributes)
 
 responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
 responseListUserPoolClients =
@@ -1775,7 +1775,7 @@ responseListUserPoolClients =
     "ListUserPoolClientsResponse"
     "fixture/ListUserPoolClientsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserPoolClients)
+    (Proxy.Proxy :: Proxy.Proxy ListUserPoolClients)
 
 responseAdminSetUserMFAPreference :: AdminSetUserMFAPreferenceResponse -> TestTree
 responseAdminSetUserMFAPreference =
@@ -1783,7 +1783,7 @@ responseAdminSetUserMFAPreference =
     "AdminSetUserMFAPreferenceResponse"
     "fixture/AdminSetUserMFAPreferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminSetUserMFAPreference)
+    (Proxy.Proxy :: Proxy.Proxy AdminSetUserMFAPreference)
 
 responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
 responseUpdateUserPoolClient =
@@ -1791,7 +1791,7 @@ responseUpdateUserPoolClient =
     "UpdateUserPoolClientResponse"
     "fixture/UpdateUserPoolClientResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserPoolClient)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserPoolClient)
 
 responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
 responseDeleteUserPoolClient =
@@ -1799,7 +1799,7 @@ responseDeleteUserPoolClient =
     "DeleteUserPoolClientResponse"
     "fixture/DeleteUserPoolClientResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserPoolClient)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserPoolClient)
 
 responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
 responseUpdateDeviceStatus =
@@ -1807,7 +1807,7 @@ responseUpdateDeviceStatus =
     "UpdateDeviceStatusResponse"
     "fixture/UpdateDeviceStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeviceStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceStatus)
 
 responseForgetDevice :: ForgetDeviceResponse -> TestTree
 responseForgetDevice =
@@ -1815,7 +1815,7 @@ responseForgetDevice =
     "ForgetDeviceResponse"
     "fixture/ForgetDeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy ForgetDevice)
+    (Proxy.Proxy :: Proxy.Proxy ForgetDevice)
 
 responseGetSigningCertificate :: GetSigningCertificateResponse -> TestTree
 responseGetSigningCertificate =
@@ -1823,7 +1823,7 @@ responseGetSigningCertificate =
     "GetSigningCertificateResponse"
     "fixture/GetSigningCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSigningCertificate)
+    (Proxy.Proxy :: Proxy.Proxy GetSigningCertificate)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -1831,7 +1831,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1839,7 +1839,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
 responseCreateUserPoolClient =
@@ -1847,7 +1847,7 @@ responseCreateUserPoolClient =
     "CreateUserPoolClientResponse"
     "fixture/CreateUserPoolClientResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUserPoolClient)
+    (Proxy.Proxy :: Proxy.Proxy CreateUserPoolClient)
 
 responseGetUserPoolMfaConfig :: GetUserPoolMfaConfigResponse -> TestTree
 responseGetUserPoolMfaConfig =
@@ -1855,7 +1855,7 @@ responseGetUserPoolMfaConfig =
     "GetUserPoolMfaConfigResponse"
     "fixture/GetUserPoolMfaConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUserPoolMfaConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetUserPoolMfaConfig)
 
 responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
 responseCreateResourceServer =
@@ -1863,7 +1863,7 @@ responseCreateResourceServer =
     "CreateResourceServerResponse"
     "fixture/CreateResourceServerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateResourceServer)
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceServer)
 
 responseAdminListUserAuthEvents :: AdminListUserAuthEventsResponse -> TestTree
 responseAdminListUserAuthEvents =
@@ -1871,7 +1871,7 @@ responseAdminListUserAuthEvents =
     "AdminListUserAuthEventsResponse"
     "fixture/AdminListUserAuthEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminListUserAuthEvents)
+    (Proxy.Proxy :: Proxy.Proxy AdminListUserAuthEvents)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -1879,7 +1879,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
 responseAdminAddUserToGroup =
@@ -1887,7 +1887,7 @@ responseAdminAddUserToGroup =
     "AdminAddUserToGroupResponse"
     "fixture/AdminAddUserToGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminAddUserToGroup)
+    (Proxy.Proxy :: Proxy.Proxy AdminAddUserToGroup)
 
 responseVerifySoftwareToken :: VerifySoftwareTokenResponse -> TestTree
 responseVerifySoftwareToken =
@@ -1895,7 +1895,7 @@ responseVerifySoftwareToken =
     "VerifySoftwareTokenResponse"
     "fixture/VerifySoftwareTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy VerifySoftwareToken)
+    (Proxy.Proxy :: Proxy.Proxy VerifySoftwareToken)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1903,7 +1903,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseRevokeToken :: RevokeTokenResponse -> TestTree
 responseRevokeToken =
@@ -1911,7 +1911,7 @@ responseRevokeToken =
     "RevokeTokenResponse"
     "fixture/RevokeTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeToken)
+    (Proxy.Proxy :: Proxy.Proxy RevokeToken)
 
 responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
 responseStopUserImportJob =
@@ -1919,7 +1919,7 @@ responseStopUserImportJob =
     "StopUserImportJobResponse"
     "fixture/StopUserImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopUserImportJob)
+    (Proxy.Proxy :: Proxy.Proxy StopUserImportJob)
 
 responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
 responseDescribeUserImportJob =
@@ -1927,7 +1927,7 @@ responseDescribeUserImportJob =
     "DescribeUserImportJobResponse"
     "fixture/DescribeUserImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserImportJob)
 
 responseDescribeRiskConfiguration :: DescribeRiskConfigurationResponse -> TestTree
 responseDescribeRiskConfiguration =
@@ -1935,7 +1935,7 @@ responseDescribeRiskConfiguration =
     "DescribeRiskConfigurationResponse"
     "fixture/DescribeRiskConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRiskConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRiskConfiguration)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -1943,7 +1943,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =
@@ -1951,7 +1951,7 @@ responseUpdateGroup =
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
 
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
 responseGlobalSignOut =
@@ -1959,7 +1959,7 @@ responseGlobalSignOut =
     "GlobalSignOutResponse"
     "fixture/GlobalSignOutResponse.proto"
     defaultService
-    (Proxy :: Proxy GlobalSignOut)
+    (Proxy.Proxy :: Proxy.Proxy GlobalSignOut)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -1967,7 +1967,7 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
 responseUpdateIdentityProvider :: UpdateIdentityProviderResponse -> TestTree
 responseUpdateIdentityProvider =
@@ -1975,7 +1975,7 @@ responseUpdateIdentityProvider =
     "UpdateIdentityProviderResponse"
     "fixture/UpdateIdentityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateIdentityProvider)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIdentityProvider)
 
 responseDeleteIdentityProvider :: DeleteIdentityProviderResponse -> TestTree
 responseDeleteIdentityProvider =
@@ -1983,7 +1983,7 @@ responseDeleteIdentityProvider =
     "DeleteIdentityProviderResponse"
     "fixture/DeleteIdentityProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteIdentityProvider)
+    (Proxy.Proxy :: Proxy.Proxy DeleteIdentityProvider)
 
 responseListResourceServers :: ListResourceServersResponse -> TestTree
 responseListResourceServers =
@@ -1991,7 +1991,7 @@ responseListResourceServers =
     "ListResourceServersResponse"
     "fixture/ListResourceServersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceServers)
+    (Proxy.Proxy :: Proxy.Proxy ListResourceServers)
 
 responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
 responseAdminRespondToAuthChallenge =
@@ -1999,7 +1999,7 @@ responseAdminRespondToAuthChallenge =
     "AdminRespondToAuthChallengeResponse"
     "fixture/AdminRespondToAuthChallengeResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminRespondToAuthChallenge)
+    (Proxy.Proxy :: Proxy.Proxy AdminRespondToAuthChallenge)
 
 responseSetUserSettings :: SetUserSettingsResponse -> TestTree
 responseSetUserSettings =
@@ -2007,7 +2007,7 @@ responseSetUserSettings =
     "SetUserSettingsResponse"
     "fixture/SetUserSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy SetUserSettings)
+    (Proxy.Proxy :: Proxy.Proxy SetUserSettings)
 
 responseAdminListDevices :: AdminListDevicesResponse -> TestTree
 responseAdminListDevices =
@@ -2015,7 +2015,7 @@ responseAdminListDevices =
     "AdminListDevicesResponse"
     "fixture/AdminListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminListDevices)
+    (Proxy.Proxy :: Proxy.Proxy AdminListDevices)
 
 responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
 responseDescribeUserPoolClient =
@@ -2023,7 +2023,7 @@ responseDescribeUserPoolClient =
     "DescribeUserPoolClientResponse"
     "fixture/DescribeUserPoolClientResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserPoolClient)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUserPoolClient)
 
 responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
 responseResendConfirmationCode =
@@ -2031,7 +2031,7 @@ responseResendConfirmationCode =
     "ResendConfirmationCodeResponse"
     "fixture/ResendConfirmationCodeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResendConfirmationCode)
+    (Proxy.Proxy :: Proxy.Proxy ResendConfirmationCode)
 
 responseGetGroup :: GetGroupResponse -> TestTree
 responseGetGroup =
@@ -2039,7 +2039,7 @@ responseGetGroup =
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetGroup)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
 responseAdminSetUserSettings =
@@ -2047,7 +2047,7 @@ responseAdminSetUserSettings =
     "AdminSetUserSettingsResponse"
     "fixture/AdminSetUserSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy AdminSetUserSettings)
+    (Proxy.Proxy :: Proxy.Proxy AdminSetUserSettings)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -2055,4 +2055,4 @@ responseListDevices =
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SMS where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.SMS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -463,7 +463,7 @@ responseDeleteAppReplicationConfiguration =
     "DeleteAppReplicationConfigurationResponse"
     "fixture/DeleteAppReplicationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppReplicationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppReplicationConfiguration)
 
 responsePutAppReplicationConfiguration :: PutAppReplicationConfigurationResponse -> TestTree
 responsePutAppReplicationConfiguration =
@@ -471,7 +471,7 @@ responsePutAppReplicationConfiguration =
     "PutAppReplicationConfigurationResponse"
     "fixture/PutAppReplicationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppReplicationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutAppReplicationConfiguration)
 
 responseDeleteServerCatalog :: DeleteServerCatalogResponse -> TestTree
 responseDeleteServerCatalog =
@@ -479,7 +479,7 @@ responseDeleteServerCatalog =
     "DeleteServerCatalogResponse"
     "fixture/DeleteServerCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServerCatalog)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServerCatalog)
 
 responseImportAppCatalog :: ImportAppCatalogResponse -> TestTree
 responseImportAppCatalog =
@@ -487,7 +487,7 @@ responseImportAppCatalog =
     "ImportAppCatalogResponse"
     "fixture/ImportAppCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportAppCatalog)
+    (Proxy.Proxy :: Proxy.Proxy ImportAppCatalog)
 
 responseGetAppLaunchConfiguration :: GetAppLaunchConfigurationResponse -> TestTree
 responseGetAppLaunchConfiguration =
@@ -495,7 +495,7 @@ responseGetAppLaunchConfiguration =
     "GetAppLaunchConfigurationResponse"
     "fixture/GetAppLaunchConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppLaunchConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetAppLaunchConfiguration)
 
 responseDeleteAppLaunchConfiguration :: DeleteAppLaunchConfigurationResponse -> TestTree
 responseDeleteAppLaunchConfiguration =
@@ -503,7 +503,7 @@ responseDeleteAppLaunchConfiguration =
     "DeleteAppLaunchConfigurationResponse"
     "fixture/DeleteAppLaunchConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppLaunchConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppLaunchConfiguration)
 
 responseStartAppReplication :: StartAppReplicationResponse -> TestTree
 responseStartAppReplication =
@@ -511,7 +511,7 @@ responseStartAppReplication =
     "StartAppReplicationResponse"
     "fixture/StartAppReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartAppReplication)
+    (Proxy.Proxy :: Proxy.Proxy StartAppReplication)
 
 responsePutAppLaunchConfiguration :: PutAppLaunchConfigurationResponse -> TestTree
 responsePutAppLaunchConfiguration =
@@ -519,7 +519,7 @@ responsePutAppLaunchConfiguration =
     "PutAppLaunchConfigurationResponse"
     "fixture/PutAppLaunchConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppLaunchConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutAppLaunchConfiguration)
 
 responseGetReplicationRuns :: GetReplicationRunsResponse -> TestTree
 responseGetReplicationRuns =
@@ -527,7 +527,7 @@ responseGetReplicationRuns =
     "GetReplicationRunsResponse"
     "fixture/GetReplicationRunsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReplicationRuns)
+    (Proxy.Proxy :: Proxy.Proxy GetReplicationRuns)
 
 responseTerminateApp :: TerminateAppResponse -> TestTree
 responseTerminateApp =
@@ -535,7 +535,7 @@ responseTerminateApp =
     "TerminateAppResponse"
     "fixture/TerminateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateApp)
+    (Proxy.Proxy :: Proxy.Proxy TerminateApp)
 
 responseListApps :: ListAppsResponse -> TestTree
 responseListApps =
@@ -543,7 +543,7 @@ responseListApps =
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApps)
+    (Proxy.Proxy :: Proxy.Proxy ListApps)
 
 responseGetServers :: GetServersResponse -> TestTree
 responseGetServers =
@@ -551,7 +551,7 @@ responseGetServers =
     "GetServersResponse"
     "fixture/GetServersResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServers)
+    (Proxy.Proxy :: Proxy.Proxy GetServers)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp =
@@ -559,7 +559,7 @@ responseDeleteApp =
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApp)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
 
 responseUpdateApp :: UpdateAppResponse -> TestTree
 responseUpdateApp =
@@ -567,7 +567,7 @@ responseUpdateApp =
     "UpdateAppResponse"
     "fixture/UpdateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApp)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApp)
 
 responseStartOnDemandAppReplication :: StartOnDemandAppReplicationResponse -> TestTree
 responseStartOnDemandAppReplication =
@@ -575,7 +575,7 @@ responseStartOnDemandAppReplication =
     "StartOnDemandAppReplicationResponse"
     "fixture/StartOnDemandAppReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartOnDemandAppReplication)
+    (Proxy.Proxy :: Proxy.Proxy StartOnDemandAppReplication)
 
 responseImportServerCatalog :: ImportServerCatalogResponse -> TestTree
 responseImportServerCatalog =
@@ -583,7 +583,7 @@ responseImportServerCatalog =
     "ImportServerCatalogResponse"
     "fixture/ImportServerCatalogResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportServerCatalog)
+    (Proxy.Proxy :: Proxy.Proxy ImportServerCatalog)
 
 responseGenerateTemplate :: GenerateTemplateResponse -> TestTree
 responseGenerateTemplate =
@@ -591,7 +591,7 @@ responseGenerateTemplate =
     "GenerateTemplateResponse"
     "fixture/GenerateTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GenerateTemplate)
 
 responseGetConnectors :: GetConnectorsResponse -> TestTree
 responseGetConnectors =
@@ -599,7 +599,7 @@ responseGetConnectors =
     "GetConnectorsResponse"
     "fixture/GetConnectorsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnectors)
+    (Proxy.Proxy :: Proxy.Proxy GetConnectors)
 
 responseGetReplicationJobs :: GetReplicationJobsResponse -> TestTree
 responseGetReplicationJobs =
@@ -607,7 +607,7 @@ responseGetReplicationJobs =
     "GetReplicationJobsResponse"
     "fixture/GetReplicationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReplicationJobs)
+    (Proxy.Proxy :: Proxy.Proxy GetReplicationJobs)
 
 responseDisassociateConnector :: DisassociateConnectorResponse -> TestTree
 responseDisassociateConnector =
@@ -615,7 +615,7 @@ responseDisassociateConnector =
     "DisassociateConnectorResponse"
     "fixture/DisassociateConnectorResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateConnector)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateConnector)
 
 responseLaunchApp :: LaunchAppResponse -> TestTree
 responseLaunchApp =
@@ -623,7 +623,7 @@ responseLaunchApp =
     "LaunchAppResponse"
     "fixture/LaunchAppResponse.proto"
     defaultService
-    (Proxy :: Proxy LaunchApp)
+    (Proxy.Proxy :: Proxy.Proxy LaunchApp)
 
 responseGetAppValidationConfiguration :: GetAppValidationConfigurationResponse -> TestTree
 responseGetAppValidationConfiguration =
@@ -631,7 +631,7 @@ responseGetAppValidationConfiguration =
     "GetAppValidationConfigurationResponse"
     "fixture/GetAppValidationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppValidationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetAppValidationConfiguration)
 
 responseCreateReplicationJob :: CreateReplicationJobResponse -> TestTree
 responseCreateReplicationJob =
@@ -639,7 +639,7 @@ responseCreateReplicationJob =
     "CreateReplicationJobResponse"
     "fixture/CreateReplicationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReplicationJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateReplicationJob)
 
 responseGenerateChangeSet :: GenerateChangeSetResponse -> TestTree
 responseGenerateChangeSet =
@@ -647,7 +647,7 @@ responseGenerateChangeSet =
     "GenerateChangeSetResponse"
     "fixture/GenerateChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy GenerateChangeSet)
 
 responseGetApp :: GetAppResponse -> TestTree
 responseGetApp =
@@ -655,7 +655,7 @@ responseGetApp =
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApp)
+    (Proxy.Proxy :: Proxy.Proxy GetApp)
 
 responseUpdateReplicationJob :: UpdateReplicationJobResponse -> TestTree
 responseUpdateReplicationJob =
@@ -663,7 +663,7 @@ responseUpdateReplicationJob =
     "UpdateReplicationJobResponse"
     "fixture/UpdateReplicationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateReplicationJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateReplicationJob)
 
 responseDeleteReplicationJob :: DeleteReplicationJobResponse -> TestTree
 responseDeleteReplicationJob =
@@ -671,7 +671,7 @@ responseDeleteReplicationJob =
     "DeleteReplicationJobResponse"
     "fixture/DeleteReplicationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteReplicationJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationJob)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
@@ -679,7 +679,7 @@ responseCreateApp =
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApp)
+    (Proxy.Proxy :: Proxy.Proxy CreateApp)
 
 responseStopAppReplication :: StopAppReplicationResponse -> TestTree
 responseStopAppReplication =
@@ -687,7 +687,7 @@ responseStopAppReplication =
     "StopAppReplicationResponse"
     "fixture/StopAppReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopAppReplication)
+    (Proxy.Proxy :: Proxy.Proxy StopAppReplication)
 
 responseDeleteAppValidationConfiguration :: DeleteAppValidationConfigurationResponse -> TestTree
 responseDeleteAppValidationConfiguration =
@@ -695,7 +695,7 @@ responseDeleteAppValidationConfiguration =
     "DeleteAppValidationConfigurationResponse"
     "fixture/DeleteAppValidationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAppValidationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppValidationConfiguration)
 
 responsePutAppValidationConfiguration :: PutAppValidationConfigurationResponse -> TestTree
 responsePutAppValidationConfiguration =
@@ -703,7 +703,7 @@ responsePutAppValidationConfiguration =
     "PutAppValidationConfigurationResponse"
     "fixture/PutAppValidationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy PutAppValidationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutAppValidationConfiguration)
 
 responseGetAppValidationOutput :: GetAppValidationOutputResponse -> TestTree
 responseGetAppValidationOutput =
@@ -711,7 +711,7 @@ responseGetAppValidationOutput =
     "GetAppValidationOutputResponse"
     "fixture/GetAppValidationOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppValidationOutput)
+    (Proxy.Proxy :: Proxy.Proxy GetAppValidationOutput)
 
 responseGetAppReplicationConfiguration :: GetAppReplicationConfigurationResponse -> TestTree
 responseGetAppReplicationConfiguration =
@@ -719,7 +719,7 @@ responseGetAppReplicationConfiguration =
     "GetAppReplicationConfigurationResponse"
     "fixture/GetAppReplicationConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAppReplicationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetAppReplicationConfiguration)
 
 responseStartOnDemandReplicationRun :: StartOnDemandReplicationRunResponse -> TestTree
 responseStartOnDemandReplicationRun =
@@ -727,7 +727,7 @@ responseStartOnDemandReplicationRun =
     "StartOnDemandReplicationRunResponse"
     "fixture/StartOnDemandReplicationRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StartOnDemandReplicationRun)
+    (Proxy.Proxy :: Proxy.Proxy StartOnDemandReplicationRun)
 
 responseNotifyAppValidationOutput :: NotifyAppValidationOutputResponse -> TestTree
 responseNotifyAppValidationOutput =
@@ -735,4 +735,4 @@ responseNotifyAppValidationOutput =
     "NotifyAppValidationOutputResponse"
     "fixture/NotifyAppValidationOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy NotifyAppValidationOutput)
+    (Proxy.Proxy :: Proxy.Proxy NotifyAppValidationOutput)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IAM where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.IAM
 import Test.AWS.Fixture
 import Test.AWS.IAM.Internal
@@ -1939,7 +1939,7 @@ responseGetContextKeysForPrincipalPolicy =
     "GetContextKeysForPrincipalPolicyResponse"
     "fixture/GetContextKeysForPrincipalPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContextKeysForPrincipalPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetContextKeysForPrincipalPolicy)
 
 responseListPolicies :: ListPoliciesResponse -> TestTree
 responseListPolicies =
@@ -1947,7 +1947,7 @@ responseListPolicies =
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicies)
 
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
 responseCreatePolicy =
@@ -1955,7 +1955,7 @@ responseCreatePolicy =
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreatePolicy)
 
 responseListInstanceProfilesForRole :: ListInstanceProfilesForRoleResponse -> TestTree
 responseListInstanceProfilesForRole =
@@ -1963,7 +1963,7 @@ responseListInstanceProfilesForRole =
     "ListInstanceProfilesForRoleResponse"
     "fixture/ListInstanceProfilesForRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceProfilesForRole)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceProfilesForRole)
 
 responseAttachGroupPolicy :: AttachGroupPolicyResponse -> TestTree
 responseAttachGroupPolicy =
@@ -1971,7 +1971,7 @@ responseAttachGroupPolicy =
     "AttachGroupPolicyResponse"
     "fixture/AttachGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AttachGroupPolicy)
 
 responseCreateAccessKey :: CreateAccessKeyResponse -> TestTree
 responseCreateAccessKey =
@@ -1979,7 +1979,7 @@ responseCreateAccessKey =
     "CreateAccessKeyResponse"
     "fixture/CreateAccessKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccessKey)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccessKey)
 
 responseListRoleTags :: ListRoleTagsResponse -> TestTree
 responseListRoleTags =
@@ -1987,7 +1987,7 @@ responseListRoleTags =
     "ListRoleTagsResponse"
     "fixture/ListRoleTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoleTags)
+    (Proxy.Proxy :: Proxy.Proxy ListRoleTags)
 
 responseListSSHPublicKeys :: ListSSHPublicKeysResponse -> TestTree
 responseListSSHPublicKeys =
@@ -1995,7 +1995,7 @@ responseListSSHPublicKeys =
     "ListSSHPublicKeysResponse"
     "fixture/ListSSHPublicKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSSHPublicKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListSSHPublicKeys)
 
 responseUntagOpenIDConnectProvider :: UntagOpenIDConnectProviderResponse -> TestTree
 responseUntagOpenIDConnectProvider =
@@ -2003,7 +2003,7 @@ responseUntagOpenIDConnectProvider =
     "UntagOpenIDConnectProviderResponse"
     "fixture/UntagOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy UntagOpenIDConnectProvider)
 
 responseListOpenIDConnectProviders :: ListOpenIDConnectProvidersResponse -> TestTree
 responseListOpenIDConnectProviders =
@@ -2011,7 +2011,7 @@ responseListOpenIDConnectProviders =
     "ListOpenIDConnectProvidersResponse"
     "fixture/ListOpenIDConnectProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOpenIDConnectProviders)
+    (Proxy.Proxy :: Proxy.Proxy ListOpenIDConnectProviders)
 
 responseCreateVirtualMFADevice :: CreateVirtualMFADeviceResponse -> TestTree
 responseCreateVirtualMFADevice =
@@ -2019,7 +2019,7 @@ responseCreateVirtualMFADevice =
     "CreateVirtualMFADeviceResponse"
     "fixture/CreateVirtualMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVirtualMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualMFADevice)
 
 responseDeleteAccountPasswordPolicy :: DeleteAccountPasswordPolicyResponse -> TestTree
 responseDeleteAccountPasswordPolicy =
@@ -2027,7 +2027,7 @@ responseDeleteAccountPasswordPolicy =
     "DeleteAccountPasswordPolicyResponse"
     "fixture/DeleteAccountPasswordPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccountPasswordPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountPasswordPolicy)
 
 responseUpdateAccountPasswordPolicy :: UpdateAccountPasswordPolicyResponse -> TestTree
 responseUpdateAccountPasswordPolicy =
@@ -2035,7 +2035,7 @@ responseUpdateAccountPasswordPolicy =
     "UpdateAccountPasswordPolicyResponse"
     "fixture/UpdateAccountPasswordPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccountPasswordPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountPasswordPolicy)
 
 responseAttachRolePolicy :: AttachRolePolicyResponse -> TestTree
 responseAttachRolePolicy =
@@ -2043,7 +2043,7 @@ responseAttachRolePolicy =
     "AttachRolePolicyResponse"
     "fixture/AttachRolePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachRolePolicy)
+    (Proxy.Proxy :: Proxy.Proxy AttachRolePolicy)
 
 responseUpdateSSHPublicKey :: UpdateSSHPublicKeyResponse -> TestTree
 responseUpdateSSHPublicKey =
@@ -2051,7 +2051,7 @@ responseUpdateSSHPublicKey =
     "UpdateSSHPublicKeyResponse"
     "fixture/UpdateSSHPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSSHPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSSHPublicKey)
 
 responseDeleteSSHPublicKey :: DeleteSSHPublicKeyResponse -> TestTree
 responseDeleteSSHPublicKey =
@@ -2059,7 +2059,7 @@ responseDeleteSSHPublicKey =
     "DeleteSSHPublicKeyResponse"
     "fixture/DeleteSSHPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSSHPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSSHPublicKey)
 
 responseGetUserPolicy :: GetUserPolicyResponse -> TestTree
 responseGetUserPolicy =
@@ -2067,7 +2067,7 @@ responseGetUserPolicy =
     "GetUserPolicyResponse"
     "fixture/GetUserPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUserPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetUserPolicy)
 
 responseUpdateServiceSpecificCredential :: UpdateServiceSpecificCredentialResponse -> TestTree
 responseUpdateServiceSpecificCredential =
@@ -2075,7 +2075,7 @@ responseUpdateServiceSpecificCredential =
     "UpdateServiceSpecificCredentialResponse"
     "fixture/UpdateServiceSpecificCredentialResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServiceSpecificCredential)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSpecificCredential)
 
 responseDeleteServiceSpecificCredential :: DeleteServiceSpecificCredentialResponse -> TestTree
 responseDeleteServiceSpecificCredential =
@@ -2083,7 +2083,7 @@ responseDeleteServiceSpecificCredential =
     "DeleteServiceSpecificCredentialResponse"
     "fixture/DeleteServiceSpecificCredentialResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServiceSpecificCredential)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceSpecificCredential)
 
 responseListAttachedRolePolicies :: ListAttachedRolePoliciesResponse -> TestTree
 responseListAttachedRolePolicies =
@@ -2091,7 +2091,7 @@ responseListAttachedRolePolicies =
     "ListAttachedRolePoliciesResponse"
     "fixture/ListAttachedRolePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttachedRolePolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListAttachedRolePolicies)
 
 responseGetRole :: GetRoleResponse -> TestTree
 responseGetRole =
@@ -2099,7 +2099,7 @@ responseGetRole =
     "GetRoleResponse"
     "fixture/GetRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRole)
+    (Proxy.Proxy :: Proxy.Proxy GetRole)
 
 responseDeactivateMFADevice :: DeactivateMFADeviceResponse -> TestTree
 responseDeactivateMFADevice =
@@ -2107,7 +2107,7 @@ responseDeactivateMFADevice =
     "DeactivateMFADeviceResponse"
     "fixture/DeactivateMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy DeactivateMFADevice)
 
 responseCreateOpenIDConnectProvider :: CreateOpenIDConnectProviderResponse -> TestTree
 responseCreateOpenIDConnectProvider =
@@ -2115,7 +2115,7 @@ responseCreateOpenIDConnectProvider =
     "CreateOpenIDConnectProviderResponse"
     "fixture/CreateOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy CreateOpenIDConnectProvider)
 
 responseDeleteVirtualMFADevice :: DeleteVirtualMFADeviceResponse -> TestTree
 responseDeleteVirtualMFADevice =
@@ -2123,7 +2123,7 @@ responseDeleteVirtualMFADevice =
     "DeleteVirtualMFADeviceResponse"
     "fixture/DeleteVirtualMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualMFADevice)
 
 responseListRoles :: ListRolesResponse -> TestTree
 responseListRoles =
@@ -2131,7 +2131,7 @@ responseListRoles =
     "ListRolesResponse"
     "fixture/ListRolesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoles)
+    (Proxy.Proxy :: Proxy.Proxy ListRoles)
 
 responseListUserPolicies :: ListUserPoliciesResponse -> TestTree
 responseListUserPolicies =
@@ -2139,7 +2139,7 @@ responseListUserPolicies =
     "ListUserPoliciesResponse"
     "fixture/ListUserPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListUserPolicies)
 
 responseListOpenIDConnectProviderTags :: ListOpenIDConnectProviderTagsResponse -> TestTree
 responseListOpenIDConnectProviderTags =
@@ -2147,7 +2147,7 @@ responseListOpenIDConnectProviderTags =
     "ListOpenIDConnectProviderTagsResponse"
     "fixture/ListOpenIDConnectProviderTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOpenIDConnectProviderTags)
+    (Proxy.Proxy :: Proxy.Proxy ListOpenIDConnectProviderTags)
 
 responsePutRolePermissionsBoundary :: PutRolePermissionsBoundaryResponse -> TestTree
 responsePutRolePermissionsBoundary =
@@ -2155,7 +2155,7 @@ responsePutRolePermissionsBoundary =
     "PutRolePermissionsBoundaryResponse"
     "fixture/PutRolePermissionsBoundaryResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRolePermissionsBoundary)
+    (Proxy.Proxy :: Proxy.Proxy PutRolePermissionsBoundary)
 
 responseUploadSSHPublicKey :: UploadSSHPublicKeyResponse -> TestTree
 responseUploadSSHPublicKey =
@@ -2163,7 +2163,7 @@ responseUploadSSHPublicKey =
     "UploadSSHPublicKeyResponse"
     "fixture/UploadSSHPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadSSHPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy UploadSSHPublicKey)
 
 responseDeleteRolePermissionsBoundary :: DeleteRolePermissionsBoundaryResponse -> TestTree
 responseDeleteRolePermissionsBoundary =
@@ -2171,7 +2171,7 @@ responseDeleteRolePermissionsBoundary =
     "DeleteRolePermissionsBoundaryResponse"
     "fixture/DeleteRolePermissionsBoundaryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRolePermissionsBoundary)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRolePermissionsBoundary)
 
 responseSimulateCustomPolicy :: SimulatePolicyResponse -> TestTree
 responseSimulateCustomPolicy =
@@ -2179,7 +2179,7 @@ responseSimulateCustomPolicy =
     "SimulateCustomPolicyResponse"
     "fixture/SimulateCustomPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy SimulateCustomPolicy)
+    (Proxy.Proxy :: Proxy.Proxy SimulateCustomPolicy)
 
 responseUpdateRole :: UpdateRoleResponse -> TestTree
 responseUpdateRole =
@@ -2187,7 +2187,7 @@ responseUpdateRole =
     "UpdateRoleResponse"
     "fixture/UpdateRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRole)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRole)
 
 responseDeleteRole :: DeleteRoleResponse -> TestTree
 responseDeleteRole =
@@ -2195,7 +2195,7 @@ responseDeleteRole =
     "DeleteRoleResponse"
     "fixture/DeleteRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRole)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRole)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -2203,7 +2203,7 @@ responseListUsers =
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUsers)
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseUpdateOpenIDConnectProviderThumbprint :: UpdateOpenIDConnectProviderThumbprintResponse -> TestTree
 responseUpdateOpenIDConnectProviderThumbprint =
@@ -2211,7 +2211,7 @@ responseUpdateOpenIDConnectProviderThumbprint =
     "UpdateOpenIDConnectProviderThumbprintResponse"
     "fixture/UpdateOpenIDConnectProviderThumbprintResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateOpenIDConnectProviderThumbprint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateOpenIDConnectProviderThumbprint)
 
 responsePutUserPolicy :: PutUserPolicyResponse -> TestTree
 responsePutUserPolicy =
@@ -2219,7 +2219,7 @@ responsePutUserPolicy =
     "PutUserPolicyResponse"
     "fixture/PutUserPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutUserPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutUserPolicy)
 
 responseTagMFADevice :: TagMFADeviceResponse -> TestTree
 responseTagMFADevice =
@@ -2227,7 +2227,7 @@ responseTagMFADevice =
     "TagMFADeviceResponse"
     "fixture/TagMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy TagMFADevice)
 
 responseGetSSHPublicKey :: GetSSHPublicKeyResponse -> TestTree
 responseGetSSHPublicKey =
@@ -2235,7 +2235,7 @@ responseGetSSHPublicKey =
     "GetSSHPublicKeyResponse"
     "fixture/GetSSHPublicKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSSHPublicKey)
+    (Proxy.Proxy :: Proxy.Proxy GetSSHPublicKey)
 
 responseUntagUser :: UntagUserResponse -> TestTree
 responseUntagUser =
@@ -2243,7 +2243,7 @@ responseUntagUser =
     "UntagUserResponse"
     "fixture/UntagUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagUser)
+    (Proxy.Proxy :: Proxy.Proxy UntagUser)
 
 responseDetachGroupPolicy :: DetachGroupPolicyResponse -> TestTree
 responseDetachGroupPolicy =
@@ -2251,7 +2251,7 @@ responseDetachGroupPolicy =
     "DetachGroupPolicyResponse"
     "fixture/DetachGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DetachGroupPolicy)
 
 responseTagInstanceProfile :: TagInstanceProfileResponse -> TestTree
 responseTagInstanceProfile =
@@ -2259,7 +2259,7 @@ responseTagInstanceProfile =
     "TagInstanceProfileResponse"
     "fixture/TagInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy TagInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy TagInstanceProfile)
 
 responseGetOpenIDConnectProvider :: GetOpenIDConnectProviderResponse -> TestTree
 responseGetOpenIDConnectProvider =
@@ -2267,7 +2267,7 @@ responseGetOpenIDConnectProvider =
     "GetOpenIDConnectProviderResponse"
     "fixture/GetOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy GetOpenIDConnectProvider)
 
 responsePutUserPermissionsBoundary :: PutUserPermissionsBoundaryResponse -> TestTree
 responsePutUserPermissionsBoundary =
@@ -2275,7 +2275,7 @@ responsePutUserPermissionsBoundary =
     "PutUserPermissionsBoundaryResponse"
     "fixture/PutUserPermissionsBoundaryResponse.proto"
     defaultService
-    (Proxy :: Proxy PutUserPermissionsBoundary)
+    (Proxy.Proxy :: Proxy.Proxy PutUserPermissionsBoundary)
 
 responseDeleteUserPolicy :: DeleteUserPolicyResponse -> TestTree
 responseDeleteUserPolicy =
@@ -2283,7 +2283,7 @@ responseDeleteUserPolicy =
     "DeleteUserPolicyResponse"
     "fixture/DeleteUserPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserPolicy)
 
 responseTagSAMLProvider :: TagSAMLProviderResponse -> TestTree
 responseTagSAMLProvider =
@@ -2291,7 +2291,7 @@ responseTagSAMLProvider =
     "TagSAMLProviderResponse"
     "fixture/TagSAMLProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy TagSAMLProvider)
+    (Proxy.Proxy :: Proxy.Proxy TagSAMLProvider)
 
 responseDeleteUserPermissionsBoundary :: DeleteUserPermissionsBoundaryResponse -> TestTree
 responseDeleteUserPermissionsBoundary =
@@ -2299,7 +2299,7 @@ responseDeleteUserPermissionsBoundary =
     "DeleteUserPermissionsBoundaryResponse"
     "fixture/DeleteUserPermissionsBoundaryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserPermissionsBoundary)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserPermissionsBoundary)
 
 responseCreateRole :: CreateRoleResponse -> TestTree
 responseCreateRole =
@@ -2307,7 +2307,7 @@ responseCreateRole =
     "CreateRoleResponse"
     "fixture/CreateRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRole)
+    (Proxy.Proxy :: Proxy.Proxy CreateRole)
 
 responseResetServiceSpecificCredential :: ResetServiceSpecificCredentialResponse -> TestTree
 responseResetServiceSpecificCredential =
@@ -2315,7 +2315,7 @@ responseResetServiceSpecificCredential =
     "ResetServiceSpecificCredentialResponse"
     "fixture/ResetServiceSpecificCredentialResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetServiceSpecificCredential)
+    (Proxy.Proxy :: Proxy.Proxy ResetServiceSpecificCredential)
 
 responseUntagSAMLProvider :: UntagSAMLProviderResponse -> TestTree
 responseUntagSAMLProvider =
@@ -2323,7 +2323,7 @@ responseUntagSAMLProvider =
     "UntagSAMLProviderResponse"
     "fixture/UntagSAMLProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagSAMLProvider)
+    (Proxy.Proxy :: Proxy.Proxy UntagSAMLProvider)
 
 responseGetCredentialReport :: GetCredentialReportResponse -> TestTree
 responseGetCredentialReport =
@@ -2331,7 +2331,7 @@ responseGetCredentialReport =
     "GetCredentialReportResponse"
     "fixture/GetCredentialReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCredentialReport)
+    (Proxy.Proxy :: Proxy.Proxy GetCredentialReport)
 
 responseListServerCertificateTags :: ListServerCertificateTagsResponse -> TestTree
 responseListServerCertificateTags =
@@ -2339,7 +2339,7 @@ responseListServerCertificateTags =
     "ListServerCertificateTagsResponse"
     "fixture/ListServerCertificateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServerCertificateTags)
+    (Proxy.Proxy :: Proxy.Proxy ListServerCertificateTags)
 
 responseGetAccountSummary :: GetAccountSummaryResponse -> TestTree
 responseGetAccountSummary =
@@ -2347,7 +2347,7 @@ responseGetAccountSummary =
     "GetAccountSummaryResponse"
     "fixture/GetAccountSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountSummary)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSummary)
 
 responseGenerateServiceLastAccessedDetails :: GenerateServiceLastAccessedDetailsResponse -> TestTree
 responseGenerateServiceLastAccessedDetails =
@@ -2355,7 +2355,7 @@ responseGenerateServiceLastAccessedDetails =
     "GenerateServiceLastAccessedDetailsResponse"
     "fixture/GenerateServiceLastAccessedDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateServiceLastAccessedDetails)
+    (Proxy.Proxy :: Proxy.Proxy GenerateServiceLastAccessedDetails)
 
 responseListPolicyTags :: ListPolicyTagsResponse -> TestTree
 responseListPolicyTags =
@@ -2363,7 +2363,7 @@ responseListPolicyTags =
     "ListPolicyTagsResponse"
     "fixture/ListPolicyTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicyTags)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicyTags)
 
 responseListGroupPolicies :: ListGroupPoliciesResponse -> TestTree
 responseListGroupPolicies =
@@ -2371,7 +2371,7 @@ responseListGroupPolicies =
     "ListGroupPoliciesResponse"
     "fixture/ListGroupPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupPolicies)
 
 responseDeletePolicyVersion :: DeletePolicyVersionResponse -> TestTree
 responseDeletePolicyVersion =
@@ -2379,7 +2379,7 @@ responseDeletePolicyVersion =
     "DeletePolicyVersionResponse"
     "fixture/DeletePolicyVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicyVersion)
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicyVersion)
 
 responseTagUser :: TagUserResponse -> TestTree
 responseTagUser =
@@ -2387,7 +2387,7 @@ responseTagUser =
     "TagUserResponse"
     "fixture/TagUserResponse.proto"
     defaultService
-    (Proxy :: Proxy TagUser)
+    (Proxy.Proxy :: Proxy.Proxy TagUser)
 
 responseDeleteInstanceProfile :: DeleteInstanceProfileResponse -> TestTree
 responseDeleteInstanceProfile =
@@ -2395,7 +2395,7 @@ responseDeleteInstanceProfile =
     "DeleteInstanceProfileResponse"
     "fixture/DeleteInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstanceProfile)
 
 responseDetachRolePolicy :: DetachRolePolicyResponse -> TestTree
 responseDetachRolePolicy =
@@ -2403,7 +2403,7 @@ responseDetachRolePolicy =
     "DetachRolePolicyResponse"
     "fixture/DetachRolePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachRolePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DetachRolePolicy)
 
 responseRemoveRoleFromInstanceProfile :: RemoveRoleFromInstanceProfileResponse -> TestTree
 responseRemoveRoleFromInstanceProfile =
@@ -2411,7 +2411,7 @@ responseRemoveRoleFromInstanceProfile =
     "RemoveRoleFromInstanceProfileResponse"
     "fixture/RemoveRoleFromInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveRoleFromInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy RemoveRoleFromInstanceProfile)
 
 responseCreatePolicyVersion :: CreatePolicyVersionResponse -> TestTree
 responseCreatePolicyVersion =
@@ -2419,7 +2419,7 @@ responseCreatePolicyVersion =
     "CreatePolicyVersionResponse"
     "fixture/CreatePolicyVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePolicyVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreatePolicyVersion)
 
 responseCreateInstanceProfile :: CreateInstanceProfileResponse -> TestTree
 responseCreateInstanceProfile =
@@ -2427,7 +2427,7 @@ responseCreateInstanceProfile =
     "CreateInstanceProfileResponse"
     "fixture/CreateInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceProfile)
 
 responseCreateSAMLProvider :: CreateSAMLProviderResponse -> TestTree
 responseCreateSAMLProvider =
@@ -2435,7 +2435,7 @@ responseCreateSAMLProvider =
     "CreateSAMLProviderResponse"
     "fixture/CreateSAMLProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSAMLProvider)
+    (Proxy.Proxy :: Proxy.Proxy CreateSAMLProvider)
 
 responseGetAccountAuthorizationDetails :: GetAccountAuthorizationDetailsResponse -> TestTree
 responseGetAccountAuthorizationDetails =
@@ -2443,7 +2443,7 @@ responseGetAccountAuthorizationDetails =
     "GetAccountAuthorizationDetailsResponse"
     "fixture/GetAccountAuthorizationDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountAuthorizationDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountAuthorizationDetails)
 
 responseGetServiceLinkedRoleDeletionStatus :: GetServiceLinkedRoleDeletionStatusResponse -> TestTree
 responseGetServiceLinkedRoleDeletionStatus =
@@ -2451,7 +2451,7 @@ responseGetServiceLinkedRoleDeletionStatus =
     "GetServiceLinkedRoleDeletionStatusResponse"
     "fixture/GetServiceLinkedRoleDeletionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceLinkedRoleDeletionStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceLinkedRoleDeletionStatus)
 
 responseDeleteAccountAlias :: DeleteAccountAliasResponse -> TestTree
 responseDeleteAccountAlias =
@@ -2459,7 +2459,7 @@ responseDeleteAccountAlias =
     "DeleteAccountAliasResponse"
     "fixture/DeleteAccountAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccountAlias)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountAlias)
 
 responseDetachUserPolicy :: DetachUserPolicyResponse -> TestTree
 responseDetachUserPolicy =
@@ -2467,7 +2467,7 @@ responseDetachUserPolicy =
     "DetachUserPolicyResponse"
     "fixture/DetachUserPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachUserPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DetachUserPolicy)
 
 responseRemoveUserFromGroup :: RemoveUserFromGroupResponse -> TestTree
 responseRemoveUserFromGroup =
@@ -2475,7 +2475,7 @@ responseRemoveUserFromGroup =
     "RemoveUserFromGroupResponse"
     "fixture/RemoveUserFromGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveUserFromGroup)
+    (Proxy.Proxy :: Proxy.Proxy RemoveUserFromGroup)
 
 responseDeleteGroupPolicy :: DeleteGroupPolicyResponse -> TestTree
 responseDeleteGroupPolicy =
@@ -2483,7 +2483,7 @@ responseDeleteGroupPolicy =
     "DeleteGroupPolicyResponse"
     "fixture/DeleteGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroupPolicy)
 
 responseTagRole :: TagRoleResponse -> TestTree
 responseTagRole =
@@ -2491,7 +2491,7 @@ responseTagRole =
     "TagRoleResponse"
     "fixture/TagRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy TagRole)
+    (Proxy.Proxy :: Proxy.Proxy TagRole)
 
 responsePutGroupPolicy :: PutGroupPolicyResponse -> TestTree
 responsePutGroupPolicy =
@@ -2499,7 +2499,7 @@ responsePutGroupPolicy =
     "PutGroupPolicyResponse"
     "fixture/PutGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutGroupPolicy)
 
 responseGetLoginProfile :: GetLoginProfileResponse -> TestTree
 responseGetLoginProfile =
@@ -2507,7 +2507,7 @@ responseGetLoginProfile =
     "GetLoginProfileResponse"
     "fixture/GetLoginProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLoginProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetLoginProfile)
 
 responseGetGroupPolicy :: GetGroupPolicyResponse -> TestTree
 responseGetGroupPolicy =
@@ -2515,7 +2515,7 @@ responseGetGroupPolicy =
     "GetGroupPolicyResponse"
     "fixture/GetGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupPolicy)
 
 responseGenerateOrganizationsAccessReport :: GenerateOrganizationsAccessReportResponse -> TestTree
 responseGenerateOrganizationsAccessReport =
@@ -2523,7 +2523,7 @@ responseGenerateOrganizationsAccessReport =
     "GenerateOrganizationsAccessReportResponse"
     "fixture/GenerateOrganizationsAccessReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateOrganizationsAccessReport)
+    (Proxy.Proxy :: Proxy.Proxy GenerateOrganizationsAccessReport)
 
 responseChangePassword :: ChangePasswordResponse -> TestTree
 responseChangePassword =
@@ -2531,7 +2531,7 @@ responseChangePassword =
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangePassword)
+    (Proxy.Proxy :: Proxy.Proxy ChangePassword)
 
 responseListServerCertificates :: ListServerCertificatesResponse -> TestTree
 responseListServerCertificates =
@@ -2539,7 +2539,7 @@ responseListServerCertificates =
     "ListServerCertificatesResponse"
     "fixture/ListServerCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServerCertificates)
+    (Proxy.Proxy :: Proxy.Proxy ListServerCertificates)
 
 responseDeleteServiceLinkedRole :: DeleteServiceLinkedRoleResponse -> TestTree
 responseDeleteServiceLinkedRole =
@@ -2547,7 +2547,7 @@ responseDeleteServiceLinkedRole =
     "DeleteServiceLinkedRoleResponse"
     "fixture/DeleteServiceLinkedRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServiceLinkedRole)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceLinkedRole)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -2555,7 +2555,7 @@ responseDeletePolicy =
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
 
 responseUpdateAssumeRolePolicy :: UpdateAssumeRolePolicyResponse -> TestTree
 responseUpdateAssumeRolePolicy =
@@ -2563,7 +2563,7 @@ responseUpdateAssumeRolePolicy =
     "UpdateAssumeRolePolicyResponse"
     "fixture/UpdateAssumeRolePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAssumeRolePolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssumeRolePolicy)
 
 responseGetServiceLastAccessedDetailsWithEntities :: GetServiceLastAccessedDetailsWithEntitiesResponse -> TestTree
 responseGetServiceLastAccessedDetailsWithEntities =
@@ -2571,7 +2571,7 @@ responseGetServiceLastAccessedDetailsWithEntities =
     "GetServiceLastAccessedDetailsWithEntitiesResponse"
     "fixture/GetServiceLastAccessedDetailsWithEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceLastAccessedDetailsWithEntities)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceLastAccessedDetailsWithEntities)
 
 responseUntagServerCertificate :: UntagServerCertificateResponse -> TestTree
 responseUntagServerCertificate =
@@ -2579,7 +2579,7 @@ responseUntagServerCertificate =
     "UntagServerCertificateResponse"
     "fixture/UntagServerCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagServerCertificate)
+    (Proxy.Proxy :: Proxy.Proxy UntagServerCertificate)
 
 responseGetInstanceProfile :: GetInstanceProfileResponse -> TestTree
 responseGetInstanceProfile =
@@ -2587,7 +2587,7 @@ responseGetInstanceProfile =
     "GetInstanceProfileResponse"
     "fixture/GetInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceProfile)
 
 responseCreateLoginProfile :: CreateLoginProfileResponse -> TestTree
 responseCreateLoginProfile =
@@ -2595,7 +2595,7 @@ responseCreateLoginProfile =
     "CreateLoginProfileResponse"
     "fixture/CreateLoginProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLoginProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateLoginProfile)
 
 responseGetSAMLProvider :: GetSAMLProviderResponse -> TestTree
 responseGetSAMLProvider =
@@ -2603,7 +2603,7 @@ responseGetSAMLProvider =
     "GetSAMLProviderResponse"
     "fixture/GetSAMLProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSAMLProvider)
+    (Proxy.Proxy :: Proxy.Proxy GetSAMLProvider)
 
 responseAddRoleToInstanceProfile :: AddRoleToInstanceProfileResponse -> TestTree
 responseAddRoleToInstanceProfile =
@@ -2611,7 +2611,7 @@ responseAddRoleToInstanceProfile =
     "AddRoleToInstanceProfileResponse"
     "fixture/AddRoleToInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy AddRoleToInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy AddRoleToInstanceProfile)
 
 responseListGroupsForUser :: ListGroupsForUserResponse -> TestTree
 responseListGroupsForUser =
@@ -2619,7 +2619,7 @@ responseListGroupsForUser =
     "ListGroupsForUserResponse"
     "fixture/ListGroupsForUserResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroupsForUser)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupsForUser)
 
 responseListEntitiesForPolicy :: ListEntitiesForPolicyResponse -> TestTree
 responseListEntitiesForPolicy =
@@ -2627,7 +2627,7 @@ responseListEntitiesForPolicy =
     "ListEntitiesForPolicyResponse"
     "fixture/ListEntitiesForPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntitiesForPolicy)
+    (Proxy.Proxy :: Proxy.Proxy ListEntitiesForPolicy)
 
 responseAddUserToGroup :: AddUserToGroupResponse -> TestTree
 responseAddUserToGroup =
@@ -2635,7 +2635,7 @@ responseAddUserToGroup =
     "AddUserToGroupResponse"
     "fixture/AddUserToGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy AddUserToGroup)
+    (Proxy.Proxy :: Proxy.Proxy AddUserToGroup)
 
 responseTagOpenIDConnectProvider :: TagOpenIDConnectProviderResponse -> TestTree
 responseTagOpenIDConnectProvider =
@@ -2643,7 +2643,7 @@ responseTagOpenIDConnectProvider =
     "TagOpenIDConnectProviderResponse"
     "fixture/TagOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy TagOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy TagOpenIDConnectProvider)
 
 responseSimulatePrincipalPolicy :: SimulatePolicyResponse -> TestTree
 responseSimulatePrincipalPolicy =
@@ -2651,7 +2651,7 @@ responseSimulatePrincipalPolicy =
     "SimulatePrincipalPolicyResponse"
     "fixture/SimulatePrincipalPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy SimulatePrincipalPolicy)
+    (Proxy.Proxy :: Proxy.Proxy SimulatePrincipalPolicy)
 
 responseGetOrganizationsAccessReport :: GetOrganizationsAccessReportResponse -> TestTree
 responseGetOrganizationsAccessReport =
@@ -2659,7 +2659,7 @@ responseGetOrganizationsAccessReport =
     "GetOrganizationsAccessReportResponse"
     "fixture/GetOrganizationsAccessReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOrganizationsAccessReport)
+    (Proxy.Proxy :: Proxy.Proxy GetOrganizationsAccessReport)
 
 responseGetPolicyVersion :: GetPolicyVersionResponse -> TestTree
 responseGetPolicyVersion =
@@ -2667,7 +2667,7 @@ responseGetPolicyVersion =
     "GetPolicyVersionResponse"
     "fixture/GetPolicyVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicyVersion)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicyVersion)
 
 responseCreateServiceLinkedRole :: CreateServiceLinkedRoleResponse -> TestTree
 responseCreateServiceLinkedRole =
@@ -2675,7 +2675,7 @@ responseCreateServiceLinkedRole =
     "CreateServiceLinkedRoleResponse"
     "fixture/CreateServiceLinkedRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateServiceLinkedRole)
+    (Proxy.Proxy :: Proxy.Proxy CreateServiceLinkedRole)
 
 responseListServiceSpecificCredentials :: ListServiceSpecificCredentialsResponse -> TestTree
 responseListServiceSpecificCredentials =
@@ -2683,7 +2683,7 @@ responseListServiceSpecificCredentials =
     "ListServiceSpecificCredentialsResponse"
     "fixture/ListServiceSpecificCredentialsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListServiceSpecificCredentials)
+    (Proxy.Proxy :: Proxy.Proxy ListServiceSpecificCredentials)
 
 responseDeleteOpenIDConnectProvider :: DeleteOpenIDConnectProviderResponse -> TestTree
 responseDeleteOpenIDConnectProvider =
@@ -2691,7 +2691,7 @@ responseDeleteOpenIDConnectProvider =
     "DeleteOpenIDConnectProviderResponse"
     "fixture/DeleteOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy DeleteOpenIDConnectProvider)
 
 responseGetUser :: GetUserResponse -> TestTree
 responseGetUser =
@@ -2699,7 +2699,7 @@ responseGetUser =
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
     defaultService
-    (Proxy :: Proxy GetUser)
+    (Proxy.Proxy :: Proxy.Proxy GetUser)
 
 responseListSigningCertificates :: ListSigningCertificatesResponse -> TestTree
 responseListSigningCertificates =
@@ -2707,7 +2707,7 @@ responseListSigningCertificates =
     "ListSigningCertificatesResponse"
     "fixture/ListSigningCertificatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSigningCertificates)
+    (Proxy.Proxy :: Proxy.Proxy ListSigningCertificates)
 
 responseDeleteSigningCertificate :: DeleteSigningCertificateResponse -> TestTree
 responseDeleteSigningCertificate =
@@ -2715,7 +2715,7 @@ responseDeleteSigningCertificate =
     "DeleteSigningCertificateResponse"
     "fixture/DeleteSigningCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSigningCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSigningCertificate)
 
 responseUpdateSigningCertificate :: UpdateSigningCertificateResponse -> TestTree
 responseUpdateSigningCertificate =
@@ -2723,7 +2723,7 @@ responseUpdateSigningCertificate =
     "UpdateSigningCertificateResponse"
     "fixture/UpdateSigningCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSigningCertificate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSigningCertificate)
 
 responseListAttachedUserPolicies :: ListAttachedUserPoliciesResponse -> TestTree
 responseListAttachedUserPolicies =
@@ -2731,7 +2731,7 @@ responseListAttachedUserPolicies =
     "ListAttachedUserPoliciesResponse"
     "fixture/ListAttachedUserPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttachedUserPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListAttachedUserPolicies)
 
 responseRemoveClientIDFromOpenIDConnectProvider :: RemoveClientIDFromOpenIDConnectProviderResponse -> TestTree
 responseRemoveClientIDFromOpenIDConnectProvider =
@@ -2739,7 +2739,7 @@ responseRemoveClientIDFromOpenIDConnectProvider =
     "RemoveClientIDFromOpenIDConnectProviderResponse"
     "fixture/RemoveClientIDFromOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveClientIDFromOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy RemoveClientIDFromOpenIDConnectProvider)
 
 responseAttachUserPolicy :: AttachUserPolicyResponse -> TestTree
 responseAttachUserPolicy =
@@ -2747,7 +2747,7 @@ responseAttachUserPolicy =
     "AttachUserPolicyResponse"
     "fixture/AttachUserPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachUserPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AttachUserPolicy)
 
 responseTagPolicy :: TagPolicyResponse -> TestTree
 responseTagPolicy =
@@ -2755,7 +2755,7 @@ responseTagPolicy =
     "TagPolicyResponse"
     "fixture/TagPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy TagPolicy)
+    (Proxy.Proxy :: Proxy.Proxy TagPolicy)
 
 responseCreateServiceSpecificCredential :: CreateServiceSpecificCredentialResponse -> TestTree
 responseCreateServiceSpecificCredential =
@@ -2763,7 +2763,7 @@ responseCreateServiceSpecificCredential =
     "CreateServiceSpecificCredentialResponse"
     "fixture/CreateServiceSpecificCredentialResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateServiceSpecificCredential)
+    (Proxy.Proxy :: Proxy.Proxy CreateServiceSpecificCredential)
 
 responseListVirtualMFADevices :: ListVirtualMFADevicesResponse -> TestTree
 responseListVirtualMFADevices =
@@ -2771,7 +2771,7 @@ responseListVirtualMFADevices =
     "ListVirtualMFADevicesResponse"
     "fixture/ListVirtualMFADevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListVirtualMFADevices)
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualMFADevices)
 
 responseResyncMFADevice :: ResyncMFADeviceResponse -> TestTree
 responseResyncMFADevice =
@@ -2779,7 +2779,7 @@ responseResyncMFADevice =
     "ResyncMFADeviceResponse"
     "fixture/ResyncMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy ResyncMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy ResyncMFADevice)
 
 responseTagServerCertificate :: TagServerCertificateResponse -> TestTree
 responseTagServerCertificate =
@@ -2787,7 +2787,7 @@ responseTagServerCertificate =
     "TagServerCertificateResponse"
     "fixture/TagServerCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy TagServerCertificate)
+    (Proxy.Proxy :: Proxy.Proxy TagServerCertificate)
 
 responseDeleteAccessKey :: DeleteAccessKeyResponse -> TestTree
 responseDeleteAccessKey =
@@ -2795,7 +2795,7 @@ responseDeleteAccessKey =
     "DeleteAccessKeyResponse"
     "fixture/DeleteAccessKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAccessKey)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessKey)
 
 responseUpdateAccessKey :: UpdateAccessKeyResponse -> TestTree
 responseUpdateAccessKey =
@@ -2803,7 +2803,7 @@ responseUpdateAccessKey =
     "UpdateAccessKeyResponse"
     "fixture/UpdateAccessKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAccessKey)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccessKey)
 
 responseListUserTags :: ListUserTagsResponse -> TestTree
 responseListUserTags =
@@ -2811,7 +2811,7 @@ responseListUserTags =
     "ListUserTagsResponse"
     "fixture/ListUserTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListUserTags)
+    (Proxy.Proxy :: Proxy.Proxy ListUserTags)
 
 responseListAccessKeys :: ListAccessKeysResponse -> TestTree
 responseListAccessKeys =
@@ -2819,7 +2819,7 @@ responseListAccessKeys =
     "ListAccessKeysResponse"
     "fixture/ListAccessKeysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccessKeys)
+    (Proxy.Proxy :: Proxy.Proxy ListAccessKeys)
 
 responseGetRolePolicy :: GetRolePolicyResponse -> TestTree
 responseGetRolePolicy =
@@ -2827,7 +2827,7 @@ responseGetRolePolicy =
     "GetRolePolicyResponse"
     "fixture/GetRolePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRolePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetRolePolicy)
 
 responseSetSecurityTokenServicePreferences :: SetSecurityTokenServicePreferencesResponse -> TestTree
 responseSetSecurityTokenServicePreferences =
@@ -2835,7 +2835,7 @@ responseSetSecurityTokenServicePreferences =
     "SetSecurityTokenServicePreferencesResponse"
     "fixture/SetSecurityTokenServicePreferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy SetSecurityTokenServicePreferences)
+    (Proxy.Proxy :: Proxy.Proxy SetSecurityTokenServicePreferences)
 
 responseUntagRole :: UntagRoleResponse -> TestTree
 responseUntagRole =
@@ -2843,7 +2843,7 @@ responseUntagRole =
     "UntagRoleResponse"
     "fixture/UntagRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagRole)
+    (Proxy.Proxy :: Proxy.Proxy UntagRole)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
@@ -2851,7 +2851,7 @@ responseCreateUser =
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responsePutRolePolicy :: PutRolePolicyResponse -> TestTree
 responsePutRolePolicy =
@@ -2859,7 +2859,7 @@ responsePutRolePolicy =
     "PutRolePolicyResponse"
     "fixture/PutRolePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRolePolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutRolePolicy)
 
 responseGetContextKeysForCustomPolicy :: GetContextKeysForPolicyResponse -> TestTree
 responseGetContextKeysForCustomPolicy =
@@ -2867,7 +2867,7 @@ responseGetContextKeysForCustomPolicy =
     "GetContextKeysForCustomPolicyResponse"
     "fixture/GetContextKeysForCustomPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContextKeysForCustomPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetContextKeysForCustomPolicy)
 
 responseUploadSigningCertificate :: UploadSigningCertificateResponse -> TestTree
 responseUploadSigningCertificate =
@@ -2875,7 +2875,7 @@ responseUploadSigningCertificate =
     "UploadSigningCertificateResponse"
     "fixture/UploadSigningCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadSigningCertificate)
+    (Proxy.Proxy :: Proxy.Proxy UploadSigningCertificate)
 
 responseDeleteRolePolicy :: DeleteRolePolicyResponse -> TestTree
 responseDeleteRolePolicy =
@@ -2883,7 +2883,7 @@ responseDeleteRolePolicy =
     "DeleteRolePolicyResponse"
     "fixture/DeleteRolePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRolePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRolePolicy)
 
 responseGetAccountPasswordPolicy :: GetAccountPasswordPolicyResponse -> TestTree
 responseGetAccountPasswordPolicy =
@@ -2891,7 +2891,7 @@ responseGetAccountPasswordPolicy =
     "GetAccountPasswordPolicyResponse"
     "fixture/GetAccountPasswordPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccountPasswordPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetAccountPasswordPolicy)
 
 responseGetAccessKeyLastUsed :: GetAccessKeyLastUsedResponse -> TestTree
 responseGetAccessKeyLastUsed =
@@ -2899,7 +2899,7 @@ responseGetAccessKeyLastUsed =
     "GetAccessKeyLastUsedResponse"
     "fixture/GetAccessKeyLastUsedResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccessKeyLastUsed)
+    (Proxy.Proxy :: Proxy.Proxy GetAccessKeyLastUsed)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
@@ -2907,7 +2907,7 @@ responseUpdateUser =
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -2915,7 +2915,7 @@ responseDeleteUser =
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseAddClientIDToOpenIDConnectProvider :: AddClientIDToOpenIDConnectProviderResponse -> TestTree
 responseAddClientIDToOpenIDConnectProvider =
@@ -2923,7 +2923,7 @@ responseAddClientIDToOpenIDConnectProvider =
     "AddClientIDToOpenIDConnectProviderResponse"
     "fixture/AddClientIDToOpenIDConnectProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy AddClientIDToOpenIDConnectProvider)
+    (Proxy.Proxy :: Proxy.Proxy AddClientIDToOpenIDConnectProvider)
 
 responseListRolePolicies :: ListRolePoliciesResponse -> TestTree
 responseListRolePolicies =
@@ -2931,7 +2931,7 @@ responseListRolePolicies =
     "ListRolePoliciesResponse"
     "fixture/ListRolePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRolePolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListRolePolicies)
 
 responseCreateAccountAlias :: CreateAccountAliasResponse -> TestTree
 responseCreateAccountAlias =
@@ -2939,7 +2939,7 @@ responseCreateAccountAlias =
     "CreateAccountAliasResponse"
     "fixture/CreateAccountAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccountAlias)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccountAlias)
 
 responseListPoliciesGrantingServiceAccess :: ListPoliciesGrantingServiceAccessResponse -> TestTree
 responseListPoliciesGrantingServiceAccess =
@@ -2947,7 +2947,7 @@ responseListPoliciesGrantingServiceAccess =
     "ListPoliciesGrantingServiceAccessResponse"
     "fixture/ListPoliciesGrantingServiceAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPoliciesGrantingServiceAccess)
+    (Proxy.Proxy :: Proxy.Proxy ListPoliciesGrantingServiceAccess)
 
 responseListInstanceProfiles :: ListInstanceProfilesResponse -> TestTree
 responseListInstanceProfiles =
@@ -2955,7 +2955,7 @@ responseListInstanceProfiles =
     "ListInstanceProfilesResponse"
     "fixture/ListInstanceProfilesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceProfiles)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceProfiles)
 
 responseEnableMFADevice :: EnableMFADeviceResponse -> TestTree
 responseEnableMFADevice =
@@ -2963,7 +2963,7 @@ responseEnableMFADevice =
     "EnableMFADeviceResponse"
     "fixture/EnableMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy EnableMFADevice)
 
 responseListAccountAliases :: ListAccountAliasesResponse -> TestTree
 responseListAccountAliases =
@@ -2971,7 +2971,7 @@ responseListAccountAliases =
     "ListAccountAliasesResponse"
     "fixture/ListAccountAliasesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccountAliases)
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAliases)
 
 responseDeleteSAMLProvider :: DeleteSAMLProviderResponse -> TestTree
 responseDeleteSAMLProvider =
@@ -2979,7 +2979,7 @@ responseDeleteSAMLProvider =
     "DeleteSAMLProviderResponse"
     "fixture/DeleteSAMLProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSAMLProvider)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSAMLProvider)
 
 responseUpdateSAMLProvider :: UpdateSAMLProviderResponse -> TestTree
 responseUpdateSAMLProvider =
@@ -2987,7 +2987,7 @@ responseUpdateSAMLProvider =
     "UpdateSAMLProviderResponse"
     "fixture/UpdateSAMLProviderResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSAMLProvider)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSAMLProvider)
 
 responseUntagMFADevice :: UntagMFADeviceResponse -> TestTree
 responseUntagMFADevice =
@@ -2995,7 +2995,7 @@ responseUntagMFADevice =
     "UntagMFADeviceResponse"
     "fixture/UntagMFADeviceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagMFADevice)
+    (Proxy.Proxy :: Proxy.Proxy UntagMFADevice)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
@@ -3003,7 +3003,7 @@ responseCreateGroup =
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
 
 responseListMFADevices :: ListMFADevicesResponse -> TestTree
 responseListMFADevices =
@@ -3011,7 +3011,7 @@ responseListMFADevices =
     "ListMFADevicesResponse"
     "fixture/ListMFADevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMFADevices)
+    (Proxy.Proxy :: Proxy.Proxy ListMFADevices)
 
 responseUntagInstanceProfile :: UntagInstanceProfileResponse -> TestTree
 responseUntagInstanceProfile =
@@ -3019,7 +3019,7 @@ responseUntagInstanceProfile =
     "UntagInstanceProfileResponse"
     "fixture/UntagInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy UntagInstanceProfile)
 
 responseUploadServerCertificate :: UploadServerCertificateResponse -> TestTree
 responseUploadServerCertificate =
@@ -3027,7 +3027,7 @@ responseUploadServerCertificate =
     "UploadServerCertificateResponse"
     "fixture/UploadServerCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy UploadServerCertificate)
+    (Proxy.Proxy :: Proxy.Proxy UploadServerCertificate)
 
 responseSetDefaultPolicyVersion :: SetDefaultPolicyVersionResponse -> TestTree
 responseSetDefaultPolicyVersion =
@@ -3035,7 +3035,7 @@ responseSetDefaultPolicyVersion =
     "SetDefaultPolicyVersionResponse"
     "fixture/SetDefaultPolicyVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy SetDefaultPolicyVersion)
+    (Proxy.Proxy :: Proxy.Proxy SetDefaultPolicyVersion)
 
 responseListPolicyVersions :: ListPolicyVersionsResponse -> TestTree
 responseListPolicyVersions =
@@ -3043,7 +3043,7 @@ responseListPolicyVersions =
     "ListPolicyVersionsResponse"
     "fixture/ListPolicyVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPolicyVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListPolicyVersions)
 
 responseUpdateRoleDescription :: UpdateRoleDescriptionResponse -> TestTree
 responseUpdateRoleDescription =
@@ -3051,7 +3051,7 @@ responseUpdateRoleDescription =
     "UpdateRoleDescriptionResponse"
     "fixture/UpdateRoleDescriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoleDescription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoleDescription)
 
 responseListSAMLProviders :: ListSAMLProvidersResponse -> TestTree
 responseListSAMLProviders =
@@ -3059,7 +3059,7 @@ responseListSAMLProviders =
     "ListSAMLProvidersResponse"
     "fixture/ListSAMLProvidersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSAMLProviders)
+    (Proxy.Proxy :: Proxy.Proxy ListSAMLProviders)
 
 responseGetServiceLastAccessedDetails :: GetServiceLastAccessedDetailsResponse -> TestTree
 responseGetServiceLastAccessedDetails =
@@ -3067,7 +3067,7 @@ responseGetServiceLastAccessedDetails =
     "GetServiceLastAccessedDetailsResponse"
     "fixture/GetServiceLastAccessedDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServiceLastAccessedDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetServiceLastAccessedDetails)
 
 responseGetServerCertificate :: GetServerCertificateResponse -> TestTree
 responseGetServerCertificate =
@@ -3075,7 +3075,7 @@ responseGetServerCertificate =
     "GetServerCertificateResponse"
     "fixture/GetServerCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetServerCertificate)
+    (Proxy.Proxy :: Proxy.Proxy GetServerCertificate)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -3083,7 +3083,7 @@ responseDeleteGroup =
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =
@@ -3091,7 +3091,7 @@ responseUpdateGroup =
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -3099,7 +3099,7 @@ responseListGroups =
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
 responseGenerateCredentialReport :: GenerateCredentialReportResponse -> TestTree
 responseGenerateCredentialReport =
@@ -3107,7 +3107,7 @@ responseGenerateCredentialReport =
     "GenerateCredentialReportResponse"
     "fixture/GenerateCredentialReportResponse.proto"
     defaultService
-    (Proxy :: Proxy GenerateCredentialReport)
+    (Proxy.Proxy :: Proxy.Proxy GenerateCredentialReport)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -3115,7 +3115,7 @@ responseGetPolicy =
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
 
 responseListInstanceProfileTags :: ListInstanceProfileTagsResponse -> TestTree
 responseListInstanceProfileTags =
@@ -3123,7 +3123,7 @@ responseListInstanceProfileTags =
     "ListInstanceProfileTagsResponse"
     "fixture/ListInstanceProfileTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceProfileTags)
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceProfileTags)
 
 responseUpdateLoginProfile :: UpdateLoginProfileResponse -> TestTree
 responseUpdateLoginProfile =
@@ -3131,7 +3131,7 @@ responseUpdateLoginProfile =
     "UpdateLoginProfileResponse"
     "fixture/UpdateLoginProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLoginProfile)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoginProfile)
 
 responseDeleteLoginProfile :: DeleteLoginProfileResponse -> TestTree
 responseDeleteLoginProfile =
@@ -3139,7 +3139,7 @@ responseDeleteLoginProfile =
     "DeleteLoginProfileResponse"
     "fixture/DeleteLoginProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLoginProfile)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLoginProfile)
 
 responseListSAMLProviderTags :: ListSAMLProviderTagsResponse -> TestTree
 responseListSAMLProviderTags =
@@ -3147,7 +3147,7 @@ responseListSAMLProviderTags =
     "ListSAMLProviderTagsResponse"
     "fixture/ListSAMLProviderTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSAMLProviderTags)
+    (Proxy.Proxy :: Proxy.Proxy ListSAMLProviderTags)
 
 responseGetGroup :: GetGroupResponse -> TestTree
 responseGetGroup =
@@ -3155,7 +3155,7 @@ responseGetGroup =
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetGroup)
 
 responseUntagPolicy :: UntagPolicyResponse -> TestTree
 responseUntagPolicy =
@@ -3163,7 +3163,7 @@ responseUntagPolicy =
     "UntagPolicyResponse"
     "fixture/UntagPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UntagPolicy)
 
 responseDeleteServerCertificate :: DeleteServerCertificateResponse -> TestTree
 responseDeleteServerCertificate =
@@ -3171,7 +3171,7 @@ responseDeleteServerCertificate =
     "DeleteServerCertificateResponse"
     "fixture/DeleteServerCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteServerCertificate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServerCertificate)
 
 responseUpdateServerCertificate :: UpdateServerCertificateResponse -> TestTree
 responseUpdateServerCertificate =
@@ -3179,7 +3179,7 @@ responseUpdateServerCertificate =
     "UpdateServerCertificateResponse"
     "fixture/UpdateServerCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateServerCertificate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServerCertificate)
 
 responseListAttachedGroupPolicies :: ListAttachedGroupPoliciesResponse -> TestTree
 responseListAttachedGroupPolicies =
@@ -3187,7 +3187,7 @@ responseListAttachedGroupPolicies =
     "ListAttachedGroupPoliciesResponse"
     "fixture/ListAttachedGroupPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttachedGroupPolicies)
+    (Proxy.Proxy :: Proxy.Proxy ListAttachedGroupPolicies)
 
 responseListMFADeviceTags :: ListMFADeviceTagsResponse -> TestTree
 responseListMFADeviceTags =
@@ -3195,4 +3195,4 @@ responseListMFADeviceTags =
     "ListMFADeviceTagsResponse"
     "fixture/ListMFADeviceTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMFADeviceTags)
+    (Proxy.Proxy :: Proxy.Proxy ListMFADeviceTags)

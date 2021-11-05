@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeDeploy where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodeDeploy
 import Test.AWS.CodeDeploy.Internal
 import Test.AWS.Fixture
@@ -559,7 +559,7 @@ responseRemoveTagsFromOnPremisesInstances =
     "RemoveTagsFromOnPremisesInstancesResponse"
     "fixture/RemoveTagsFromOnPremisesInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTagsFromOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromOnPremisesInstances)
 
 responseBatchGetDeploymentGroups :: BatchGetDeploymentGroupsResponse -> TestTree
 responseBatchGetDeploymentGroups =
@@ -567,7 +567,7 @@ responseBatchGetDeploymentGroups =
     "BatchGetDeploymentGroupsResponse"
     "fixture/BatchGetDeploymentGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetDeploymentGroups)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDeploymentGroups)
 
 responseDeleteDeploymentGroup :: DeleteDeploymentGroupResponse -> TestTree
 responseDeleteDeploymentGroup =
@@ -575,7 +575,7 @@ responseDeleteDeploymentGroup =
     "DeleteDeploymentGroupResponse"
     "fixture/DeleteDeploymentGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeploymentGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentGroup)
 
 responseUpdateDeploymentGroup :: UpdateDeploymentGroupResponse -> TestTree
 responseUpdateDeploymentGroup =
@@ -583,7 +583,7 @@ responseUpdateDeploymentGroup =
     "UpdateDeploymentGroupResponse"
     "fixture/UpdateDeploymentGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDeploymentGroup)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeploymentGroup)
 
 responseListOnPremisesInstances :: ListOnPremisesInstancesResponse -> TestTree
 responseListOnPremisesInstances =
@@ -591,7 +591,7 @@ responseListOnPremisesInstances =
     "ListOnPremisesInstancesResponse"
     "fixture/ListOnPremisesInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListOnPremisesInstances)
 
 responseCreateDeploymentConfig :: CreateDeploymentConfigResponse -> TestTree
 responseCreateDeploymentConfig =
@@ -599,7 +599,7 @@ responseCreateDeploymentConfig =
     "CreateDeploymentConfigResponse"
     "fixture/CreateDeploymentConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeploymentConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentConfig)
 
 responseGetApplicationRevision :: GetApplicationRevisionResponse -> TestTree
 responseGetApplicationRevision =
@@ -607,7 +607,7 @@ responseGetApplicationRevision =
     "GetApplicationRevisionResponse"
     "fixture/GetApplicationRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplicationRevision)
+    (Proxy.Proxy :: Proxy.Proxy GetApplicationRevision)
 
 responseGetDeployment :: GetDeploymentResponse -> TestTree
 responseGetDeployment =
@@ -615,7 +615,7 @@ responseGetDeployment =
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeployment)
+    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
 
 responseDeleteDeploymentConfig :: DeleteDeploymentConfigResponse -> TestTree
 responseDeleteDeploymentConfig =
@@ -623,7 +623,7 @@ responseDeleteDeploymentConfig =
     "DeleteDeploymentConfigResponse"
     "fixture/DeleteDeploymentConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDeploymentConfig)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentConfig)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -631,7 +631,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseGetDeploymentConfig :: GetDeploymentConfigResponse -> TestTree
 responseGetDeploymentConfig =
@@ -639,7 +639,7 @@ responseGetDeploymentConfig =
     "GetDeploymentConfigResponse"
     "fixture/GetDeploymentConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeploymentConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetDeploymentConfig)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
 responseCreateDeployment =
@@ -647,7 +647,7 @@ responseCreateDeployment =
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeployment)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseBatchGetApplicationRevisions :: BatchGetApplicationRevisionsResponse -> TestTree
 responseBatchGetApplicationRevisions =
@@ -655,7 +655,7 @@ responseBatchGetApplicationRevisions =
     "BatchGetApplicationRevisionsResponse"
     "fixture/BatchGetApplicationRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetApplicationRevisions)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetApplicationRevisions)
 
 responseBatchGetDeployments :: BatchGetDeploymentsResponse -> TestTree
 responseBatchGetDeployments =
@@ -663,7 +663,7 @@ responseBatchGetDeployments =
     "BatchGetDeploymentsResponse"
     "fixture/BatchGetDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetDeployments)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDeployments)
 
 responseGetOnPremisesInstance :: GetOnPremisesInstanceResponse -> TestTree
 responseGetOnPremisesInstance =
@@ -671,7 +671,7 @@ responseGetOnPremisesInstance =
     "GetOnPremisesInstanceResponse"
     "fixture/GetOnPremisesInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetOnPremisesInstance)
+    (Proxy.Proxy :: Proxy.Proxy GetOnPremisesInstance)
 
 responseRegisterApplicationRevision :: RegisterApplicationRevisionResponse -> TestTree
 responseRegisterApplicationRevision =
@@ -679,7 +679,7 @@ responseRegisterApplicationRevision =
     "RegisterApplicationRevisionResponse"
     "fixture/RegisterApplicationRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterApplicationRevision)
+    (Proxy.Proxy :: Proxy.Proxy RegisterApplicationRevision)
 
 responseContinueDeployment :: ContinueDeploymentResponse -> TestTree
 responseContinueDeployment =
@@ -687,7 +687,7 @@ responseContinueDeployment =
     "ContinueDeploymentResponse"
     "fixture/ContinueDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy ContinueDeployment)
+    (Proxy.Proxy :: Proxy.Proxy ContinueDeployment)
 
 responseBatchGetApplications :: BatchGetApplicationsResponse -> TestTree
 responseBatchGetApplications =
@@ -695,7 +695,7 @@ responseBatchGetApplications =
     "BatchGetApplicationsResponse"
     "fixture/BatchGetApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetApplications)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetApplications)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -703,7 +703,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -711,7 +711,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseDeleteGitHubAccountToken :: DeleteGitHubAccountTokenResponse -> TestTree
 responseDeleteGitHubAccountToken =
@@ -719,7 +719,7 @@ responseDeleteGitHubAccountToken =
     "DeleteGitHubAccountTokenResponse"
     "fixture/DeleteGitHubAccountTokenResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteGitHubAccountToken)
+    (Proxy.Proxy :: Proxy.Proxy DeleteGitHubAccountToken)
 
 responseDeregisterOnPremisesInstance :: DeregisterOnPremisesInstanceResponse -> TestTree
 responseDeregisterOnPremisesInstance =
@@ -727,7 +727,7 @@ responseDeregisterOnPremisesInstance =
     "DeregisterOnPremisesInstanceResponse"
     "fixture/DeregisterOnPremisesInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterOnPremisesInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterOnPremisesInstance)
 
 responsePutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatusResponse -> TestTree
 responsePutLifecycleEventHookExecutionStatus =
@@ -735,7 +735,7 @@ responsePutLifecycleEventHookExecutionStatus =
     "PutLifecycleEventHookExecutionStatusResponse"
     "fixture/PutLifecycleEventHookExecutionStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLifecycleEventHookExecutionStatus)
+    (Proxy.Proxy :: Proxy.Proxy PutLifecycleEventHookExecutionStatus)
 
 responseGetDeploymentTarget :: GetDeploymentTargetResponse -> TestTree
 responseGetDeploymentTarget =
@@ -743,7 +743,7 @@ responseGetDeploymentTarget =
     "GetDeploymentTargetResponse"
     "fixture/GetDeploymentTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeploymentTarget)
+    (Proxy.Proxy :: Proxy.Proxy GetDeploymentTarget)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -751,7 +751,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseBatchGetDeploymentTargets :: BatchGetDeploymentTargetsResponse -> TestTree
 responseBatchGetDeploymentTargets =
@@ -759,7 +759,7 @@ responseBatchGetDeploymentTargets =
     "BatchGetDeploymentTargetsResponse"
     "fixture/BatchGetDeploymentTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetDeploymentTargets)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDeploymentTargets)
 
 responseStopDeployment :: StopDeploymentResponse -> TestTree
 responseStopDeployment =
@@ -767,7 +767,7 @@ responseStopDeployment =
     "StopDeploymentResponse"
     "fixture/StopDeploymentResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDeployment)
+    (Proxy.Proxy :: Proxy.Proxy StopDeployment)
 
 responseListGitHubAccountTokenNames :: ListGitHubAccountTokenNamesResponse -> TestTree
 responseListGitHubAccountTokenNames =
@@ -775,7 +775,7 @@ responseListGitHubAccountTokenNames =
     "ListGitHubAccountTokenNamesResponse"
     "fixture/ListGitHubAccountTokenNamesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListGitHubAccountTokenNames)
+    (Proxy.Proxy :: Proxy.Proxy ListGitHubAccountTokenNames)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
 responseGetApplication =
@@ -783,7 +783,7 @@ responseGetApplication =
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplication)
+    (Proxy.Proxy :: Proxy.Proxy GetApplication)
 
 responseListDeploymentGroups :: ListDeploymentGroupsResponse -> TestTree
 responseListDeploymentGroups =
@@ -791,7 +791,7 @@ responseListDeploymentGroups =
     "ListDeploymentGroupsResponse"
     "fixture/ListDeploymentGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeploymentGroups)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentGroups)
 
 responseBatchGetOnPremisesInstances :: BatchGetOnPremisesInstancesResponse -> TestTree
 responseBatchGetOnPremisesInstances =
@@ -799,7 +799,7 @@ responseBatchGetOnPremisesInstances =
     "BatchGetOnPremisesInstancesResponse"
     "fixture/BatchGetOnPremisesInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetOnPremisesInstances)
 
 responseRegisterOnPremisesInstance :: RegisterOnPremisesInstanceResponse -> TestTree
 responseRegisterOnPremisesInstance =
@@ -807,7 +807,7 @@ responseRegisterOnPremisesInstance =
     "RegisterOnPremisesInstanceResponse"
     "fixture/RegisterOnPremisesInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterOnPremisesInstance)
+    (Proxy.Proxy :: Proxy.Proxy RegisterOnPremisesInstance)
 
 responseCreateDeploymentGroup :: CreateDeploymentGroupResponse -> TestTree
 responseCreateDeploymentGroup =
@@ -815,7 +815,7 @@ responseCreateDeploymentGroup =
     "CreateDeploymentGroupResponse"
     "fixture/CreateDeploymentGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeploymentGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentGroup)
 
 responseListDeploymentConfigs :: ListDeploymentConfigsResponse -> TestTree
 responseListDeploymentConfigs =
@@ -823,7 +823,7 @@ responseListDeploymentConfigs =
     "ListDeploymentConfigsResponse"
     "fixture/ListDeploymentConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeploymentConfigs)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentConfigs)
 
 responseGetDeploymentGroup :: GetDeploymentGroupResponse -> TestTree
 responseGetDeploymentGroup =
@@ -831,7 +831,7 @@ responseGetDeploymentGroup =
     "GetDeploymentGroupResponse"
     "fixture/GetDeploymentGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDeploymentGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetDeploymentGroup)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
 responseListDeployments =
@@ -839,7 +839,7 @@ responseListDeployments =
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -847,7 +847,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListApplicationRevisions :: ListApplicationRevisionsResponse -> TestTree
 responseListApplicationRevisions =
@@ -855,7 +855,7 @@ responseListApplicationRevisions =
     "ListApplicationRevisionsResponse"
     "fixture/ListApplicationRevisionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplicationRevisions)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationRevisions)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -863,7 +863,7 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -871,7 +871,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteResourcesByExternalId :: DeleteResourcesByExternalIdResponse -> TestTree
 responseDeleteResourcesByExternalId =
@@ -879,7 +879,7 @@ responseDeleteResourcesByExternalId =
     "DeleteResourcesByExternalIdResponse"
     "fixture/DeleteResourcesByExternalIdResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteResourcesByExternalId)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcesByExternalId)
 
 responseAddTagsToOnPremisesInstances :: AddTagsToOnPremisesInstancesResponse -> TestTree
 responseAddTagsToOnPremisesInstances =
@@ -887,7 +887,7 @@ responseAddTagsToOnPremisesInstances =
     "AddTagsToOnPremisesInstancesResponse"
     "fixture/AddTagsToOnPremisesInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTagsToOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToOnPremisesInstances)
 
 responseListDeploymentTargets :: ListDeploymentTargetsResponse -> TestTree
 responseListDeploymentTargets =
@@ -895,4 +895,4 @@ responseListDeploymentTargets =
     "ListDeploymentTargetsResponse"
     "fixture/ListDeploymentTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeploymentTargets)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentTargets)

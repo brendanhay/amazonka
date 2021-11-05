@@ -1,0 +1,115 @@
+cabal-version:      2.2
+name:               amazonka-service-quotas
+version:            2.0
+synopsis:           Amazon Quotas SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-06-24@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ServiceQuotas.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ServiceQuotas" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-service-quotas
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.ServiceQuotas
+    Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate
+    Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+    Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate
+    Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate
+    Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota
+    Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange
+    Network.AWS.ServiceQuotas.GetServiceQuota
+    Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
+    Network.AWS.ServiceQuotas.Lens
+    Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas
+    Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
+    Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
+    Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
+    Network.AWS.ServiceQuotas.ListServiceQuotas
+    Network.AWS.ServiceQuotas.ListServices
+    Network.AWS.ServiceQuotas.ListTagsForResource
+    Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
+    Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease
+    Network.AWS.ServiceQuotas.TagResource
+    Network.AWS.ServiceQuotas.Types
+    Network.AWS.ServiceQuotas.Types.ErrorCode
+    Network.AWS.ServiceQuotas.Types.ErrorReason
+    Network.AWS.ServiceQuotas.Types.MetricInfo
+    Network.AWS.ServiceQuotas.Types.PeriodUnit
+    Network.AWS.ServiceQuotas.Types.QuotaPeriod
+    Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange
+    Network.AWS.ServiceQuotas.Types.RequestStatus
+    Network.AWS.ServiceQuotas.Types.ServiceInfo
+    Network.AWS.ServiceQuotas.Types.ServiceQuota
+    Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
+    Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
+    Network.AWS.ServiceQuotas.Types.Tag
+    Network.AWS.ServiceQuotas.UntagResource
+    Network.AWS.ServiceQuotas.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-service-quotas-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.ServiceQuotas
+    Test.AWS.ServiceQuotas
+    Test.AWS.ServiceQuotas.Internal
+
+  build-depends:
+    , amazonka                 ^>=2.0
+    , amazonka-service-quotas
+    , amazonka-test            ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

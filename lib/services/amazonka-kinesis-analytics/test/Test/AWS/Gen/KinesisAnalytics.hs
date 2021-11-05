@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KinesisAnalytics where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.KinesisAnalytics
 import Test.AWS.Fixture
 import Test.AWS.KinesisAnalytics.Internal
@@ -283,7 +283,7 @@ responseAddApplicationOutput =
     "AddApplicationOutputResponse"
     "fixture/AddApplicationOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationOutput)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationOutput)
 
 responseDiscoverInputSchema :: DiscoverInputSchemaResponse -> TestTree
 responseDiscoverInputSchema =
@@ -291,7 +291,7 @@ responseDiscoverInputSchema =
     "DiscoverInputSchemaResponse"
     "fixture/DiscoverInputSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy DiscoverInputSchema)
+    (Proxy.Proxy :: Proxy.Proxy DiscoverInputSchema)
 
 responseDescribeApplication :: DescribeApplicationResponse -> TestTree
 responseDescribeApplication =
@@ -299,7 +299,7 @@ responseDescribeApplication =
     "DescribeApplicationResponse"
     "fixture/DescribeApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
 
 responseStartApplication :: StartApplicationResponse -> TestTree
 responseStartApplication =
@@ -307,7 +307,7 @@ responseStartApplication =
     "StartApplicationResponse"
     "fixture/StartApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartApplication)
+    (Proxy.Proxy :: Proxy.Proxy StartApplication)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -315,7 +315,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSourceResponse -> TestTree
 responseDeleteApplicationReferenceDataSource =
@@ -323,7 +323,7 @@ responseDeleteApplicationReferenceDataSource =
     "DeleteApplicationReferenceDataSourceResponse"
     "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationReferenceDataSource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationReferenceDataSource)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -331,7 +331,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -339,7 +339,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
 responseDeleteApplicationCloudWatchLoggingOption =
@@ -347,7 +347,7 @@ responseDeleteApplicationCloudWatchLoggingOption =
     "DeleteApplicationCloudWatchLoggingOptionResponse"
     "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationCloudWatchLoggingOption)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationCloudWatchLoggingOption)
 
 responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
 responseAddApplicationInputProcessingConfiguration =
@@ -355,7 +355,7 @@ responseAddApplicationInputProcessingConfiguration =
     "AddApplicationInputProcessingConfigurationResponse"
     "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationInputProcessingConfiguration)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -363,7 +363,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseDeleteApplicationOutput :: DeleteApplicationOutputResponse -> TestTree
 responseDeleteApplicationOutput =
@@ -371,7 +371,7 @@ responseDeleteApplicationOutput =
     "DeleteApplicationOutputResponse"
     "fixture/DeleteApplicationOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationOutput)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationOutput)
 
 responseStopApplication :: StopApplicationResponse -> TestTree
 responseStopApplication =
@@ -379,7 +379,7 @@ responseStopApplication =
     "StopApplicationResponse"
     "fixture/StopApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopApplication)
+    (Proxy.Proxy :: Proxy.Proxy StopApplication)
 
 responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
 responseAddApplicationReferenceDataSource =
@@ -387,7 +387,7 @@ responseAddApplicationReferenceDataSource =
     "AddApplicationReferenceDataSourceResponse"
     "fixture/AddApplicationReferenceDataSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationReferenceDataSource)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationReferenceDataSource)
 
 responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
 responseAddApplicationInput =
@@ -395,7 +395,7 @@ responseAddApplicationInput =
     "AddApplicationInputResponse"
     "fixture/AddApplicationInputResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationInput)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationInput)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -403,7 +403,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOptionResponse -> TestTree
 responseAddApplicationCloudWatchLoggingOption =
@@ -411,7 +411,7 @@ responseAddApplicationCloudWatchLoggingOption =
     "AddApplicationCloudWatchLoggingOptionResponse"
     "fixture/AddApplicationCloudWatchLoggingOptionResponse.proto"
     defaultService
-    (Proxy :: Proxy AddApplicationCloudWatchLoggingOption)
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationCloudWatchLoggingOption)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -419,7 +419,7 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -427,7 +427,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
 responseDeleteApplicationInputProcessingConfiguration =
@@ -435,4 +435,4 @@ responseDeleteApplicationInputProcessingConfiguration =
     "DeleteApplicationInputProcessingConfigurationResponse"
     "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplicationInputProcessingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationInputProcessingConfiguration)

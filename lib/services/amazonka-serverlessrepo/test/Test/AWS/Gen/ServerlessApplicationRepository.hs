@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServerlessApplicationRepository where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.ServerlessApplicationRepository
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -211,7 +211,7 @@ responseGetApplicationPolicy =
     "GetApplicationPolicyResponse"
     "fixture/GetApplicationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplicationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetApplicationPolicy)
 
 responseCreateApplicationVersion :: CreateApplicationVersionResponse -> TestTree
 responseCreateApplicationVersion =
@@ -219,7 +219,7 @@ responseCreateApplicationVersion =
     "CreateApplicationVersionResponse"
     "fixture/CreateApplicationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplicationVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplicationVersion)
 
 responseUnshareApplication :: UnshareApplicationResponse -> TestTree
 responseUnshareApplication =
@@ -227,7 +227,7 @@ responseUnshareApplication =
     "UnshareApplicationResponse"
     "fixture/UnshareApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UnshareApplication)
+    (Proxy.Proxy :: Proxy.Proxy UnshareApplication)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication =
@@ -235,7 +235,7 @@ responseDeleteApplication =
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
 responseUpdateApplication =
@@ -243,7 +243,7 @@ responseUpdateApplication =
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseCreateCloudFormationTemplate :: CreateCloudFormationTemplateResponse -> TestTree
 responseCreateCloudFormationTemplate =
@@ -251,7 +251,7 @@ responseCreateCloudFormationTemplate =
     "CreateCloudFormationTemplateResponse"
     "fixture/CreateCloudFormationTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCloudFormationTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateCloudFormationTemplate)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -259,7 +259,7 @@ responseCreateApplication =
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseListApplicationDependencies :: ListApplicationDependenciesResponse -> TestTree
 responseListApplicationDependencies =
@@ -267,7 +267,7 @@ responseListApplicationDependencies =
     "ListApplicationDependenciesResponse"
     "fixture/ListApplicationDependenciesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplicationDependencies)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationDependencies)
 
 responseListApplicationVersions :: ListApplicationVersionsResponse -> TestTree
 responseListApplicationVersions =
@@ -275,7 +275,7 @@ responseListApplicationVersions =
     "ListApplicationVersionsResponse"
     "fixture/ListApplicationVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplicationVersions)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationVersions)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
 responseGetApplication =
@@ -283,7 +283,7 @@ responseGetApplication =
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetApplication)
+    (Proxy.Proxy :: Proxy.Proxy GetApplication)
 
 responseGetCloudFormationTemplate :: GetCloudFormationTemplateResponse -> TestTree
 responseGetCloudFormationTemplate =
@@ -291,7 +291,7 @@ responseGetCloudFormationTemplate =
     "GetCloudFormationTemplateResponse"
     "fixture/GetCloudFormationTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCloudFormationTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetCloudFormationTemplate)
 
 responseCreateCloudFormationChangeSet :: CreateCloudFormationChangeSetResponse -> TestTree
 responseCreateCloudFormationChangeSet =
@@ -299,7 +299,7 @@ responseCreateCloudFormationChangeSet =
     "CreateCloudFormationChangeSetResponse"
     "fixture/CreateCloudFormationChangeSetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCloudFormationChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateCloudFormationChangeSet)
 
 responsePutApplicationPolicy :: PutApplicationPolicyResponse -> TestTree
 responsePutApplicationPolicy =
@@ -307,7 +307,7 @@ responsePutApplicationPolicy =
     "PutApplicationPolicyResponse"
     "fixture/PutApplicationPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy PutApplicationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy PutApplicationPolicy)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -315,4 +315,4 @@ responseListApplications =
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)

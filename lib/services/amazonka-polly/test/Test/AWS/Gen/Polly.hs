@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Polly where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Polly
 import Test.AWS.Fixture
 import Test.AWS.Polly.Internal
@@ -151,7 +151,7 @@ responseGetLexicon =
     "GetLexiconResponse"
     "fixture/GetLexiconResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLexicon)
+    (Proxy.Proxy :: Proxy.Proxy GetLexicon)
 
 responseGetSpeechSynthesisTask :: GetSpeechSynthesisTaskResponse -> TestTree
 responseGetSpeechSynthesisTask =
@@ -159,7 +159,7 @@ responseGetSpeechSynthesisTask =
     "GetSpeechSynthesisTaskResponse"
     "fixture/GetSpeechSynthesisTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSpeechSynthesisTask)
+    (Proxy.Proxy :: Proxy.Proxy GetSpeechSynthesisTask)
 
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
 responseDescribeVoices =
@@ -167,7 +167,7 @@ responseDescribeVoices =
     "DescribeVoicesResponse"
     "fixture/DescribeVoicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVoices)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVoices)
 
 responseListLexicons :: ListLexiconsResponse -> TestTree
 responseListLexicons =
@@ -175,7 +175,7 @@ responseListLexicons =
     "ListLexiconsResponse"
     "fixture/ListLexiconsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLexicons)
+    (Proxy.Proxy :: Proxy.Proxy ListLexicons)
 
 responseListSpeechSynthesisTasks :: ListSpeechSynthesisTasksResponse -> TestTree
 responseListSpeechSynthesisTasks =
@@ -183,7 +183,7 @@ responseListSpeechSynthesisTasks =
     "ListSpeechSynthesisTasksResponse"
     "fixture/ListSpeechSynthesisTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSpeechSynthesisTasks)
+    (Proxy.Proxy :: Proxy.Proxy ListSpeechSynthesisTasks)
 
 responsePutLexicon :: PutLexiconResponse -> TestTree
 responsePutLexicon =
@@ -191,7 +191,7 @@ responsePutLexicon =
     "PutLexiconResponse"
     "fixture/PutLexiconResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLexicon)
+    (Proxy.Proxy :: Proxy.Proxy PutLexicon)
 
 responseDeleteLexicon :: DeleteLexiconResponse -> TestTree
 responseDeleteLexicon =
@@ -199,7 +199,7 @@ responseDeleteLexicon =
     "DeleteLexiconResponse"
     "fixture/DeleteLexiconResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLexicon)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLexicon)
 
 responseStartSpeechSynthesisTask :: StartSpeechSynthesisTaskResponse -> TestTree
 responseStartSpeechSynthesisTask =
@@ -207,4 +207,4 @@ responseStartSpeechSynthesisTask =
     "StartSpeechSynthesisTaskResponse"
     "fixture/StartSpeechSynthesisTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSpeechSynthesisTask)
+    (Proxy.Proxy :: Proxy.Proxy StartSpeechSynthesisTask)

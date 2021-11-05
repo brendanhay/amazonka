@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.StepFunctions where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.StepFunctions
 import Test.AWS.Fixture
 import Test.AWS.Prelude
@@ -319,7 +319,7 @@ responseDeleteActivity =
     "DeleteActivityResponse"
     "fixture/DeleteActivityResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteActivity)
+    (Proxy.Proxy :: Proxy.Proxy DeleteActivity)
 
 responseDescribeStateMachine :: DescribeStateMachineResponse -> TestTree
 responseDescribeStateMachine =
@@ -327,7 +327,7 @@ responseDescribeStateMachine =
     "DescribeStateMachineResponse"
     "fixture/DescribeStateMachineResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStateMachine)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStateMachine)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -335,7 +335,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStopExecution :: StopExecutionResponse -> TestTree
 responseStopExecution =
@@ -343,7 +343,7 @@ responseStopExecution =
     "StopExecutionResponse"
     "fixture/StopExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopExecution)
+    (Proxy.Proxy :: Proxy.Proxy StopExecution)
 
 responseDescribeActivity :: DescribeActivityResponse -> TestTree
 responseDescribeActivity =
@@ -351,7 +351,7 @@ responseDescribeActivity =
     "DescribeActivityResponse"
     "fixture/DescribeActivityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeActivity)
+    (Proxy.Proxy :: Proxy.Proxy DescribeActivity)
 
 responseListStateMachines :: ListStateMachinesResponse -> TestTree
 responseListStateMachines =
@@ -359,7 +359,7 @@ responseListStateMachines =
     "ListStateMachinesResponse"
     "fixture/ListStateMachinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStateMachines)
+    (Proxy.Proxy :: Proxy.Proxy ListStateMachines)
 
 responseListExecutions :: ListExecutionsResponse -> TestTree
 responseListExecutions =
@@ -367,7 +367,7 @@ responseListExecutions =
     "ListExecutionsResponse"
     "fixture/ListExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListExecutions)
 
 responseDeleteStateMachine :: DeleteStateMachineResponse -> TestTree
 responseDeleteStateMachine =
@@ -375,7 +375,7 @@ responseDeleteStateMachine =
     "DeleteStateMachineResponse"
     "fixture/DeleteStateMachineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteStateMachine)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStateMachine)
 
 responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
 responseUpdateStateMachine =
@@ -383,7 +383,7 @@ responseUpdateStateMachine =
     "UpdateStateMachineResponse"
     "fixture/UpdateStateMachineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStateMachine)
+    (Proxy.Proxy :: Proxy.Proxy UpdateStateMachine)
 
 responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
 responseDescribeStateMachineForExecution =
@@ -391,7 +391,7 @@ responseDescribeStateMachineForExecution =
     "DescribeStateMachineForExecutionResponse"
     "fixture/DescribeStateMachineForExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStateMachineForExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStateMachineForExecution)
 
 responseGetActivityTask :: GetActivityTaskResponse -> TestTree
 responseGetActivityTask =
@@ -399,7 +399,7 @@ responseGetActivityTask =
     "GetActivityTaskResponse"
     "fixture/GetActivityTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy GetActivityTask)
+    (Proxy.Proxy :: Proxy.Proxy GetActivityTask)
 
 responseCreateActivity :: CreateActivityResponse -> TestTree
 responseCreateActivity =
@@ -407,7 +407,7 @@ responseCreateActivity =
     "CreateActivityResponse"
     "fixture/CreateActivityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateActivity)
+    (Proxy.Proxy :: Proxy.Proxy CreateActivity)
 
 responseListActivities :: ListActivitiesResponse -> TestTree
 responseListActivities =
@@ -415,7 +415,7 @@ responseListActivities =
     "ListActivitiesResponse"
     "fixture/ListActivitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActivities)
+    (Proxy.Proxy :: Proxy.Proxy ListActivities)
 
 responseSendTaskHeartbeat :: SendTaskHeartbeatResponse -> TestTree
 responseSendTaskHeartbeat =
@@ -423,7 +423,7 @@ responseSendTaskHeartbeat =
     "SendTaskHeartbeatResponse"
     "fixture/SendTaskHeartbeatResponse.proto"
     defaultService
-    (Proxy :: Proxy SendTaskHeartbeat)
+    (Proxy.Proxy :: Proxy.Proxy SendTaskHeartbeat)
 
 responseSendTaskFailure :: SendTaskFailureResponse -> TestTree
 responseSendTaskFailure =
@@ -431,7 +431,7 @@ responseSendTaskFailure =
     "SendTaskFailureResponse"
     "fixture/SendTaskFailureResponse.proto"
     defaultService
-    (Proxy :: Proxy SendTaskFailure)
+    (Proxy.Proxy :: Proxy.Proxy SendTaskFailure)
 
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
 responseDescribeExecution =
@@ -439,7 +439,7 @@ responseDescribeExecution =
     "DescribeExecutionResponse"
     "fixture/DescribeExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
 
 responseSendTaskSuccess :: SendTaskSuccessResponse -> TestTree
 responseSendTaskSuccess =
@@ -447,7 +447,7 @@ responseSendTaskSuccess =
     "SendTaskSuccessResponse"
     "fixture/SendTaskSuccessResponse.proto"
     defaultService
-    (Proxy :: Proxy SendTaskSuccess)
+    (Proxy.Proxy :: Proxy.Proxy SendTaskSuccess)
 
 responseStartExecution :: StartExecutionResponse -> TestTree
 responseStartExecution =
@@ -455,7 +455,7 @@ responseStartExecution =
     "StartExecutionResponse"
     "fixture/StartExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartExecution)
 
 responseStartSyncExecution :: StartSyncExecutionResponse -> TestTree
 responseStartSyncExecution =
@@ -463,7 +463,7 @@ responseStartSyncExecution =
     "StartSyncExecutionResponse"
     "fixture/StartSyncExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSyncExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartSyncExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -471,7 +471,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -479,7 +479,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseGetExecutionHistory :: GetExecutionHistoryResponse -> TestTree
 responseGetExecutionHistory =
@@ -487,7 +487,7 @@ responseGetExecutionHistory =
     "GetExecutionHistoryResponse"
     "fixture/GetExecutionHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy GetExecutionHistory)
+    (Proxy.Proxy :: Proxy.Proxy GetExecutionHistory)
 
 responseCreateStateMachine :: CreateStateMachineResponse -> TestTree
 responseCreateStateMachine =
@@ -495,4 +495,4 @@ responseCreateStateMachine =
     "CreateStateMachineResponse"
     "fixture/CreateStateMachineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStateMachine)
+    (Proxy.Proxy :: Proxy.Proxy CreateStateMachine)

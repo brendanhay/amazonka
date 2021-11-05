@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EC2 where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.EC2
 import Test.AWS.EC2.Internal
 import Test.AWS.Fixture
@@ -5695,7 +5695,7 @@ responseModifyCapacityReservation =
     "ModifyCapacityReservationResponse"
     "fixture/ModifyCapacityReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCapacityReservation)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCapacityReservation)
 
 responseGetAssociatedIpv6PoolCidrs :: GetAssociatedIpv6PoolCidrsResponse -> TestTree
 responseGetAssociatedIpv6PoolCidrs =
@@ -5703,7 +5703,7 @@ responseGetAssociatedIpv6PoolCidrs =
     "GetAssociatedIpv6PoolCidrsResponse"
     "fixture/GetAssociatedIpv6PoolCidrsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssociatedIpv6PoolCidrs)
+    (Proxy.Proxy :: Proxy.Proxy GetAssociatedIpv6PoolCidrs)
 
 responseImportInstance :: ImportInstanceResponse -> TestTree
 responseImportInstance =
@@ -5711,7 +5711,7 @@ responseImportInstance =
     "ImportInstanceResponse"
     "fixture/ImportInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportInstance)
+    (Proxy.Proxy :: Proxy.Proxy ImportInstance)
 
 responseDescribeCapacityReservationFleets :: DescribeCapacityReservationFleetsResponse -> TestTree
 responseDescribeCapacityReservationFleets =
@@ -5719,7 +5719,7 @@ responseDescribeCapacityReservationFleets =
     "DescribeCapacityReservationFleetsResponse"
     "fixture/DescribeCapacityReservationFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCapacityReservationFleets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCapacityReservationFleets)
 
 responseModifySecurityGroupRules :: ModifySecurityGroupRulesResponse -> TestTree
 responseModifySecurityGroupRules =
@@ -5727,7 +5727,7 @@ responseModifySecurityGroupRules =
     "ModifySecurityGroupRulesResponse"
     "fixture/ModifySecurityGroupRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySecurityGroupRules)
+    (Proxy.Proxy :: Proxy.Proxy ModifySecurityGroupRules)
 
 responseRevokeSecurityGroupEgress :: RevokeSecurityGroupEgressResponse -> TestTree
 responseRevokeSecurityGroupEgress =
@@ -5735,7 +5735,7 @@ responseRevokeSecurityGroupEgress =
     "RevokeSecurityGroupEgressResponse"
     "fixture/RevokeSecurityGroupEgressResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeSecurityGroupEgress)
+    (Proxy.Proxy :: Proxy.Proxy RevokeSecurityGroupEgress)
 
 responseCreateNetworkInterfacePermission :: CreateNetworkInterfacePermissionResponse -> TestTree
 responseCreateNetworkInterfacePermission =
@@ -5743,7 +5743,7 @@ responseCreateNetworkInterfacePermission =
     "CreateNetworkInterfacePermissionResponse"
     "fixture/CreateNetworkInterfacePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkInterfacePermission)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkInterfacePermission)
 
 responseSendDiagnosticInterrupt :: SendDiagnosticInterruptResponse -> TestTree
 responseSendDiagnosticInterrupt =
@@ -5751,7 +5751,7 @@ responseSendDiagnosticInterrupt =
     "SendDiagnosticInterruptResponse"
     "fixture/SendDiagnosticInterruptResponse.proto"
     defaultService
-    (Proxy :: Proxy SendDiagnosticInterrupt)
+    (Proxy.Proxy :: Proxy.Proxy SendDiagnosticInterrupt)
 
 responseDeleteLaunchTemplate :: DeleteLaunchTemplateResponse -> TestTree
 responseDeleteLaunchTemplate =
@@ -5759,7 +5759,7 @@ responseDeleteLaunchTemplate =
     "DeleteLaunchTemplateResponse"
     "fixture/DeleteLaunchTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLaunchTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchTemplate)
 
 responseRejectVpcEndpointConnections :: RejectVpcEndpointConnectionsResponse -> TestTree
 responseRejectVpcEndpointConnections =
@@ -5767,7 +5767,7 @@ responseRejectVpcEndpointConnections =
     "RejectVpcEndpointConnectionsResponse"
     "fixture/RejectVpcEndpointConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectVpcEndpointConnections)
+    (Proxy.Proxy :: Proxy.Proxy RejectVpcEndpointConnections)
 
 responseCreateVpnGateway :: CreateVpnGatewayResponse -> TestTree
 responseCreateVpnGateway =
@@ -5775,7 +5775,7 @@ responseCreateVpnGateway =
     "CreateVpnGatewayResponse"
     "fixture/CreateVpnGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpnGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpnGateway)
 
 responseCreateNetworkAcl :: CreateNetworkAclResponse -> TestTree
 responseCreateNetworkAcl =
@@ -5783,7 +5783,7 @@ responseCreateNetworkAcl =
     "CreateNetworkAclResponse"
     "fixture/CreateNetworkAclResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkAcl)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkAcl)
 
 responseDeleteKeyPair :: DeleteKeyPairResponse -> TestTree
 responseDeleteKeyPair =
@@ -5791,7 +5791,7 @@ responseDeleteKeyPair =
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy DeleteKeyPair)
 
 responseDescribeSecurityGroupReferences :: DescribeSecurityGroupReferencesResponse -> TestTree
 responseDescribeSecurityGroupReferences =
@@ -5799,7 +5799,7 @@ responseDescribeSecurityGroupReferences =
     "DescribeSecurityGroupReferencesResponse"
     "fixture/DescribeSecurityGroupReferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecurityGroupReferences)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityGroupReferences)
 
 responseDeleteFleets :: DeleteFleetsResponse -> TestTree
 responseDeleteFleets =
@@ -5807,7 +5807,7 @@ responseDeleteFleets =
     "DeleteFleetsResponse"
     "fixture/DeleteFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFleets)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleets)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -5815,7 +5815,7 @@ responseDescribeTags =
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTags)
 
 responseCreateTransitGatewayRouteTable :: CreateTransitGatewayRouteTableResponse -> TestTree
 responseCreateTransitGatewayRouteTable =
@@ -5823,7 +5823,7 @@ responseCreateTransitGatewayRouteTable =
     "CreateTransitGatewayRouteTableResponse"
     "fixture/CreateTransitGatewayRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayRouteTable)
 
 responseModifyInstanceMetadataOptions :: ModifyInstanceMetadataOptionsResponse -> TestTree
 responseModifyInstanceMetadataOptions =
@@ -5831,7 +5831,7 @@ responseModifyInstanceMetadataOptions =
     "ModifyInstanceMetadataOptionsResponse"
     "fixture/ModifyInstanceMetadataOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceMetadataOptions)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceMetadataOptions)
 
 responseUpdateSecurityGroupRuleDescriptionsIngress :: UpdateSecurityGroupRuleDescriptionsIngressResponse -> TestTree
 responseUpdateSecurityGroupRuleDescriptionsIngress =
@@ -5839,7 +5839,7 @@ responseUpdateSecurityGroupRuleDescriptionsIngress =
     "UpdateSecurityGroupRuleDescriptionsIngressResponse"
     "fixture/UpdateSecurityGroupRuleDescriptionsIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecurityGroupRuleDescriptionsIngress)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecurityGroupRuleDescriptionsIngress)
 
 responseDisassociateSubnetCidrBlock :: DisassociateSubnetCidrBlockResponse -> TestTree
 responseDisassociateSubnetCidrBlock =
@@ -5847,7 +5847,7 @@ responseDisassociateSubnetCidrBlock =
     "DisassociateSubnetCidrBlockResponse"
     "fixture/DisassociateSubnetCidrBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSubnetCidrBlock)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSubnetCidrBlock)
 
 responseDetachNetworkInterface :: DetachNetworkInterfaceResponse -> TestTree
 responseDetachNetworkInterface =
@@ -5855,7 +5855,7 @@ responseDetachNetworkInterface =
     "DetachNetworkInterfaceResponse"
     "fixture/DetachNetworkInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachNetworkInterface)
+    (Proxy.Proxy :: Proxy.Proxy DetachNetworkInterface)
 
 responseDetachInternetGateway :: DetachInternetGatewayResponse -> TestTree
 responseDetachInternetGateway =
@@ -5863,7 +5863,7 @@ responseDetachInternetGateway =
     "DetachInternetGatewayResponse"
     "fixture/DetachInternetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachInternetGateway)
+    (Proxy.Proxy :: Proxy.Proxy DetachInternetGateway)
 
 responseDeleteVpcEndpoints :: DeleteVpcEndpointsResponse -> TestTree
 responseDeleteVpcEndpoints =
@@ -5871,7 +5871,7 @@ responseDeleteVpcEndpoints =
     "DeleteVpcEndpointsResponse"
     "fixture/DeleteVpcEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcEndpoints)
 
 responseDescribeClientVpnEndpoints :: DescribeClientVpnEndpointsResponse -> TestTree
 responseDescribeClientVpnEndpoints =
@@ -5879,7 +5879,7 @@ responseDescribeClientVpnEndpoints =
     "DescribeClientVpnEndpointsResponse"
     "fixture/DescribeClientVpnEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientVpnEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientVpnEndpoints)
 
 responseDeleteFlowLogs :: DeleteFlowLogsResponse -> TestTree
 responseDeleteFlowLogs =
@@ -5887,7 +5887,7 @@ responseDeleteFlowLogs =
     "DeleteFlowLogsResponse"
     "fixture/DeleteFlowLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFlowLogs)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlowLogs)
 
 responseDescribeVpcClassicLink :: DescribeVpcClassicLinkResponse -> TestTree
 responseDescribeVpcClassicLink =
@@ -5895,7 +5895,7 @@ responseDescribeVpcClassicLink =
     "DescribeVpcClassicLinkResponse"
     "fixture/DescribeVpcClassicLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcClassicLink)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcClassicLink)
 
 responseGetAssociatedEnclaveCertificateIamRoles :: GetAssociatedEnclaveCertificateIamRolesResponse -> TestTree
 responseGetAssociatedEnclaveCertificateIamRoles =
@@ -5903,7 +5903,7 @@ responseGetAssociatedEnclaveCertificateIamRoles =
     "GetAssociatedEnclaveCertificateIamRolesResponse"
     "fixture/GetAssociatedEnclaveCertificateIamRolesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAssociatedEnclaveCertificateIamRoles)
+    (Proxy.Proxy :: Proxy.Proxy GetAssociatedEnclaveCertificateIamRoles)
 
 responseAssociateTransitGatewayMulticastDomain :: AssociateTransitGatewayMulticastDomainResponse -> TestTree
 responseAssociateTransitGatewayMulticastDomain =
@@ -5911,7 +5911,7 @@ responseAssociateTransitGatewayMulticastDomain =
     "AssociateTransitGatewayMulticastDomainResponse"
     "fixture/AssociateTransitGatewayMulticastDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTransitGatewayMulticastDomain)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTransitGatewayMulticastDomain)
 
 responseModifySubnetAttribute :: ModifySubnetAttributeResponse -> TestTree
 responseModifySubnetAttribute =
@@ -5919,7 +5919,7 @@ responseModifySubnetAttribute =
     "ModifySubnetAttributeResponse"
     "fixture/ModifySubnetAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySubnetAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifySubnetAttribute)
 
 responseDetachVolume :: VolumeAttachment -> TestTree
 responseDetachVolume =
@@ -5927,7 +5927,7 @@ responseDetachVolume =
     "DetachVolumeResponse"
     "fixture/DetachVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachVolume)
+    (Proxy.Proxy :: Proxy.Proxy DetachVolume)
 
 responseDescribeInstanceCreditSpecifications :: DescribeInstanceCreditSpecificationsResponse -> TestTree
 responseDescribeInstanceCreditSpecifications =
@@ -5935,7 +5935,7 @@ responseDescribeInstanceCreditSpecifications =
     "DescribeInstanceCreditSpecificationsResponse"
     "fixture/DescribeInstanceCreditSpecificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceCreditSpecifications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceCreditSpecifications)
 
 responseCancelBundleTask :: CancelBundleTaskResponse -> TestTree
 responseCancelBundleTask =
@@ -5943,7 +5943,7 @@ responseCancelBundleTask =
     "CancelBundleTaskResponse"
     "fixture/CancelBundleTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelBundleTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelBundleTask)
 
 responseDescribeByoipCidrs :: DescribeByoipCidrsResponse -> TestTree
 responseDescribeByoipCidrs =
@@ -5951,7 +5951,7 @@ responseDescribeByoipCidrs =
     "DescribeByoipCidrsResponse"
     "fixture/DescribeByoipCidrsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeByoipCidrs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeByoipCidrs)
 
 responseAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuoteResponse -> TestTree
 responseAcceptReservedInstancesExchangeQuote =
@@ -5959,7 +5959,7 @@ responseAcceptReservedInstancesExchangeQuote =
     "AcceptReservedInstancesExchangeQuoteResponse"
     "fixture/AcceptReservedInstancesExchangeQuoteResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptReservedInstancesExchangeQuote)
+    (Proxy.Proxy :: Proxy.Proxy AcceptReservedInstancesExchangeQuote)
 
 responseReleaseAddress :: ReleaseAddressResponse -> TestTree
 responseReleaseAddress =
@@ -5967,7 +5967,7 @@ responseReleaseAddress =
     "ReleaseAddressResponse"
     "fixture/ReleaseAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy ReleaseAddress)
+    (Proxy.Proxy :: Proxy.Proxy ReleaseAddress)
 
 responseDescribeInstanceTypeOfferings :: DescribeInstanceTypeOfferingsResponse -> TestTree
 responseDescribeInstanceTypeOfferings =
@@ -5975,7 +5975,7 @@ responseDescribeInstanceTypeOfferings =
     "DescribeInstanceTypeOfferingsResponse"
     "fixture/DescribeInstanceTypeOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceTypeOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceTypeOfferings)
 
 responseCreateInternetGateway :: CreateInternetGatewayResponse -> TestTree
 responseCreateInternetGateway =
@@ -5983,7 +5983,7 @@ responseCreateInternetGateway =
     "CreateInternetGatewayResponse"
     "fixture/CreateInternetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInternetGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateInternetGateway)
 
 responseDeleteVpnConnection :: DeleteVpnConnectionResponse -> TestTree
 responseDeleteVpnConnection =
@@ -5991,7 +5991,7 @@ responseDeleteVpnConnection =
     "DeleteVpnConnectionResponse"
     "fixture/DeleteVpnConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpnConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpnConnection)
 
 responseDescribeBundleTasks :: DescribeBundleTasksResponse -> TestTree
 responseDescribeBundleTasks =
@@ -5999,7 +5999,7 @@ responseDescribeBundleTasks =
     "DescribeBundleTasksResponse"
     "fixture/DescribeBundleTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBundleTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeBundleTasks)
 
 responseAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgressResponse -> TestTree
 responseAuthorizeSecurityGroupEgress =
@@ -6007,7 +6007,7 @@ responseAuthorizeSecurityGroupEgress =
     "AuthorizeSecurityGroupEgressResponse"
     "fixture/AuthorizeSecurityGroupEgressResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeSecurityGroupEgress)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeSecurityGroupEgress)
 
 responseEnableTransitGatewayRouteTablePropagation :: EnableTransitGatewayRouteTablePropagationResponse -> TestTree
 responseEnableTransitGatewayRouteTablePropagation =
@@ -6015,7 +6015,7 @@ responseEnableTransitGatewayRouteTablePropagation =
     "EnableTransitGatewayRouteTablePropagationResponse"
     "fixture/EnableTransitGatewayRouteTablePropagationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableTransitGatewayRouteTablePropagation)
+    (Proxy.Proxy :: Proxy.Proxy EnableTransitGatewayRouteTablePropagation)
 
 responseDeregisterImage :: DeregisterImageResponse -> TestTree
 responseDeregisterImage =
@@ -6023,7 +6023,7 @@ responseDeregisterImage =
     "DeregisterImageResponse"
     "fixture/DeregisterImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterImage)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterImage)
 
 responseDeleteVpcEndpointConnectionNotifications :: DeleteVpcEndpointConnectionNotificationsResponse -> TestTree
 responseDeleteVpcEndpointConnectionNotifications =
@@ -6031,7 +6031,7 @@ responseDeleteVpcEndpointConnectionNotifications =
     "DeleteVpcEndpointConnectionNotificationsResponse"
     "fixture/DeleteVpcEndpointConnectionNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcEndpointConnectionNotifications)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcEndpointConnectionNotifications)
 
 responseDescribeCoipPools :: DescribeCoipPoolsResponse -> TestTree
 responseDescribeCoipPools =
@@ -6039,7 +6039,7 @@ responseDescribeCoipPools =
     "DescribeCoipPoolsResponse"
     "fixture/DescribeCoipPoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCoipPools)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCoipPools)
 
 responseResetAddressAttribute :: ResetAddressAttributeResponse -> TestTree
 responseResetAddressAttribute =
@@ -6047,7 +6047,7 @@ responseResetAddressAttribute =
     "ResetAddressAttributeResponse"
     "fixture/ResetAddressAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetAddressAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ResetAddressAttribute)
 
 responseGetTransitGatewayMulticastDomainAssociations :: GetTransitGatewayMulticastDomainAssociationsResponse -> TestTree
 responseGetTransitGatewayMulticastDomainAssociations =
@@ -6055,7 +6055,7 @@ responseGetTransitGatewayMulticastDomainAssociations =
     "GetTransitGatewayMulticastDomainAssociationsResponse"
     "fixture/GetTransitGatewayMulticastDomainAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayMulticastDomainAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayMulticastDomainAssociations)
 
 responseDeleteLocalGatewayRouteTableVpcAssociation :: DeleteLocalGatewayRouteTableVpcAssociationResponse -> TestTree
 responseDeleteLocalGatewayRouteTableVpcAssociation =
@@ -6063,7 +6063,7 @@ responseDeleteLocalGatewayRouteTableVpcAssociation =
     "DeleteLocalGatewayRouteTableVpcAssociationResponse"
     "fixture/DeleteLocalGatewayRouteTableVpcAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLocalGatewayRouteTableVpcAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLocalGatewayRouteTableVpcAssociation)
 
 responseModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttributeResponse -> TestTree
 responseModifyNetworkInterfaceAttribute =
@@ -6071,7 +6071,7 @@ responseModifyNetworkInterfaceAttribute =
     "ModifyNetworkInterfaceAttributeResponse"
     "fixture/ModifyNetworkInterfaceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyNetworkInterfaceAttribute)
 
 responseModifyVpcTenancy :: ModifyVpcTenancyResponse -> TestTree
 responseModifyVpcTenancy =
@@ -6079,7 +6079,7 @@ responseModifyVpcTenancy =
     "ModifyVpcTenancyResponse"
     "fixture/ModifyVpcTenancyResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcTenancy)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcTenancy)
 
 responseDescribeInstanceTypes :: DescribeInstanceTypesResponse -> TestTree
 responseDescribeInstanceTypes =
@@ -6087,7 +6087,7 @@ responseDescribeInstanceTypes =
     "DescribeInstanceTypesResponse"
     "fixture/DescribeInstanceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceTypes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceTypes)
 
 responseCancelCapacityReservationFleets :: CancelCapacityReservationFleetsResponse -> TestTree
 responseCancelCapacityReservationFleets =
@@ -6095,7 +6095,7 @@ responseCancelCapacityReservationFleets =
     "CancelCapacityReservationFleetsResponse"
     "fixture/CancelCapacityReservationFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelCapacityReservationFleets)
+    (Proxy.Proxy :: Proxy.Proxy CancelCapacityReservationFleets)
 
 responseDescribeClientVpnAuthorizationRules :: DescribeClientVpnAuthorizationRulesResponse -> TestTree
 responseDescribeClientVpnAuthorizationRules =
@@ -6103,7 +6103,7 @@ responseDescribeClientVpnAuthorizationRules =
     "DescribeClientVpnAuthorizationRulesResponse"
     "fixture/DescribeClientVpnAuthorizationRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientVpnAuthorizationRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientVpnAuthorizationRules)
 
 responseDeleteTransitGatewayVpcAttachment :: DeleteTransitGatewayVpcAttachmentResponse -> TestTree
 responseDeleteTransitGatewayVpcAttachment =
@@ -6111,7 +6111,7 @@ responseDeleteTransitGatewayVpcAttachment =
     "DeleteTransitGatewayVpcAttachmentResponse"
     "fixture/DeleteTransitGatewayVpcAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayVpcAttachment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayVpcAttachment)
 
 responseDeleteTransitGatewayMulticastDomain :: DeleteTransitGatewayMulticastDomainResponse -> TestTree
 responseDeleteTransitGatewayMulticastDomain =
@@ -6119,7 +6119,7 @@ responseDeleteTransitGatewayMulticastDomain =
     "DeleteTransitGatewayMulticastDomainResponse"
     "fixture/DeleteTransitGatewayMulticastDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayMulticastDomain)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayMulticastDomain)
 
 responseCancelReservedInstancesListing :: CancelReservedInstancesListingResponse -> TestTree
 responseCancelReservedInstancesListing =
@@ -6127,7 +6127,7 @@ responseCancelReservedInstancesListing =
     "CancelReservedInstancesListingResponse"
     "fixture/CancelReservedInstancesListingResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelReservedInstancesListing)
+    (Proxy.Proxy :: Proxy.Proxy CancelReservedInstancesListing)
 
 responseAttachClassicLinkVpc :: AttachClassicLinkVpcResponse -> TestTree
 responseAttachClassicLinkVpc =
@@ -6135,7 +6135,7 @@ responseAttachClassicLinkVpc =
     "AttachClassicLinkVpcResponse"
     "fixture/AttachClassicLinkVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachClassicLinkVpc)
+    (Proxy.Proxy :: Proxy.Proxy AttachClassicLinkVpc)
 
 responseDisableTransitGatewayRouteTablePropagation :: DisableTransitGatewayRouteTablePropagationResponse -> TestTree
 responseDisableTransitGatewayRouteTablePropagation =
@@ -6143,7 +6143,7 @@ responseDisableTransitGatewayRouteTablePropagation =
     "DisableTransitGatewayRouteTablePropagationResponse"
     "fixture/DisableTransitGatewayRouteTablePropagationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableTransitGatewayRouteTablePropagation)
+    (Proxy.Proxy :: Proxy.Proxy DisableTransitGatewayRouteTablePropagation)
 
 responseDescribeVpcClassicLinkDnsSupport :: DescribeVpcClassicLinkDnsSupportResponse -> TestTree
 responseDescribeVpcClassicLinkDnsSupport =
@@ -6151,7 +6151,7 @@ responseDescribeVpcClassicLinkDnsSupport =
     "DescribeVpcClassicLinkDnsSupportResponse"
     "fixture/DescribeVpcClassicLinkDnsSupportResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcClassicLinkDnsSupport)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcClassicLinkDnsSupport)
 
 responseAssociateSubnetCidrBlock :: AssociateSubnetCidrBlockResponse -> TestTree
 responseAssociateSubnetCidrBlock =
@@ -6159,7 +6159,7 @@ responseAssociateSubnetCidrBlock =
     "AssociateSubnetCidrBlockResponse"
     "fixture/AssociateSubnetCidrBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateSubnetCidrBlock)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSubnetCidrBlock)
 
 responseCreateNetworkInsightsPath :: CreateNetworkInsightsPathResponse -> TestTree
 responseCreateNetworkInsightsPath =
@@ -6167,7 +6167,7 @@ responseCreateNetworkInsightsPath =
     "CreateNetworkInsightsPathResponse"
     "fixture/CreateNetworkInsightsPathResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkInsightsPath)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkInsightsPath)
 
 responseRunScheduledInstances :: RunScheduledInstancesResponse -> TestTree
 responseRunScheduledInstances =
@@ -6175,7 +6175,7 @@ responseRunScheduledInstances =
     "RunScheduledInstancesResponse"
     "fixture/RunScheduledInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy RunScheduledInstances)
+    (Proxy.Proxy :: Proxy.Proxy RunScheduledInstances)
 
 responseCreateTransitGatewayRoute :: CreateTransitGatewayRouteResponse -> TestTree
 responseCreateTransitGatewayRoute =
@@ -6183,7 +6183,7 @@ responseCreateTransitGatewayRoute =
     "CreateTransitGatewayRouteResponse"
     "fixture/CreateTransitGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayRoute)
 
 responseCreateTransitGatewayPrefixListReference :: CreateTransitGatewayPrefixListReferenceResponse -> TestTree
 responseCreateTransitGatewayPrefixListReference =
@@ -6191,7 +6191,7 @@ responseCreateTransitGatewayPrefixListReference =
     "CreateTransitGatewayPrefixListReferenceResponse"
     "fixture/CreateTransitGatewayPrefixListReferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayPrefixListReference)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayPrefixListReference)
 
 responseCancelSpotFleetRequests :: CancelSpotFleetRequestsResponse -> TestTree
 responseCancelSpotFleetRequests =
@@ -6199,7 +6199,7 @@ responseCancelSpotFleetRequests =
     "CancelSpotFleetRequestsResponse"
     "fixture/CancelSpotFleetRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSpotFleetRequests)
+    (Proxy.Proxy :: Proxy.Proxy CancelSpotFleetRequests)
 
 responseModifyCapacityReservationFleet :: ModifyCapacityReservationFleetResponse -> TestTree
 responseModifyCapacityReservationFleet =
@@ -6207,7 +6207,7 @@ responseModifyCapacityReservationFleet =
     "ModifyCapacityReservationFleetResponse"
     "fixture/ModifyCapacityReservationFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyCapacityReservationFleet)
+    (Proxy.Proxy :: Proxy.Proxy ModifyCapacityReservationFleet)
 
 responseDescribeSpotPriceHistory :: DescribeSpotPriceHistoryResponse -> TestTree
 responseDescribeSpotPriceHistory =
@@ -6215,7 +6215,7 @@ responseDescribeSpotPriceHistory =
     "DescribeSpotPriceHistoryResponse"
     "fixture/DescribeSpotPriceHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpotPriceHistory)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpotPriceHistory)
 
 responseDeleteTransitGatewayConnectPeer :: DeleteTransitGatewayConnectPeerResponse -> TestTree
 responseDeleteTransitGatewayConnectPeer =
@@ -6223,7 +6223,7 @@ responseDeleteTransitGatewayConnectPeer =
     "DeleteTransitGatewayConnectPeerResponse"
     "fixture/DeleteTransitGatewayConnectPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayConnectPeer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayConnectPeer)
 
 responseDescribeDhcpOptions :: DescribeDhcpOptionsResponse -> TestTree
 responseDescribeDhcpOptions =
@@ -6231,7 +6231,7 @@ responseDescribeDhcpOptions =
     "DescribeDhcpOptionsResponse"
     "fixture/DescribeDhcpOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDhcpOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDhcpOptions)
 
 responseImportImage :: ImportImageResponse -> TestTree
 responseImportImage =
@@ -6239,7 +6239,7 @@ responseImportImage =
     "ImportImageResponse"
     "fixture/ImportImageResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportImage)
+    (Proxy.Proxy :: Proxy.Proxy ImportImage)
 
 responseCreateLocalGatewayRouteTableVpcAssociation :: CreateLocalGatewayRouteTableVpcAssociationResponse -> TestTree
 responseCreateLocalGatewayRouteTableVpcAssociation =
@@ -6247,7 +6247,7 @@ responseCreateLocalGatewayRouteTableVpcAssociation =
     "CreateLocalGatewayRouteTableVpcAssociationResponse"
     "fixture/CreateLocalGatewayRouteTableVpcAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocalGatewayRouteTableVpcAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocalGatewayRouteTableVpcAssociation)
 
 responseCopyFpgaImage :: CopyFpgaImageResponse -> TestTree
 responseCopyFpgaImage =
@@ -6255,7 +6255,7 @@ responseCopyFpgaImage =
     "CopyFpgaImageResponse"
     "fixture/CopyFpgaImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyFpgaImage)
+    (Proxy.Proxy :: Proxy.Proxy CopyFpgaImage)
 
 responseImportClientVpnClientCertificateRevocationList :: ImportClientVpnClientCertificateRevocationListResponse -> TestTree
 responseImportClientVpnClientCertificateRevocationList =
@@ -6263,7 +6263,7 @@ responseImportClientVpnClientCertificateRevocationList =
     "ImportClientVpnClientCertificateRevocationListResponse"
     "fixture/ImportClientVpnClientCertificateRevocationListResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportClientVpnClientCertificateRevocationList)
+    (Proxy.Proxy :: Proxy.Proxy ImportClientVpnClientCertificateRevocationList)
 
 responseStopInstances :: StopInstancesResponse -> TestTree
 responseStopInstances =
@@ -6271,7 +6271,7 @@ responseStopInstances =
     "StopInstancesResponse"
     "fixture/StopInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy StopInstances)
+    (Proxy.Proxy :: Proxy.Proxy StopInstances)
 
 responseEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefaultResponse -> TestTree
 responseEnableEbsEncryptionByDefault =
@@ -6279,7 +6279,7 @@ responseEnableEbsEncryptionByDefault =
     "EnableEbsEncryptionByDefaultResponse"
     "fixture/EnableEbsEncryptionByDefaultResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableEbsEncryptionByDefault)
+    (Proxy.Proxy :: Proxy.Proxy EnableEbsEncryptionByDefault)
 
 responseModifyAddressAttribute :: ModifyAddressAttributeResponse -> TestTree
 responseModifyAddressAttribute =
@@ -6287,7 +6287,7 @@ responseModifyAddressAttribute =
     "ModifyAddressAttributeResponse"
     "fixture/ModifyAddressAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyAddressAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyAddressAttribute)
 
 responseDeregisterTransitGatewayMulticastGroupSources :: DeregisterTransitGatewayMulticastGroupSourcesResponse -> TestTree
 responseDeregisterTransitGatewayMulticastGroupSources =
@@ -6295,7 +6295,7 @@ responseDeregisterTransitGatewayMulticastGroupSources =
     "DeregisterTransitGatewayMulticastGroupSourcesResponse"
     "fixture/DeregisterTransitGatewayMulticastGroupSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTransitGatewayMulticastGroupSources)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTransitGatewayMulticastGroupSources)
 
 responseModifyLaunchTemplate :: ModifyLaunchTemplateResponse -> TestTree
 responseModifyLaunchTemplate =
@@ -6303,7 +6303,7 @@ responseModifyLaunchTemplate =
     "ModifyLaunchTemplateResponse"
     "fixture/ModifyLaunchTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyLaunchTemplate)
+    (Proxy.Proxy :: Proxy.Proxy ModifyLaunchTemplate)
 
 responseModifyVpcEndpointConnectionNotification :: ModifyVpcEndpointConnectionNotificationResponse -> TestTree
 responseModifyVpcEndpointConnectionNotification =
@@ -6311,7 +6311,7 @@ responseModifyVpcEndpointConnectionNotification =
     "ModifyVpcEndpointConnectionNotificationResponse"
     "fixture/ModifyVpcEndpointConnectionNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcEndpointConnectionNotification)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcEndpointConnectionNotification)
 
 responseDescribeInternetGateways :: DescribeInternetGatewaysResponse -> TestTree
 responseDescribeInternetGateways =
@@ -6319,7 +6319,7 @@ responseDescribeInternetGateways =
     "DescribeInternetGatewaysResponse"
     "fixture/DescribeInternetGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInternetGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInternetGateways)
 
 responseDisableVpcClassicLink :: DisableVpcClassicLinkResponse -> TestTree
 responseDisableVpcClassicLink =
@@ -6327,7 +6327,7 @@ responseDisableVpcClassicLink =
     "DisableVpcClassicLinkResponse"
     "fixture/DisableVpcClassicLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableVpcClassicLink)
+    (Proxy.Proxy :: Proxy.Proxy DisableVpcClassicLink)
 
 responseGetGroupsForCapacityReservation :: GetGroupsForCapacityReservationResponse -> TestTree
 responseGetGroupsForCapacityReservation =
@@ -6335,7 +6335,7 @@ responseGetGroupsForCapacityReservation =
     "GetGroupsForCapacityReservationResponse"
     "fixture/GetGroupsForCapacityReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroupsForCapacityReservation)
+    (Proxy.Proxy :: Proxy.Proxy GetGroupsForCapacityReservation)
 
 responseDeleteLaunchTemplateVersions :: DeleteLaunchTemplateVersionsResponse -> TestTree
 responseDeleteLaunchTemplateVersions =
@@ -6343,7 +6343,7 @@ responseDeleteLaunchTemplateVersions =
     "DeleteLaunchTemplateVersionsResponse"
     "fixture/DeleteLaunchTemplateVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLaunchTemplateVersions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchTemplateVersions)
 
 responseBundleInstance :: BundleInstanceResponse -> TestTree
 responseBundleInstance =
@@ -6351,7 +6351,7 @@ responseBundleInstance =
     "BundleInstanceResponse"
     "fixture/BundleInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy BundleInstance)
+    (Proxy.Proxy :: Proxy.Proxy BundleInstance)
 
 responseDescribeNetworkInterfaces :: DescribeNetworkInterfacesResponse -> TestTree
 responseDescribeNetworkInterfaces =
@@ -6359,7 +6359,7 @@ responseDescribeNetworkInterfaces =
     "DescribeNetworkInterfacesResponse"
     "fixture/DescribeNetworkInterfacesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNetworkInterfaces)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInterfaces)
 
 responseReplaceNetworkAclAssociation :: ReplaceNetworkAclAssociationResponse -> TestTree
 responseReplaceNetworkAclAssociation =
@@ -6367,7 +6367,7 @@ responseReplaceNetworkAclAssociation =
     "ReplaceNetworkAclAssociationResponse"
     "fixture/ReplaceNetworkAclAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplaceNetworkAclAssociation)
+    (Proxy.Proxy :: Proxy.Proxy ReplaceNetworkAclAssociation)
 
 responseAssociateInstanceEventWindow :: AssociateInstanceEventWindowResponse -> TestTree
 responseAssociateInstanceEventWindow =
@@ -6375,7 +6375,7 @@ responseAssociateInstanceEventWindow =
     "AssociateInstanceEventWindowResponse"
     "fixture/AssociateInstanceEventWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateInstanceEventWindow)
+    (Proxy.Proxy :: Proxy.Proxy AssociateInstanceEventWindow)
 
 responseDescribeNatGateways :: DescribeNatGatewaysResponse -> TestTree
 responseDescribeNatGateways =
@@ -6383,7 +6383,7 @@ responseDescribeNatGateways =
     "DescribeNatGatewaysResponse"
     "fixture/DescribeNatGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNatGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNatGateways)
 
 responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
 responseDescribeAddresses =
@@ -6391,7 +6391,7 @@ responseDescribeAddresses =
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddresses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddresses)
 
 responseRestoreManagedPrefixListVersion :: RestoreManagedPrefixListVersionResponse -> TestTree
 responseRestoreManagedPrefixListVersion =
@@ -6399,7 +6399,7 @@ responseRestoreManagedPrefixListVersion =
     "RestoreManagedPrefixListVersionResponse"
     "fixture/RestoreManagedPrefixListVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreManagedPrefixListVersion)
+    (Proxy.Proxy :: Proxy.Proxy RestoreManagedPrefixListVersion)
 
 responseDescribeSnapshotAttribute :: DescribeSnapshotAttributeResponse -> TestTree
 responseDescribeSnapshotAttribute =
@@ -6407,7 +6407,7 @@ responseDescribeSnapshotAttribute =
     "DescribeSnapshotAttributeResponse"
     "fixture/DescribeSnapshotAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshotAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotAttribute)
 
 responseDescribeIdentityIdFormat :: DescribeIdentityIdFormatResponse -> TestTree
 responseDescribeIdentityIdFormat =
@@ -6415,7 +6415,7 @@ responseDescribeIdentityIdFormat =
     "DescribeIdentityIdFormatResponse"
     "fixture/DescribeIdentityIdFormatResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdentityIdFormat)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityIdFormat)
 
 responseReplaceRoute :: ReplaceRouteResponse -> TestTree
 responseReplaceRoute =
@@ -6423,7 +6423,7 @@ responseReplaceRoute =
     "ReplaceRouteResponse"
     "fixture/ReplaceRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplaceRoute)
+    (Proxy.Proxy :: Proxy.Proxy ReplaceRoute)
 
 responseDescribeVpcEndpointServices :: DescribeVpcEndpointServicesResponse -> TestTree
 responseDescribeVpcEndpointServices =
@@ -6431,7 +6431,7 @@ responseDescribeVpcEndpointServices =
     "DescribeVpcEndpointServicesResponse"
     "fixture/DescribeVpcEndpointServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcEndpointServices)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpointServices)
 
 responseDeleteLocalGatewayRoute :: DeleteLocalGatewayRouteResponse -> TestTree
 responseDeleteLocalGatewayRoute =
@@ -6439,7 +6439,7 @@ responseDeleteLocalGatewayRoute =
     "DeleteLocalGatewayRouteResponse"
     "fixture/DeleteLocalGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLocalGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLocalGatewayRoute)
 
 responseAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngressResponse -> TestTree
 responseAuthorizeSecurityGroupIngress =
@@ -6447,7 +6447,7 @@ responseAuthorizeSecurityGroupIngress =
     "AuthorizeSecurityGroupIngressResponse"
     "fixture/AuthorizeSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeSecurityGroupIngress)
 
 responseCreateVpcPeeringConnection :: CreateVpcPeeringConnectionResponse -> TestTree
 responseCreateVpcPeeringConnection =
@@ -6455,7 +6455,7 @@ responseCreateVpcPeeringConnection =
     "CreateVpcPeeringConnectionResponse"
     "fixture/CreateVpcPeeringConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcPeeringConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcPeeringConnection)
 
 responseDescribeSubnets :: DescribeSubnetsResponse -> TestTree
 responseDescribeSubnets =
@@ -6463,7 +6463,7 @@ responseDescribeSubnets =
     "DescribeSubnetsResponse"
     "fixture/DescribeSubnetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubnets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSubnets)
 
 responseGetTransitGatewayAttachmentPropagations :: GetTransitGatewayAttachmentPropagationsResponse -> TestTree
 responseGetTransitGatewayAttachmentPropagations =
@@ -6471,7 +6471,7 @@ responseGetTransitGatewayAttachmentPropagations =
     "GetTransitGatewayAttachmentPropagationsResponse"
     "fixture/GetTransitGatewayAttachmentPropagationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayAttachmentPropagations)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayAttachmentPropagations)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
 responseCreateTags =
@@ -6479,7 +6479,7 @@ responseCreateTags =
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateTags)
 
 responsePurchaseReservedInstancesOffering :: PurchaseReservedInstancesOfferingResponse -> TestTree
 responsePurchaseReservedInstancesOffering =
@@ -6487,7 +6487,7 @@ responsePurchaseReservedInstancesOffering =
     "PurchaseReservedInstancesOfferingResponse"
     "fixture/PurchaseReservedInstancesOfferingResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseReservedInstancesOffering)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedInstancesOffering)
 
 responseDeleteNetworkAclEntry :: DeleteNetworkAclEntryResponse -> TestTree
 responseDeleteNetworkAclEntry =
@@ -6495,7 +6495,7 @@ responseDeleteNetworkAclEntry =
     "DeleteNetworkAclEntryResponse"
     "fixture/DeleteNetworkAclEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkAclEntry)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkAclEntry)
 
 responseResetSnapshotAttribute :: ResetSnapshotAttributeResponse -> TestTree
 responseResetSnapshotAttribute =
@@ -6503,7 +6503,7 @@ responseResetSnapshotAttribute =
     "ResetSnapshotAttributeResponse"
     "fixture/ResetSnapshotAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetSnapshotAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ResetSnapshotAttribute)
 
 responseDescribeVpnConnections :: DescribeVpnConnectionsResponse -> TestTree
 responseDescribeVpnConnections =
@@ -6511,7 +6511,7 @@ responseDescribeVpnConnections =
     "DescribeVpnConnectionsResponse"
     "fixture/DescribeVpnConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpnConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpnConnections)
 
 responseModifyInstanceEventStartTime :: ModifyInstanceEventStartTimeResponse -> TestTree
 responseModifyInstanceEventStartTime =
@@ -6519,7 +6519,7 @@ responseModifyInstanceEventStartTime =
     "ModifyInstanceEventStartTimeResponse"
     "fixture/ModifyInstanceEventStartTimeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceEventStartTime)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceEventStartTime)
 
 responseDeleteRoute :: DeleteRouteResponse -> TestTree
 responseDeleteRoute =
@@ -6527,7 +6527,7 @@ responseDeleteRoute =
     "DeleteRouteResponse"
     "fixture/DeleteRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
 
 responseReplaceNetworkAclEntry :: ReplaceNetworkAclEntryResponse -> TestTree
 responseReplaceNetworkAclEntry =
@@ -6535,7 +6535,7 @@ responseReplaceNetworkAclEntry =
     "ReplaceNetworkAclEntryResponse"
     "fixture/ReplaceNetworkAclEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplaceNetworkAclEntry)
+    (Proxy.Proxy :: Proxy.Proxy ReplaceNetworkAclEntry)
 
 responseDeleteInstanceEventWindow :: DeleteInstanceEventWindowResponse -> TestTree
 responseDeleteInstanceEventWindow =
@@ -6543,7 +6543,7 @@ responseDeleteInstanceEventWindow =
     "DeleteInstanceEventWindowResponse"
     "fixture/DeleteInstanceEventWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInstanceEventWindow)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstanceEventWindow)
 
 responseDescribeVpcEndpoints :: DescribeVpcEndpointsResponse -> TestTree
 responseDescribeVpcEndpoints =
@@ -6551,7 +6551,7 @@ responseDescribeVpcEndpoints =
     "DescribeVpcEndpointsResponse"
     "fixture/DescribeVpcEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpoints)
 
 responseCreateTrafficMirrorFilter :: CreateTrafficMirrorFilterResponse -> TestTree
 responseCreateTrafficMirrorFilter =
@@ -6559,7 +6559,7 @@ responseCreateTrafficMirrorFilter =
     "CreateTrafficMirrorFilterResponse"
     "fixture/CreateTrafficMirrorFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficMirrorFilter)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficMirrorFilter)
 
 responseResetInstanceAttribute :: ResetInstanceAttributeResponse -> TestTree
 responseResetInstanceAttribute =
@@ -6567,7 +6567,7 @@ responseResetInstanceAttribute =
     "ResetInstanceAttributeResponse"
     "fixture/ResetInstanceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetInstanceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ResetInstanceAttribute)
 
 responseModifyIdentityIdFormat :: ModifyIdentityIdFormatResponse -> TestTree
 responseModifyIdentityIdFormat =
@@ -6575,7 +6575,7 @@ responseModifyIdentityIdFormat =
     "ModifyIdentityIdFormatResponse"
     "fixture/ModifyIdentityIdFormatResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyIdentityIdFormat)
+    (Proxy.Proxy :: Proxy.Proxy ModifyIdentityIdFormat)
 
 responseAttachNetworkInterface :: AttachNetworkInterfaceResponse -> TestTree
 responseAttachNetworkInterface =
@@ -6583,7 +6583,7 @@ responseAttachNetworkInterface =
     "AttachNetworkInterfaceResponse"
     "fixture/AttachNetworkInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachNetworkInterface)
+    (Proxy.Proxy :: Proxy.Proxy AttachNetworkInterface)
 
 responseCreateCapacityReservation :: CreateCapacityReservationResponse -> TestTree
 responseCreateCapacityReservation =
@@ -6591,7 +6591,7 @@ responseCreateCapacityReservation =
     "CreateCapacityReservationResponse"
     "fixture/CreateCapacityReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCapacityReservation)
+    (Proxy.Proxy :: Proxy.Proxy CreateCapacityReservation)
 
 responseDescribeInstanceStatus :: DescribeInstanceStatusResponse -> TestTree
 responseDescribeInstanceStatus =
@@ -6599,7 +6599,7 @@ responseDescribeInstanceStatus =
     "DescribeInstanceStatusResponse"
     "fixture/DescribeInstanceStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceStatus)
 
 responseImportKeyPair :: ImportKeyPairResponse -> TestTree
 responseImportKeyPair =
@@ -6607,7 +6607,7 @@ responseImportKeyPair =
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy ImportKeyPair)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags =
@@ -6615,7 +6615,7 @@ responseDeleteTags =
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTags)
 
 responseConfirmProductInstance :: ConfirmProductInstanceResponse -> TestTree
 responseConfirmProductInstance =
@@ -6623,7 +6623,7 @@ responseConfirmProductInstance =
     "ConfirmProductInstanceResponse"
     "fixture/ConfirmProductInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmProductInstance)
+    (Proxy.Proxy :: Proxy.Proxy ConfirmProductInstance)
 
 responseDescribeInstanceAttribute :: DescribeInstanceAttributeResponse -> TestTree
 responseDescribeInstanceAttribute =
@@ -6631,7 +6631,7 @@ responseDescribeInstanceAttribute =
     "DescribeInstanceAttributeResponse"
     "fixture/DescribeInstanceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceAttribute)
 
 responseDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferingsResponse -> TestTree
 responseDescribeReservedInstancesOfferings =
@@ -6639,7 +6639,7 @@ responseDescribeReservedInstancesOfferings =
     "DescribeReservedInstancesOfferingsResponse"
     "fixture/DescribeReservedInstancesOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedInstancesOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstancesOfferings)
 
 responseCreateCustomerGateway :: CreateCustomerGatewayResponse -> TestTree
 responseCreateCustomerGateway =
@@ -6647,7 +6647,7 @@ responseCreateCustomerGateway =
     "CreateCustomerGatewayResponse"
     "fixture/CreateCustomerGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomerGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomerGateway)
 
 responseDescribeNetworkInsightsAnalyses :: DescribeNetworkInsightsAnalysesResponse -> TestTree
 responseDescribeNetworkInsightsAnalyses =
@@ -6655,7 +6655,7 @@ responseDescribeNetworkInsightsAnalyses =
     "DescribeNetworkInsightsAnalysesResponse"
     "fixture/DescribeNetworkInsightsAnalysesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNetworkInsightsAnalyses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInsightsAnalyses)
 
 responseDescribeFleets :: DescribeFleetsResponse -> TestTree
 responseDescribeFleets =
@@ -6663,7 +6663,7 @@ responseDescribeFleets =
     "DescribeFleetsResponse"
     "fixture/DescribeFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleets)
 
 responseDeleteNetworkInsightsAnalysis :: DeleteNetworkInsightsAnalysisResponse -> TestTree
 responseDeleteNetworkInsightsAnalysis =
@@ -6671,7 +6671,7 @@ responseDeleteNetworkInsightsAnalysis =
     "DeleteNetworkInsightsAnalysisResponse"
     "fixture/DeleteNetworkInsightsAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkInsightsAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkInsightsAnalysis)
 
 responseCreateTransitGatewayPeeringAttachment :: CreateTransitGatewayPeeringAttachmentResponse -> TestTree
 responseCreateTransitGatewayPeeringAttachment =
@@ -6679,7 +6679,7 @@ responseCreateTransitGatewayPeeringAttachment =
     "CreateTransitGatewayPeeringAttachmentResponse"
     "fixture/CreateTransitGatewayPeeringAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayPeeringAttachment)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayPeeringAttachment)
 
 responseDeleteSecurityGroup :: DeleteSecurityGroupResponse -> TestTree
 responseDeleteSecurityGroup =
@@ -6687,7 +6687,7 @@ responseDeleteSecurityGroup =
     "DeleteSecurityGroupResponse"
     "fixture/DeleteSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSecurityGroup)
 
 responseDescribePublicIpv4Pools :: DescribePublicIpv4PoolsResponse -> TestTree
 responseDescribePublicIpv4Pools =
@@ -6695,7 +6695,7 @@ responseDescribePublicIpv4Pools =
     "DescribePublicIpv4PoolsResponse"
     "fixture/DescribePublicIpv4PoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePublicIpv4Pools)
+    (Proxy.Proxy :: Proxy.Proxy DescribePublicIpv4Pools)
 
 responseDescribeClientVpnTargetNetworks :: DescribeClientVpnTargetNetworksResponse -> TestTree
 responseDescribeClientVpnTargetNetworks =
@@ -6703,7 +6703,7 @@ responseDescribeClientVpnTargetNetworks =
     "DescribeClientVpnTargetNetworksResponse"
     "fixture/DescribeClientVpnTargetNetworksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientVpnTargetNetworks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientVpnTargetNetworks)
 
 responseDeleteVpcPeeringConnection :: DeleteVpcPeeringConnectionResponse -> TestTree
 responseDeleteVpcPeeringConnection =
@@ -6711,7 +6711,7 @@ responseDeleteVpcPeeringConnection =
     "DeleteVpcPeeringConnectionResponse"
     "fixture/DeleteVpcPeeringConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcPeeringConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcPeeringConnection)
 
 responseAttachInternetGateway :: AttachInternetGatewayResponse -> TestTree
 responseAttachInternetGateway =
@@ -6719,7 +6719,7 @@ responseAttachInternetGateway =
     "AttachInternetGatewayResponse"
     "fixture/AttachInternetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachInternetGateway)
+    (Proxy.Proxy :: Proxy.Proxy AttachInternetGateway)
 
 responseModifyInstancePlacement :: ModifyInstancePlacementResponse -> TestTree
 responseModifyInstancePlacement =
@@ -6727,7 +6727,7 @@ responseModifyInstancePlacement =
     "ModifyInstancePlacementResponse"
     "fixture/ModifyInstancePlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstancePlacement)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstancePlacement)
 
 responseDescribeFlowLogs :: DescribeFlowLogsResponse -> TestTree
 responseDescribeFlowLogs =
@@ -6735,7 +6735,7 @@ responseDescribeFlowLogs =
     "DescribeFlowLogsResponse"
     "fixture/DescribeFlowLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFlowLogs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlowLogs)
 
 responseDescribeLocalGatewayVirtualInterfaceGroups :: DescribeLocalGatewayVirtualInterfaceGroupsResponse -> TestTree
 responseDescribeLocalGatewayVirtualInterfaceGroups =
@@ -6743,7 +6743,7 @@ responseDescribeLocalGatewayVirtualInterfaceGroups =
     "DescribeLocalGatewayVirtualInterfaceGroupsResponse"
     "fixture/DescribeLocalGatewayVirtualInterfaceGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocalGatewayVirtualInterfaceGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocalGatewayVirtualInterfaceGroups)
 
 responseDeleteTransitGatewayConnect :: DeleteTransitGatewayConnectResponse -> TestTree
 responseDeleteTransitGatewayConnect =
@@ -6751,7 +6751,7 @@ responseDeleteTransitGatewayConnect =
     "DeleteTransitGatewayConnectResponse"
     "fixture/DeleteTransitGatewayConnectResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayConnect)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayConnect)
 
 responseDescribeLocalGatewayRouteTableVpcAssociations :: DescribeLocalGatewayRouteTableVpcAssociationsResponse -> TestTree
 responseDescribeLocalGatewayRouteTableVpcAssociations =
@@ -6759,7 +6759,7 @@ responseDescribeLocalGatewayRouteTableVpcAssociations =
     "DescribeLocalGatewayRouteTableVpcAssociationsResponse"
     "fixture/DescribeLocalGatewayRouteTableVpcAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocalGatewayRouteTableVpcAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocalGatewayRouteTableVpcAssociations)
 
 responseDescribeVpcEndpointConnectionNotifications :: DescribeVpcEndpointConnectionNotificationsResponse -> TestTree
 responseDescribeVpcEndpointConnectionNotifications =
@@ -6767,7 +6767,7 @@ responseDescribeVpcEndpointConnectionNotifications =
     "DescribeVpcEndpointConnectionNotificationsResponse"
     "fixture/DescribeVpcEndpointConnectionNotificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcEndpointConnectionNotifications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpointConnectionNotifications)
 
 responseGetManagedPrefixListEntries :: GetManagedPrefixListEntriesResponse -> TestTree
 responseGetManagedPrefixListEntries =
@@ -6775,7 +6775,7 @@ responseGetManagedPrefixListEntries =
     "GetManagedPrefixListEntriesResponse"
     "fixture/GetManagedPrefixListEntriesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetManagedPrefixListEntries)
+    (Proxy.Proxy :: Proxy.Proxy GetManagedPrefixListEntries)
 
 responseDisassociateInstanceEventWindow :: DisassociateInstanceEventWindowResponse -> TestTree
 responseDisassociateInstanceEventWindow =
@@ -6783,7 +6783,7 @@ responseDisassociateInstanceEventWindow =
     "DisassociateInstanceEventWindowResponse"
     "fixture/DisassociateInstanceEventWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateInstanceEventWindow)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateInstanceEventWindow)
 
 responseRunInstances :: Reservation -> TestTree
 responseRunInstances =
@@ -6791,7 +6791,7 @@ responseRunInstances =
     "RunInstancesResponse"
     "fixture/RunInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy RunInstances)
+    (Proxy.Proxy :: Proxy.Proxy RunInstances)
 
 responseCreateSnapshots :: CreateSnapshotsResponse -> TestTree
 responseCreateSnapshots =
@@ -6799,7 +6799,7 @@ responseCreateSnapshots =
     "CreateSnapshotsResponse"
     "fixture/CreateSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshots)
 
 responseAssociateDhcpOptions :: AssociateDhcpOptionsResponse -> TestTree
 responseAssociateDhcpOptions =
@@ -6807,7 +6807,7 @@ responseAssociateDhcpOptions =
     "AssociateDhcpOptionsResponse"
     "fixture/AssociateDhcpOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDhcpOptions)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDhcpOptions)
 
 responseDeleteTrafficMirrorFilterRule :: DeleteTrafficMirrorFilterRuleResponse -> TestTree
 responseDeleteTrafficMirrorFilterRule =
@@ -6815,7 +6815,7 @@ responseDeleteTrafficMirrorFilterRule =
     "DeleteTrafficMirrorFilterRuleResponse"
     "fixture/DeleteTrafficMirrorFilterRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrafficMirrorFilterRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficMirrorFilterRule)
 
 responseDescribeReservedInstances :: DescribeReservedInstancesResponse -> TestTree
 responseDescribeReservedInstances =
@@ -6823,7 +6823,7 @@ responseDescribeReservedInstances =
     "DescribeReservedInstancesResponse"
     "fixture/DescribeReservedInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstances)
 
 responseDescribeIdFormat :: DescribeIdFormatResponse -> TestTree
 responseDescribeIdFormat =
@@ -6831,7 +6831,7 @@ responseDescribeIdFormat =
     "DescribeIdFormatResponse"
     "fixture/DescribeIdFormatResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIdFormat)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdFormat)
 
 responseDescribeVpcs :: DescribeVpcsResponse -> TestTree
 responseDescribeVpcs =
@@ -6839,7 +6839,7 @@ responseDescribeVpcs =
     "DescribeVpcsResponse"
     "fixture/DescribeVpcsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcs)
 
 responseDescribeConversionTasks :: DescribeConversionTasksResponse -> TestTree
 responseDescribeConversionTasks =
@@ -6847,7 +6847,7 @@ responseDescribeConversionTasks =
     "DescribeConversionTasksResponse"
     "fixture/DescribeConversionTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConversionTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConversionTasks)
 
 responseDisableImageDeprecation :: DisableImageDeprecationResponse -> TestTree
 responseDisableImageDeprecation =
@@ -6855,7 +6855,7 @@ responseDisableImageDeprecation =
     "DisableImageDeprecationResponse"
     "fixture/DisableImageDeprecationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableImageDeprecation)
+    (Proxy.Proxy :: Proxy.Proxy DisableImageDeprecation)
 
 responseCreateLaunchTemplateVersion :: CreateLaunchTemplateVersionResponse -> TestTree
 responseCreateLaunchTemplateVersion =
@@ -6863,7 +6863,7 @@ responseCreateLaunchTemplateVersion =
     "CreateLaunchTemplateVersionResponse"
     "fixture/CreateLaunchTemplateVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLaunchTemplateVersion)
+    (Proxy.Proxy :: Proxy.Proxy CreateLaunchTemplateVersion)
 
 responseGetManagedPrefixListAssociations :: GetManagedPrefixListAssociationsResponse -> TestTree
 responseGetManagedPrefixListAssociations =
@@ -6871,7 +6871,7 @@ responseGetManagedPrefixListAssociations =
     "GetManagedPrefixListAssociationsResponse"
     "fixture/GetManagedPrefixListAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetManagedPrefixListAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetManagedPrefixListAssociations)
 
 responseDisableVpcClassicLinkDnsSupport :: DisableVpcClassicLinkDnsSupportResponse -> TestTree
 responseDisableVpcClassicLinkDnsSupport =
@@ -6879,7 +6879,7 @@ responseDisableVpcClassicLinkDnsSupport =
     "DisableVpcClassicLinkDnsSupportResponse"
     "fixture/DisableVpcClassicLinkDnsSupportResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableVpcClassicLinkDnsSupport)
+    (Proxy.Proxy :: Proxy.Proxy DisableVpcClassicLinkDnsSupport)
 
 responseApplySecurityGroupsToClientVpnTargetNetwork :: ApplySecurityGroupsToClientVpnTargetNetworkResponse -> TestTree
 responseApplySecurityGroupsToClientVpnTargetNetwork =
@@ -6887,7 +6887,7 @@ responseApplySecurityGroupsToClientVpnTargetNetwork =
     "ApplySecurityGroupsToClientVpnTargetNetworkResponse"
     "fixture/ApplySecurityGroupsToClientVpnTargetNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy ApplySecurityGroupsToClientVpnTargetNetwork)
+    (Proxy.Proxy :: Proxy.Proxy ApplySecurityGroupsToClientVpnTargetNetwork)
 
 responseDescribeTrafficMirrorTargets :: DescribeTrafficMirrorTargetsResponse -> TestTree
 responseDescribeTrafficMirrorTargets =
@@ -6895,7 +6895,7 @@ responseDescribeTrafficMirrorTargets =
     "DescribeTrafficMirrorTargetsResponse"
     "fixture/DescribeTrafficMirrorTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrafficMirrorTargets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrafficMirrorTargets)
 
 responseDescribeVolumesModifications :: DescribeVolumesModificationsResponse -> TestTree
 responseDescribeVolumesModifications =
@@ -6903,7 +6903,7 @@ responseDescribeVolumesModifications =
     "DescribeVolumesModificationsResponse"
     "fixture/DescribeVolumesModificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVolumesModifications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVolumesModifications)
 
 responseExportImage :: ExportImageResponse -> TestTree
 responseExportImage =
@@ -6911,7 +6911,7 @@ responseExportImage =
     "ExportImageResponse"
     "fixture/ExportImageResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportImage)
+    (Proxy.Proxy :: Proxy.Proxy ExportImage)
 
 responseCreateFpgaImage :: CreateFpgaImageResponse -> TestTree
 responseCreateFpgaImage =
@@ -6919,7 +6919,7 @@ responseCreateFpgaImage =
     "CreateFpgaImageResponse"
     "fixture/CreateFpgaImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFpgaImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateFpgaImage)
 
 responseAcceptVpcEndpointConnections :: AcceptVpcEndpointConnectionsResponse -> TestTree
 responseAcceptVpcEndpointConnections =
@@ -6927,7 +6927,7 @@ responseAcceptVpcEndpointConnections =
     "AcceptVpcEndpointConnectionsResponse"
     "fixture/AcceptVpcEndpointConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptVpcEndpointConnections)
+    (Proxy.Proxy :: Proxy.Proxy AcceptVpcEndpointConnections)
 
 responseDeleteClientVpnEndpoint :: DeleteClientVpnEndpointResponse -> TestTree
 responseDeleteClientVpnEndpoint =
@@ -6935,7 +6935,7 @@ responseDeleteClientVpnEndpoint =
     "DeleteClientVpnEndpointResponse"
     "fixture/DeleteClientVpnEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteClientVpnEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteClientVpnEndpoint)
 
 responseSearchTransitGatewayRoutes :: SearchTransitGatewayRoutesResponse -> TestTree
 responseSearchTransitGatewayRoutes =
@@ -6943,7 +6943,7 @@ responseSearchTransitGatewayRoutes =
     "SearchTransitGatewayRoutesResponse"
     "fixture/SearchTransitGatewayRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchTransitGatewayRoutes)
+    (Proxy.Proxy :: Proxy.Proxy SearchTransitGatewayRoutes)
 
 responseGetLaunchTemplateData :: GetLaunchTemplateDataResponse -> TestTree
 responseGetLaunchTemplateData =
@@ -6951,7 +6951,7 @@ responseGetLaunchTemplateData =
     "GetLaunchTemplateDataResponse"
     "fixture/GetLaunchTemplateDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLaunchTemplateData)
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchTemplateData)
 
 responseAllocateAddress :: AllocateAddressResponse -> TestTree
 responseAllocateAddress =
@@ -6959,7 +6959,7 @@ responseAllocateAddress =
     "AllocateAddressResponse"
     "fixture/AllocateAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocateAddress)
+    (Proxy.Proxy :: Proxy.Proxy AllocateAddress)
 
 responseAcceptTransitGatewayVpcAttachment :: AcceptTransitGatewayVpcAttachmentResponse -> TestTree
 responseAcceptTransitGatewayVpcAttachment =
@@ -6967,7 +6967,7 @@ responseAcceptTransitGatewayVpcAttachment =
     "AcceptTransitGatewayVpcAttachmentResponse"
     "fixture/AcceptTransitGatewayVpcAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptTransitGatewayVpcAttachment)
+    (Proxy.Proxy :: Proxy.Proxy AcceptTransitGatewayVpcAttachment)
 
 responseCancelConversionTask :: CancelConversionTaskResponse -> TestTree
 responseCancelConversionTask =
@@ -6975,7 +6975,7 @@ responseCancelConversionTask =
     "CancelConversionTaskResponse"
     "fixture/CancelConversionTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelConversionTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelConversionTask)
 
 responseModifyImageAttribute :: ModifyImageAttributeResponse -> TestTree
 responseModifyImageAttribute =
@@ -6983,7 +6983,7 @@ responseModifyImageAttribute =
     "ModifyImageAttributeResponse"
     "fixture/ModifyImageAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyImageAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyImageAttribute)
 
 responseCreateRouteTable :: CreateRouteTableResponse -> TestTree
 responseCreateRouteTable =
@@ -6991,7 +6991,7 @@ responseCreateRouteTable =
     "CreateRouteTableResponse"
     "fixture/CreateRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy CreateRouteTable)
 
 responseRejectTransitGatewayPeeringAttachment :: RejectTransitGatewayPeeringAttachmentResponse -> TestTree
 responseRejectTransitGatewayPeeringAttachment =
@@ -6999,7 +6999,7 @@ responseRejectTransitGatewayPeeringAttachment =
     "RejectTransitGatewayPeeringAttachmentResponse"
     "fixture/RejectTransitGatewayPeeringAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectTransitGatewayPeeringAttachment)
+    (Proxy.Proxy :: Proxy.Proxy RejectTransitGatewayPeeringAttachment)
 
 responseReportInstanceStatus :: ReportInstanceStatusResponse -> TestTree
 responseReportInstanceStatus =
@@ -7007,7 +7007,7 @@ responseReportInstanceStatus =
     "ReportInstanceStatusResponse"
     "fixture/ReportInstanceStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ReportInstanceStatus)
+    (Proxy.Proxy :: Proxy.Proxy ReportInstanceStatus)
 
 responseAttachVolume :: VolumeAttachment -> TestTree
 responseAttachVolume =
@@ -7015,7 +7015,7 @@ responseAttachVolume =
     "AttachVolumeResponse"
     "fixture/AttachVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachVolume)
+    (Proxy.Proxy :: Proxy.Proxy AttachVolume)
 
 responseRequestSpotInstances :: RequestSpotInstancesResponse -> TestTree
 responseRequestSpotInstances =
@@ -7023,7 +7023,7 @@ responseRequestSpotInstances =
     "RequestSpotInstancesResponse"
     "fixture/RequestSpotInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy RequestSpotInstances)
+    (Proxy.Proxy :: Proxy.Proxy RequestSpotInstances)
 
 responseWithdrawByoipCidr :: WithdrawByoipCidrResponse -> TestTree
 responseWithdrawByoipCidr =
@@ -7031,7 +7031,7 @@ responseWithdrawByoipCidr =
     "WithdrawByoipCidrResponse"
     "fixture/WithdrawByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy WithdrawByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy WithdrawByoipCidr)
 
 responseDescribeHostReservationOfferings :: DescribeHostReservationOfferingsResponse -> TestTree
 responseDescribeHostReservationOfferings =
@@ -7039,7 +7039,7 @@ responseDescribeHostReservationOfferings =
     "DescribeHostReservationOfferingsResponse"
     "fixture/DescribeHostReservationOfferingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHostReservationOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHostReservationOfferings)
 
 responseResetFpgaImageAttribute :: ResetFpgaImageAttributeResponse -> TestTree
 responseResetFpgaImageAttribute =
@@ -7047,7 +7047,7 @@ responseResetFpgaImageAttribute =
     "ResetFpgaImageAttributeResponse"
     "fixture/ResetFpgaImageAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetFpgaImageAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ResetFpgaImageAttribute)
 
 responseModifyVpnConnection :: ModifyVpnConnectionResponse -> TestTree
 responseModifyVpnConnection =
@@ -7055,7 +7055,7 @@ responseModifyVpnConnection =
     "ModifyVpnConnectionResponse"
     "fixture/ModifyVpnConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpnConnection)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpnConnection)
 
 responseCreateTrafficMirrorFilterRule :: CreateTrafficMirrorFilterRuleResponse -> TestTree
 responseCreateTrafficMirrorFilterRule =
@@ -7063,7 +7063,7 @@ responseCreateTrafficMirrorFilterRule =
     "CreateTrafficMirrorFilterRuleResponse"
     "fixture/CreateTrafficMirrorFilterRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficMirrorFilterRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficMirrorFilterRule)
 
 responseDeleteTransitGateway :: DeleteTransitGatewayResponse -> TestTree
 responseDeleteTransitGateway =
@@ -7071,7 +7071,7 @@ responseDeleteTransitGateway =
     "DeleteTransitGatewayResponse"
     "fixture/DeleteTransitGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGateway)
 
 responseStartVpcEndpointServicePrivateDnsVerification :: StartVpcEndpointServicePrivateDnsVerificationResponse -> TestTree
 responseStartVpcEndpointServicePrivateDnsVerification =
@@ -7079,7 +7079,7 @@ responseStartVpcEndpointServicePrivateDnsVerification =
     "StartVpcEndpointServicePrivateDnsVerificationResponse"
     "fixture/StartVpcEndpointServicePrivateDnsVerificationResponse.proto"
     defaultService
-    (Proxy :: Proxy StartVpcEndpointServicePrivateDnsVerification)
+    (Proxy.Proxy :: Proxy.Proxy StartVpcEndpointServicePrivateDnsVerification)
 
 responseDescribeVolumes :: DescribeVolumesResponse -> TestTree
 responseDescribeVolumes =
@@ -7087,7 +7087,7 @@ responseDescribeVolumes =
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVolumes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVolumes)
 
 responseRejectVpcPeeringConnection :: RejectVpcPeeringConnectionResponse -> TestTree
 responseRejectVpcPeeringConnection =
@@ -7095,7 +7095,7 @@ responseRejectVpcPeeringConnection =
     "RejectVpcPeeringConnectionResponse"
     "fixture/RejectVpcPeeringConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectVpcPeeringConnection)
+    (Proxy.Proxy :: Proxy.Proxy RejectVpcPeeringConnection)
 
 responseDescribeClientVpnRoutes :: DescribeClientVpnRoutesResponse -> TestTree
 responseDescribeClientVpnRoutes =
@@ -7103,7 +7103,7 @@ responseDescribeClientVpnRoutes =
     "DescribeClientVpnRoutesResponse"
     "fixture/DescribeClientVpnRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientVpnRoutes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientVpnRoutes)
 
 responseDeleteVpnConnectionRoute :: DeleteVpnConnectionRouteResponse -> TestTree
 responseDeleteVpnConnectionRoute =
@@ -7111,7 +7111,7 @@ responseDeleteVpnConnectionRoute =
     "DeleteVpnConnectionRouteResponse"
     "fixture/DeleteVpnConnectionRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpnConnectionRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpnConnectionRoute)
 
 responseAssociateEnclaveCertificateIamRole :: AssociateEnclaveCertificateIamRoleResponse -> TestTree
 responseAssociateEnclaveCertificateIamRole =
@@ -7119,7 +7119,7 @@ responseAssociateEnclaveCertificateIamRole =
     "AssociateEnclaveCertificateIamRoleResponse"
     "fixture/AssociateEnclaveCertificateIamRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateEnclaveCertificateIamRole)
+    (Proxy.Proxy :: Proxy.Proxy AssociateEnclaveCertificateIamRole)
 
 responseModifyVpcEndpoint :: ModifyVpcEndpointResponse -> TestTree
 responseModifyVpcEndpoint =
@@ -7127,7 +7127,7 @@ responseModifyVpcEndpoint =
     "ModifyVpcEndpointResponse"
     "fixture/ModifyVpcEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcEndpoint)
 
 responseDescribeFpgaImageAttribute :: DescribeFpgaImageAttributeResponse -> TestTree
 responseDescribeFpgaImageAttribute =
@@ -7135,7 +7135,7 @@ responseDescribeFpgaImageAttribute =
     "DescribeFpgaImageAttributeResponse"
     "fixture/DescribeFpgaImageAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFpgaImageAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFpgaImageAttribute)
 
 responseAllocateHosts :: AllocateHostsResponse -> TestTree
 responseAllocateHosts =
@@ -7143,7 +7143,7 @@ responseAllocateHosts =
     "AllocateHostsResponse"
     "fixture/AllocateHostsResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocateHosts)
+    (Proxy.Proxy :: Proxy.Proxy AllocateHosts)
 
 responseCreateClientVpnEndpoint :: CreateClientVpnEndpointResponse -> TestTree
 responseCreateClientVpnEndpoint =
@@ -7151,7 +7151,7 @@ responseCreateClientVpnEndpoint =
     "CreateClientVpnEndpointResponse"
     "fixture/CreateClientVpnEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClientVpnEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateClientVpnEndpoint)
 
 responseCreateTrafficMirrorSession :: CreateTrafficMirrorSessionResponse -> TestTree
 responseCreateTrafficMirrorSession =
@@ -7159,7 +7159,7 @@ responseCreateTrafficMirrorSession =
     "CreateTrafficMirrorSessionResponse"
     "fixture/CreateTrafficMirrorSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficMirrorSession)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficMirrorSession)
 
 responseRegisterImage :: RegisterImageResponse -> TestTree
 responseRegisterImage =
@@ -7167,7 +7167,7 @@ responseRegisterImage =
     "RegisterImageResponse"
     "fixture/RegisterImageResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterImage)
+    (Proxy.Proxy :: Proxy.Proxy RegisterImage)
 
 responseAdvertiseByoipCidr :: AdvertiseByoipCidrResponse -> TestTree
 responseAdvertiseByoipCidr =
@@ -7175,7 +7175,7 @@ responseAdvertiseByoipCidr =
     "AdvertiseByoipCidrResponse"
     "fixture/AdvertiseByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy AdvertiseByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy AdvertiseByoipCidr)
 
 responseModifyFleet :: ModifyFleetResponse -> TestTree
 responseModifyFleet =
@@ -7183,7 +7183,7 @@ responseModifyFleet =
     "ModifyFleetResponse"
     "fixture/ModifyFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyFleet)
+    (Proxy.Proxy :: Proxy.Proxy ModifyFleet)
 
 responseRevokeSecurityGroupIngress :: RevokeSecurityGroupIngressResponse -> TestTree
 responseRevokeSecurityGroupIngress =
@@ -7191,7 +7191,7 @@ responseRevokeSecurityGroupIngress =
     "RevokeSecurityGroupIngressResponse"
     "fixture/RevokeSecurityGroupIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeSecurityGroupIngress)
+    (Proxy.Proxy :: Proxy.Proxy RevokeSecurityGroupIngress)
 
 responseGetEbsDefaultKmsKeyId :: GetEbsDefaultKmsKeyIdResponse -> TestTree
 responseGetEbsDefaultKmsKeyId =
@@ -7199,7 +7199,7 @@ responseGetEbsDefaultKmsKeyId =
     "GetEbsDefaultKmsKeyIdResponse"
     "fixture/GetEbsDefaultKmsKeyIdResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEbsDefaultKmsKeyId)
+    (Proxy.Proxy :: Proxy.Proxy GetEbsDefaultKmsKeyId)
 
 responseDescribeHostReservations :: DescribeHostReservationsResponse -> TestTree
 responseDescribeHostReservations =
@@ -7207,7 +7207,7 @@ responseDescribeHostReservations =
     "DescribeHostReservationsResponse"
     "fixture/DescribeHostReservationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHostReservations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHostReservations)
 
 responseUpdateSecurityGroupRuleDescriptionsEgress :: UpdateSecurityGroupRuleDescriptionsEgressResponse -> TestTree
 responseUpdateSecurityGroupRuleDescriptionsEgress =
@@ -7215,7 +7215,7 @@ responseUpdateSecurityGroupRuleDescriptionsEgress =
     "UpdateSecurityGroupRuleDescriptionsEgressResponse"
     "fixture/UpdateSecurityGroupRuleDescriptionsEgressResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecurityGroupRuleDescriptionsEgress)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecurityGroupRuleDescriptionsEgress)
 
 responseEnableVpcClassicLinkDnsSupport :: EnableVpcClassicLinkDnsSupportResponse -> TestTree
 responseEnableVpcClassicLinkDnsSupport =
@@ -7223,7 +7223,7 @@ responseEnableVpcClassicLinkDnsSupport =
     "EnableVpcClassicLinkDnsSupportResponse"
     "fixture/EnableVpcClassicLinkDnsSupportResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableVpcClassicLinkDnsSupport)
+    (Proxy.Proxy :: Proxy.Proxy EnableVpcClassicLinkDnsSupport)
 
 responseDescribeVpcEndpointConnections :: DescribeVpcEndpointConnectionsResponse -> TestTree
 responseDescribeVpcEndpointConnections =
@@ -7231,7 +7231,7 @@ responseDescribeVpcEndpointConnections =
     "DescribeVpcEndpointConnectionsResponse"
     "fixture/DescribeVpcEndpointConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcEndpointConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpointConnections)
 
 responseModifyReservedInstances :: ModifyReservedInstancesResponse -> TestTree
 responseModifyReservedInstances =
@@ -7239,7 +7239,7 @@ responseModifyReservedInstances =
     "ModifyReservedInstancesResponse"
     "fixture/ModifyReservedInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyReservedInstances)
+    (Proxy.Proxy :: Proxy.Proxy ModifyReservedInstances)
 
 responseDeleteFpgaImage :: DeleteFpgaImageResponse -> TestTree
 responseDeleteFpgaImage =
@@ -7247,7 +7247,7 @@ responseDeleteFpgaImage =
     "DeleteFpgaImageResponse"
     "fixture/DeleteFpgaImageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFpgaImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFpgaImage)
 
 responseDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse -> TestTree
 responseDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations =
@@ -7255,7 +7255,7 @@ responseDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations =
     "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse"
     "fixture/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
 
 responseEnableImageDeprecation :: EnableImageDeprecationResponse -> TestTree
 responseEnableImageDeprecation =
@@ -7263,7 +7263,7 @@ responseEnableImageDeprecation =
     "EnableImageDeprecationResponse"
     "fixture/EnableImageDeprecationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableImageDeprecation)
+    (Proxy.Proxy :: Proxy.Proxy EnableImageDeprecation)
 
 responseDescribeScheduledInstances :: DescribeScheduledInstancesResponse -> TestTree
 responseDescribeScheduledInstances =
@@ -7271,7 +7271,7 @@ responseDescribeScheduledInstances =
     "DescribeScheduledInstancesResponse"
     "fixture/DescribeScheduledInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScheduledInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScheduledInstances)
 
 responseSearchTransitGatewayMulticastGroups :: SearchTransitGatewayMulticastGroupsResponse -> TestTree
 responseSearchTransitGatewayMulticastGroups =
@@ -7279,7 +7279,7 @@ responseSearchTransitGatewayMulticastGroups =
     "SearchTransitGatewayMulticastGroupsResponse"
     "fixture/SearchTransitGatewayMulticastGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchTransitGatewayMulticastGroups)
+    (Proxy.Proxy :: Proxy.Proxy SearchTransitGatewayMulticastGroups)
 
 responseCreateFlowLogs :: CreateFlowLogsResponse -> TestTree
 responseCreateFlowLogs =
@@ -7287,7 +7287,7 @@ responseCreateFlowLogs =
     "CreateFlowLogsResponse"
     "fixture/CreateFlowLogsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFlowLogs)
+    (Proxy.Proxy :: Proxy.Proxy CreateFlowLogs)
 
 responseDescribeSpotFleetRequests :: DescribeSpotFleetRequestsResponse -> TestTree
 responseDescribeSpotFleetRequests =
@@ -7295,7 +7295,7 @@ responseDescribeSpotFleetRequests =
     "DescribeSpotFleetRequestsResponse"
     "fixture/DescribeSpotFleetRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpotFleetRequests)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpotFleetRequests)
 
 responseMoveAddressToVpc :: MoveAddressToVpcResponse -> TestTree
 responseMoveAddressToVpc =
@@ -7303,7 +7303,7 @@ responseMoveAddressToVpc =
     "MoveAddressToVpcResponse"
     "fixture/MoveAddressToVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy MoveAddressToVpc)
+    (Proxy.Proxy :: Proxy.Proxy MoveAddressToVpc)
 
 responseDescribeFleetInstances :: DescribeFleetInstancesResponse -> TestTree
 responseDescribeFleetInstances =
@@ -7311,7 +7311,7 @@ responseDescribeFleetInstances =
     "DescribeFleetInstancesResponse"
     "fixture/DescribeFleetInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetInstances)
 
 responseDescribeLaunchTemplateVersions :: DescribeLaunchTemplateVersionsResponse -> TestTree
 responseDescribeLaunchTemplateVersions =
@@ -7319,7 +7319,7 @@ responseDescribeLaunchTemplateVersions =
     "DescribeLaunchTemplateVersionsResponse"
     "fixture/DescribeLaunchTemplateVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLaunchTemplateVersions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLaunchTemplateVersions)
 
 responseStartNetworkInsightsAnalysis :: StartNetworkInsightsAnalysisResponse -> TestTree
 responseStartNetworkInsightsAnalysis =
@@ -7327,7 +7327,7 @@ responseStartNetworkInsightsAnalysis =
     "StartNetworkInsightsAnalysisResponse"
     "fixture/StartNetworkInsightsAnalysisResponse.proto"
     defaultService
-    (Proxy :: Proxy StartNetworkInsightsAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy StartNetworkInsightsAnalysis)
 
 responseModifyInstanceCreditSpecification :: ModifyInstanceCreditSpecificationResponse -> TestTree
 responseModifyInstanceCreditSpecification =
@@ -7335,7 +7335,7 @@ responseModifyInstanceCreditSpecification =
     "ModifyInstanceCreditSpecificationResponse"
     "fixture/ModifyInstanceCreditSpecificationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceCreditSpecification)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceCreditSpecification)
 
 responseDescribePrincipalIdFormat :: DescribePrincipalIdFormatResponse -> TestTree
 responseDescribePrincipalIdFormat =
@@ -7343,7 +7343,7 @@ responseDescribePrincipalIdFormat =
     "DescribePrincipalIdFormatResponse"
     "fixture/DescribePrincipalIdFormatResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePrincipalIdFormat)
+    (Proxy.Proxy :: Proxy.Proxy DescribePrincipalIdFormat)
 
 responseDescribeTransitGateways :: DescribeTransitGatewaysResponse -> TestTree
 responseDescribeTransitGateways =
@@ -7351,7 +7351,7 @@ responseDescribeTransitGateways =
     "DescribeTransitGatewaysResponse"
     "fixture/DescribeTransitGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGateways)
 
 responseDeleteNetworkAcl :: DeleteNetworkAclResponse -> TestTree
 responseDeleteNetworkAcl =
@@ -7359,7 +7359,7 @@ responseDeleteNetworkAcl =
     "DeleteNetworkAclResponse"
     "fixture/DeleteNetworkAclResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkAcl)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkAcl)
 
 responseDisassociateTransitGatewayMulticastDomain :: DisassociateTransitGatewayMulticastDomainResponse -> TestTree
 responseDisassociateTransitGatewayMulticastDomain =
@@ -7367,7 +7367,7 @@ responseDisassociateTransitGatewayMulticastDomain =
     "DisassociateTransitGatewayMulticastDomainResponse"
     "fixture/DisassociateTransitGatewayMulticastDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTransitGatewayMulticastDomain)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTransitGatewayMulticastDomain)
 
 responseDeleteTransitGatewayRouteTable :: DeleteTransitGatewayRouteTableResponse -> TestTree
 responseDeleteTransitGatewayRouteTable =
@@ -7375,7 +7375,7 @@ responseDeleteTransitGatewayRouteTable =
     "DeleteTransitGatewayRouteTableResponse"
     "fixture/DeleteTransitGatewayRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayRouteTable)
 
 responseDescribeSecurityGroupRules :: DescribeSecurityGroupRulesResponse -> TestTree
 responseDescribeSecurityGroupRules =
@@ -7383,7 +7383,7 @@ responseDescribeSecurityGroupRules =
     "DescribeSecurityGroupRulesResponse"
     "fixture/DescribeSecurityGroupRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecurityGroupRules)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityGroupRules)
 
 responseCreateLaunchTemplate :: CreateLaunchTemplateResponse -> TestTree
 responseCreateLaunchTemplate =
@@ -7391,7 +7391,7 @@ responseCreateLaunchTemplate =
     "CreateLaunchTemplateResponse"
     "fixture/CreateLaunchTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLaunchTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateLaunchTemplate)
 
 responseCreateVpcEndpointConnectionNotification :: CreateVpcEndpointConnectionNotificationResponse -> TestTree
 responseCreateVpcEndpointConnectionNotification =
@@ -7399,7 +7399,7 @@ responseCreateVpcEndpointConnectionNotification =
     "CreateVpcEndpointConnectionNotificationResponse"
     "fixture/CreateVpcEndpointConnectionNotificationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcEndpointConnectionNotification)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcEndpointConnectionNotification)
 
 responseDeleteNetworkInterfacePermission :: DeleteNetworkInterfacePermissionResponse -> TestTree
 responseDeleteNetworkInterfacePermission =
@@ -7407,7 +7407,7 @@ responseDeleteNetworkInterfacePermission =
     "DeleteNetworkInterfacePermissionResponse"
     "fixture/DeleteNetworkInterfacePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkInterfacePermission)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkInterfacePermission)
 
 responseDeleteVpnGateway :: DeleteVpnGatewayResponse -> TestTree
 responseDeleteVpnGateway =
@@ -7415,7 +7415,7 @@ responseDeleteVpnGateway =
     "DeleteVpnGatewayResponse"
     "fixture/DeleteVpnGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpnGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpnGateway)
 
 responseCreateStoreImageTask :: CreateStoreImageTaskResponse -> TestTree
 responseCreateStoreImageTask =
@@ -7423,7 +7423,7 @@ responseCreateStoreImageTask =
     "CreateStoreImageTaskResponse"
     "fixture/CreateStoreImageTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStoreImageTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateStoreImageTask)
 
 responseCreateTrafficMirrorTarget :: CreateTrafficMirrorTargetResponse -> TestTree
 responseCreateTrafficMirrorTarget =
@@ -7431,7 +7431,7 @@ responseCreateTrafficMirrorTarget =
     "CreateTrafficMirrorTargetResponse"
     "fixture/CreateTrafficMirrorTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrafficMirrorTarget)
+    (Proxy.Proxy :: Proxy.Proxy CreateTrafficMirrorTarget)
 
 responseDescribeImportImageTasks :: DescribeImportImageTasksResponse -> TestTree
 responseDescribeImportImageTasks =
@@ -7439,7 +7439,7 @@ responseDescribeImportImageTasks =
     "DescribeImportImageTasksResponse"
     "fixture/DescribeImportImageTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImportImageTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImportImageTasks)
 
 responseDescribeVolumeAttribute :: DescribeVolumeAttributeResponse -> TestTree
 responseDescribeVolumeAttribute =
@@ -7447,7 +7447,7 @@ responseDescribeVolumeAttribute =
     "DescribeVolumeAttributeResponse"
     "fixture/DescribeVolumeAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVolumeAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVolumeAttribute)
 
 responseDescribeMovingAddresses :: DescribeMovingAddressesResponse -> TestTree
 responseDescribeMovingAddresses =
@@ -7455,7 +7455,7 @@ responseDescribeMovingAddresses =
     "DescribeMovingAddressesResponse"
     "fixture/DescribeMovingAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMovingAddresses)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMovingAddresses)
 
 responseExportTransitGatewayRoutes :: ExportTransitGatewayRoutesResponse -> TestTree
 responseExportTransitGatewayRoutes =
@@ -7463,7 +7463,7 @@ responseExportTransitGatewayRoutes =
     "ExportTransitGatewayRoutesResponse"
     "fixture/ExportTransitGatewayRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportTransitGatewayRoutes)
+    (Proxy.Proxy :: Proxy.Proxy ExportTransitGatewayRoutes)
 
 responseGetPasswordData :: GetPasswordDataResponse -> TestTree
 responseGetPasswordData =
@@ -7471,7 +7471,7 @@ responseGetPasswordData =
     "GetPasswordDataResponse"
     "fixture/GetPasswordDataResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPasswordData)
+    (Proxy.Proxy :: Proxy.Proxy GetPasswordData)
 
 responseCreateVpc :: CreateVpcResponse -> TestTree
 responseCreateVpc =
@@ -7479,7 +7479,7 @@ responseCreateVpc =
     "CreateVpcResponse"
     "fixture/CreateVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpc)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpc)
 
 responseModifyVpcPeeringConnectionOptions :: ModifyVpcPeeringConnectionOptionsResponse -> TestTree
 responseModifyVpcPeeringConnectionOptions =
@@ -7487,7 +7487,7 @@ responseModifyVpcPeeringConnectionOptions =
     "ModifyVpcPeeringConnectionOptionsResponse"
     "fixture/ModifyVpcPeeringConnectionOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcPeeringConnectionOptions)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcPeeringConnectionOptions)
 
 responseDescribeFpgaImages :: DescribeFpgaImagesResponse -> TestTree
 responseDescribeFpgaImages =
@@ -7495,7 +7495,7 @@ responseDescribeFpgaImages =
     "DescribeFpgaImagesResponse"
     "fixture/DescribeFpgaImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFpgaImages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFpgaImages)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
 responseCopySnapshot =
@@ -7503,7 +7503,7 @@ responseCopySnapshot =
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CopySnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CopySnapshot)
 
 responseAcceptTransitGatewayPeeringAttachment :: AcceptTransitGatewayPeeringAttachmentResponse -> TestTree
 responseAcceptTransitGatewayPeeringAttachment =
@@ -7511,7 +7511,7 @@ responseAcceptTransitGatewayPeeringAttachment =
     "AcceptTransitGatewayPeeringAttachmentResponse"
     "fixture/AcceptTransitGatewayPeeringAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptTransitGatewayPeeringAttachment)
+    (Proxy.Proxy :: Proxy.Proxy AcceptTransitGatewayPeeringAttachment)
 
 responseDisassociateAddress :: DisassociateAddressResponse -> TestTree
 responseDisassociateAddress =
@@ -7519,7 +7519,7 @@ responseDisassociateAddress =
     "DisassociateAddressResponse"
     "fixture/DisassociateAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateAddress)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAddress)
 
 responseModifyTrafficMirrorFilterNetworkServices :: ModifyTrafficMirrorFilterNetworkServicesResponse -> TestTree
 responseModifyTrafficMirrorFilterNetworkServices =
@@ -7527,7 +7527,7 @@ responseModifyTrafficMirrorFilterNetworkServices =
     "ModifyTrafficMirrorFilterNetworkServicesResponse"
     "fixture/ModifyTrafficMirrorFilterNetworkServicesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTrafficMirrorFilterNetworkServices)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTrafficMirrorFilterNetworkServices)
 
 responseDescribeEgressOnlyInternetGateways :: DescribeEgressOnlyInternetGatewaysResponse -> TestTree
 responseDescribeEgressOnlyInternetGateways =
@@ -7535,7 +7535,7 @@ responseDescribeEgressOnlyInternetGateways =
     "DescribeEgressOnlyInternetGatewaysResponse"
     "fixture/DescribeEgressOnlyInternetGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEgressOnlyInternetGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEgressOnlyInternetGateways)
 
 responseDeleteVpc :: DeleteVpcResponse -> TestTree
 responseDeleteVpc =
@@ -7543,7 +7543,7 @@ responseDeleteVpc =
     "DeleteVpcResponse"
     "fixture/DeleteVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpc)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpc)
 
 responseCreateInstanceExportTask :: CreateInstanceExportTaskResponse -> TestTree
 responseCreateInstanceExportTask =
@@ -7551,7 +7551,7 @@ responseCreateInstanceExportTask =
     "CreateInstanceExportTaskResponse"
     "fixture/CreateInstanceExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstanceExportTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceExportTask)
 
 responseRejectTransitGatewayVpcAttachment :: RejectTransitGatewayVpcAttachmentResponse -> TestTree
 responseRejectTransitGatewayVpcAttachment =
@@ -7559,7 +7559,7 @@ responseRejectTransitGatewayVpcAttachment =
     "RejectTransitGatewayVpcAttachmentResponse"
     "fixture/RejectTransitGatewayVpcAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectTransitGatewayVpcAttachment)
+    (Proxy.Proxy :: Proxy.Proxy RejectTransitGatewayVpcAttachment)
 
 responseDescribeTrafficMirrorSessions :: DescribeTrafficMirrorSessionsResponse -> TestTree
 responseDescribeTrafficMirrorSessions =
@@ -7567,7 +7567,7 @@ responseDescribeTrafficMirrorSessions =
     "DescribeTrafficMirrorSessionsResponse"
     "fixture/DescribeTrafficMirrorSessionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrafficMirrorSessions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrafficMirrorSessions)
 
 responseGetTransitGatewayRouteTableAssociations :: GetTransitGatewayRouteTableAssociationsResponse -> TestTree
 responseGetTransitGatewayRouteTableAssociations =
@@ -7575,7 +7575,7 @@ responseGetTransitGatewayRouteTableAssociations =
     "GetTransitGatewayRouteTableAssociationsResponse"
     "fixture/GetTransitGatewayRouteTableAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayRouteTableAssociations)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayRouteTableAssociations)
 
 responseAssociateVpcCidrBlock :: AssociateVpcCidrBlockResponse -> TestTree
 responseAssociateVpcCidrBlock =
@@ -7583,7 +7583,7 @@ responseAssociateVpcCidrBlock =
     "AssociateVpcCidrBlockResponse"
     "fixture/AssociateVpcCidrBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateVpcCidrBlock)
+    (Proxy.Proxy :: Proxy.Proxy AssociateVpcCidrBlock)
 
 responseDescribeVpcAttribute :: DescribeVpcAttributeResponse -> TestTree
 responseDescribeVpcAttribute =
@@ -7591,7 +7591,7 @@ responseDescribeVpcAttribute =
     "DescribeVpcAttributeResponse"
     "fixture/DescribeVpcAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcAttribute)
 
 responseCreateVolume :: Volume -> TestTree
 responseCreateVolume =
@@ -7599,7 +7599,7 @@ responseCreateVolume =
     "CreateVolumeResponse"
     "fixture/CreateVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVolume)
+    (Proxy.Proxy :: Proxy.Proxy CreateVolume)
 
 responseCreateDefaultSubnet :: CreateDefaultSubnetResponse -> TestTree
 responseCreateDefaultSubnet =
@@ -7607,7 +7607,7 @@ responseCreateDefaultSubnet =
     "CreateDefaultSubnetResponse"
     "fixture/CreateDefaultSubnetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDefaultSubnet)
+    (Proxy.Proxy :: Proxy.Proxy CreateDefaultSubnet)
 
 responseDescribeScheduledInstanceAvailability :: DescribeScheduledInstanceAvailabilityResponse -> TestTree
 responseDescribeScheduledInstanceAvailability =
@@ -7615,7 +7615,7 @@ responseDescribeScheduledInstanceAvailability =
     "DescribeScheduledInstanceAvailabilityResponse"
     "fixture/DescribeScheduledInstanceAvailabilityResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScheduledInstanceAvailability)
+    (Proxy.Proxy :: Proxy.Proxy DescribeScheduledInstanceAvailability)
 
 responseDisassociateClientVpnTargetNetwork :: DisassociateClientVpnTargetNetworkResponse -> TestTree
 responseDisassociateClientVpnTargetNetwork =
@@ -7623,7 +7623,7 @@ responseDisassociateClientVpnTargetNetwork =
     "DisassociateClientVpnTargetNetworkResponse"
     "fixture/DisassociateClientVpnTargetNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateClientVpnTargetNetwork)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateClientVpnTargetNetwork)
 
 responseCreateClientVpnRoute :: CreateClientVpnRouteResponse -> TestTree
 responseCreateClientVpnRoute =
@@ -7631,7 +7631,7 @@ responseCreateClientVpnRoute =
     "CreateClientVpnRouteResponse"
     "fixture/CreateClientVpnRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClientVpnRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateClientVpnRoute)
 
 responseModifyVolumeAttribute :: ModifyVolumeAttributeResponse -> TestTree
 responseModifyVolumeAttribute =
@@ -7639,7 +7639,7 @@ responseModifyVolumeAttribute =
     "ModifyVolumeAttributeResponse"
     "fixture/ModifyVolumeAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVolumeAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVolumeAttribute)
 
 responseExportClientVpnClientConfiguration :: ExportClientVpnClientConfigurationResponse -> TestTree
 responseExportClientVpnClientConfiguration =
@@ -7647,7 +7647,7 @@ responseExportClientVpnClientConfiguration =
     "ExportClientVpnClientConfigurationResponse"
     "fixture/ExportClientVpnClientConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportClientVpnClientConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ExportClientVpnClientConfiguration)
 
 responseDescribeTrunkInterfaceAssociations :: DescribeTrunkInterfaceAssociationsResponse -> TestTree
 responseDescribeTrunkInterfaceAssociations =
@@ -7655,7 +7655,7 @@ responseDescribeTrunkInterfaceAssociations =
     "DescribeTrunkInterfaceAssociationsResponse"
     "fixture/DescribeTrunkInterfaceAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrunkInterfaceAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrunkInterfaceAssociations)
 
 responseDeleteTrafficMirrorTarget :: DeleteTrafficMirrorTargetResponse -> TestTree
 responseDeleteTrafficMirrorTarget =
@@ -7663,7 +7663,7 @@ responseDeleteTrafficMirrorTarget =
     "DeleteTrafficMirrorTargetResponse"
     "fixture/DeleteTrafficMirrorTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrafficMirrorTarget)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficMirrorTarget)
 
 responseDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
 responseDescribeSpotDatafeedSubscription =
@@ -7671,7 +7671,7 @@ responseDescribeSpotDatafeedSubscription =
     "DescribeSpotDatafeedSubscriptionResponse"
     "fixture/DescribeSpotDatafeedSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpotDatafeedSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpotDatafeedSubscription)
 
 responseDescribeLocalGatewayRouteTables :: DescribeLocalGatewayRouteTablesResponse -> TestTree
 responseDescribeLocalGatewayRouteTables =
@@ -7679,7 +7679,7 @@ responseDescribeLocalGatewayRouteTables =
     "DescribeLocalGatewayRouteTablesResponse"
     "fixture/DescribeLocalGatewayRouteTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocalGatewayRouteTables)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocalGatewayRouteTables)
 
 responseDescribePrefixLists :: DescribePrefixListsResponse -> TestTree
 responseDescribePrefixLists =
@@ -7687,7 +7687,7 @@ responseDescribePrefixLists =
     "DescribePrefixListsResponse"
     "fixture/DescribePrefixListsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePrefixLists)
+    (Proxy.Proxy :: Proxy.Proxy DescribePrefixLists)
 
 responseAssociateTransitGatewayRouteTable :: AssociateTransitGatewayRouteTableResponse -> TestTree
 responseAssociateTransitGatewayRouteTable =
@@ -7695,7 +7695,7 @@ responseAssociateTransitGatewayRouteTable =
     "AssociateTransitGatewayRouteTableResponse"
     "fixture/AssociateTransitGatewayRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTransitGatewayRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTransitGatewayRouteTable)
 
 responseDeletePlacementGroup :: DeletePlacementGroupResponse -> TestTree
 responseDeletePlacementGroup =
@@ -7703,7 +7703,7 @@ responseDeletePlacementGroup =
     "DeletePlacementGroupResponse"
     "fixture/DeletePlacementGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlacementGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeletePlacementGroup)
 
 responseModifyTransitGateway :: ModifyTransitGatewayResponse -> TestTree
 responseModifyTransitGateway =
@@ -7711,7 +7711,7 @@ responseModifyTransitGateway =
     "ModifyTransitGatewayResponse"
     "fixture/ModifyTransitGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTransitGateway)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTransitGateway)
 
 responseDeleteTransitGatewayPrefixListReference :: DeleteTransitGatewayPrefixListReferenceResponse -> TestTree
 responseDeleteTransitGatewayPrefixListReference =
@@ -7719,7 +7719,7 @@ responseDeleteTransitGatewayPrefixListReference =
     "DeleteTransitGatewayPrefixListReferenceResponse"
     "fixture/DeleteTransitGatewayPrefixListReferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayPrefixListReference)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayPrefixListReference)
 
 responseCreateTransitGatewayMulticastDomain :: CreateTransitGatewayMulticastDomainResponse -> TestTree
 responseCreateTransitGatewayMulticastDomain =
@@ -7727,7 +7727,7 @@ responseCreateTransitGatewayMulticastDomain =
     "CreateTransitGatewayMulticastDomainResponse"
     "fixture/CreateTransitGatewayMulticastDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayMulticastDomain)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayMulticastDomain)
 
 responseDeregisterInstanceEventNotificationAttributes :: DeregisterInstanceEventNotificationAttributesResponse -> TestTree
 responseDeregisterInstanceEventNotificationAttributes =
@@ -7735,7 +7735,7 @@ responseDeregisterInstanceEventNotificationAttributes =
     "DeregisterInstanceEventNotificationAttributesResponse"
     "fixture/DeregisterInstanceEventNotificationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterInstanceEventNotificationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterInstanceEventNotificationAttributes)
 
 responseRequestSpotFleet :: RequestSpotFleetResponse -> TestTree
 responseRequestSpotFleet =
@@ -7743,7 +7743,7 @@ responseRequestSpotFleet =
     "RequestSpotFleetResponse"
     "fixture/RequestSpotFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy RequestSpotFleet)
+    (Proxy.Proxy :: Proxy.Proxy RequestSpotFleet)
 
 responseDeleteNetworkInsightsPath :: DeleteNetworkInsightsPathResponse -> TestTree
 responseDeleteNetworkInsightsPath =
@@ -7751,7 +7751,7 @@ responseDeleteNetworkInsightsPath =
     "DeleteNetworkInsightsPathResponse"
     "fixture/DeleteNetworkInsightsPathResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkInsightsPath)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkInsightsPath)
 
 responseDescribeTransitGatewayConnects :: DescribeTransitGatewayConnectsResponse -> TestTree
 responseDescribeTransitGatewayConnects =
@@ -7759,7 +7759,7 @@ responseDescribeTransitGatewayConnects =
     "DescribeTransitGatewayConnectsResponse"
     "fixture/DescribeTransitGatewayConnectsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayConnects)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayConnects)
 
 responseDeleteTransitGatewayRoute :: DeleteTransitGatewayRouteResponse -> TestTree
 responseDeleteTransitGatewayRoute =
@@ -7767,7 +7767,7 @@ responseDeleteTransitGatewayRoute =
     "DeleteTransitGatewayRouteResponse"
     "fixture/DeleteTransitGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayRoute)
 
 responseCreateTransitGatewayConnectPeer :: CreateTransitGatewayConnectPeerResponse -> TestTree
 responseCreateTransitGatewayConnectPeer =
@@ -7775,7 +7775,7 @@ responseCreateTransitGatewayConnectPeer =
     "CreateTransitGatewayConnectPeerResponse"
     "fixture/CreateTransitGatewayConnectPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayConnectPeer)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayConnectPeer)
 
 responseDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefaultResponse -> TestTree
 responseDisableEbsEncryptionByDefault =
@@ -7783,7 +7783,7 @@ responseDisableEbsEncryptionByDefault =
     "DisableEbsEncryptionByDefaultResponse"
     "fixture/DisableEbsEncryptionByDefaultResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableEbsEncryptionByDefault)
+    (Proxy.Proxy :: Proxy.Proxy DisableEbsEncryptionByDefault)
 
 responseDeregisterTransitGatewayMulticastGroupMembers :: DeregisterTransitGatewayMulticastGroupMembersResponse -> TestTree
 responseDeregisterTransitGatewayMulticastGroupMembers =
@@ -7791,7 +7791,7 @@ responseDeregisterTransitGatewayMulticastGroupMembers =
     "DeregisterTransitGatewayMulticastGroupMembersResponse"
     "fixture/DeregisterTransitGatewayMulticastGroupMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterTransitGatewayMulticastGroupMembers)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTransitGatewayMulticastGroupMembers)
 
 responseAssociateTrunkInterface :: AssociateTrunkInterfaceResponse -> TestTree
 responseAssociateTrunkInterface =
@@ -7799,7 +7799,7 @@ responseAssociateTrunkInterface =
     "AssociateTrunkInterfaceResponse"
     "fixture/AssociateTrunkInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateTrunkInterface)
+    (Proxy.Proxy :: Proxy.Proxy AssociateTrunkInterface)
 
 responseCreateSubnet :: CreateSubnetResponse -> TestTree
 responseCreateSubnet =
@@ -7807,7 +7807,7 @@ responseCreateSubnet =
     "CreateSubnetResponse"
     "fixture/CreateSubnetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubnet)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubnet)
 
 responseCreateNetworkInterface :: CreateNetworkInterfaceResponse -> TestTree
 responseCreateNetworkInterface =
@@ -7815,7 +7815,7 @@ responseCreateNetworkInterface =
     "CreateNetworkInterfaceResponse"
     "fixture/CreateNetworkInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkInterface)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkInterface)
 
 responseDescribeSecurityGroups :: DescribeSecurityGroupsResponse -> TestTree
 responseDescribeSecurityGroups =
@@ -7823,7 +7823,7 @@ responseDescribeSecurityGroups =
     "DescribeSecurityGroupsResponse"
     "fixture/DescribeSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityGroups)
 
 responseGetCapacityReservationUsage :: GetCapacityReservationUsageResponse -> TestTree
 responseGetCapacityReservationUsage =
@@ -7831,7 +7831,7 @@ responseGetCapacityReservationUsage =
     "GetCapacityReservationUsageResponse"
     "fixture/GetCapacityReservationUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCapacityReservationUsage)
+    (Proxy.Proxy :: Proxy.Proxy GetCapacityReservationUsage)
 
 responseCreateTransitGatewayVpcAttachment :: CreateTransitGatewayVpcAttachmentResponse -> TestTree
 responseCreateTransitGatewayVpcAttachment =
@@ -7839,7 +7839,7 @@ responseCreateTransitGatewayVpcAttachment =
     "CreateTransitGatewayVpcAttachmentResponse"
     "fixture/CreateTransitGatewayVpcAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayVpcAttachment)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayVpcAttachment)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
 responseDescribeExportTasks =
@@ -7847,7 +7847,7 @@ responseDescribeExportTasks =
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExportTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExportTasks)
 
 responseModifySpotFleetRequest :: ModifySpotFleetRequestResponse -> TestTree
 responseModifySpotFleetRequest =
@@ -7855,7 +7855,7 @@ responseModifySpotFleetRequest =
     "ModifySpotFleetRequestResponse"
     "fixture/ModifySpotFleetRequestResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySpotFleetRequest)
+    (Proxy.Proxy :: Proxy.Proxy ModifySpotFleetRequest)
 
 responseDetachVpnGateway :: DetachVpnGatewayResponse -> TestTree
 responseDetachVpnGateway =
@@ -7863,7 +7863,7 @@ responseDetachVpnGateway =
     "DetachVpnGatewayResponse"
     "fixture/DetachVpnGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachVpnGateway)
+    (Proxy.Proxy :: Proxy.Proxy DetachVpnGateway)
 
 responseModifyManagedPrefixList :: ModifyManagedPrefixListResponse -> TestTree
 responseModifyManagedPrefixList =
@@ -7871,7 +7871,7 @@ responseModifyManagedPrefixList =
     "ModifyManagedPrefixListResponse"
     "fixture/ModifyManagedPrefixListResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyManagedPrefixList)
+    (Proxy.Proxy :: Proxy.Proxy ModifyManagedPrefixList)
 
 responseGetHostReservationPurchasePreview :: GetHostReservationPurchasePreviewResponse -> TestTree
 responseGetHostReservationPurchasePreview =
@@ -7879,7 +7879,7 @@ responseGetHostReservationPurchasePreview =
     "GetHostReservationPurchasePreviewResponse"
     "fixture/GetHostReservationPurchasePreviewResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHostReservationPurchasePreview)
+    (Proxy.Proxy :: Proxy.Proxy GetHostReservationPurchasePreview)
 
 responseEnableVolumeIO :: EnableVolumeIOResponse -> TestTree
 responseEnableVolumeIO =
@@ -7887,7 +7887,7 @@ responseEnableVolumeIO =
     "EnableVolumeIOResponse"
     "fixture/EnableVolumeIOResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableVolumeIO)
+    (Proxy.Proxy :: Proxy.Proxy EnableVolumeIO)
 
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
 responseDescribeInstances =
@@ -7895,7 +7895,7 @@ responseDescribeInstances =
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstances)
 
 responseDescribeInstanceEventWindows :: DescribeInstanceEventWindowsResponse -> TestTree
 responseDescribeInstanceEventWindows =
@@ -7903,7 +7903,7 @@ responseDescribeInstanceEventWindows =
     "DescribeInstanceEventWindowsResponse"
     "fixture/DescribeInstanceEventWindowsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceEventWindows)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceEventWindows)
 
 responseDisableSerialConsoleAccess :: DisableSerialConsoleAccessResponse -> TestTree
 responseDisableSerialConsoleAccess =
@@ -7911,7 +7911,7 @@ responseDisableSerialConsoleAccess =
     "DisableSerialConsoleAccessResponse"
     "fixture/DisableSerialConsoleAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableSerialConsoleAccess)
+    (Proxy.Proxy :: Proxy.Proxy DisableSerialConsoleAccess)
 
 responseCreateNatGateway :: CreateNatGatewayResponse -> TestTree
 responseCreateNatGateway =
@@ -7919,7 +7919,7 @@ responseCreateNatGateway =
     "CreateNatGatewayResponse"
     "fixture/CreateNatGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNatGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateNatGateway)
 
 responseDescribeLocalGatewayVirtualInterfaces :: DescribeLocalGatewayVirtualInterfacesResponse -> TestTree
 responseDescribeLocalGatewayVirtualInterfaces =
@@ -7927,7 +7927,7 @@ responseDescribeLocalGatewayVirtualInterfaces =
     "DescribeLocalGatewayVirtualInterfacesResponse"
     "fixture/DescribeLocalGatewayVirtualInterfacesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocalGatewayVirtualInterfaces)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocalGatewayVirtualInterfaces)
 
 responseDescribeVpcPeeringConnections :: DescribeVpcPeeringConnectionsResponse -> TestTree
 responseDescribeVpcPeeringConnections =
@@ -7935,7 +7935,7 @@ responseDescribeVpcPeeringConnections =
     "DescribeVpcPeeringConnectionsResponse"
     "fixture/DescribeVpcPeeringConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcPeeringConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcPeeringConnections)
 
 responseCancelExportTask :: CancelExportTaskResponse -> TestTree
 responseCancelExportTask =
@@ -7943,7 +7943,7 @@ responseCancelExportTask =
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelExportTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelExportTask)
 
 responseCreateVpcEndpointServiceConfiguration :: CreateVpcEndpointServiceConfigurationResponse -> TestTree
 responseCreateVpcEndpointServiceConfiguration =
@@ -7951,7 +7951,7 @@ responseCreateVpcEndpointServiceConfiguration =
     "CreateVpcEndpointServiceConfigurationResponse"
     "fixture/CreateVpcEndpointServiceConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcEndpointServiceConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcEndpointServiceConfiguration)
 
 responseCreateDefaultVpc :: CreateDefaultVpcResponse -> TestTree
 responseCreateDefaultVpc =
@@ -7959,7 +7959,7 @@ responseCreateDefaultVpc =
     "CreateDefaultVpcResponse"
     "fixture/CreateDefaultVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDefaultVpc)
+    (Proxy.Proxy :: Proxy.Proxy CreateDefaultVpc)
 
 responseDisassociateVpcCidrBlock :: DisassociateVpcCidrBlockResponse -> TestTree
 responseDisassociateVpcCidrBlock =
@@ -7967,7 +7967,7 @@ responseDisassociateVpcCidrBlock =
     "DisassociateVpcCidrBlockResponse"
     "fixture/DisassociateVpcCidrBlockResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateVpcCidrBlock)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateVpcCidrBlock)
 
 responseDescribeTrafficMirrorFilters :: DescribeTrafficMirrorFiltersResponse -> TestTree
 responseDescribeTrafficMirrorFilters =
@@ -7975,7 +7975,7 @@ responseDescribeTrafficMirrorFilters =
     "DescribeTrafficMirrorFiltersResponse"
     "fixture/DescribeTrafficMirrorFiltersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTrafficMirrorFilters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrafficMirrorFilters)
 
 responseDescribeFastSnapshotRestores :: DescribeFastSnapshotRestoresResponse -> TestTree
 responseDescribeFastSnapshotRestores =
@@ -7983,7 +7983,7 @@ responseDescribeFastSnapshotRestores =
     "DescribeFastSnapshotRestoresResponse"
     "fixture/DescribeFastSnapshotRestoresResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFastSnapshotRestores)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFastSnapshotRestores)
 
 responseCancelCapacityReservation :: CancelCapacityReservationResponse -> TestTree
 responseCancelCapacityReservation =
@@ -7991,7 +7991,7 @@ responseCancelCapacityReservation =
     "CancelCapacityReservationResponse"
     "fixture/CancelCapacityReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelCapacityReservation)
+    (Proxy.Proxy :: Proxy.Proxy CancelCapacityReservation)
 
 responseDeleteNetworkInterface :: DeleteNetworkInterfaceResponse -> TestTree
 responseDeleteNetworkInterface =
@@ -7999,7 +7999,7 @@ responseDeleteNetworkInterface =
     "DeleteNetworkInterfaceResponse"
     "fixture/DeleteNetworkInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNetworkInterface)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkInterface)
 
 responseDisassociateTransitGatewayRouteTable :: DisassociateTransitGatewayRouteTableResponse -> TestTree
 responseDisassociateTransitGatewayRouteTable =
@@ -8007,7 +8007,7 @@ responseDisassociateTransitGatewayRouteTable =
     "DisassociateTransitGatewayRouteTableResponse"
     "fixture/DisassociateTransitGatewayRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTransitGatewayRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTransitGatewayRouteTable)
 
 responseReplaceRouteTableAssociation :: ReplaceRouteTableAssociationResponse -> TestTree
 responseReplaceRouteTableAssociation =
@@ -8015,7 +8015,7 @@ responseReplaceRouteTableAssociation =
     "ReplaceRouteTableAssociationResponse"
     "fixture/ReplaceRouteTableAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplaceRouteTableAssociation)
+    (Proxy.Proxy :: Proxy.Proxy ReplaceRouteTableAssociation)
 
 responseStartInstances :: StartInstancesResponse -> TestTree
 responseStartInstances =
@@ -8023,7 +8023,7 @@ responseStartInstances =
     "StartInstancesResponse"
     "fixture/StartInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy StartInstances)
+    (Proxy.Proxy :: Proxy.Proxy StartInstances)
 
 responseCreatePlacementGroup :: CreatePlacementGroupResponse -> TestTree
 responseCreatePlacementGroup =
@@ -8031,7 +8031,7 @@ responseCreatePlacementGroup =
     "CreatePlacementGroupResponse"
     "fixture/CreatePlacementGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlacementGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreatePlacementGroup)
 
 responseDescribeInstanceEventNotificationAttributes :: DescribeInstanceEventNotificationAttributesResponse -> TestTree
 responseDescribeInstanceEventNotificationAttributes =
@@ -8039,7 +8039,7 @@ responseDescribeInstanceEventNotificationAttributes =
     "DescribeInstanceEventNotificationAttributesResponse"
     "fixture/DescribeInstanceEventNotificationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstanceEventNotificationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceEventNotificationAttributes)
 
 responseDescribeCapacityReservations :: DescribeCapacityReservationsResponse -> TestTree
 responseDescribeCapacityReservations =
@@ -8047,7 +8047,7 @@ responseDescribeCapacityReservations =
     "DescribeCapacityReservationsResponse"
     "fixture/DescribeCapacityReservationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCapacityReservations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCapacityReservations)
 
 responseModifyClientVpnEndpoint :: ModifyClientVpnEndpointResponse -> TestTree
 responseModifyClientVpnEndpoint =
@@ -8055,7 +8055,7 @@ responseModifyClientVpnEndpoint =
     "ModifyClientVpnEndpointResponse"
     "fixture/ModifyClientVpnEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyClientVpnEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy ModifyClientVpnEndpoint)
 
 responseModifyInstanceCapacityReservationAttributes :: ModifyInstanceCapacityReservationAttributesResponse -> TestTree
 responseModifyInstanceCapacityReservationAttributes =
@@ -8063,7 +8063,7 @@ responseModifyInstanceCapacityReservationAttributes =
     "ModifyInstanceCapacityReservationAttributesResponse"
     "fixture/ModifyInstanceCapacityReservationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceCapacityReservationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceCapacityReservationAttributes)
 
 responseDescribeAggregateIdFormat :: DescribeAggregateIdFormatResponse -> TestTree
 responseDescribeAggregateIdFormat =
@@ -8071,7 +8071,7 @@ responseDescribeAggregateIdFormat =
     "DescribeAggregateIdFormatResponse"
     "fixture/DescribeAggregateIdFormatResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAggregateIdFormat)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAggregateIdFormat)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots =
@@ -8079,7 +8079,7 @@ responseDescribeSnapshots =
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSnapshots)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshots)
 
 responseGetSubnetCidrReservations :: GetSubnetCidrReservationsResponse -> TestTree
 responseGetSubnetCidrReservations =
@@ -8087,7 +8087,7 @@ responseGetSubnetCidrReservations =
     "GetSubnetCidrReservationsResponse"
     "fixture/GetSubnetCidrReservationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSubnetCidrReservations)
+    (Proxy.Proxy :: Proxy.Proxy GetSubnetCidrReservations)
 
 responseAssociateAddress :: AssociateAddressResponse -> TestTree
 responseAssociateAddress =
@@ -8095,7 +8095,7 @@ responseAssociateAddress =
     "AssociateAddressResponse"
     "fixture/AssociateAddressResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateAddress)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAddress)
 
 responseModifyTrafficMirrorFilterRule :: ModifyTrafficMirrorFilterRuleResponse -> TestTree
 responseModifyTrafficMirrorFilterRule =
@@ -8103,7 +8103,7 @@ responseModifyTrafficMirrorFilterRule =
     "ModifyTrafficMirrorFilterRuleResponse"
     "fixture/ModifyTrafficMirrorFilterRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTrafficMirrorFilterRule)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTrafficMirrorFilterRule)
 
 responseDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttributeResponse -> TestTree
 responseDescribeNetworkInterfaceAttribute =
@@ -8111,7 +8111,7 @@ responseDescribeNetworkInterfaceAttribute =
     "DescribeNetworkInterfaceAttributeResponse"
     "fixture/DescribeNetworkInterfaceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInterfaceAttribute)
 
 responseReplaceIamInstanceProfileAssociation :: ReplaceIamInstanceProfileAssociationResponse -> TestTree
 responseReplaceIamInstanceProfileAssociation =
@@ -8119,7 +8119,7 @@ responseReplaceIamInstanceProfileAssociation =
     "ReplaceIamInstanceProfileAssociationResponse"
     "fixture/ReplaceIamInstanceProfileAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplaceIamInstanceProfileAssociation)
+    (Proxy.Proxy :: Proxy.Proxy ReplaceIamInstanceProfileAssociation)
 
 responseAssociateClientVpnTargetNetwork :: AssociateClientVpnTargetNetworkResponse -> TestTree
 responseAssociateClientVpnTargetNetwork =
@@ -8127,7 +8127,7 @@ responseAssociateClientVpnTargetNetwork =
     "AssociateClientVpnTargetNetworkResponse"
     "fixture/AssociateClientVpnTargetNetworkResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateClientVpnTargetNetwork)
+    (Proxy.Proxy :: Proxy.Proxy AssociateClientVpnTargetNetwork)
 
 responseReleaseHosts :: ReleaseHostsResponse -> TestTree
 responseReleaseHosts =
@@ -8135,7 +8135,7 @@ responseReleaseHosts =
     "ReleaseHostsResponse"
     "fixture/ReleaseHostsResponse.proto"
     defaultService
-    (Proxy :: Proxy ReleaseHosts)
+    (Proxy.Proxy :: Proxy.Proxy ReleaseHosts)
 
 responseEnableSerialConsoleAccess :: EnableSerialConsoleAccessResponse -> TestTree
 responseEnableSerialConsoleAccess =
@@ -8143,7 +8143,7 @@ responseEnableSerialConsoleAccess =
     "EnableSerialConsoleAccessResponse"
     "fixture/EnableSerialConsoleAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableSerialConsoleAccess)
+    (Proxy.Proxy :: Proxy.Proxy EnableSerialConsoleAccess)
 
 responseResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttributeResponse -> TestTree
 responseResetNetworkInterfaceAttribute =
@@ -8151,7 +8151,7 @@ responseResetNetworkInterfaceAttribute =
     "ResetNetworkInterfaceAttributeResponse"
     "fixture/ResetNetworkInterfaceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetNetworkInterfaceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ResetNetworkInterfaceAttribute)
 
 responseDeleteInternetGateway :: DeleteInternetGatewayResponse -> TestTree
 responseDeleteInternetGateway =
@@ -8159,7 +8159,7 @@ responseDeleteInternetGateway =
     "DeleteInternetGatewayResponse"
     "fixture/DeleteInternetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInternetGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInternetGateway)
 
 responseDescribeReservedInstancesListings :: DescribeReservedInstancesListingsResponse -> TestTree
 responseDescribeReservedInstancesListings =
@@ -8167,7 +8167,7 @@ responseDescribeReservedInstancesListings =
     "DescribeReservedInstancesListingsResponse"
     "fixture/DescribeReservedInstancesListingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedInstancesListings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstancesListings)
 
 responseCreateVpnConnection :: CreateVpnConnectionResponse -> TestTree
 responseCreateVpnConnection =
@@ -8175,7 +8175,7 @@ responseCreateVpnConnection =
     "CreateVpnConnectionResponse"
     "fixture/CreateVpnConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpnConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpnConnection)
 
 responseReplaceTransitGatewayRoute :: ReplaceTransitGatewayRouteResponse -> TestTree
 responseReplaceTransitGatewayRoute =
@@ -8183,7 +8183,7 @@ responseReplaceTransitGatewayRoute =
     "ReplaceTransitGatewayRouteResponse"
     "fixture/ReplaceTransitGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy ReplaceTransitGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy ReplaceTransitGatewayRoute)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -8191,7 +8191,7 @@ responseCreateFleet =
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateFleet)
 
 responseDeleteNatGateway :: DeleteNatGatewayResponse -> TestTree
 responseDeleteNatGateway =
@@ -8199,7 +8199,7 @@ responseDeleteNatGateway =
     "DeleteNatGatewayResponse"
     "fixture/DeleteNatGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNatGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNatGateway)
 
 responseDescribeImportSnapshotTasks :: DescribeImportSnapshotTasksResponse -> TestTree
 responseDescribeImportSnapshotTasks =
@@ -8207,7 +8207,7 @@ responseDescribeImportSnapshotTasks =
     "DescribeImportSnapshotTasksResponse"
     "fixture/DescribeImportSnapshotTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImportSnapshotTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImportSnapshotTasks)
 
 responseGetCoipPoolUsage :: GetCoipPoolUsageResponse -> TestTree
 responseGetCoipPoolUsage =
@@ -8215,7 +8215,7 @@ responseGetCoipPoolUsage =
     "GetCoipPoolUsageResponse"
     "fixture/GetCoipPoolUsageResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCoipPoolUsage)
+    (Proxy.Proxy :: Proxy.Proxy GetCoipPoolUsage)
 
 responseDescribeCustomerGateways :: DescribeCustomerGatewaysResponse -> TestTree
 responseDescribeCustomerGateways =
@@ -8223,7 +8223,7 @@ responseDescribeCustomerGateways =
     "DescribeCustomerGatewaysResponse"
     "fixture/DescribeCustomerGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCustomerGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomerGateways)
 
 responseDeleteSubnet :: DeleteSubnetResponse -> TestTree
 responseDeleteSubnet =
@@ -8231,7 +8231,7 @@ responseDeleteSubnet =
     "DeleteSubnetResponse"
     "fixture/DeleteSubnetResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSubnet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubnet)
 
 responseCopyImage :: CopyImageResponse -> TestTree
 responseCopyImage =
@@ -8239,7 +8239,7 @@ responseCopyImage =
     "CopyImageResponse"
     "fixture/CopyImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CopyImage)
+    (Proxy.Proxy :: Proxy.Proxy CopyImage)
 
 responseCreateVpcEndpoint :: CreateVpcEndpointResponse -> TestTree
 responseCreateVpcEndpoint =
@@ -8247,7 +8247,7 @@ responseCreateVpcEndpoint =
     "CreateVpcEndpointResponse"
     "fixture/CreateVpcEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpcEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcEndpoint)
 
 responseModifyTrafficMirrorSession :: ModifyTrafficMirrorSessionResponse -> TestTree
 responseModifyTrafficMirrorSession =
@@ -8255,7 +8255,7 @@ responseModifyTrafficMirrorSession =
     "ModifyTrafficMirrorSessionResponse"
     "fixture/ModifyTrafficMirrorSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTrafficMirrorSession)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTrafficMirrorSession)
 
 responseDescribeCarrierGateways :: DescribeCarrierGatewaysResponse -> TestTree
 responseDescribeCarrierGateways =
@@ -8263,7 +8263,7 @@ responseDescribeCarrierGateways =
     "DescribeCarrierGatewaysResponse"
     "fixture/DescribeCarrierGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeCarrierGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCarrierGateways)
 
 responseDescribeTransitGatewayPeeringAttachments :: DescribeTransitGatewayPeeringAttachmentsResponse -> TestTree
 responseDescribeTransitGatewayPeeringAttachments =
@@ -8271,7 +8271,7 @@ responseDescribeTransitGatewayPeeringAttachments =
     "DescribeTransitGatewayPeeringAttachmentsResponse"
     "fixture/DescribeTransitGatewayPeeringAttachmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayPeeringAttachments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayPeeringAttachments)
 
 responseDeleteQueuedReservedInstances :: DeleteQueuedReservedInstancesResponse -> TestTree
 responseDeleteQueuedReservedInstances =
@@ -8279,7 +8279,7 @@ responseDeleteQueuedReservedInstances =
     "DeleteQueuedReservedInstancesResponse"
     "fixture/DeleteQueuedReservedInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueuedReservedInstances)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueuedReservedInstances)
 
 responseDescribeTransitGatewayMulticastDomains :: DescribeTransitGatewayMulticastDomainsResponse -> TestTree
 responseDescribeTransitGatewayMulticastDomains =
@@ -8287,7 +8287,7 @@ responseDescribeTransitGatewayMulticastDomains =
     "DescribeTransitGatewayMulticastDomainsResponse"
     "fixture/DescribeTransitGatewayMulticastDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayMulticastDomains)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayMulticastDomains)
 
 responseGetDefaultCreditSpecification :: GetDefaultCreditSpecificationResponse -> TestTree
 responseGetDefaultCreditSpecification =
@@ -8295,7 +8295,7 @@ responseGetDefaultCreditSpecification =
     "GetDefaultCreditSpecificationResponse"
     "fixture/GetDefaultCreditSpecificationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDefaultCreditSpecification)
+    (Proxy.Proxy :: Proxy.Proxy GetDefaultCreditSpecification)
 
 responseUnmonitorInstances :: UnmonitorInstancesResponse -> TestTree
 responseUnmonitorInstances =
@@ -8303,7 +8303,7 @@ responseUnmonitorInstances =
     "UnmonitorInstancesResponse"
     "fixture/UnmonitorInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy UnmonitorInstances)
+    (Proxy.Proxy :: Proxy.Proxy UnmonitorInstances)
 
 responseDescribeTransitGatewayVpcAttachments :: DescribeTransitGatewayVpcAttachmentsResponse -> TestTree
 responseDescribeTransitGatewayVpcAttachments =
@@ -8311,7 +8311,7 @@ responseDescribeTransitGatewayVpcAttachments =
     "DescribeTransitGatewayVpcAttachmentsResponse"
     "fixture/DescribeTransitGatewayVpcAttachmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayVpcAttachments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayVpcAttachments)
 
 responseDescribeTransitGatewayConnectPeers :: DescribeTransitGatewayConnectPeersResponse -> TestTree
 responseDescribeTransitGatewayConnectPeers =
@@ -8319,7 +8319,7 @@ responseDescribeTransitGatewayConnectPeers =
     "DescribeTransitGatewayConnectPeersResponse"
     "fixture/DescribeTransitGatewayConnectPeersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayConnectPeers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayConnectPeers)
 
 responseCreateSecurityGroup :: CreateSecurityGroupResponse -> TestTree
 responseCreateSecurityGroup =
@@ -8327,7 +8327,7 @@ responseCreateSecurityGroup =
     "CreateSecurityGroupResponse"
     "fixture/CreateSecurityGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSecurityGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateSecurityGroup)
 
 responseCreateInstanceEventWindow :: CreateInstanceEventWindowResponse -> TestTree
 responseCreateInstanceEventWindow =
@@ -8335,7 +8335,7 @@ responseCreateInstanceEventWindow =
     "CreateInstanceEventWindowResponse"
     "fixture/CreateInstanceEventWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInstanceEventWindow)
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceEventWindow)
 
 responseGetEbsEncryptionByDefault :: GetEbsEncryptionByDefaultResponse -> TestTree
 responseGetEbsEncryptionByDefault =
@@ -8343,7 +8343,7 @@ responseGetEbsEncryptionByDefault =
     "GetEbsEncryptionByDefaultResponse"
     "fixture/GetEbsEncryptionByDefaultResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEbsEncryptionByDefault)
+    (Proxy.Proxy :: Proxy.Proxy GetEbsEncryptionByDefault)
 
 responseImportVolume :: ImportVolumeResponse -> TestTree
 responseImportVolume =
@@ -8351,7 +8351,7 @@ responseImportVolume =
     "ImportVolumeResponse"
     "fixture/ImportVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportVolume)
+    (Proxy.Proxy :: Proxy.Proxy ImportVolume)
 
 responseDeleteCarrierGateway :: DeleteCarrierGatewayResponse -> TestTree
 responseDeleteCarrierGateway =
@@ -8359,7 +8359,7 @@ responseDeleteCarrierGateway =
     "DeleteCarrierGatewayResponse"
     "fixture/DeleteCarrierGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCarrierGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCarrierGateway)
 
 responseDisableVgwRoutePropagation :: DisableVgwRoutePropagationResponse -> TestTree
 responseDisableVgwRoutePropagation =
@@ -8367,7 +8367,7 @@ responseDisableVgwRoutePropagation =
     "DisableVgwRoutePropagationResponse"
     "fixture/DisableVgwRoutePropagationResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableVgwRoutePropagation)
+    (Proxy.Proxy :: Proxy.Proxy DisableVgwRoutePropagation)
 
 responseDeleteTrafficMirrorFilter :: DeleteTrafficMirrorFilterResponse -> TestTree
 responseDeleteTrafficMirrorFilter =
@@ -8375,7 +8375,7 @@ responseDeleteTrafficMirrorFilter =
     "DeleteTrafficMirrorFilterResponse"
     "fixture/DeleteTrafficMirrorFilterResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrafficMirrorFilter)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficMirrorFilter)
 
 responseModifyVpnTunnelCertificate :: ModifyVpnTunnelCertificateResponse -> TestTree
 responseModifyVpnTunnelCertificate =
@@ -8383,7 +8383,7 @@ responseModifyVpnTunnelCertificate =
     "ModifyVpnTunnelCertificateResponse"
     "fixture/ModifyVpnTunnelCertificateResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpnTunnelCertificate)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpnTunnelCertificate)
 
 responseCreateSpotDatafeedSubscription :: CreateSpotDatafeedSubscriptionResponse -> TestTree
 responseCreateSpotDatafeedSubscription =
@@ -8391,7 +8391,7 @@ responseCreateSpotDatafeedSubscription =
     "CreateSpotDatafeedSubscriptionResponse"
     "fixture/CreateSpotDatafeedSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSpotDatafeedSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateSpotDatafeedSubscription)
 
 responseCancelSpotInstanceRequests :: CancelSpotInstanceRequestsResponse -> TestTree
 responseCancelSpotInstanceRequests =
@@ -8399,7 +8399,7 @@ responseCancelSpotInstanceRequests =
     "CancelSpotInstanceRequestsResponse"
     "fixture/CancelSpotInstanceRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelSpotInstanceRequests)
+    (Proxy.Proxy :: Proxy.Proxy CancelSpotInstanceRequests)
 
 responseCreateRoute :: CreateRouteResponse -> TestTree
 responseCreateRoute =
@@ -8407,7 +8407,7 @@ responseCreateRoute =
     "CreateRouteResponse"
     "fixture/CreateRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
 
 responseDescribeVpcEndpointServiceConfigurations :: DescribeVpcEndpointServiceConfigurationsResponse -> TestTree
 responseDescribeVpcEndpointServiceConfigurations =
@@ -8415,7 +8415,7 @@ responseDescribeVpcEndpointServiceConfigurations =
     "DescribeVpcEndpointServiceConfigurationsResponse"
     "fixture/DescribeVpcEndpointServiceConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcEndpointServiceConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpointServiceConfigurations)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
 responseDeleteSnapshot =
@@ -8423,7 +8423,7 @@ responseDeleteSnapshot =
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshot)
 
 responseAssignPrivateIpAddresses :: AssignPrivateIpAddressesResponse -> TestTree
 responseAssignPrivateIpAddresses =
@@ -8431,7 +8431,7 @@ responseAssignPrivateIpAddresses =
     "AssignPrivateIpAddressesResponse"
     "fixture/AssignPrivateIpAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy AssignPrivateIpAddresses)
+    (Proxy.Proxy :: Proxy.Proxy AssignPrivateIpAddresses)
 
 responseAuthorizeClientVpnIngress :: AuthorizeClientVpnIngressResponse -> TestTree
 responseAuthorizeClientVpnIngress =
@@ -8439,7 +8439,7 @@ responseAuthorizeClientVpnIngress =
     "AuthorizeClientVpnIngressResponse"
     "fixture/AuthorizeClientVpnIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy AuthorizeClientVpnIngress)
+    (Proxy.Proxy :: Proxy.Proxy AuthorizeClientVpnIngress)
 
 responseDeleteTransitGatewayPeeringAttachment :: DeleteTransitGatewayPeeringAttachmentResponse -> TestTree
 responseDeleteTransitGatewayPeeringAttachment =
@@ -8447,7 +8447,7 @@ responseDeleteTransitGatewayPeeringAttachment =
     "DeleteTransitGatewayPeeringAttachmentResponse"
     "fixture/DeleteTransitGatewayPeeringAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTransitGatewayPeeringAttachment)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayPeeringAttachment)
 
 responseModifyInstanceAttribute :: ModifyInstanceAttributeResponse -> TestTree
 responseModifyInstanceAttribute =
@@ -8455,7 +8455,7 @@ responseModifyInstanceAttribute =
     "ModifyInstanceAttributeResponse"
     "fixture/ModifyInstanceAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceAttribute)
 
 responseDeleteCustomerGateway :: DeleteCustomerGatewayResponse -> TestTree
 responseDeleteCustomerGateway =
@@ -8463,7 +8463,7 @@ responseDeleteCustomerGateway =
     "DeleteCustomerGatewayResponse"
     "fixture/DeleteCustomerGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomerGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomerGateway)
 
 responseDisassociateIamInstanceProfile :: DisassociateIamInstanceProfileResponse -> TestTree
 responseDisassociateIamInstanceProfile =
@@ -8471,7 +8471,7 @@ responseDisassociateIamInstanceProfile =
     "DisassociateIamInstanceProfileResponse"
     "fixture/DisassociateIamInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateIamInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateIamInstanceProfile)
 
 responseTerminateClientVpnConnections :: TerminateClientVpnConnectionsResponse -> TestTree
 responseTerminateClientVpnConnections =
@@ -8479,7 +8479,7 @@ responseTerminateClientVpnConnections =
     "TerminateClientVpnConnectionsResponse"
     "fixture/TerminateClientVpnConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateClientVpnConnections)
+    (Proxy.Proxy :: Proxy.Proxy TerminateClientVpnConnections)
 
 responseCreateTransitGatewayConnect :: CreateTransitGatewayConnectResponse -> TestTree
 responseCreateTransitGatewayConnect =
@@ -8487,7 +8487,7 @@ responseCreateTransitGatewayConnect =
     "CreateTransitGatewayConnectResponse"
     "fixture/CreateTransitGatewayConnectResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGatewayConnect)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayConnect)
 
 responseDisassociateRouteTable :: DisassociateRouteTableResponse -> TestTree
 responseDisassociateRouteTable =
@@ -8495,7 +8495,7 @@ responseDisassociateRouteTable =
     "DisassociateRouteTableResponse"
     "fixture/DisassociateRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRouteTable)
 
 responseGetConsoleScreenshot :: GetConsoleScreenshotResponse -> TestTree
 responseGetConsoleScreenshot =
@@ -8503,7 +8503,7 @@ responseGetConsoleScreenshot =
     "GetConsoleScreenshotResponse"
     "fixture/GetConsoleScreenshotResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConsoleScreenshot)
+    (Proxy.Proxy :: Proxy.Proxy GetConsoleScreenshot)
 
 responseGetFlowLogsIntegrationTemplate :: GetFlowLogsIntegrationTemplateResponse -> TestTree
 responseGetFlowLogsIntegrationTemplate =
@@ -8511,7 +8511,7 @@ responseGetFlowLogsIntegrationTemplate =
     "GetFlowLogsIntegrationTemplateResponse"
     "fixture/GetFlowLogsIntegrationTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFlowLogsIntegrationTemplate)
+    (Proxy.Proxy :: Proxy.Proxy GetFlowLogsIntegrationTemplate)
 
 responseResetEbsDefaultKmsKeyId :: ResetEbsDefaultKmsKeyIdResponse -> TestTree
 responseResetEbsDefaultKmsKeyId =
@@ -8519,7 +8519,7 @@ responseResetEbsDefaultKmsKeyId =
     "ResetEbsDefaultKmsKeyIdResponse"
     "fixture/ResetEbsDefaultKmsKeyIdResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetEbsDefaultKmsKeyId)
+    (Proxy.Proxy :: Proxy.Proxy ResetEbsDefaultKmsKeyId)
 
 responseAssignIpv6Addresses :: AssignIpv6AddressesResponse -> TestTree
 responseAssignIpv6Addresses =
@@ -8527,7 +8527,7 @@ responseAssignIpv6Addresses =
     "AssignIpv6AddressesResponse"
     "fixture/AssignIpv6AddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy AssignIpv6Addresses)
+    (Proxy.Proxy :: Proxy.Proxy AssignIpv6Addresses)
 
 responseModifyVpnTunnelOptions :: ModifyVpnTunnelOptionsResponse -> TestTree
 responseModifyVpnTunnelOptions =
@@ -8535,7 +8535,7 @@ responseModifyVpnTunnelOptions =
     "ModifyVpnTunnelOptionsResponse"
     "fixture/ModifyVpnTunnelOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpnTunnelOptions)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpnTunnelOptions)
 
 responseModifyEbsDefaultKmsKeyId :: ModifyEbsDefaultKmsKeyIdResponse -> TestTree
 responseModifyEbsDefaultKmsKeyId =
@@ -8543,7 +8543,7 @@ responseModifyEbsDefaultKmsKeyId =
     "ModifyEbsDefaultKmsKeyIdResponse"
     "fixture/ModifyEbsDefaultKmsKeyIdResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyEbsDefaultKmsKeyId)
+    (Proxy.Proxy :: Proxy.Proxy ModifyEbsDefaultKmsKeyId)
 
 responseDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
 responseDeleteSpotDatafeedSubscription =
@@ -8551,7 +8551,7 @@ responseDeleteSpotDatafeedSubscription =
     "DeleteSpotDatafeedSubscriptionResponse"
     "fixture/DeleteSpotDatafeedSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSpotDatafeedSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSpotDatafeedSubscription)
 
 responseModifyVolume :: ModifyVolumeResponse -> TestTree
 responseModifyVolume =
@@ -8559,7 +8559,7 @@ responseModifyVolume =
     "ModifyVolumeResponse"
     "fixture/ModifyVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVolume)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVolume)
 
 responseEnableVpcClassicLink :: EnableVpcClassicLinkResponse -> TestTree
 responseEnableVpcClassicLink =
@@ -8567,7 +8567,7 @@ responseEnableVpcClassicLink =
     "EnableVpcClassicLinkResponse"
     "fixture/EnableVpcClassicLinkResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableVpcClassicLink)
+    (Proxy.Proxy :: Proxy.Proxy EnableVpcClassicLink)
 
 responseDescribePlacementGroups :: DescribePlacementGroupsResponse -> TestTree
 responseDescribePlacementGroups =
@@ -8575,7 +8575,7 @@ responseDescribePlacementGroups =
     "DescribePlacementGroupsResponse"
     "fixture/DescribePlacementGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePlacementGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribePlacementGroups)
 
 responseProvisionByoipCidr :: ProvisionByoipCidrResponse -> TestTree
 responseProvisionByoipCidr =
@@ -8583,7 +8583,7 @@ responseProvisionByoipCidr =
     "ProvisionByoipCidrResponse"
     "fixture/ProvisionByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy ProvisionByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy ProvisionByoipCidr)
 
 responseDisassociateEnclaveCertificateIamRole :: DisassociateEnclaveCertificateIamRoleResponse -> TestTree
 responseDisassociateEnclaveCertificateIamRole =
@@ -8591,7 +8591,7 @@ responseDisassociateEnclaveCertificateIamRole =
     "DisassociateEnclaveCertificateIamRoleResponse"
     "fixture/DisassociateEnclaveCertificateIamRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateEnclaveCertificateIamRole)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateEnclaveCertificateIamRole)
 
 responseModifyAvailabilityZoneGroup :: ModifyAvailabilityZoneGroupResponse -> TestTree
 responseModifyAvailabilityZoneGroup =
@@ -8599,7 +8599,7 @@ responseModifyAvailabilityZoneGroup =
     "ModifyAvailabilityZoneGroupResponse"
     "fixture/ModifyAvailabilityZoneGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyAvailabilityZoneGroup)
+    (Proxy.Proxy :: Proxy.Proxy ModifyAvailabilityZoneGroup)
 
 responseDescribeStaleSecurityGroups :: DescribeStaleSecurityGroupsResponse -> TestTree
 responseDescribeStaleSecurityGroups =
@@ -8607,7 +8607,7 @@ responseDescribeStaleSecurityGroups =
     "DescribeStaleSecurityGroupsResponse"
     "fixture/DescribeStaleSecurityGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStaleSecurityGroups)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStaleSecurityGroups)
 
 responseCreateCarrierGateway :: CreateCarrierGatewayResponse -> TestTree
 responseCreateCarrierGateway =
@@ -8615,7 +8615,7 @@ responseCreateCarrierGateway =
     "CreateCarrierGatewayResponse"
     "fixture/CreateCarrierGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCarrierGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateCarrierGateway)
 
 responseDescribeExportImageTasks :: DescribeExportImageTasksResponse -> TestTree
 responseDescribeExportImageTasks =
@@ -8623,7 +8623,7 @@ responseDescribeExportImageTasks =
     "DescribeExportImageTasksResponse"
     "fixture/DescribeExportImageTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeExportImageTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeExportImageTasks)
 
 responsePurchaseScheduledInstances :: PurchaseScheduledInstancesResponse -> TestTree
 responsePurchaseScheduledInstances =
@@ -8631,7 +8631,7 @@ responsePurchaseScheduledInstances =
     "PurchaseScheduledInstancesResponse"
     "fixture/PurchaseScheduledInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseScheduledInstances)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseScheduledInstances)
 
 responseEnableVgwRoutePropagation :: EnableVgwRoutePropagationResponse -> TestTree
 responseEnableVgwRoutePropagation =
@@ -8639,7 +8639,7 @@ responseEnableVgwRoutePropagation =
     "EnableVgwRoutePropagationResponse"
     "fixture/EnableVgwRoutePropagationResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableVgwRoutePropagation)
+    (Proxy.Proxy :: Proxy.Proxy EnableVgwRoutePropagation)
 
 responseDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistoryResponse -> TestTree
 responseDescribeSpotFleetRequestHistory =
@@ -8647,7 +8647,7 @@ responseDescribeSpotFleetRequestHistory =
     "DescribeSpotFleetRequestHistoryResponse"
     "fixture/DescribeSpotFleetRequestHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpotFleetRequestHistory)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpotFleetRequestHistory)
 
 responseModifySnapshotAttribute :: ModifySnapshotAttributeResponse -> TestTree
 responseModifySnapshotAttribute =
@@ -8655,7 +8655,7 @@ responseModifySnapshotAttribute =
     "ModifySnapshotAttributeResponse"
     "fixture/ModifySnapshotAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifySnapshotAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifySnapshotAttribute)
 
 responseDescribeIamInstanceProfileAssociations :: DescribeIamInstanceProfileAssociationsResponse -> TestTree
 responseDescribeIamInstanceProfileAssociations =
@@ -8663,7 +8663,7 @@ responseDescribeIamInstanceProfileAssociations =
     "DescribeIamInstanceProfileAssociationsResponse"
     "fixture/DescribeIamInstanceProfileAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIamInstanceProfileAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIamInstanceProfileAssociations)
 
 responseDescribeNetworkInsightsPaths :: DescribeNetworkInsightsPathsResponse -> TestTree
 responseDescribeNetworkInsightsPaths =
@@ -8671,7 +8671,7 @@ responseDescribeNetworkInsightsPaths =
     "DescribeNetworkInsightsPathsResponse"
     "fixture/DescribeNetworkInsightsPathsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNetworkInsightsPaths)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInsightsPaths)
 
 responseCreateSnapshot :: Snapshot -> TestTree
 responseCreateSnapshot =
@@ -8679,7 +8679,7 @@ responseCreateSnapshot =
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseCreateLocalGatewayRoute :: CreateLocalGatewayRouteResponse -> TestTree
 responseCreateLocalGatewayRoute =
@@ -8687,7 +8687,7 @@ responseCreateLocalGatewayRoute =
     "CreateLocalGatewayRouteResponse"
     "fixture/CreateLocalGatewayRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLocalGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocalGatewayRoute)
 
 responseCreateNetworkAclEntry :: CreateNetworkAclEntryResponse -> TestTree
 responseCreateNetworkAclEntry =
@@ -8695,7 +8695,7 @@ responseCreateNetworkAclEntry =
     "CreateNetworkAclEntryResponse"
     "fixture/CreateNetworkAclEntryResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNetworkAclEntry)
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkAclEntry)
 
 responseDescribeTransitGatewayAttachments :: DescribeTransitGatewayAttachmentsResponse -> TestTree
 responseDescribeTransitGatewayAttachments =
@@ -8703,7 +8703,7 @@ responseDescribeTransitGatewayAttachments =
     "DescribeTransitGatewayAttachmentsResponse"
     "fixture/DescribeTransitGatewayAttachmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayAttachments)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayAttachments)
 
 responseCreateReservedInstancesListing :: CreateReservedInstancesListingResponse -> TestTree
 responseCreateReservedInstancesListing =
@@ -8711,7 +8711,7 @@ responseCreateReservedInstancesListing =
     "CreateReservedInstancesListingResponse"
     "fixture/CreateReservedInstancesListingResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReservedInstancesListing)
+    (Proxy.Proxy :: Proxy.Proxy CreateReservedInstancesListing)
 
 responseDescribeIpv6Pools :: DescribeIpv6PoolsResponse -> TestTree
 responseDescribeIpv6Pools =
@@ -8719,7 +8719,7 @@ responseDescribeIpv6Pools =
     "DescribeIpv6PoolsResponse"
     "fixture/DescribeIpv6PoolsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeIpv6Pools)
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpv6Pools)
 
 responseAttachVpnGateway :: AttachVpnGatewayResponse -> TestTree
 responseAttachVpnGateway =
@@ -8727,7 +8727,7 @@ responseAttachVpnGateway =
     "AttachVpnGatewayResponse"
     "fixture/AttachVpnGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy AttachVpnGateway)
+    (Proxy.Proxy :: Proxy.Proxy AttachVpnGateway)
 
 responseDescribeLocalGateways :: DescribeLocalGatewaysResponse -> TestTree
 responseDescribeLocalGateways =
@@ -8735,7 +8735,7 @@ responseDescribeLocalGateways =
     "DescribeLocalGatewaysResponse"
     "fixture/DescribeLocalGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocalGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocalGateways)
 
 responseModifyVpcEndpointServicePermissions :: ModifyVpcEndpointServicePermissionsResponse -> TestTree
 responseModifyVpcEndpointServicePermissions =
@@ -8743,7 +8743,7 @@ responseModifyVpcEndpointServicePermissions =
     "ModifyVpcEndpointServicePermissionsResponse"
     "fixture/ModifyVpcEndpointServicePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcEndpointServicePermissions)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcEndpointServicePermissions)
 
 responseExportClientVpnClientCertificateRevocationList :: ExportClientVpnClientCertificateRevocationListResponse -> TestTree
 responseExportClientVpnClientCertificateRevocationList =
@@ -8751,7 +8751,7 @@ responseExportClientVpnClientCertificateRevocationList =
     "ExportClientVpnClientCertificateRevocationListResponse"
     "fixture/ExportClientVpnClientCertificateRevocationListResponse.proto"
     defaultService
-    (Proxy :: Proxy ExportClientVpnClientCertificateRevocationList)
+    (Proxy.Proxy :: Proxy.Proxy ExportClientVpnClientCertificateRevocationList)
 
 responseCreateDhcpOptions :: CreateDhcpOptionsResponse -> TestTree
 responseCreateDhcpOptions =
@@ -8759,7 +8759,7 @@ responseCreateDhcpOptions =
     "CreateDhcpOptionsResponse"
     "fixture/CreateDhcpOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDhcpOptions)
+    (Proxy.Proxy :: Proxy.Proxy CreateDhcpOptions)
 
 responseRegisterTransitGatewayMulticastGroupSources :: RegisterTransitGatewayMulticastGroupSourcesResponse -> TestTree
 responseRegisterTransitGatewayMulticastGroupSources =
@@ -8767,7 +8767,7 @@ responseRegisterTransitGatewayMulticastGroupSources =
     "RegisterTransitGatewayMulticastGroupSourcesResponse"
     "fixture/RegisterTransitGatewayMulticastGroupSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTransitGatewayMulticastGroupSources)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTransitGatewayMulticastGroupSources)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
 responseDescribeAccountAttributes =
@@ -8775,7 +8775,7 @@ responseDescribeAccountAttributes =
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccountAttributes)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAttributes)
 
 responseGetTransitGatewayRouteTablePropagations :: GetTransitGatewayRouteTablePropagationsResponse -> TestTree
 responseGetTransitGatewayRouteTablePropagations =
@@ -8783,7 +8783,7 @@ responseGetTransitGatewayRouteTablePropagations =
     "GetTransitGatewayRouteTablePropagationsResponse"
     "fixture/GetTransitGatewayRouteTablePropagationsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayRouteTablePropagations)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayRouteTablePropagations)
 
 responseModifyFpgaImageAttribute :: ModifyFpgaImageAttributeResponse -> TestTree
 responseModifyFpgaImageAttribute =
@@ -8791,7 +8791,7 @@ responseModifyFpgaImageAttribute =
     "ModifyFpgaImageAttributeResponse"
     "fixture/ModifyFpgaImageAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyFpgaImageAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyFpgaImageAttribute)
 
 responseModifyHosts :: ModifyHostsResponse -> TestTree
 responseModifyHosts =
@@ -8799,7 +8799,7 @@ responseModifyHosts =
     "ModifyHostsResponse"
     "fixture/ModifyHostsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyHosts)
+    (Proxy.Proxy :: Proxy.Proxy ModifyHosts)
 
 responseRebootInstances :: RebootInstancesResponse -> TestTree
 responseRebootInstances =
@@ -8807,7 +8807,7 @@ responseRebootInstances =
     "RebootInstancesResponse"
     "fixture/RebootInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy RebootInstances)
+    (Proxy.Proxy :: Proxy.Proxy RebootInstances)
 
 responseModifyVpcEndpointServiceConfiguration :: ModifyVpcEndpointServiceConfigurationResponse -> TestTree
 responseModifyVpcEndpointServiceConfiguration =
@@ -8815,7 +8815,7 @@ responseModifyVpcEndpointServiceConfiguration =
     "ModifyVpcEndpointServiceConfigurationResponse"
     "fixture/ModifyVpcEndpointServiceConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcEndpointServiceConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcEndpointServiceConfiguration)
 
 responseCreateTransitGateway :: CreateTransitGatewayResponse -> TestTree
 responseCreateTransitGateway =
@@ -8823,7 +8823,7 @@ responseCreateTransitGateway =
     "CreateTransitGatewayResponse"
     "fixture/CreateTransitGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTransitGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGateway)
 
 responseUnassignIpv6Addresses :: UnassignIpv6AddressesResponse -> TestTree
 responseUnassignIpv6Addresses =
@@ -8831,7 +8831,7 @@ responseUnassignIpv6Addresses =
     "UnassignIpv6AddressesResponse"
     "fixture/UnassignIpv6AddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy UnassignIpv6Addresses)
+    (Proxy.Proxy :: Proxy.Proxy UnassignIpv6Addresses)
 
 responseDeleteTrafficMirrorSession :: DeleteTrafficMirrorSessionResponse -> TestTree
 responseDeleteTrafficMirrorSession =
@@ -8839,7 +8839,7 @@ responseDeleteTrafficMirrorSession =
     "DeleteTrafficMirrorSessionResponse"
     "fixture/DeleteTrafficMirrorSessionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTrafficMirrorSession)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTrafficMirrorSession)
 
 responseCreateManagedPrefixList :: CreateManagedPrefixListResponse -> TestTree
 responseCreateManagedPrefixList =
@@ -8847,7 +8847,7 @@ responseCreateManagedPrefixList =
     "CreateManagedPrefixListResponse"
     "fixture/CreateManagedPrefixListResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateManagedPrefixList)
+    (Proxy.Proxy :: Proxy.Proxy CreateManagedPrefixList)
 
 responseCreateReplaceRootVolumeTask :: CreateReplaceRootVolumeTaskResponse -> TestTree
 responseCreateReplaceRootVolumeTask =
@@ -8855,7 +8855,7 @@ responseCreateReplaceRootVolumeTask =
     "CreateReplaceRootVolumeTaskResponse"
     "fixture/CreateReplaceRootVolumeTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateReplaceRootVolumeTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateReplaceRootVolumeTask)
 
 responseAssociateIamInstanceProfile :: AssociateIamInstanceProfileResponse -> TestTree
 responseAssociateIamInstanceProfile =
@@ -8863,7 +8863,7 @@ responseAssociateIamInstanceProfile =
     "AssociateIamInstanceProfileResponse"
     "fixture/AssociateIamInstanceProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateIamInstanceProfile)
+    (Proxy.Proxy :: Proxy.Proxy AssociateIamInstanceProfile)
 
 responseModifyDefaultCreditSpecification :: ModifyDefaultCreditSpecificationResponse -> TestTree
 responseModifyDefaultCreditSpecification =
@@ -8871,7 +8871,7 @@ responseModifyDefaultCreditSpecification =
     "ModifyDefaultCreditSpecificationResponse"
     "fixture/ModifyDefaultCreditSpecificationResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyDefaultCreditSpecification)
+    (Proxy.Proxy :: Proxy.Proxy ModifyDefaultCreditSpecification)
 
 responseDeleteEgressOnlyInternetGateway :: DeleteEgressOnlyInternetGatewayResponse -> TestTree
 responseDeleteEgressOnlyInternetGateway =
@@ -8879,7 +8879,7 @@ responseDeleteEgressOnlyInternetGateway =
     "DeleteEgressOnlyInternetGatewayResponse"
     "fixture/DeleteEgressOnlyInternetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEgressOnlyInternetGateway)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEgressOnlyInternetGateway)
 
 responsePurchaseHostReservation :: PurchaseHostReservationResponse -> TestTree
 responsePurchaseHostReservation =
@@ -8887,7 +8887,7 @@ responsePurchaseHostReservation =
     "PurchaseHostReservationResponse"
     "fixture/PurchaseHostReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy PurchaseHostReservation)
+    (Proxy.Proxy :: Proxy.Proxy PurchaseHostReservation)
 
 responseModifyTransitGatewayVpcAttachment :: ModifyTransitGatewayVpcAttachmentResponse -> TestTree
 responseModifyTransitGatewayVpcAttachment =
@@ -8895,7 +8895,7 @@ responseModifyTransitGatewayVpcAttachment =
     "ModifyTransitGatewayVpcAttachmentResponse"
     "fixture/ModifyTransitGatewayVpcAttachmentResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTransitGatewayVpcAttachment)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTransitGatewayVpcAttachment)
 
 responseCreateImage :: CreateImageResponse -> TestTree
 responseCreateImage =
@@ -8903,7 +8903,7 @@ responseCreateImage =
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImage)
+    (Proxy.Proxy :: Proxy.Proxy CreateImage)
 
 responseDescribeClassicLinkInstances :: DescribeClassicLinkInstancesResponse -> TestTree
 responseDescribeClassicLinkInstances =
@@ -8911,7 +8911,7 @@ responseDescribeClassicLinkInstances =
     "DescribeClassicLinkInstancesResponse"
     "fixture/DescribeClassicLinkInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClassicLinkInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClassicLinkInstances)
 
 responseTerminateInstances :: TerminateInstancesResponse -> TestTree
 responseTerminateInstances =
@@ -8919,7 +8919,7 @@ responseTerminateInstances =
     "TerminateInstancesResponse"
     "fixture/TerminateInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateInstances)
+    (Proxy.Proxy :: Proxy.Proxy TerminateInstances)
 
 responseDescribeStoreImageTasks :: DescribeStoreImageTasksResponse -> TestTree
 responseDescribeStoreImageTasks =
@@ -8927,7 +8927,7 @@ responseDescribeStoreImageTasks =
     "DescribeStoreImageTasksResponse"
     "fixture/DescribeStoreImageTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStoreImageTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStoreImageTasks)
 
 responseGetVpnConnectionDeviceTypes :: GetVpnConnectionDeviceTypesResponse -> TestTree
 responseGetVpnConnectionDeviceTypes =
@@ -8935,7 +8935,7 @@ responseGetVpnConnectionDeviceTypes =
     "GetVpnConnectionDeviceTypesResponse"
     "fixture/GetVpnConnectionDeviceTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVpnConnectionDeviceTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetVpnConnectionDeviceTypes)
 
 responseGetTransitGatewayPrefixListReferences :: GetTransitGatewayPrefixListReferencesResponse -> TestTree
 responseGetTransitGatewayPrefixListReferences =
@@ -8943,7 +8943,7 @@ responseGetTransitGatewayPrefixListReferences =
     "GetTransitGatewayPrefixListReferencesResponse"
     "fixture/GetTransitGatewayPrefixListReferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTransitGatewayPrefixListReferences)
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayPrefixListReferences)
 
 responseDescribeKeyPairs :: DescribeKeyPairsResponse -> TestTree
 responseDescribeKeyPairs =
@@ -8951,7 +8951,7 @@ responseDescribeKeyPairs =
     "DescribeKeyPairsResponse"
     "fixture/DescribeKeyPairsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeKeyPairs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeKeyPairs)
 
 responseDisableFastSnapshotRestores :: DisableFastSnapshotRestoresResponse -> TestTree
 responseDisableFastSnapshotRestores =
@@ -8959,7 +8959,7 @@ responseDisableFastSnapshotRestores =
     "DisableFastSnapshotRestoresResponse"
     "fixture/DisableFastSnapshotRestoresResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableFastSnapshotRestores)
+    (Proxy.Proxy :: Proxy.Proxy DisableFastSnapshotRestores)
 
 responseDescribeLaunchTemplates :: DescribeLaunchTemplatesResponse -> TestTree
 responseDescribeLaunchTemplates =
@@ -8967,7 +8967,7 @@ responseDescribeLaunchTemplates =
     "DescribeLaunchTemplatesResponse"
     "fixture/DescribeLaunchTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLaunchTemplates)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLaunchTemplates)
 
 responseCreateVpnConnectionRoute :: CreateVpnConnectionRouteResponse -> TestTree
 responseCreateVpnConnectionRoute =
@@ -8975,7 +8975,7 @@ responseCreateVpnConnectionRoute =
     "CreateVpnConnectionRouteResponse"
     "fixture/CreateVpnConnectionRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateVpnConnectionRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpnConnectionRoute)
 
 responseAssociateRouteTable :: AssociateRouteTableResponse -> TestTree
 responseAssociateRouteTable =
@@ -8983,7 +8983,7 @@ responseAssociateRouteTable =
     "AssociateRouteTableResponse"
     "fixture/AssociateRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy AssociateRouteTable)
 
 responseCreateSubnetCidrReservation :: CreateSubnetCidrReservationResponse -> TestTree
 responseCreateSubnetCidrReservation =
@@ -8991,7 +8991,7 @@ responseCreateSubnetCidrReservation =
     "CreateSubnetCidrReservationResponse"
     "fixture/CreateSubnetCidrReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSubnetCidrReservation)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubnetCidrReservation)
 
 responseDescribeVpnGateways :: DescribeVpnGatewaysResponse -> TestTree
 responseDescribeVpnGateways =
@@ -8999,7 +8999,7 @@ responseDescribeVpnGateways =
     "DescribeVpnGatewaysResponse"
     "fixture/DescribeVpnGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpnGateways)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpnGateways)
 
 responseModifyVpnConnectionOptions :: ModifyVpnConnectionOptionsResponse -> TestTree
 responseModifyVpnConnectionOptions =
@@ -9007,7 +9007,7 @@ responseModifyVpnConnectionOptions =
     "ModifyVpnConnectionOptionsResponse"
     "fixture/ModifyVpnConnectionOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpnConnectionOptions)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpnConnectionOptions)
 
 responseGetConsoleOutput :: GetConsoleOutputResponse -> TestTree
 responseGetConsoleOutput =
@@ -9015,7 +9015,7 @@ responseGetConsoleOutput =
     "GetConsoleOutputResponse"
     "fixture/GetConsoleOutputResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConsoleOutput)
+    (Proxy.Proxy :: Proxy.Proxy GetConsoleOutput)
 
 responseDescribeHosts :: DescribeHostsResponse -> TestTree
 responseDescribeHosts =
@@ -9023,7 +9023,7 @@ responseDescribeHosts =
     "DescribeHostsResponse"
     "fixture/DescribeHostsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHosts)
+    (Proxy.Proxy :: Proxy.Proxy DescribeHosts)
 
 responseDescribeImageAttribute :: DescribeImageAttributeResponse -> TestTree
 responseDescribeImageAttribute =
@@ -9031,7 +9031,7 @@ responseDescribeImageAttribute =
     "DescribeImageAttributeResponse"
     "fixture/DescribeImageAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImageAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImageAttribute)
 
 responseModifyIdFormat :: ModifyIdFormatResponse -> TestTree
 responseModifyIdFormat =
@@ -9039,7 +9039,7 @@ responseModifyIdFormat =
     "ModifyIdFormatResponse"
     "fixture/ModifyIdFormatResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyIdFormat)
+    (Proxy.Proxy :: Proxy.Proxy ModifyIdFormat)
 
 responseRegisterTransitGatewayMulticastGroupMembers :: RegisterTransitGatewayMulticastGroupMembersResponse -> TestTree
 responseRegisterTransitGatewayMulticastGroupMembers =
@@ -9047,7 +9047,7 @@ responseRegisterTransitGatewayMulticastGroupMembers =
     "RegisterTransitGatewayMulticastGroupMembersResponse"
     "fixture/RegisterTransitGatewayMulticastGroupMembersResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterTransitGatewayMulticastGroupMembers)
+    (Proxy.Proxy :: Proxy.Proxy RegisterTransitGatewayMulticastGroupMembers)
 
 responseDeleteManagedPrefixList :: DeleteManagedPrefixListResponse -> TestTree
 responseDeleteManagedPrefixList =
@@ -9055,7 +9055,7 @@ responseDeleteManagedPrefixList =
     "DeleteManagedPrefixListResponse"
     "fixture/DeleteManagedPrefixListResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteManagedPrefixList)
+    (Proxy.Proxy :: Proxy.Proxy DeleteManagedPrefixList)
 
 responseDeleteRouteTable :: DeleteRouteTableResponse -> TestTree
 responseDeleteRouteTable =
@@ -9063,7 +9063,7 @@ responseDeleteRouteTable =
     "DeleteRouteTableResponse"
     "fixture/DeleteRouteTableResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRouteTable)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteTable)
 
 responseResetImageAttribute :: ResetImageAttributeResponse -> TestTree
 responseResetImageAttribute =
@@ -9071,7 +9071,7 @@ responseResetImageAttribute =
     "ResetImageAttributeResponse"
     "fixture/ResetImageAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetImageAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ResetImageAttribute)
 
 responseModifyTransitGatewayPrefixListReference :: ModifyTransitGatewayPrefixListReferenceResponse -> TestTree
 responseModifyTransitGatewayPrefixListReference =
@@ -9079,7 +9079,7 @@ responseModifyTransitGatewayPrefixListReference =
     "ModifyTransitGatewayPrefixListReferenceResponse"
     "fixture/ModifyTransitGatewayPrefixListReferenceResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyTransitGatewayPrefixListReference)
+    (Proxy.Proxy :: Proxy.Proxy ModifyTransitGatewayPrefixListReference)
 
 responseDescribeTransitGatewayRouteTables :: DescribeTransitGatewayRouteTablesResponse -> TestTree
 responseDescribeTransitGatewayRouteTables =
@@ -9087,7 +9087,7 @@ responseDescribeTransitGatewayRouteTables =
     "DescribeTransitGatewayRouteTablesResponse"
     "fixture/DescribeTransitGatewayRouteTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransitGatewayRouteTables)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayRouteTables)
 
 responseCreateEgressOnlyInternetGateway :: CreateEgressOnlyInternetGatewayResponse -> TestTree
 responseCreateEgressOnlyInternetGateway =
@@ -9095,7 +9095,7 @@ responseCreateEgressOnlyInternetGateway =
     "CreateEgressOnlyInternetGatewayResponse"
     "fixture/CreateEgressOnlyInternetGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEgressOnlyInternetGateway)
+    (Proxy.Proxy :: Proxy.Proxy CreateEgressOnlyInternetGateway)
 
 responseDescribeReservedInstancesModifications :: DescribeReservedInstancesModificationsResponse -> TestTree
 responseDescribeReservedInstancesModifications =
@@ -9103,7 +9103,7 @@ responseDescribeReservedInstancesModifications =
     "DescribeReservedInstancesModificationsResponse"
     "fixture/DescribeReservedInstancesModificationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReservedInstancesModifications)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstancesModifications)
 
 responseDescribeSpotInstanceRequests :: DescribeSpotInstanceRequestsResponse -> TestTree
 responseDescribeSpotInstanceRequests =
@@ -9111,7 +9111,7 @@ responseDescribeSpotInstanceRequests =
     "DescribeSpotInstanceRequestsResponse"
     "fixture/DescribeSpotInstanceRequestsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpotInstanceRequests)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpotInstanceRequests)
 
 responseRevokeClientVpnIngress :: RevokeClientVpnIngressResponse -> TestTree
 responseRevokeClientVpnIngress =
@@ -9119,7 +9119,7 @@ responseRevokeClientVpnIngress =
     "RevokeClientVpnIngressResponse"
     "fixture/RevokeClientVpnIngressResponse.proto"
     defaultService
-    (Proxy :: Proxy RevokeClientVpnIngress)
+    (Proxy.Proxy :: Proxy.Proxy RevokeClientVpnIngress)
 
 responseUnassignPrivateIpAddresses :: UnassignPrivateIpAddressesResponse -> TestTree
 responseUnassignPrivateIpAddresses =
@@ -9127,7 +9127,7 @@ responseUnassignPrivateIpAddresses =
     "UnassignPrivateIpAddressesResponse"
     "fixture/UnassignPrivateIpAddressesResponse.proto"
     defaultService
-    (Proxy :: Proxy UnassignPrivateIpAddresses)
+    (Proxy.Proxy :: Proxy.Proxy UnassignPrivateIpAddresses)
 
 responseDescribeNetworkInterfacePermissions :: DescribeNetworkInterfacePermissionsResponse -> TestTree
 responseDescribeNetworkInterfacePermissions =
@@ -9135,7 +9135,7 @@ responseDescribeNetworkInterfacePermissions =
     "DescribeNetworkInterfacePermissionsResponse"
     "fixture/DescribeNetworkInterfacePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNetworkInterfacePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInterfacePermissions)
 
 responseEnableFastSnapshotRestores :: EnableFastSnapshotRestoresResponse -> TestTree
 responseEnableFastSnapshotRestores =
@@ -9143,7 +9143,7 @@ responseEnableFastSnapshotRestores =
     "EnableFastSnapshotRestoresResponse"
     "fixture/EnableFastSnapshotRestoresResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableFastSnapshotRestores)
+    (Proxy.Proxy :: Proxy.Proxy EnableFastSnapshotRestores)
 
 responseDescribeVpcEndpointServicePermissions :: DescribeVpcEndpointServicePermissionsResponse -> TestTree
 responseDescribeVpcEndpointServicePermissions =
@@ -9151,7 +9151,7 @@ responseDescribeVpcEndpointServicePermissions =
     "DescribeVpcEndpointServicePermissionsResponse"
     "fixture/DescribeVpcEndpointServicePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVpcEndpointServicePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcEndpointServicePermissions)
 
 responseDeleteDhcpOptions :: DeleteDhcpOptionsResponse -> TestTree
 responseDeleteDhcpOptions =
@@ -9159,7 +9159,7 @@ responseDeleteDhcpOptions =
     "DeleteDhcpOptionsResponse"
     "fixture/DeleteDhcpOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDhcpOptions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDhcpOptions)
 
 responseCreateRestoreImageTask :: CreateRestoreImageTaskResponse -> TestTree
 responseCreateRestoreImageTask =
@@ -9167,7 +9167,7 @@ responseCreateRestoreImageTask =
     "CreateRestoreImageTaskResponse"
     "fixture/CreateRestoreImageTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRestoreImageTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateRestoreImageTask)
 
 responseRegisterInstanceEventNotificationAttributes :: RegisterInstanceEventNotificationAttributesResponse -> TestTree
 responseRegisterInstanceEventNotificationAttributes =
@@ -9175,7 +9175,7 @@ responseRegisterInstanceEventNotificationAttributes =
     "RegisterInstanceEventNotificationAttributesResponse"
     "fixture/RegisterInstanceEventNotificationAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterInstanceEventNotificationAttributes)
+    (Proxy.Proxy :: Proxy.Proxy RegisterInstanceEventNotificationAttributes)
 
 responseGetVpnConnectionDeviceSampleConfiguration :: GetVpnConnectionDeviceSampleConfigurationResponse -> TestTree
 responseGetVpnConnectionDeviceSampleConfiguration =
@@ -9183,7 +9183,7 @@ responseGetVpnConnectionDeviceSampleConfiguration =
     "GetVpnConnectionDeviceSampleConfigurationResponse"
     "fixture/GetVpnConnectionDeviceSampleConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetVpnConnectionDeviceSampleConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetVpnConnectionDeviceSampleConfiguration)
 
 responseDeleteSubnetCidrReservation :: DeleteSubnetCidrReservationResponse -> TestTree
 responseDeleteSubnetCidrReservation =
@@ -9191,7 +9191,7 @@ responseDeleteSubnetCidrReservation =
     "DeleteSubnetCidrReservationResponse"
     "fixture/DeleteSubnetCidrReservationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSubnetCidrReservation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubnetCidrReservation)
 
 responseDescribeNetworkAcls :: DescribeNetworkAclsResponse -> TestTree
 responseDescribeNetworkAcls =
@@ -9199,7 +9199,7 @@ responseDescribeNetworkAcls =
     "DescribeNetworkAclsResponse"
     "fixture/DescribeNetworkAclsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNetworkAcls)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkAcls)
 
 responseCancelImportTask :: CancelImportTaskResponse -> TestTree
 responseCancelImportTask =
@@ -9207,7 +9207,7 @@ responseCancelImportTask =
     "CancelImportTaskResponse"
     "fixture/CancelImportTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelImportTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelImportTask)
 
 responseDetachClassicLinkVpc :: DetachClassicLinkVpcResponse -> TestTree
 responseDetachClassicLinkVpc =
@@ -9215,7 +9215,7 @@ responseDetachClassicLinkVpc =
     "DetachClassicLinkVpcResponse"
     "fixture/DetachClassicLinkVpcResponse.proto"
     defaultService
-    (Proxy :: Proxy DetachClassicLinkVpc)
+    (Proxy.Proxy :: Proxy.Proxy DetachClassicLinkVpc)
 
 responseCreateCapacityReservationFleet :: CreateCapacityReservationFleetResponse -> TestTree
 responseCreateCapacityReservationFleet =
@@ -9223,7 +9223,7 @@ responseCreateCapacityReservationFleet =
     "CreateCapacityReservationFleetResponse"
     "fixture/CreateCapacityReservationFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCapacityReservationFleet)
+    (Proxy.Proxy :: Proxy.Proxy CreateCapacityReservationFleet)
 
 responseDescribeRegions :: DescribeRegionsResponse -> TestTree
 responseDescribeRegions =
@@ -9231,7 +9231,7 @@ responseDescribeRegions =
     "DescribeRegionsResponse"
     "fixture/DescribeRegionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRegions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegions)
 
 responseMonitorInstances :: MonitorInstancesResponse -> TestTree
 responseMonitorInstances =
@@ -9239,7 +9239,7 @@ responseMonitorInstances =
     "MonitorInstancesResponse"
     "fixture/MonitorInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy MonitorInstances)
+    (Proxy.Proxy :: Proxy.Proxy MonitorInstances)
 
 responseRejectTransitGatewayMulticastDomainAssociations :: RejectTransitGatewayMulticastDomainAssociationsResponse -> TestTree
 responseRejectTransitGatewayMulticastDomainAssociations =
@@ -9247,7 +9247,7 @@ responseRejectTransitGatewayMulticastDomainAssociations =
     "RejectTransitGatewayMulticastDomainAssociationsResponse"
     "fixture/RejectTransitGatewayMulticastDomainAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectTransitGatewayMulticastDomainAssociations)
+    (Proxy.Proxy :: Proxy.Proxy RejectTransitGatewayMulticastDomainAssociations)
 
 responseAcceptTransitGatewayMulticastDomainAssociations :: AcceptTransitGatewayMulticastDomainAssociationsResponse -> TestTree
 responseAcceptTransitGatewayMulticastDomainAssociations =
@@ -9255,7 +9255,7 @@ responseAcceptTransitGatewayMulticastDomainAssociations =
     "AcceptTransitGatewayMulticastDomainAssociationsResponse"
     "fixture/AcceptTransitGatewayMulticastDomainAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptTransitGatewayMulticastDomainAssociations)
+    (Proxy.Proxy :: Proxy.Proxy AcceptTransitGatewayMulticastDomainAssociations)
 
 responseSearchLocalGatewayRoutes :: SearchLocalGatewayRoutesResponse -> TestTree
 responseSearchLocalGatewayRoutes =
@@ -9263,7 +9263,7 @@ responseSearchLocalGatewayRoutes =
     "SearchLocalGatewayRoutesResponse"
     "fixture/SearchLocalGatewayRoutesResponse.proto"
     defaultService
-    (Proxy :: Proxy SearchLocalGatewayRoutes)
+    (Proxy.Proxy :: Proxy.Proxy SearchLocalGatewayRoutes)
 
 responseDeleteClientVpnRoute :: DeleteClientVpnRouteResponse -> TestTree
 responseDeleteClientVpnRoute =
@@ -9271,7 +9271,7 @@ responseDeleteClientVpnRoute =
     "DeleteClientVpnRouteResponse"
     "fixture/DeleteClientVpnRouteResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteClientVpnRoute)
+    (Proxy.Proxy :: Proxy.Proxy DeleteClientVpnRoute)
 
 responseAcceptVpcPeeringConnection :: AcceptVpcPeeringConnectionResponse -> TestTree
 responseAcceptVpcPeeringConnection =
@@ -9279,7 +9279,7 @@ responseAcceptVpcPeeringConnection =
     "AcceptVpcPeeringConnectionResponse"
     "fixture/AcceptVpcPeeringConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptVpcPeeringConnection)
+    (Proxy.Proxy :: Proxy.Proxy AcceptVpcPeeringConnection)
 
 responseImportSnapshot :: ImportSnapshotResponse -> TestTree
 responseImportSnapshot =
@@ -9287,7 +9287,7 @@ responseImportSnapshot =
     "ImportSnapshotResponse"
     "fixture/ImportSnapshotResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy ImportSnapshot)
 
 responseDescribeAddressesAttribute :: DescribeAddressesAttributeResponse -> TestTree
 responseDescribeAddressesAttribute =
@@ -9295,7 +9295,7 @@ responseDescribeAddressesAttribute =
     "DescribeAddressesAttributeResponse"
     "fixture/DescribeAddressesAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddressesAttribute)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddressesAttribute)
 
 responseDescribeVolumeStatus :: DescribeVolumeStatusResponse -> TestTree
 responseDescribeVolumeStatus =
@@ -9303,7 +9303,7 @@ responseDescribeVolumeStatus =
     "DescribeVolumeStatusResponse"
     "fixture/DescribeVolumeStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVolumeStatus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVolumeStatus)
 
 responseDescribeReplaceRootVolumeTasks :: DescribeReplaceRootVolumeTasksResponse -> TestTree
 responseDescribeReplaceRootVolumeTasks =
@@ -9311,7 +9311,7 @@ responseDescribeReplaceRootVolumeTasks =
     "DescribeReplaceRootVolumeTasksResponse"
     "fixture/DescribeReplaceRootVolumeTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReplaceRootVolumeTasks)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReplaceRootVolumeTasks)
 
 responseModifyInstanceEventWindow :: ModifyInstanceEventWindowResponse -> TestTree
 responseModifyInstanceEventWindow =
@@ -9319,7 +9319,7 @@ responseModifyInstanceEventWindow =
     "ModifyInstanceEventWindowResponse"
     "fixture/ModifyInstanceEventWindowResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyInstanceEventWindow)
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceEventWindow)
 
 responseDescribeRouteTables :: DescribeRouteTablesResponse -> TestTree
 responseDescribeRouteTables =
@@ -9327,7 +9327,7 @@ responseDescribeRouteTables =
     "DescribeRouteTablesResponse"
     "fixture/DescribeRouteTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRouteTables)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRouteTables)
 
 responseDescribeAvailabilityZones :: DescribeAvailabilityZonesResponse -> TestTree
 responseDescribeAvailabilityZones =
@@ -9335,7 +9335,7 @@ responseDescribeAvailabilityZones =
     "DescribeAvailabilityZonesResponse"
     "fixture/DescribeAvailabilityZonesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAvailabilityZones)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAvailabilityZones)
 
 responseModifyVpcAttribute :: ModifyVpcAttributeResponse -> TestTree
 responseModifyVpcAttribute =
@@ -9343,7 +9343,7 @@ responseModifyVpcAttribute =
     "ModifyVpcAttributeResponse"
     "fixture/ModifyVpcAttributeResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyVpcAttribute)
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcAttribute)
 
 responseDescribeClientVpnConnections :: DescribeClientVpnConnectionsResponse -> TestTree
 responseDescribeClientVpnConnections =
@@ -9351,7 +9351,7 @@ responseDescribeClientVpnConnections =
     "DescribeClientVpnConnectionsResponse"
     "fixture/DescribeClientVpnConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeClientVpnConnections)
+    (Proxy.Proxy :: Proxy.Proxy DescribeClientVpnConnections)
 
 responseDescribeFleetHistory :: DescribeFleetHistoryResponse -> TestTree
 responseDescribeFleetHistory =
@@ -9359,7 +9359,7 @@ responseDescribeFleetHistory =
     "DescribeFleetHistoryResponse"
     "fixture/DescribeFleetHistoryResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFleetHistory)
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetHistory)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
 responseDescribeImages =
@@ -9367,7 +9367,7 @@ responseDescribeImages =
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImages)
+    (Proxy.Proxy :: Proxy.Proxy DescribeImages)
 
 responseDescribeElasticGpus :: DescribeElasticGpusResponse -> TestTree
 responseDescribeElasticGpus =
@@ -9375,7 +9375,7 @@ responseDescribeElasticGpus =
     "DescribeElasticGpusResponse"
     "fixture/DescribeElasticGpusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeElasticGpus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeElasticGpus)
 
 responseDisassociateTrunkInterface :: DisassociateTrunkInterfaceResponse -> TestTree
 responseDisassociateTrunkInterface =
@@ -9383,7 +9383,7 @@ responseDisassociateTrunkInterface =
     "DisassociateTrunkInterfaceResponse"
     "fixture/DisassociateTrunkInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTrunkInterface)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTrunkInterface)
 
 responseRestoreAddressToClassic :: RestoreAddressToClassicResponse -> TestTree
 responseRestoreAddressToClassic =
@@ -9391,7 +9391,7 @@ responseRestoreAddressToClassic =
     "RestoreAddressToClassicResponse"
     "fixture/RestoreAddressToClassicResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreAddressToClassic)
+    (Proxy.Proxy :: Proxy.Proxy RestoreAddressToClassic)
 
 responseDescribeManagedPrefixLists :: DescribeManagedPrefixListsResponse -> TestTree
 responseDescribeManagedPrefixLists =
@@ -9399,7 +9399,7 @@ responseDescribeManagedPrefixLists =
     "DescribeManagedPrefixListsResponse"
     "fixture/DescribeManagedPrefixListsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeManagedPrefixLists)
+    (Proxy.Proxy :: Proxy.Proxy DescribeManagedPrefixLists)
 
 responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
 responseCreateKeyPair =
@@ -9407,7 +9407,7 @@ responseCreateKeyPair =
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateKeyPair)
+    (Proxy.Proxy :: Proxy.Proxy CreateKeyPair)
 
 responseGetReservedInstancesExchangeQuote :: GetReservedInstancesExchangeQuoteResponse -> TestTree
 responseGetReservedInstancesExchangeQuote =
@@ -9415,7 +9415,7 @@ responseGetReservedInstancesExchangeQuote =
     "GetReservedInstancesExchangeQuoteResponse"
     "fixture/GetReservedInstancesExchangeQuoteResponse.proto"
     defaultService
-    (Proxy :: Proxy GetReservedInstancesExchangeQuote)
+    (Proxy.Proxy :: Proxy.Proxy GetReservedInstancesExchangeQuote)
 
 responseDeleteVolume :: DeleteVolumeResponse -> TestTree
 responseDeleteVolume =
@@ -9423,7 +9423,7 @@ responseDeleteVolume =
     "DeleteVolumeResponse"
     "fixture/DeleteVolumeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVolume)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVolume)
 
 responseDeprovisionByoipCidr :: DeprovisionByoipCidrResponse -> TestTree
 responseDeprovisionByoipCidr =
@@ -9431,7 +9431,7 @@ responseDeprovisionByoipCidr =
     "DeprovisionByoipCidrResponse"
     "fixture/DeprovisionByoipCidrResponse.proto"
     defaultService
-    (Proxy :: Proxy DeprovisionByoipCidr)
+    (Proxy.Proxy :: Proxy.Proxy DeprovisionByoipCidr)
 
 responseGetSerialConsoleAccessStatus :: GetSerialConsoleAccessStatusResponse -> TestTree
 responseGetSerialConsoleAccessStatus =
@@ -9439,7 +9439,7 @@ responseGetSerialConsoleAccessStatus =
     "GetSerialConsoleAccessStatusResponse"
     "fixture/GetSerialConsoleAccessStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSerialConsoleAccessStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetSerialConsoleAccessStatus)
 
 responseDeleteVpcEndpointServiceConfigurations :: DeleteVpcEndpointServiceConfigurationsResponse -> TestTree
 responseDeleteVpcEndpointServiceConfigurations =
@@ -9447,7 +9447,7 @@ responseDeleteVpcEndpointServiceConfigurations =
     "DeleteVpcEndpointServiceConfigurationsResponse"
     "fixture/DeleteVpcEndpointServiceConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcEndpointServiceConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcEndpointServiceConfigurations)
 
 responseDescribeSpotFleetInstances :: DescribeSpotFleetInstancesResponse -> TestTree
 responseDescribeSpotFleetInstances =
@@ -9455,4 +9455,4 @@ responseDescribeSpotFleetInstances =
     "DescribeSpotFleetInstancesResponse"
     "fixture/DescribeSpotFleetInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSpotFleetInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpotFleetInstances)

@@ -1,0 +1,127 @@
+cabal-version:      2.2
+name:               amazonka-ecr-public
+version:            2.0
+synopsis:           Amazon Elastic Container Registry Public SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-10-30@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ECRPublic.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ECRPublic" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-ecr-public
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.ECRPublic
+    Network.AWS.ECRPublic.BatchCheckLayerAvailability
+    Network.AWS.ECRPublic.BatchDeleteImage
+    Network.AWS.ECRPublic.CompleteLayerUpload
+    Network.AWS.ECRPublic.CreateRepository
+    Network.AWS.ECRPublic.DeleteRepository
+    Network.AWS.ECRPublic.DeleteRepositoryPolicy
+    Network.AWS.ECRPublic.DescribeImages
+    Network.AWS.ECRPublic.DescribeImageTags
+    Network.AWS.ECRPublic.DescribeRegistries
+    Network.AWS.ECRPublic.DescribeRepositories
+    Network.AWS.ECRPublic.GetAuthorizationToken
+    Network.AWS.ECRPublic.GetRegistryCatalogData
+    Network.AWS.ECRPublic.GetRepositoryCatalogData
+    Network.AWS.ECRPublic.GetRepositoryPolicy
+    Network.AWS.ECRPublic.InitiateLayerUpload
+    Network.AWS.ECRPublic.Lens
+    Network.AWS.ECRPublic.ListTagsForResource
+    Network.AWS.ECRPublic.PutImage
+    Network.AWS.ECRPublic.PutRegistryCatalogData
+    Network.AWS.ECRPublic.PutRepositoryCatalogData
+    Network.AWS.ECRPublic.SetRepositoryPolicy
+    Network.AWS.ECRPublic.TagResource
+    Network.AWS.ECRPublic.Types
+    Network.AWS.ECRPublic.Types.AuthorizationData
+    Network.AWS.ECRPublic.Types.Image
+    Network.AWS.ECRPublic.Types.ImageDetail
+    Network.AWS.ECRPublic.Types.ImageFailure
+    Network.AWS.ECRPublic.Types.ImageFailureCode
+    Network.AWS.ECRPublic.Types.ImageIdentifier
+    Network.AWS.ECRPublic.Types.ImageTagDetail
+    Network.AWS.ECRPublic.Types.Layer
+    Network.AWS.ECRPublic.Types.LayerAvailability
+    Network.AWS.ECRPublic.Types.LayerFailure
+    Network.AWS.ECRPublic.Types.LayerFailureCode
+    Network.AWS.ECRPublic.Types.ReferencedImageDetail
+    Network.AWS.ECRPublic.Types.Registry
+    Network.AWS.ECRPublic.Types.RegistryAlias
+    Network.AWS.ECRPublic.Types.RegistryAliasStatus
+    Network.AWS.ECRPublic.Types.RegistryCatalogData
+    Network.AWS.ECRPublic.Types.Repository
+    Network.AWS.ECRPublic.Types.RepositoryCatalogData
+    Network.AWS.ECRPublic.Types.RepositoryCatalogDataInput
+    Network.AWS.ECRPublic.Types.Tag
+    Network.AWS.ECRPublic.UntagResource
+    Network.AWS.ECRPublic.UploadLayerPart
+    Network.AWS.ECRPublic.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-ecr-public-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.ECRPublic
+    Test.AWS.ECRPublic.Internal
+    Test.AWS.Gen.ECRPublic
+
+  build-depends:
+    , amazonka              ^>=2.0
+    , amazonka-ecr-public
+    , amazonka-test         ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

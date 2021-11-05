@@ -1,0 +1,69 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-finspace-data/amazonka-finspace-data.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-finspace-data",
+    srcs = [
+        "gen/Network/AWS/FinSpaceData.hs",
+        "gen/Network/AWS/FinSpaceData/CreateChangeset.hs",
+        "gen/Network/AWS/FinSpaceData/GetProgrammaticAccessCredentials.hs",
+        "gen/Network/AWS/FinSpaceData/GetWorkingLocation.hs",
+        "gen/Network/AWS/FinSpaceData/Lens.hs",
+        "gen/Network/AWS/FinSpaceData/Types.hs",
+        "gen/Network/AWS/FinSpaceData/Types/ChangeType.hs",
+        "gen/Network/AWS/FinSpaceData/Types/ChangesetInfo.hs",
+        "gen/Network/AWS/FinSpaceData/Types/ChangesetStatus.hs",
+        "gen/Network/AWS/FinSpaceData/Types/Credentials.hs",
+        "gen/Network/AWS/FinSpaceData/Types/ErrorCategory.hs",
+        "gen/Network/AWS/FinSpaceData/Types/ErrorInfo.hs",
+        "gen/Network/AWS/FinSpaceData/Types/FormatType.hs",
+        "gen/Network/AWS/FinSpaceData/Types/LocationType.hs",
+        "gen/Network/AWS/FinSpaceData/Types/SourceType.hs",
+        "gen/Network/AWS/FinSpaceData/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_finspace_data=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-finspace-data/amazonka-finspace-data.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-finspace-data-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/FinSpaceData.hs",
+        "test/Test/AWS/FinSpaceData/Internal.hs",
+        "test/Test/AWS/Gen/FinSpaceData.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_finspace_data=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-finspace-data",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

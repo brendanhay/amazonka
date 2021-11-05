@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.APIGatewayManagementAPI where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.APIGatewayManagementAPI
 import Test.AWS.APIGatewayManagementAPI.Internal
 import Test.AWS.Fixture
@@ -79,7 +79,7 @@ responseDeleteConnection =
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseGetConnection :: GetConnectionResponse -> TestTree
 responseGetConnection =
@@ -87,7 +87,7 @@ responseGetConnection =
     "GetConnectionResponse"
     "fixture/GetConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnection)
+    (Proxy.Proxy :: Proxy.Proxy GetConnection)
 
 responsePostToConnection :: PostToConnectionResponse -> TestTree
 responsePostToConnection =
@@ -95,4 +95,4 @@ responsePostToConnection =
     "PostToConnectionResponse"
     "fixture/PostToConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy PostToConnection)
+    (Proxy.Proxy :: Proxy.Proxy PostToConnection)

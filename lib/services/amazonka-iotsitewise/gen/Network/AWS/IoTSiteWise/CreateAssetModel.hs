@@ -1,0 +1,361 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.IoTSiteWise.CreateAssetModel
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates an asset model from specified property and hierarchy
+-- definitions. You create assets from asset models. With asset models, you
+-- can easily create assets of the same type that have standardized
+-- definitions. Each asset created from a model inherits the asset model\'s
+-- property and hierarchy definitions. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html Defining asset models>
+-- in the /IoT SiteWise User Guide/.
+module Network.AWS.IoTSiteWise.CreateAssetModel
+  ( -- * Creating a Request
+    CreateAssetModel (..),
+    newCreateAssetModel,
+
+    -- * Request Lenses
+    createAssetModel_clientToken,
+    createAssetModel_assetModelDescription,
+    createAssetModel_assetModelProperties,
+    createAssetModel_assetModelCompositeModels,
+    createAssetModel_assetModelHierarchies,
+    createAssetModel_tags,
+    createAssetModel_assetModelName,
+
+    -- * Destructuring the Response
+    CreateAssetModelResponse (..),
+    newCreateAssetModelResponse,
+
+    -- * Response Lenses
+    createAssetModelResponse_httpStatus,
+    createAssetModelResponse_assetModelId,
+    createAssetModelResponse_assetModelArn,
+    createAssetModelResponse_assetModelStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.IoTSiteWise.Types
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newCreateAssetModel' smart constructor.
+data CreateAssetModel = CreateAssetModel'
+  { -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the asset model.
+    assetModelDescription :: Prelude.Maybe Prelude.Text,
+    -- | The property definitions of the asset model. For more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html Asset properties>
+    -- in the /IoT SiteWise User Guide/.
+    --
+    -- You can specify up to 200 properties per asset model. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+    -- in the /IoT SiteWise User Guide/.
+    assetModelProperties :: Prelude.Maybe [AssetModelPropertyDefinition],
+    -- | The composite asset models that are part of this asset model. Composite
+    -- asset models are asset models that contain specific properties. Each
+    -- composite model has a type that defines the properties that the
+    -- composite model supports. Use composite asset models to define alarms on
+    -- this asset model.
+    assetModelCompositeModels :: Prelude.Maybe [AssetModelCompositeModelDefinition],
+    -- | The hierarchy definitions of the asset model. Each hierarchy specifies
+    -- an asset model whose assets can be children of any other assets created
+    -- from this asset model. For more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
+    -- in the /IoT SiteWise User Guide/.
+    --
+    -- You can specify up to 10 hierarchies per asset model. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+    -- in the /IoT SiteWise User Guide/.
+    assetModelHierarchies :: Prelude.Maybe [AssetModelHierarchyDefinition],
+    -- | A list of key-value pairs that contain metadata for the asset model. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+    -- in the /IoT SiteWise User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique, friendly name for the asset model.
+    assetModelName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateAssetModel' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'clientToken', 'createAssetModel_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+--
+-- 'assetModelDescription', 'createAssetModel_assetModelDescription' - A description for the asset model.
+--
+-- 'assetModelProperties', 'createAssetModel_assetModelProperties' - The property definitions of the asset model. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html Asset properties>
+-- in the /IoT SiteWise User Guide/.
+--
+-- You can specify up to 200 properties per asset model. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+-- in the /IoT SiteWise User Guide/.
+--
+-- 'assetModelCompositeModels', 'createAssetModel_assetModelCompositeModels' - The composite asset models that are part of this asset model. Composite
+-- asset models are asset models that contain specific properties. Each
+-- composite model has a type that defines the properties that the
+-- composite model supports. Use composite asset models to define alarms on
+-- this asset model.
+--
+-- 'assetModelHierarchies', 'createAssetModel_assetModelHierarchies' - The hierarchy definitions of the asset model. Each hierarchy specifies
+-- an asset model whose assets can be children of any other assets created
+-- from this asset model. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
+-- in the /IoT SiteWise User Guide/.
+--
+-- You can specify up to 10 hierarchies per asset model. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+-- in the /IoT SiteWise User Guide/.
+--
+-- 'tags', 'createAssetModel_tags' - A list of key-value pairs that contain metadata for the asset model. For
+-- more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+-- in the /IoT SiteWise User Guide/.
+--
+-- 'assetModelName', 'createAssetModel_assetModelName' - A unique, friendly name for the asset model.
+newCreateAssetModel ::
+  -- | 'assetModelName'
+  Prelude.Text ->
+  CreateAssetModel
+newCreateAssetModel pAssetModelName_ =
+  CreateAssetModel'
+    { clientToken = Prelude.Nothing,
+      assetModelDescription = Prelude.Nothing,
+      assetModelProperties = Prelude.Nothing,
+      assetModelCompositeModels = Prelude.Nothing,
+      assetModelHierarchies = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      assetModelName = pAssetModelName_
+    }
+
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+createAssetModel_clientToken :: Lens.Lens' CreateAssetModel (Prelude.Maybe Prelude.Text)
+createAssetModel_clientToken = Lens.lens (\CreateAssetModel' {clientToken} -> clientToken) (\s@CreateAssetModel' {} a -> s {clientToken = a} :: CreateAssetModel)
+
+-- | A description for the asset model.
+createAssetModel_assetModelDescription :: Lens.Lens' CreateAssetModel (Prelude.Maybe Prelude.Text)
+createAssetModel_assetModelDescription = Lens.lens (\CreateAssetModel' {assetModelDescription} -> assetModelDescription) (\s@CreateAssetModel' {} a -> s {assetModelDescription = a} :: CreateAssetModel)
+
+-- | The property definitions of the asset model. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html Asset properties>
+-- in the /IoT SiteWise User Guide/.
+--
+-- You can specify up to 200 properties per asset model. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+-- in the /IoT SiteWise User Guide/.
+createAssetModel_assetModelProperties :: Lens.Lens' CreateAssetModel (Prelude.Maybe [AssetModelPropertyDefinition])
+createAssetModel_assetModelProperties = Lens.lens (\CreateAssetModel' {assetModelProperties} -> assetModelProperties) (\s@CreateAssetModel' {} a -> s {assetModelProperties = a} :: CreateAssetModel) Prelude.. Lens.mapping Lens.coerced
+
+-- | The composite asset models that are part of this asset model. Composite
+-- asset models are asset models that contain specific properties. Each
+-- composite model has a type that defines the properties that the
+-- composite model supports. Use composite asset models to define alarms on
+-- this asset model.
+createAssetModel_assetModelCompositeModels :: Lens.Lens' CreateAssetModel (Prelude.Maybe [AssetModelCompositeModelDefinition])
+createAssetModel_assetModelCompositeModels = Lens.lens (\CreateAssetModel' {assetModelCompositeModels} -> assetModelCompositeModels) (\s@CreateAssetModel' {} a -> s {assetModelCompositeModels = a} :: CreateAssetModel) Prelude.. Lens.mapping Lens.coerced
+
+-- | The hierarchy definitions of the asset model. Each hierarchy specifies
+-- an asset model whose assets can be children of any other assets created
+-- from this asset model. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
+-- in the /IoT SiteWise User Guide/.
+--
+-- You can specify up to 10 hierarchies per asset model. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+-- in the /IoT SiteWise User Guide/.
+createAssetModel_assetModelHierarchies :: Lens.Lens' CreateAssetModel (Prelude.Maybe [AssetModelHierarchyDefinition])
+createAssetModel_assetModelHierarchies = Lens.lens (\CreateAssetModel' {assetModelHierarchies} -> assetModelHierarchies) (\s@CreateAssetModel' {} a -> s {assetModelHierarchies = a} :: CreateAssetModel) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of key-value pairs that contain metadata for the asset model. For
+-- more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+-- in the /IoT SiteWise User Guide/.
+createAssetModel_tags :: Lens.Lens' CreateAssetModel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAssetModel_tags = Lens.lens (\CreateAssetModel' {tags} -> tags) (\s@CreateAssetModel' {} a -> s {tags = a} :: CreateAssetModel) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique, friendly name for the asset model.
+createAssetModel_assetModelName :: Lens.Lens' CreateAssetModel Prelude.Text
+createAssetModel_assetModelName = Lens.lens (\CreateAssetModel' {assetModelName} -> assetModelName) (\s@CreateAssetModel' {} a -> s {assetModelName = a} :: CreateAssetModel)
+
+instance Core.AWSRequest CreateAssetModel where
+  type
+    AWSResponse CreateAssetModel =
+      CreateAssetModelResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateAssetModelResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "assetModelId")
+            Prelude.<*> (x Core..:> "assetModelArn")
+            Prelude.<*> (x Core..:> "assetModelStatus")
+      )
+
+instance Prelude.Hashable CreateAssetModel
+
+instance Prelude.NFData CreateAssetModel
+
+instance Core.ToHeaders CreateAssetModel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateAssetModel where
+  toJSON CreateAssetModel' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("assetModelDescription" Core..=)
+              Prelude.<$> assetModelDescription,
+            ("assetModelProperties" Core..=)
+              Prelude.<$> assetModelProperties,
+            ("assetModelCompositeModels" Core..=)
+              Prelude.<$> assetModelCompositeModels,
+            ("assetModelHierarchies" Core..=)
+              Prelude.<$> assetModelHierarchies,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
+              ("assetModelName" Core..= assetModelName)
+          ]
+      )
+
+instance Core.ToPath CreateAssetModel where
+  toPath = Prelude.const "/asset-models"
+
+instance Core.ToQuery CreateAssetModel where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateAssetModelResponse' smart constructor.
+data CreateAssetModelResponse = CreateAssetModelResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The ID of the asset model. You can use this ID when you call other IoT
+    -- SiteWise APIs.
+    assetModelId :: Prelude.Text,
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+    -- of the asset model, which has the following format.
+    --
+    -- @arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model\/${AssetModelId}@
+    assetModelArn :: Prelude.Text,
+    -- | The status of the asset model, which contains a state (@CREATING@ after
+    -- successfully calling this operation) and any error message.
+    assetModelStatus :: AssetModelStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateAssetModelResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createAssetModelResponse_httpStatus' - The response's http status code.
+--
+-- 'assetModelId', 'createAssetModelResponse_assetModelId' - The ID of the asset model. You can use this ID when you call other IoT
+-- SiteWise APIs.
+--
+-- 'assetModelArn', 'createAssetModelResponse_assetModelArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the asset model, which has the following format.
+--
+-- @arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model\/${AssetModelId}@
+--
+-- 'assetModelStatus', 'createAssetModelResponse_assetModelStatus' - The status of the asset model, which contains a state (@CREATING@ after
+-- successfully calling this operation) and any error message.
+newCreateAssetModelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'assetModelId'
+  Prelude.Text ->
+  -- | 'assetModelArn'
+  Prelude.Text ->
+  -- | 'assetModelStatus'
+  AssetModelStatus ->
+  CreateAssetModelResponse
+newCreateAssetModelResponse
+  pHttpStatus_
+  pAssetModelId_
+  pAssetModelArn_
+  pAssetModelStatus_ =
+    CreateAssetModelResponse'
+      { httpStatus =
+          pHttpStatus_,
+        assetModelId = pAssetModelId_,
+        assetModelArn = pAssetModelArn_,
+        assetModelStatus = pAssetModelStatus_
+      }
+
+-- | The response's http status code.
+createAssetModelResponse_httpStatus :: Lens.Lens' CreateAssetModelResponse Prelude.Int
+createAssetModelResponse_httpStatus = Lens.lens (\CreateAssetModelResponse' {httpStatus} -> httpStatus) (\s@CreateAssetModelResponse' {} a -> s {httpStatus = a} :: CreateAssetModelResponse)
+
+-- | The ID of the asset model. You can use this ID when you call other IoT
+-- SiteWise APIs.
+createAssetModelResponse_assetModelId :: Lens.Lens' CreateAssetModelResponse Prelude.Text
+createAssetModelResponse_assetModelId = Lens.lens (\CreateAssetModelResponse' {assetModelId} -> assetModelId) (\s@CreateAssetModelResponse' {} a -> s {assetModelId = a} :: CreateAssetModelResponse)
+
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the asset model, which has the following format.
+--
+-- @arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model\/${AssetModelId}@
+createAssetModelResponse_assetModelArn :: Lens.Lens' CreateAssetModelResponse Prelude.Text
+createAssetModelResponse_assetModelArn = Lens.lens (\CreateAssetModelResponse' {assetModelArn} -> assetModelArn) (\s@CreateAssetModelResponse' {} a -> s {assetModelArn = a} :: CreateAssetModelResponse)
+
+-- | The status of the asset model, which contains a state (@CREATING@ after
+-- successfully calling this operation) and any error message.
+createAssetModelResponse_assetModelStatus :: Lens.Lens' CreateAssetModelResponse AssetModelStatus
+createAssetModelResponse_assetModelStatus = Lens.lens (\CreateAssetModelResponse' {assetModelStatus} -> assetModelStatus) (\s@CreateAssetModelResponse' {} a -> s {assetModelStatus = a} :: CreateAssetModelResponse)
+
+instance Prelude.NFData CreateAssetModelResponse

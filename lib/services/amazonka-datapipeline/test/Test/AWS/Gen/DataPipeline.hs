@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataPipeline where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.DataPipeline
 import Test.AWS.DataPipeline.Internal
 import Test.AWS.Fixture
@@ -271,7 +271,7 @@ responseDescribePipelines =
     "DescribePipelinesResponse"
     "fixture/DescribePipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePipelines)
+    (Proxy.Proxy :: Proxy.Proxy DescribePipelines)
 
 responseQueryObjects :: QueryObjectsResponse -> TestTree
 responseQueryObjects =
@@ -279,7 +279,7 @@ responseQueryObjects =
     "QueryObjectsResponse"
     "fixture/QueryObjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy QueryObjects)
+    (Proxy.Proxy :: Proxy.Proxy QueryObjects)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
 responseRemoveTags =
@@ -287,7 +287,7 @@ responseRemoveTags =
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTags)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
 responseDeletePipeline =
@@ -295,7 +295,7 @@ responseDeletePipeline =
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeletePipeline)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
 responseListPipelines =
@@ -303,7 +303,7 @@ responseListPipelines =
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelines)
 
 responseEvaluateExpression :: EvaluateExpressionResponse -> TestTree
 responseEvaluateExpression =
@@ -311,7 +311,7 @@ responseEvaluateExpression =
     "EvaluateExpressionResponse"
     "fixture/EvaluateExpressionResponse.proto"
     defaultService
-    (Proxy :: Proxy EvaluateExpression)
+    (Proxy.Proxy :: Proxy.Proxy EvaluateExpression)
 
 responseGetPipelineDefinition :: GetPipelineDefinitionResponse -> TestTree
 responseGetPipelineDefinition =
@@ -319,7 +319,7 @@ responseGetPipelineDefinition =
     "GetPipelineDefinitionResponse"
     "fixture/GetPipelineDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPipelineDefinition)
+    (Proxy.Proxy :: Proxy.Proxy GetPipelineDefinition)
 
 responsePollForTask :: PollForTaskResponse -> TestTree
 responsePollForTask =
@@ -327,7 +327,7 @@ responsePollForTask =
     "PollForTaskResponse"
     "fixture/PollForTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy PollForTask)
+    (Proxy.Proxy :: Proxy.Proxy PollForTask)
 
 responseDeactivatePipeline :: DeactivatePipelineResponse -> TestTree
 responseDeactivatePipeline =
@@ -335,7 +335,7 @@ responseDeactivatePipeline =
     "DeactivatePipelineResponse"
     "fixture/DeactivatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeactivatePipeline)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -343,7 +343,7 @@ responseAddTags =
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddTags)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseDescribeObjects :: DescribeObjectsResponse -> TestTree
 responseDescribeObjects =
@@ -351,7 +351,7 @@ responseDescribeObjects =
     "DescribeObjectsResponse"
     "fixture/DescribeObjectsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeObjects)
+    (Proxy.Proxy :: Proxy.Proxy DescribeObjects)
 
 responseReportTaskRunnerHeartbeat :: ReportTaskRunnerHeartbeatResponse -> TestTree
 responseReportTaskRunnerHeartbeat =
@@ -359,7 +359,7 @@ responseReportTaskRunnerHeartbeat =
     "ReportTaskRunnerHeartbeatResponse"
     "fixture/ReportTaskRunnerHeartbeatResponse.proto"
     defaultService
-    (Proxy :: Proxy ReportTaskRunnerHeartbeat)
+    (Proxy.Proxy :: Proxy.Proxy ReportTaskRunnerHeartbeat)
 
 responseActivatePipeline :: ActivatePipelineResponse -> TestTree
 responseActivatePipeline =
@@ -367,7 +367,7 @@ responseActivatePipeline =
     "ActivatePipelineResponse"
     "fixture/ActivatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy ActivatePipeline)
 
 responseSetTaskStatus :: SetTaskStatusResponse -> TestTree
 responseSetTaskStatus =
@@ -375,7 +375,7 @@ responseSetTaskStatus =
     "SetTaskStatusResponse"
     "fixture/SetTaskStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy SetTaskStatus)
+    (Proxy.Proxy :: Proxy.Proxy SetTaskStatus)
 
 responseSetStatus :: SetStatusResponse -> TestTree
 responseSetStatus =
@@ -383,7 +383,7 @@ responseSetStatus =
     "SetStatusResponse"
     "fixture/SetStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy SetStatus)
+    (Proxy.Proxy :: Proxy.Proxy SetStatus)
 
 responseReportTaskProgress :: ReportTaskProgressResponse -> TestTree
 responseReportTaskProgress =
@@ -391,7 +391,7 @@ responseReportTaskProgress =
     "ReportTaskProgressResponse"
     "fixture/ReportTaskProgressResponse.proto"
     defaultService
-    (Proxy :: Proxy ReportTaskProgress)
+    (Proxy.Proxy :: Proxy.Proxy ReportTaskProgress)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
@@ -399,7 +399,7 @@ responseCreatePipeline =
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreatePipeline)
 
 responsePutPipelineDefinition :: PutPipelineDefinitionResponse -> TestTree
 responsePutPipelineDefinition =
@@ -407,7 +407,7 @@ responsePutPipelineDefinition =
     "PutPipelineDefinitionResponse"
     "fixture/PutPipelineDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPipelineDefinition)
+    (Proxy.Proxy :: Proxy.Proxy PutPipelineDefinition)
 
 responseValidatePipelineDefinition :: ValidatePipelineDefinitionResponse -> TestTree
 responseValidatePipelineDefinition =
@@ -415,4 +415,4 @@ responseValidatePipelineDefinition =
     "ValidatePipelineDefinitionResponse"
     "fixture/ValidatePipelineDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidatePipelineDefinition)
+    (Proxy.Proxy :: Proxy.Proxy ValidatePipelineDefinition)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudWatchEvents where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CloudWatchEvents
 import Test.AWS.CloudWatchEvents.Internal
 import Test.AWS.Fixture
@@ -655,7 +655,7 @@ responseDeauthorizeConnection =
     "DeauthorizeConnectionResponse"
     "fixture/DeauthorizeConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeauthorizeConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeauthorizeConnection)
 
 responseRemoveTargets :: RemoveTargetsResponse -> TestTree
 responseRemoveTargets =
@@ -663,7 +663,7 @@ responseRemoveTargets =
     "RemoveTargetsResponse"
     "fixture/RemoveTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTargets)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTargets)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
 responseDeleteRule =
@@ -671,7 +671,7 @@ responseDeleteRule =
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
 
 responseListPartnerEventSourceAccounts :: ListPartnerEventSourceAccountsResponse -> TestTree
 responseListPartnerEventSourceAccounts =
@@ -679,7 +679,7 @@ responseListPartnerEventSourceAccounts =
     "ListPartnerEventSourceAccountsResponse"
     "fixture/ListPartnerEventSourceAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPartnerEventSourceAccounts)
+    (Proxy.Proxy :: Proxy.Proxy ListPartnerEventSourceAccounts)
 
 responseListConnections :: ListConnectionsResponse -> TestTree
 responseListConnections =
@@ -687,7 +687,7 @@ responseListConnections =
     "ListConnectionsResponse"
     "fixture/ListConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConnections)
+    (Proxy.Proxy :: Proxy.Proxy ListConnections)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
 responseDeleteConnection =
@@ -695,7 +695,7 @@ responseDeleteConnection =
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseUpdateConnection :: UpdateConnectionResponse -> TestTree
 responseUpdateConnection =
@@ -703,7 +703,7 @@ responseUpdateConnection =
     "UpdateConnectionResponse"
     "fixture/UpdateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConnection)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnection)
 
 responseListRules :: ListRulesResponse -> TestTree
 responseListRules =
@@ -711,7 +711,7 @@ responseListRules =
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRules)
+    (Proxy.Proxy :: Proxy.Proxy ListRules)
 
 responsePutRule :: PutRuleResponse -> TestTree
 responsePutRule =
@@ -719,7 +719,7 @@ responsePutRule =
     "PutRuleResponse"
     "fixture/PutRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy PutRule)
+    (Proxy.Proxy :: Proxy.Proxy PutRule)
 
 responseDisableRule :: DisableRuleResponse -> TestTree
 responseDisableRule =
@@ -727,7 +727,7 @@ responseDisableRule =
     "DisableRuleResponse"
     "fixture/DisableRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableRule)
+    (Proxy.Proxy :: Proxy.Proxy DisableRule)
 
 responsePutPermission :: PutPermissionResponse -> TestTree
 responsePutPermission =
@@ -735,7 +735,7 @@ responsePutPermission =
     "PutPermissionResponse"
     "fixture/PutPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPermission)
+    (Proxy.Proxy :: Proxy.Proxy PutPermission)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -743,7 +743,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListReplays :: ListReplaysResponse -> TestTree
 responseListReplays =
@@ -751,7 +751,7 @@ responseListReplays =
     "ListReplaysResponse"
     "fixture/ListReplaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ListReplays)
+    (Proxy.Proxy :: Proxy.Proxy ListReplays)
 
 responseCreateConnection :: CreateConnectionResponse -> TestTree
 responseCreateConnection =
@@ -759,7 +759,7 @@ responseCreateConnection =
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
 responseCancelReplay :: CancelReplayResponse -> TestTree
 responseCancelReplay =
@@ -767,7 +767,7 @@ responseCancelReplay =
     "CancelReplayResponse"
     "fixture/CancelReplayResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelReplay)
+    (Proxy.Proxy :: Proxy.Proxy CancelReplay)
 
 responseListTargetsByRule :: ListTargetsByRuleResponse -> TestTree
 responseListTargetsByRule =
@@ -775,7 +775,7 @@ responseListTargetsByRule =
     "ListTargetsByRuleResponse"
     "fixture/ListTargetsByRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTargetsByRule)
+    (Proxy.Proxy :: Proxy.Proxy ListTargetsByRule)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =
@@ -783,7 +783,7 @@ responseRemovePermission =
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemovePermission)
+    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
 
 responseListApiDestinations :: ListApiDestinationsResponse -> TestTree
 responseListApiDestinations =
@@ -791,7 +791,7 @@ responseListApiDestinations =
     "ListApiDestinationsResponse"
     "fixture/ListApiDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApiDestinations)
+    (Proxy.Proxy :: Proxy.Proxy ListApiDestinations)
 
 responseUpdateApiDestination :: UpdateApiDestinationResponse -> TestTree
 responseUpdateApiDestination =
@@ -799,7 +799,7 @@ responseUpdateApiDestination =
     "UpdateApiDestinationResponse"
     "fixture/UpdateApiDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApiDestination)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApiDestination)
 
 responseDeleteApiDestination :: DeleteApiDestinationResponse -> TestTree
 responseDeleteApiDestination =
@@ -807,7 +807,7 @@ responseDeleteApiDestination =
     "DeleteApiDestinationResponse"
     "fixture/DeleteApiDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApiDestination)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApiDestination)
 
 responseActivateEventSource :: ActivateEventSourceResponse -> TestTree
 responseActivateEventSource =
@@ -815,7 +815,7 @@ responseActivateEventSource =
     "ActivateEventSourceResponse"
     "fixture/ActivateEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateEventSource)
+    (Proxy.Proxy :: Proxy.Proxy ActivateEventSource)
 
 responseCreateApiDestination :: CreateApiDestinationResponse -> TestTree
 responseCreateApiDestination =
@@ -823,7 +823,7 @@ responseCreateApiDestination =
     "CreateApiDestinationResponse"
     "fixture/CreateApiDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApiDestination)
+    (Proxy.Proxy :: Proxy.Proxy CreateApiDestination)
 
 responsePutPartnerEvents :: PutPartnerEventsResponse -> TestTree
 responsePutPartnerEvents =
@@ -831,7 +831,7 @@ responsePutPartnerEvents =
     "PutPartnerEventsResponse"
     "fixture/PutPartnerEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutPartnerEvents)
+    (Proxy.Proxy :: Proxy.Proxy PutPartnerEvents)
 
 responseDescribeConnection :: DescribeConnectionResponse -> TestTree
 responseDescribeConnection =
@@ -839,7 +839,7 @@ responseDescribeConnection =
     "DescribeConnectionResponse"
     "fixture/DescribeConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeConnection)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnection)
 
 responseDescribeRule :: DescribeRuleResponse -> TestTree
 responseDescribeRule =
@@ -847,7 +847,7 @@ responseDescribeRule =
     "DescribeRuleResponse"
     "fixture/DescribeRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRule)
+    (Proxy.Proxy :: Proxy.Proxy DescribeRule)
 
 responseListArchives :: ListArchivesResponse -> TestTree
 responseListArchives =
@@ -855,7 +855,7 @@ responseListArchives =
     "ListArchivesResponse"
     "fixture/ListArchivesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListArchives)
+    (Proxy.Proxy :: Proxy.Proxy ListArchives)
 
 responseStartReplay :: StartReplayResponse -> TestTree
 responseStartReplay =
@@ -863,7 +863,7 @@ responseStartReplay =
     "StartReplayResponse"
     "fixture/StartReplayResponse.proto"
     defaultService
-    (Proxy :: Proxy StartReplay)
+    (Proxy.Proxy :: Proxy.Proxy StartReplay)
 
 responseDeletePartnerEventSource :: DeletePartnerEventSourceResponse -> TestTree
 responseDeletePartnerEventSource =
@@ -871,7 +871,7 @@ responseDeletePartnerEventSource =
     "DeletePartnerEventSourceResponse"
     "fixture/DeletePartnerEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePartnerEventSource)
+    (Proxy.Proxy :: Proxy.Proxy DeletePartnerEventSource)
 
 responseDescribeReplay :: DescribeReplayResponse -> TestTree
 responseDescribeReplay =
@@ -879,7 +879,7 @@ responseDescribeReplay =
     "DescribeReplayResponse"
     "fixture/DescribeReplayResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReplay)
+    (Proxy.Proxy :: Proxy.Proxy DescribeReplay)
 
 responseDescribeApiDestination :: DescribeApiDestinationResponse -> TestTree
 responseDescribeApiDestination =
@@ -887,7 +887,7 @@ responseDescribeApiDestination =
     "DescribeApiDestinationResponse"
     "fixture/DescribeApiDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApiDestination)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApiDestination)
 
 responseListEventBuses :: ListEventBusesResponse -> TestTree
 responseListEventBuses =
@@ -895,7 +895,7 @@ responseListEventBuses =
     "ListEventBusesResponse"
     "fixture/ListEventBusesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventBuses)
+    (Proxy.Proxy :: Proxy.Proxy ListEventBuses)
 
 responseCreateEventBus :: CreateEventBusResponse -> TestTree
 responseCreateEventBus =
@@ -903,7 +903,7 @@ responseCreateEventBus =
     "CreateEventBusResponse"
     "fixture/CreateEventBusResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEventBus)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventBus)
 
 responseDescribeEventSource :: DescribeEventSourceResponse -> TestTree
 responseDescribeEventSource =
@@ -911,7 +911,7 @@ responseDescribeEventSource =
     "DescribeEventSourceResponse"
     "fixture/DescribeEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventSource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventSource)
 
 responseDescribeArchive :: DescribeArchiveResponse -> TestTree
 responseDescribeArchive =
@@ -919,7 +919,7 @@ responseDescribeArchive =
     "DescribeArchiveResponse"
     "fixture/DescribeArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeArchive)
+    (Proxy.Proxy :: Proxy.Proxy DescribeArchive)
 
 responseEnableRule :: EnableRuleResponse -> TestTree
 responseEnableRule =
@@ -927,7 +927,7 @@ responseEnableRule =
     "EnableRuleResponse"
     "fixture/EnableRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableRule)
+    (Proxy.Proxy :: Proxy.Proxy EnableRule)
 
 responseListRuleNamesByTarget :: ListRuleNamesByTargetResponse -> TestTree
 responseListRuleNamesByTarget =
@@ -935,7 +935,7 @@ responseListRuleNamesByTarget =
     "ListRuleNamesByTargetResponse"
     "fixture/ListRuleNamesByTargetResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRuleNamesByTarget)
+    (Proxy.Proxy :: Proxy.Proxy ListRuleNamesByTarget)
 
 responseTestEventPattern :: TestEventPatternResponse -> TestTree
 responseTestEventPattern =
@@ -943,7 +943,7 @@ responseTestEventPattern =
     "TestEventPatternResponse"
     "fixture/TestEventPatternResponse.proto"
     defaultService
-    (Proxy :: Proxy TestEventPattern)
+    (Proxy.Proxy :: Proxy.Proxy TestEventPattern)
 
 responseDescribePartnerEventSource :: DescribePartnerEventSourceResponse -> TestTree
 responseDescribePartnerEventSource =
@@ -951,7 +951,7 @@ responseDescribePartnerEventSource =
     "DescribePartnerEventSourceResponse"
     "fixture/DescribePartnerEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePartnerEventSource)
+    (Proxy.Proxy :: Proxy.Proxy DescribePartnerEventSource)
 
 responseDescribeEventBus :: DescribeEventBusResponse -> TestTree
 responseDescribeEventBus =
@@ -959,7 +959,7 @@ responseDescribeEventBus =
     "DescribeEventBusResponse"
     "fixture/DescribeEventBusResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventBus)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventBus)
 
 responseListEventSources :: ListEventSourcesResponse -> TestTree
 responseListEventSources =
@@ -967,7 +967,7 @@ responseListEventSources =
     "ListEventSourcesResponse"
     "fixture/ListEventSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventSources)
+    (Proxy.Proxy :: Proxy.Proxy ListEventSources)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -975,7 +975,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseCreatePartnerEventSource :: CreatePartnerEventSourceResponse -> TestTree
 responseCreatePartnerEventSource =
@@ -983,7 +983,7 @@ responseCreatePartnerEventSource =
     "CreatePartnerEventSourceResponse"
     "fixture/CreatePartnerEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePartnerEventSource)
+    (Proxy.Proxy :: Proxy.Proxy CreatePartnerEventSource)
 
 responsePutTargets :: PutTargetsResponse -> TestTree
 responsePutTargets =
@@ -991,7 +991,7 @@ responsePutTargets =
     "PutTargetsResponse"
     "fixture/PutTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutTargets)
+    (Proxy.Proxy :: Proxy.Proxy PutTargets)
 
 responseUpdateArchive :: UpdateArchiveResponse -> TestTree
 responseUpdateArchive =
@@ -999,7 +999,7 @@ responseUpdateArchive =
     "UpdateArchiveResponse"
     "fixture/UpdateArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateArchive)
+    (Proxy.Proxy :: Proxy.Proxy UpdateArchive)
 
 responseDeleteArchive :: DeleteArchiveResponse -> TestTree
 responseDeleteArchive =
@@ -1007,7 +1007,7 @@ responseDeleteArchive =
     "DeleteArchiveResponse"
     "fixture/DeleteArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteArchive)
+    (Proxy.Proxy :: Proxy.Proxy DeleteArchive)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1015,7 +1015,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responsePutEvents :: PutEventsResponse -> TestTree
 responsePutEvents =
@@ -1023,7 +1023,7 @@ responsePutEvents =
     "PutEventsResponse"
     "fixture/PutEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEvents)
+    (Proxy.Proxy :: Proxy.Proxy PutEvents)
 
 responseListPartnerEventSources :: ListPartnerEventSourcesResponse -> TestTree
 responseListPartnerEventSources =
@@ -1031,7 +1031,7 @@ responseListPartnerEventSources =
     "ListPartnerEventSourcesResponse"
     "fixture/ListPartnerEventSourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPartnerEventSources)
+    (Proxy.Proxy :: Proxy.Proxy ListPartnerEventSources)
 
 responseCreateArchive :: CreateArchiveResponse -> TestTree
 responseCreateArchive =
@@ -1039,7 +1039,7 @@ responseCreateArchive =
     "CreateArchiveResponse"
     "fixture/CreateArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateArchive)
+    (Proxy.Proxy :: Proxy.Proxy CreateArchive)
 
 responseDeactivateEventSource :: DeactivateEventSourceResponse -> TestTree
 responseDeactivateEventSource =
@@ -1047,7 +1047,7 @@ responseDeactivateEventSource =
     "DeactivateEventSourceResponse"
     "fixture/DeactivateEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateEventSource)
+    (Proxy.Proxy :: Proxy.Proxy DeactivateEventSource)
 
 responseDeleteEventBus :: DeleteEventBusResponse -> TestTree
 responseDeleteEventBus =
@@ -1055,4 +1055,4 @@ responseDeleteEventBus =
     "DeleteEventBusResponse"
     "fixture/DeleteEventBusResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEventBus)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventBus)

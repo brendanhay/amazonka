@@ -1,0 +1,79 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.OpenSearch.Types.OptionState
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.OpenSearch.Types.OptionState
+  ( OptionState
+      ( ..,
+        OptionState_Active,
+        OptionState_Processing,
+        OptionState_RequiresIndexDocuments
+      ),
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
+
+-- | The state of a requested change. One of the following:
+--
+-- -   Processing: The request change is still in progress.
+-- -   Active: The request change is processed and deployed to the domain.
+newtype OptionState = OptionState'
+  { fromOptionState ::
+      Core.Text
+  }
+  deriving stock
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
+    )
+  deriving newtype
+    ( Prelude.Hashable,
+      Prelude.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
+    )
+
+pattern OptionState_Active :: OptionState
+pattern OptionState_Active = OptionState' "Active"
+
+pattern OptionState_Processing :: OptionState
+pattern OptionState_Processing = OptionState' "Processing"
+
+pattern OptionState_RequiresIndexDocuments :: OptionState
+pattern OptionState_RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
+
+{-# COMPLETE
+  OptionState_Active,
+  OptionState_Processing,
+  OptionState_RequiresIndexDocuments,
+  OptionState'
+  #-}

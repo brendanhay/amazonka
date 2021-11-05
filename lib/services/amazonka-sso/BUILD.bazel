@@ -1,0 +1,64 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-sso/amazonka-sso.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-sso",
+    srcs = [
+        "gen/Network/AWS/SSO.hs",
+        "gen/Network/AWS/SSO/GetRoleCredentials.hs",
+        "gen/Network/AWS/SSO/Lens.hs",
+        "gen/Network/AWS/SSO/ListAccountRoles.hs",
+        "gen/Network/AWS/SSO/ListAccounts.hs",
+        "gen/Network/AWS/SSO/Logout.hs",
+        "gen/Network/AWS/SSO/Types.hs",
+        "gen/Network/AWS/SSO/Types/AccountInfo.hs",
+        "gen/Network/AWS/SSO/Types/RoleCredentials.hs",
+        "gen/Network/AWS/SSO/Types/RoleInfo.hs",
+        "gen/Network/AWS/SSO/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sso=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-sso/amazonka-sso.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sso-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SSO.hs",
+        "test/Test/AWS/SSO.hs",
+        "test/Test/AWS/SSO/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sso=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sso",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

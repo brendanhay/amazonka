@@ -1,0 +1,60 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-personalize-runtime/amazonka-personalize-runtime.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-personalize-runtime",
+    srcs = [
+        "gen/Network/AWS/PersonalizeRuntime.hs",
+        "gen/Network/AWS/PersonalizeRuntime/GetPersonalizedRanking.hs",
+        "gen/Network/AWS/PersonalizeRuntime/GetRecommendations.hs",
+        "gen/Network/AWS/PersonalizeRuntime/Lens.hs",
+        "gen/Network/AWS/PersonalizeRuntime/Types.hs",
+        "gen/Network/AWS/PersonalizeRuntime/Types/PredictedItem.hs",
+        "gen/Network/AWS/PersonalizeRuntime/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_personalize_runtime=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-personalize-runtime/amazonka-personalize-runtime.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-personalize-runtime-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/PersonalizeRuntime.hs",
+        "test/Test/AWS/PersonalizeRuntime.hs",
+        "test/Test/AWS/PersonalizeRuntime/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_personalize_runtime=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-personalize-runtime",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -1,0 +1,93 @@
+cabal-version:      2.2
+name:               amazonka-connect-contact-lens
+version:            2.0
+synopsis:           Amazon Connect Contact Lens SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-08-21@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ConnectContactLens.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ConnectContactLens" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-connect-contact-lens
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.ConnectContactLens
+    Network.AWS.ConnectContactLens.Lens
+    Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments
+    Network.AWS.ConnectContactLens.Types
+    Network.AWS.ConnectContactLens.Types.Categories
+    Network.AWS.ConnectContactLens.Types.CategoryDetails
+    Network.AWS.ConnectContactLens.Types.CharacterOffsets
+    Network.AWS.ConnectContactLens.Types.IssueDetected
+    Network.AWS.ConnectContactLens.Types.PointOfInterest
+    Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment
+    Network.AWS.ConnectContactLens.Types.SentimentValue
+    Network.AWS.ConnectContactLens.Types.Transcript
+    Network.AWS.ConnectContactLens.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
+
+test-suite amazonka-connect-contact-lens-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.ConnectContactLens
+    Test.AWS.ConnectContactLens.Internal
+    Test.AWS.Gen.ConnectContactLens
+
+  build-depends:
+    , amazonka                       ^>=2.0
+    , amazonka-connect-contact-lens
+    , amazonka-test                  ^>=2.0
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

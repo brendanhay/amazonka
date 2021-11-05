@@ -1,0 +1,70 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-pi/amazonka-pi.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-pi",
+    srcs = [
+        "gen/Network/AWS/Pi.hs",
+        "gen/Network/AWS/Pi/DescribeDimensionKeys.hs",
+        "gen/Network/AWS/Pi/GetDimensionKeyDetails.hs",
+        "gen/Network/AWS/Pi/GetResourceMetrics.hs",
+        "gen/Network/AWS/Pi/Lens.hs",
+        "gen/Network/AWS/Pi/Types.hs",
+        "gen/Network/AWS/Pi/Types/DataPoint.hs",
+        "gen/Network/AWS/Pi/Types/DetailStatus.hs",
+        "gen/Network/AWS/Pi/Types/DimensionGroup.hs",
+        "gen/Network/AWS/Pi/Types/DimensionKeyDescription.hs",
+        "gen/Network/AWS/Pi/Types/DimensionKeyDetail.hs",
+        "gen/Network/AWS/Pi/Types/MetricKeyDataPoints.hs",
+        "gen/Network/AWS/Pi/Types/MetricQuery.hs",
+        "gen/Network/AWS/Pi/Types/ResponsePartitionKey.hs",
+        "gen/Network/AWS/Pi/Types/ResponseResourceMetricKey.hs",
+        "gen/Network/AWS/Pi/Types/ServiceType.hs",
+        "gen/Network/AWS/Pi/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_pi=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-pi/amazonka-pi.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-pi-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Pi.hs",
+        "test/Test/AWS/Pi.hs",
+        "test/Test/AWS/Pi/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_pi=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-pi",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

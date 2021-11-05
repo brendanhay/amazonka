@@ -9,15 +9,15 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SESv2
-import Test.AWS.SESv2.Internal
+import Test.AWS.SESV2
+import Test.AWS.SESV2.Internal
 import Test.Tasty
 
 main :: IO ()
 main =
   defaultMain $
     testGroup
-      "SESv2"
+      "SESV2"
       [ testGroup "tests" tests,
         testGroup "fixtures" fixtures
       ]

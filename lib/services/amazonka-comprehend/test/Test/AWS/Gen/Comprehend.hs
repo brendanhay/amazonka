@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Comprehend where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.Comprehend
 import Test.AWS.Comprehend.Internal
 import Test.AWS.Fixture
@@ -799,7 +799,7 @@ responseBatchDetectSentiment =
     "BatchDetectSentimentResponse"
     "fixture/BatchDetectSentimentResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDetectSentiment)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectSentiment)
 
 responseDeleteEntityRecognizer :: DeleteEntityRecognizerResponse -> TestTree
 responseDeleteEntityRecognizer =
@@ -807,7 +807,7 @@ responseDeleteEntityRecognizer =
     "DeleteEntityRecognizerResponse"
     "fixture/DeleteEntityRecognizerResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEntityRecognizer)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEntityRecognizer)
 
 responseDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJobResponse -> TestTree
 responseDescribeKeyPhrasesDetectionJob =
@@ -815,7 +815,7 @@ responseDescribeKeyPhrasesDetectionJob =
     "DescribeKeyPhrasesDetectionJobResponse"
     "fixture/DescribeKeyPhrasesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeKeyPhrasesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeKeyPhrasesDetectionJob)
 
 responseListEntitiesDetectionJobs :: ListEntitiesDetectionJobsResponse -> TestTree
 responseListEntitiesDetectionJobs =
@@ -823,7 +823,7 @@ responseListEntitiesDetectionJobs =
     "ListEntitiesDetectionJobsResponse"
     "fixture/ListEntitiesDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntitiesDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListEntitiesDetectionJobs)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
 responseCreateEndpoint =
@@ -831,7 +831,7 @@ responseCreateEndpoint =
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpoint)
 
 responseStopEventsDetectionJob :: StopEventsDetectionJobResponse -> TestTree
 responseStopEventsDetectionJob =
@@ -839,7 +839,7 @@ responseStopEventsDetectionJob =
     "StopEventsDetectionJobResponse"
     "fixture/StopEventsDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopEventsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopEventsDetectionJob)
 
 responseStartSentimentDetectionJob :: StartSentimentDetectionJobResponse -> TestTree
 responseStartSentimentDetectionJob =
@@ -847,7 +847,7 @@ responseStartSentimentDetectionJob =
     "StartSentimentDetectionJobResponse"
     "fixture/StartSentimentDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartSentimentDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartSentimentDetectionJob)
 
 responseBatchDetectSyntax :: BatchDetectSyntaxResponse -> TestTree
 responseBatchDetectSyntax =
@@ -855,7 +855,7 @@ responseBatchDetectSyntax =
     "BatchDetectSyntaxResponse"
     "fixture/BatchDetectSyntaxResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDetectSyntax)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectSyntax)
 
 responseStartTopicsDetectionJob :: StartTopicsDetectionJobResponse -> TestTree
 responseStartTopicsDetectionJob =
@@ -863,7 +863,7 @@ responseStartTopicsDetectionJob =
     "StartTopicsDetectionJobResponse"
     "fixture/StartTopicsDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTopicsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartTopicsDetectionJob)
 
 responseDescribeEventsDetectionJob :: DescribeEventsDetectionJobResponse -> TestTree
 responseDescribeEventsDetectionJob =
@@ -871,7 +871,7 @@ responseDescribeEventsDetectionJob =
     "DescribeEventsDetectionJobResponse"
     "fixture/DescribeEventsDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEventsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventsDetectionJob)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint =
@@ -879,7 +879,7 @@ responseDeleteEndpoint =
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
 responseUpdateEndpoint =
@@ -887,7 +887,7 @@ responseUpdateEndpoint =
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -895,7 +895,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseBatchDetectKeyPhrases :: BatchDetectKeyPhrasesResponse -> TestTree
 responseBatchDetectKeyPhrases =
@@ -903,7 +903,7 @@ responseBatchDetectKeyPhrases =
     "BatchDetectKeyPhrasesResponse"
     "fixture/BatchDetectKeyPhrasesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDetectKeyPhrases)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectKeyPhrases)
 
 responseDescribeSentimentDetectionJob :: DescribeSentimentDetectionJobResponse -> TestTree
 responseDescribeSentimentDetectionJob =
@@ -911,7 +911,7 @@ responseDescribeSentimentDetectionJob =
     "DescribeSentimentDetectionJobResponse"
     "fixture/DescribeSentimentDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSentimentDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSentimentDetectionJob)
 
 responseStartEntitiesDetectionJob :: StartEntitiesDetectionJobResponse -> TestTree
 responseStartEntitiesDetectionJob =
@@ -919,7 +919,7 @@ responseStartEntitiesDetectionJob =
     "StartEntitiesDetectionJobResponse"
     "fixture/StartEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartEntitiesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartEntitiesDetectionJob)
 
 responseStopPiiEntitiesDetectionJob :: StopPiiEntitiesDetectionJobResponse -> TestTree
 responseStopPiiEntitiesDetectionJob =
@@ -927,7 +927,7 @@ responseStopPiiEntitiesDetectionJob =
     "StopPiiEntitiesDetectionJobResponse"
     "fixture/StopPiiEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopPiiEntitiesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopPiiEntitiesDetectionJob)
 
 responseDescribeEntityRecognizer :: DescribeEntityRecognizerResponse -> TestTree
 responseDescribeEntityRecognizer =
@@ -935,7 +935,7 @@ responseDescribeEntityRecognizer =
     "DescribeEntityRecognizerResponse"
     "fixture/DescribeEntityRecognizerResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEntityRecognizer)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntityRecognizer)
 
 responseDetectSentiment :: DetectSentimentResponse -> TestTree
 responseDetectSentiment =
@@ -943,7 +943,7 @@ responseDetectSentiment =
     "DetectSentimentResponse"
     "fixture/DetectSentimentResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectSentiment)
+    (Proxy.Proxy :: Proxy.Proxy DetectSentiment)
 
 responseStartDominantLanguageDetectionJob :: StartDominantLanguageDetectionJobResponse -> TestTree
 responseStartDominantLanguageDetectionJob =
@@ -951,7 +951,7 @@ responseStartDominantLanguageDetectionJob =
     "StartDominantLanguageDetectionJobResponse"
     "fixture/StartDominantLanguageDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDominantLanguageDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartDominantLanguageDetectionJob)
 
 responseStopTrainingDocumentClassifier :: StopTrainingDocumentClassifierResponse -> TestTree
 responseStopTrainingDocumentClassifier =
@@ -959,7 +959,7 @@ responseStopTrainingDocumentClassifier =
     "StopTrainingDocumentClassifierResponse"
     "fixture/StopTrainingDocumentClassifierResponse.proto"
     defaultService
-    (Proxy :: Proxy StopTrainingDocumentClassifier)
+    (Proxy.Proxy :: Proxy.Proxy StopTrainingDocumentClassifier)
 
 responseDescribeDocumentClassificationJob :: DescribeDocumentClassificationJobResponse -> TestTree
 responseDescribeDocumentClassificationJob =
@@ -967,7 +967,7 @@ responseDescribeDocumentClassificationJob =
     "DescribeDocumentClassificationJobResponse"
     "fixture/DescribeDocumentClassificationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDocumentClassificationJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDocumentClassificationJob)
 
 responseContainsPiiEntities :: ContainsPiiEntitiesResponse -> TestTree
 responseContainsPiiEntities =
@@ -975,7 +975,7 @@ responseContainsPiiEntities =
     "ContainsPiiEntitiesResponse"
     "fixture/ContainsPiiEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy ContainsPiiEntities)
+    (Proxy.Proxy :: Proxy.Proxy ContainsPiiEntities)
 
 responseListEventsDetectionJobs :: ListEventsDetectionJobsResponse -> TestTree
 responseListEventsDetectionJobs =
@@ -983,7 +983,7 @@ responseListEventsDetectionJobs =
     "ListEventsDetectionJobsResponse"
     "fixture/ListEventsDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEventsDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListEventsDetectionJobs)
 
 responseBatchDetectEntities :: BatchDetectEntitiesResponse -> TestTree
 responseBatchDetectEntities =
@@ -991,7 +991,7 @@ responseBatchDetectEntities =
     "BatchDetectEntitiesResponse"
     "fixture/BatchDetectEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDetectEntities)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectEntities)
 
 responseCreateEntityRecognizer :: CreateEntityRecognizerResponse -> TestTree
 responseCreateEntityRecognizer =
@@ -999,7 +999,7 @@ responseCreateEntityRecognizer =
     "CreateEntityRecognizerResponse"
     "fixture/CreateEntityRecognizerResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEntityRecognizer)
+    (Proxy.Proxy :: Proxy.Proxy CreateEntityRecognizer)
 
 responseStopKeyPhrasesDetectionJob :: StopKeyPhrasesDetectionJobResponse -> TestTree
 responseStopKeyPhrasesDetectionJob =
@@ -1007,7 +1007,7 @@ responseStopKeyPhrasesDetectionJob =
     "StopKeyPhrasesDetectionJobResponse"
     "fixture/StopKeyPhrasesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopKeyPhrasesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopKeyPhrasesDetectionJob)
 
 responseCreateDocumentClassifier :: CreateDocumentClassifierResponse -> TestTree
 responseCreateDocumentClassifier =
@@ -1015,7 +1015,7 @@ responseCreateDocumentClassifier =
     "CreateDocumentClassifierResponse"
     "fixture/CreateDocumentClassifierResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDocumentClassifier)
+    (Proxy.Proxy :: Proxy.Proxy CreateDocumentClassifier)
 
 responseListPiiEntitiesDetectionJobs :: ListPiiEntitiesDetectionJobsResponse -> TestTree
 responseListPiiEntitiesDetectionJobs =
@@ -1023,7 +1023,7 @@ responseListPiiEntitiesDetectionJobs =
     "ListPiiEntitiesDetectionJobsResponse"
     "fixture/ListPiiEntitiesDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPiiEntitiesDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListPiiEntitiesDetectionJobs)
 
 responseListEntityRecognizers :: ListEntityRecognizersResponse -> TestTree
 responseListEntityRecognizers =
@@ -1031,7 +1031,7 @@ responseListEntityRecognizers =
     "ListEntityRecognizersResponse"
     "fixture/ListEntityRecognizersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntityRecognizers)
+    (Proxy.Proxy :: Proxy.Proxy ListEntityRecognizers)
 
 responseStopSentimentDetectionJob :: StopSentimentDetectionJobResponse -> TestTree
 responseStopSentimentDetectionJob =
@@ -1039,7 +1039,7 @@ responseStopSentimentDetectionJob =
     "StopSentimentDetectionJobResponse"
     "fixture/StopSentimentDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopSentimentDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopSentimentDetectionJob)
 
 responseDetectDominantLanguage :: DetectDominantLanguageResponse -> TestTree
 responseDetectDominantLanguage =
@@ -1047,7 +1047,7 @@ responseDetectDominantLanguage =
     "DetectDominantLanguageResponse"
     "fixture/DetectDominantLanguageResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectDominantLanguage)
+    (Proxy.Proxy :: Proxy.Proxy DetectDominantLanguage)
 
 responseClassifyDocument :: ClassifyDocumentResponse -> TestTree
 responseClassifyDocument =
@@ -1055,7 +1055,7 @@ responseClassifyDocument =
     "ClassifyDocumentResponse"
     "fixture/ClassifyDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy ClassifyDocument)
+    (Proxy.Proxy :: Proxy.Proxy ClassifyDocument)
 
 responseStartEventsDetectionJob :: StartEventsDetectionJobResponse -> TestTree
 responseStartEventsDetectionJob =
@@ -1063,7 +1063,7 @@ responseStartEventsDetectionJob =
     "StartEventsDetectionJobResponse"
     "fixture/StartEventsDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartEventsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartEventsDetectionJob)
 
 responseDescribeTopicsDetectionJob :: DescribeTopicsDetectionJobResponse -> TestTree
 responseDescribeTopicsDetectionJob =
@@ -1071,7 +1071,7 @@ responseDescribeTopicsDetectionJob =
     "DescribeTopicsDetectionJobResponse"
     "fixture/DescribeTopicsDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTopicsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTopicsDetectionJob)
 
 responseListDocumentClassificationJobs :: ListDocumentClassificationJobsResponse -> TestTree
 responseListDocumentClassificationJobs =
@@ -1079,7 +1079,7 @@ responseListDocumentClassificationJobs =
     "ListDocumentClassificationJobsResponse"
     "fixture/ListDocumentClassificationJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDocumentClassificationJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassificationJobs)
 
 responseDetectPiiEntities :: DetectPiiEntitiesResponse -> TestTree
 responseDetectPiiEntities =
@@ -1087,7 +1087,7 @@ responseDetectPiiEntities =
     "DetectPiiEntitiesResponse"
     "fixture/DetectPiiEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectPiiEntities)
+    (Proxy.Proxy :: Proxy.Proxy DetectPiiEntities)
 
 responseListEndpoints :: ListEndpointsResponse -> TestTree
 responseListEndpoints =
@@ -1095,7 +1095,7 @@ responseListEndpoints =
     "ListEndpointsResponse"
     "fixture/ListEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
 
 responseDetectEntities :: DetectEntitiesResponse -> TestTree
 responseDetectEntities =
@@ -1103,7 +1103,7 @@ responseDetectEntities =
     "DetectEntitiesResponse"
     "fixture/DetectEntitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectEntities)
+    (Proxy.Proxy :: Proxy.Proxy DetectEntities)
 
 responseDescribeDocumentClassifier :: DescribeDocumentClassifierResponse -> TestTree
 responseDescribeDocumentClassifier =
@@ -1111,7 +1111,7 @@ responseDescribeDocumentClassifier =
     "DescribeDocumentClassifierResponse"
     "fixture/DescribeDocumentClassifierResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDocumentClassifier)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDocumentClassifier)
 
 responseDescribeDominantLanguageDetectionJob :: DescribeDominantLanguageDetectionJobResponse -> TestTree
 responseDescribeDominantLanguageDetectionJob =
@@ -1119,7 +1119,7 @@ responseDescribeDominantLanguageDetectionJob =
     "DescribeDominantLanguageDetectionJobResponse"
     "fixture/DescribeDominantLanguageDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDominantLanguageDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDominantLanguageDetectionJob)
 
 responseListEntityRecognizerSummaries :: ListEntityRecognizerSummariesResponse -> TestTree
 responseListEntityRecognizerSummaries =
@@ -1127,7 +1127,7 @@ responseListEntityRecognizerSummaries =
     "ListEntityRecognizerSummariesResponse"
     "fixture/ListEntityRecognizerSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListEntityRecognizerSummaries)
+    (Proxy.Proxy :: Proxy.Proxy ListEntityRecognizerSummaries)
 
 responseStopEntitiesDetectionJob :: StopEntitiesDetectionJobResponse -> TestTree
 responseStopEntitiesDetectionJob =
@@ -1135,7 +1135,7 @@ responseStopEntitiesDetectionJob =
     "StopEntitiesDetectionJobResponse"
     "fixture/StopEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopEntitiesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopEntitiesDetectionJob)
 
 responseStopTrainingEntityRecognizer :: StopTrainingEntityRecognizerResponse -> TestTree
 responseStopTrainingEntityRecognizer =
@@ -1143,7 +1143,7 @@ responseStopTrainingEntityRecognizer =
     "StopTrainingEntityRecognizerResponse"
     "fixture/StopTrainingEntityRecognizerResponse.proto"
     defaultService
-    (Proxy :: Proxy StopTrainingEntityRecognizer)
+    (Proxy.Proxy :: Proxy.Proxy StopTrainingEntityRecognizer)
 
 responseStartPiiEntitiesDetectionJob :: StartPiiEntitiesDetectionJobResponse -> TestTree
 responseStartPiiEntitiesDetectionJob =
@@ -1151,7 +1151,7 @@ responseStartPiiEntitiesDetectionJob =
     "StartPiiEntitiesDetectionJobResponse"
     "fixture/StartPiiEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPiiEntitiesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartPiiEntitiesDetectionJob)
 
 responseListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobsResponse -> TestTree
 responseListKeyPhrasesDetectionJobs =
@@ -1159,7 +1159,7 @@ responseListKeyPhrasesDetectionJobs =
     "ListKeyPhrasesDetectionJobsResponse"
     "fixture/ListKeyPhrasesDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListKeyPhrasesDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListKeyPhrasesDetectionJobs)
 
 responseDescribeEntitiesDetectionJob :: DescribeEntitiesDetectionJobResponse -> TestTree
 responseDescribeEntitiesDetectionJob =
@@ -1167,7 +1167,7 @@ responseDescribeEntitiesDetectionJob =
     "DescribeEntitiesDetectionJobResponse"
     "fixture/DescribeEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEntitiesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntitiesDetectionJob)
 
 responseListDocumentClassifierSummaries :: ListDocumentClassifierSummariesResponse -> TestTree
 responseListDocumentClassifierSummaries =
@@ -1175,7 +1175,7 @@ responseListDocumentClassifierSummaries =
     "ListDocumentClassifierSummariesResponse"
     "fixture/ListDocumentClassifierSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDocumentClassifierSummaries)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassifierSummaries)
 
 responseStopDominantLanguageDetectionJob :: StopDominantLanguageDetectionJobResponse -> TestTree
 responseStopDominantLanguageDetectionJob =
@@ -1183,7 +1183,7 @@ responseStopDominantLanguageDetectionJob =
     "StopDominantLanguageDetectionJobResponse"
     "fixture/StopDominantLanguageDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StopDominantLanguageDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StopDominantLanguageDetectionJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1191,7 +1191,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseDescribePiiEntitiesDetectionJob :: DescribePiiEntitiesDetectionJobResponse -> TestTree
 responseDescribePiiEntitiesDetectionJob =
@@ -1199,7 +1199,7 @@ responseDescribePiiEntitiesDetectionJob =
     "DescribePiiEntitiesDetectionJobResponse"
     "fixture/DescribePiiEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePiiEntitiesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribePiiEntitiesDetectionJob)
 
 responseListTopicsDetectionJobs :: ListTopicsDetectionJobsResponse -> TestTree
 responseListTopicsDetectionJobs =
@@ -1207,7 +1207,7 @@ responseListTopicsDetectionJobs =
     "ListTopicsDetectionJobsResponse"
     "fixture/ListTopicsDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTopicsDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListTopicsDetectionJobs)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1215,7 +1215,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseBatchDetectDominantLanguage :: BatchDetectDominantLanguageResponse -> TestTree
 responseBatchDetectDominantLanguage =
@@ -1223,7 +1223,7 @@ responseBatchDetectDominantLanguage =
     "BatchDetectDominantLanguageResponse"
     "fixture/BatchDetectDominantLanguageResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDetectDominantLanguage)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectDominantLanguage)
 
 responseStartDocumentClassificationJob :: StartDocumentClassificationJobResponse -> TestTree
 responseStartDocumentClassificationJob =
@@ -1231,7 +1231,7 @@ responseStartDocumentClassificationJob =
     "StartDocumentClassificationJobResponse"
     "fixture/StartDocumentClassificationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartDocumentClassificationJob)
+    (Proxy.Proxy :: Proxy.Proxy StartDocumentClassificationJob)
 
 responseDetectKeyPhrases :: DetectKeyPhrasesResponse -> TestTree
 responseDetectKeyPhrases =
@@ -1239,7 +1239,7 @@ responseDetectKeyPhrases =
     "DetectKeyPhrasesResponse"
     "fixture/DetectKeyPhrasesResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectKeyPhrases)
+    (Proxy.Proxy :: Proxy.Proxy DetectKeyPhrases)
 
 responseDetectSyntax :: DetectSyntaxResponse -> TestTree
 responseDetectSyntax =
@@ -1247,7 +1247,7 @@ responseDetectSyntax =
     "DetectSyntaxResponse"
     "fixture/DetectSyntaxResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectSyntax)
+    (Proxy.Proxy :: Proxy.Proxy DetectSyntax)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
 responseDescribeEndpoint =
@@ -1255,7 +1255,7 @@ responseDescribeEndpoint =
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoint)
 
 responseListSentimentDetectionJobs :: ListSentimentDetectionJobsResponse -> TestTree
 responseListSentimentDetectionJobs =
@@ -1263,7 +1263,7 @@ responseListSentimentDetectionJobs =
     "ListSentimentDetectionJobsResponse"
     "fixture/ListSentimentDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSentimentDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListSentimentDetectionJobs)
 
 responseDeleteDocumentClassifier :: DeleteDocumentClassifierResponse -> TestTree
 responseDeleteDocumentClassifier =
@@ -1271,7 +1271,7 @@ responseDeleteDocumentClassifier =
     "DeleteDocumentClassifierResponse"
     "fixture/DeleteDocumentClassifierResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDocumentClassifier)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDocumentClassifier)
 
 responseListDominantLanguageDetectionJobs :: ListDominantLanguageDetectionJobsResponse -> TestTree
 responseListDominantLanguageDetectionJobs =
@@ -1279,7 +1279,7 @@ responseListDominantLanguageDetectionJobs =
     "ListDominantLanguageDetectionJobsResponse"
     "fixture/ListDominantLanguageDetectionJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDominantLanguageDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDominantLanguageDetectionJobs)
 
 responseStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJobResponse -> TestTree
 responseStartKeyPhrasesDetectionJob =
@@ -1287,7 +1287,7 @@ responseStartKeyPhrasesDetectionJob =
     "StartKeyPhrasesDetectionJobResponse"
     "fixture/StartKeyPhrasesDetectionJobResponse.proto"
     defaultService
-    (Proxy :: Proxy StartKeyPhrasesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy StartKeyPhrasesDetectionJob)
 
 responseListDocumentClassifiers :: ListDocumentClassifiersResponse -> TestTree
 responseListDocumentClassifiers =
@@ -1295,4 +1295,4 @@ responseListDocumentClassifiers =
     "ListDocumentClassifiersResponse"
     "fixture/ListDocumentClassifiersResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDocumentClassifiers)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassifiers)

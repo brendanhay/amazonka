@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MigrationHub where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.MigrationHub
 import Test.AWS.Fixture
 import Test.AWS.MigrationHub.Internal
@@ -247,7 +247,7 @@ responseAssociateDiscoveredResource =
     "AssociateDiscoveredResourceResponse"
     "fixture/AssociateDiscoveredResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDiscoveredResource)
+    (Proxy.Proxy :: Proxy.Proxy AssociateDiscoveredResource)
 
 responseCreateProgressUpdateStream :: CreateProgressUpdateStreamResponse -> TestTree
 responseCreateProgressUpdateStream =
@@ -255,7 +255,7 @@ responseCreateProgressUpdateStream =
     "CreateProgressUpdateStreamResponse"
     "fixture/CreateProgressUpdateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProgressUpdateStream)
+    (Proxy.Proxy :: Proxy.Proxy CreateProgressUpdateStream)
 
 responseListApplicationStates :: ListApplicationStatesResponse -> TestTree
 responseListApplicationStates =
@@ -263,7 +263,7 @@ responseListApplicationStates =
     "ListApplicationStatesResponse"
     "fixture/ListApplicationStatesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApplicationStates)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationStates)
 
 responseListCreatedArtifacts :: ListCreatedArtifactsResponse -> TestTree
 responseListCreatedArtifacts =
@@ -271,7 +271,7 @@ responseListCreatedArtifacts =
     "ListCreatedArtifactsResponse"
     "fixture/ListCreatedArtifactsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListCreatedArtifacts)
+    (Proxy.Proxy :: Proxy.Proxy ListCreatedArtifacts)
 
 responseDisassociateDiscoveredResource :: DisassociateDiscoveredResourceResponse -> TestTree
 responseDisassociateDiscoveredResource =
@@ -279,7 +279,7 @@ responseDisassociateDiscoveredResource =
     "DisassociateDiscoveredResourceResponse"
     "fixture/DisassociateDiscoveredResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateDiscoveredResource)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDiscoveredResource)
 
 responseNotifyApplicationState :: NotifyApplicationStateResponse -> TestTree
 responseNotifyApplicationState =
@@ -287,7 +287,7 @@ responseNotifyApplicationState =
     "NotifyApplicationStateResponse"
     "fixture/NotifyApplicationStateResponse.proto"
     defaultService
-    (Proxy :: Proxy NotifyApplicationState)
+    (Proxy.Proxy :: Proxy.Proxy NotifyApplicationState)
 
 responseDeleteProgressUpdateStream :: DeleteProgressUpdateStreamResponse -> TestTree
 responseDeleteProgressUpdateStream =
@@ -295,7 +295,7 @@ responseDeleteProgressUpdateStream =
     "DeleteProgressUpdateStreamResponse"
     "fixture/DeleteProgressUpdateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteProgressUpdateStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProgressUpdateStream)
 
 responseListProgressUpdateStreams :: ListProgressUpdateStreamsResponse -> TestTree
 responseListProgressUpdateStreams =
@@ -303,7 +303,7 @@ responseListProgressUpdateStreams =
     "ListProgressUpdateStreamsResponse"
     "fixture/ListProgressUpdateStreamsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListProgressUpdateStreams)
+    (Proxy.Proxy :: Proxy.Proxy ListProgressUpdateStreams)
 
 responseDisassociateCreatedArtifact :: DisassociateCreatedArtifactResponse -> TestTree
 responseDisassociateCreatedArtifact =
@@ -311,7 +311,7 @@ responseDisassociateCreatedArtifact =
     "DisassociateCreatedArtifactResponse"
     "fixture/DisassociateCreatedArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateCreatedArtifact)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateCreatedArtifact)
 
 responseImportMigrationTask :: ImportMigrationTaskResponse -> TestTree
 responseImportMigrationTask =
@@ -319,7 +319,7 @@ responseImportMigrationTask =
     "ImportMigrationTaskResponse"
     "fixture/ImportMigrationTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportMigrationTask)
+    (Proxy.Proxy :: Proxy.Proxy ImportMigrationTask)
 
 responseDescribeMigrationTask :: DescribeMigrationTaskResponse -> TestTree
 responseDescribeMigrationTask =
@@ -327,7 +327,7 @@ responseDescribeMigrationTask =
     "DescribeMigrationTaskResponse"
     "fixture/DescribeMigrationTaskResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMigrationTask)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMigrationTask)
 
 responsePutResourceAttributes :: PutResourceAttributesResponse -> TestTree
 responsePutResourceAttributes =
@@ -335,7 +335,7 @@ responsePutResourceAttributes =
     "PutResourceAttributesResponse"
     "fixture/PutResourceAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourceAttributes)
+    (Proxy.Proxy :: Proxy.Proxy PutResourceAttributes)
 
 responseAssociateCreatedArtifact :: AssociateCreatedArtifactResponse -> TestTree
 responseAssociateCreatedArtifact =
@@ -343,7 +343,7 @@ responseAssociateCreatedArtifact =
     "AssociateCreatedArtifactResponse"
     "fixture/AssociateCreatedArtifactResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateCreatedArtifact)
+    (Proxy.Proxy :: Proxy.Proxy AssociateCreatedArtifact)
 
 responseNotifyMigrationTaskState :: NotifyMigrationTaskStateResponse -> TestTree
 responseNotifyMigrationTaskState =
@@ -351,7 +351,7 @@ responseNotifyMigrationTaskState =
     "NotifyMigrationTaskStateResponse"
     "fixture/NotifyMigrationTaskStateResponse.proto"
     defaultService
-    (Proxy :: Proxy NotifyMigrationTaskState)
+    (Proxy.Proxy :: Proxy.Proxy NotifyMigrationTaskState)
 
 responseDescribeApplicationState :: DescribeApplicationStateResponse -> TestTree
 responseDescribeApplicationState =
@@ -359,7 +359,7 @@ responseDescribeApplicationState =
     "DescribeApplicationStateResponse"
     "fixture/DescribeApplicationStateResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplicationState)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationState)
 
 responseListMigrationTasks :: ListMigrationTasksResponse -> TestTree
 responseListMigrationTasks =
@@ -367,7 +367,7 @@ responseListMigrationTasks =
     "ListMigrationTasksResponse"
     "fixture/ListMigrationTasksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMigrationTasks)
+    (Proxy.Proxy :: Proxy.Proxy ListMigrationTasks)
 
 responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
 responseListDiscoveredResources =
@@ -375,4 +375,4 @@ responseListDiscoveredResources =
     "ListDiscoveredResourcesResponse"
     "fixture/ListDiscoveredResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDiscoveredResources)
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoveredResources)

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodePipeline where
 
-import Data.Proxy
+import qualified Data.Proxy as Proxy
 import Network.AWS.CodePipeline
 import Test.AWS.CodePipeline.Internal
 import Test.AWS.Fixture
@@ -511,7 +511,7 @@ responseGetPipeline =
     "GetPipelineResponse"
     "fixture/GetPipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPipeline)
+    (Proxy.Proxy :: Proxy.Proxy GetPipeline)
 
 responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
 responsePutJobFailureResult =
@@ -519,7 +519,7 @@ responsePutJobFailureResult =
     "PutJobFailureResultResponse"
     "fixture/PutJobFailureResultResponse.proto"
     defaultService
-    (Proxy :: Proxy PutJobFailureResult)
+    (Proxy.Proxy :: Proxy.Proxy PutJobFailureResult)
 
 responsePutApprovalResult :: PutApprovalResultResponse -> TestTree
 responsePutApprovalResult =
@@ -527,7 +527,7 @@ responsePutApprovalResult =
     "PutApprovalResultResponse"
     "fixture/PutApprovalResultResponse.proto"
     defaultService
-    (Proxy :: Proxy PutApprovalResult)
+    (Proxy.Proxy :: Proxy.Proxy PutApprovalResult)
 
 responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
 responseAcknowledgeThirdPartyJob =
@@ -535,7 +535,7 @@ responseAcknowledgeThirdPartyJob =
     "AcknowledgeThirdPartyJobResponse"
     "fixture/AcknowledgeThirdPartyJobResponse.proto"
     defaultService
-    (Proxy :: Proxy AcknowledgeThirdPartyJob)
+    (Proxy.Proxy :: Proxy.Proxy AcknowledgeThirdPartyJob)
 
 responsePutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResultResponse -> TestTree
 responsePutThirdPartyJobFailureResult =
@@ -543,7 +543,7 @@ responsePutThirdPartyJobFailureResult =
     "PutThirdPartyJobFailureResultResponse"
     "fixture/PutThirdPartyJobFailureResultResponse.proto"
     defaultService
-    (Proxy :: Proxy PutThirdPartyJobFailureResult)
+    (Proxy.Proxy :: Proxy.Proxy PutThirdPartyJobFailureResult)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -551,7 +551,7 @@ responseListTagsForResource =
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
 responseRegisterWebhookWithThirdParty =
@@ -559,7 +559,7 @@ responseRegisterWebhookWithThirdParty =
     "RegisterWebhookWithThirdPartyResponse"
     "fixture/RegisterWebhookWithThirdPartyResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterWebhookWithThirdParty)
+    (Proxy.Proxy :: Proxy.Proxy RegisterWebhookWithThirdParty)
 
 responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
 responsePollForThirdPartyJobs =
@@ -567,7 +567,7 @@ responsePollForThirdPartyJobs =
     "PollForThirdPartyJobsResponse"
     "fixture/PollForThirdPartyJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy PollForThirdPartyJobs)
+    (Proxy.Proxy :: Proxy.Proxy PollForThirdPartyJobs)
 
 responsePollForJobs :: PollForJobsResponse -> TestTree
 responsePollForJobs =
@@ -575,7 +575,7 @@ responsePollForJobs =
     "PollForJobsResponse"
     "fixture/PollForJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy PollForJobs)
+    (Proxy.Proxy :: Proxy.Proxy PollForJobs)
 
 responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
 responseStartPipelineExecution =
@@ -583,7 +583,7 @@ responseStartPipelineExecution =
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StartPipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy StartPipelineExecution)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline =
@@ -591,7 +591,7 @@ responseUpdatePipeline =
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
 responseDeletePipeline =
@@ -599,7 +599,7 @@ responseDeletePipeline =
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
+    (Proxy.Proxy :: Proxy.Proxy DeletePipeline)
 
 responseGetPipelineState :: GetPipelineStateResponse -> TestTree
 responseGetPipelineState =
@@ -607,7 +607,7 @@ responseGetPipelineState =
     "GetPipelineStateResponse"
     "fixture/GetPipelineStateResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPipelineState)
+    (Proxy.Proxy :: Proxy.Proxy GetPipelineState)
 
 responseGetJobDetails :: GetJobDetailsResponse -> TestTree
 responseGetJobDetails =
@@ -615,7 +615,7 @@ responseGetJobDetails =
     "GetJobDetailsResponse"
     "fixture/GetJobDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetJobDetails)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
 responseListPipelines =
@@ -623,7 +623,7 @@ responseListPipelines =
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelines)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelines)
 
 responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
 responseRetryStageExecution =
@@ -631,7 +631,7 @@ responseRetryStageExecution =
     "RetryStageExecutionResponse"
     "fixture/RetryStageExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy RetryStageExecution)
+    (Proxy.Proxy :: Proxy.Proxy RetryStageExecution)
 
 responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
 responseGetPipelineExecution =
@@ -639,7 +639,7 @@ responseGetPipelineExecution =
     "GetPipelineExecutionResponse"
     "fixture/GetPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy GetPipelineExecution)
 
 responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
 responsePutJobSuccessResult =
@@ -647,7 +647,7 @@ responsePutJobSuccessResult =
     "PutJobSuccessResultResponse"
     "fixture/PutJobSuccessResultResponse.proto"
     defaultService
-    (Proxy :: Proxy PutJobSuccessResult)
+    (Proxy.Proxy :: Proxy.Proxy PutJobSuccessResult)
 
 responseDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdPartyResponse -> TestTree
 responseDeregisterWebhookWithThirdParty =
@@ -655,7 +655,7 @@ responseDeregisterWebhookWithThirdParty =
     "DeregisterWebhookWithThirdPartyResponse"
     "fixture/DeregisterWebhookWithThirdPartyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterWebhookWithThirdParty)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterWebhookWithThirdParty)
 
 responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
 responseDeleteCustomActionType =
@@ -663,7 +663,7 @@ responseDeleteCustomActionType =
     "DeleteCustomActionTypeResponse"
     "fixture/DeleteCustomActionTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomActionType)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomActionType)
 
 responsePutActionRevision :: PutActionRevisionResponse -> TestTree
 responsePutActionRevision =
@@ -671,7 +671,7 @@ responsePutActionRevision =
     "PutActionRevisionResponse"
     "fixture/PutActionRevisionResponse.proto"
     defaultService
-    (Proxy :: Proxy PutActionRevision)
+    (Proxy.Proxy :: Proxy.Proxy PutActionRevision)
 
 responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
 responseDisableStageTransition =
@@ -679,7 +679,7 @@ responseDisableStageTransition =
     "DisableStageTransitionResponse"
     "fixture/DisableStageTransitionResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableStageTransition)
+    (Proxy.Proxy :: Proxy.Proxy DisableStageTransition)
 
 responseUpdateActionType :: UpdateActionTypeResponse -> TestTree
 responseUpdateActionType =
@@ -687,7 +687,7 @@ responseUpdateActionType =
     "UpdateActionTypeResponse"
     "fixture/UpdateActionTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateActionType)
+    (Proxy.Proxy :: Proxy.Proxy UpdateActionType)
 
 responseListActionTypes :: ListActionTypesResponse -> TestTree
 responseListActionTypes =
@@ -695,7 +695,7 @@ responseListActionTypes =
     "ListActionTypesResponse"
     "fixture/ListActionTypesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActionTypes)
+    (Proxy.Proxy :: Proxy.Proxy ListActionTypes)
 
 responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
 responseAcknowledgeJob =
@@ -703,7 +703,7 @@ responseAcknowledgeJob =
     "AcknowledgeJobResponse"
     "fixture/AcknowledgeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy AcknowledgeJob)
+    (Proxy.Proxy :: Proxy.Proxy AcknowledgeJob)
 
 responseEnableStageTransition :: EnableStageTransitionResponse -> TestTree
 responseEnableStageTransition =
@@ -711,7 +711,7 @@ responseEnableStageTransition =
     "EnableStageTransitionResponse"
     "fixture/EnableStageTransitionResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableStageTransition)
+    (Proxy.Proxy :: Proxy.Proxy EnableStageTransition)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
 responseDeleteWebhook =
@@ -719,7 +719,7 @@ responseDeleteWebhook =
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWebhook)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
 
 responsePutWebhook :: PutWebhookResponse -> TestTree
 responsePutWebhook =
@@ -727,7 +727,7 @@ responsePutWebhook =
     "PutWebhookResponse"
     "fixture/PutWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy PutWebhook)
+    (Proxy.Proxy :: Proxy.Proxy PutWebhook)
 
 responseListWebhooks :: ListWebhooksResponse -> TestTree
 responseListWebhooks =
@@ -735,7 +735,7 @@ responseListWebhooks =
     "ListWebhooksResponse"
     "fixture/ListWebhooksResponse.proto"
     defaultService
-    (Proxy :: Proxy ListWebhooks)
+    (Proxy.Proxy :: Proxy.Proxy ListWebhooks)
 
 responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
 responseListActionExecutions =
@@ -743,7 +743,7 @@ responseListActionExecutions =
     "ListActionExecutionsResponse"
     "fixture/ListActionExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListActionExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListActionExecutions)
 
 responseGetActionType :: GetActionTypeResponse -> TestTree
 responseGetActionType =
@@ -751,7 +751,7 @@ responseGetActionType =
     "GetActionTypeResponse"
     "fixture/GetActionTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy GetActionType)
+    (Proxy.Proxy :: Proxy.Proxy GetActionType)
 
 responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
 responseStopPipelineExecution =
@@ -759,7 +759,7 @@ responseStopPipelineExecution =
     "StopPipelineExecutionResponse"
     "fixture/StopPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopPipelineExecution)
+    (Proxy.Proxy :: Proxy.Proxy StopPipelineExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -767,7 +767,7 @@ responseTagResource =
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -775,7 +775,7 @@ responseUntagResource =
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
@@ -783,7 +783,7 @@ responseCreatePipeline =
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreatePipeline)
 
 responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
 responseGetThirdPartyJobDetails =
@@ -791,7 +791,7 @@ responseGetThirdPartyJobDetails =
     "GetThirdPartyJobDetailsResponse"
     "fixture/GetThirdPartyJobDetailsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetThirdPartyJobDetails)
+    (Proxy.Proxy :: Proxy.Proxy GetThirdPartyJobDetails)
 
 responsePutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResultResponse -> TestTree
 responsePutThirdPartyJobSuccessResult =
@@ -799,7 +799,7 @@ responsePutThirdPartyJobSuccessResult =
     "PutThirdPartyJobSuccessResultResponse"
     "fixture/PutThirdPartyJobSuccessResultResponse.proto"
     defaultService
-    (Proxy :: Proxy PutThirdPartyJobSuccessResult)
+    (Proxy.Proxy :: Proxy.Proxy PutThirdPartyJobSuccessResult)
 
 responseCreateCustomActionType :: CreateCustomActionTypeResponse -> TestTree
 responseCreateCustomActionType =
@@ -807,7 +807,7 @@ responseCreateCustomActionType =
     "CreateCustomActionTypeResponse"
     "fixture/CreateCustomActionTypeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCustomActionType)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomActionType)
 
 responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
 responseListPipelineExecutions =
@@ -815,4 +815,4 @@ responseListPipelineExecutions =
     "ListPipelineExecutionsResponse"
     "fixture/ListPipelineExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelineExecutions)
+    (Proxy.Proxy :: Proxy.Proxy ListPipelineExecutions)

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.GlobalReplicationGroup
+-- Module      : Amazonka.ElastiCache.Types.GlobalReplicationGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.GlobalReplicationGroup where
+module Amazonka.ElastiCache.Types.GlobalReplicationGroup where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.GlobalNodeGroup
-import Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.GlobalNodeGroup
+import Amazonka.ElastiCache.Types.GlobalReplicationGroupMember
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Consists of a primary cluster that accepts writes and an associated
 -- secondary cluster that resides in a different Amazon region. The

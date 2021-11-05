@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.Snapshot
+-- Module      : Amazonka.ElastiCache.Types.Snapshot
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.Snapshot where
+module Amazonka.ElastiCache.Types.Snapshot where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
-import Network.AWS.ElastiCache.Types.NodeSnapshot
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.NodeSnapshot
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a copy of an entire Redis cluster as of the time when the
 -- snapshot was taken.

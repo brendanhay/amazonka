@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues
+-- Module      : Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues where
+module Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
-import Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
-import Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration
-import Network.AWS.ElastiCache.Types.ReshardingStatus
-import Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
+import Amazonka.ElastiCache.Types.PendingAutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.ReshardingStatus
+import Amazonka.ElastiCache.Types.UserGroupsUpdateStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The settings to be applied to the Redis replication group, either
 -- immediately or during the next maintenance window.

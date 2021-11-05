@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.CreateGlobalReplicationGroup
+-- Module      : Amazonka.ElastiCache.CreateGlobalReplicationGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- -   The __PrimaryReplicationGroupId__ represents the name of the primary
 --     cluster that accepts writes and will replicate updates to the
 --     secondary cluster.
-module Network.AWS.ElastiCache.CreateGlobalReplicationGroup
+module Amazonka.ElastiCache.CreateGlobalReplicationGroup
   ( -- * Creating a Request
     CreateGlobalReplicationGroup (..),
     newCreateGlobalReplicationGroup,
@@ -53,12 +53,12 @@ module Network.AWS.ElastiCache.CreateGlobalReplicationGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGlobalReplicationGroup' smart constructor.
 data CreateGlobalReplicationGroup = CreateGlobalReplicationGroup'

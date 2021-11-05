@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.ReplicationGroup
+-- Module      : Amazonka.ElastiCache.Types.ReplicationGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.ReplicationGroup where
+module Amazonka.ElastiCache.Types.ReplicationGroup where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
-import Network.AWS.ElastiCache.Types.Endpoint
-import Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
-import Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
-import Network.AWS.ElastiCache.Types.MultiAZStatus
-import Network.AWS.ElastiCache.Types.NodeGroup
-import Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.Endpoint
+import Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
+import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.MultiAZStatus
+import Amazonka.ElastiCache.Types.NodeGroup
+import Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific Redis replication group.
 --

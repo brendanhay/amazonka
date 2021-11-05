@@ -7,23 +7,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Waiters
+-- Module      : Amazonka.ElastiCache.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Waiters where
+module Amazonka.ElastiCache.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.DescribeCacheClusters
-import Network.AWS.ElastiCache.DescribeReplicationGroups
-import Network.AWS.ElastiCache.Lens
-import Network.AWS.ElastiCache.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.DescribeCacheClusters
+import Amazonka.ElastiCache.DescribeReplicationGroups
+import Amazonka.ElastiCache.Lens
+import Amazonka.ElastiCache.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newCacheClusterAvailable :: Core.Wait DescribeCacheClusters
 newCacheClusterAvailable =
   Core.Wait
@@ -99,7 +99,7 @@ newCacheClusterAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newCacheClusterDeleted :: Core.Wait DescribeCacheClusters
 newCacheClusterDeleted =
   Core.Wait
@@ -204,7 +204,7 @@ newCacheClusterDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newReplicationGroupDeleted :: Core.Wait DescribeReplicationGroups
 newReplicationGroupDeleted =
   Core.Wait
@@ -245,7 +245,7 @@ newReplicationGroupDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newReplicationGroupAvailable :: Core.Wait DescribeReplicationGroups
 newReplicationGroupAvailable =
   Core.Wait

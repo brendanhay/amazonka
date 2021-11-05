@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
+-- Module      : Amazonka.ElastiCache.DescribeCacheClusters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -45,7 +45,7 @@
 -- information for the removed nodes is displayed.
 --
 -- This operation returns paginated results.
-module Network.AWS.ElastiCache.DescribeCacheClusters
+module Amazonka.ElastiCache.DescribeCacheClusters
   ( -- * Creating a Request
     DescribeCacheClusters (..),
     newDescribeCacheClusters,
@@ -68,12 +68,12 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input of a @DescribeCacheClusters@ operation.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.CreateReplicationGroup
+-- Module      : Amazonka.ElastiCache.CreateReplicationGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -61,7 +61,7 @@
 -- in the /ElastiCache User Guide/.
 --
 -- This operation is valid for Redis only.
-module Network.AWS.ElastiCache.CreateReplicationGroup
+module Amazonka.ElastiCache.CreateReplicationGroup
   ( -- * Creating a Request
     CreateReplicationGroup (..),
     newCreateReplicationGroup,
@@ -111,12 +111,12 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input of a @CreateReplicationGroup@ operation.
 --

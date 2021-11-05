@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.CacheCluster
+-- Module      : Amazonka.ElastiCache.Types.CacheCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CacheCluster where
+module Amazonka.ElastiCache.Types.CacheCluster where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.CacheNode
-import Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
-import Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
-import Network.AWS.ElastiCache.Types.Endpoint
-import Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
-import Network.AWS.ElastiCache.Types.NotificationConfiguration
-import Network.AWS.ElastiCache.Types.PendingModifiedValues
-import Network.AWS.ElastiCache.Types.SecurityGroupMembership
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.CacheNode
+import Amazonka.ElastiCache.Types.CacheParameterGroupStatus
+import Amazonka.ElastiCache.Types.CacheSecurityGroupMembership
+import Amazonka.ElastiCache.Types.Endpoint
+import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.NotificationConfiguration
+import Amazonka.ElastiCache.Types.PendingModifiedValues
+import Amazonka.ElastiCache.Types.SecurityGroupMembership
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific cluster.
 --

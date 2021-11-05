@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
+-- Module      : Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus where
+module Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
-import Network.AWS.ElastiCache.Types.NodeUpdateStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.NodeUpdateInitiatedBy
+import Amazonka.ElastiCache.Types.NodeUpdateStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the service update on the node group member
 --

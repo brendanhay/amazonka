@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types
+-- Module      : Amazonka.ElastiCache.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types
+module Amazonka.ElastiCache.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -776,97 +776,97 @@ module Network.AWS.ElastiCache.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.AZMode
-import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
-import Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
-import Network.AWS.ElastiCache.Types.Authentication
-import Network.AWS.ElastiCache.Types.AuthenticationType
-import Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
-import Network.AWS.ElastiCache.Types.AvailabilityZone
-import Network.AWS.ElastiCache.Types.CacheCluster
-import Network.AWS.ElastiCache.Types.CacheEngineVersion
-import Network.AWS.ElastiCache.Types.CacheNode
-import Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter
-import Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue
-import Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus
-import Network.AWS.ElastiCache.Types.CacheParameterGroup
-import Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage
-import Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
-import Network.AWS.ElastiCache.Types.CacheSecurityGroup
-import Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
-import Network.AWS.ElastiCache.Types.CacheSubnetGroup
-import Network.AWS.ElastiCache.Types.ChangeType
-import Network.AWS.ElastiCache.Types.CloudWatchLogsDestinationDetails
-import Network.AWS.ElastiCache.Types.ConfigureShard
-import Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
-import Network.AWS.ElastiCache.Types.DestinationDetails
-import Network.AWS.ElastiCache.Types.DestinationType
-import Network.AWS.ElastiCache.Types.EC2SecurityGroup
-import Network.AWS.ElastiCache.Types.Endpoint
-import Network.AWS.ElastiCache.Types.EngineDefaults
-import Network.AWS.ElastiCache.Types.Event
-import Network.AWS.ElastiCache.Types.Filter
-import Network.AWS.ElastiCache.Types.GlobalNodeGroup
-import Network.AWS.ElastiCache.Types.GlobalReplicationGroup
-import Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
-import Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
-import Network.AWS.ElastiCache.Types.KinesisFirehoseDestinationDetails
-import Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
-import Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest
-import Network.AWS.ElastiCache.Types.LogDeliveryConfigurationStatus
-import Network.AWS.ElastiCache.Types.LogFormat
-import Network.AWS.ElastiCache.Types.LogType
-import Network.AWS.ElastiCache.Types.MultiAZStatus
-import Network.AWS.ElastiCache.Types.NodeGroup
-import Network.AWS.ElastiCache.Types.NodeGroupConfiguration
-import Network.AWS.ElastiCache.Types.NodeGroupMember
-import Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
-import Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
-import Network.AWS.ElastiCache.Types.NodeSnapshot
-import Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
-import Network.AWS.ElastiCache.Types.NodeUpdateStatus
-import Network.AWS.ElastiCache.Types.NotificationConfiguration
-import Network.AWS.ElastiCache.Types.OutpostMode
-import Network.AWS.ElastiCache.Types.Parameter
-import Network.AWS.ElastiCache.Types.ParameterNameValue
-import Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
-import Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration
-import Network.AWS.ElastiCache.Types.PendingModifiedValues
-import Network.AWS.ElastiCache.Types.ProcessedUpdateAction
-import Network.AWS.ElastiCache.Types.RecurringCharge
-import Network.AWS.ElastiCache.Types.RegionalConfiguration
-import Network.AWS.ElastiCache.Types.ReplicationGroup
-import Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues
-import Network.AWS.ElastiCache.Types.ReservedCacheNode
-import Network.AWS.ElastiCache.Types.ReservedCacheNodesOffering
-import Network.AWS.ElastiCache.Types.ReshardingConfiguration
-import Network.AWS.ElastiCache.Types.ReshardingStatus
-import Network.AWS.ElastiCache.Types.SecurityGroupMembership
-import Network.AWS.ElastiCache.Types.ServiceUpdate
-import Network.AWS.ElastiCache.Types.ServiceUpdateSeverity
-import Network.AWS.ElastiCache.Types.ServiceUpdateStatus
-import Network.AWS.ElastiCache.Types.ServiceUpdateType
-import Network.AWS.ElastiCache.Types.SlaMet
-import Network.AWS.ElastiCache.Types.SlotMigration
-import Network.AWS.ElastiCache.Types.Snapshot
-import Network.AWS.ElastiCache.Types.SourceType
-import Network.AWS.ElastiCache.Types.Subnet
-import Network.AWS.ElastiCache.Types.SubnetOutpost
-import Network.AWS.ElastiCache.Types.Tag
-import Network.AWS.ElastiCache.Types.TagListMessage
-import Network.AWS.ElastiCache.Types.TimeRangeFilter
-import Network.AWS.ElastiCache.Types.UnprocessedUpdateAction
-import Network.AWS.ElastiCache.Types.UpdateAction
-import Network.AWS.ElastiCache.Types.UpdateActionResultsMessage
-import Network.AWS.ElastiCache.Types.UpdateActionStatus
-import Network.AWS.ElastiCache.Types.User
-import Network.AWS.ElastiCache.Types.UserGroup
-import Network.AWS.ElastiCache.Types.UserGroupPendingChanges
-import Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.AZMode
+import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
+import Amazonka.ElastiCache.Types.AuthTokenUpdateStrategyType
+import Amazonka.ElastiCache.Types.Authentication
+import Amazonka.ElastiCache.Types.AuthenticationType
+import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.AvailabilityZone
+import Amazonka.ElastiCache.Types.CacheCluster
+import Amazonka.ElastiCache.Types.CacheEngineVersion
+import Amazonka.ElastiCache.Types.CacheNode
+import Amazonka.ElastiCache.Types.CacheNodeTypeSpecificParameter
+import Amazonka.ElastiCache.Types.CacheNodeTypeSpecificValue
+import Amazonka.ElastiCache.Types.CacheNodeUpdateStatus
+import Amazonka.ElastiCache.Types.CacheParameterGroup
+import Amazonka.ElastiCache.Types.CacheParameterGroupNameMessage
+import Amazonka.ElastiCache.Types.CacheParameterGroupStatus
+import Amazonka.ElastiCache.Types.CacheSecurityGroup
+import Amazonka.ElastiCache.Types.CacheSecurityGroupMembership
+import Amazonka.ElastiCache.Types.CacheSubnetGroup
+import Amazonka.ElastiCache.Types.ChangeType
+import Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails
+import Amazonka.ElastiCache.Types.ConfigureShard
+import Amazonka.ElastiCache.Types.CustomerNodeEndpoint
+import Amazonka.ElastiCache.Types.DestinationDetails
+import Amazonka.ElastiCache.Types.DestinationType
+import Amazonka.ElastiCache.Types.EC2SecurityGroup
+import Amazonka.ElastiCache.Types.Endpoint
+import Amazonka.ElastiCache.Types.EngineDefaults
+import Amazonka.ElastiCache.Types.Event
+import Amazonka.ElastiCache.Types.Filter
+import Amazonka.ElastiCache.Types.GlobalNodeGroup
+import Amazonka.ElastiCache.Types.GlobalReplicationGroup
+import Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
+import Amazonka.ElastiCache.Types.GlobalReplicationGroupMember
+import Amazonka.ElastiCache.Types.KinesisFirehoseDestinationDetails
+import Amazonka.ElastiCache.Types.LogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.LogDeliveryConfigurationRequest
+import Amazonka.ElastiCache.Types.LogDeliveryConfigurationStatus
+import Amazonka.ElastiCache.Types.LogFormat
+import Amazonka.ElastiCache.Types.LogType
+import Amazonka.ElastiCache.Types.MultiAZStatus
+import Amazonka.ElastiCache.Types.NodeGroup
+import Amazonka.ElastiCache.Types.NodeGroupConfiguration
+import Amazonka.ElastiCache.Types.NodeGroupMember
+import Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus
+import Amazonka.ElastiCache.Types.NodeGroupUpdateStatus
+import Amazonka.ElastiCache.Types.NodeSnapshot
+import Amazonka.ElastiCache.Types.NodeUpdateInitiatedBy
+import Amazonka.ElastiCache.Types.NodeUpdateStatus
+import Amazonka.ElastiCache.Types.NotificationConfiguration
+import Amazonka.ElastiCache.Types.OutpostMode
+import Amazonka.ElastiCache.Types.Parameter
+import Amazonka.ElastiCache.Types.ParameterNameValue
+import Amazonka.ElastiCache.Types.PendingAutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
+import Amazonka.ElastiCache.Types.PendingModifiedValues
+import Amazonka.ElastiCache.Types.ProcessedUpdateAction
+import Amazonka.ElastiCache.Types.RecurringCharge
+import Amazonka.ElastiCache.Types.RegionalConfiguration
+import Amazonka.ElastiCache.Types.ReplicationGroup
+import Amazonka.ElastiCache.Types.ReplicationGroupPendingModifiedValues
+import Amazonka.ElastiCache.Types.ReservedCacheNode
+import Amazonka.ElastiCache.Types.ReservedCacheNodesOffering
+import Amazonka.ElastiCache.Types.ReshardingConfiguration
+import Amazonka.ElastiCache.Types.ReshardingStatus
+import Amazonka.ElastiCache.Types.SecurityGroupMembership
+import Amazonka.ElastiCache.Types.ServiceUpdate
+import Amazonka.ElastiCache.Types.ServiceUpdateSeverity
+import Amazonka.ElastiCache.Types.ServiceUpdateStatus
+import Amazonka.ElastiCache.Types.ServiceUpdateType
+import Amazonka.ElastiCache.Types.SlaMet
+import Amazonka.ElastiCache.Types.SlotMigration
+import Amazonka.ElastiCache.Types.Snapshot
+import Amazonka.ElastiCache.Types.SourceType
+import Amazonka.ElastiCache.Types.Subnet
+import Amazonka.ElastiCache.Types.SubnetOutpost
+import Amazonka.ElastiCache.Types.Tag
+import Amazonka.ElastiCache.Types.TagListMessage
+import Amazonka.ElastiCache.Types.TimeRangeFilter
+import Amazonka.ElastiCache.Types.UnprocessedUpdateAction
+import Amazonka.ElastiCache.Types.UpdateAction
+import Amazonka.ElastiCache.Types.UpdateActionResultsMessage
+import Amazonka.ElastiCache.Types.UpdateActionStatus
+import Amazonka.ElastiCache.Types.User
+import Amazonka.ElastiCache.Types.UserGroup
+import Amazonka.ElastiCache.Types.UserGroupPendingChanges
+import Amazonka.ElastiCache.Types.UserGroupsUpdateStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-02-02@ of the Amazon ElastiCache SDK configuration.
 defaultService :: Core.Service

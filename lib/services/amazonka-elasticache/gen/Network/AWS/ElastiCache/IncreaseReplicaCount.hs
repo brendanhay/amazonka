@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.IncreaseReplicaCount
+-- Module      : Amazonka.ElastiCache.IncreaseReplicaCount
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- disabled) replication group or the number of replica nodes in one or
 -- more node groups (shards) of a Redis (cluster mode enabled) replication
 -- group. This operation is performed with no cluster down time.
-module Network.AWS.ElastiCache.IncreaseReplicaCount
+module Amazonka.ElastiCache.IncreaseReplicaCount
   ( -- * Creating a Request
     IncreaseReplicaCount (..),
     newIncreaseReplicaCount,
@@ -45,12 +45,12 @@ module Network.AWS.ElastiCache.IncreaseReplicaCount
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newIncreaseReplicaCount' smart constructor.
 data IncreaseReplicaCount = IncreaseReplicaCount'

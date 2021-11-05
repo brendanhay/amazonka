@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.UpdateAction
+-- Module      : Amazonka.ElastiCache.Types.UpdateAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.UpdateAction where
+module Amazonka.ElastiCache.Types.UpdateAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus
-import Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
-import Network.AWS.ElastiCache.Types.ServiceUpdateSeverity
-import Network.AWS.ElastiCache.Types.ServiceUpdateStatus
-import Network.AWS.ElastiCache.Types.ServiceUpdateType
-import Network.AWS.ElastiCache.Types.SlaMet
-import Network.AWS.ElastiCache.Types.UpdateActionStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.CacheNodeUpdateStatus
+import Amazonka.ElastiCache.Types.NodeGroupUpdateStatus
+import Amazonka.ElastiCache.Types.ServiceUpdateSeverity
+import Amazonka.ElastiCache.Types.ServiceUpdateStatus
+import Amazonka.ElastiCache.Types.ServiceUpdateType
+import Amazonka.ElastiCache.Types.SlaMet
+import Amazonka.ElastiCache.Types.UpdateActionStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the service update for a specific replication group
 --

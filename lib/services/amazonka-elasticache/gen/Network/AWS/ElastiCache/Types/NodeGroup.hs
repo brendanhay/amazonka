@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElastiCache.Types.NodeGroup
+-- Module      : Amazonka.ElastiCache.Types.NodeGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NodeGroup where
+module Amazonka.ElastiCache.Types.NodeGroup where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElastiCache.Types.Endpoint
-import Network.AWS.ElastiCache.Types.NodeGroupMember
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElastiCache.Types.Endpoint
+import Amazonka.ElastiCache.Types.NodeGroupMember
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a collection of cache nodes in a replication group. One node
 -- in the node group is the read\/write primary node. All the other nodes

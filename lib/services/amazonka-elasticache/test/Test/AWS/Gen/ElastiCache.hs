@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElastiCache where
 
+import Amazonka.ElastiCache
 import qualified Data.Proxy as Proxy
-import Network.AWS.ElastiCache
 import Test.AWS.ElastiCache.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ElastiCache
+-- Module      : Amazonka.ElastiCache
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- In addition, through integration with Amazon CloudWatch, customers get
 -- enhanced visibility into the key performance statistics associated with
 -- their cache and can receive alarms if a part of their cache runs hot.
-module Network.AWS.ElastiCache
+module Amazonka.ElastiCache
   ( -- * Service Configuration
     defaultService,
 
@@ -972,74 +972,74 @@ module Network.AWS.ElastiCache
   )
 where
 
-import Network.AWS.ElastiCache.AddTagsToResource
-import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
-import Network.AWS.ElastiCache.BatchApplyUpdateAction
-import Network.AWS.ElastiCache.BatchStopUpdateAction
-import Network.AWS.ElastiCache.CompleteMigration
-import Network.AWS.ElastiCache.CopySnapshot
-import Network.AWS.ElastiCache.CreateCacheCluster
-import Network.AWS.ElastiCache.CreateCacheParameterGroup
-import Network.AWS.ElastiCache.CreateCacheSecurityGroup
-import Network.AWS.ElastiCache.CreateCacheSubnetGroup
-import Network.AWS.ElastiCache.CreateGlobalReplicationGroup
-import Network.AWS.ElastiCache.CreateReplicationGroup
-import Network.AWS.ElastiCache.CreateSnapshot
-import Network.AWS.ElastiCache.CreateUser
-import Network.AWS.ElastiCache.CreateUserGroup
-import Network.AWS.ElastiCache.DecreaseNodeGroupsInGlobalReplicationGroup
-import Network.AWS.ElastiCache.DecreaseReplicaCount
-import Network.AWS.ElastiCache.DeleteCacheCluster
-import Network.AWS.ElastiCache.DeleteCacheParameterGroup
-import Network.AWS.ElastiCache.DeleteCacheSecurityGroup
-import Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-import Network.AWS.ElastiCache.DeleteGlobalReplicationGroup
-import Network.AWS.ElastiCache.DeleteReplicationGroup
-import Network.AWS.ElastiCache.DeleteSnapshot
-import Network.AWS.ElastiCache.DeleteUser
-import Network.AWS.ElastiCache.DeleteUserGroup
-import Network.AWS.ElastiCache.DescribeCacheClusters
-import Network.AWS.ElastiCache.DescribeCacheEngineVersions
-import Network.AWS.ElastiCache.DescribeCacheParameterGroups
-import Network.AWS.ElastiCache.DescribeCacheParameters
-import Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-import Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-import Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-import Network.AWS.ElastiCache.DescribeEvents
-import Network.AWS.ElastiCache.DescribeGlobalReplicationGroups
-import Network.AWS.ElastiCache.DescribeReplicationGroups
-import Network.AWS.ElastiCache.DescribeReservedCacheNodes
-import Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-import Network.AWS.ElastiCache.DescribeServiceUpdates
-import Network.AWS.ElastiCache.DescribeSnapshots
-import Network.AWS.ElastiCache.DescribeUpdateActions
-import Network.AWS.ElastiCache.DescribeUserGroups
-import Network.AWS.ElastiCache.DescribeUsers
-import Network.AWS.ElastiCache.DisassociateGlobalReplicationGroup
-import Network.AWS.ElastiCache.FailoverGlobalReplicationGroup
-import Network.AWS.ElastiCache.IncreaseNodeGroupsInGlobalReplicationGroup
-import Network.AWS.ElastiCache.IncreaseReplicaCount
-import Network.AWS.ElastiCache.Lens
-import Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
-import Network.AWS.ElastiCache.ListTagsForResource
-import Network.AWS.ElastiCache.ModifyCacheCluster
-import Network.AWS.ElastiCache.ModifyCacheParameterGroup
-import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
-import Network.AWS.ElastiCache.ModifyGlobalReplicationGroup
-import Network.AWS.ElastiCache.ModifyReplicationGroup
-import Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
-import Network.AWS.ElastiCache.ModifyUser
-import Network.AWS.ElastiCache.ModifyUserGroup
-import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
-import Network.AWS.ElastiCache.RebalanceSlotsInGlobalReplicationGroup
-import Network.AWS.ElastiCache.RebootCacheCluster
-import Network.AWS.ElastiCache.RemoveTagsFromResource
-import Network.AWS.ElastiCache.ResetCacheParameterGroup
-import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
-import Network.AWS.ElastiCache.StartMigration
-import Network.AWS.ElastiCache.TestFailover
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Waiters
+import Amazonka.ElastiCache.AddTagsToResource
+import Amazonka.ElastiCache.AuthorizeCacheSecurityGroupIngress
+import Amazonka.ElastiCache.BatchApplyUpdateAction
+import Amazonka.ElastiCache.BatchStopUpdateAction
+import Amazonka.ElastiCache.CompleteMigration
+import Amazonka.ElastiCache.CopySnapshot
+import Amazonka.ElastiCache.CreateCacheCluster
+import Amazonka.ElastiCache.CreateCacheParameterGroup
+import Amazonka.ElastiCache.CreateCacheSecurityGroup
+import Amazonka.ElastiCache.CreateCacheSubnetGroup
+import Amazonka.ElastiCache.CreateGlobalReplicationGroup
+import Amazonka.ElastiCache.CreateReplicationGroup
+import Amazonka.ElastiCache.CreateSnapshot
+import Amazonka.ElastiCache.CreateUser
+import Amazonka.ElastiCache.CreateUserGroup
+import Amazonka.ElastiCache.DecreaseNodeGroupsInGlobalReplicationGroup
+import Amazonka.ElastiCache.DecreaseReplicaCount
+import Amazonka.ElastiCache.DeleteCacheCluster
+import Amazonka.ElastiCache.DeleteCacheParameterGroup
+import Amazonka.ElastiCache.DeleteCacheSecurityGroup
+import Amazonka.ElastiCache.DeleteCacheSubnetGroup
+import Amazonka.ElastiCache.DeleteGlobalReplicationGroup
+import Amazonka.ElastiCache.DeleteReplicationGroup
+import Amazonka.ElastiCache.DeleteSnapshot
+import Amazonka.ElastiCache.DeleteUser
+import Amazonka.ElastiCache.DeleteUserGroup
+import Amazonka.ElastiCache.DescribeCacheClusters
+import Amazonka.ElastiCache.DescribeCacheEngineVersions
+import Amazonka.ElastiCache.DescribeCacheParameterGroups
+import Amazonka.ElastiCache.DescribeCacheParameters
+import Amazonka.ElastiCache.DescribeCacheSecurityGroups
+import Amazonka.ElastiCache.DescribeCacheSubnetGroups
+import Amazonka.ElastiCache.DescribeEngineDefaultParameters
+import Amazonka.ElastiCache.DescribeEvents
+import Amazonka.ElastiCache.DescribeGlobalReplicationGroups
+import Amazonka.ElastiCache.DescribeReplicationGroups
+import Amazonka.ElastiCache.DescribeReservedCacheNodes
+import Amazonka.ElastiCache.DescribeReservedCacheNodesOfferings
+import Amazonka.ElastiCache.DescribeServiceUpdates
+import Amazonka.ElastiCache.DescribeSnapshots
+import Amazonka.ElastiCache.DescribeUpdateActions
+import Amazonka.ElastiCache.DescribeUserGroups
+import Amazonka.ElastiCache.DescribeUsers
+import Amazonka.ElastiCache.DisassociateGlobalReplicationGroup
+import Amazonka.ElastiCache.FailoverGlobalReplicationGroup
+import Amazonka.ElastiCache.IncreaseNodeGroupsInGlobalReplicationGroup
+import Amazonka.ElastiCache.IncreaseReplicaCount
+import Amazonka.ElastiCache.Lens
+import Amazonka.ElastiCache.ListAllowedNodeTypeModifications
+import Amazonka.ElastiCache.ListTagsForResource
+import Amazonka.ElastiCache.ModifyCacheCluster
+import Amazonka.ElastiCache.ModifyCacheParameterGroup
+import Amazonka.ElastiCache.ModifyCacheSubnetGroup
+import Amazonka.ElastiCache.ModifyGlobalReplicationGroup
+import Amazonka.ElastiCache.ModifyReplicationGroup
+import Amazonka.ElastiCache.ModifyReplicationGroupShardConfiguration
+import Amazonka.ElastiCache.ModifyUser
+import Amazonka.ElastiCache.ModifyUserGroup
+import Amazonka.ElastiCache.PurchaseReservedCacheNodesOffering
+import Amazonka.ElastiCache.RebalanceSlotsInGlobalReplicationGroup
+import Amazonka.ElastiCache.RebootCacheCluster
+import Amazonka.ElastiCache.RemoveTagsFromResource
+import Amazonka.ElastiCache.ResetCacheParameterGroup
+import Amazonka.ElastiCache.RevokeCacheSecurityGroupIngress
+import Amazonka.ElastiCache.StartMigration
+import Amazonka.ElastiCache.TestFailover
+import Amazonka.ElastiCache.Types
+import Amazonka.ElastiCache.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

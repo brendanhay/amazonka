@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IdentityStore where
 
+import Amazonka.IdentityStore
 import qualified Data.Proxy as Proxy
-import Network.AWS.IdentityStore
 import Test.AWS.Fixture
 import Test.AWS.IdentityStore.Internal
 import Test.AWS.Prelude

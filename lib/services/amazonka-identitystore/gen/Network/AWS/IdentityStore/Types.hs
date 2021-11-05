@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IdentityStore.Types
+-- Module      : Amazonka.IdentityStore.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IdentityStore.Types
+module Amazonka.IdentityStore.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -43,13 +43,13 @@ module Network.AWS.IdentityStore.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IdentityStore.Types.Filter
-import Network.AWS.IdentityStore.Types.Group
-import Network.AWS.IdentityStore.Types.User
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IdentityStore.Types.Filter
+import Amazonka.IdentityStore.Types.Group
+import Amazonka.IdentityStore.Types.User
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-06-15@ of the Amazon SSO Identity Store SDK configuration.
 defaultService :: Core.Service

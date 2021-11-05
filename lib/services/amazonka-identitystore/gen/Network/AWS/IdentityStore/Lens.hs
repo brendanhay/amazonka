@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IdentityStore.Lens
+-- Module      : Amazonka.IdentityStore.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IdentityStore.Lens
+module Amazonka.IdentityStore.Lens
   ( -- * Operations
 
     -- ** DescribeGroup
@@ -62,10 +62,10 @@ module Network.AWS.IdentityStore.Lens
   )
 where
 
-import Network.AWS.IdentityStore.DescribeGroup
-import Network.AWS.IdentityStore.DescribeUser
-import Network.AWS.IdentityStore.ListGroups
-import Network.AWS.IdentityStore.ListUsers
-import Network.AWS.IdentityStore.Types.Filter
-import Network.AWS.IdentityStore.Types.Group
-import Network.AWS.IdentityStore.Types.User
+import Amazonka.IdentityStore.DescribeGroup
+import Amazonka.IdentityStore.DescribeUser
+import Amazonka.IdentityStore.ListGroups
+import Amazonka.IdentityStore.ListUsers
+import Amazonka.IdentityStore.Types.Filter
+import Amazonka.IdentityStore.Types.Group
+import Amazonka.IdentityStore.Types.User

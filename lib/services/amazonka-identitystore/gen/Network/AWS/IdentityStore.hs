@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IdentityStore
+-- Module      : Amazonka.IdentityStore
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- place to retrieve all of your identities (users and groups). For more
 -- information about AWS, see the
 -- <https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html AWS Single Sign-On User Guide>.
-module Network.AWS.IdentityStore
+module Amazonka.IdentityStore
   ( -- * Service Configuration
     defaultService,
 
@@ -83,13 +83,13 @@ module Network.AWS.IdentityStore
   )
 where
 
-import Network.AWS.IdentityStore.DescribeGroup
-import Network.AWS.IdentityStore.DescribeUser
-import Network.AWS.IdentityStore.Lens
-import Network.AWS.IdentityStore.ListGroups
-import Network.AWS.IdentityStore.ListUsers
-import Network.AWS.IdentityStore.Types
-import Network.AWS.IdentityStore.Waiters
+import Amazonka.IdentityStore.DescribeGroup
+import Amazonka.IdentityStore.DescribeUser
+import Amazonka.IdentityStore.Lens
+import Amazonka.IdentityStore.ListGroups
+import Amazonka.IdentityStore.ListUsers
+import Amazonka.IdentityStore.Types
+import Amazonka.IdentityStore.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

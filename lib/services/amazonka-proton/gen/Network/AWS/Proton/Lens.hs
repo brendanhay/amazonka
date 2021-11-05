@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Proton.Lens
+-- Module      : Amazonka.Proton.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Proton.Lens
+module Amazonka.Proton.Lens
   ( -- * Operations
 
     -- ** ListServices
@@ -615,76 +615,76 @@ module Network.AWS.Proton.Lens
   )
 where
 
-import Network.AWS.Proton.AcceptEnvironmentAccountConnection
-import Network.AWS.Proton.CancelEnvironmentDeployment
-import Network.AWS.Proton.CancelServiceInstanceDeployment
-import Network.AWS.Proton.CancelServicePipelineDeployment
-import Network.AWS.Proton.CreateEnvironment
-import Network.AWS.Proton.CreateEnvironmentAccountConnection
-import Network.AWS.Proton.CreateEnvironmentTemplate
-import Network.AWS.Proton.CreateEnvironmentTemplateVersion
-import Network.AWS.Proton.CreateService
-import Network.AWS.Proton.CreateServiceTemplate
-import Network.AWS.Proton.CreateServiceTemplateVersion
-import Network.AWS.Proton.DeleteEnvironment
-import Network.AWS.Proton.DeleteEnvironmentAccountConnection
-import Network.AWS.Proton.DeleteEnvironmentTemplate
-import Network.AWS.Proton.DeleteEnvironmentTemplateVersion
-import Network.AWS.Proton.DeleteService
-import Network.AWS.Proton.DeleteServiceTemplate
-import Network.AWS.Proton.DeleteServiceTemplateVersion
-import Network.AWS.Proton.GetAccountSettings
-import Network.AWS.Proton.GetEnvironment
-import Network.AWS.Proton.GetEnvironmentAccountConnection
-import Network.AWS.Proton.GetEnvironmentTemplate
-import Network.AWS.Proton.GetEnvironmentTemplateVersion
-import Network.AWS.Proton.GetService
-import Network.AWS.Proton.GetServiceInstance
-import Network.AWS.Proton.GetServiceTemplate
-import Network.AWS.Proton.GetServiceTemplateVersion
-import Network.AWS.Proton.ListEnvironmentAccountConnections
-import Network.AWS.Proton.ListEnvironmentTemplateVersions
-import Network.AWS.Proton.ListEnvironmentTemplates
-import Network.AWS.Proton.ListEnvironments
-import Network.AWS.Proton.ListServiceInstances
-import Network.AWS.Proton.ListServiceTemplateVersions
-import Network.AWS.Proton.ListServiceTemplates
-import Network.AWS.Proton.ListServices
-import Network.AWS.Proton.ListTagsForResource
-import Network.AWS.Proton.RejectEnvironmentAccountConnection
-import Network.AWS.Proton.TagResource
-import Network.AWS.Proton.Types.AccountSettings
-import Network.AWS.Proton.Types.CompatibleEnvironmentTemplate
-import Network.AWS.Proton.Types.CompatibleEnvironmentTemplateInput
-import Network.AWS.Proton.Types.Environment
-import Network.AWS.Proton.Types.EnvironmentAccountConnection
-import Network.AWS.Proton.Types.EnvironmentAccountConnectionSummary
-import Network.AWS.Proton.Types.EnvironmentSummary
-import Network.AWS.Proton.Types.EnvironmentTemplate
-import Network.AWS.Proton.Types.EnvironmentTemplateFilter
-import Network.AWS.Proton.Types.EnvironmentTemplateSummary
-import Network.AWS.Proton.Types.EnvironmentTemplateVersion
-import Network.AWS.Proton.Types.EnvironmentTemplateVersionSummary
-import Network.AWS.Proton.Types.S3ObjectSource
-import Network.AWS.Proton.Types.Service
-import Network.AWS.Proton.Types.ServiceInstance
-import Network.AWS.Proton.Types.ServiceInstanceSummary
-import Network.AWS.Proton.Types.ServicePipeline
-import Network.AWS.Proton.Types.ServiceSummary
-import Network.AWS.Proton.Types.ServiceTemplate
-import Network.AWS.Proton.Types.ServiceTemplateSummary
-import Network.AWS.Proton.Types.ServiceTemplateVersion
-import Network.AWS.Proton.Types.ServiceTemplateVersionSummary
-import Network.AWS.Proton.Types.Tag
-import Network.AWS.Proton.Types.TemplateVersionSourceInput
-import Network.AWS.Proton.UntagResource
-import Network.AWS.Proton.UpdateAccountSettings
-import Network.AWS.Proton.UpdateEnvironment
-import Network.AWS.Proton.UpdateEnvironmentAccountConnection
-import Network.AWS.Proton.UpdateEnvironmentTemplate
-import Network.AWS.Proton.UpdateEnvironmentTemplateVersion
-import Network.AWS.Proton.UpdateService
-import Network.AWS.Proton.UpdateServiceInstance
-import Network.AWS.Proton.UpdateServicePipeline
-import Network.AWS.Proton.UpdateServiceTemplate
-import Network.AWS.Proton.UpdateServiceTemplateVersion
+import Amazonka.Proton.AcceptEnvironmentAccountConnection
+import Amazonka.Proton.CancelEnvironmentDeployment
+import Amazonka.Proton.CancelServiceInstanceDeployment
+import Amazonka.Proton.CancelServicePipelineDeployment
+import Amazonka.Proton.CreateEnvironment
+import Amazonka.Proton.CreateEnvironmentAccountConnection
+import Amazonka.Proton.CreateEnvironmentTemplate
+import Amazonka.Proton.CreateEnvironmentTemplateVersion
+import Amazonka.Proton.CreateService
+import Amazonka.Proton.CreateServiceTemplate
+import Amazonka.Proton.CreateServiceTemplateVersion
+import Amazonka.Proton.DeleteEnvironment
+import Amazonka.Proton.DeleteEnvironmentAccountConnection
+import Amazonka.Proton.DeleteEnvironmentTemplate
+import Amazonka.Proton.DeleteEnvironmentTemplateVersion
+import Amazonka.Proton.DeleteService
+import Amazonka.Proton.DeleteServiceTemplate
+import Amazonka.Proton.DeleteServiceTemplateVersion
+import Amazonka.Proton.GetAccountSettings
+import Amazonka.Proton.GetEnvironment
+import Amazonka.Proton.GetEnvironmentAccountConnection
+import Amazonka.Proton.GetEnvironmentTemplate
+import Amazonka.Proton.GetEnvironmentTemplateVersion
+import Amazonka.Proton.GetService
+import Amazonka.Proton.GetServiceInstance
+import Amazonka.Proton.GetServiceTemplate
+import Amazonka.Proton.GetServiceTemplateVersion
+import Amazonka.Proton.ListEnvironmentAccountConnections
+import Amazonka.Proton.ListEnvironmentTemplateVersions
+import Amazonka.Proton.ListEnvironmentTemplates
+import Amazonka.Proton.ListEnvironments
+import Amazonka.Proton.ListServiceInstances
+import Amazonka.Proton.ListServiceTemplateVersions
+import Amazonka.Proton.ListServiceTemplates
+import Amazonka.Proton.ListServices
+import Amazonka.Proton.ListTagsForResource
+import Amazonka.Proton.RejectEnvironmentAccountConnection
+import Amazonka.Proton.TagResource
+import Amazonka.Proton.Types.AccountSettings
+import Amazonka.Proton.Types.CompatibleEnvironmentTemplate
+import Amazonka.Proton.Types.CompatibleEnvironmentTemplateInput
+import Amazonka.Proton.Types.Environment
+import Amazonka.Proton.Types.EnvironmentAccountConnection
+import Amazonka.Proton.Types.EnvironmentAccountConnectionSummary
+import Amazonka.Proton.Types.EnvironmentSummary
+import Amazonka.Proton.Types.EnvironmentTemplate
+import Amazonka.Proton.Types.EnvironmentTemplateFilter
+import Amazonka.Proton.Types.EnvironmentTemplateSummary
+import Amazonka.Proton.Types.EnvironmentTemplateVersion
+import Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+import Amazonka.Proton.Types.S3ObjectSource
+import Amazonka.Proton.Types.Service
+import Amazonka.Proton.Types.ServiceInstance
+import Amazonka.Proton.Types.ServiceInstanceSummary
+import Amazonka.Proton.Types.ServicePipeline
+import Amazonka.Proton.Types.ServiceSummary
+import Amazonka.Proton.Types.ServiceTemplate
+import Amazonka.Proton.Types.ServiceTemplateSummary
+import Amazonka.Proton.Types.ServiceTemplateVersion
+import Amazonka.Proton.Types.ServiceTemplateVersionSummary
+import Amazonka.Proton.Types.Tag
+import Amazonka.Proton.Types.TemplateVersionSourceInput
+import Amazonka.Proton.UntagResource
+import Amazonka.Proton.UpdateAccountSettings
+import Amazonka.Proton.UpdateEnvironment
+import Amazonka.Proton.UpdateEnvironmentAccountConnection
+import Amazonka.Proton.UpdateEnvironmentTemplate
+import Amazonka.Proton.UpdateEnvironmentTemplateVersion
+import Amazonka.Proton.UpdateService
+import Amazonka.Proton.UpdateServiceInstance
+import Amazonka.Proton.UpdateServicePipeline
+import Amazonka.Proton.UpdateServiceTemplate
+import Amazonka.Proton.UpdateServiceTemplateVersion

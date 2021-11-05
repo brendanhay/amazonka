@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Proton.Types
+-- Module      : Amazonka.Proton.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Proton.Types
+module Amazonka.Proton.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -338,41 +338,41 @@ module Network.AWS.Proton.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Proton.Types.AccountSettings
-import Network.AWS.Proton.Types.CompatibleEnvironmentTemplate
-import Network.AWS.Proton.Types.CompatibleEnvironmentTemplateInput
-import Network.AWS.Proton.Types.DeploymentStatus
-import Network.AWS.Proton.Types.DeploymentUpdateType
-import Network.AWS.Proton.Types.Environment
-import Network.AWS.Proton.Types.EnvironmentAccountConnection
-import Network.AWS.Proton.Types.EnvironmentAccountConnectionRequesterAccountType
-import Network.AWS.Proton.Types.EnvironmentAccountConnectionStatus
-import Network.AWS.Proton.Types.EnvironmentAccountConnectionSummary
-import Network.AWS.Proton.Types.EnvironmentSummary
-import Network.AWS.Proton.Types.EnvironmentTemplate
-import Network.AWS.Proton.Types.EnvironmentTemplateFilter
-import Network.AWS.Proton.Types.EnvironmentTemplateSummary
-import Network.AWS.Proton.Types.EnvironmentTemplateVersion
-import Network.AWS.Proton.Types.EnvironmentTemplateVersionSummary
-import Network.AWS.Proton.Types.Provisioning
-import Network.AWS.Proton.Types.S3ObjectSource
-import Network.AWS.Proton.Types.Service
-import Network.AWS.Proton.Types.ServiceInstance
-import Network.AWS.Proton.Types.ServiceInstanceSummary
-import Network.AWS.Proton.Types.ServicePipeline
-import Network.AWS.Proton.Types.ServiceStatus
-import Network.AWS.Proton.Types.ServiceSummary
-import Network.AWS.Proton.Types.ServiceTemplate
-import Network.AWS.Proton.Types.ServiceTemplateSummary
-import Network.AWS.Proton.Types.ServiceTemplateVersion
-import Network.AWS.Proton.Types.ServiceTemplateVersionSummary
-import Network.AWS.Proton.Types.Tag
-import Network.AWS.Proton.Types.TemplateVersionSourceInput
-import Network.AWS.Proton.Types.TemplateVersionStatus
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Proton.Types.AccountSettings
+import Amazonka.Proton.Types.CompatibleEnvironmentTemplate
+import Amazonka.Proton.Types.CompatibleEnvironmentTemplateInput
+import Amazonka.Proton.Types.DeploymentStatus
+import Amazonka.Proton.Types.DeploymentUpdateType
+import Amazonka.Proton.Types.Environment
+import Amazonka.Proton.Types.EnvironmentAccountConnection
+import Amazonka.Proton.Types.EnvironmentAccountConnectionRequesterAccountType
+import Amazonka.Proton.Types.EnvironmentAccountConnectionStatus
+import Amazonka.Proton.Types.EnvironmentAccountConnectionSummary
+import Amazonka.Proton.Types.EnvironmentSummary
+import Amazonka.Proton.Types.EnvironmentTemplate
+import Amazonka.Proton.Types.EnvironmentTemplateFilter
+import Amazonka.Proton.Types.EnvironmentTemplateSummary
+import Amazonka.Proton.Types.EnvironmentTemplateVersion
+import Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+import Amazonka.Proton.Types.Provisioning
+import Amazonka.Proton.Types.S3ObjectSource
+import Amazonka.Proton.Types.Service
+import Amazonka.Proton.Types.ServiceInstance
+import Amazonka.Proton.Types.ServiceInstanceSummary
+import Amazonka.Proton.Types.ServicePipeline
+import Amazonka.Proton.Types.ServiceStatus
+import Amazonka.Proton.Types.ServiceSummary
+import Amazonka.Proton.Types.ServiceTemplate
+import Amazonka.Proton.Types.ServiceTemplateSummary
+import Amazonka.Proton.Types.ServiceTemplateVersion
+import Amazonka.Proton.Types.ServiceTemplateVersionSummary
+import Amazonka.Proton.Types.Tag
+import Amazonka.Proton.Types.TemplateVersionSourceInput
+import Amazonka.Proton.Types.TemplateVersionStatus
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-07-20@ of the Amazon Proton SDK configuration.
 defaultService :: Core.Service

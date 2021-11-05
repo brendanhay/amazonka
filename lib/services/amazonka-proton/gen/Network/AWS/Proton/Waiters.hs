@@ -7,26 +7,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Proton.Waiters
+-- Module      : Amazonka.Proton.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Proton.Waiters where
+module Amazonka.Proton.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Proton.GetEnvironment
-import Network.AWS.Proton.GetEnvironmentTemplateVersion
-import Network.AWS.Proton.GetService
-import Network.AWS.Proton.GetServiceInstance
-import Network.AWS.Proton.GetServiceTemplateVersion
-import Network.AWS.Proton.Lens
-import Network.AWS.Proton.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Proton.GetEnvironment
+import Amazonka.Proton.GetEnvironmentTemplateVersion
+import Amazonka.Proton.GetService
+import Amazonka.Proton.GetServiceInstance
+import Amazonka.Proton.GetServiceTemplateVersion
+import Amazonka.Proton.Lens
+import Amazonka.Proton.Types
 
--- | Polls 'Network.AWS.Proton.GetEnvironment' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+-- | Polls 'Amazonka.Proton.GetEnvironment' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
 newEnvironmentDeployed :: Core.Wait GetEnvironment
 newEnvironmentDeployed =
   Core.Wait
@@ -51,7 +51,7 @@ newEnvironmentDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetServiceTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
+-- | Polls 'Amazonka.Proton.GetServiceTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
 newServiceTemplateVersionRegistered :: Core.Wait GetServiceTemplateVersion
 newServiceTemplateVersionRegistered =
   Core.Wait
@@ -84,7 +84,7 @@ newServiceTemplateVersionRegistered =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetEnvironmentTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
+-- | Polls 'Amazonka.Proton.GetEnvironmentTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
 newEnvironmentTemplateVersionRegistered :: Core.Wait GetEnvironmentTemplateVersion
 newEnvironmentTemplateVersionRegistered =
   Core.Wait
@@ -117,7 +117,7 @@ newEnvironmentTemplateVersionRegistered =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+-- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
 newServiceUpdated :: Core.Wait GetService
 newServiceUpdated =
   Core.Wait
@@ -163,7 +163,7 @@ newServiceUpdated =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+-- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
 newServiceDeleted :: Core.Wait GetService
 newServiceDeleted =
   Core.Wait
@@ -184,7 +184,7 @@ newServiceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetServiceInstance' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+-- | Polls 'Amazonka.Proton.GetServiceInstance' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
 newServiceInstanceDeployed :: Core.Wait GetServiceInstance
 newServiceInstanceDeployed =
   Core.Wait
@@ -210,7 +210,7 @@ newServiceInstanceDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetService' every 10 seconds until a successful state is reached. An error is returned after 360 failed checks.
+-- | Polls 'Amazonka.Proton.GetService' every 10 seconds until a successful state is reached. An error is returned after 360 failed checks.
 newServicePipelineDeployed :: Core.Wait GetService
 newServicePipelineDeployed =
   Core.Wait
@@ -240,7 +240,7 @@ newServicePipelineDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+-- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
 newServiceCreated :: Core.Wait GetService
 newServiceCreated =
   Core.Wait

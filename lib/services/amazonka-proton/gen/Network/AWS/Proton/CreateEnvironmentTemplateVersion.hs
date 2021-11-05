@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Proton.CreateEnvironmentTemplateVersion
+-- Module      : Amazonka.Proton.CreateEnvironmentTemplateVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- version of an environment template is a version that /isn\'t/ backwards
 -- compatible. A minor version of an environment template is a version
 -- that\'s backwards compatible within its major version.
-module Network.AWS.Proton.CreateEnvironmentTemplateVersion
+module Amazonka.Proton.CreateEnvironmentTemplateVersion
   ( -- * Creating a Request
     CreateEnvironmentTemplateVersion (..),
     newCreateEnvironmentTemplateVersion,
@@ -47,12 +47,12 @@ module Network.AWS.Proton.CreateEnvironmentTemplateVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Proton.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Proton.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentTemplateVersion' smart constructor.
 data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'

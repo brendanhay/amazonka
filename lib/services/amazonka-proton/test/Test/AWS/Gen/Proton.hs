@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Proton where
 
+import Amazonka.Proton
 import qualified Data.Proxy as Proxy
-import Network.AWS.Proton
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Proton.Internal

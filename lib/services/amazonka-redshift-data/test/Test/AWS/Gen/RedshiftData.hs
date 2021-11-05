@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RedshiftData where
 
+import Amazonka.RedshiftData
 import qualified Data.Proxy as Proxy
-import Network.AWS.RedshiftData
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.RedshiftData.Internal

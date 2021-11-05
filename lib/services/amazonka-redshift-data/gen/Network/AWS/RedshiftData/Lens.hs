@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RedshiftData.Lens
+-- Module      : Amazonka.RedshiftData.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RedshiftData.Lens
+module Amazonka.RedshiftData.Lens
   ( -- * Operations
 
     -- ** ListStatements
@@ -207,19 +207,19 @@ module Network.AWS.RedshiftData.Lens
   )
 where
 
-import Network.AWS.RedshiftData.BatchExecuteStatement
-import Network.AWS.RedshiftData.CancelStatement
-import Network.AWS.RedshiftData.DescribeStatement
-import Network.AWS.RedshiftData.DescribeTable
-import Network.AWS.RedshiftData.ExecuteStatement
-import Network.AWS.RedshiftData.GetStatementResult
-import Network.AWS.RedshiftData.ListDatabases
-import Network.AWS.RedshiftData.ListSchemas
-import Network.AWS.RedshiftData.ListStatements
-import Network.AWS.RedshiftData.ListTables
-import Network.AWS.RedshiftData.Types.ColumnMetadata
-import Network.AWS.RedshiftData.Types.Field
-import Network.AWS.RedshiftData.Types.SqlParameter
-import Network.AWS.RedshiftData.Types.StatementData
-import Network.AWS.RedshiftData.Types.SubStatementData
-import Network.AWS.RedshiftData.Types.TableMember
+import Amazonka.RedshiftData.BatchExecuteStatement
+import Amazonka.RedshiftData.CancelStatement
+import Amazonka.RedshiftData.DescribeStatement
+import Amazonka.RedshiftData.DescribeTable
+import Amazonka.RedshiftData.ExecuteStatement
+import Amazonka.RedshiftData.GetStatementResult
+import Amazonka.RedshiftData.ListDatabases
+import Amazonka.RedshiftData.ListSchemas
+import Amazonka.RedshiftData.ListStatements
+import Amazonka.RedshiftData.ListTables
+import Amazonka.RedshiftData.Types.ColumnMetadata
+import Amazonka.RedshiftData.Types.Field
+import Amazonka.RedshiftData.Types.SqlParameter
+import Amazonka.RedshiftData.Types.StatementData
+import Amazonka.RedshiftData.Types.SubStatementData
+import Amazonka.RedshiftData.Types.TableMember

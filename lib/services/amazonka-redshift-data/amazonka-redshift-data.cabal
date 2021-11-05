@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.RedshiftData.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.RedshiftData.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.RedshiftData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.RedshiftData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,30 +45,30 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.RedshiftData
-    Network.AWS.RedshiftData.BatchExecuteStatement
-    Network.AWS.RedshiftData.CancelStatement
-    Network.AWS.RedshiftData.DescribeStatement
-    Network.AWS.RedshiftData.DescribeTable
-    Network.AWS.RedshiftData.ExecuteStatement
-    Network.AWS.RedshiftData.GetStatementResult
-    Network.AWS.RedshiftData.Lens
-    Network.AWS.RedshiftData.ListDatabases
-    Network.AWS.RedshiftData.ListSchemas
-    Network.AWS.RedshiftData.ListStatements
-    Network.AWS.RedshiftData.ListTables
-    Network.AWS.RedshiftData.Types
-    Network.AWS.RedshiftData.Types.ColumnMetadata
-    Network.AWS.RedshiftData.Types.Field
-    Network.AWS.RedshiftData.Types.SqlParameter
-    Network.AWS.RedshiftData.Types.StatementData
-    Network.AWS.RedshiftData.Types.StatementStatusString
-    Network.AWS.RedshiftData.Types.StatusString
-    Network.AWS.RedshiftData.Types.SubStatementData
-    Network.AWS.RedshiftData.Types.TableMember
-    Network.AWS.RedshiftData.Waiters
+    Amazonka.RedshiftData
+    Amazonka.RedshiftData.BatchExecuteStatement
+    Amazonka.RedshiftData.CancelStatement
+    Amazonka.RedshiftData.DescribeStatement
+    Amazonka.RedshiftData.DescribeTable
+    Amazonka.RedshiftData.ExecuteStatement
+    Amazonka.RedshiftData.GetStatementResult
+    Amazonka.RedshiftData.Lens
+    Amazonka.RedshiftData.ListDatabases
+    Amazonka.RedshiftData.ListSchemas
+    Amazonka.RedshiftData.ListStatements
+    Amazonka.RedshiftData.ListTables
+    Amazonka.RedshiftData.Types
+    Amazonka.RedshiftData.Types.ColumnMetadata
+    Amazonka.RedshiftData.Types.Field
+    Amazonka.RedshiftData.Types.SqlParameter
+    Amazonka.RedshiftData.Types.StatementData
+    Amazonka.RedshiftData.Types.StatementStatusString
+    Amazonka.RedshiftData.Types.StatusString
+    Amazonka.RedshiftData.Types.SubStatementData
+    Amazonka.RedshiftData.Types.TableMember
+    Amazonka.RedshiftData.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

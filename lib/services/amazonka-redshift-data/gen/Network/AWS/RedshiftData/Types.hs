@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RedshiftData.Types
+-- Module      : Amazonka.RedshiftData.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RedshiftData.Types
+module Amazonka.RedshiftData.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -101,18 +101,18 @@ module Network.AWS.RedshiftData.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RedshiftData.Types.ColumnMetadata
-import Network.AWS.RedshiftData.Types.Field
-import Network.AWS.RedshiftData.Types.SqlParameter
-import Network.AWS.RedshiftData.Types.StatementData
-import Network.AWS.RedshiftData.Types.StatementStatusString
-import Network.AWS.RedshiftData.Types.StatusString
-import Network.AWS.RedshiftData.Types.SubStatementData
-import Network.AWS.RedshiftData.Types.TableMember
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RedshiftData.Types.ColumnMetadata
+import Amazonka.RedshiftData.Types.Field
+import Amazonka.RedshiftData.Types.SqlParameter
+import Amazonka.RedshiftData.Types.StatementData
+import Amazonka.RedshiftData.Types.StatementStatusString
+import Amazonka.RedshiftData.Types.StatusString
+import Amazonka.RedshiftData.Types.SubStatementData
+import Amazonka.RedshiftData.Types.TableMember
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-20@ of the Amazon Redshift Data API Service SDK configuration.
 defaultService :: Core.Service

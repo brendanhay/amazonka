@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.RedshiftData
+-- Module      : Amazonka.RedshiftData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- For more information about the Amazon Redshift Data API, see
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html Using the Amazon Redshift Data API>
 -- in the /Amazon Redshift Cluster Management Guide/.
-module Network.AWS.RedshiftData
+module Amazonka.RedshiftData
   ( -- * Service Configuration
     defaultService,
 
@@ -143,19 +143,19 @@ module Network.AWS.RedshiftData
   )
 where
 
-import Network.AWS.RedshiftData.BatchExecuteStatement
-import Network.AWS.RedshiftData.CancelStatement
-import Network.AWS.RedshiftData.DescribeStatement
-import Network.AWS.RedshiftData.DescribeTable
-import Network.AWS.RedshiftData.ExecuteStatement
-import Network.AWS.RedshiftData.GetStatementResult
-import Network.AWS.RedshiftData.Lens
-import Network.AWS.RedshiftData.ListDatabases
-import Network.AWS.RedshiftData.ListSchemas
-import Network.AWS.RedshiftData.ListStatements
-import Network.AWS.RedshiftData.ListTables
-import Network.AWS.RedshiftData.Types
-import Network.AWS.RedshiftData.Waiters
+import Amazonka.RedshiftData.BatchExecuteStatement
+import Amazonka.RedshiftData.CancelStatement
+import Amazonka.RedshiftData.DescribeStatement
+import Amazonka.RedshiftData.DescribeTable
+import Amazonka.RedshiftData.ExecuteStatement
+import Amazonka.RedshiftData.GetStatementResult
+import Amazonka.RedshiftData.Lens
+import Amazonka.RedshiftData.ListDatabases
+import Amazonka.RedshiftData.ListSchemas
+import Amazonka.RedshiftData.ListStatements
+import Amazonka.RedshiftData.ListTables
+import Amazonka.RedshiftData.Types
+import Amazonka.RedshiftData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

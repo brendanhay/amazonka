@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.Types
+-- Module      : Amazonka.Greengrass.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types
+module Amazonka.Greengrass.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -369,67 +369,67 @@ module Network.AWS.Greengrass.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types.BulkDeployment
-import Network.AWS.Greengrass.Types.BulkDeploymentMetrics
-import Network.AWS.Greengrass.Types.BulkDeploymentResult
-import Network.AWS.Greengrass.Types.BulkDeploymentStatus
-import Network.AWS.Greengrass.Types.ConfigurationSyncStatus
-import Network.AWS.Greengrass.Types.ConnectivityInfo
-import Network.AWS.Greengrass.Types.Connector
-import Network.AWS.Greengrass.Types.ConnectorDefinitionVersion
-import Network.AWS.Greengrass.Types.Core
-import Network.AWS.Greengrass.Types.CoreDefinitionVersion
-import Network.AWS.Greengrass.Types.DefinitionInformation
-import Network.AWS.Greengrass.Types.Deployment
-import Network.AWS.Greengrass.Types.DeploymentType
-import Network.AWS.Greengrass.Types.Device
-import Network.AWS.Greengrass.Types.DeviceDefinitionVersion
-import Network.AWS.Greengrass.Types.EncodingType
-import Network.AWS.Greengrass.Types.ErrorDetail
-import Network.AWS.Greengrass.Types.Function
-import Network.AWS.Greengrass.Types.FunctionConfiguration
-import Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment
-import Network.AWS.Greengrass.Types.FunctionDefaultConfig
-import Network.AWS.Greengrass.Types.FunctionDefaultExecutionConfig
-import Network.AWS.Greengrass.Types.FunctionDefinitionVersion
-import Network.AWS.Greengrass.Types.FunctionExecutionConfig
-import Network.AWS.Greengrass.Types.FunctionIsolationMode
-import Network.AWS.Greengrass.Types.FunctionRunAsConfig
-import Network.AWS.Greengrass.Types.GreengrassLogger
-import Network.AWS.Greengrass.Types.GroupCertificateAuthorityProperties
-import Network.AWS.Greengrass.Types.GroupInformation
-import Network.AWS.Greengrass.Types.GroupOwnerSetting
-import Network.AWS.Greengrass.Types.GroupVersion
-import Network.AWS.Greengrass.Types.LocalDeviceResourceData
-import Network.AWS.Greengrass.Types.LocalVolumeResourceData
-import Network.AWS.Greengrass.Types.LoggerComponent
-import Network.AWS.Greengrass.Types.LoggerDefinitionVersion
-import Network.AWS.Greengrass.Types.LoggerLevel
-import Network.AWS.Greengrass.Types.LoggerType
-import Network.AWS.Greengrass.Types.Permission
-import Network.AWS.Greengrass.Types.Resource
-import Network.AWS.Greengrass.Types.ResourceAccessPolicy
-import Network.AWS.Greengrass.Types.ResourceDataContainer
-import Network.AWS.Greengrass.Types.ResourceDefinitionVersion
-import Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
-import Network.AWS.Greengrass.Types.RuntimeConfiguration
-import Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData
-import Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData
-import Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData
-import Network.AWS.Greengrass.Types.SoftwareToUpdate
-import Network.AWS.Greengrass.Types.Subscription
-import Network.AWS.Greengrass.Types.SubscriptionDefinitionVersion
-import Network.AWS.Greengrass.Types.Telemetry
-import Network.AWS.Greengrass.Types.TelemetryConfiguration
-import Network.AWS.Greengrass.Types.TelemetryConfigurationUpdate
-import Network.AWS.Greengrass.Types.UpdateAgentLogLevel
-import Network.AWS.Greengrass.Types.UpdateTargetsArchitecture
-import Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem
-import Network.AWS.Greengrass.Types.VersionInformation
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types.BulkDeployment
+import Amazonka.Greengrass.Types.BulkDeploymentMetrics
+import Amazonka.Greengrass.Types.BulkDeploymentResult
+import Amazonka.Greengrass.Types.BulkDeploymentStatus
+import Amazonka.Greengrass.Types.ConfigurationSyncStatus
+import Amazonka.Greengrass.Types.ConnectivityInfo
+import Amazonka.Greengrass.Types.Connector
+import Amazonka.Greengrass.Types.ConnectorDefinitionVersion
+import Amazonka.Greengrass.Types.Core
+import Amazonka.Greengrass.Types.CoreDefinitionVersion
+import Amazonka.Greengrass.Types.DefinitionInformation
+import Amazonka.Greengrass.Types.Deployment
+import Amazonka.Greengrass.Types.DeploymentType
+import Amazonka.Greengrass.Types.Device
+import Amazonka.Greengrass.Types.DeviceDefinitionVersion
+import Amazonka.Greengrass.Types.EncodingType
+import Amazonka.Greengrass.Types.ErrorDetail
+import Amazonka.Greengrass.Types.Function
+import Amazonka.Greengrass.Types.FunctionConfiguration
+import Amazonka.Greengrass.Types.FunctionConfigurationEnvironment
+import Amazonka.Greengrass.Types.FunctionDefaultConfig
+import Amazonka.Greengrass.Types.FunctionDefaultExecutionConfig
+import Amazonka.Greengrass.Types.FunctionDefinitionVersion
+import Amazonka.Greengrass.Types.FunctionExecutionConfig
+import Amazonka.Greengrass.Types.FunctionIsolationMode
+import Amazonka.Greengrass.Types.FunctionRunAsConfig
+import Amazonka.Greengrass.Types.GreengrassLogger
+import Amazonka.Greengrass.Types.GroupCertificateAuthorityProperties
+import Amazonka.Greengrass.Types.GroupInformation
+import Amazonka.Greengrass.Types.GroupOwnerSetting
+import Amazonka.Greengrass.Types.GroupVersion
+import Amazonka.Greengrass.Types.LocalDeviceResourceData
+import Amazonka.Greengrass.Types.LocalVolumeResourceData
+import Amazonka.Greengrass.Types.LoggerComponent
+import Amazonka.Greengrass.Types.LoggerDefinitionVersion
+import Amazonka.Greengrass.Types.LoggerLevel
+import Amazonka.Greengrass.Types.LoggerType
+import Amazonka.Greengrass.Types.Permission
+import Amazonka.Greengrass.Types.Resource
+import Amazonka.Greengrass.Types.ResourceAccessPolicy
+import Amazonka.Greengrass.Types.ResourceDataContainer
+import Amazonka.Greengrass.Types.ResourceDefinitionVersion
+import Amazonka.Greengrass.Types.ResourceDownloadOwnerSetting
+import Amazonka.Greengrass.Types.RuntimeConfiguration
+import Amazonka.Greengrass.Types.S3MachineLearningModelResourceData
+import Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData
+import Amazonka.Greengrass.Types.SecretsManagerSecretResourceData
+import Amazonka.Greengrass.Types.SoftwareToUpdate
+import Amazonka.Greengrass.Types.Subscription
+import Amazonka.Greengrass.Types.SubscriptionDefinitionVersion
+import Amazonka.Greengrass.Types.Telemetry
+import Amazonka.Greengrass.Types.TelemetryConfiguration
+import Amazonka.Greengrass.Types.TelemetryConfigurationUpdate
+import Amazonka.Greengrass.Types.UpdateAgentLogLevel
+import Amazonka.Greengrass.Types.UpdateTargetsArchitecture
+import Amazonka.Greengrass.Types.UpdateTargetsOperatingSystem
+import Amazonka.Greengrass.Types.VersionInformation
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-06-07@ of the Amazon Greengrass SDK configuration.
 defaultService :: Core.Service

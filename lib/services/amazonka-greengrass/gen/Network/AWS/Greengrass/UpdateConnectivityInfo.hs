@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.UpdateConnectivityInfo
+-- Module      : Amazonka.Greengrass.UpdateConnectivityInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Updates the connectivity information for the core. Any devices that
 -- belong to the group which has this core will receive this information in
 -- order to find the location of the core and connect to it.
-module Network.AWS.Greengrass.UpdateConnectivityInfo
+module Amazonka.Greengrass.UpdateConnectivityInfo
   ( -- * Creating a Request
     UpdateConnectivityInfo (..),
     newUpdateConnectivityInfo,
@@ -43,12 +43,12 @@ module Network.AWS.Greengrass.UpdateConnectivityInfo
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Connectivity information.
 --

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Greengrass where
 
+import Amazonka.Greengrass
 import qualified Data.Proxy as Proxy
-import Network.AWS.Greengrass
 import Test.AWS.Fixture
 import Test.AWS.Greengrass.Internal
 import Test.AWS.Prelude

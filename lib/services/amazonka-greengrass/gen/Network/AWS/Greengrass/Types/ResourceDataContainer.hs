@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.Types.ResourceDataContainer
+-- Module      : Amazonka.Greengrass.Types.ResourceDataContainer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ResourceDataContainer where
+module Amazonka.Greengrass.Types.ResourceDataContainer where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types.LocalDeviceResourceData
-import Network.AWS.Greengrass.Types.LocalVolumeResourceData
-import Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData
-import Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData
-import Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types.LocalDeviceResourceData
+import Amazonka.Greengrass.Types.LocalVolumeResourceData
+import Amazonka.Greengrass.Types.S3MachineLearningModelResourceData
+import Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData
+import Amazonka.Greengrass.Types.SecretsManagerSecretResourceData
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A container for resource data. The container takes only one of the
 -- following supported resource data types:

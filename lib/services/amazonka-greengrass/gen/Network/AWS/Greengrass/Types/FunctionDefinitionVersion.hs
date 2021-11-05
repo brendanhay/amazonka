@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.Types.FunctionDefinitionVersion
+-- Module      : Amazonka.Greengrass.Types.FunctionDefinitionVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.FunctionDefinitionVersion where
+module Amazonka.Greengrass.Types.FunctionDefinitionVersion where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types.Function
-import Network.AWS.Greengrass.Types.FunctionDefaultConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types.Function
+import Amazonka.Greengrass.Types.FunctionDefaultConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a function definition version.
 --

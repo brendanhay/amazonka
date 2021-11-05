@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.Types.TelemetryConfiguration
+-- Module      : Amazonka.Greengrass.Types.TelemetryConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.TelemetryConfiguration where
+module Amazonka.Greengrass.Types.TelemetryConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types.ConfigurationSyncStatus
-import Network.AWS.Greengrass.Types.Telemetry
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types.ConfigurationSyncStatus
+import Amazonka.Greengrass.Types.Telemetry
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for running telemetry.
 --

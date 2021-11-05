@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.GetFunctionDefinition
+-- Module      : Amazonka.Greengrass.GetFunctionDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Retrieves information about a Lambda function definition, including its
 -- creation time and latest version.
-module Network.AWS.Greengrass.GetFunctionDefinition
+module Amazonka.Greengrass.GetFunctionDefinition
   ( -- * Creating a Request
     GetFunctionDefinition (..),
     newGetFunctionDefinition,
@@ -47,12 +47,12 @@ module Network.AWS.Greengrass.GetFunctionDefinition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFunctionDefinition' smart constructor.
 data GetFunctionDefinition = GetFunctionDefinition'

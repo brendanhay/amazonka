@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.StopBulkDeployment
+-- Module      : Amazonka.Greengrass.StopBulkDeployment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- new bulk deployment while a previous deployment is in the
 -- \'\'Stopping\'\' state. This action doesn\'t rollback completed
 -- deployments or cancel pending deployments.
-module Network.AWS.Greengrass.StopBulkDeployment
+module Amazonka.Greengrass.StopBulkDeployment
   ( -- * Creating a Request
     StopBulkDeployment (..),
     newStopBulkDeployment,
@@ -42,12 +42,12 @@ module Network.AWS.Greengrass.StopBulkDeployment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopBulkDeployment' smart constructor.
 data StopBulkDeployment = StopBulkDeployment'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Greengrass
+-- Module      : Amazonka.Greengrass
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- with intermittent connectivity. AWS IoT Greengrass minimizes the cost of
 -- transmitting data to the cloud by allowing you to author AWS Lambda
 -- functions that execute locally.
-module Network.AWS.Greengrass
+module Amazonka.Greengrass
   ( -- * Service Configuration
     defaultService,
 
@@ -807,101 +807,101 @@ module Network.AWS.Greengrass
   )
 where
 
-import Network.AWS.Greengrass.AssociateRoleToGroup
-import Network.AWS.Greengrass.AssociateServiceRoleToAccount
-import Network.AWS.Greengrass.CreateConnectorDefinition
-import Network.AWS.Greengrass.CreateConnectorDefinitionVersion
-import Network.AWS.Greengrass.CreateCoreDefinition
-import Network.AWS.Greengrass.CreateCoreDefinitionVersion
-import Network.AWS.Greengrass.CreateDeployment
-import Network.AWS.Greengrass.CreateDeviceDefinition
-import Network.AWS.Greengrass.CreateDeviceDefinitionVersion
-import Network.AWS.Greengrass.CreateFunctionDefinition
-import Network.AWS.Greengrass.CreateFunctionDefinitionVersion
-import Network.AWS.Greengrass.CreateGroup
-import Network.AWS.Greengrass.CreateGroupCertificateAuthority
-import Network.AWS.Greengrass.CreateGroupVersion
-import Network.AWS.Greengrass.CreateLoggerDefinition
-import Network.AWS.Greengrass.CreateLoggerDefinitionVersion
-import Network.AWS.Greengrass.CreateResourceDefinition
-import Network.AWS.Greengrass.CreateResourceDefinitionVersion
-import Network.AWS.Greengrass.CreateSoftwareUpdateJob
-import Network.AWS.Greengrass.CreateSubscriptionDefinition
-import Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
-import Network.AWS.Greengrass.DeleteConnectorDefinition
-import Network.AWS.Greengrass.DeleteCoreDefinition
-import Network.AWS.Greengrass.DeleteDeviceDefinition
-import Network.AWS.Greengrass.DeleteFunctionDefinition
-import Network.AWS.Greengrass.DeleteGroup
-import Network.AWS.Greengrass.DeleteLoggerDefinition
-import Network.AWS.Greengrass.DeleteResourceDefinition
-import Network.AWS.Greengrass.DeleteSubscriptionDefinition
-import Network.AWS.Greengrass.DisassociateRoleFromGroup
-import Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
-import Network.AWS.Greengrass.GetAssociatedRole
-import Network.AWS.Greengrass.GetBulkDeploymentStatus
-import Network.AWS.Greengrass.GetConnectivityInfo
-import Network.AWS.Greengrass.GetConnectorDefinition
-import Network.AWS.Greengrass.GetConnectorDefinitionVersion
-import Network.AWS.Greengrass.GetCoreDefinition
-import Network.AWS.Greengrass.GetCoreDefinitionVersion
-import Network.AWS.Greengrass.GetDeploymentStatus
-import Network.AWS.Greengrass.GetDeviceDefinition
-import Network.AWS.Greengrass.GetDeviceDefinitionVersion
-import Network.AWS.Greengrass.GetFunctionDefinition
-import Network.AWS.Greengrass.GetFunctionDefinitionVersion
-import Network.AWS.Greengrass.GetGroup
-import Network.AWS.Greengrass.GetGroupCertificateAuthority
-import Network.AWS.Greengrass.GetGroupCertificateConfiguration
-import Network.AWS.Greengrass.GetGroupVersion
-import Network.AWS.Greengrass.GetLoggerDefinition
-import Network.AWS.Greengrass.GetLoggerDefinitionVersion
-import Network.AWS.Greengrass.GetResourceDefinition
-import Network.AWS.Greengrass.GetResourceDefinitionVersion
-import Network.AWS.Greengrass.GetServiceRoleForAccount
-import Network.AWS.Greengrass.GetSubscriptionDefinition
-import Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
-import Network.AWS.Greengrass.GetThingRuntimeConfiguration
-import Network.AWS.Greengrass.Lens
-import Network.AWS.Greengrass.ListBulkDeploymentDetailedReports
-import Network.AWS.Greengrass.ListBulkDeployments
-import Network.AWS.Greengrass.ListConnectorDefinitionVersions
-import Network.AWS.Greengrass.ListConnectorDefinitions
-import Network.AWS.Greengrass.ListCoreDefinitionVersions
-import Network.AWS.Greengrass.ListCoreDefinitions
-import Network.AWS.Greengrass.ListDeployments
-import Network.AWS.Greengrass.ListDeviceDefinitionVersions
-import Network.AWS.Greengrass.ListDeviceDefinitions
-import Network.AWS.Greengrass.ListFunctionDefinitionVersions
-import Network.AWS.Greengrass.ListFunctionDefinitions
-import Network.AWS.Greengrass.ListGroupCertificateAuthorities
-import Network.AWS.Greengrass.ListGroupVersions
-import Network.AWS.Greengrass.ListGroups
-import Network.AWS.Greengrass.ListLoggerDefinitionVersions
-import Network.AWS.Greengrass.ListLoggerDefinitions
-import Network.AWS.Greengrass.ListResourceDefinitionVersions
-import Network.AWS.Greengrass.ListResourceDefinitions
-import Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
-import Network.AWS.Greengrass.ListSubscriptionDefinitions
-import Network.AWS.Greengrass.ListTagsForResource
-import Network.AWS.Greengrass.ResetDeployments
-import Network.AWS.Greengrass.StartBulkDeployment
-import Network.AWS.Greengrass.StopBulkDeployment
-import Network.AWS.Greengrass.TagResource
-import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.UntagResource
-import Network.AWS.Greengrass.UpdateConnectivityInfo
-import Network.AWS.Greengrass.UpdateConnectorDefinition
-import Network.AWS.Greengrass.UpdateCoreDefinition
-import Network.AWS.Greengrass.UpdateDeviceDefinition
-import Network.AWS.Greengrass.UpdateFunctionDefinition
-import Network.AWS.Greengrass.UpdateGroup
-import Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
-import Network.AWS.Greengrass.UpdateLoggerDefinition
-import Network.AWS.Greengrass.UpdateResourceDefinition
-import Network.AWS.Greengrass.UpdateSubscriptionDefinition
-import Network.AWS.Greengrass.UpdateThingRuntimeConfiguration
-import Network.AWS.Greengrass.Waiters
+import Amazonka.Greengrass.AssociateRoleToGroup
+import Amazonka.Greengrass.AssociateServiceRoleToAccount
+import Amazonka.Greengrass.CreateConnectorDefinition
+import Amazonka.Greengrass.CreateConnectorDefinitionVersion
+import Amazonka.Greengrass.CreateCoreDefinition
+import Amazonka.Greengrass.CreateCoreDefinitionVersion
+import Amazonka.Greengrass.CreateDeployment
+import Amazonka.Greengrass.CreateDeviceDefinition
+import Amazonka.Greengrass.CreateDeviceDefinitionVersion
+import Amazonka.Greengrass.CreateFunctionDefinition
+import Amazonka.Greengrass.CreateFunctionDefinitionVersion
+import Amazonka.Greengrass.CreateGroup
+import Amazonka.Greengrass.CreateGroupCertificateAuthority
+import Amazonka.Greengrass.CreateGroupVersion
+import Amazonka.Greengrass.CreateLoggerDefinition
+import Amazonka.Greengrass.CreateLoggerDefinitionVersion
+import Amazonka.Greengrass.CreateResourceDefinition
+import Amazonka.Greengrass.CreateResourceDefinitionVersion
+import Amazonka.Greengrass.CreateSoftwareUpdateJob
+import Amazonka.Greengrass.CreateSubscriptionDefinition
+import Amazonka.Greengrass.CreateSubscriptionDefinitionVersion
+import Amazonka.Greengrass.DeleteConnectorDefinition
+import Amazonka.Greengrass.DeleteCoreDefinition
+import Amazonka.Greengrass.DeleteDeviceDefinition
+import Amazonka.Greengrass.DeleteFunctionDefinition
+import Amazonka.Greengrass.DeleteGroup
+import Amazonka.Greengrass.DeleteLoggerDefinition
+import Amazonka.Greengrass.DeleteResourceDefinition
+import Amazonka.Greengrass.DeleteSubscriptionDefinition
+import Amazonka.Greengrass.DisassociateRoleFromGroup
+import Amazonka.Greengrass.DisassociateServiceRoleFromAccount
+import Amazonka.Greengrass.GetAssociatedRole
+import Amazonka.Greengrass.GetBulkDeploymentStatus
+import Amazonka.Greengrass.GetConnectivityInfo
+import Amazonka.Greengrass.GetConnectorDefinition
+import Amazonka.Greengrass.GetConnectorDefinitionVersion
+import Amazonka.Greengrass.GetCoreDefinition
+import Amazonka.Greengrass.GetCoreDefinitionVersion
+import Amazonka.Greengrass.GetDeploymentStatus
+import Amazonka.Greengrass.GetDeviceDefinition
+import Amazonka.Greengrass.GetDeviceDefinitionVersion
+import Amazonka.Greengrass.GetFunctionDefinition
+import Amazonka.Greengrass.GetFunctionDefinitionVersion
+import Amazonka.Greengrass.GetGroup
+import Amazonka.Greengrass.GetGroupCertificateAuthority
+import Amazonka.Greengrass.GetGroupCertificateConfiguration
+import Amazonka.Greengrass.GetGroupVersion
+import Amazonka.Greengrass.GetLoggerDefinition
+import Amazonka.Greengrass.GetLoggerDefinitionVersion
+import Amazonka.Greengrass.GetResourceDefinition
+import Amazonka.Greengrass.GetResourceDefinitionVersion
+import Amazonka.Greengrass.GetServiceRoleForAccount
+import Amazonka.Greengrass.GetSubscriptionDefinition
+import Amazonka.Greengrass.GetSubscriptionDefinitionVersion
+import Amazonka.Greengrass.GetThingRuntimeConfiguration
+import Amazonka.Greengrass.Lens
+import Amazonka.Greengrass.ListBulkDeploymentDetailedReports
+import Amazonka.Greengrass.ListBulkDeployments
+import Amazonka.Greengrass.ListConnectorDefinitionVersions
+import Amazonka.Greengrass.ListConnectorDefinitions
+import Amazonka.Greengrass.ListCoreDefinitionVersions
+import Amazonka.Greengrass.ListCoreDefinitions
+import Amazonka.Greengrass.ListDeployments
+import Amazonka.Greengrass.ListDeviceDefinitionVersions
+import Amazonka.Greengrass.ListDeviceDefinitions
+import Amazonka.Greengrass.ListFunctionDefinitionVersions
+import Amazonka.Greengrass.ListFunctionDefinitions
+import Amazonka.Greengrass.ListGroupCertificateAuthorities
+import Amazonka.Greengrass.ListGroupVersions
+import Amazonka.Greengrass.ListGroups
+import Amazonka.Greengrass.ListLoggerDefinitionVersions
+import Amazonka.Greengrass.ListLoggerDefinitions
+import Amazonka.Greengrass.ListResourceDefinitionVersions
+import Amazonka.Greengrass.ListResourceDefinitions
+import Amazonka.Greengrass.ListSubscriptionDefinitionVersions
+import Amazonka.Greengrass.ListSubscriptionDefinitions
+import Amazonka.Greengrass.ListTagsForResource
+import Amazonka.Greengrass.ResetDeployments
+import Amazonka.Greengrass.StartBulkDeployment
+import Amazonka.Greengrass.StopBulkDeployment
+import Amazonka.Greengrass.TagResource
+import Amazonka.Greengrass.Types
+import Amazonka.Greengrass.UntagResource
+import Amazonka.Greengrass.UpdateConnectivityInfo
+import Amazonka.Greengrass.UpdateConnectorDefinition
+import Amazonka.Greengrass.UpdateCoreDefinition
+import Amazonka.Greengrass.UpdateDeviceDefinition
+import Amazonka.Greengrass.UpdateFunctionDefinition
+import Amazonka.Greengrass.UpdateGroup
+import Amazonka.Greengrass.UpdateGroupCertificateConfiguration
+import Amazonka.Greengrass.UpdateLoggerDefinition
+import Amazonka.Greengrass.UpdateResourceDefinition
+import Amazonka.Greengrass.UpdateSubscriptionDefinition
+import Amazonka.Greengrass.UpdateThingRuntimeConfiguration
+import Amazonka.Greengrass.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.CreateCoreDefinitionVersion
+-- Module      : Amazonka.Greengrass.CreateCoreDefinitionVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a version of a core definition that has already been defined.
 -- Greengrass groups must each contain exactly one Greengrass core.
-module Network.AWS.Greengrass.CreateCoreDefinitionVersion
+module Amazonka.Greengrass.CreateCoreDefinitionVersion
   ( -- * Creating a Request
     CreateCoreDefinitionVersion (..),
     newCreateCoreDefinitionVersion,
@@ -45,12 +45,12 @@ module Network.AWS.Greengrass.CreateCoreDefinitionVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCoreDefinitionVersion' smart constructor.
 data CreateCoreDefinitionVersion = CreateCoreDefinitionVersion'

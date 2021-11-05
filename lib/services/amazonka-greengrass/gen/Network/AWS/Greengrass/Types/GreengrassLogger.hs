@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.Types.GreengrassLogger
+-- Module      : Amazonka.Greengrass.Types.GreengrassLogger
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.GreengrassLogger where
+module Amazonka.Greengrass.Types.GreengrassLogger where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types.LoggerComponent
-import Network.AWS.Greengrass.Types.LoggerLevel
-import Network.AWS.Greengrass.Types.LoggerType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types.LoggerComponent
+import Amazonka.Greengrass.Types.LoggerLevel
+import Amazonka.Greengrass.Types.LoggerType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a logger
 --

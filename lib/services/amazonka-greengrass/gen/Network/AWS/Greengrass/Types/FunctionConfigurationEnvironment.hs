@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment
+-- Module      : Amazonka.Greengrass.Types.FunctionConfigurationEnvironment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment where
+module Amazonka.Greengrass.Types.FunctionConfigurationEnvironment where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Greengrass.Types.FunctionExecutionConfig
-import Network.AWS.Greengrass.Types.ResourceAccessPolicy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Greengrass.Types.FunctionExecutionConfig
+import Amazonka.Greengrass.Types.ResourceAccessPolicy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The environment configuration of the function.
 --

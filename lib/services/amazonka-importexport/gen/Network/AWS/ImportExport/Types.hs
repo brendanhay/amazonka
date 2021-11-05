@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImportExport.Types
+-- Module      : Amazonka.ImportExport.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImportExport.Types
+module Amazonka.ImportExport.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -57,13 +57,13 @@ module Network.AWS.ImportExport.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImportExport.Types.Artifact
-import Network.AWS.ImportExport.Types.Job
-import Network.AWS.ImportExport.Types.JobType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V2 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ImportExport.Types.Artifact
+import Amazonka.ImportExport.Types.Job
+import Amazonka.ImportExport.Types.JobType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V2 as Sign
 
 -- | API version @2010-06-01@ of the Amazon Import/Export SDK configuration.
 defaultService :: Core.Service

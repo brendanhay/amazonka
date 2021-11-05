@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImportExport.Lens
+-- Module      : Amazonka.ImportExport.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImportExport.Lens
+module Amazonka.ImportExport.Lens
   ( -- * Operations
 
     -- ** GetShippingLabel
@@ -105,11 +105,11 @@ module Network.AWS.ImportExport.Lens
   )
 where
 
-import Network.AWS.ImportExport.CancelJob
-import Network.AWS.ImportExport.CreateJob
-import Network.AWS.ImportExport.GetShippingLabel
-import Network.AWS.ImportExport.GetStatus
-import Network.AWS.ImportExport.ListJobs
-import Network.AWS.ImportExport.Types.Artifact
-import Network.AWS.ImportExport.Types.Job
-import Network.AWS.ImportExport.UpdateJob
+import Amazonka.ImportExport.CancelJob
+import Amazonka.ImportExport.CreateJob
+import Amazonka.ImportExport.GetShippingLabel
+import Amazonka.ImportExport.GetStatus
+import Amazonka.ImportExport.ListJobs
+import Amazonka.ImportExport.Types.Artifact
+import Amazonka.ImportExport.Types.Job
+import Amazonka.ImportExport.UpdateJob

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImportExport.UpdateJob
+-- Module      : Amazonka.ImportExport.UpdateJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- file attached to this request replaces the original manifest file. You
 -- can only use the operation after a CreateJob request but before the data
 -- transfer starts and you can only use it on jobs you own.
-module Network.AWS.ImportExport.UpdateJob
+module Amazonka.ImportExport.UpdateJob
   ( -- * Creating a Request
     UpdateJob (..),
     newUpdateJob,
@@ -49,12 +49,12 @@ module Network.AWS.ImportExport.UpdateJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImportExport.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ImportExport.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Input structure for the UpateJob operation.
 --

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ImportExport
+-- Module      : Amazonka.ImportExport
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- and bypassing the Internet. For large data sets, AWS Import\/Export is
 -- often faster than Internet transfer and more cost effective than
 -- upgrading your connectivity.
-module Network.AWS.ImportExport
+module Amazonka.ImportExport
   ( -- * Service Configuration
     defaultService,
 
@@ -142,15 +142,15 @@ module Network.AWS.ImportExport
   )
 where
 
-import Network.AWS.ImportExport.CancelJob
-import Network.AWS.ImportExport.CreateJob
-import Network.AWS.ImportExport.GetShippingLabel
-import Network.AWS.ImportExport.GetStatus
-import Network.AWS.ImportExport.Lens
-import Network.AWS.ImportExport.ListJobs
-import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.UpdateJob
-import Network.AWS.ImportExport.Waiters
+import Amazonka.ImportExport.CancelJob
+import Amazonka.ImportExport.CreateJob
+import Amazonka.ImportExport.GetShippingLabel
+import Amazonka.ImportExport.GetStatus
+import Amazonka.ImportExport.Lens
+import Amazonka.ImportExport.ListJobs
+import Amazonka.ImportExport.Types
+import Amazonka.ImportExport.UpdateJob
+import Amazonka.ImportExport.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

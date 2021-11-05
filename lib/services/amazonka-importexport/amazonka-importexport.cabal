@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ImportExport.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ImportExport.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ImportExport" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ImportExport" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,21 +45,21 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ImportExport
-    Network.AWS.ImportExport.CancelJob
-    Network.AWS.ImportExport.CreateJob
-    Network.AWS.ImportExport.GetShippingLabel
-    Network.AWS.ImportExport.GetStatus
-    Network.AWS.ImportExport.Lens
-    Network.AWS.ImportExport.ListJobs
-    Network.AWS.ImportExport.Types
-    Network.AWS.ImportExport.Types.Artifact
-    Network.AWS.ImportExport.Types.Job
-    Network.AWS.ImportExport.Types.JobType
-    Network.AWS.ImportExport.UpdateJob
-    Network.AWS.ImportExport.Waiters
+    Amazonka.ImportExport
+    Amazonka.ImportExport.CancelJob
+    Amazonka.ImportExport.CreateJob
+    Amazonka.ImportExport.GetShippingLabel
+    Amazonka.ImportExport.GetStatus
+    Amazonka.ImportExport.Lens
+    Amazonka.ImportExport.ListJobs
+    Amazonka.ImportExport.Types
+    Amazonka.ImportExport.Types.Artifact
+    Amazonka.ImportExport.Types.Job
+    Amazonka.ImportExport.Types.JobType
+    Amazonka.ImportExport.UpdateJob
+    Amazonka.ImportExport.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

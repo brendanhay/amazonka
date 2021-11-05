@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImportExport.CreateJob
+-- Module      : Amazonka.ImportExport.CreateJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- which you can use in other operations, a signature that you use to
 -- identify your storage device, and the address where you should ship your
 -- storage device.
-module Network.AWS.ImportExport.CreateJob
+module Amazonka.ImportExport.CreateJob
   ( -- * Creating a Request
     CreateJob (..),
     newCreateJob,
@@ -53,12 +53,12 @@ module Network.AWS.ImportExport.CreateJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImportExport.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ImportExport.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Input structure for the CreateJob operation.
 --

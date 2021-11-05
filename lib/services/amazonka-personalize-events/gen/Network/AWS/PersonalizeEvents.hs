@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.PersonalizeEvents
+-- Module      : Amazonka.PersonalizeEvents
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- /stream/ or /click/ data, and use it for model training either alone or
 -- combined with historical data. For more information see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html Recording Events>.
-module Network.AWS.PersonalizeEvents
+module Amazonka.PersonalizeEvents
   ( -- * Service Configuration
     defaultService,
 
@@ -71,12 +71,12 @@ module Network.AWS.PersonalizeEvents
   )
 where
 
-import Network.AWS.PersonalizeEvents.Lens
-import Network.AWS.PersonalizeEvents.PutEvents
-import Network.AWS.PersonalizeEvents.PutItems
-import Network.AWS.PersonalizeEvents.PutUsers
-import Network.AWS.PersonalizeEvents.Types
-import Network.AWS.PersonalizeEvents.Waiters
+import Amazonka.PersonalizeEvents.Lens
+import Amazonka.PersonalizeEvents.PutEvents
+import Amazonka.PersonalizeEvents.PutItems
+import Amazonka.PersonalizeEvents.PutUsers
+import Amazonka.PersonalizeEvents.Types
+import Amazonka.PersonalizeEvents.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PersonalizeEvents where
 
+import Amazonka.PersonalizeEvents
 import qualified Data.Proxy as Proxy
-import Network.AWS.PersonalizeEvents
 import Test.AWS.Fixture
 import Test.AWS.PersonalizeEvents.Internal
 import Test.AWS.Prelude

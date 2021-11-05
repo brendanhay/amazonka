@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PersonalizeEvents.Lens
+-- Module      : Amazonka.PersonalizeEvents.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PersonalizeEvents.Lens
+module Amazonka.PersonalizeEvents.Lens
   ( -- * Operations
 
     -- ** PutUsers
@@ -50,9 +50,9 @@ module Network.AWS.PersonalizeEvents.Lens
   )
 where
 
-import Network.AWS.PersonalizeEvents.PutEvents
-import Network.AWS.PersonalizeEvents.PutItems
-import Network.AWS.PersonalizeEvents.PutUsers
-import Network.AWS.PersonalizeEvents.Types.Event
-import Network.AWS.PersonalizeEvents.Types.Item
-import Network.AWS.PersonalizeEvents.Types.User
+import Amazonka.PersonalizeEvents.PutEvents
+import Amazonka.PersonalizeEvents.PutItems
+import Amazonka.PersonalizeEvents.PutUsers
+import Amazonka.PersonalizeEvents.Types.Event
+import Amazonka.PersonalizeEvents.Types.Item
+import Amazonka.PersonalizeEvents.Types.User

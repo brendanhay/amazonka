@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.WorkMail.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.WorkMail.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.WorkMail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.WorkMail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,106 +45,106 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.WorkMail
-    Network.AWS.WorkMail.AssociateDelegateToResource
-    Network.AWS.WorkMail.AssociateMemberToGroup
-    Network.AWS.WorkMail.CancelMailboxExportJob
-    Network.AWS.WorkMail.CreateAlias
-    Network.AWS.WorkMail.CreateGroup
-    Network.AWS.WorkMail.CreateMobileDeviceAccessRule
-    Network.AWS.WorkMail.CreateOrganization
-    Network.AWS.WorkMail.CreateResource
-    Network.AWS.WorkMail.CreateUser
-    Network.AWS.WorkMail.DeleteAccessControlRule
-    Network.AWS.WorkMail.DeleteAlias
-    Network.AWS.WorkMail.DeleteGroup
-    Network.AWS.WorkMail.DeleteMailboxPermissions
-    Network.AWS.WorkMail.DeleteMobileDeviceAccessOverride
-    Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
-    Network.AWS.WorkMail.DeleteOrganization
-    Network.AWS.WorkMail.DeleteResource
-    Network.AWS.WorkMail.DeleteRetentionPolicy
-    Network.AWS.WorkMail.DeleteUser
-    Network.AWS.WorkMail.DeregisterFromWorkMail
-    Network.AWS.WorkMail.DeregisterMailDomain
-    Network.AWS.WorkMail.DescribeGroup
-    Network.AWS.WorkMail.DescribeInboundDmarcSettings
-    Network.AWS.WorkMail.DescribeMailboxExportJob
-    Network.AWS.WorkMail.DescribeOrganization
-    Network.AWS.WorkMail.DescribeResource
-    Network.AWS.WorkMail.DescribeUser
-    Network.AWS.WorkMail.DisassociateDelegateFromResource
-    Network.AWS.WorkMail.DisassociateMemberFromGroup
-    Network.AWS.WorkMail.GetAccessControlEffect
-    Network.AWS.WorkMail.GetDefaultRetentionPolicy
-    Network.AWS.WorkMail.GetMailboxDetails
-    Network.AWS.WorkMail.GetMailDomain
-    Network.AWS.WorkMail.GetMobileDeviceAccessEffect
-    Network.AWS.WorkMail.GetMobileDeviceAccessOverride
-    Network.AWS.WorkMail.Lens
-    Network.AWS.WorkMail.ListAccessControlRules
-    Network.AWS.WorkMail.ListAliases
-    Network.AWS.WorkMail.ListGroupMembers
-    Network.AWS.WorkMail.ListGroups
-    Network.AWS.WorkMail.ListMailboxExportJobs
-    Network.AWS.WorkMail.ListMailboxPermissions
-    Network.AWS.WorkMail.ListMailDomains
-    Network.AWS.WorkMail.ListMobileDeviceAccessOverrides
-    Network.AWS.WorkMail.ListMobileDeviceAccessRules
-    Network.AWS.WorkMail.ListOrganizations
-    Network.AWS.WorkMail.ListResourceDelegates
-    Network.AWS.WorkMail.ListResources
-    Network.AWS.WorkMail.ListTagsForResource
-    Network.AWS.WorkMail.ListUsers
-    Network.AWS.WorkMail.PutAccessControlRule
-    Network.AWS.WorkMail.PutInboundDmarcSettings
-    Network.AWS.WorkMail.PutMailboxPermissions
-    Network.AWS.WorkMail.PutMobileDeviceAccessOverride
-    Network.AWS.WorkMail.PutRetentionPolicy
-    Network.AWS.WorkMail.RegisterMailDomain
-    Network.AWS.WorkMail.RegisterToWorkMail
-    Network.AWS.WorkMail.ResetPassword
-    Network.AWS.WorkMail.StartMailboxExportJob
-    Network.AWS.WorkMail.TagResource
-    Network.AWS.WorkMail.Types
-    Network.AWS.WorkMail.Types.AccessControlRule
-    Network.AWS.WorkMail.Types.AccessControlRuleEffect
-    Network.AWS.WorkMail.Types.BookingOptions
-    Network.AWS.WorkMail.Types.Delegate
-    Network.AWS.WorkMail.Types.DnsRecord
-    Network.AWS.WorkMail.Types.DnsRecordVerificationStatus
-    Network.AWS.WorkMail.Types.Domain
-    Network.AWS.WorkMail.Types.EntityState
-    Network.AWS.WorkMail.Types.FolderConfiguration
-    Network.AWS.WorkMail.Types.FolderName
-    Network.AWS.WorkMail.Types.Group
-    Network.AWS.WorkMail.Types.MailboxExportJob
-    Network.AWS.WorkMail.Types.MailboxExportJobState
-    Network.AWS.WorkMail.Types.MailDomainSummary
-    Network.AWS.WorkMail.Types.Member
-    Network.AWS.WorkMail.Types.MemberType
-    Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
-    Network.AWS.WorkMail.Types.MobileDeviceAccessOverride
-    Network.AWS.WorkMail.Types.MobileDeviceAccessRule
-    Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect
-    Network.AWS.WorkMail.Types.OrganizationSummary
-    Network.AWS.WorkMail.Types.Permission
-    Network.AWS.WorkMail.Types.PermissionType
-    Network.AWS.WorkMail.Types.Resource
-    Network.AWS.WorkMail.Types.ResourceType
-    Network.AWS.WorkMail.Types.RetentionAction
-    Network.AWS.WorkMail.Types.Tag
-    Network.AWS.WorkMail.Types.User
-    Network.AWS.WorkMail.Types.UserRole
-    Network.AWS.WorkMail.UntagResource
-    Network.AWS.WorkMail.UpdateDefaultMailDomain
-    Network.AWS.WorkMail.UpdateMailboxQuota
-    Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
-    Network.AWS.WorkMail.UpdatePrimaryEmailAddress
-    Network.AWS.WorkMail.UpdateResource
-    Network.AWS.WorkMail.Waiters
+    Amazonka.WorkMail
+    Amazonka.WorkMail.AssociateDelegateToResource
+    Amazonka.WorkMail.AssociateMemberToGroup
+    Amazonka.WorkMail.CancelMailboxExportJob
+    Amazonka.WorkMail.CreateAlias
+    Amazonka.WorkMail.CreateGroup
+    Amazonka.WorkMail.CreateMobileDeviceAccessRule
+    Amazonka.WorkMail.CreateOrganization
+    Amazonka.WorkMail.CreateResource
+    Amazonka.WorkMail.CreateUser
+    Amazonka.WorkMail.DeleteAccessControlRule
+    Amazonka.WorkMail.DeleteAlias
+    Amazonka.WorkMail.DeleteGroup
+    Amazonka.WorkMail.DeleteMailboxPermissions
+    Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
+    Amazonka.WorkMail.DeleteMobileDeviceAccessRule
+    Amazonka.WorkMail.DeleteOrganization
+    Amazonka.WorkMail.DeleteResource
+    Amazonka.WorkMail.DeleteRetentionPolicy
+    Amazonka.WorkMail.DeleteUser
+    Amazonka.WorkMail.DeregisterFromWorkMail
+    Amazonka.WorkMail.DeregisterMailDomain
+    Amazonka.WorkMail.DescribeGroup
+    Amazonka.WorkMail.DescribeInboundDmarcSettings
+    Amazonka.WorkMail.DescribeMailboxExportJob
+    Amazonka.WorkMail.DescribeOrganization
+    Amazonka.WorkMail.DescribeResource
+    Amazonka.WorkMail.DescribeUser
+    Amazonka.WorkMail.DisassociateDelegateFromResource
+    Amazonka.WorkMail.DisassociateMemberFromGroup
+    Amazonka.WorkMail.GetAccessControlEffect
+    Amazonka.WorkMail.GetDefaultRetentionPolicy
+    Amazonka.WorkMail.GetMailboxDetails
+    Amazonka.WorkMail.GetMailDomain
+    Amazonka.WorkMail.GetMobileDeviceAccessEffect
+    Amazonka.WorkMail.GetMobileDeviceAccessOverride
+    Amazonka.WorkMail.Lens
+    Amazonka.WorkMail.ListAccessControlRules
+    Amazonka.WorkMail.ListAliases
+    Amazonka.WorkMail.ListGroupMembers
+    Amazonka.WorkMail.ListGroups
+    Amazonka.WorkMail.ListMailboxExportJobs
+    Amazonka.WorkMail.ListMailboxPermissions
+    Amazonka.WorkMail.ListMailDomains
+    Amazonka.WorkMail.ListMobileDeviceAccessOverrides
+    Amazonka.WorkMail.ListMobileDeviceAccessRules
+    Amazonka.WorkMail.ListOrganizations
+    Amazonka.WorkMail.ListResourceDelegates
+    Amazonka.WorkMail.ListResources
+    Amazonka.WorkMail.ListTagsForResource
+    Amazonka.WorkMail.ListUsers
+    Amazonka.WorkMail.PutAccessControlRule
+    Amazonka.WorkMail.PutInboundDmarcSettings
+    Amazonka.WorkMail.PutMailboxPermissions
+    Amazonka.WorkMail.PutMobileDeviceAccessOverride
+    Amazonka.WorkMail.PutRetentionPolicy
+    Amazonka.WorkMail.RegisterMailDomain
+    Amazonka.WorkMail.RegisterToWorkMail
+    Amazonka.WorkMail.ResetPassword
+    Amazonka.WorkMail.StartMailboxExportJob
+    Amazonka.WorkMail.TagResource
+    Amazonka.WorkMail.Types
+    Amazonka.WorkMail.Types.AccessControlRule
+    Amazonka.WorkMail.Types.AccessControlRuleEffect
+    Amazonka.WorkMail.Types.BookingOptions
+    Amazonka.WorkMail.Types.Delegate
+    Amazonka.WorkMail.Types.DnsRecord
+    Amazonka.WorkMail.Types.DnsRecordVerificationStatus
+    Amazonka.WorkMail.Types.Domain
+    Amazonka.WorkMail.Types.EntityState
+    Amazonka.WorkMail.Types.FolderConfiguration
+    Amazonka.WorkMail.Types.FolderName
+    Amazonka.WorkMail.Types.Group
+    Amazonka.WorkMail.Types.MailboxExportJob
+    Amazonka.WorkMail.Types.MailboxExportJobState
+    Amazonka.WorkMail.Types.MailDomainSummary
+    Amazonka.WorkMail.Types.Member
+    Amazonka.WorkMail.Types.MemberType
+    Amazonka.WorkMail.Types.MobileDeviceAccessMatchedRule
+    Amazonka.WorkMail.Types.MobileDeviceAccessOverride
+    Amazonka.WorkMail.Types.MobileDeviceAccessRule
+    Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
+    Amazonka.WorkMail.Types.OrganizationSummary
+    Amazonka.WorkMail.Types.Permission
+    Amazonka.WorkMail.Types.PermissionType
+    Amazonka.WorkMail.Types.Resource
+    Amazonka.WorkMail.Types.ResourceType
+    Amazonka.WorkMail.Types.RetentionAction
+    Amazonka.WorkMail.Types.Tag
+    Amazonka.WorkMail.Types.User
+    Amazonka.WorkMail.Types.UserRole
+    Amazonka.WorkMail.UntagResource
+    Amazonka.WorkMail.UpdateDefaultMailDomain
+    Amazonka.WorkMail.UpdateMailboxQuota
+    Amazonka.WorkMail.UpdateMobileDeviceAccessRule
+    Amazonka.WorkMail.UpdatePrimaryEmailAddress
+    Amazonka.WorkMail.UpdateResource
+    Amazonka.WorkMail.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkMail where
 
+import Amazonka.WorkMail
 import qualified Data.Proxy as Proxy
-import Network.AWS.WorkMail
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.WorkMail.Internal

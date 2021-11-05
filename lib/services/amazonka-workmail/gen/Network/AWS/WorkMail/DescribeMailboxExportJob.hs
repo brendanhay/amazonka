@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.DescribeMailboxExportJob
+-- Module      : Amazonka.WorkMail.DescribeMailboxExportJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the current status of a mailbox export job.
-module Network.AWS.WorkMail.DescribeMailboxExportJob
+module Amazonka.WorkMail.DescribeMailboxExportJob
   ( -- * Creating a Request
     DescribeMailboxExportJob (..),
     newDescribeMailboxExportJob,
@@ -51,12 +51,12 @@ module Network.AWS.WorkMail.DescribeMailboxExportJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDescribeMailboxExportJob' smart constructor.
 data DescribeMailboxExportJob = DescribeMailboxExportJob'

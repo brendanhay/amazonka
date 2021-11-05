@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WorkMail
+-- Module      : Amazonka.WorkMail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- delete users, groups, and resources. This allows developers to perform
 -- the scenarios listed above, as well as give users the ability to grant
 -- access on a selective basis using the IAM model.
-module Network.AWS.WorkMail
+module Amazonka.WorkMail
   ( -- * Service Configuration
     defaultService,
 
@@ -618,74 +618,74 @@ module Network.AWS.WorkMail
   )
 where
 
-import Network.AWS.WorkMail.AssociateDelegateToResource
-import Network.AWS.WorkMail.AssociateMemberToGroup
-import Network.AWS.WorkMail.CancelMailboxExportJob
-import Network.AWS.WorkMail.CreateAlias
-import Network.AWS.WorkMail.CreateGroup
-import Network.AWS.WorkMail.CreateMobileDeviceAccessRule
-import Network.AWS.WorkMail.CreateOrganization
-import Network.AWS.WorkMail.CreateResource
-import Network.AWS.WorkMail.CreateUser
-import Network.AWS.WorkMail.DeleteAccessControlRule
-import Network.AWS.WorkMail.DeleteAlias
-import Network.AWS.WorkMail.DeleteGroup
-import Network.AWS.WorkMail.DeleteMailboxPermissions
-import Network.AWS.WorkMail.DeleteMobileDeviceAccessOverride
-import Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
-import Network.AWS.WorkMail.DeleteOrganization
-import Network.AWS.WorkMail.DeleteResource
-import Network.AWS.WorkMail.DeleteRetentionPolicy
-import Network.AWS.WorkMail.DeleteUser
-import Network.AWS.WorkMail.DeregisterFromWorkMail
-import Network.AWS.WorkMail.DeregisterMailDomain
-import Network.AWS.WorkMail.DescribeGroup
-import Network.AWS.WorkMail.DescribeInboundDmarcSettings
-import Network.AWS.WorkMail.DescribeMailboxExportJob
-import Network.AWS.WorkMail.DescribeOrganization
-import Network.AWS.WorkMail.DescribeResource
-import Network.AWS.WorkMail.DescribeUser
-import Network.AWS.WorkMail.DisassociateDelegateFromResource
-import Network.AWS.WorkMail.DisassociateMemberFromGroup
-import Network.AWS.WorkMail.GetAccessControlEffect
-import Network.AWS.WorkMail.GetDefaultRetentionPolicy
-import Network.AWS.WorkMail.GetMailDomain
-import Network.AWS.WorkMail.GetMailboxDetails
-import Network.AWS.WorkMail.GetMobileDeviceAccessEffect
-import Network.AWS.WorkMail.GetMobileDeviceAccessOverride
-import Network.AWS.WorkMail.Lens
-import Network.AWS.WorkMail.ListAccessControlRules
-import Network.AWS.WorkMail.ListAliases
-import Network.AWS.WorkMail.ListGroupMembers
-import Network.AWS.WorkMail.ListGroups
-import Network.AWS.WorkMail.ListMailDomains
-import Network.AWS.WorkMail.ListMailboxExportJobs
-import Network.AWS.WorkMail.ListMailboxPermissions
-import Network.AWS.WorkMail.ListMobileDeviceAccessOverrides
-import Network.AWS.WorkMail.ListMobileDeviceAccessRules
-import Network.AWS.WorkMail.ListOrganizations
-import Network.AWS.WorkMail.ListResourceDelegates
-import Network.AWS.WorkMail.ListResources
-import Network.AWS.WorkMail.ListTagsForResource
-import Network.AWS.WorkMail.ListUsers
-import Network.AWS.WorkMail.PutAccessControlRule
-import Network.AWS.WorkMail.PutInboundDmarcSettings
-import Network.AWS.WorkMail.PutMailboxPermissions
-import Network.AWS.WorkMail.PutMobileDeviceAccessOverride
-import Network.AWS.WorkMail.PutRetentionPolicy
-import Network.AWS.WorkMail.RegisterMailDomain
-import Network.AWS.WorkMail.RegisterToWorkMail
-import Network.AWS.WorkMail.ResetPassword
-import Network.AWS.WorkMail.StartMailboxExportJob
-import Network.AWS.WorkMail.TagResource
-import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.UntagResource
-import Network.AWS.WorkMail.UpdateDefaultMailDomain
-import Network.AWS.WorkMail.UpdateMailboxQuota
-import Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
-import Network.AWS.WorkMail.UpdatePrimaryEmailAddress
-import Network.AWS.WorkMail.UpdateResource
-import Network.AWS.WorkMail.Waiters
+import Amazonka.WorkMail.AssociateDelegateToResource
+import Amazonka.WorkMail.AssociateMemberToGroup
+import Amazonka.WorkMail.CancelMailboxExportJob
+import Amazonka.WorkMail.CreateAlias
+import Amazonka.WorkMail.CreateGroup
+import Amazonka.WorkMail.CreateMobileDeviceAccessRule
+import Amazonka.WorkMail.CreateOrganization
+import Amazonka.WorkMail.CreateResource
+import Amazonka.WorkMail.CreateUser
+import Amazonka.WorkMail.DeleteAccessControlRule
+import Amazonka.WorkMail.DeleteAlias
+import Amazonka.WorkMail.DeleteGroup
+import Amazonka.WorkMail.DeleteMailboxPermissions
+import Amazonka.WorkMail.DeleteMobileDeviceAccessOverride
+import Amazonka.WorkMail.DeleteMobileDeviceAccessRule
+import Amazonka.WorkMail.DeleteOrganization
+import Amazonka.WorkMail.DeleteResource
+import Amazonka.WorkMail.DeleteRetentionPolicy
+import Amazonka.WorkMail.DeleteUser
+import Amazonka.WorkMail.DeregisterFromWorkMail
+import Amazonka.WorkMail.DeregisterMailDomain
+import Amazonka.WorkMail.DescribeGroup
+import Amazonka.WorkMail.DescribeInboundDmarcSettings
+import Amazonka.WorkMail.DescribeMailboxExportJob
+import Amazonka.WorkMail.DescribeOrganization
+import Amazonka.WorkMail.DescribeResource
+import Amazonka.WorkMail.DescribeUser
+import Amazonka.WorkMail.DisassociateDelegateFromResource
+import Amazonka.WorkMail.DisassociateMemberFromGroup
+import Amazonka.WorkMail.GetAccessControlEffect
+import Amazonka.WorkMail.GetDefaultRetentionPolicy
+import Amazonka.WorkMail.GetMailDomain
+import Amazonka.WorkMail.GetMailboxDetails
+import Amazonka.WorkMail.GetMobileDeviceAccessEffect
+import Amazonka.WorkMail.GetMobileDeviceAccessOverride
+import Amazonka.WorkMail.Lens
+import Amazonka.WorkMail.ListAccessControlRules
+import Amazonka.WorkMail.ListAliases
+import Amazonka.WorkMail.ListGroupMembers
+import Amazonka.WorkMail.ListGroups
+import Amazonka.WorkMail.ListMailDomains
+import Amazonka.WorkMail.ListMailboxExportJobs
+import Amazonka.WorkMail.ListMailboxPermissions
+import Amazonka.WorkMail.ListMobileDeviceAccessOverrides
+import Amazonka.WorkMail.ListMobileDeviceAccessRules
+import Amazonka.WorkMail.ListOrganizations
+import Amazonka.WorkMail.ListResourceDelegates
+import Amazonka.WorkMail.ListResources
+import Amazonka.WorkMail.ListTagsForResource
+import Amazonka.WorkMail.ListUsers
+import Amazonka.WorkMail.PutAccessControlRule
+import Amazonka.WorkMail.PutInboundDmarcSettings
+import Amazonka.WorkMail.PutMailboxPermissions
+import Amazonka.WorkMail.PutMobileDeviceAccessOverride
+import Amazonka.WorkMail.PutRetentionPolicy
+import Amazonka.WorkMail.RegisterMailDomain
+import Amazonka.WorkMail.RegisterToWorkMail
+import Amazonka.WorkMail.ResetPassword
+import Amazonka.WorkMail.StartMailboxExportJob
+import Amazonka.WorkMail.TagResource
+import Amazonka.WorkMail.Types
+import Amazonka.WorkMail.UntagResource
+import Amazonka.WorkMail.UpdateDefaultMailDomain
+import Amazonka.WorkMail.UpdateMailboxQuota
+import Amazonka.WorkMail.UpdateMobileDeviceAccessRule
+import Amazonka.WorkMail.UpdatePrimaryEmailAddress
+import Amazonka.WorkMail.UpdateResource
+import Amazonka.WorkMail.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.ListMailboxExportJobs
+-- Module      : Amazonka.WorkMail.ListMailboxExportJobs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Lists the mailbox export jobs started for the specified organization
 -- within the last seven days.
-module Network.AWS.WorkMail.ListMailboxExportJobs
+module Amazonka.WorkMail.ListMailboxExportJobs
   ( -- * Creating a Request
     ListMailboxExportJobs (..),
     newListMailboxExportJobs,
@@ -43,12 +43,12 @@ module Network.AWS.WorkMail.ListMailboxExportJobs
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListMailboxExportJobs' smart constructor.
 data ListMailboxExportJobs = ListMailboxExportJobs'

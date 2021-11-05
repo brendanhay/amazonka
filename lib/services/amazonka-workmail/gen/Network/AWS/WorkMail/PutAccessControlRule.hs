@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.PutAccessControlRule
+-- Module      : Amazonka.WorkMail.PutAccessControlRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- allows or denies access to the organization for the specified IPv4
 -- addresses, access protocol actions, and user IDs. Adding a new rule with
 -- the same name as an existing rule replaces the older rule.
-module Network.AWS.WorkMail.PutAccessControlRule
+module Amazonka.WorkMail.PutAccessControlRule
   ( -- * Creating a Request
     PutAccessControlRule (..),
     newPutAccessControlRule,
@@ -50,12 +50,12 @@ module Network.AWS.WorkMail.PutAccessControlRule
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newPutAccessControlRule' smart constructor.
 data PutAccessControlRule = PutAccessControlRule'

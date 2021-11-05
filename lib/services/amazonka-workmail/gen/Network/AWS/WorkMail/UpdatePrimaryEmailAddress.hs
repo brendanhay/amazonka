@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.UpdatePrimaryEmailAddress
+-- Module      : Amazonka.WorkMail.UpdatePrimaryEmailAddress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- email is moved into the list of aliases (or swapped between an existing
 -- alias and the current primary email), and the email provided in the
 -- input is promoted as the primary.
-module Network.AWS.WorkMail.UpdatePrimaryEmailAddress
+module Amazonka.WorkMail.UpdatePrimaryEmailAddress
   ( -- * Creating a Request
     UpdatePrimaryEmailAddress (..),
     newUpdatePrimaryEmailAddress,
@@ -43,12 +43,12 @@ module Network.AWS.WorkMail.UpdatePrimaryEmailAddress
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newUpdatePrimaryEmailAddress' smart constructor.
 data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'

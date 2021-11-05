@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.CreateMobileDeviceAccessRule
+-- Module      : Amazonka.WorkMail.CreateMobileDeviceAccessRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a new mobile device access rule for the specified Amazon
 -- WorkMail organization.
-module Network.AWS.WorkMail.CreateMobileDeviceAccessRule
+module Amazonka.WorkMail.CreateMobileDeviceAccessRule
   ( -- * Creating a Request
     CreateMobileDeviceAccessRule (..),
     newCreateMobileDeviceAccessRule,
@@ -52,12 +52,12 @@ module Network.AWS.WorkMail.CreateMobileDeviceAccessRule
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newCreateMobileDeviceAccessRule' smart constructor.
 data CreateMobileDeviceAccessRule = CreateMobileDeviceAccessRule'

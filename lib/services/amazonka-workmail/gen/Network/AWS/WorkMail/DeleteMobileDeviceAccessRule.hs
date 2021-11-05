@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
+-- Module      : Amazonka.WorkMail.DeleteMobileDeviceAccessRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Deleting already deleted and non-existing rules does not produce an
 -- error. In those cases, the service sends back an HTTP 200 response with
 -- an empty HTTP body.
-module Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
+module Amazonka.WorkMail.DeleteMobileDeviceAccessRule
   ( -- * Creating a Request
     DeleteMobileDeviceAccessRule (..),
     newDeleteMobileDeviceAccessRule,
@@ -44,12 +44,12 @@ module Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newDeleteMobileDeviceAccessRule' smart constructor.
 data DeleteMobileDeviceAccessRule = DeleteMobileDeviceAccessRule'

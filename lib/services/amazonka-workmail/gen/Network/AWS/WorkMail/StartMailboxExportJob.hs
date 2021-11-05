@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.StartMailboxExportJob
+-- Module      : Amazonka.WorkMail.StartMailboxExportJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Storage Service (Amazon S3) bucket. For more information, see
 -- <https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html Exporting mailbox content>
 -- in the /Amazon WorkMail Administrator Guide/.
-module Network.AWS.WorkMail.StartMailboxExportJob
+module Amazonka.WorkMail.StartMailboxExportJob
   ( -- * Creating a Request
     StartMailboxExportJob (..),
     newStartMailboxExportJob,
@@ -50,12 +50,12 @@ module Network.AWS.WorkMail.StartMailboxExportJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newStartMailboxExportJob' smart constructor.
 data StartMailboxExportJob = StartMailboxExportJob'

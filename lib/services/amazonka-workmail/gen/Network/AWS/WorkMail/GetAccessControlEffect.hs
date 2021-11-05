@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.GetAccessControlEffect
+-- Module      : Amazonka.WorkMail.GetAccessControlEffect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets the effects of an organization\'s access control rules as they
 -- apply to a specified IPv4 address, access protocol action, or user ID.
-module Network.AWS.WorkMail.GetAccessControlEffect
+module Amazonka.WorkMail.GetAccessControlEffect
   ( -- * Creating a Request
     GetAccessControlEffect (..),
     newGetAccessControlEffect,
@@ -44,12 +44,12 @@ module Network.AWS.WorkMail.GetAccessControlEffect
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newGetAccessControlEffect' smart constructor.
 data GetAccessControlEffect = GetAccessControlEffect'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMail.Types
+-- Module      : Amazonka.WorkMail.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types
+module Amazonka.WorkMail.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -241,39 +241,39 @@ module Network.AWS.WorkMail.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WorkMail.Types.AccessControlRule
-import Network.AWS.WorkMail.Types.AccessControlRuleEffect
-import Network.AWS.WorkMail.Types.BookingOptions
-import Network.AWS.WorkMail.Types.Delegate
-import Network.AWS.WorkMail.Types.DnsRecord
-import Network.AWS.WorkMail.Types.DnsRecordVerificationStatus
-import Network.AWS.WorkMail.Types.Domain
-import Network.AWS.WorkMail.Types.EntityState
-import Network.AWS.WorkMail.Types.FolderConfiguration
-import Network.AWS.WorkMail.Types.FolderName
-import Network.AWS.WorkMail.Types.Group
-import Network.AWS.WorkMail.Types.MailDomainSummary
-import Network.AWS.WorkMail.Types.MailboxExportJob
-import Network.AWS.WorkMail.Types.MailboxExportJobState
-import Network.AWS.WorkMail.Types.Member
-import Network.AWS.WorkMail.Types.MemberType
-import Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
-import Network.AWS.WorkMail.Types.MobileDeviceAccessOverride
-import Network.AWS.WorkMail.Types.MobileDeviceAccessRule
-import Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect
-import Network.AWS.WorkMail.Types.OrganizationSummary
-import Network.AWS.WorkMail.Types.Permission
-import Network.AWS.WorkMail.Types.PermissionType
-import Network.AWS.WorkMail.Types.Resource
-import Network.AWS.WorkMail.Types.ResourceType
-import Network.AWS.WorkMail.Types.RetentionAction
-import Network.AWS.WorkMail.Types.Tag
-import Network.AWS.WorkMail.Types.User
-import Network.AWS.WorkMail.Types.UserRole
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WorkMail.Types.AccessControlRule
+import Amazonka.WorkMail.Types.AccessControlRuleEffect
+import Amazonka.WorkMail.Types.BookingOptions
+import Amazonka.WorkMail.Types.Delegate
+import Amazonka.WorkMail.Types.DnsRecord
+import Amazonka.WorkMail.Types.DnsRecordVerificationStatus
+import Amazonka.WorkMail.Types.Domain
+import Amazonka.WorkMail.Types.EntityState
+import Amazonka.WorkMail.Types.FolderConfiguration
+import Amazonka.WorkMail.Types.FolderName
+import Amazonka.WorkMail.Types.Group
+import Amazonka.WorkMail.Types.MailDomainSummary
+import Amazonka.WorkMail.Types.MailboxExportJob
+import Amazonka.WorkMail.Types.MailboxExportJobState
+import Amazonka.WorkMail.Types.Member
+import Amazonka.WorkMail.Types.MemberType
+import Amazonka.WorkMail.Types.MobileDeviceAccessMatchedRule
+import Amazonka.WorkMail.Types.MobileDeviceAccessOverride
+import Amazonka.WorkMail.Types.MobileDeviceAccessRule
+import Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
+import Amazonka.WorkMail.Types.OrganizationSummary
+import Amazonka.WorkMail.Types.Permission
+import Amazonka.WorkMail.Types.PermissionType
+import Amazonka.WorkMail.Types.Resource
+import Amazonka.WorkMail.Types.ResourceType
+import Amazonka.WorkMail.Types.RetentionAction
+import Amazonka.WorkMail.Types.Tag
+import Amazonka.WorkMail.Types.User
+import Amazonka.WorkMail.Types.UserRole
 
 -- | API version @2017-10-01@ of the Amazon WorkMail SDK configuration.
 defaultService :: Core.Service

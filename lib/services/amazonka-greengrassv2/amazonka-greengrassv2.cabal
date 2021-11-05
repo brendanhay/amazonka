@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.GreengrassV2.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.GreengrassV2.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.GreengrassV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.GreengrassV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,90 +45,90 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.GreengrassV2
-    Network.AWS.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice
-    Network.AWS.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
-    Network.AWS.GreengrassV2.CancelDeployment
-    Network.AWS.GreengrassV2.CreateComponentVersion
-    Network.AWS.GreengrassV2.CreateDeployment
-    Network.AWS.GreengrassV2.DeleteComponent
-    Network.AWS.GreengrassV2.DeleteCoreDevice
-    Network.AWS.GreengrassV2.DescribeComponent
-    Network.AWS.GreengrassV2.GetComponent
-    Network.AWS.GreengrassV2.GetComponentVersionArtifact
-    Network.AWS.GreengrassV2.GetCoreDevice
-    Network.AWS.GreengrassV2.GetDeployment
-    Network.AWS.GreengrassV2.Lens
-    Network.AWS.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
-    Network.AWS.GreengrassV2.ListComponents
-    Network.AWS.GreengrassV2.ListComponentVersions
-    Network.AWS.GreengrassV2.ListCoreDevices
-    Network.AWS.GreengrassV2.ListDeployments
-    Network.AWS.GreengrassV2.ListEffectiveDeployments
-    Network.AWS.GreengrassV2.ListInstalledComponents
-    Network.AWS.GreengrassV2.ListTagsForResource
-    Network.AWS.GreengrassV2.ResolveComponentCandidates
-    Network.AWS.GreengrassV2.TagResource
-    Network.AWS.GreengrassV2.Types
-    Network.AWS.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceEntry
-    Network.AWS.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry
-    Network.AWS.GreengrassV2.Types.AssociatedClientDevice
-    Network.AWS.GreengrassV2.Types.CloudComponentState
-    Network.AWS.GreengrassV2.Types.CloudComponentStatus
-    Network.AWS.GreengrassV2.Types.Component
-    Network.AWS.GreengrassV2.Types.ComponentCandidate
-    Network.AWS.GreengrassV2.Types.ComponentConfigurationUpdate
-    Network.AWS.GreengrassV2.Types.ComponentDependencyRequirement
-    Network.AWS.GreengrassV2.Types.ComponentDependencyType
-    Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification
-    Network.AWS.GreengrassV2.Types.ComponentLatestVersion
-    Network.AWS.GreengrassV2.Types.ComponentPlatform
-    Network.AWS.GreengrassV2.Types.ComponentRunWith
-    Network.AWS.GreengrassV2.Types.ComponentVersionListItem
-    Network.AWS.GreengrassV2.Types.ComponentVisibilityScope
-    Network.AWS.GreengrassV2.Types.CoreDevice
-    Network.AWS.GreengrassV2.Types.CoreDeviceStatus
-    Network.AWS.GreengrassV2.Types.Deployment
-    Network.AWS.GreengrassV2.Types.DeploymentComponentUpdatePolicy
-    Network.AWS.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction
-    Network.AWS.GreengrassV2.Types.DeploymentConfigurationValidationPolicy
-    Network.AWS.GreengrassV2.Types.DeploymentFailureHandlingPolicy
-    Network.AWS.GreengrassV2.Types.DeploymentHistoryFilter
-    Network.AWS.GreengrassV2.Types.DeploymentIoTJobConfiguration
-    Network.AWS.GreengrassV2.Types.DeploymentPolicies
-    Network.AWS.GreengrassV2.Types.DeploymentStatus
-    Network.AWS.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceEntry
-    Network.AWS.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceErrorEntry
-    Network.AWS.GreengrassV2.Types.EffectiveDeployment
-    Network.AWS.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
-    Network.AWS.GreengrassV2.Types.InstalledComponent
-    Network.AWS.GreengrassV2.Types.InstalledComponentLifecycleState
-    Network.AWS.GreengrassV2.Types.IoTJobAbortAction
-    Network.AWS.GreengrassV2.Types.IoTJobAbortConfig
-    Network.AWS.GreengrassV2.Types.IoTJobAbortCriteria
-    Network.AWS.GreengrassV2.Types.IoTJobExecutionFailureType
-    Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
-    Network.AWS.GreengrassV2.Types.IoTJobExponentialRolloutRate
-    Network.AWS.GreengrassV2.Types.IoTJobRateIncreaseCriteria
-    Network.AWS.GreengrassV2.Types.IoTJobTimeoutConfig
-    Network.AWS.GreengrassV2.Types.LambdaContainerParams
-    Network.AWS.GreengrassV2.Types.LambdaDeviceMount
-    Network.AWS.GreengrassV2.Types.LambdaEventSource
-    Network.AWS.GreengrassV2.Types.LambdaEventSourceType
-    Network.AWS.GreengrassV2.Types.LambdaExecutionParameters
-    Network.AWS.GreengrassV2.Types.LambdaFilesystemPermission
-    Network.AWS.GreengrassV2.Types.LambdaFunctionRecipeSource
-    Network.AWS.GreengrassV2.Types.LambdaInputPayloadEncodingType
-    Network.AWS.GreengrassV2.Types.LambdaIsolationMode
-    Network.AWS.GreengrassV2.Types.LambdaLinuxProcessParams
-    Network.AWS.GreengrassV2.Types.LambdaVolumeMount
-    Network.AWS.GreengrassV2.Types.RecipeOutputFormat
-    Network.AWS.GreengrassV2.Types.ResolvedComponentVersion
-    Network.AWS.GreengrassV2.Types.SystemResourceLimits
-    Network.AWS.GreengrassV2.UntagResource
-    Network.AWS.GreengrassV2.Waiters
+    Amazonka.GreengrassV2
+    Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice
+    Amazonka.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
+    Amazonka.GreengrassV2.CancelDeployment
+    Amazonka.GreengrassV2.CreateComponentVersion
+    Amazonka.GreengrassV2.CreateDeployment
+    Amazonka.GreengrassV2.DeleteComponent
+    Amazonka.GreengrassV2.DeleteCoreDevice
+    Amazonka.GreengrassV2.DescribeComponent
+    Amazonka.GreengrassV2.GetComponent
+    Amazonka.GreengrassV2.GetComponentVersionArtifact
+    Amazonka.GreengrassV2.GetCoreDevice
+    Amazonka.GreengrassV2.GetDeployment
+    Amazonka.GreengrassV2.Lens
+    Amazonka.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
+    Amazonka.GreengrassV2.ListComponents
+    Amazonka.GreengrassV2.ListComponentVersions
+    Amazonka.GreengrassV2.ListCoreDevices
+    Amazonka.GreengrassV2.ListDeployments
+    Amazonka.GreengrassV2.ListEffectiveDeployments
+    Amazonka.GreengrassV2.ListInstalledComponents
+    Amazonka.GreengrassV2.ListTagsForResource
+    Amazonka.GreengrassV2.ResolveComponentCandidates
+    Amazonka.GreengrassV2.TagResource
+    Amazonka.GreengrassV2.Types
+    Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceEntry
+    Amazonka.GreengrassV2.Types.AssociateClientDeviceWithCoreDeviceErrorEntry
+    Amazonka.GreengrassV2.Types.AssociatedClientDevice
+    Amazonka.GreengrassV2.Types.CloudComponentState
+    Amazonka.GreengrassV2.Types.CloudComponentStatus
+    Amazonka.GreengrassV2.Types.Component
+    Amazonka.GreengrassV2.Types.ComponentCandidate
+    Amazonka.GreengrassV2.Types.ComponentConfigurationUpdate
+    Amazonka.GreengrassV2.Types.ComponentDependencyRequirement
+    Amazonka.GreengrassV2.Types.ComponentDependencyType
+    Amazonka.GreengrassV2.Types.ComponentDeploymentSpecification
+    Amazonka.GreengrassV2.Types.ComponentLatestVersion
+    Amazonka.GreengrassV2.Types.ComponentPlatform
+    Amazonka.GreengrassV2.Types.ComponentRunWith
+    Amazonka.GreengrassV2.Types.ComponentVersionListItem
+    Amazonka.GreengrassV2.Types.ComponentVisibilityScope
+    Amazonka.GreengrassV2.Types.CoreDevice
+    Amazonka.GreengrassV2.Types.CoreDeviceStatus
+    Amazonka.GreengrassV2.Types.Deployment
+    Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicy
+    Amazonka.GreengrassV2.Types.DeploymentComponentUpdatePolicyAction
+    Amazonka.GreengrassV2.Types.DeploymentConfigurationValidationPolicy
+    Amazonka.GreengrassV2.Types.DeploymentFailureHandlingPolicy
+    Amazonka.GreengrassV2.Types.DeploymentHistoryFilter
+    Amazonka.GreengrassV2.Types.DeploymentIoTJobConfiguration
+    Amazonka.GreengrassV2.Types.DeploymentPolicies
+    Amazonka.GreengrassV2.Types.DeploymentStatus
+    Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceEntry
+    Amazonka.GreengrassV2.Types.DisassociateClientDeviceFromCoreDeviceErrorEntry
+    Amazonka.GreengrassV2.Types.EffectiveDeployment
+    Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
+    Amazonka.GreengrassV2.Types.InstalledComponent
+    Amazonka.GreengrassV2.Types.InstalledComponentLifecycleState
+    Amazonka.GreengrassV2.Types.IoTJobAbortAction
+    Amazonka.GreengrassV2.Types.IoTJobAbortConfig
+    Amazonka.GreengrassV2.Types.IoTJobAbortCriteria
+    Amazonka.GreengrassV2.Types.IoTJobExecutionFailureType
+    Amazonka.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
+    Amazonka.GreengrassV2.Types.IoTJobExponentialRolloutRate
+    Amazonka.GreengrassV2.Types.IoTJobRateIncreaseCriteria
+    Amazonka.GreengrassV2.Types.IoTJobTimeoutConfig
+    Amazonka.GreengrassV2.Types.LambdaContainerParams
+    Amazonka.GreengrassV2.Types.LambdaDeviceMount
+    Amazonka.GreengrassV2.Types.LambdaEventSource
+    Amazonka.GreengrassV2.Types.LambdaEventSourceType
+    Amazonka.GreengrassV2.Types.LambdaExecutionParameters
+    Amazonka.GreengrassV2.Types.LambdaFilesystemPermission
+    Amazonka.GreengrassV2.Types.LambdaFunctionRecipeSource
+    Amazonka.GreengrassV2.Types.LambdaInputPayloadEncodingType
+    Amazonka.GreengrassV2.Types.LambdaIsolationMode
+    Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams
+    Amazonka.GreengrassV2.Types.LambdaVolumeMount
+    Amazonka.GreengrassV2.Types.RecipeOutputFormat
+    Amazonka.GreengrassV2.Types.ResolvedComponentVersion
+    Amazonka.GreengrassV2.Types.SystemResourceLimits
+    Amazonka.GreengrassV2.UntagResource
+    Amazonka.GreengrassV2.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.GreengrassV2
+-- Module      : Amazonka.GreengrassV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html What is IoT Greengrass?>
 -- in the /IoT Greengrass V2 Developer Guide/.
-module Network.AWS.GreengrassV2
+module Amazonka.GreengrassV2
   ( -- * Service Configuration
     defaultService,
 
@@ -411,32 +411,32 @@ module Network.AWS.GreengrassV2
   )
 where
 
-import Network.AWS.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice
-import Network.AWS.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
-import Network.AWS.GreengrassV2.CancelDeployment
-import Network.AWS.GreengrassV2.CreateComponentVersion
-import Network.AWS.GreengrassV2.CreateDeployment
-import Network.AWS.GreengrassV2.DeleteComponent
-import Network.AWS.GreengrassV2.DeleteCoreDevice
-import Network.AWS.GreengrassV2.DescribeComponent
-import Network.AWS.GreengrassV2.GetComponent
-import Network.AWS.GreengrassV2.GetComponentVersionArtifact
-import Network.AWS.GreengrassV2.GetCoreDevice
-import Network.AWS.GreengrassV2.GetDeployment
-import Network.AWS.GreengrassV2.Lens
-import Network.AWS.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
-import Network.AWS.GreengrassV2.ListComponentVersions
-import Network.AWS.GreengrassV2.ListComponents
-import Network.AWS.GreengrassV2.ListCoreDevices
-import Network.AWS.GreengrassV2.ListDeployments
-import Network.AWS.GreengrassV2.ListEffectiveDeployments
-import Network.AWS.GreengrassV2.ListInstalledComponents
-import Network.AWS.GreengrassV2.ListTagsForResource
-import Network.AWS.GreengrassV2.ResolveComponentCandidates
-import Network.AWS.GreengrassV2.TagResource
-import Network.AWS.GreengrassV2.Types
-import Network.AWS.GreengrassV2.UntagResource
-import Network.AWS.GreengrassV2.Waiters
+import Amazonka.GreengrassV2.BatchAssociateClientDeviceWithCoreDevice
+import Amazonka.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
+import Amazonka.GreengrassV2.CancelDeployment
+import Amazonka.GreengrassV2.CreateComponentVersion
+import Amazonka.GreengrassV2.CreateDeployment
+import Amazonka.GreengrassV2.DeleteComponent
+import Amazonka.GreengrassV2.DeleteCoreDevice
+import Amazonka.GreengrassV2.DescribeComponent
+import Amazonka.GreengrassV2.GetComponent
+import Amazonka.GreengrassV2.GetComponentVersionArtifact
+import Amazonka.GreengrassV2.GetCoreDevice
+import Amazonka.GreengrassV2.GetDeployment
+import Amazonka.GreengrassV2.Lens
+import Amazonka.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
+import Amazonka.GreengrassV2.ListComponentVersions
+import Amazonka.GreengrassV2.ListComponents
+import Amazonka.GreengrassV2.ListCoreDevices
+import Amazonka.GreengrassV2.ListDeployments
+import Amazonka.GreengrassV2.ListEffectiveDeployments
+import Amazonka.GreengrassV2.ListInstalledComponents
+import Amazonka.GreengrassV2.ListTagsForResource
+import Amazonka.GreengrassV2.ResolveComponentCandidates
+import Amazonka.GreengrassV2.TagResource
+import Amazonka.GreengrassV2.Types
+import Amazonka.GreengrassV2.UntagResource
+import Amazonka.GreengrassV2.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

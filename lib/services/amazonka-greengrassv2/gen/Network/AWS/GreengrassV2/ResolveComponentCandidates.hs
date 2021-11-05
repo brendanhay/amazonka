@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GreengrassV2.ResolveComponentCandidates
+-- Module      : Amazonka.GreengrassV2.ResolveComponentCandidates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- To use this operation, you must use the data plane API endpoint and
 -- authenticate with an IoT device certificate. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/greengrass.html IoT Greengrass endpoints and quotas>.
-module Network.AWS.GreengrassV2.ResolveComponentCandidates
+module Amazonka.GreengrassV2.ResolveComponentCandidates
   ( -- * Creating a Request
     ResolveComponentCandidates (..),
     newResolveComponentCandidates,
@@ -59,12 +59,12 @@ module Network.AWS.GreengrassV2.ResolveComponentCandidates
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GreengrassV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GreengrassV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResolveComponentCandidates' smart constructor.
 data ResolveComponentCandidates = ResolveComponentCandidates'

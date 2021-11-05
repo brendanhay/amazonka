@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GreengrassV2.ListDeployments
+-- Module      : Amazonka.GreengrassV2.ListDeployments
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves a paginated list of deployments.
 --
 -- This operation returns paginated results.
-module Network.AWS.GreengrassV2.ListDeployments
+module Amazonka.GreengrassV2.ListDeployments
   ( -- * Creating a Request
     ListDeployments (..),
     newListDeployments,
@@ -45,12 +45,12 @@ module Network.AWS.GreengrassV2.ListDeployments
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GreengrassV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GreengrassV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'

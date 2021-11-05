@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
+-- Module      : Amazonka.GreengrassV2.Types.IoTJobExecutionsRolloutConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GreengrassV2.Types.IoTJobExecutionsRolloutConfig where
+module Amazonka.GreengrassV2.Types.IoTJobExecutionsRolloutConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GreengrassV2.Types.IoTJobExponentialRolloutRate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GreengrassV2.Types.IoTJobExponentialRolloutRate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the rollout configuration for a job. This
 -- configuration defines the rate at which the job deploys a configuration

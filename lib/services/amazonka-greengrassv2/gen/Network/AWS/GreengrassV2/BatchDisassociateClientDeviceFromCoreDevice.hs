@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
+-- Module      : Amazonka.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- disassociate a client device from a core device, the client device
 -- won\'t be able to use cloud discovery to retrieve the core device\'s
 -- connectivity information and certificates.
-module Network.AWS.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
+module Amazonka.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
   ( -- * Creating a Request
     BatchDisassociateClientDeviceFromCoreDevice (..),
     newBatchDisassociateClientDeviceFromCoreDevice,
@@ -43,12 +43,12 @@ module Network.AWS.GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GreengrassV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GreengrassV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDisassociateClientDeviceFromCoreDevice' smart constructor.
 data BatchDisassociateClientDeviceFromCoreDevice = BatchDisassociateClientDeviceFromCoreDevice'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.AssociateKmsKey
+-- Module      : Amazonka.CloudWatchLogs.AssociateKmsKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- If you attempt to associate a CMK with a log group but the CMK does not
 -- exist or the CMK is disabled, you receive an @InvalidParameterException@
 -- error.
-module Network.AWS.CloudWatchLogs.AssociateKmsKey
+module Amazonka.CloudWatchLogs.AssociateKmsKey
   ( -- * Creating a Request
     AssociateKmsKey (..),
     newAssociateKmsKey,
@@ -54,12 +54,12 @@ module Network.AWS.CloudWatchLogs.AssociateKmsKey
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchLogs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateKmsKey' smart constructor.
 data AssociateKmsKey = AssociateKmsKey'

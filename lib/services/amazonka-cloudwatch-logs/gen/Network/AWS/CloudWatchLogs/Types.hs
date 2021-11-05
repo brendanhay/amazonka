@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.Types
+-- Module      : Amazonka.CloudWatchLogs.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types
+module Amazonka.CloudWatchLogs.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -220,36 +220,36 @@ module Network.AWS.CloudWatchLogs.Types
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types.Destination
-import Network.AWS.CloudWatchLogs.Types.Distribution
-import Network.AWS.CloudWatchLogs.Types.ExportTask
-import Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
-import Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
-import Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
-import Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
-import Network.AWS.CloudWatchLogs.Types.InputLogEvent
-import Network.AWS.CloudWatchLogs.Types.LogGroup
-import Network.AWS.CloudWatchLogs.Types.LogGroupField
-import Network.AWS.CloudWatchLogs.Types.LogStream
-import Network.AWS.CloudWatchLogs.Types.MetricFilter
-import Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
-import Network.AWS.CloudWatchLogs.Types.MetricTransformation
-import Network.AWS.CloudWatchLogs.Types.OrderBy
-import Network.AWS.CloudWatchLogs.Types.OutputLogEvent
-import Network.AWS.CloudWatchLogs.Types.QueryDefinition
-import Network.AWS.CloudWatchLogs.Types.QueryInfo
-import Network.AWS.CloudWatchLogs.Types.QueryStatistics
-import Network.AWS.CloudWatchLogs.Types.QueryStatus
-import Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
-import Network.AWS.CloudWatchLogs.Types.ResourcePolicy
-import Network.AWS.CloudWatchLogs.Types.ResultField
-import Network.AWS.CloudWatchLogs.Types.SearchedLogStream
-import Network.AWS.CloudWatchLogs.Types.StandardUnit
-import Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudWatchLogs.Types.Destination
+import Amazonka.CloudWatchLogs.Types.Distribution
+import Amazonka.CloudWatchLogs.Types.ExportTask
+import Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo
+import Amazonka.CloudWatchLogs.Types.ExportTaskStatus
+import Amazonka.CloudWatchLogs.Types.ExportTaskStatusCode
+import Amazonka.CloudWatchLogs.Types.FilteredLogEvent
+import Amazonka.CloudWatchLogs.Types.InputLogEvent
+import Amazonka.CloudWatchLogs.Types.LogGroup
+import Amazonka.CloudWatchLogs.Types.LogGroupField
+import Amazonka.CloudWatchLogs.Types.LogStream
+import Amazonka.CloudWatchLogs.Types.MetricFilter
+import Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord
+import Amazonka.CloudWatchLogs.Types.MetricTransformation
+import Amazonka.CloudWatchLogs.Types.OrderBy
+import Amazonka.CloudWatchLogs.Types.OutputLogEvent
+import Amazonka.CloudWatchLogs.Types.QueryDefinition
+import Amazonka.CloudWatchLogs.Types.QueryInfo
+import Amazonka.CloudWatchLogs.Types.QueryStatistics
+import Amazonka.CloudWatchLogs.Types.QueryStatus
+import Amazonka.CloudWatchLogs.Types.RejectedLogEventsInfo
+import Amazonka.CloudWatchLogs.Types.ResourcePolicy
+import Amazonka.CloudWatchLogs.Types.ResultField
+import Amazonka.CloudWatchLogs.Types.SearchedLogStream
+import Amazonka.CloudWatchLogs.Types.StandardUnit
+import Amazonka.CloudWatchLogs.Types.SubscriptionFilter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-03-28@ of the Amazon CloudWatch Logs SDK configuration.
 defaultService :: Core.Service

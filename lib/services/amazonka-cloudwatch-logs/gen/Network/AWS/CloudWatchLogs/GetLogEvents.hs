@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.GetLogEvents
+-- Module      : Amazonka.CloudWatchLogs.GetLogEvents
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- log events by specifying one of the tokens in a subsequent call. This
 -- operation can return empty results while there are more log events
 -- available through the token.
-module Network.AWS.CloudWatchLogs.GetLogEvents
+module Amazonka.CloudWatchLogs.GetLogEvents
   ( -- * Creating a Request
     GetLogEvents (..),
     newGetLogEvents,
@@ -54,12 +54,12 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchLogs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLogEvents' smart constructor.
 data GetLogEvents = GetLogEvents'

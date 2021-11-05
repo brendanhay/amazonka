@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.Types.MetricTransformation
+-- Module      : Amazonka.CloudWatchLogs.Types.MetricTransformation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.MetricTransformation where
+module Amazonka.CloudWatchLogs.Types.MetricTransformation where
 
-import Network.AWS.CloudWatchLogs.Types.StandardUnit
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatchLogs.Types.StandardUnit
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates how to transform ingested log events to metric data in a
 -- CloudWatch metric.

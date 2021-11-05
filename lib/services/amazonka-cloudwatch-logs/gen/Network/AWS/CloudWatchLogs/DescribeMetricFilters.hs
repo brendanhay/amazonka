@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
+-- Module      : Amazonka.CloudWatchLogs.DescribeMetricFilters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- metric namespace. The results are ASCII-sorted by filter name.
 --
 -- This operation returns paginated results.
-module Network.AWS.CloudWatchLogs.DescribeMetricFilters
+module Amazonka.CloudWatchLogs.DescribeMetricFilters
   ( -- * Creating a Request
     DescribeMetricFilters (..),
     newDescribeMetricFilters,
@@ -49,12 +49,12 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchLogs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'

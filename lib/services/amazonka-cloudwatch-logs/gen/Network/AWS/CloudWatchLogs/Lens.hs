@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.Lens
+-- Module      : Amazonka.CloudWatchLogs.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Lens
+module Amazonka.CloudWatchLogs.Lens
   ( -- * Operations
 
     -- ** GetLogGroupFields
@@ -421,66 +421,66 @@ module Network.AWS.CloudWatchLogs.Lens
   )
 where
 
-import Network.AWS.CloudWatchLogs.AssociateKmsKey
-import Network.AWS.CloudWatchLogs.CancelExportTask
-import Network.AWS.CloudWatchLogs.CreateExportTask
-import Network.AWS.CloudWatchLogs.CreateLogGroup
-import Network.AWS.CloudWatchLogs.CreateLogStream
-import Network.AWS.CloudWatchLogs.DeleteDestination
-import Network.AWS.CloudWatchLogs.DeleteLogGroup
-import Network.AWS.CloudWatchLogs.DeleteLogStream
-import Network.AWS.CloudWatchLogs.DeleteMetricFilter
-import Network.AWS.CloudWatchLogs.DeleteQueryDefinition
-import Network.AWS.CloudWatchLogs.DeleteResourcePolicy
-import Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-import Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-import Network.AWS.CloudWatchLogs.DescribeDestinations
-import Network.AWS.CloudWatchLogs.DescribeExportTasks
-import Network.AWS.CloudWatchLogs.DescribeLogGroups
-import Network.AWS.CloudWatchLogs.DescribeLogStreams
-import Network.AWS.CloudWatchLogs.DescribeMetricFilters
-import Network.AWS.CloudWatchLogs.DescribeQueries
-import Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
-import Network.AWS.CloudWatchLogs.DescribeResourcePolicies
-import Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-import Network.AWS.CloudWatchLogs.DisassociateKmsKey
-import Network.AWS.CloudWatchLogs.FilterLogEvents
-import Network.AWS.CloudWatchLogs.GetLogEvents
-import Network.AWS.CloudWatchLogs.GetLogGroupFields
-import Network.AWS.CloudWatchLogs.GetLogRecord
-import Network.AWS.CloudWatchLogs.GetQueryResults
-import Network.AWS.CloudWatchLogs.ListTagsLogGroup
-import Network.AWS.CloudWatchLogs.PutDestination
-import Network.AWS.CloudWatchLogs.PutDestinationPolicy
-import Network.AWS.CloudWatchLogs.PutLogEvents
-import Network.AWS.CloudWatchLogs.PutMetricFilter
-import Network.AWS.CloudWatchLogs.PutQueryDefinition
-import Network.AWS.CloudWatchLogs.PutResourcePolicy
-import Network.AWS.CloudWatchLogs.PutRetentionPolicy
-import Network.AWS.CloudWatchLogs.PutSubscriptionFilter
-import Network.AWS.CloudWatchLogs.StartQuery
-import Network.AWS.CloudWatchLogs.StopQuery
-import Network.AWS.CloudWatchLogs.TagLogGroup
-import Network.AWS.CloudWatchLogs.TestMetricFilter
-import Network.AWS.CloudWatchLogs.Types.Destination
-import Network.AWS.CloudWatchLogs.Types.ExportTask
-import Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
-import Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
-import Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
-import Network.AWS.CloudWatchLogs.Types.InputLogEvent
-import Network.AWS.CloudWatchLogs.Types.LogGroup
-import Network.AWS.CloudWatchLogs.Types.LogGroupField
-import Network.AWS.CloudWatchLogs.Types.LogStream
-import Network.AWS.CloudWatchLogs.Types.MetricFilter
-import Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
-import Network.AWS.CloudWatchLogs.Types.MetricTransformation
-import Network.AWS.CloudWatchLogs.Types.OutputLogEvent
-import Network.AWS.CloudWatchLogs.Types.QueryDefinition
-import Network.AWS.CloudWatchLogs.Types.QueryInfo
-import Network.AWS.CloudWatchLogs.Types.QueryStatistics
-import Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
-import Network.AWS.CloudWatchLogs.Types.ResourcePolicy
-import Network.AWS.CloudWatchLogs.Types.ResultField
-import Network.AWS.CloudWatchLogs.Types.SearchedLogStream
-import Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
-import Network.AWS.CloudWatchLogs.UntagLogGroup
+import Amazonka.CloudWatchLogs.AssociateKmsKey
+import Amazonka.CloudWatchLogs.CancelExportTask
+import Amazonka.CloudWatchLogs.CreateExportTask
+import Amazonka.CloudWatchLogs.CreateLogGroup
+import Amazonka.CloudWatchLogs.CreateLogStream
+import Amazonka.CloudWatchLogs.DeleteDestination
+import Amazonka.CloudWatchLogs.DeleteLogGroup
+import Amazonka.CloudWatchLogs.DeleteLogStream
+import Amazonka.CloudWatchLogs.DeleteMetricFilter
+import Amazonka.CloudWatchLogs.DeleteQueryDefinition
+import Amazonka.CloudWatchLogs.DeleteResourcePolicy
+import Amazonka.CloudWatchLogs.DeleteRetentionPolicy
+import Amazonka.CloudWatchLogs.DeleteSubscriptionFilter
+import Amazonka.CloudWatchLogs.DescribeDestinations
+import Amazonka.CloudWatchLogs.DescribeExportTasks
+import Amazonka.CloudWatchLogs.DescribeLogGroups
+import Amazonka.CloudWatchLogs.DescribeLogStreams
+import Amazonka.CloudWatchLogs.DescribeMetricFilters
+import Amazonka.CloudWatchLogs.DescribeQueries
+import Amazonka.CloudWatchLogs.DescribeQueryDefinitions
+import Amazonka.CloudWatchLogs.DescribeResourcePolicies
+import Amazonka.CloudWatchLogs.DescribeSubscriptionFilters
+import Amazonka.CloudWatchLogs.DisassociateKmsKey
+import Amazonka.CloudWatchLogs.FilterLogEvents
+import Amazonka.CloudWatchLogs.GetLogEvents
+import Amazonka.CloudWatchLogs.GetLogGroupFields
+import Amazonka.CloudWatchLogs.GetLogRecord
+import Amazonka.CloudWatchLogs.GetQueryResults
+import Amazonka.CloudWatchLogs.ListTagsLogGroup
+import Amazonka.CloudWatchLogs.PutDestination
+import Amazonka.CloudWatchLogs.PutDestinationPolicy
+import Amazonka.CloudWatchLogs.PutLogEvents
+import Amazonka.CloudWatchLogs.PutMetricFilter
+import Amazonka.CloudWatchLogs.PutQueryDefinition
+import Amazonka.CloudWatchLogs.PutResourcePolicy
+import Amazonka.CloudWatchLogs.PutRetentionPolicy
+import Amazonka.CloudWatchLogs.PutSubscriptionFilter
+import Amazonka.CloudWatchLogs.StartQuery
+import Amazonka.CloudWatchLogs.StopQuery
+import Amazonka.CloudWatchLogs.TagLogGroup
+import Amazonka.CloudWatchLogs.TestMetricFilter
+import Amazonka.CloudWatchLogs.Types.Destination
+import Amazonka.CloudWatchLogs.Types.ExportTask
+import Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo
+import Amazonka.CloudWatchLogs.Types.ExportTaskStatus
+import Amazonka.CloudWatchLogs.Types.FilteredLogEvent
+import Amazonka.CloudWatchLogs.Types.InputLogEvent
+import Amazonka.CloudWatchLogs.Types.LogGroup
+import Amazonka.CloudWatchLogs.Types.LogGroupField
+import Amazonka.CloudWatchLogs.Types.LogStream
+import Amazonka.CloudWatchLogs.Types.MetricFilter
+import Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord
+import Amazonka.CloudWatchLogs.Types.MetricTransformation
+import Amazonka.CloudWatchLogs.Types.OutputLogEvent
+import Amazonka.CloudWatchLogs.Types.QueryDefinition
+import Amazonka.CloudWatchLogs.Types.QueryInfo
+import Amazonka.CloudWatchLogs.Types.QueryStatistics
+import Amazonka.CloudWatchLogs.Types.RejectedLogEventsInfo
+import Amazonka.CloudWatchLogs.Types.ResourcePolicy
+import Amazonka.CloudWatchLogs.Types.ResultField
+import Amazonka.CloudWatchLogs.Types.SearchedLogStream
+import Amazonka.CloudWatchLogs.Types.SubscriptionFilter
+import Amazonka.CloudWatchLogs.UntagLogGroup

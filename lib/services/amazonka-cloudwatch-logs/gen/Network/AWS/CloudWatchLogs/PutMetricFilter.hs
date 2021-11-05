@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
+-- Module      : Amazonka.CloudWatchLogs.PutMetricFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- You can also set up a billing alarm to alert you if your charges are
 -- higher than expected. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
-module Network.AWS.CloudWatchLogs.PutMetricFilter
+module Amazonka.CloudWatchLogs.PutMetricFilter
   ( -- * Creating a Request
     PutMetricFilter (..),
     newPutMetricFilter,
@@ -61,12 +61,12 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchLogs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMetricFilter' smart constructor.
 data PutMetricFilter = PutMetricFilter'

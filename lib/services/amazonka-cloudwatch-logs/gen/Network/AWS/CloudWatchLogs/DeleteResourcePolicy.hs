@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchLogs.DeleteResourcePolicy
+-- Module      : Amazonka.CloudWatchLogs.DeleteResourcePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes a resource policy from this account. This revokes the access of
 -- the identities in that policy to put log events to this account.
-module Network.AWS.CloudWatchLogs.DeleteResourcePolicy
+module Amazonka.CloudWatchLogs.DeleteResourcePolicy
   ( -- * Creating a Request
     DeleteResourcePolicy (..),
     newDeleteResourcePolicy,
@@ -36,12 +36,12 @@ module Network.AWS.CloudWatchLogs.DeleteResourcePolicy
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchLogs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteResourcePolicy' smart constructor.
 data DeleteResourcePolicy = DeleteResourcePolicy'

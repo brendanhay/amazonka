@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudWatchLogs where
 
+import Amazonka.CloudWatchLogs
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudWatchLogs
 import Test.AWS.CloudWatchLogs.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

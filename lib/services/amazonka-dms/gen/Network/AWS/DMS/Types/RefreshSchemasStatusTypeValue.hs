@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
+-- Module      : Amazonka.DMS.Types.RefreshSchemasStatusTypeValue
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
+module Amazonka.DMS.Types.RefreshSchemasStatusTypeValue
   ( RefreshSchemasStatusTypeValue
       ( ..,
         RefreshSchemasStatusTypeValue_Failed,
@@ -27,8 +27,8 @@ module Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype RefreshSchemasStatusTypeValue = RefreshSchemasStatusTypeValue'
   { fromRefreshSchemasStatusTypeValue ::

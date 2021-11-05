@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types.KafkaSettings
+-- Module      : Amazonka.DMS.Types.KafkaSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.KafkaSettings where
+module Amazonka.DMS.Types.KafkaSettings where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types.KafkaSecurityProtocol
-import Network.AWS.DMS.Types.MessageFormatValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types.KafkaSecurityProtocol
+import Amazonka.DMS.Types.MessageFormatValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that describes an Apache Kafka endpoint. This
 -- information includes the output format of records applied to the

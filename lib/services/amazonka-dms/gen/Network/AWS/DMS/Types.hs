@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types
+-- Module      : Amazonka.DMS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types
+module Amazonka.DMS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -786,85 +786,85 @@ module Network.AWS.DMS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types.AccountQuota
-import Network.AWS.DMS.Types.AuthMechanismValue
-import Network.AWS.DMS.Types.AuthTypeValue
-import Network.AWS.DMS.Types.AvailabilityZone
-import Network.AWS.DMS.Types.CannedAclForObjectsValue
-import Network.AWS.DMS.Types.Certificate
-import Network.AWS.DMS.Types.CharLengthSemantics
-import Network.AWS.DMS.Types.CompressionTypeValue
-import Network.AWS.DMS.Types.Connection
-import Network.AWS.DMS.Types.DataFormatValue
-import Network.AWS.DMS.Types.DatePartitionDelimiterValue
-import Network.AWS.DMS.Types.DatePartitionSequenceValue
-import Network.AWS.DMS.Types.DmsSslModeValue
-import Network.AWS.DMS.Types.DmsTransferSettings
-import Network.AWS.DMS.Types.DocDbSettings
-import Network.AWS.DMS.Types.DynamoDbSettings
-import Network.AWS.DMS.Types.ElasticsearchSettings
-import Network.AWS.DMS.Types.EncodingTypeValue
-import Network.AWS.DMS.Types.EncryptionModeValue
-import Network.AWS.DMS.Types.Endpoint
-import Network.AWS.DMS.Types.EndpointSetting
-import Network.AWS.DMS.Types.EndpointSettingTypeValue
-import Network.AWS.DMS.Types.Event
-import Network.AWS.DMS.Types.EventCategoryGroup
-import Network.AWS.DMS.Types.EventSubscription
-import Network.AWS.DMS.Types.Filter
-import Network.AWS.DMS.Types.IBMDb2Settings
-import Network.AWS.DMS.Types.KafkaSecurityProtocol
-import Network.AWS.DMS.Types.KafkaSettings
-import Network.AWS.DMS.Types.KinesisSettings
-import Network.AWS.DMS.Types.MessageFormatValue
-import Network.AWS.DMS.Types.MicrosoftSQLServerSettings
-import Network.AWS.DMS.Types.MigrationTypeValue
-import Network.AWS.DMS.Types.MongoDbSettings
-import Network.AWS.DMS.Types.MySQLSettings
-import Network.AWS.DMS.Types.NeptuneSettings
-import Network.AWS.DMS.Types.NestingLevelValue
-import Network.AWS.DMS.Types.OracleSettings
-import Network.AWS.DMS.Types.OrderableReplicationInstance
-import Network.AWS.DMS.Types.ParquetVersionValue
-import Network.AWS.DMS.Types.PendingMaintenanceAction
-import Network.AWS.DMS.Types.PluginNameValue
-import Network.AWS.DMS.Types.PostgreSQLSettings
-import Network.AWS.DMS.Types.RedisAuthTypeValue
-import Network.AWS.DMS.Types.RedisSettings
-import Network.AWS.DMS.Types.RedshiftSettings
-import Network.AWS.DMS.Types.RefreshSchemasStatus
-import Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
-import Network.AWS.DMS.Types.ReleaseStatusValues
-import Network.AWS.DMS.Types.ReloadOptionValue
-import Network.AWS.DMS.Types.ReplicationEndpointTypeValue
-import Network.AWS.DMS.Types.ReplicationInstance
-import Network.AWS.DMS.Types.ReplicationInstanceTaskLog
-import Network.AWS.DMS.Types.ReplicationPendingModifiedValues
-import Network.AWS.DMS.Types.ReplicationSubnetGroup
-import Network.AWS.DMS.Types.ReplicationTask
-import Network.AWS.DMS.Types.ReplicationTaskAssessmentResult
-import Network.AWS.DMS.Types.ReplicationTaskAssessmentRun
-import Network.AWS.DMS.Types.ReplicationTaskAssessmentRunProgress
-import Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment
-import Network.AWS.DMS.Types.ReplicationTaskStats
-import Network.AWS.DMS.Types.ResourcePendingMaintenanceActions
-import Network.AWS.DMS.Types.S3Settings
-import Network.AWS.DMS.Types.SafeguardPolicy
-import Network.AWS.DMS.Types.SourceType
-import Network.AWS.DMS.Types.SslSecurityProtocolValue
-import Network.AWS.DMS.Types.StartReplicationTaskTypeValue
-import Network.AWS.DMS.Types.Subnet
-import Network.AWS.DMS.Types.SupportedEndpointType
-import Network.AWS.DMS.Types.SybaseSettings
-import Network.AWS.DMS.Types.TableStatistics
-import Network.AWS.DMS.Types.TableToReload
-import Network.AWS.DMS.Types.Tag
-import Network.AWS.DMS.Types.TargetDbType
-import Network.AWS.DMS.Types.VpcSecurityGroupMembership
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types.AccountQuota
+import Amazonka.DMS.Types.AuthMechanismValue
+import Amazonka.DMS.Types.AuthTypeValue
+import Amazonka.DMS.Types.AvailabilityZone
+import Amazonka.DMS.Types.CannedAclForObjectsValue
+import Amazonka.DMS.Types.Certificate
+import Amazonka.DMS.Types.CharLengthSemantics
+import Amazonka.DMS.Types.CompressionTypeValue
+import Amazonka.DMS.Types.Connection
+import Amazonka.DMS.Types.DataFormatValue
+import Amazonka.DMS.Types.DatePartitionDelimiterValue
+import Amazonka.DMS.Types.DatePartitionSequenceValue
+import Amazonka.DMS.Types.DmsSslModeValue
+import Amazonka.DMS.Types.DmsTransferSettings
+import Amazonka.DMS.Types.DocDbSettings
+import Amazonka.DMS.Types.DynamoDbSettings
+import Amazonka.DMS.Types.ElasticsearchSettings
+import Amazonka.DMS.Types.EncodingTypeValue
+import Amazonka.DMS.Types.EncryptionModeValue
+import Amazonka.DMS.Types.Endpoint
+import Amazonka.DMS.Types.EndpointSetting
+import Amazonka.DMS.Types.EndpointSettingTypeValue
+import Amazonka.DMS.Types.Event
+import Amazonka.DMS.Types.EventCategoryGroup
+import Amazonka.DMS.Types.EventSubscription
+import Amazonka.DMS.Types.Filter
+import Amazonka.DMS.Types.IBMDb2Settings
+import Amazonka.DMS.Types.KafkaSecurityProtocol
+import Amazonka.DMS.Types.KafkaSettings
+import Amazonka.DMS.Types.KinesisSettings
+import Amazonka.DMS.Types.MessageFormatValue
+import Amazonka.DMS.Types.MicrosoftSQLServerSettings
+import Amazonka.DMS.Types.MigrationTypeValue
+import Amazonka.DMS.Types.MongoDbSettings
+import Amazonka.DMS.Types.MySQLSettings
+import Amazonka.DMS.Types.NeptuneSettings
+import Amazonka.DMS.Types.NestingLevelValue
+import Amazonka.DMS.Types.OracleSettings
+import Amazonka.DMS.Types.OrderableReplicationInstance
+import Amazonka.DMS.Types.ParquetVersionValue
+import Amazonka.DMS.Types.PendingMaintenanceAction
+import Amazonka.DMS.Types.PluginNameValue
+import Amazonka.DMS.Types.PostgreSQLSettings
+import Amazonka.DMS.Types.RedisAuthTypeValue
+import Amazonka.DMS.Types.RedisSettings
+import Amazonka.DMS.Types.RedshiftSettings
+import Amazonka.DMS.Types.RefreshSchemasStatus
+import Amazonka.DMS.Types.RefreshSchemasStatusTypeValue
+import Amazonka.DMS.Types.ReleaseStatusValues
+import Amazonka.DMS.Types.ReloadOptionValue
+import Amazonka.DMS.Types.ReplicationEndpointTypeValue
+import Amazonka.DMS.Types.ReplicationInstance
+import Amazonka.DMS.Types.ReplicationInstanceTaskLog
+import Amazonka.DMS.Types.ReplicationPendingModifiedValues
+import Amazonka.DMS.Types.ReplicationSubnetGroup
+import Amazonka.DMS.Types.ReplicationTask
+import Amazonka.DMS.Types.ReplicationTaskAssessmentResult
+import Amazonka.DMS.Types.ReplicationTaskAssessmentRun
+import Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress
+import Amazonka.DMS.Types.ReplicationTaskIndividualAssessment
+import Amazonka.DMS.Types.ReplicationTaskStats
+import Amazonka.DMS.Types.ResourcePendingMaintenanceActions
+import Amazonka.DMS.Types.S3Settings
+import Amazonka.DMS.Types.SafeguardPolicy
+import Amazonka.DMS.Types.SourceType
+import Amazonka.DMS.Types.SslSecurityProtocolValue
+import Amazonka.DMS.Types.StartReplicationTaskTypeValue
+import Amazonka.DMS.Types.Subnet
+import Amazonka.DMS.Types.SupportedEndpointType
+import Amazonka.DMS.Types.SybaseSettings
+import Amazonka.DMS.Types.TableStatistics
+import Amazonka.DMS.Types.TableToReload
+import Amazonka.DMS.Types.Tag
+import Amazonka.DMS.Types.TargetDbType
+import Amazonka.DMS.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-01-01@ of the Amazon Database Migration Service SDK configuration.
 defaultService :: Core.Service

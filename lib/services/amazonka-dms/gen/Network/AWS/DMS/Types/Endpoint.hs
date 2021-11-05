@@ -11,36 +11,36 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types.Endpoint
+-- Module      : Amazonka.DMS.Types.Endpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.Endpoint where
+module Amazonka.DMS.Types.Endpoint where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types.DmsSslModeValue
-import Network.AWS.DMS.Types.DmsTransferSettings
-import Network.AWS.DMS.Types.DocDbSettings
-import Network.AWS.DMS.Types.DynamoDbSettings
-import Network.AWS.DMS.Types.ElasticsearchSettings
-import Network.AWS.DMS.Types.IBMDb2Settings
-import Network.AWS.DMS.Types.KafkaSettings
-import Network.AWS.DMS.Types.KinesisSettings
-import Network.AWS.DMS.Types.MicrosoftSQLServerSettings
-import Network.AWS.DMS.Types.MongoDbSettings
-import Network.AWS.DMS.Types.MySQLSettings
-import Network.AWS.DMS.Types.NeptuneSettings
-import Network.AWS.DMS.Types.OracleSettings
-import Network.AWS.DMS.Types.PostgreSQLSettings
-import Network.AWS.DMS.Types.RedisSettings
-import Network.AWS.DMS.Types.RedshiftSettings
-import Network.AWS.DMS.Types.ReplicationEndpointTypeValue
-import Network.AWS.DMS.Types.S3Settings
-import Network.AWS.DMS.Types.SybaseSettings
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types.DmsSslModeValue
+import Amazonka.DMS.Types.DmsTransferSettings
+import Amazonka.DMS.Types.DocDbSettings
+import Amazonka.DMS.Types.DynamoDbSettings
+import Amazonka.DMS.Types.ElasticsearchSettings
+import Amazonka.DMS.Types.IBMDb2Settings
+import Amazonka.DMS.Types.KafkaSettings
+import Amazonka.DMS.Types.KinesisSettings
+import Amazonka.DMS.Types.MicrosoftSQLServerSettings
+import Amazonka.DMS.Types.MongoDbSettings
+import Amazonka.DMS.Types.MySQLSettings
+import Amazonka.DMS.Types.NeptuneSettings
+import Amazonka.DMS.Types.OracleSettings
+import Amazonka.DMS.Types.PostgreSQLSettings
+import Amazonka.DMS.Types.RedisSettings
+import Amazonka.DMS.Types.RedshiftSettings
+import Amazonka.DMS.Types.ReplicationEndpointTypeValue
+import Amazonka.DMS.Types.S3Settings
+import Amazonka.DMS.Types.SybaseSettings
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an endpoint of a database instance in response to operations
 -- such as the following:

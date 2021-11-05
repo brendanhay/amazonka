@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DMS where
 
+import Amazonka.DMS
 import qualified Data.Proxy as Proxy
-import Network.AWS.DMS
 import Test.AWS.DMS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

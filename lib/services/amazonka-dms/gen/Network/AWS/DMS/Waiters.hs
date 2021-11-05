@@ -7,25 +7,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Waiters
+-- Module      : Amazonka.DMS.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Waiters where
+module Amazonka.DMS.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.DescribeConnections
-import Network.AWS.DMS.DescribeEndpoints
-import Network.AWS.DMS.DescribeReplicationInstances
-import Network.AWS.DMS.DescribeReplicationTasks
-import Network.AWS.DMS.Lens
-import Network.AWS.DMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.DescribeConnections
+import Amazonka.DMS.DescribeEndpoints
+import Amazonka.DMS.DescribeReplicationInstances
+import Amazonka.DMS.DescribeReplicationTasks
+import Amazonka.DMS.Lens
+import Amazonka.DMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeReplicationInstances' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationInstanceAvailable :: Core.Wait DescribeReplicationInstances
 newReplicationInstanceAvailable =
   Core.Wait
@@ -102,7 +102,7 @@ newReplicationInstanceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationTaskDeleted :: Core.Wait DescribeReplicationTasks
 newReplicationTaskDeleted =
   Core.Wait
@@ -182,7 +182,7 @@ newReplicationTaskDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationTaskReady :: Core.Wait DescribeReplicationTasks
 newReplicationTaskReady =
   Core.Wait
@@ -310,7 +310,7 @@ newReplicationTaskReady =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeReplicationInstances' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationInstanceDeleted :: Core.Wait DescribeReplicationInstances
 newReplicationInstanceDeleted =
   Core.Wait
@@ -338,7 +338,7 @@ newReplicationInstanceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeEndpoints' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeEndpoints' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newEndpointDeleted :: Core.Wait DescribeEndpoints
 newEndpointDeleted =
   Core.Wait
@@ -378,7 +378,7 @@ newEndpointDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationTaskStopped :: Core.Wait DescribeReplicationTasks
 newReplicationTaskStopped =
   Core.Wait
@@ -494,7 +494,7 @@ newReplicationTaskStopped =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newReplicationTaskRunning :: Core.Wait DescribeReplicationTasks
 newReplicationTaskRunning =
   Core.Wait
@@ -623,7 +623,7 @@ newReplicationTaskRunning =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeConnections' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.DMS.DescribeConnections' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newTestConnectionSucceeds :: Core.Wait DescribeConnections
 newTestConnectionSucceeds =
   Core.Wait

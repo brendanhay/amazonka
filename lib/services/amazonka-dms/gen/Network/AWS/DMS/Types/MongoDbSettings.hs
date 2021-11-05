@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types.MongoDbSettings
+-- Module      : Amazonka.DMS.Types.MongoDbSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.MongoDbSettings where
+module Amazonka.DMS.Types.MongoDbSettings where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types.AuthMechanismValue
-import Network.AWS.DMS.Types.AuthTypeValue
-import Network.AWS.DMS.Types.NestingLevelValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types.AuthMechanismValue
+import Amazonka.DMS.Types.AuthTypeValue
+import Amazonka.DMS.Types.NestingLevelValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a MongoDB endpoint.
 --

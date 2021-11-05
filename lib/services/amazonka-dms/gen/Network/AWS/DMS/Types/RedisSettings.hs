@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types.RedisSettings
+-- Module      : Amazonka.DMS.Types.RedisSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.RedisSettings where
+module Amazonka.DMS.Types.RedisSettings where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types.RedisAuthTypeValue
-import Network.AWS.DMS.Types.SslSecurityProtocolValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types.RedisAuthTypeValue
+import Amazonka.DMS.Types.SslSecurityProtocolValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information that defines a Redis target endpoint.
 --

@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.Types.S3Settings
+-- Module      : Amazonka.DMS.Types.S3Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.S3Settings where
+module Amazonka.DMS.Types.S3Settings where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types.CannedAclForObjectsValue
-import Network.AWS.DMS.Types.CompressionTypeValue
-import Network.AWS.DMS.Types.DataFormatValue
-import Network.AWS.DMS.Types.DatePartitionDelimiterValue
-import Network.AWS.DMS.Types.DatePartitionSequenceValue
-import Network.AWS.DMS.Types.EncodingTypeValue
-import Network.AWS.DMS.Types.EncryptionModeValue
-import Network.AWS.DMS.Types.ParquetVersionValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types.CannedAclForObjectsValue
+import Amazonka.DMS.Types.CompressionTypeValue
+import Amazonka.DMS.Types.DataFormatValue
+import Amazonka.DMS.Types.DatePartitionDelimiterValue
+import Amazonka.DMS.Types.DatePartitionSequenceValue
+import Amazonka.DMS.Types.EncodingTypeValue
+import Amazonka.DMS.Types.EncryptionModeValue
+import Amazonka.DMS.Types.ParquetVersionValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for exporting data to Amazon S3.
 --

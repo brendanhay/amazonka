@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.ModifyReplicationInstance
+-- Module      : Amazonka.DMS.ModifyReplicationInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- in the request.
 --
 -- Some settings are applied during the maintenance window.
-module Network.AWS.DMS.ModifyReplicationInstance
+module Amazonka.DMS.ModifyReplicationInstance
   ( -- * Creating a Request
     ModifyReplicationInstance (..),
     newModifyReplicationInstance,
@@ -53,12 +53,12 @@ module Network.AWS.DMS.ModifyReplicationInstance
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

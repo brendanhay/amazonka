@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DMS
+-- Module      : Amazonka.DMS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- For more information about DMS, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is Database Migration Service?>
 -- in the /Database Migration Service User Guide./
-module Network.AWS.DMS
+module Amazonka.DMS
   ( -- * Service Configuration
     defaultService,
 
@@ -736,64 +736,64 @@ module Network.AWS.DMS
   )
 where
 
-import Network.AWS.DMS.AddTagsToResource
-import Network.AWS.DMS.ApplyPendingMaintenanceAction
-import Network.AWS.DMS.CancelReplicationTaskAssessmentRun
-import Network.AWS.DMS.CreateEndpoint
-import Network.AWS.DMS.CreateEventSubscription
-import Network.AWS.DMS.CreateReplicationInstance
-import Network.AWS.DMS.CreateReplicationSubnetGroup
-import Network.AWS.DMS.CreateReplicationTask
-import Network.AWS.DMS.DeleteCertificate
-import Network.AWS.DMS.DeleteConnection
-import Network.AWS.DMS.DeleteEndpoint
-import Network.AWS.DMS.DeleteEventSubscription
-import Network.AWS.DMS.DeleteReplicationInstance
-import Network.AWS.DMS.DeleteReplicationSubnetGroup
-import Network.AWS.DMS.DeleteReplicationTask
-import Network.AWS.DMS.DeleteReplicationTaskAssessmentRun
-import Network.AWS.DMS.DescribeAccountAttributes
-import Network.AWS.DMS.DescribeApplicableIndividualAssessments
-import Network.AWS.DMS.DescribeCertificates
-import Network.AWS.DMS.DescribeConnections
-import Network.AWS.DMS.DescribeEndpointSettings
-import Network.AWS.DMS.DescribeEndpointTypes
-import Network.AWS.DMS.DescribeEndpoints
-import Network.AWS.DMS.DescribeEventCategories
-import Network.AWS.DMS.DescribeEventSubscriptions
-import Network.AWS.DMS.DescribeEvents
-import Network.AWS.DMS.DescribeOrderableReplicationInstances
-import Network.AWS.DMS.DescribePendingMaintenanceActions
-import Network.AWS.DMS.DescribeRefreshSchemasStatus
-import Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
-import Network.AWS.DMS.DescribeReplicationInstances
-import Network.AWS.DMS.DescribeReplicationSubnetGroups
-import Network.AWS.DMS.DescribeReplicationTaskAssessmentResults
-import Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
-import Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments
-import Network.AWS.DMS.DescribeReplicationTasks
-import Network.AWS.DMS.DescribeSchemas
-import Network.AWS.DMS.DescribeTableStatistics
-import Network.AWS.DMS.ImportCertificate
-import Network.AWS.DMS.Lens
-import Network.AWS.DMS.ListTagsForResource
-import Network.AWS.DMS.ModifyEndpoint
-import Network.AWS.DMS.ModifyEventSubscription
-import Network.AWS.DMS.ModifyReplicationInstance
-import Network.AWS.DMS.ModifyReplicationSubnetGroup
-import Network.AWS.DMS.ModifyReplicationTask
-import Network.AWS.DMS.MoveReplicationTask
-import Network.AWS.DMS.RebootReplicationInstance
-import Network.AWS.DMS.RefreshSchemas
-import Network.AWS.DMS.ReloadTables
-import Network.AWS.DMS.RemoveTagsFromResource
-import Network.AWS.DMS.StartReplicationTask
-import Network.AWS.DMS.StartReplicationTaskAssessment
-import Network.AWS.DMS.StartReplicationTaskAssessmentRun
-import Network.AWS.DMS.StopReplicationTask
-import Network.AWS.DMS.TestConnection
-import Network.AWS.DMS.Types
-import Network.AWS.DMS.Waiters
+import Amazonka.DMS.AddTagsToResource
+import Amazonka.DMS.ApplyPendingMaintenanceAction
+import Amazonka.DMS.CancelReplicationTaskAssessmentRun
+import Amazonka.DMS.CreateEndpoint
+import Amazonka.DMS.CreateEventSubscription
+import Amazonka.DMS.CreateReplicationInstance
+import Amazonka.DMS.CreateReplicationSubnetGroup
+import Amazonka.DMS.CreateReplicationTask
+import Amazonka.DMS.DeleteCertificate
+import Amazonka.DMS.DeleteConnection
+import Amazonka.DMS.DeleteEndpoint
+import Amazonka.DMS.DeleteEventSubscription
+import Amazonka.DMS.DeleteReplicationInstance
+import Amazonka.DMS.DeleteReplicationSubnetGroup
+import Amazonka.DMS.DeleteReplicationTask
+import Amazonka.DMS.DeleteReplicationTaskAssessmentRun
+import Amazonka.DMS.DescribeAccountAttributes
+import Amazonka.DMS.DescribeApplicableIndividualAssessments
+import Amazonka.DMS.DescribeCertificates
+import Amazonka.DMS.DescribeConnections
+import Amazonka.DMS.DescribeEndpointSettings
+import Amazonka.DMS.DescribeEndpointTypes
+import Amazonka.DMS.DescribeEndpoints
+import Amazonka.DMS.DescribeEventCategories
+import Amazonka.DMS.DescribeEventSubscriptions
+import Amazonka.DMS.DescribeEvents
+import Amazonka.DMS.DescribeOrderableReplicationInstances
+import Amazonka.DMS.DescribePendingMaintenanceActions
+import Amazonka.DMS.DescribeRefreshSchemasStatus
+import Amazonka.DMS.DescribeReplicationInstanceTaskLogs
+import Amazonka.DMS.DescribeReplicationInstances
+import Amazonka.DMS.DescribeReplicationSubnetGroups
+import Amazonka.DMS.DescribeReplicationTaskAssessmentResults
+import Amazonka.DMS.DescribeReplicationTaskAssessmentRuns
+import Amazonka.DMS.DescribeReplicationTaskIndividualAssessments
+import Amazonka.DMS.DescribeReplicationTasks
+import Amazonka.DMS.DescribeSchemas
+import Amazonka.DMS.DescribeTableStatistics
+import Amazonka.DMS.ImportCertificate
+import Amazonka.DMS.Lens
+import Amazonka.DMS.ListTagsForResource
+import Amazonka.DMS.ModifyEndpoint
+import Amazonka.DMS.ModifyEventSubscription
+import Amazonka.DMS.ModifyReplicationInstance
+import Amazonka.DMS.ModifyReplicationSubnetGroup
+import Amazonka.DMS.ModifyReplicationTask
+import Amazonka.DMS.MoveReplicationTask
+import Amazonka.DMS.RebootReplicationInstance
+import Amazonka.DMS.RefreshSchemas
+import Amazonka.DMS.ReloadTables
+import Amazonka.DMS.RemoveTagsFromResource
+import Amazonka.DMS.StartReplicationTask
+import Amazonka.DMS.StartReplicationTaskAssessment
+import Amazonka.DMS.StartReplicationTaskAssessmentRun
+import Amazonka.DMS.StopReplicationTask
+import Amazonka.DMS.TestConnection
+import Amazonka.DMS.Types
+import Amazonka.DMS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DMS.RebootReplicationInstance
+-- Module      : Amazonka.DMS.RebootReplicationInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Reboots a replication instance. Rebooting results in a momentary outage,
 -- until the replication instance becomes available again.
-module Network.AWS.DMS.RebootReplicationInstance
+module Amazonka.DMS.RebootReplicationInstance
   ( -- * Creating a Request
     RebootReplicationInstance (..),
     newRebootReplicationInstance,
@@ -42,12 +42,12 @@ module Network.AWS.DMS.RebootReplicationInstance
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRebootReplicationInstance' smart constructor.
 data RebootReplicationInstance = RebootReplicationInstance'

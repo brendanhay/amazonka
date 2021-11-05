@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Types.UserAuthConfig
+-- Module      : Amazonka.RDS.Types.UserAuthConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.UserAuthConfig where
+module Amazonka.RDS.Types.UserAuthConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types.AuthScheme
-import Network.AWS.RDS.Types.IAMAuthMode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.AuthScheme
+import Amazonka.RDS.Types.IAMAuthMode
 
 -- | Specifies the details of authentication used by a proxy to log in as a
 -- specific database user.

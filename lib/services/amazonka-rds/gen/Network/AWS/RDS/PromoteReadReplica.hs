@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.PromoteReadReplica
+-- Module      : Amazonka.RDS.PromoteReadReplica
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 --     daily backups do not interfere with read replica promotion.
 --
 -- -   This command doesn\'t apply to Aurora MySQL and Aurora PostgreSQL.
-module Network.AWS.RDS.PromoteReadReplica
+module Amazonka.RDS.PromoteReadReplica
   ( -- * Creating a Request
     PromoteReadReplica (..),
     newPromoteReadReplica,
@@ -52,12 +52,12 @@ module Network.AWS.RDS.PromoteReadReplica
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

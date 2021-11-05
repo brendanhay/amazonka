@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.DescribeDBEngineVersions
+-- Module      : Amazonka.RDS.DescribeDBEngineVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns a list of the available DB engines.
 --
 -- This operation returns paginated results.
-module Network.AWS.RDS.DescribeDBEngineVersions
+module Amazonka.RDS.DescribeDBEngineVersions
   ( -- * Creating a Request
     DescribeDBEngineVersions (..),
     newDescribeDBEngineVersions,
@@ -51,12 +51,12 @@ module Network.AWS.RDS.DescribeDBEngineVersions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBEngineVersions' smart constructor.
 data DescribeDBEngineVersions = DescribeDBEngineVersions'

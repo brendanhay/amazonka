@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.DescribeInstallationMedia
+-- Module      : Amazonka.RDS.DescribeInstallationMedia
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- an on-premises customer provided license, such as Microsoft SQL Server.
 --
 -- This operation returns paginated results.
-module Network.AWS.RDS.DescribeInstallationMedia
+module Amazonka.RDS.DescribeInstallationMedia
   ( -- * Creating a Request
     DescribeInstallationMedia (..),
     newDescribeInstallationMedia,
@@ -46,12 +46,12 @@ module Network.AWS.RDS.DescribeInstallationMedia
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstallationMedia' smart constructor.
 data DescribeInstallationMedia = DescribeInstallationMedia'

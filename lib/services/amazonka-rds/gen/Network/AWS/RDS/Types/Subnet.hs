@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Types.Subnet
+-- Module      : Amazonka.RDS.Types.Subnet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.Subnet where
+module Amazonka.RDS.Types.Subnet where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types.AvailabilityZone
-import Network.AWS.RDS.Types.Outpost
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.AvailabilityZone
+import Amazonka.RDS.Types.Outpost
 
 -- | This data type is used as a response element for the
 -- @DescribeDBSubnetGroups@ operation.

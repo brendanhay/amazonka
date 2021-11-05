@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Types
+-- Module      : Amazonka.RDS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types
+module Amazonka.RDS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -1236,120 +1236,120 @@ module Network.AWS.RDS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types.AccountQuota
-import Network.AWS.RDS.Types.ActivityStreamMode
-import Network.AWS.RDS.Types.ActivityStreamStatus
-import Network.AWS.RDS.Types.ApplyMethod
-import Network.AWS.RDS.Types.AuthScheme
-import Network.AWS.RDS.Types.AvailabilityZone
-import Network.AWS.RDS.Types.AvailableProcessorFeature
-import Network.AWS.RDS.Types.Certificate
-import Network.AWS.RDS.Types.CharacterSet
-import Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration
-import Network.AWS.RDS.Types.ClusterPendingModifiedValues
-import Network.AWS.RDS.Types.ConnectionPoolConfiguration
-import Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
-import Network.AWS.RDS.Types.CustomAvailabilityZone
-import Network.AWS.RDS.Types.DBCluster
-import Network.AWS.RDS.Types.DBClusterBacktrack
-import Network.AWS.RDS.Types.DBClusterEndpoint
-import Network.AWS.RDS.Types.DBClusterMember
-import Network.AWS.RDS.Types.DBClusterOptionGroupStatus
-import Network.AWS.RDS.Types.DBClusterParameterGroup
-import Network.AWS.RDS.Types.DBClusterParameterGroupNameMessage
-import Network.AWS.RDS.Types.DBClusterRole
-import Network.AWS.RDS.Types.DBClusterSnapshot
-import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
-import Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult
-import Network.AWS.RDS.Types.DBEngineVersion
-import Network.AWS.RDS.Types.DBInstance
-import Network.AWS.RDS.Types.DBInstanceAutomatedBackup
-import Network.AWS.RDS.Types.DBInstanceAutomatedBackupsReplication
-import Network.AWS.RDS.Types.DBInstanceRole
-import Network.AWS.RDS.Types.DBInstanceStatusInfo
-import Network.AWS.RDS.Types.DBParameterGroup
-import Network.AWS.RDS.Types.DBParameterGroupNameMessage
-import Network.AWS.RDS.Types.DBParameterGroupStatus
-import Network.AWS.RDS.Types.DBProxy
-import Network.AWS.RDS.Types.DBProxyEndpoint
-import Network.AWS.RDS.Types.DBProxyEndpointStatus
-import Network.AWS.RDS.Types.DBProxyEndpointTargetRole
-import Network.AWS.RDS.Types.DBProxyStatus
-import Network.AWS.RDS.Types.DBProxyTarget
-import Network.AWS.RDS.Types.DBProxyTargetGroup
-import Network.AWS.RDS.Types.DBSecurityGroup
-import Network.AWS.RDS.Types.DBSecurityGroupMembership
-import Network.AWS.RDS.Types.DBSnapshot
-import Network.AWS.RDS.Types.DBSnapshotAttribute
-import Network.AWS.RDS.Types.DBSnapshotAttributesResult
-import Network.AWS.RDS.Types.DBSubnetGroup
-import Network.AWS.RDS.Types.DescribeDBLogFilesDetails
-import Network.AWS.RDS.Types.DomainMembership
-import Network.AWS.RDS.Types.DoubleRange
-import Network.AWS.RDS.Types.EC2SecurityGroup
-import Network.AWS.RDS.Types.Endpoint
-import Network.AWS.RDS.Types.EngineDefaults
-import Network.AWS.RDS.Types.EngineFamily
-import Network.AWS.RDS.Types.Event
-import Network.AWS.RDS.Types.EventCategoriesMap
-import Network.AWS.RDS.Types.EventSubscription
-import Network.AWS.RDS.Types.ExportTask
-import Network.AWS.RDS.Types.FailoverState
-import Network.AWS.RDS.Types.FailoverStatus
-import Network.AWS.RDS.Types.Filter
-import Network.AWS.RDS.Types.GlobalCluster
-import Network.AWS.RDS.Types.GlobalClusterMember
-import Network.AWS.RDS.Types.IAMAuthMode
-import Network.AWS.RDS.Types.IPRange
-import Network.AWS.RDS.Types.InstallationMedia
-import Network.AWS.RDS.Types.InstallationMediaFailureCause
-import Network.AWS.RDS.Types.MinimumEngineVersionPerAllowedValue
-import Network.AWS.RDS.Types.Option
-import Network.AWS.RDS.Types.OptionConfiguration
-import Network.AWS.RDS.Types.OptionGroup
-import Network.AWS.RDS.Types.OptionGroupMembership
-import Network.AWS.RDS.Types.OptionGroupOption
-import Network.AWS.RDS.Types.OptionGroupOptionSetting
-import Network.AWS.RDS.Types.OptionSetting
-import Network.AWS.RDS.Types.OptionVersion
-import Network.AWS.RDS.Types.OrderableDBInstanceOption
-import Network.AWS.RDS.Types.Outpost
-import Network.AWS.RDS.Types.Parameter
-import Network.AWS.RDS.Types.PendingCloudwatchLogsExports
-import Network.AWS.RDS.Types.PendingMaintenanceAction
-import Network.AWS.RDS.Types.PendingModifiedValues
-import Network.AWS.RDS.Types.ProcessorFeature
-import Network.AWS.RDS.Types.Range
-import Network.AWS.RDS.Types.RecurringCharge
-import Network.AWS.RDS.Types.ReplicaMode
-import Network.AWS.RDS.Types.ReservedDBInstance
-import Network.AWS.RDS.Types.ReservedDBInstancesOffering
-import Network.AWS.RDS.Types.ResourcePendingMaintenanceActions
-import Network.AWS.RDS.Types.RestoreWindow
-import Network.AWS.RDS.Types.ScalingConfiguration
-import Network.AWS.RDS.Types.ScalingConfigurationInfo
-import Network.AWS.RDS.Types.SourceRegion
-import Network.AWS.RDS.Types.SourceType
-import Network.AWS.RDS.Types.Subnet
-import Network.AWS.RDS.Types.Tag
-import Network.AWS.RDS.Types.TargetHealth
-import Network.AWS.RDS.Types.TargetHealthReason
-import Network.AWS.RDS.Types.TargetRole
-import Network.AWS.RDS.Types.TargetState
-import Network.AWS.RDS.Types.TargetType
-import Network.AWS.RDS.Types.Timezone
-import Network.AWS.RDS.Types.UpgradeTarget
-import Network.AWS.RDS.Types.UserAuthConfig
-import Network.AWS.RDS.Types.UserAuthConfigInfo
-import Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage
-import Network.AWS.RDS.Types.ValidStorageOptions
-import Network.AWS.RDS.Types.VpcSecurityGroupMembership
-import Network.AWS.RDS.Types.VpnDetails
-import Network.AWS.RDS.Types.WriteForwardingStatus
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.AccountQuota
+import Amazonka.RDS.Types.ActivityStreamMode
+import Amazonka.RDS.Types.ActivityStreamStatus
+import Amazonka.RDS.Types.ApplyMethod
+import Amazonka.RDS.Types.AuthScheme
+import Amazonka.RDS.Types.AvailabilityZone
+import Amazonka.RDS.Types.AvailableProcessorFeature
+import Amazonka.RDS.Types.Certificate
+import Amazonka.RDS.Types.CharacterSet
+import Amazonka.RDS.Types.CloudwatchLogsExportConfiguration
+import Amazonka.RDS.Types.ClusterPendingModifiedValues
+import Amazonka.RDS.Types.ConnectionPoolConfiguration
+import Amazonka.RDS.Types.ConnectionPoolConfigurationInfo
+import Amazonka.RDS.Types.CustomAvailabilityZone
+import Amazonka.RDS.Types.DBCluster
+import Amazonka.RDS.Types.DBClusterBacktrack
+import Amazonka.RDS.Types.DBClusterEndpoint
+import Amazonka.RDS.Types.DBClusterMember
+import Amazonka.RDS.Types.DBClusterOptionGroupStatus
+import Amazonka.RDS.Types.DBClusterParameterGroup
+import Amazonka.RDS.Types.DBClusterParameterGroupNameMessage
+import Amazonka.RDS.Types.DBClusterRole
+import Amazonka.RDS.Types.DBClusterSnapshot
+import Amazonka.RDS.Types.DBClusterSnapshotAttribute
+import Amazonka.RDS.Types.DBClusterSnapshotAttributesResult
+import Amazonka.RDS.Types.DBEngineVersion
+import Amazonka.RDS.Types.DBInstance
+import Amazonka.RDS.Types.DBInstanceAutomatedBackup
+import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
+import Amazonka.RDS.Types.DBInstanceRole
+import Amazonka.RDS.Types.DBInstanceStatusInfo
+import Amazonka.RDS.Types.DBParameterGroup
+import Amazonka.RDS.Types.DBParameterGroupNameMessage
+import Amazonka.RDS.Types.DBParameterGroupStatus
+import Amazonka.RDS.Types.DBProxy
+import Amazonka.RDS.Types.DBProxyEndpoint
+import Amazonka.RDS.Types.DBProxyEndpointStatus
+import Amazonka.RDS.Types.DBProxyEndpointTargetRole
+import Amazonka.RDS.Types.DBProxyStatus
+import Amazonka.RDS.Types.DBProxyTarget
+import Amazonka.RDS.Types.DBProxyTargetGroup
+import Amazonka.RDS.Types.DBSecurityGroup
+import Amazonka.RDS.Types.DBSecurityGroupMembership
+import Amazonka.RDS.Types.DBSnapshot
+import Amazonka.RDS.Types.DBSnapshotAttribute
+import Amazonka.RDS.Types.DBSnapshotAttributesResult
+import Amazonka.RDS.Types.DBSubnetGroup
+import Amazonka.RDS.Types.DescribeDBLogFilesDetails
+import Amazonka.RDS.Types.DomainMembership
+import Amazonka.RDS.Types.DoubleRange
+import Amazonka.RDS.Types.EC2SecurityGroup
+import Amazonka.RDS.Types.Endpoint
+import Amazonka.RDS.Types.EngineDefaults
+import Amazonka.RDS.Types.EngineFamily
+import Amazonka.RDS.Types.Event
+import Amazonka.RDS.Types.EventCategoriesMap
+import Amazonka.RDS.Types.EventSubscription
+import Amazonka.RDS.Types.ExportTask
+import Amazonka.RDS.Types.FailoverState
+import Amazonka.RDS.Types.FailoverStatus
+import Amazonka.RDS.Types.Filter
+import Amazonka.RDS.Types.GlobalCluster
+import Amazonka.RDS.Types.GlobalClusterMember
+import Amazonka.RDS.Types.IAMAuthMode
+import Amazonka.RDS.Types.IPRange
+import Amazonka.RDS.Types.InstallationMedia
+import Amazonka.RDS.Types.InstallationMediaFailureCause
+import Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
+import Amazonka.RDS.Types.Option
+import Amazonka.RDS.Types.OptionConfiguration
+import Amazonka.RDS.Types.OptionGroup
+import Amazonka.RDS.Types.OptionGroupMembership
+import Amazonka.RDS.Types.OptionGroupOption
+import Amazonka.RDS.Types.OptionGroupOptionSetting
+import Amazonka.RDS.Types.OptionSetting
+import Amazonka.RDS.Types.OptionVersion
+import Amazonka.RDS.Types.OrderableDBInstanceOption
+import Amazonka.RDS.Types.Outpost
+import Amazonka.RDS.Types.Parameter
+import Amazonka.RDS.Types.PendingCloudwatchLogsExports
+import Amazonka.RDS.Types.PendingMaintenanceAction
+import Amazonka.RDS.Types.PendingModifiedValues
+import Amazonka.RDS.Types.ProcessorFeature
+import Amazonka.RDS.Types.Range
+import Amazonka.RDS.Types.RecurringCharge
+import Amazonka.RDS.Types.ReplicaMode
+import Amazonka.RDS.Types.ReservedDBInstance
+import Amazonka.RDS.Types.ReservedDBInstancesOffering
+import Amazonka.RDS.Types.ResourcePendingMaintenanceActions
+import Amazonka.RDS.Types.RestoreWindow
+import Amazonka.RDS.Types.ScalingConfiguration
+import Amazonka.RDS.Types.ScalingConfigurationInfo
+import Amazonka.RDS.Types.SourceRegion
+import Amazonka.RDS.Types.SourceType
+import Amazonka.RDS.Types.Subnet
+import Amazonka.RDS.Types.Tag
+import Amazonka.RDS.Types.TargetHealth
+import Amazonka.RDS.Types.TargetHealthReason
+import Amazonka.RDS.Types.TargetRole
+import Amazonka.RDS.Types.TargetState
+import Amazonka.RDS.Types.TargetType
+import Amazonka.RDS.Types.Timezone
+import Amazonka.RDS.Types.UpgradeTarget
+import Amazonka.RDS.Types.UserAuthConfig
+import Amazonka.RDS.Types.UserAuthConfigInfo
+import Amazonka.RDS.Types.ValidDBInstanceModificationsMessage
+import Amazonka.RDS.Types.ValidStorageOptions
+import Amazonka.RDS.Types.VpcSecurityGroupMembership
+import Amazonka.RDS.Types.VpnDetails
+import Amazonka.RDS.Types.WriteForwardingStatus
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-10-31@ of the Amazon Relational Database Service SDK configuration.
 defaultService :: Core.Service

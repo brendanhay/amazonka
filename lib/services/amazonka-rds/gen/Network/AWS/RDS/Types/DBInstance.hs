@@ -11,33 +11,33 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Types.DBInstance
+-- Module      : Amazonka.RDS.Types.DBInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBInstance where
+module Amazonka.RDS.Types.DBInstance where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types.ActivityStreamMode
-import Network.AWS.RDS.Types.ActivityStreamStatus
-import Network.AWS.RDS.Types.DBInstanceAutomatedBackupsReplication
-import Network.AWS.RDS.Types.DBInstanceRole
-import Network.AWS.RDS.Types.DBInstanceStatusInfo
-import Network.AWS.RDS.Types.DBParameterGroupStatus
-import Network.AWS.RDS.Types.DBSecurityGroupMembership
-import Network.AWS.RDS.Types.DBSubnetGroup
-import Network.AWS.RDS.Types.DomainMembership
-import Network.AWS.RDS.Types.Endpoint
-import Network.AWS.RDS.Types.OptionGroupMembership
-import Network.AWS.RDS.Types.PendingModifiedValues
-import Network.AWS.RDS.Types.ProcessorFeature
-import Network.AWS.RDS.Types.ReplicaMode
-import Network.AWS.RDS.Types.Tag
-import Network.AWS.RDS.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.ActivityStreamMode
+import Amazonka.RDS.Types.ActivityStreamStatus
+import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
+import Amazonka.RDS.Types.DBInstanceRole
+import Amazonka.RDS.Types.DBInstanceStatusInfo
+import Amazonka.RDS.Types.DBParameterGroupStatus
+import Amazonka.RDS.Types.DBSecurityGroupMembership
+import Amazonka.RDS.Types.DBSubnetGroup
+import Amazonka.RDS.Types.DomainMembership
+import Amazonka.RDS.Types.Endpoint
+import Amazonka.RDS.Types.OptionGroupMembership
+import Amazonka.RDS.Types.PendingModifiedValues
+import Amazonka.RDS.Types.ProcessorFeature
+import Amazonka.RDS.Types.ReplicaMode
+import Amazonka.RDS.Types.Tag
+import Amazonka.RDS.Types.VpcSecurityGroupMembership
 
 -- | Contains the details of an Amazon RDS DB instance.
 --

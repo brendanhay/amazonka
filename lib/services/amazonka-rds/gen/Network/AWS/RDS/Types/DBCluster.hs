@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Types.DBCluster
+-- Module      : Amazonka.RDS.Types.DBCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBCluster where
+module Amazonka.RDS.Types.DBCluster where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types.ActivityStreamMode
-import Network.AWS.RDS.Types.ActivityStreamStatus
-import Network.AWS.RDS.Types.ClusterPendingModifiedValues
-import Network.AWS.RDS.Types.DBClusterMember
-import Network.AWS.RDS.Types.DBClusterOptionGroupStatus
-import Network.AWS.RDS.Types.DBClusterRole
-import Network.AWS.RDS.Types.DomainMembership
-import Network.AWS.RDS.Types.ScalingConfigurationInfo
-import Network.AWS.RDS.Types.Tag
-import Network.AWS.RDS.Types.VpcSecurityGroupMembership
-import Network.AWS.RDS.Types.WriteForwardingStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.ActivityStreamMode
+import Amazonka.RDS.Types.ActivityStreamStatus
+import Amazonka.RDS.Types.ClusterPendingModifiedValues
+import Amazonka.RDS.Types.DBClusterMember
+import Amazonka.RDS.Types.DBClusterOptionGroupStatus
+import Amazonka.RDS.Types.DBClusterRole
+import Amazonka.RDS.Types.DomainMembership
+import Amazonka.RDS.Types.ScalingConfigurationInfo
+import Amazonka.RDS.Types.Tag
+import Amazonka.RDS.Types.VpcSecurityGroupMembership
+import Amazonka.RDS.Types.WriteForwardingStatus
 
 -- | Contains the details of an Amazon Aurora DB cluster.
 --

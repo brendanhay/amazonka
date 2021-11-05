@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Types.DBInstanceAutomatedBackup
+-- Module      : Amazonka.RDS.Types.DBInstanceAutomatedBackup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBInstanceAutomatedBackup where
+module Amazonka.RDS.Types.DBInstanceAutomatedBackup where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types.DBInstanceAutomatedBackupsReplication
-import Network.AWS.RDS.Types.RestoreWindow
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
+import Amazonka.RDS.Types.RestoreWindow
 
 -- | An automated backup of a DB instance. It consists of system backups,
 -- transaction logs, and the database instance properties that existed at

@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.Waiters
+-- Module      : Amazonka.RDS.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Waiters where
+module Amazonka.RDS.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.DescribeDBClusterSnapshots
-import Network.AWS.RDS.DescribeDBInstances
-import Network.AWS.RDS.DescribeDBSnapshots
-import Network.AWS.RDS.Lens
-import Network.AWS.RDS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.DescribeDBClusterSnapshots
+import Amazonka.RDS.DescribeDBInstances
+import Amazonka.RDS.DescribeDBSnapshots
+import Amazonka.RDS.Lens
+import Amazonka.RDS.Types
 
--- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBInstanceAvailable :: Core.Wait DescribeDBInstances
 newDBInstanceAvailable =
   Core.Wait
@@ -113,7 +113,7 @@ newDBInstanceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newDBSnapshotCompleted :: Core.Wait DescribeDBSnapshots
 newDBSnapshotCompleted =
   Core.Wait
@@ -140,7 +140,7 @@ newDBSnapshotCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBSnapshotDeleted :: Core.Wait DescribeDBSnapshots
 newDBSnapshotDeleted =
   Core.Wait
@@ -212,7 +212,7 @@ newDBSnapshotDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBInstanceDeleted :: Core.Wait DescribeDBInstances
 newDBInstanceDeleted =
   Core.Wait
@@ -284,7 +284,7 @@ newDBInstanceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBClusterSnapshotDeleted :: Core.Wait DescribeDBClusterSnapshots
 newDBClusterSnapshotDeleted =
   Core.Wait
@@ -357,7 +357,7 @@ newDBClusterSnapshotDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBSnapshotAvailable :: Core.Wait DescribeDBSnapshots
 newDBSnapshotAvailable =
   Core.Wait
@@ -446,7 +446,7 @@ newDBSnapshotAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBClusterSnapshotAvailable :: Core.Wait DescribeDBClusterSnapshots
 newDBClusterSnapshotAvailable =
   Core.Wait

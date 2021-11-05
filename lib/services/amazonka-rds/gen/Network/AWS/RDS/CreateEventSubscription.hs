@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.CreateEventSubscription
+-- Module      : Amazonka.RDS.CreateEventSubscription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- RDS event notification is only available for unencrypted SNS topics. If
 -- you specify an encrypted SNS topic, event notifications aren\'t sent for
 -- the topic.
-module Network.AWS.RDS.CreateEventSubscription
+module Amazonka.RDS.CreateEventSubscription
   ( -- * Creating a Request
     CreateEventSubscription (..),
     newCreateEventSubscription,
@@ -70,12 +70,12 @@ module Network.AWS.RDS.CreateEventSubscription
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

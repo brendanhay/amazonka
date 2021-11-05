@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDS.DescribeEngineDefaultClusterParameters
+-- Module      : Amazonka.RDS.DescribeEngineDefaultClusterParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- in the /Amazon Aurora User Guide./
 --
 -- This operation returns paginated results.
-module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
+module Amazonka.RDS.DescribeEngineDefaultClusterParameters
   ( -- * Creating a Request
     DescribeEngineDefaultClusterParameters (..),
     newDescribeEngineDefaultClusterParameters,
@@ -49,12 +49,12 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

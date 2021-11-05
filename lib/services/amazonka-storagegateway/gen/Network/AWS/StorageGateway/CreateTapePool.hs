@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.CreateTapePool
+-- Module      : Amazonka.StorageGateway.CreateTapePool
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a new custom tape pool. You can use custom tape pool to enable
 -- tape retention lock on tapes that are archived in the custom pool.
-module Network.AWS.StorageGateway.CreateTapePool
+module Amazonka.StorageGateway.CreateTapePool
   ( -- * Creating a Request
     CreateTapePool (..),
     newCreateTapePool,
@@ -44,12 +44,12 @@ module Network.AWS.StorageGateway.CreateTapePool
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newCreateTapePool' smart constructor.
 data CreateTapePool = CreateTapePool'

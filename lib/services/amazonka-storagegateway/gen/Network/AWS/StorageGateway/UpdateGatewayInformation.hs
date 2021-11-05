@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
+-- Module      : Amazonka.StorageGateway.UpdateGatewayInformation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- For gateways activated after September 2, 2015, the gateway\'s ARN
 -- contains the gateway ID rather than the gateway name. However, changing
 -- the name of the gateway has no effect on the gateway\'s ARN.
-module Network.AWS.StorageGateway.UpdateGatewayInformation
+module Amazonka.StorageGateway.UpdateGatewayInformation
   ( -- * Creating a Request
     UpdateGatewayInformation (..),
     newUpdateGatewayInformation,
@@ -50,12 +50,12 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newUpdateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'

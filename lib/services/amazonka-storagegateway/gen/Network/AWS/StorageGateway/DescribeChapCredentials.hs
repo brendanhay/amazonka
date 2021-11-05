@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
+-- Module      : Amazonka.StorageGateway.DescribeChapCredentials
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- credentials information for a specified iSCSI target, one for each
 -- target-initiator pair. This operation is supported in the volume and
 -- tape gateway types.
-module Network.AWS.StorageGateway.DescribeChapCredentials
+module Amazonka.StorageGateway.DescribeChapCredentials
   ( -- * Creating a Request
     DescribeChapCredentials (..),
     newDescribeChapCredentials,
@@ -42,12 +42,12 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI
 -- volume target.

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.Types.SMBFileShareInfo
+-- Module      : Amazonka.StorageGateway.Types.SMBFileShareInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.SMBFileShareInfo where
+module Amazonka.StorageGateway.Types.SMBFileShareInfo where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.StorageGateway.Types.CacheAttributes
-import Network.AWS.StorageGateway.Types.CaseSensitivity
-import Network.AWS.StorageGateway.Types.ObjectACL
-import Network.AWS.StorageGateway.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.StorageGateway.Types.CacheAttributes
+import Amazonka.StorageGateway.Types.CaseSensitivity
+import Amazonka.StorageGateway.Types.ObjectACL
+import Amazonka.StorageGateway.Types.Tag
 
 -- | The Windows file permissions and ownership information assigned, by
 -- default, to native S3 objects when S3 File Gateway discovers them in S3

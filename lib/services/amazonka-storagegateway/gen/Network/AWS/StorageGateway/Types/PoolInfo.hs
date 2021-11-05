@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.Types.PoolInfo
+-- Module      : Amazonka.StorageGateway.Types.PoolInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.PoolInfo where
+module Amazonka.StorageGateway.Types.PoolInfo where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.StorageGateway.Types.PoolStatus
-import Network.AWS.StorageGateway.Types.RetentionLockType
-import Network.AWS.StorageGateway.Types.TapeStorageClass
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.StorageGateway.Types.PoolStatus
+import Amazonka.StorageGateway.Types.RetentionLockType
+import Amazonka.StorageGateway.Types.TapeStorageClass
 
 -- | Describes a custom tape pool.
 --

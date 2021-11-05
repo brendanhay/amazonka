@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.SetSMBGuestPassword
+-- Module      : Amazonka.StorageGateway.SetSMBGuestPassword
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Sets the password for the guest user @smbguest@. The @smbguest@ user is
 -- the user when the authentication method for the file share is set to
 -- @GuestAccess@. This operation only supported for S3 File Gateways
-module Network.AWS.StorageGateway.SetSMBGuestPassword
+module Amazonka.StorageGateway.SetSMBGuestPassword
   ( -- * Creating a Request
     SetSMBGuestPassword (..),
     newSetSMBGuestPassword,
@@ -42,12 +42,12 @@ module Network.AWS.StorageGateway.SetSMBGuestPassword
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | SetSMBGuestPasswordInput
 --

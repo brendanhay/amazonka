@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.CreateNFSFileShare
+-- Module      : Amazonka.StorageGateway.CreateNFSFileShare
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 --
 -- S3 File Gateways do not support creating hard or symbolic links on a
 -- file share.
-module Network.AWS.StorageGateway.CreateNFSFileShare
+module Amazonka.StorageGateway.CreateNFSFileShare
   ( -- * Creating a Request
     CreateNFSFileShare (..),
     newCreateNFSFileShare,
@@ -75,12 +75,12 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | CreateNFSFileShareInput
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.Types
+-- Module      : Amazonka.StorageGateway.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types
+module Amazonka.StorageGateway.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -390,51 +390,51 @@ module Network.AWS.StorageGateway.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
-import Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
-import Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
-import Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus
-import Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval
-import Network.AWS.StorageGateway.Types.CacheAttributes
-import Network.AWS.StorageGateway.Types.CachediSCSIVolume
-import Network.AWS.StorageGateway.Types.CaseSensitivity
-import Network.AWS.StorageGateway.Types.ChapInfo
-import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
-import Network.AWS.StorageGateway.Types.Disk
-import Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
-import Network.AWS.StorageGateway.Types.FileShareInfo
-import Network.AWS.StorageGateway.Types.FileShareType
-import Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
-import Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail
-import Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
-import Network.AWS.StorageGateway.Types.GatewayCapacity
-import Network.AWS.StorageGateway.Types.GatewayInfo
-import Network.AWS.StorageGateway.Types.HostEnvironment
-import Network.AWS.StorageGateway.Types.NFSFileShareDefaults
-import Network.AWS.StorageGateway.Types.NFSFileShareInfo
-import Network.AWS.StorageGateway.Types.NetworkInterface
-import Network.AWS.StorageGateway.Types.ObjectACL
-import Network.AWS.StorageGateway.Types.PoolInfo
-import Network.AWS.StorageGateway.Types.PoolStatus
-import Network.AWS.StorageGateway.Types.RetentionLockType
-import Network.AWS.StorageGateway.Types.SMBFileShareInfo
-import Network.AWS.StorageGateway.Types.SMBLocalGroups
-import Network.AWS.StorageGateway.Types.SMBSecurityStrategy
-import Network.AWS.StorageGateway.Types.StorediSCSIVolume
-import Network.AWS.StorageGateway.Types.Tag
-import Network.AWS.StorageGateway.Types.Tape
-import Network.AWS.StorageGateway.Types.TapeArchive
-import Network.AWS.StorageGateway.Types.TapeInfo
-import Network.AWS.StorageGateway.Types.TapeRecoveryPointInfo
-import Network.AWS.StorageGateway.Types.TapeStorageClass
-import Network.AWS.StorageGateway.Types.VTLDevice
-import Network.AWS.StorageGateway.Types.VolumeInfo
-import Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo
-import Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.StorageGateway.Types.ActiveDirectoryStatus
+import Amazonka.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
+import Amazonka.StorageGateway.Types.AutomaticTapeCreationRule
+import Amazonka.StorageGateway.Types.AvailabilityMonitorTestStatus
+import Amazonka.StorageGateway.Types.BandwidthRateLimitInterval
+import Amazonka.StorageGateway.Types.CacheAttributes
+import Amazonka.StorageGateway.Types.CachediSCSIVolume
+import Amazonka.StorageGateway.Types.CaseSensitivity
+import Amazonka.StorageGateway.Types.ChapInfo
+import Amazonka.StorageGateway.Types.DeviceiSCSIAttributes
+import Amazonka.StorageGateway.Types.Disk
+import Amazonka.StorageGateway.Types.EndpointNetworkConfiguration
+import Amazonka.StorageGateway.Types.FileShareInfo
+import Amazonka.StorageGateway.Types.FileShareType
+import Amazonka.StorageGateway.Types.FileSystemAssociationInfo
+import Amazonka.StorageGateway.Types.FileSystemAssociationStatusDetail
+import Amazonka.StorageGateway.Types.FileSystemAssociationSummary
+import Amazonka.StorageGateway.Types.GatewayCapacity
+import Amazonka.StorageGateway.Types.GatewayInfo
+import Amazonka.StorageGateway.Types.HostEnvironment
+import Amazonka.StorageGateway.Types.NFSFileShareDefaults
+import Amazonka.StorageGateway.Types.NFSFileShareInfo
+import Amazonka.StorageGateway.Types.NetworkInterface
+import Amazonka.StorageGateway.Types.ObjectACL
+import Amazonka.StorageGateway.Types.PoolInfo
+import Amazonka.StorageGateway.Types.PoolStatus
+import Amazonka.StorageGateway.Types.RetentionLockType
+import Amazonka.StorageGateway.Types.SMBFileShareInfo
+import Amazonka.StorageGateway.Types.SMBLocalGroups
+import Amazonka.StorageGateway.Types.SMBSecurityStrategy
+import Amazonka.StorageGateway.Types.StorediSCSIVolume
+import Amazonka.StorageGateway.Types.Tag
+import Amazonka.StorageGateway.Types.Tape
+import Amazonka.StorageGateway.Types.TapeArchive
+import Amazonka.StorageGateway.Types.TapeInfo
+import Amazonka.StorageGateway.Types.TapeRecoveryPointInfo
+import Amazonka.StorageGateway.Types.TapeStorageClass
+import Amazonka.StorageGateway.Types.VTLDevice
+import Amazonka.StorageGateway.Types.VolumeInfo
+import Amazonka.StorageGateway.Types.VolumeRecoveryPointInfo
+import Amazonka.StorageGateway.Types.VolumeiSCSIAttributes
 
 -- | API version @2013-06-30@ of the Amazon Storage Gateway SDK configuration.
 defaultService :: Core.Service

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.StorageGateway
+-- Module      : Amazonka.StorageGateway
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -69,7 +69,7 @@
 --
 -- For more information, see
 -- <http://forums.aws.amazon.com/ann.jspa?annID=3557 Announcement: Heads-up – Longer Storage Gateway volume and snapshot IDs coming in 2016>.
-module Network.AWS.StorageGateway
+module Amazonka.StorageGateway
   ( -- * Service Configuration
     defaultService,
 
@@ -788,99 +788,99 @@ module Network.AWS.StorageGateway
   )
 where
 
-import Network.AWS.StorageGateway.ActivateGateway
-import Network.AWS.StorageGateway.AddCache
-import Network.AWS.StorageGateway.AddTagsToResource
-import Network.AWS.StorageGateway.AddUploadBuffer
-import Network.AWS.StorageGateway.AddWorkingStorage
-import Network.AWS.StorageGateway.AssignTapePool
-import Network.AWS.StorageGateway.AssociateFileSystem
-import Network.AWS.StorageGateway.AttachVolume
-import Network.AWS.StorageGateway.CancelArchival
-import Network.AWS.StorageGateway.CancelRetrieval
-import Network.AWS.StorageGateway.CreateCachediSCSIVolume
-import Network.AWS.StorageGateway.CreateNFSFileShare
-import Network.AWS.StorageGateway.CreateSMBFileShare
-import Network.AWS.StorageGateway.CreateSnapshot
-import Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
-import Network.AWS.StorageGateway.CreateStorediSCSIVolume
-import Network.AWS.StorageGateway.CreateTapePool
-import Network.AWS.StorageGateway.CreateTapeWithBarcode
-import Network.AWS.StorageGateway.CreateTapes
-import Network.AWS.StorageGateway.DeleteAutomaticTapeCreationPolicy
-import Network.AWS.StorageGateway.DeleteBandwidthRateLimit
-import Network.AWS.StorageGateway.DeleteChapCredentials
-import Network.AWS.StorageGateway.DeleteFileShare
-import Network.AWS.StorageGateway.DeleteGateway
-import Network.AWS.StorageGateway.DeleteSnapshotSchedule
-import Network.AWS.StorageGateway.DeleteTape
-import Network.AWS.StorageGateway.DeleteTapeArchive
-import Network.AWS.StorageGateway.DeleteTapePool
-import Network.AWS.StorageGateway.DeleteVolume
-import Network.AWS.StorageGateway.DescribeAvailabilityMonitorTest
-import Network.AWS.StorageGateway.DescribeBandwidthRateLimit
-import Network.AWS.StorageGateway.DescribeBandwidthRateLimitSchedule
-import Network.AWS.StorageGateway.DescribeCache
-import Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
-import Network.AWS.StorageGateway.DescribeChapCredentials
-import Network.AWS.StorageGateway.DescribeFileSystemAssociations
-import Network.AWS.StorageGateway.DescribeGatewayInformation
-import Network.AWS.StorageGateway.DescribeMaintenanceStartTime
-import Network.AWS.StorageGateway.DescribeNFSFileShares
-import Network.AWS.StorageGateway.DescribeSMBFileShares
-import Network.AWS.StorageGateway.DescribeSMBSettings
-import Network.AWS.StorageGateway.DescribeSnapshotSchedule
-import Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
-import Network.AWS.StorageGateway.DescribeTapeArchives
-import Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-import Network.AWS.StorageGateway.DescribeTapes
-import Network.AWS.StorageGateway.DescribeUploadBuffer
-import Network.AWS.StorageGateway.DescribeVTLDevices
-import Network.AWS.StorageGateway.DescribeWorkingStorage
-import Network.AWS.StorageGateway.DetachVolume
-import Network.AWS.StorageGateway.DisableGateway
-import Network.AWS.StorageGateway.DisassociateFileSystem
-import Network.AWS.StorageGateway.JoinDomain
-import Network.AWS.StorageGateway.Lens
-import Network.AWS.StorageGateway.ListAutomaticTapeCreationPolicies
-import Network.AWS.StorageGateway.ListFileShares
-import Network.AWS.StorageGateway.ListFileSystemAssociations
-import Network.AWS.StorageGateway.ListGateways
-import Network.AWS.StorageGateway.ListLocalDisks
-import Network.AWS.StorageGateway.ListTagsForResource
-import Network.AWS.StorageGateway.ListTapePools
-import Network.AWS.StorageGateway.ListTapes
-import Network.AWS.StorageGateway.ListVolumeInitiators
-import Network.AWS.StorageGateway.ListVolumeRecoveryPoints
-import Network.AWS.StorageGateway.ListVolumes
-import Network.AWS.StorageGateway.NotifyWhenUploaded
-import Network.AWS.StorageGateway.RefreshCache
-import Network.AWS.StorageGateway.RemoveTagsFromResource
-import Network.AWS.StorageGateway.ResetCache
-import Network.AWS.StorageGateway.RetrieveTapeArchive
-import Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
-import Network.AWS.StorageGateway.SetLocalConsolePassword
-import Network.AWS.StorageGateway.SetSMBGuestPassword
-import Network.AWS.StorageGateway.ShutdownGateway
-import Network.AWS.StorageGateway.StartAvailabilityMonitorTest
-import Network.AWS.StorageGateway.StartGateway
-import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.UpdateAutomaticTapeCreationPolicy
-import Network.AWS.StorageGateway.UpdateBandwidthRateLimit
-import Network.AWS.StorageGateway.UpdateBandwidthRateLimitSchedule
-import Network.AWS.StorageGateway.UpdateChapCredentials
-import Network.AWS.StorageGateway.UpdateFileSystemAssociation
-import Network.AWS.StorageGateway.UpdateGatewayInformation
-import Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-import Network.AWS.StorageGateway.UpdateMaintenanceStartTime
-import Network.AWS.StorageGateway.UpdateNFSFileShare
-import Network.AWS.StorageGateway.UpdateSMBFileShare
-import Network.AWS.StorageGateway.UpdateSMBFileShareVisibility
-import Network.AWS.StorageGateway.UpdateSMBLocalGroups
-import Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
-import Network.AWS.StorageGateway.UpdateSnapshotSchedule
-import Network.AWS.StorageGateway.UpdateVTLDeviceType
-import Network.AWS.StorageGateway.Waiters
+import Amazonka.StorageGateway.ActivateGateway
+import Amazonka.StorageGateway.AddCache
+import Amazonka.StorageGateway.AddTagsToResource
+import Amazonka.StorageGateway.AddUploadBuffer
+import Amazonka.StorageGateway.AddWorkingStorage
+import Amazonka.StorageGateway.AssignTapePool
+import Amazonka.StorageGateway.AssociateFileSystem
+import Amazonka.StorageGateway.AttachVolume
+import Amazonka.StorageGateway.CancelArchival
+import Amazonka.StorageGateway.CancelRetrieval
+import Amazonka.StorageGateway.CreateCachediSCSIVolume
+import Amazonka.StorageGateway.CreateNFSFileShare
+import Amazonka.StorageGateway.CreateSMBFileShare
+import Amazonka.StorageGateway.CreateSnapshot
+import Amazonka.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
+import Amazonka.StorageGateway.CreateStorediSCSIVolume
+import Amazonka.StorageGateway.CreateTapePool
+import Amazonka.StorageGateway.CreateTapeWithBarcode
+import Amazonka.StorageGateway.CreateTapes
+import Amazonka.StorageGateway.DeleteAutomaticTapeCreationPolicy
+import Amazonka.StorageGateway.DeleteBandwidthRateLimit
+import Amazonka.StorageGateway.DeleteChapCredentials
+import Amazonka.StorageGateway.DeleteFileShare
+import Amazonka.StorageGateway.DeleteGateway
+import Amazonka.StorageGateway.DeleteSnapshotSchedule
+import Amazonka.StorageGateway.DeleteTape
+import Amazonka.StorageGateway.DeleteTapeArchive
+import Amazonka.StorageGateway.DeleteTapePool
+import Amazonka.StorageGateway.DeleteVolume
+import Amazonka.StorageGateway.DescribeAvailabilityMonitorTest
+import Amazonka.StorageGateway.DescribeBandwidthRateLimit
+import Amazonka.StorageGateway.DescribeBandwidthRateLimitSchedule
+import Amazonka.StorageGateway.DescribeCache
+import Amazonka.StorageGateway.DescribeCachediSCSIVolumes
+import Amazonka.StorageGateway.DescribeChapCredentials
+import Amazonka.StorageGateway.DescribeFileSystemAssociations
+import Amazonka.StorageGateway.DescribeGatewayInformation
+import Amazonka.StorageGateway.DescribeMaintenanceStartTime
+import Amazonka.StorageGateway.DescribeNFSFileShares
+import Amazonka.StorageGateway.DescribeSMBFileShares
+import Amazonka.StorageGateway.DescribeSMBSettings
+import Amazonka.StorageGateway.DescribeSnapshotSchedule
+import Amazonka.StorageGateway.DescribeStorediSCSIVolumes
+import Amazonka.StorageGateway.DescribeTapeArchives
+import Amazonka.StorageGateway.DescribeTapeRecoveryPoints
+import Amazonka.StorageGateway.DescribeTapes
+import Amazonka.StorageGateway.DescribeUploadBuffer
+import Amazonka.StorageGateway.DescribeVTLDevices
+import Amazonka.StorageGateway.DescribeWorkingStorage
+import Amazonka.StorageGateway.DetachVolume
+import Amazonka.StorageGateway.DisableGateway
+import Amazonka.StorageGateway.DisassociateFileSystem
+import Amazonka.StorageGateway.JoinDomain
+import Amazonka.StorageGateway.Lens
+import Amazonka.StorageGateway.ListAutomaticTapeCreationPolicies
+import Amazonka.StorageGateway.ListFileShares
+import Amazonka.StorageGateway.ListFileSystemAssociations
+import Amazonka.StorageGateway.ListGateways
+import Amazonka.StorageGateway.ListLocalDisks
+import Amazonka.StorageGateway.ListTagsForResource
+import Amazonka.StorageGateway.ListTapePools
+import Amazonka.StorageGateway.ListTapes
+import Amazonka.StorageGateway.ListVolumeInitiators
+import Amazonka.StorageGateway.ListVolumeRecoveryPoints
+import Amazonka.StorageGateway.ListVolumes
+import Amazonka.StorageGateway.NotifyWhenUploaded
+import Amazonka.StorageGateway.RefreshCache
+import Amazonka.StorageGateway.RemoveTagsFromResource
+import Amazonka.StorageGateway.ResetCache
+import Amazonka.StorageGateway.RetrieveTapeArchive
+import Amazonka.StorageGateway.RetrieveTapeRecoveryPoint
+import Amazonka.StorageGateway.SetLocalConsolePassword
+import Amazonka.StorageGateway.SetSMBGuestPassword
+import Amazonka.StorageGateway.ShutdownGateway
+import Amazonka.StorageGateway.StartAvailabilityMonitorTest
+import Amazonka.StorageGateway.StartGateway
+import Amazonka.StorageGateway.Types
+import Amazonka.StorageGateway.UpdateAutomaticTapeCreationPolicy
+import Amazonka.StorageGateway.UpdateBandwidthRateLimit
+import Amazonka.StorageGateway.UpdateBandwidthRateLimitSchedule
+import Amazonka.StorageGateway.UpdateChapCredentials
+import Amazonka.StorageGateway.UpdateFileSystemAssociation
+import Amazonka.StorageGateway.UpdateGatewayInformation
+import Amazonka.StorageGateway.UpdateGatewaySoftwareNow
+import Amazonka.StorageGateway.UpdateMaintenanceStartTime
+import Amazonka.StorageGateway.UpdateNFSFileShare
+import Amazonka.StorageGateway.UpdateSMBFileShare
+import Amazonka.StorageGateway.UpdateSMBFileShareVisibility
+import Amazonka.StorageGateway.UpdateSMBLocalGroups
+import Amazonka.StorageGateway.UpdateSMBSecurityStrategy
+import Amazonka.StorageGateway.UpdateSnapshotSchedule
+import Amazonka.StorageGateway.UpdateVTLDeviceType
+import Amazonka.StorageGateway.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

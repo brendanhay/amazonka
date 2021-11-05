@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.ShutdownGateway
+-- Module      : Amazonka.StorageGateway.ShutdownGateway
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -43,7 +43,7 @@
 -- If do not intend to use the gateway again, you must delete the gateway
 -- (using DeleteGateway) to no longer pay software charges associated with
 -- the gateway.
-module Network.AWS.StorageGateway.ShutdownGateway
+module Amazonka.StorageGateway.ShutdownGateway
   ( -- * Creating a Request
     ShutdownGateway (..),
     newShutdownGateway,
@@ -61,12 +61,12 @@ module Network.AWS.StorageGateway.ShutdownGateway
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- to shut down.

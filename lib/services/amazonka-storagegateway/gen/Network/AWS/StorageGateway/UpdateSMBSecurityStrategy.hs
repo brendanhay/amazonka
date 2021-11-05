@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
+-- Module      : Amazonka.StorageGateway.UpdateSMBSecurityStrategy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- This API is called Security level in the User Guide.
 --
 -- A higher security level can affect performance of the gateway.
-module Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
+module Amazonka.StorageGateway.UpdateSMBSecurityStrategy
   ( -- * Creating a Request
     UpdateSMBSecurityStrategy (..),
     newUpdateSMBSecurityStrategy,
@@ -45,12 +45,12 @@ module Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newUpdateSMBSecurityStrategy' smart constructor.
 data UpdateSMBSecurityStrategy = UpdateSMBSecurityStrategy'

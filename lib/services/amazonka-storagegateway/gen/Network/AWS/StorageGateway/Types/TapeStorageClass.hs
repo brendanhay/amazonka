@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.Types.TapeStorageClass
+-- Module      : Amazonka.StorageGateway.Types.TapeStorageClass
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.TapeStorageClass
+module Amazonka.StorageGateway.Types.TapeStorageClass
   ( TapeStorageClass
       ( ..,
         TapeStorageClass_DEEP_ARCHIVE,
@@ -26,8 +26,8 @@ module Network.AWS.StorageGateway.Types.TapeStorageClass
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype TapeStorageClass = TapeStorageClass'
   { fromTapeStorageClass ::

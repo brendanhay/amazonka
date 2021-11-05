@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StorageGateway.AddWorkingStorage
+-- Module      : Amazonka.StorageGateway.AddWorkingStorage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to
 -- which you want to add working storage, and one or more disk IDs that you
 -- want to configure as working storage.
-module Network.AWS.StorageGateway.AddWorkingStorage
+module Amazonka.StorageGateway.AddWorkingStorage
   ( -- * Creating a Request
     AddWorkingStorage (..),
     newAddWorkingStorage,
@@ -51,12 +51,12 @@ module Network.AWS.StorageGateway.AddWorkingStorage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StorageGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
 --

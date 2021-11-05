@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KMS.EnableKeyRotation
+-- Module      : Amazonka.KMS.EnableKeyRotation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -51,7 +51,7 @@
 -- -   DisableKeyRotation
 --
 -- -   GetKeyRotationStatus
-module Network.AWS.KMS.EnableKeyRotation
+module Amazonka.KMS.EnableKeyRotation
   ( -- * Creating a Request
     EnableKeyRotation (..),
     newEnableKeyRotation,
@@ -65,12 +65,12 @@ module Network.AWS.KMS.EnableKeyRotation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newEnableKeyRotation' smart constructor.
 data EnableKeyRotation = EnableKeyRotation'

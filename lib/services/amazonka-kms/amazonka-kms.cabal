@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KMS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KMS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,88 +45,88 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KMS
-    Network.AWS.KMS.CancelKeyDeletion
-    Network.AWS.KMS.ConnectCustomKeyStore
-    Network.AWS.KMS.CreateAlias
-    Network.AWS.KMS.CreateCustomKeyStore
-    Network.AWS.KMS.CreateGrant
-    Network.AWS.KMS.CreateKey
-    Network.AWS.KMS.Decrypt
-    Network.AWS.KMS.DeleteAlias
-    Network.AWS.KMS.DeleteCustomKeyStore
-    Network.AWS.KMS.DeleteImportedKeyMaterial
-    Network.AWS.KMS.DescribeCustomKeyStores
-    Network.AWS.KMS.DescribeKey
-    Network.AWS.KMS.DisableKey
-    Network.AWS.KMS.DisableKeyRotation
-    Network.AWS.KMS.DisconnectCustomKeyStore
-    Network.AWS.KMS.EnableKey
-    Network.AWS.KMS.EnableKeyRotation
-    Network.AWS.KMS.Encrypt
-    Network.AWS.KMS.GenerateDataKey
-    Network.AWS.KMS.GenerateDataKeyPair
-    Network.AWS.KMS.GenerateDataKeyPairWithoutPlaintext
-    Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
-    Network.AWS.KMS.GenerateRandom
-    Network.AWS.KMS.GetKeyPolicy
-    Network.AWS.KMS.GetKeyRotationStatus
-    Network.AWS.KMS.GetParametersForImport
-    Network.AWS.KMS.GetPublicKey
-    Network.AWS.KMS.ImportKeyMaterial
-    Network.AWS.KMS.Lens
-    Network.AWS.KMS.ListAliases
-    Network.AWS.KMS.ListGrants
-    Network.AWS.KMS.ListKeyPolicies
-    Network.AWS.KMS.ListKeys
-    Network.AWS.KMS.ListResourceTags
-    Network.AWS.KMS.ListRetirableGrants
-    Network.AWS.KMS.PutKeyPolicy
-    Network.AWS.KMS.ReEncrypt
-    Network.AWS.KMS.ReplicateKey
-    Network.AWS.KMS.RetireGrant
-    Network.AWS.KMS.RevokeGrant
-    Network.AWS.KMS.ScheduleKeyDeletion
-    Network.AWS.KMS.Sign
-    Network.AWS.KMS.TagResource
-    Network.AWS.KMS.Types
-    Network.AWS.KMS.Types.AlgorithmSpec
-    Network.AWS.KMS.Types.AliasListEntry
-    Network.AWS.KMS.Types.ConnectionErrorCodeType
-    Network.AWS.KMS.Types.ConnectionStateType
-    Network.AWS.KMS.Types.CustomerMasterKeySpec
-    Network.AWS.KMS.Types.CustomKeyStoresListEntry
-    Network.AWS.KMS.Types.DataKeyPairSpec
-    Network.AWS.KMS.Types.DataKeySpec
-    Network.AWS.KMS.Types.EncryptionAlgorithmSpec
-    Network.AWS.KMS.Types.ExpirationModelType
-    Network.AWS.KMS.Types.GrantConstraints
-    Network.AWS.KMS.Types.GrantListEntry
-    Network.AWS.KMS.Types.GrantOperation
-    Network.AWS.KMS.Types.KeyListEntry
-    Network.AWS.KMS.Types.KeyManagerType
-    Network.AWS.KMS.Types.KeyMetadata
-    Network.AWS.KMS.Types.KeySpec
-    Network.AWS.KMS.Types.KeyState
-    Network.AWS.KMS.Types.KeyUsageType
-    Network.AWS.KMS.Types.ListGrantsResponse
-    Network.AWS.KMS.Types.MessageType
-    Network.AWS.KMS.Types.MultiRegionConfiguration
-    Network.AWS.KMS.Types.MultiRegionKey
-    Network.AWS.KMS.Types.MultiRegionKeyType
-    Network.AWS.KMS.Types.OriginType
-    Network.AWS.KMS.Types.SigningAlgorithmSpec
-    Network.AWS.KMS.Types.Tag
-    Network.AWS.KMS.Types.WrappingKeySpec
-    Network.AWS.KMS.UntagResource
-    Network.AWS.KMS.UpdateAlias
-    Network.AWS.KMS.UpdateCustomKeyStore
-    Network.AWS.KMS.UpdateKeyDescription
-    Network.AWS.KMS.UpdatePrimaryRegion
-    Network.AWS.KMS.Verify
-    Network.AWS.KMS.Waiters
+    Amazonka.KMS
+    Amazonka.KMS.CancelKeyDeletion
+    Amazonka.KMS.ConnectCustomKeyStore
+    Amazonka.KMS.CreateAlias
+    Amazonka.KMS.CreateCustomKeyStore
+    Amazonka.KMS.CreateGrant
+    Amazonka.KMS.CreateKey
+    Amazonka.KMS.Decrypt
+    Amazonka.KMS.DeleteAlias
+    Amazonka.KMS.DeleteCustomKeyStore
+    Amazonka.KMS.DeleteImportedKeyMaterial
+    Amazonka.KMS.DescribeCustomKeyStores
+    Amazonka.KMS.DescribeKey
+    Amazonka.KMS.DisableKey
+    Amazonka.KMS.DisableKeyRotation
+    Amazonka.KMS.DisconnectCustomKeyStore
+    Amazonka.KMS.EnableKey
+    Amazonka.KMS.EnableKeyRotation
+    Amazonka.KMS.Encrypt
+    Amazonka.KMS.GenerateDataKey
+    Amazonka.KMS.GenerateDataKeyPair
+    Amazonka.KMS.GenerateDataKeyPairWithoutPlaintext
+    Amazonka.KMS.GenerateDataKeyWithoutPlaintext
+    Amazonka.KMS.GenerateRandom
+    Amazonka.KMS.GetKeyPolicy
+    Amazonka.KMS.GetKeyRotationStatus
+    Amazonka.KMS.GetParametersForImport
+    Amazonka.KMS.GetPublicKey
+    Amazonka.KMS.ImportKeyMaterial
+    Amazonka.KMS.Lens
+    Amazonka.KMS.ListAliases
+    Amazonka.KMS.ListGrants
+    Amazonka.KMS.ListKeyPolicies
+    Amazonka.KMS.ListKeys
+    Amazonka.KMS.ListResourceTags
+    Amazonka.KMS.ListRetirableGrants
+    Amazonka.KMS.PutKeyPolicy
+    Amazonka.KMS.ReEncrypt
+    Amazonka.KMS.ReplicateKey
+    Amazonka.KMS.RetireGrant
+    Amazonka.KMS.RevokeGrant
+    Amazonka.KMS.ScheduleKeyDeletion
+    Amazonka.KMS.Sign
+    Amazonka.KMS.TagResource
+    Amazonka.KMS.Types
+    Amazonka.KMS.Types.AlgorithmSpec
+    Amazonka.KMS.Types.AliasListEntry
+    Amazonka.KMS.Types.ConnectionErrorCodeType
+    Amazonka.KMS.Types.ConnectionStateType
+    Amazonka.KMS.Types.CustomerMasterKeySpec
+    Amazonka.KMS.Types.CustomKeyStoresListEntry
+    Amazonka.KMS.Types.DataKeyPairSpec
+    Amazonka.KMS.Types.DataKeySpec
+    Amazonka.KMS.Types.EncryptionAlgorithmSpec
+    Amazonka.KMS.Types.ExpirationModelType
+    Amazonka.KMS.Types.GrantConstraints
+    Amazonka.KMS.Types.GrantListEntry
+    Amazonka.KMS.Types.GrantOperation
+    Amazonka.KMS.Types.KeyListEntry
+    Amazonka.KMS.Types.KeyManagerType
+    Amazonka.KMS.Types.KeyMetadata
+    Amazonka.KMS.Types.KeySpec
+    Amazonka.KMS.Types.KeyState
+    Amazonka.KMS.Types.KeyUsageType
+    Amazonka.KMS.Types.ListGrantsResponse
+    Amazonka.KMS.Types.MessageType
+    Amazonka.KMS.Types.MultiRegionConfiguration
+    Amazonka.KMS.Types.MultiRegionKey
+    Amazonka.KMS.Types.MultiRegionKeyType
+    Amazonka.KMS.Types.OriginType
+    Amazonka.KMS.Types.SigningAlgorithmSpec
+    Amazonka.KMS.Types.Tag
+    Amazonka.KMS.Types.WrappingKeySpec
+    Amazonka.KMS.UntagResource
+    Amazonka.KMS.UpdateAlias
+    Amazonka.KMS.UpdateCustomKeyStore
+    Amazonka.KMS.UpdateKeyDescription
+    Amazonka.KMS.UpdatePrimaryRegion
+    Amazonka.KMS.Verify
+    Amazonka.KMS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

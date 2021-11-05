@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KMS
+-- Module      : Amazonka.KMS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -97,7 +97,7 @@
 -- -   GenerateDataKey
 --
 -- -   GenerateDataKeyWithoutPlaintext
-module Network.AWS.KMS
+module Amazonka.KMS
   ( -- * Service Configuration
     defaultService,
 
@@ -595,57 +595,57 @@ module Network.AWS.KMS
   )
 where
 
-import Network.AWS.KMS.CancelKeyDeletion
-import Network.AWS.KMS.ConnectCustomKeyStore
-import Network.AWS.KMS.CreateAlias
-import Network.AWS.KMS.CreateCustomKeyStore
-import Network.AWS.KMS.CreateGrant
-import Network.AWS.KMS.CreateKey
-import Network.AWS.KMS.Decrypt
-import Network.AWS.KMS.DeleteAlias
-import Network.AWS.KMS.DeleteCustomKeyStore
-import Network.AWS.KMS.DeleteImportedKeyMaterial
-import Network.AWS.KMS.DescribeCustomKeyStores
-import Network.AWS.KMS.DescribeKey
-import Network.AWS.KMS.DisableKey
-import Network.AWS.KMS.DisableKeyRotation
-import Network.AWS.KMS.DisconnectCustomKeyStore
-import Network.AWS.KMS.EnableKey
-import Network.AWS.KMS.EnableKeyRotation
-import Network.AWS.KMS.Encrypt
-import Network.AWS.KMS.GenerateDataKey
-import Network.AWS.KMS.GenerateDataKeyPair
-import Network.AWS.KMS.GenerateDataKeyPairWithoutPlaintext
-import Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
-import Network.AWS.KMS.GenerateRandom
-import Network.AWS.KMS.GetKeyPolicy
-import Network.AWS.KMS.GetKeyRotationStatus
-import Network.AWS.KMS.GetParametersForImport
-import Network.AWS.KMS.GetPublicKey
-import Network.AWS.KMS.ImportKeyMaterial
-import Network.AWS.KMS.Lens
-import Network.AWS.KMS.ListAliases
-import Network.AWS.KMS.ListGrants
-import Network.AWS.KMS.ListKeyPolicies
-import Network.AWS.KMS.ListKeys
-import Network.AWS.KMS.ListResourceTags
-import Network.AWS.KMS.ListRetirableGrants
-import Network.AWS.KMS.PutKeyPolicy
-import Network.AWS.KMS.ReEncrypt
-import Network.AWS.KMS.ReplicateKey
-import Network.AWS.KMS.RetireGrant
-import Network.AWS.KMS.RevokeGrant
-import Network.AWS.KMS.ScheduleKeyDeletion
-import Network.AWS.KMS.Sign
-import Network.AWS.KMS.TagResource
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.UntagResource
-import Network.AWS.KMS.UpdateAlias
-import Network.AWS.KMS.UpdateCustomKeyStore
-import Network.AWS.KMS.UpdateKeyDescription
-import Network.AWS.KMS.UpdatePrimaryRegion
-import Network.AWS.KMS.Verify
-import Network.AWS.KMS.Waiters
+import Amazonka.KMS.CancelKeyDeletion
+import Amazonka.KMS.ConnectCustomKeyStore
+import Amazonka.KMS.CreateAlias
+import Amazonka.KMS.CreateCustomKeyStore
+import Amazonka.KMS.CreateGrant
+import Amazonka.KMS.CreateKey
+import Amazonka.KMS.Decrypt
+import Amazonka.KMS.DeleteAlias
+import Amazonka.KMS.DeleteCustomKeyStore
+import Amazonka.KMS.DeleteImportedKeyMaterial
+import Amazonka.KMS.DescribeCustomKeyStores
+import Amazonka.KMS.DescribeKey
+import Amazonka.KMS.DisableKey
+import Amazonka.KMS.DisableKeyRotation
+import Amazonka.KMS.DisconnectCustomKeyStore
+import Amazonka.KMS.EnableKey
+import Amazonka.KMS.EnableKeyRotation
+import Amazonka.KMS.Encrypt
+import Amazonka.KMS.GenerateDataKey
+import Amazonka.KMS.GenerateDataKeyPair
+import Amazonka.KMS.GenerateDataKeyPairWithoutPlaintext
+import Amazonka.KMS.GenerateDataKeyWithoutPlaintext
+import Amazonka.KMS.GenerateRandom
+import Amazonka.KMS.GetKeyPolicy
+import Amazonka.KMS.GetKeyRotationStatus
+import Amazonka.KMS.GetParametersForImport
+import Amazonka.KMS.GetPublicKey
+import Amazonka.KMS.ImportKeyMaterial
+import Amazonka.KMS.Lens
+import Amazonka.KMS.ListAliases
+import Amazonka.KMS.ListGrants
+import Amazonka.KMS.ListKeyPolicies
+import Amazonka.KMS.ListKeys
+import Amazonka.KMS.ListResourceTags
+import Amazonka.KMS.ListRetirableGrants
+import Amazonka.KMS.PutKeyPolicy
+import Amazonka.KMS.ReEncrypt
+import Amazonka.KMS.ReplicateKey
+import Amazonka.KMS.RetireGrant
+import Amazonka.KMS.RevokeGrant
+import Amazonka.KMS.ScheduleKeyDeletion
+import Amazonka.KMS.Sign
+import Amazonka.KMS.TagResource
+import Amazonka.KMS.Types
+import Amazonka.KMS.UntagResource
+import Amazonka.KMS.UpdateAlias
+import Amazonka.KMS.UpdateCustomKeyStore
+import Amazonka.KMS.UpdateKeyDescription
+import Amazonka.KMS.UpdatePrimaryRegion
+import Amazonka.KMS.Verify
+import Amazonka.KMS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

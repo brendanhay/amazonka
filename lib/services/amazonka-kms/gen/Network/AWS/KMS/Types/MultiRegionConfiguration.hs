@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KMS.Types.MultiRegionConfiguration
+-- Module      : Amazonka.KMS.Types.MultiRegionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.MultiRegionConfiguration where
+module Amazonka.KMS.Types.MultiRegionConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KMS.Types.MultiRegionKey
-import Network.AWS.KMS.Types.MultiRegionKeyType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KMS.Types.MultiRegionKey
+import Amazonka.KMS.Types.MultiRegionKeyType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of this multi-Region key. This field appears
 -- only when the KMS key is a primary or replica of a multi-Region key.

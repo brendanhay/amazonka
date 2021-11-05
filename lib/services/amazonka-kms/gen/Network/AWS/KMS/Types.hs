@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KMS.Types
+-- Module      : Amazonka.KMS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types
+module Amazonka.KMS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -204,38 +204,38 @@ module Network.AWS.KMS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KMS.Types.AlgorithmSpec
-import Network.AWS.KMS.Types.AliasListEntry
-import Network.AWS.KMS.Types.ConnectionErrorCodeType
-import Network.AWS.KMS.Types.ConnectionStateType
-import Network.AWS.KMS.Types.CustomKeyStoresListEntry
-import Network.AWS.KMS.Types.CustomerMasterKeySpec
-import Network.AWS.KMS.Types.DataKeyPairSpec
-import Network.AWS.KMS.Types.DataKeySpec
-import Network.AWS.KMS.Types.EncryptionAlgorithmSpec
-import Network.AWS.KMS.Types.ExpirationModelType
-import Network.AWS.KMS.Types.GrantConstraints
-import Network.AWS.KMS.Types.GrantListEntry
-import Network.AWS.KMS.Types.GrantOperation
-import Network.AWS.KMS.Types.KeyListEntry
-import Network.AWS.KMS.Types.KeyManagerType
-import Network.AWS.KMS.Types.KeyMetadata
-import Network.AWS.KMS.Types.KeySpec
-import Network.AWS.KMS.Types.KeyState
-import Network.AWS.KMS.Types.KeyUsageType
-import Network.AWS.KMS.Types.ListGrantsResponse
-import Network.AWS.KMS.Types.MessageType
-import Network.AWS.KMS.Types.MultiRegionConfiguration
-import Network.AWS.KMS.Types.MultiRegionKey
-import Network.AWS.KMS.Types.MultiRegionKeyType
-import Network.AWS.KMS.Types.OriginType
-import Network.AWS.KMS.Types.SigningAlgorithmSpec
-import Network.AWS.KMS.Types.Tag
-import Network.AWS.KMS.Types.WrappingKeySpec
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.KMS.Types.AlgorithmSpec
+import Amazonka.KMS.Types.AliasListEntry
+import Amazonka.KMS.Types.ConnectionErrorCodeType
+import Amazonka.KMS.Types.ConnectionStateType
+import Amazonka.KMS.Types.CustomKeyStoresListEntry
+import Amazonka.KMS.Types.CustomerMasterKeySpec
+import Amazonka.KMS.Types.DataKeyPairSpec
+import Amazonka.KMS.Types.DataKeySpec
+import Amazonka.KMS.Types.EncryptionAlgorithmSpec
+import Amazonka.KMS.Types.ExpirationModelType
+import Amazonka.KMS.Types.GrantConstraints
+import Amazonka.KMS.Types.GrantListEntry
+import Amazonka.KMS.Types.GrantOperation
+import Amazonka.KMS.Types.KeyListEntry
+import Amazonka.KMS.Types.KeyManagerType
+import Amazonka.KMS.Types.KeyMetadata
+import Amazonka.KMS.Types.KeySpec
+import Amazonka.KMS.Types.KeyState
+import Amazonka.KMS.Types.KeyUsageType
+import Amazonka.KMS.Types.ListGrantsResponse
+import Amazonka.KMS.Types.MessageType
+import Amazonka.KMS.Types.MultiRegionConfiguration
+import Amazonka.KMS.Types.MultiRegionKey
+import Amazonka.KMS.Types.MultiRegionKeyType
+import Amazonka.KMS.Types.OriginType
+import Amazonka.KMS.Types.SigningAlgorithmSpec
+import Amazonka.KMS.Types.Tag
+import Amazonka.KMS.Types.WrappingKeySpec
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-11-01@ of the Amazon Key Management Service SDK configuration.
 defaultService :: Core.Service

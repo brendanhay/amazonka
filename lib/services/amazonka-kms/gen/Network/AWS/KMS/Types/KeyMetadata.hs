@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KMS.Types.KeyMetadata
+-- Module      : Amazonka.KMS.Types.KeyMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.KeyMetadata where
+module Amazonka.KMS.Types.KeyMetadata where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KMS.Types.CustomerMasterKeySpec
-import Network.AWS.KMS.Types.EncryptionAlgorithmSpec
-import Network.AWS.KMS.Types.ExpirationModelType
-import Network.AWS.KMS.Types.KeyManagerType
-import Network.AWS.KMS.Types.KeySpec
-import Network.AWS.KMS.Types.KeyState
-import Network.AWS.KMS.Types.KeyUsageType
-import Network.AWS.KMS.Types.MultiRegionConfiguration
-import Network.AWS.KMS.Types.OriginType
-import Network.AWS.KMS.Types.SigningAlgorithmSpec
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KMS.Types.CustomerMasterKeySpec
+import Amazonka.KMS.Types.EncryptionAlgorithmSpec
+import Amazonka.KMS.Types.ExpirationModelType
+import Amazonka.KMS.Types.KeyManagerType
+import Amazonka.KMS.Types.KeySpec
+import Amazonka.KMS.Types.KeyState
+import Amazonka.KMS.Types.KeyUsageType
+import Amazonka.KMS.Types.MultiRegionConfiguration
+import Amazonka.KMS.Types.OriginType
+import Amazonka.KMS.Types.SigningAlgorithmSpec
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about a KMS key.
 --

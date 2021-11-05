@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KMS where
 
+import Amazonka.KMS
 import qualified Data.Proxy as Proxy
-import Network.AWS.KMS
 import Test.AWS.Fixture
 import Test.AWS.KMS.Internal
 import Test.AWS.Prelude

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.Types
+-- Module      : Amazonka.Kinesis.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types
+module Amazonka.Kinesis.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -192,34 +192,34 @@ module Network.AWS.Kinesis.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types.ChildShard
-import Network.AWS.Kinesis.Types.Consumer
-import Network.AWS.Kinesis.Types.ConsumerDescription
-import Network.AWS.Kinesis.Types.ConsumerStatus
-import Network.AWS.Kinesis.Types.EncryptionType
-import Network.AWS.Kinesis.Types.EnhancedMetrics
-import Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
-import Network.AWS.Kinesis.Types.HashKeyRange
-import Network.AWS.Kinesis.Types.MetricsName
-import Network.AWS.Kinesis.Types.PutRecordsRequestEntry
-import Network.AWS.Kinesis.Types.PutRecordsResultEntry
-import Network.AWS.Kinesis.Types.Record
-import Network.AWS.Kinesis.Types.ScalingType
-import Network.AWS.Kinesis.Types.SequenceNumberRange
-import Network.AWS.Kinesis.Types.Shard
-import Network.AWS.Kinesis.Types.ShardFilter
-import Network.AWS.Kinesis.Types.ShardFilterType
-import Network.AWS.Kinesis.Types.ShardIteratorType
-import Network.AWS.Kinesis.Types.StartingPosition
-import Network.AWS.Kinesis.Types.StreamDescription
-import Network.AWS.Kinesis.Types.StreamDescriptionSummary
-import Network.AWS.Kinesis.Types.StreamStatus
-import Network.AWS.Kinesis.Types.SubscribeToShardEvent
-import Network.AWS.Kinesis.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types.ChildShard
+import Amazonka.Kinesis.Types.Consumer
+import Amazonka.Kinesis.Types.ConsumerDescription
+import Amazonka.Kinesis.Types.ConsumerStatus
+import Amazonka.Kinesis.Types.EncryptionType
+import Amazonka.Kinesis.Types.EnhancedMetrics
+import Amazonka.Kinesis.Types.EnhancedMonitoringOutput
+import Amazonka.Kinesis.Types.HashKeyRange
+import Amazonka.Kinesis.Types.MetricsName
+import Amazonka.Kinesis.Types.PutRecordsRequestEntry
+import Amazonka.Kinesis.Types.PutRecordsResultEntry
+import Amazonka.Kinesis.Types.Record
+import Amazonka.Kinesis.Types.ScalingType
+import Amazonka.Kinesis.Types.SequenceNumberRange
+import Amazonka.Kinesis.Types.Shard
+import Amazonka.Kinesis.Types.ShardFilter
+import Amazonka.Kinesis.Types.ShardFilterType
+import Amazonka.Kinesis.Types.ShardIteratorType
+import Amazonka.Kinesis.Types.StartingPosition
+import Amazonka.Kinesis.Types.StreamDescription
+import Amazonka.Kinesis.Types.StreamDescriptionSummary
+import Amazonka.Kinesis.Types.StreamStatus
+import Amazonka.Kinesis.Types.SubscribeToShardEvent
+import Amazonka.Kinesis.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2013-12-02@ of the Amazon Kinesis SDK configuration.
 defaultService :: Core.Service

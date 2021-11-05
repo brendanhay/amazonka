@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Kinesis
+-- Module      : Amazonka.Kinesis
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 --
 -- Amazon Kinesis Data Streams is a managed service that scales elastically
 -- for real-time processing of streaming big data.
-module Network.AWS.Kinesis
+module Amazonka.Kinesis
   ( -- * Service Configuration
     defaultService,
 
@@ -337,37 +337,37 @@ module Network.AWS.Kinesis
   )
 where
 
-import Network.AWS.Kinesis.AddTagsToStream
-import Network.AWS.Kinesis.CreateStream
-import Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
-import Network.AWS.Kinesis.DeleteStream
-import Network.AWS.Kinesis.DeregisterStreamConsumer
-import Network.AWS.Kinesis.DescribeLimits
-import Network.AWS.Kinesis.DescribeStream
-import Network.AWS.Kinesis.DescribeStreamConsumer
-import Network.AWS.Kinesis.DescribeStreamSummary
-import Network.AWS.Kinesis.DisableEnhancedMonitoring
-import Network.AWS.Kinesis.EnableEnhancedMonitoring
-import Network.AWS.Kinesis.GetRecords
-import Network.AWS.Kinesis.GetShardIterator
-import Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
-import Network.AWS.Kinesis.Lens
-import Network.AWS.Kinesis.ListShards
-import Network.AWS.Kinesis.ListStreamConsumers
-import Network.AWS.Kinesis.ListStreams
-import Network.AWS.Kinesis.ListTagsForStream
-import Network.AWS.Kinesis.MergeShards
-import Network.AWS.Kinesis.PutRecord
-import Network.AWS.Kinesis.PutRecords
-import Network.AWS.Kinesis.RegisterStreamConsumer
-import Network.AWS.Kinesis.RemoveTagsFromStream
-import Network.AWS.Kinesis.SplitShard
-import Network.AWS.Kinesis.StartStreamEncryption
-import Network.AWS.Kinesis.StopStreamEncryption
-import Network.AWS.Kinesis.SubscribeToShard
-import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.UpdateShardCount
-import Network.AWS.Kinesis.Waiters
+import Amazonka.Kinesis.AddTagsToStream
+import Amazonka.Kinesis.CreateStream
+import Amazonka.Kinesis.DecreaseStreamRetentionPeriod
+import Amazonka.Kinesis.DeleteStream
+import Amazonka.Kinesis.DeregisterStreamConsumer
+import Amazonka.Kinesis.DescribeLimits
+import Amazonka.Kinesis.DescribeStream
+import Amazonka.Kinesis.DescribeStreamConsumer
+import Amazonka.Kinesis.DescribeStreamSummary
+import Amazonka.Kinesis.DisableEnhancedMonitoring
+import Amazonka.Kinesis.EnableEnhancedMonitoring
+import Amazonka.Kinesis.GetRecords
+import Amazonka.Kinesis.GetShardIterator
+import Amazonka.Kinesis.IncreaseStreamRetentionPeriod
+import Amazonka.Kinesis.Lens
+import Amazonka.Kinesis.ListShards
+import Amazonka.Kinesis.ListStreamConsumers
+import Amazonka.Kinesis.ListStreams
+import Amazonka.Kinesis.ListTagsForStream
+import Amazonka.Kinesis.MergeShards
+import Amazonka.Kinesis.PutRecord
+import Amazonka.Kinesis.PutRecords
+import Amazonka.Kinesis.RegisterStreamConsumer
+import Amazonka.Kinesis.RemoveTagsFromStream
+import Amazonka.Kinesis.SplitShard
+import Amazonka.Kinesis.StartStreamEncryption
+import Amazonka.Kinesis.StopStreamEncryption
+import Amazonka.Kinesis.SubscribeToShard
+import Amazonka.Kinesis.Types
+import Amazonka.Kinesis.UpdateShardCount
+import Amazonka.Kinesis.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

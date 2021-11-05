@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.Lens
+-- Module      : Amazonka.Kinesis.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Lens
+module Amazonka.Kinesis.Lens
   ( -- * Operations
 
     -- ** PutRecord
@@ -302,48 +302,48 @@ module Network.AWS.Kinesis.Lens
   )
 where
 
-import Network.AWS.Kinesis.AddTagsToStream
-import Network.AWS.Kinesis.CreateStream
-import Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
-import Network.AWS.Kinesis.DeleteStream
-import Network.AWS.Kinesis.DeregisterStreamConsumer
-import Network.AWS.Kinesis.DescribeLimits
-import Network.AWS.Kinesis.DescribeStream
-import Network.AWS.Kinesis.DescribeStreamConsumer
-import Network.AWS.Kinesis.DescribeStreamSummary
-import Network.AWS.Kinesis.DisableEnhancedMonitoring
-import Network.AWS.Kinesis.EnableEnhancedMonitoring
-import Network.AWS.Kinesis.GetRecords
-import Network.AWS.Kinesis.GetShardIterator
-import Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
-import Network.AWS.Kinesis.ListShards
-import Network.AWS.Kinesis.ListStreamConsumers
-import Network.AWS.Kinesis.ListStreams
-import Network.AWS.Kinesis.ListTagsForStream
-import Network.AWS.Kinesis.MergeShards
-import Network.AWS.Kinesis.PutRecord
-import Network.AWS.Kinesis.PutRecords
-import Network.AWS.Kinesis.RegisterStreamConsumer
-import Network.AWS.Kinesis.RemoveTagsFromStream
-import Network.AWS.Kinesis.SplitShard
-import Network.AWS.Kinesis.StartStreamEncryption
-import Network.AWS.Kinesis.StopStreamEncryption
-import Network.AWS.Kinesis.SubscribeToShard
-import Network.AWS.Kinesis.Types.ChildShard
-import Network.AWS.Kinesis.Types.Consumer
-import Network.AWS.Kinesis.Types.ConsumerDescription
-import Network.AWS.Kinesis.Types.EnhancedMetrics
-import Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
-import Network.AWS.Kinesis.Types.HashKeyRange
-import Network.AWS.Kinesis.Types.PutRecordsRequestEntry
-import Network.AWS.Kinesis.Types.PutRecordsResultEntry
-import Network.AWS.Kinesis.Types.Record
-import Network.AWS.Kinesis.Types.SequenceNumberRange
-import Network.AWS.Kinesis.Types.Shard
-import Network.AWS.Kinesis.Types.ShardFilter
-import Network.AWS.Kinesis.Types.StartingPosition
-import Network.AWS.Kinesis.Types.StreamDescription
-import Network.AWS.Kinesis.Types.StreamDescriptionSummary
-import Network.AWS.Kinesis.Types.SubscribeToShardEvent
-import Network.AWS.Kinesis.Types.Tag
-import Network.AWS.Kinesis.UpdateShardCount
+import Amazonka.Kinesis.AddTagsToStream
+import Amazonka.Kinesis.CreateStream
+import Amazonka.Kinesis.DecreaseStreamRetentionPeriod
+import Amazonka.Kinesis.DeleteStream
+import Amazonka.Kinesis.DeregisterStreamConsumer
+import Amazonka.Kinesis.DescribeLimits
+import Amazonka.Kinesis.DescribeStream
+import Amazonka.Kinesis.DescribeStreamConsumer
+import Amazonka.Kinesis.DescribeStreamSummary
+import Amazonka.Kinesis.DisableEnhancedMonitoring
+import Amazonka.Kinesis.EnableEnhancedMonitoring
+import Amazonka.Kinesis.GetRecords
+import Amazonka.Kinesis.GetShardIterator
+import Amazonka.Kinesis.IncreaseStreamRetentionPeriod
+import Amazonka.Kinesis.ListShards
+import Amazonka.Kinesis.ListStreamConsumers
+import Amazonka.Kinesis.ListStreams
+import Amazonka.Kinesis.ListTagsForStream
+import Amazonka.Kinesis.MergeShards
+import Amazonka.Kinesis.PutRecord
+import Amazonka.Kinesis.PutRecords
+import Amazonka.Kinesis.RegisterStreamConsumer
+import Amazonka.Kinesis.RemoveTagsFromStream
+import Amazonka.Kinesis.SplitShard
+import Amazonka.Kinesis.StartStreamEncryption
+import Amazonka.Kinesis.StopStreamEncryption
+import Amazonka.Kinesis.SubscribeToShard
+import Amazonka.Kinesis.Types.ChildShard
+import Amazonka.Kinesis.Types.Consumer
+import Amazonka.Kinesis.Types.ConsumerDescription
+import Amazonka.Kinesis.Types.EnhancedMetrics
+import Amazonka.Kinesis.Types.EnhancedMonitoringOutput
+import Amazonka.Kinesis.Types.HashKeyRange
+import Amazonka.Kinesis.Types.PutRecordsRequestEntry
+import Amazonka.Kinesis.Types.PutRecordsResultEntry
+import Amazonka.Kinesis.Types.Record
+import Amazonka.Kinesis.Types.SequenceNumberRange
+import Amazonka.Kinesis.Types.Shard
+import Amazonka.Kinesis.Types.ShardFilter
+import Amazonka.Kinesis.Types.StartingPosition
+import Amazonka.Kinesis.Types.StreamDescription
+import Amazonka.Kinesis.Types.StreamDescriptionSummary
+import Amazonka.Kinesis.Types.SubscribeToShardEvent
+import Amazonka.Kinesis.Types.Tag
+import Amazonka.Kinesis.UpdateShardCount

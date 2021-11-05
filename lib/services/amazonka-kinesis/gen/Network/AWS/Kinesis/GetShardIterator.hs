@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.GetShardIterator
+-- Module      : Amazonka.Kinesis.GetShardIterator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -62,7 +62,7 @@
 --
 -- GetShardIterator has a limit of five transactions per second per account
 -- per open shard.
-module Network.AWS.Kinesis.GetShardIterator
+module Amazonka.Kinesis.GetShardIterator
   ( -- * Creating a Request
     GetShardIterator (..),
     newGetShardIterator,
@@ -84,12 +84,12 @@ module Network.AWS.Kinesis.GetShardIterator
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input for @GetShardIterator@.
 --

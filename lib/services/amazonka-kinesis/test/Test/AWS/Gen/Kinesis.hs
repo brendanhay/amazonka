@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Kinesis where
 
+import Amazonka.Kinesis
 import qualified Data.Proxy as Proxy
-import Network.AWS.Kinesis
 import Test.AWS.Fixture
 import Test.AWS.Kinesis.Internal
 import Test.AWS.Prelude

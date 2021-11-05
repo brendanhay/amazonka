@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.SubscribeToShard
+-- Module      : Amazonka.Kinesis.SubscribeToShard
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 --
 -- For an example of how to use this operations, see
 -- </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API>.
-module Network.AWS.Kinesis.SubscribeToShard
+module Amazonka.Kinesis.SubscribeToShard
   ( -- * Creating a Request
     SubscribeToShard (..),
     newSubscribeToShard,
@@ -69,12 +69,12 @@ module Network.AWS.Kinesis.SubscribeToShard
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSubscribeToShard' smart constructor.
 data SubscribeToShard = SubscribeToShard'

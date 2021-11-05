@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.AddTagsToStream
+-- Module      : Amazonka.Kinesis.AddTagsToStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- overwrites any existing tags that correspond to the specified tag keys.
 --
 -- AddTagsToStream has a limit of five transactions per second per account.
-module Network.AWS.Kinesis.AddTagsToStream
+module Amazonka.Kinesis.AddTagsToStream
   ( -- * Creating a Request
     AddTagsToStream (..),
     newAddTagsToStream,
@@ -44,12 +44,12 @@ module Network.AWS.Kinesis.AddTagsToStream
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input for @AddTagsToStream@.
 --

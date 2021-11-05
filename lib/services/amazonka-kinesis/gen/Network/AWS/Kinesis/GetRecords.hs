@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.GetRecords
+-- Module      : Amazonka.Kinesis.GetRecords
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -82,7 +82,7 @@
 -- might have time stamps that are out of order.
 --
 -- This operation has a limit of five transactions per second per shard.
-module Network.AWS.Kinesis.GetRecords
+module Amazonka.Kinesis.GetRecords
   ( -- * Creating a Request
     GetRecords (..),
     newGetRecords,
@@ -104,12 +104,12 @@ module Network.AWS.Kinesis.GetRecords
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input for GetRecords.
 --

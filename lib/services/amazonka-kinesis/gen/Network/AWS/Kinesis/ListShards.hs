@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.ListShards
+-- Module      : Amazonka.Kinesis.ListShards
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- <https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html Controlling Access to Amazon Kinesis Data Streams Resources Using IAM>.
 --
 -- This operation returns paginated results.
-module Network.AWS.Kinesis.ListShards
+module Amazonka.Kinesis.ListShards
   ( -- * Creating a Request
     ListShards (..),
     newListShards,
@@ -55,12 +55,12 @@ module Network.AWS.Kinesis.ListShards
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListShards' smart constructor.
 data ListShards = ListShards'

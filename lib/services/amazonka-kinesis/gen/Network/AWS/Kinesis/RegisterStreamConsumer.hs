@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kinesis.RegisterStreamConsumer
+-- Module      : Amazonka.Kinesis.RegisterStreamConsumer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- other words, you cannot have more than 5 consumers in a @CREATING@
 -- status at the same time. Registering a 6th consumer while there are 5 in
 -- a @CREATING@ status results in a @LimitExceededException@.
-module Network.AWS.Kinesis.RegisterStreamConsumer
+module Amazonka.Kinesis.RegisterStreamConsumer
   ( -- * Creating a Request
     RegisterStreamConsumer (..),
     newRegisterStreamConsumer,
@@ -57,12 +57,12 @@ module Network.AWS.Kinesis.RegisterStreamConsumer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kinesis.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kinesis.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterStreamConsumer' smart constructor.
 data RegisterStreamConsumer = RegisterStreamConsumer'

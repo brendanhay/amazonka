@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SDB where
 
+import Amazonka.SDB
 import qualified Data.Proxy as Proxy
-import Network.AWS.SDB
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SDB.Internal

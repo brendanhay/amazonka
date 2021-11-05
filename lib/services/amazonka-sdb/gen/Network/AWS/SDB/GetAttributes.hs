@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SDB.GetAttributes
+-- Module      : Amazonka.SDB.GetAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- If the item does not exist on the replica that was accessed for this
 -- operation, an empty set is returned. The system does not return an error
 -- as it cannot guarantee the item does not exist on other replicas.
-module Network.AWS.SDB.GetAttributes
+module Amazonka.SDB.GetAttributes
   ( -- * Creating a Request
     GetAttributes (..),
     newGetAttributes,
@@ -48,12 +48,12 @@ module Network.AWS.SDB.GetAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SDB.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SDB.Types
 
 -- | /See:/ 'newGetAttributes' smart constructor.
 data GetAttributes = GetAttributes'

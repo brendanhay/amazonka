@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SDB
+-- Module      : Amazonka.SDB
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- pay only for what they use.
 --
 -- Visit <http://aws.amazon.com/simpledb/> for more information.
-module Network.AWS.SDB
+module Amazonka.SDB
   ( -- * Service Configuration
     defaultService,
 
@@ -180,19 +180,19 @@ module Network.AWS.SDB
   )
 where
 
-import Network.AWS.SDB.BatchDeleteAttributes
-import Network.AWS.SDB.BatchPutAttributes
-import Network.AWS.SDB.CreateDomain
-import Network.AWS.SDB.DeleteAttributes
-import Network.AWS.SDB.DeleteDomain
-import Network.AWS.SDB.DomainMetadata
-import Network.AWS.SDB.GetAttributes
-import Network.AWS.SDB.Lens
-import Network.AWS.SDB.ListDomains
-import Network.AWS.SDB.PutAttributes
-import Network.AWS.SDB.Select
-import Network.AWS.SDB.Types
-import Network.AWS.SDB.Waiters
+import Amazonka.SDB.BatchDeleteAttributes
+import Amazonka.SDB.BatchPutAttributes
+import Amazonka.SDB.CreateDomain
+import Amazonka.SDB.DeleteAttributes
+import Amazonka.SDB.DeleteDomain
+import Amazonka.SDB.DomainMetadata
+import Amazonka.SDB.GetAttributes
+import Amazonka.SDB.Lens
+import Amazonka.SDB.ListDomains
+import Amazonka.SDB.PutAttributes
+import Amazonka.SDB.Select
+import Amazonka.SDB.Types
+import Amazonka.SDB.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

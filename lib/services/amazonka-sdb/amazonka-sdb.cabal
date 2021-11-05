@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SDB.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SDB.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SDB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SDB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,28 +45,28 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SDB
-    Network.AWS.SDB.BatchDeleteAttributes
-    Network.AWS.SDB.BatchPutAttributes
-    Network.AWS.SDB.CreateDomain
-    Network.AWS.SDB.DeleteAttributes
-    Network.AWS.SDB.DeleteDomain
-    Network.AWS.SDB.DomainMetadata
-    Network.AWS.SDB.GetAttributes
-    Network.AWS.SDB.Lens
-    Network.AWS.SDB.ListDomains
-    Network.AWS.SDB.PutAttributes
-    Network.AWS.SDB.Select
-    Network.AWS.SDB.Types
-    Network.AWS.SDB.Types.Attribute
-    Network.AWS.SDB.Types.DeletableItem
-    Network.AWS.SDB.Types.Item
-    Network.AWS.SDB.Types.ReplaceableAttribute
-    Network.AWS.SDB.Types.ReplaceableItem
-    Network.AWS.SDB.Types.UpdateCondition
-    Network.AWS.SDB.Waiters
+    Amazonka.SDB
+    Amazonka.SDB.BatchDeleteAttributes
+    Amazonka.SDB.BatchPutAttributes
+    Amazonka.SDB.CreateDomain
+    Amazonka.SDB.DeleteAttributes
+    Amazonka.SDB.DeleteDomain
+    Amazonka.SDB.DomainMetadata
+    Amazonka.SDB.GetAttributes
+    Amazonka.SDB.Lens
+    Amazonka.SDB.ListDomains
+    Amazonka.SDB.PutAttributes
+    Amazonka.SDB.Select
+    Amazonka.SDB.Types
+    Amazonka.SDB.Types.Attribute
+    Amazonka.SDB.Types.DeletableItem
+    Amazonka.SDB.Types.Item
+    Amazonka.SDB.Types.ReplaceableAttribute
+    Amazonka.SDB.Types.ReplaceableItem
+    Amazonka.SDB.Types.UpdateCondition
+    Amazonka.SDB.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

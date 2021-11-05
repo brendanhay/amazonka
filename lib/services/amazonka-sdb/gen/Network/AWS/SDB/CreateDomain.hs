@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SDB.CreateDomain
+-- Module      : Amazonka.SDB.CreateDomain
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 --
 -- If the client requires additional domains, go to
 -- <http://aws.amazon.com/contact-us/simpledb-limit-request/>.
-module Network.AWS.SDB.CreateDomain
+module Amazonka.SDB.CreateDomain
   ( -- * Creating a Request
     CreateDomain (..),
     newCreateDomain,
@@ -43,12 +43,12 @@ module Network.AWS.SDB.CreateDomain
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SDB.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SDB.Types
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'

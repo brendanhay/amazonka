@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SDB.Lens
+-- Module      : Amazonka.SDB.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SDB.Lens
+module Amazonka.SDB.Lens
   ( -- * Operations
 
     -- ** BatchDeleteAttributes
@@ -107,19 +107,19 @@ module Network.AWS.SDB.Lens
   )
 where
 
-import Network.AWS.SDB.BatchDeleteAttributes
-import Network.AWS.SDB.BatchPutAttributes
-import Network.AWS.SDB.CreateDomain
-import Network.AWS.SDB.DeleteAttributes
-import Network.AWS.SDB.DeleteDomain
-import Network.AWS.SDB.DomainMetadata
-import Network.AWS.SDB.GetAttributes
-import Network.AWS.SDB.ListDomains
-import Network.AWS.SDB.PutAttributes
-import Network.AWS.SDB.Select
-import Network.AWS.SDB.Types.Attribute
-import Network.AWS.SDB.Types.DeletableItem
-import Network.AWS.SDB.Types.Item
-import Network.AWS.SDB.Types.ReplaceableAttribute
-import Network.AWS.SDB.Types.ReplaceableItem
-import Network.AWS.SDB.Types.UpdateCondition
+import Amazonka.SDB.BatchDeleteAttributes
+import Amazonka.SDB.BatchPutAttributes
+import Amazonka.SDB.CreateDomain
+import Amazonka.SDB.DeleteAttributes
+import Amazonka.SDB.DeleteDomain
+import Amazonka.SDB.DomainMetadata
+import Amazonka.SDB.GetAttributes
+import Amazonka.SDB.ListDomains
+import Amazonka.SDB.PutAttributes
+import Amazonka.SDB.Select
+import Amazonka.SDB.Types.Attribute
+import Amazonka.SDB.Types.DeletableItem
+import Amazonka.SDB.Types.Item
+import Amazonka.SDB.Types.ReplaceableAttribute
+import Amazonka.SDB.Types.ReplaceableItem
+import Amazonka.SDB.Types.UpdateCondition

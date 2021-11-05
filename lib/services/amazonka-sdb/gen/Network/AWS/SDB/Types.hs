@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SDB.Types
+-- Module      : Amazonka.SDB.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SDB.Types
+module Amazonka.SDB.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -78,16 +78,16 @@ module Network.AWS.SDB.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SDB.Types.Attribute
-import Network.AWS.SDB.Types.DeletableItem
-import Network.AWS.SDB.Types.Item
-import Network.AWS.SDB.Types.ReplaceableAttribute
-import Network.AWS.SDB.Types.ReplaceableItem
-import Network.AWS.SDB.Types.UpdateCondition
-import qualified Network.AWS.Sign.V2 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SDB.Types.Attribute
+import Amazonka.SDB.Types.DeletableItem
+import Amazonka.SDB.Types.Item
+import Amazonka.SDB.Types.ReplaceableAttribute
+import Amazonka.SDB.Types.ReplaceableItem
+import Amazonka.SDB.Types.UpdateCondition
+import qualified Amazonka.Sign.V2 as Sign
 
 -- | API version @2009-04-15@ of the Amazon SimpleDB SDK configuration.
 defaultService :: Core.Service

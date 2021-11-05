@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SDB.DeleteDomain
+-- Module      : Amazonka.SDB.DeleteDomain
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- The @DeleteDomain@ operation deletes a domain. Any items (and their
 -- attributes) in the domain are deleted as well. The @DeleteDomain@
 -- operation might take 10 or more seconds to complete.
-module Network.AWS.SDB.DeleteDomain
+module Amazonka.SDB.DeleteDomain
   ( -- * Creating a Request
     DeleteDomain (..),
     newDeleteDomain,
@@ -37,12 +37,12 @@ module Network.AWS.SDB.DeleteDomain
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SDB.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SDB.Types
 
 -- | /See:/ 'newDeleteDomain' smart constructor.
 data DeleteDomain = DeleteDomain'

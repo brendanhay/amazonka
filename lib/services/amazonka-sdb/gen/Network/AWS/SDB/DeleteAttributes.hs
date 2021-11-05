@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SDB.DeleteAttributes
+-- Module      : Amazonka.SDB.DeleteAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- eventual consistency update model, performing a GetAttributes or Select
 -- operation (read) immediately after a @DeleteAttributes@ or PutAttributes
 -- operation (write) might not return updated item data.
-module Network.AWS.SDB.DeleteAttributes
+module Amazonka.SDB.DeleteAttributes
   ( -- * Creating a Request
     DeleteAttributes (..),
     newDeleteAttributes,
@@ -47,12 +47,12 @@ module Network.AWS.SDB.DeleteAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SDB.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SDB.Types
 
 -- | /See:/ 'newDeleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
